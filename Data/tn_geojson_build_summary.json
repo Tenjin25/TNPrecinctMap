@@ -1,0 +1,71 @@
+{
+  "district_layers": {
+    "tl_2022_47_cd118.geojson": {
+      "ok": true,
+      "rows": 9,
+      "columns": [
+        "STATEFP20",
+        "GEOID20",
+        "CD118FP",
+        "NAMELSAD20",
+        "LSAD20",
+        "CDSESSN",
+        "MTFCC20",
+        "FUNCSTAT20",
+        "ALAND20",
+        "AWATER20",
+        "INTPTLAT20",
+        "INTPTLON20"
+      ]
+    },
+    "tl_2022_47_sldl.geojson": {
+      "ok": true,
+      "rows": 99,
+      "columns": [
+        "STATEFP",
+        "SLDLST",
+        "GEOID",
+        "NAMELSAD",
+        "LSAD",
+        "LSY",
+        "MTFCC",
+        "FUNCSTAT",
+        "ALAND",
+        "AWATER",
+        "INTPTLAT",
+        "INTPTLON"
+      ]
+    },
+    "tl_2022_47_sldu.geojson": {
+      "ok": true,
+      "rows": 33,
+      "columns": [
+        "STATEFP",
+        "SLDUST",
+        "GEOID",
+        "NAMELSAD",
+        "LSAD",
+        "LSY",
+        "MTFCC",
+        "FUNCSTAT",
+        "ALAND",
+        "AWATER",
+        "INTPTLAT",
+        "INTPTLON"
+      ]
+    }
+  },
+  "county_layer": {
+    "ok": true,
+    "rows": 95,
+    "output": "tl_2020_47_county20.geojson"
+  },
+  "precinct_layer": {
+    "ok": true,
+    "rows": 1965,
+    "outputs": [
+      "tn_voting_precincts.geojson",
+      "tn_precinct_centroids.geojson"
+    ]
+  }
+}

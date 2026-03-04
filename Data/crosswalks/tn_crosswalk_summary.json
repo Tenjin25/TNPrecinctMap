@@ -1,0 +1,67 @@
+{
+  "source_precinct_csv_files": [
+    "20041102__tn__general__precinct.csv",
+    "20061107__tn__general__senate__precinct.csv",
+    "20081104__tn__general__precinct.csv",
+    "20101102__tn__general__precinct.csv",
+    "20121106__tn__general__precinct.csv",
+    "20141104__tn__general__precinct.csv",
+    "20161108__tn__general__precinct.csv",
+    "20181106__tn__general__precinct.csv",
+    "20201103__tn__general__precinct.csv",
+    "20221108__tn__general__precinct.csv",
+    "20241105__tn__general__precinct.csv"
+  ],
+  "years": [
+    2004,
+    2006,
+    2008,
+    2010,
+    2012,
+    2014,
+    2016,
+    2018,
+    2020,
+    2022,
+    2024
+  ],
+  "inventory_rows": 23092,
+  "alias_rows": 6467,
+  "year_link_rows": 33443,
+  "to_2024_link_rows": 10550,
+  "nhgis_outputs": [
+    {
+      "input_zip": "nhgis_blk2000_blk2010_47.zip",
+      "input_csv": "nhgis_blk2000_blk2010_47.csv",
+      "output_csv": "nhgis_blk2000_blk2010_47_tn_to_tn.csv",
+      "source_ge_col": "blk2000ge",
+      "target_ge_col": "blk2010ge",
+      "input_rows": 278646,
+      "output_rows_tn_to_tn": 278627
+    },
+    {
+      "input_zip": "nhgis_blk2010_blk2020_47.zip",
+      "input_csv": "nhgis_blk2010_blk2020_47.csv",
+      "output_csv": "nhgis_blk2010_blk2020_47_tn_to_tn.csv",
+      "source_ge_col": "blk2010ge",
+      "target_ge_col": "blk2020ge",
+      "input_rows": 274951,
+      "output_rows_tn_to_tn": 274920
+    },
+    {
+      "input_zip": "nhgis_blk2020_blk2010_47.zip",
+      "input_csv": "nhgis_blk2020_blk2010_47.csv",
+      "output_csv": "nhgis_blk2020_blk2010_47_tn_to_tn.csv",
+      "source_ge_col": "blk2020ge",
+      "target_ge_col": "blk2010ge",
+      "input_rows": 275013,
+      "output_rows_tn_to_tn": 274920
+    }
+  ],
+  "blockassign_vtd": {
+    "exists": true,
+    "rows": 179717,
+    "distinct_vtd": 1965,
+    "output_csv": "blockassign_tn_vtd.csv"
+  }
+}
