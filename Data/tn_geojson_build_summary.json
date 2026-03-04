@@ -58,7 +58,8 @@
   "county_layer": {
     "ok": true,
     "rows": 95,
-    "output": "tl_2020_47_county20.geojson"
+    "output": "tl_2020_47_county20.geojson",
+    "source": "tl_2020_47_county20.zip"
   },
   "precinct_layer": {
     "ok": true,

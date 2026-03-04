@@ -1,0 +1,102 @@
+{
+  "scope": "congressional",
+  "contest_type": "governor",
+  "year": 2018,
+  "meta": {
+    "source": "tn_precinct_csv_district_aggregation",
+    "match_coverage_pct": 100.0,
+    "districts": 8
+  },
+  "general": {
+    "results": {
+      "1": {
+        "dem_votes": 36087,
+        "rep_votes": 131251,
+        "other_votes": 1760,
+        "total_votes": 169098,
+        "dem_candidate": "Karl Dean",
+        "rep_candidate": "Bill Lee",
+        "margin": 95164,
+        "margin_pct": 56.2774,
+        "winner": "REP"
+      },
+      "2": {
+        "dem_votes": 71839,
+        "rep_votes": 127256,
+        "other_votes": 2288,
+        "total_votes": 201383,
+        "dem_candidate": "Karl Dean",
+        "rep_candidate": "Bill Lee",
+        "margin": 55417,
+        "margin_pct": 27.5182,
+        "winner": "REP"
+      },
+      "3": {
+        "dem_votes": 25899,
+        "rep_votes": 74920,
+        "other_votes": 1040,
+        "total_votes": 101859,
+        "dem_candidate": "Karl Dean",
+        "rep_candidate": "Bill Lee",
+        "margin": 49021,
+        "margin_pct": 48.1263,
+        "winner": "REP"
+      },
+      "4": {
+        "dem_votes": 63144,
+        "rep_votes": 134147,
+        "other_votes": 1864,
+        "total_votes": 199155,
+        "dem_candidate": "Karl Dean",
+        "rep_candidate": "Bill Lee",
+        "margin": 71003,
+        "margin_pct": 35.6521,
+        "winner": "REP"
+      },
+      "5": {
+        "dem_votes": 113281,
+        "rep_votes": 66315,
+        "other_votes": 11295,
+        "total_votes": 190891,
+        "dem_candidate": "Karl Dean",
+        "rep_candidate": "Bill Lee",
+        "margin": -46966,
+        "margin_pct": -24.6036,
+        "winner": "DEM"
+      },
+      "6": {
+        "dem_votes": 47569,
+        "rep_votes": 119151,
+        "other_votes": 1505,
+        "total_votes": 168225,
+        "dem_candidate": "Karl Dean",
+        "rep_candidate": "Bill Lee",
+        "margin": 71582,
+        "margin_pct": 42.5513,
+        "winner": "REP"
+      },
+      "7": {
+        "dem_votes": 62629,
+        "rep_votes": 133698,
+        "other_votes": 3532,
+        "total_votes": 199859,
+        "dem_candidate": "Karl Dean",
+        "rep_candidate": "Bill Lee",
+        "margin": 71069,
+        "margin_pct": 35.5596,
+        "winner": "REP"
+      },
+      "8": {
+        "dem_votes": 24428,
+        "rep_votes": 60435,
+        "other_votes": 1271,
+        "total_votes": 86134,
+        "dem_candidate": "Karl Dean",
+        "rep_candidate": "Bill Lee",
+        "margin": 36007,
+        "margin_pct": 41.8035,
+        "winner": "REP"
+      }
+    }
+  }
+}

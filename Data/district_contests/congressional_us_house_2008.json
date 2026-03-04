@@ -3,7 +3,7 @@
   "contest_type": "us_house",
   "year": 2008,
   "meta": {
-    "source": "tn_precinct_csv_direct_district_aggregation",
+    "source": "tn_precinct_csv_district_aggregation",
     "match_coverage_pct": 100.0,
     "districts": 9
   },

@@ -142,8 +142,29 @@ def read_blockassign_vtd() -> pd.DataFrame:
     return df[["GEOID20", "COUNTYFP20", "VTD_CODE"]].drop_duplicates()
 
 
+def load_county_name_map() -> dict:
+    """Return COUNTYFP20 -> NAME20 map."""
+    county_zip = DATA_DIR / "tl_2020_47_county20.zip"
+    if county_zip.exists():
+        gdf = read_zip_shapefile(county_zip, columns=["COUNTYFP20", "NAME20"])
+        return {
+            str(r["COUNTYFP20"]).zfill(3): str(r["NAME20"]).strip()
+            for _, r in gdf.iterrows()
+        }
+
+    county_geojson = DATA_DIR / "tl_2020_47_county20.geojson"
+    if county_geojson.exists():
+        gdf = gpd.read_file(county_geojson, columns=["COUNTYFP20", "NAME20"])
+        return {
+            str(r["COUNTYFP20"]).zfill(3): str(r["NAME20"]).strip()
+            for _, r in gdf.iterrows()
+        }
+    return {}
+
+
 def build_precinct_layers(tabblocks: gpd.GeoDataFrame, summary: dict) -> None:
     vtd = read_blockassign_vtd()
+    county_name_map = load_county_name_map()
     blocks = tabblocks[["GEOID20", "COUNTYFP20", "geometry"]].copy()
     blocks["GEOID20"] = blocks["GEOID20"].astype(str)
     blocks["COUNTYFP20"] = blocks["COUNTYFP20"].astype(str).str.zfill(3)
@@ -152,7 +173,9 @@ def build_precinct_layers(tabblocks: gpd.GeoDataFrame, summary: dict) -> None:
     if merged.empty:
         raise RuntimeError("No tabblock rows matched BlockAssign VTD rows")
 
-    merged["county_nam"] = merged["COUNTYFP20"]
+    merged["county_nam"] = merged["COUNTYFP20"].map(
+        lambda f: county_name_map.get(str(f).zfill(3), str(f).zfill(3))
+    )
     merged["prec_id"] = merged["VTD_CODE"]
     merged = gpd.GeoDataFrame(merged, geometry="geometry", crs=tabblocks.crs)
 

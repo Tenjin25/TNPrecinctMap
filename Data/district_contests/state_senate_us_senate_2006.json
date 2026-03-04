@@ -1,0 +1,256 @@
+{
+  "scope": "state_senate",
+  "contest_type": "us_senate",
+  "year": 2006,
+  "meta": {
+    "source": "tn_precinct_csv_district_aggregation",
+    "match_coverage_pct": 100.0,
+    "districts": 22
+  },
+  "general": {
+    "results": {
+      "1": {
+        "dem_votes": 4783,
+        "rep_votes": 8449,
+        "other_votes": 265,
+        "total_votes": 13497,
+        "dem_candidate": "Harold Ford, Jr.",
+        "rep_candidate": "Bob Corker",
+        "margin": 3666,
+        "margin_pct": 27.1616,
+        "winner": "REP"
+      },
+      "2": {
+        "dem_votes": 7118,
+        "rep_votes": 12365,
+        "other_votes": 287,
+        "total_votes": 19770,
+        "dem_candidate": "Harold Ford, Jr.",
+        "rep_candidate": "Bob Corker",
+        "margin": 5247,
+        "margin_pct": 26.5402,
+        "winner": "REP"
+      },
+      "3": {
+        "dem_votes": 5305,
+        "rep_votes": 10242,
+        "other_votes": 270,
+        "total_votes": 15817,
+        "dem_candidate": "Harold Ford, Jr.",
+        "rep_candidate": "Bob Corker",
+        "margin": 4937,
+        "margin_pct": 31.2133,
+        "winner": "REP"
+      },
+      "4": {
+        "dem_votes": 3411,
+        "rep_votes": 6154,
+        "other_votes": 179,
+        "total_votes": 9744,
+        "dem_candidate": "Harold Ford, Jr.",
+        "rep_candidate": "Bob Corker",
+        "margin": 2743,
+        "margin_pct": 28.1507,
+        "winner": "REP"
+      },
+      "5": {
+        "dem_votes": 17388,
+        "rep_votes": 22845,
+        "other_votes": 551,
+        "total_votes": 40784,
+        "dem_candidate": "Harold Ford, Jr.",
+        "rep_candidate": "Bob Corker",
+        "margin": 5457,
+        "margin_pct": 13.3802,
+        "winner": "REP"
+      },
+      "6": {
+        "dem_votes": 13077,
+        "rep_votes": 11988,
+        "other_votes": 343,
+        "total_votes": 25408,
+        "dem_candidate": "Harold Ford, Jr.",
+        "rep_candidate": "Bob Corker",
+        "margin": -1089,
+        "margin_pct": -4.2861,
+        "winner": "DEM"
+      },
+      "7": {
+        "dem_votes": 14353,
+        "rep_votes": 23052,
+        "other_votes": 457,
+        "total_votes": 37862,
+        "dem_candidate": "Harold Ford, Jr.",
+        "rep_candidate": "Bob Corker",
+        "margin": 8699,
+        "margin_pct": 22.9755,
+        "winner": "REP"
+      },
+      "8": {
+        "dem_votes": 9389,
+        "rep_votes": 13406,
+        "other_votes": 381,
+        "total_votes": 23176,
+        "dem_candidate": "Harold Ford, Jr.",
+        "rep_candidate": "Bob Corker",
+        "margin": 4017,
+        "margin_pct": 17.3326,
+        "winner": "REP"
+      },
+      "9": {
+        "dem_votes": 5387,
+        "rep_votes": 11528,
+        "other_votes": 215,
+        "total_votes": 17130,
+        "dem_candidate": "Harold Ford, Jr.",
+        "rep_candidate": "Bob Corker",
+        "margin": 6141,
+        "margin_pct": 35.8494,
+        "winner": "REP"
+      },
+      "10": {
+        "dem_votes": 1908,
+        "rep_votes": 4876,
+        "other_votes": 127,
+        "total_votes": 6911,
+        "dem_candidate": "Harold Ford, Jr.",
+        "rep_candidate": "Bob Corker",
+        "margin": 2968,
+        "margin_pct": 42.946,
+        "winner": "REP"
+      },
+      "12": {
+        "dem_votes": 18011,
+        "rep_votes": 21921,
+        "other_votes": 581,
+        "total_votes": 40513,
+        "dem_candidate": "Harold Ford, Jr.",
+        "rep_candidate": "Bob Corker",
+        "margin": 3910,
+        "margin_pct": 9.6512,
+        "winner": "REP"
+      },
+      "14": {
+        "dem_votes": 3031,
+        "rep_votes": 3109,
+        "other_votes": 115,
+        "total_votes": 6255,
+        "dem_candidate": "Harold Ford, Jr.",
+        "rep_candidate": "Bob Corker",
+        "margin": 78,
+        "margin_pct": 1.247,
+        "winner": "REP"
+      },
+      "15": {
+        "dem_votes": 11092,
+        "rep_votes": 12531,
+        "other_votes": 391,
+        "total_votes": 24014,
+        "dem_candidate": "Harold Ford, Jr.",
+        "rep_candidate": "Bob Corker",
+        "margin": 1439,
+        "margin_pct": 5.9923,
+        "winner": "REP"
+      },
+      "16": {
+        "dem_votes": 11116,
+        "rep_votes": 9411,
+        "other_votes": 361,
+        "total_votes": 20888,
+        "dem_candidate": "Harold Ford, Jr.",
+        "rep_candidate": "Bob Corker",
+        "margin": -1705,
+        "margin_pct": -8.1626,
+        "winner": "DEM"
+      },
+      "17": {
+        "dem_votes": 9002,
+        "rep_votes": 6964,
+        "other_votes": 282,
+        "total_votes": 16248,
+        "dem_candidate": "Harold Ford, Jr.",
+        "rep_candidate": "Bob Corker",
+        "margin": -2038,
+        "margin_pct": -12.5431,
+        "winner": "DEM"
+      },
+      "18": {
+        "dem_votes": 849,
+        "rep_votes": 513,
+        "other_votes": 21,
+        "total_votes": 1383,
+        "dem_candidate": "Harold Ford, Jr.",
+        "rep_candidate": "Bob Corker",
+        "margin": -336,
+        "margin_pct": -24.295,
+        "winner": "DEM"
+      },
+      "22": {
+        "dem_votes": 3492,
+        "rep_votes": 3041,
+        "other_votes": 113,
+        "total_votes": 6646,
+        "dem_candidate": "Harold Ford, Jr.",
+        "rep_candidate": "Bob Corker",
+        "margin": -451,
+        "margin_pct": -6.786,
+        "winner": "DEM"
+      },
+      "24": {
+        "dem_votes": 3628,
+        "rep_votes": 3633,
+        "other_votes": 105,
+        "total_votes": 7366,
+        "dem_candidate": "Harold Ford, Jr.",
+        "rep_candidate": "Bob Corker",
+        "margin": 5,
+        "margin_pct": 0.0679,
+        "winner": "REP"
+      },
+      "25": {
+        "dem_votes": 4942,
+        "rep_votes": 4461,
+        "other_votes": 195,
+        "total_votes": 9598,
+        "dem_candidate": "Harold Ford, Jr.",
+        "rep_candidate": "Bob Corker",
+        "margin": -481,
+        "margin_pct": -5.0115,
+        "winner": "DEM"
+      },
+      "26": {
+        "dem_votes": 14186,
+        "rep_votes": 16986,
+        "other_votes": 421,
+        "total_votes": 31593,
+        "dem_candidate": "Harold Ford, Jr.",
+        "rep_candidate": "Bob Corker",
+        "margin": 2800,
+        "margin_pct": 8.8627,
+        "winner": "REP"
+      },
+      "27": {
+        "dem_votes": 7166,
+        "rep_votes": 8943,
+        "other_votes": 231,
+        "total_votes": 16340,
+        "dem_candidate": "Harold Ford, Jr.",
+        "rep_candidate": "Bob Corker",
+        "margin": 1777,
+        "margin_pct": 10.8752,
+        "winner": "REP"
+      },
+      "28": {
+        "dem_votes": 12256,
+        "rep_votes": 14000,
+        "other_votes": 525,
+        "total_votes": 26781,
+        "dem_candidate": "Harold Ford, Jr.",
+        "rep_candidate": "Bob Corker",
+        "margin": 1744,
+        "margin_pct": 6.5121,
+        "winner": "REP"
+      }
+    }
+  }
+}
