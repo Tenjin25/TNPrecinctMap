@@ -1,0 +1,113 @@
+{
+  "scope": "congressional",
+  "contest_type": "us_house",
+  "year": 2008,
+  "meta": {
+    "source": "tn_precinct_csv_direct_district_aggregation",
+    "match_coverage_pct": 100.0,
+    "districts": 9
+  },
+  "general": {
+    "results": {
+      "1": {
+        "dem_votes": 57525,
+        "rep_votes": 168343,
+        "other_votes": 8513,
+        "total_votes": 234381,
+        "dem_candidate": "Rob Russell",
+        "rep_candidate": "Phil Roe",
+        "margin": 110818,
+        "margin_pct": 47.2811,
+        "winner": "REP"
+      },
+      "2": {
+        "dem_votes": 63639,
+        "rep_votes": 227120,
+        "other_votes": 0,
+        "total_votes": 290759,
+        "dem_candidate": "Bob Scott",
+        "rep_candidate": "John JDuncan, Jr.",
+        "margin": 163481,
+        "margin_pct": 56.2256,
+        "winner": "REP"
+      },
+      "3": {
+        "dem_votes": 73059,
+        "rep_votes": 184964,
+        "other_votes": 8605,
+        "total_votes": 266628,
+        "dem_candidate": "Doug Vandagriff",
+        "rep_candidate": "Zach Wamp",
+        "margin": 111905,
+        "margin_pct": 41.9705,
+        "winner": "REP"
+      },
+      "4": {
+        "dem_votes": 146776,
+        "rep_votes": 94447,
+        "other_votes": 8582,
+        "total_votes": 249805,
+        "dem_candidate": "Lincoln Davis",
+        "rep_candidate": "Monty JLankford",
+        "margin": -52329,
+        "margin_pct": -20.9479,
+        "winner": "DEM"
+      },
+      "5": {
+        "dem_votes": 181467,
+        "rep_votes": 85471,
+        "other_votes": 8664,
+        "total_votes": 275602,
+        "dem_candidate": "Jim Cooper",
+        "rep_candidate": "Gerard Donovan",
+        "margin": -95996,
+        "margin_pct": -34.8314,
+        "winner": "DEM"
+      },
+      "6": {
+        "dem_votes": 194264,
+        "rep_votes": 0,
+        "other_votes": 66764,
+        "total_votes": 261028,
+        "dem_candidate": "Bart Gordon",
+        "rep_candidate": "",
+        "margin": -194264,
+        "margin_pct": -74.4227,
+        "winner": "DEM"
+      },
+      "7": {
+        "dem_votes": 99549,
+        "rep_votes": 217332,
+        "other_votes": 0,
+        "total_votes": 316881,
+        "dem_candidate": "Randy GMorris",
+        "rep_candidate": "Marsha Blackburn",
+        "margin": 117783,
+        "margin_pct": 37.1695,
+        "winner": "REP"
+      },
+      "8": {
+        "dem_votes": 180465,
+        "rep_votes": 0,
+        "other_votes": 54,
+        "total_votes": 180519,
+        "dem_candidate": "John Tanner",
+        "rep_candidate": "",
+        "margin": -180465,
+        "margin_pct": -99.9701,
+        "winner": "DEM"
+      },
+      "9": {
+        "dem_votes": 198798,
+        "rep_votes": 0,
+        "other_votes": 27484,
+        "total_votes": 226282,
+        "dem_candidate": "Steve Cohen",
+        "rep_candidate": "",
+        "margin": -198798,
+        "margin_pct": -87.8541,
+        "winner": "DEM"
+      }
+    }
+  }
+}

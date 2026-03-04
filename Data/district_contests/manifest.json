@@ -1,0 +1,254 @@
+{
+  "files": [
+    {
+      "scope": "congressional",
+      "year": 2004,
+      "contest_type": "us_house",
+      "file": "congressional_us_house_2004.json",
+      "districts": 9,
+      "dem_total": 1031959,
+      "rep_total": 1160821,
+      "major_party_contested": true
+    },
+    {
+      "scope": "congressional",
+      "year": 2008,
+      "contest_type": "us_house",
+      "file": "congressional_us_house_2008.json",
+      "districts": 9,
+      "dem_total": 1195542,
+      "rep_total": 977677,
+      "major_party_contested": true
+    },
+    {
+      "scope": "congressional",
+      "year": 2012,
+      "contest_type": "us_house",
+      "file": "congressional_us_house_2012.json",
+      "districts": 9,
+      "dem_total": 796513,
+      "rep_total": 1369562,
+      "major_party_contested": true
+    },
+    {
+      "scope": "congressional",
+      "year": 2014,
+      "contest_type": "us_house",
+      "file": "congressional_us_house_2014.json",
+      "districts": 9,
+      "dem_total": 448421,
+      "rep_total": 848846,
+      "major_party_contested": true
+    },
+    {
+      "scope": "congressional",
+      "year": 2016,
+      "contest_type": "us_house",
+      "file": "congressional_us_house_2016.json",
+      "districts": 9,
+      "dem_total": 814181,
+      "rep_total": 1493740,
+      "major_party_contested": true
+    },
+    {
+      "scope": "congressional",
+      "year": 2018,
+      "contest_type": "us_house",
+      "file": "congressional_us_house_2018.json",
+      "districts": 9,
+      "dem_total": 846450,
+      "rep_total": 1279655,
+      "major_party_contested": true
+    },
+    {
+      "scope": "congressional",
+      "year": 2020,
+      "contest_type": "us_house",
+      "file": "congressional_us_house_2020.json",
+      "districts": 9,
+      "dem_total": 1105537,
+      "rep_total": 1685255,
+      "major_party_contested": true
+    },
+    {
+      "scope": "congressional",
+      "year": 2022,
+      "contest_type": "us_house",
+      "file": "congressional_us_house_2022.json",
+      "districts": 9,
+      "dem_total": 581902,
+      "rep_total": 1099462,
+      "major_party_contested": true
+    },
+    {
+      "scope": "congressional",
+      "year": 2024,
+      "contest_type": "us_house",
+      "file": "congressional_us_house_2024.json",
+      "districts": 9,
+      "dem_total": 977870,
+      "rep_total": 1884691,
+      "major_party_contested": true
+    },
+    {
+      "scope": "state_house",
+      "year": 2004,
+      "contest_type": "state_house",
+      "file": "state_house_state_house_2004.json",
+      "districts": 99,
+      "dem_total": 1010918,
+      "rep_total": 1037545,
+      "major_party_contested": true
+    },
+    {
+      "scope": "state_house",
+      "year": 2008,
+      "contest_type": "state_house",
+      "file": "state_house_state_house_2008.json",
+      "districts": 99,
+      "dem_total": 920351,
+      "rep_total": 1142223,
+      "major_party_contested": true
+    },
+    {
+      "scope": "state_house",
+      "year": 2010,
+      "contest_type": "state_house",
+      "file": "state_house_state_house_2010.json",
+      "districts": 99,
+      "dem_total": 488297,
+      "rep_total": 894049,
+      "major_party_contested": true
+    },
+    {
+      "scope": "state_house",
+      "year": 2012,
+      "contest_type": "state_house",
+      "file": "state_house_state_house_2012.json",
+      "districts": 99,
+      "dem_total": 688971,
+      "rep_total": 1321677,
+      "major_party_contested": true
+    },
+    {
+      "scope": "state_house",
+      "year": 2014,
+      "contest_type": "state_house",
+      "file": "state_house_state_house_2014.json",
+      "districts": 99,
+      "dem_total": 328603,
+      "rep_total": 875260,
+      "major_party_contested": true
+    },
+    {
+      "scope": "state_house",
+      "year": 2016,
+      "contest_type": "state_house",
+      "file": "state_house_state_house_2016.json",
+      "districts": 99,
+      "dem_total": 695269,
+      "rep_total": 1459065,
+      "major_party_contested": true
+    },
+    {
+      "scope": "state_house",
+      "year": 2022,
+      "contest_type": "state_house",
+      "file": "state_house_state_house_2022.json",
+      "districts": 99,
+      "dem_total": 410589,
+      "rep_total": 1077324,
+      "major_party_contested": true
+    },
+    {
+      "scope": "state_senate",
+      "year": 2004,
+      "contest_type": "state_senate",
+      "file": "state_senate_state_senate_2004.json",
+      "districts": 16,
+      "dem_total": 548347,
+      "rep_total": 468015,
+      "major_party_contested": true
+    },
+    {
+      "scope": "state_senate",
+      "year": 2008,
+      "contest_type": "state_senate",
+      "file": "state_senate_state_senate_2008.json",
+      "districts": 16,
+      "dem_total": 452726,
+      "rep_total": 505306,
+      "major_party_contested": true
+    },
+    {
+      "scope": "state_senate",
+      "year": 2010,
+      "contest_type": "state_senate",
+      "file": "state_senate_state_senate_2010.json",
+      "districts": 17,
+      "dem_total": 259053,
+      "rep_total": 479713,
+      "major_party_contested": true
+    },
+    {
+      "scope": "state_senate",
+      "year": 2012,
+      "contest_type": "state_senate",
+      "file": "state_senate_state_senate_2012.json",
+      "districts": 16,
+      "dem_total": 302714,
+      "rep_total": 704393,
+      "major_party_contested": true
+    },
+    {
+      "scope": "state_senate",
+      "year": 2014,
+      "contest_type": "state_senate",
+      "file": "state_senate_state_senate_2014.json",
+      "districts": 18,
+      "dem_total": 170534,
+      "rep_total": 463829,
+      "major_party_contested": true
+    },
+    {
+      "scope": "state_senate",
+      "year": 2016,
+      "contest_type": "state_senate",
+      "file": "state_senate_state_senate_2016.json",
+      "districts": 16,
+      "dem_total": 172753,
+      "rep_total": 802362,
+      "major_party_contested": true
+    },
+    {
+      "scope": "state_senate",
+      "year": 2018,
+      "contest_type": "state_senate",
+      "file": "state_senate_state_senate_2018.json",
+      "districts": 18,
+      "dem_total": 459033,
+      "rep_total": 671278,
+      "major_party_contested": true
+    },
+    {
+      "scope": "state_senate",
+      "year": 2020,
+      "contest_type": "state_senate",
+      "file": "state_senate_state_senate_2020.json",
+      "districts": 16,
+      "dem_total": 321494,
+      "rep_total": 939727,
+      "major_party_contested": true
+    },
+    {
+      "scope": "state_senate",
+      "year": 2022,
+      "contest_type": "state_senate",
+      "file": "state_senate_state_senate_2022.json",
+      "districts": 17,
+      "dem_total": 207704,
+      "rep_total": 547146,
+      "major_party_contested": true
+    }
+  ]
+}

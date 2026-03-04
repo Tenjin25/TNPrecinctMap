@@ -1,0 +1,113 @@
+{
+  "scope": "congressional",
+  "contest_type": "us_house",
+  "year": 2024,
+  "meta": {
+    "source": "tn_precinct_csv_direct_district_aggregation",
+    "match_coverage_pct": 100.0,
+    "districts": 9
+  },
+  "general": {
+    "results": {
+      "1": {
+        "dem_votes": 64021,
+        "rep_votes": 257825,
+        "other_votes": 8353,
+        "total_votes": 330199,
+        "dem_candidate": "Kevin Jenkins",
+        "rep_candidate": "Diana Harshbarger",
+        "margin": 193804,
+        "margin_pct": 58.6931,
+        "winner": "REP"
+      },
+      "2": {
+        "dem_votes": 111316,
+        "rep_votes": 250782,
+        "other_votes": 0,
+        "total_votes": 362098,
+        "dem_candidate": "Jane George",
+        "rep_candidate": "Tim Burchett",
+        "margin": 139466,
+        "margin_pct": 38.5161,
+        "winner": "REP"
+      },
+      "3": {
+        "dem_votes": 102841,
+        "rep_votes": 236519,
+        "other_votes": 10968,
+        "total_votes": 350328,
+        "dem_candidate": "Jack Allen",
+        "rep_candidate": "Chuck Fleischmann",
+        "margin": 133678,
+        "margin_pct": 38.158,
+        "winner": "REP"
+      },
+      "4": {
+        "dem_votes": 83832,
+        "rep_votes": 219133,
+        "other_votes": 10290,
+        "total_votes": 313255,
+        "dem_candidate": "Victoria Isabel Broderick",
+        "rep_candidate": "Scott DesJarlais",
+        "margin": 135301,
+        "margin_pct": 43.192,
+        "winner": "REP"
+      },
+      "5": {
+        "dem_votes": 142387,
+        "rep_votes": 205075,
+        "other_votes": 13252,
+        "total_votes": 360714,
+        "dem_candidate": "Maryam Abolfazli",
+        "rep_candidate": "Andy Ogles",
+        "margin": 62688,
+        "margin_pct": 17.3789,
+        "winner": "REP"
+      },
+      "6": {
+        "dem_votes": 106144,
+        "rep_votes": 225543,
+        "other_votes": 0,
+        "total_votes": 331687,
+        "dem_candidate": "Lore Bergman",
+        "rep_candidate": "John Rose",
+        "margin": 119399,
+        "margin_pct": 35.9975,
+        "winner": "REP"
+      },
+      "7": {
+        "dem_votes": 122764,
+        "rep_votes": 191992,
+        "other_votes": 7900,
+        "total_votes": 322656,
+        "dem_candidate": "Megan Barry",
+        "rep_candidate": "Mark E. Green",
+        "margin": 69228,
+        "margin_pct": 21.4557,
+        "winner": "REP"
+      },
+      "8": {
+        "dem_votes": 85043,
+        "rep_votes": 240411,
+        "other_votes": 6861,
+        "total_votes": 332315,
+        "dem_candidate": "Sarah Freeman",
+        "rep_candidate": "David Kustoff",
+        "margin": 155368,
+        "margin_pct": 46.7532,
+        "winner": "REP"
+      },
+      "9": {
+        "dem_votes": 159522,
+        "rep_votes": 57411,
+        "other_votes": 6770,
+        "total_votes": 223703,
+        "dem_candidate": "Steve Cohen",
+        "rep_candidate": "Charlotte Bergmann",
+        "margin": -102111,
+        "margin_pct": -45.6458,
+        "winner": "DEM"
+      }
+    }
+  }
+}

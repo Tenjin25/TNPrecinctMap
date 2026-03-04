@@ -1,0 +1,113 @@
+{
+  "scope": "congressional",
+  "contest_type": "us_house",
+  "year": 2004,
+  "meta": {
+    "source": "tn_precinct_csv_direct_district_aggregation",
+    "match_coverage_pct": 100.0,
+    "districts": 9
+  },
+  "general": {
+    "results": {
+      "1": {
+        "dem_votes": 56361,
+        "rep_votes": 172543,
+        "other_votes": 4656,
+        "total_votes": 233560,
+        "dem_candidate": "Graham Leonard",
+        "rep_candidate": "William L. Bill Jenkins",
+        "margin": 116182,
+        "margin_pct": 49.744,
+        "winner": "REP"
+      },
+      "2": {
+        "dem_votes": 52155,
+        "rep_votes": 215795,
+        "other_votes": 4978,
+        "total_votes": 272928,
+        "dem_candidate": "John Greene",
+        "rep_candidate": "John J. Duncan, Jr.",
+        "margin": 163640,
+        "margin_pct": 59.9572,
+        "winner": "REP"
+      },
+      "3": {
+        "dem_votes": 84295,
+        "rep_votes": 166154,
+        "other_votes": 6187,
+        "total_votes": 256636,
+        "dem_candidate": "John Wolfe",
+        "rep_candidate": "Zach Wamp",
+        "margin": 81859,
+        "margin_pct": 31.8969,
+        "winner": "REP"
+      },
+      "4": {
+        "dem_votes": 138459,
+        "rep_votes": 109993,
+        "other_votes": 4194,
+        "total_votes": 252646,
+        "dem_candidate": "Lincoln Davis",
+        "rep_candidate": "Janice Bowling",
+        "margin": -28466,
+        "margin_pct": -11.2671,
+        "winner": "DEM"
+      },
+      "5": {
+        "dem_votes": 168970,
+        "rep_votes": 74978,
+        "other_votes": 15,
+        "total_votes": 243963,
+        "dem_candidate": "Jim Cooper",
+        "rep_candidate": "Scott Knapp",
+        "margin": -93992,
+        "margin_pct": -38.5272,
+        "winner": "DEM"
+      },
+      "6": {
+        "dem_votes": 167448,
+        "rep_votes": 87523,
+        "other_votes": 5671,
+        "total_votes": 260642,
+        "dem_candidate": "Bart Gordon",
+        "rep_candidate": "Nick Demas",
+        "margin": -79925,
+        "margin_pct": -30.6647,
+        "winner": "DEM"
+      },
+      "7": {
+        "dem_votes": 0,
+        "rep_votes": 232404,
+        "other_votes": 0,
+        "total_votes": 232404,
+        "dem_candidate": "",
+        "rep_candidate": "Marsha Blackburn",
+        "margin": 232404,
+        "margin_pct": 100.0,
+        "winner": "REP"
+      },
+      "8": {
+        "dem_votes": 173623,
+        "rep_votes": 59853,
+        "other_votes": 91,
+        "total_votes": 233567,
+        "dem_candidate": "John Tanner",
+        "rep_candidate": "James L. Hart",
+        "margin": -113770,
+        "margin_pct": -48.7098,
+        "winner": "DEM"
+      },
+      "9": {
+        "dem_votes": 190648,
+        "rep_votes": 41578,
+        "other_votes": 166,
+        "total_votes": 232392,
+        "dem_candidate": "Harold Ford, Jr.",
+        "rep_candidate": "Ruben M. Fort",
+        "margin": -149070,
+        "margin_pct": -64.1459,
+        "winner": "DEM"
+      }
+    }
+  }
+}

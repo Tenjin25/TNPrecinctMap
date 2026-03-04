@@ -1,0 +1,113 @@
+{
+  "scope": "congressional",
+  "contest_type": "us_house",
+  "year": 2018,
+  "meta": {
+    "source": "tn_precinct_csv_direct_district_aggregation",
+    "match_coverage_pct": 100.0,
+    "districts": 9
+  },
+  "general": {
+    "results": {
+      "1": {
+        "dem_votes": 47138,
+        "rep_votes": 172835,
+        "other_votes": 4309,
+        "total_votes": 224282,
+        "dem_candidate": "Marty Olsen",
+        "rep_candidate": "Phil Roe",
+        "margin": 125697,
+        "margin_pct": 56.0442,
+        "winner": "REP"
+      },
+      "2": {
+        "dem_votes": 86668,
+        "rep_votes": 172856,
+        "other_votes": 2610,
+        "total_votes": 262134,
+        "dem_candidate": "Renee Hoyos",
+        "rep_candidate": "Tim Burchett",
+        "margin": 86188,
+        "margin_pct": 32.8794,
+        "winner": "REP"
+      },
+      "3": {
+        "dem_votes": 84731,
+        "rep_votes": 156512,
+        "other_votes": 4522,
+        "total_votes": 245765,
+        "dem_candidate": "Danielle Mitchell",
+        "rep_candidate": "Chuck Fleischmann",
+        "margin": 71781,
+        "margin_pct": 29.2072,
+        "winner": "REP"
+      },
+      "4": {
+        "dem_votes": 78065,
+        "rep_votes": 147323,
+        "other_votes": 7063,
+        "total_votes": 232451,
+        "dem_candidate": "Mariah Phillips",
+        "rep_candidate": "Scott DesJarlais",
+        "margin": 69258,
+        "margin_pct": 29.7947,
+        "winner": "REP"
+      },
+      "5": {
+        "dem_votes": 177923,
+        "rep_votes": 84317,
+        "other_votes": 8,
+        "total_votes": 262248,
+        "dem_candidate": "Jim Cooper",
+        "rep_candidate": "Jody M. Ball",
+        "margin": -93606,
+        "margin_pct": -35.6937,
+        "winner": "DEM"
+      },
+      "6": {
+        "dem_votes": 70370,
+        "rep_votes": 172810,
+        "other_votes": 5560,
+        "total_votes": 248740,
+        "dem_candidate": "Dawn Barlow",
+        "rep_candidate": "John Rose",
+        "margin": 102440,
+        "margin_pct": 41.1836,
+        "winner": "REP"
+      },
+      "7": {
+        "dem_votes": 81661,
+        "rep_votes": 170071,
+        "other_votes": 2652,
+        "total_votes": 254384,
+        "dem_candidate": "Justin Kanew",
+        "rep_candidate": "Mark E. Green",
+        "margin": 88410,
+        "margin_pct": 34.7545,
+        "winner": "REP"
+      },
+      "8": {
+        "dem_votes": 74755,
+        "rep_votes": 168030,
+        "other_votes": 5560,
+        "total_votes": 248345,
+        "dem_candidate": "Erika Stotts Pearson",
+        "rep_candidate": "David Kustoff",
+        "margin": 93275,
+        "margin_pct": 37.5586,
+        "winner": "REP"
+      },
+      "9": {
+        "dem_votes": 145139,
+        "rep_votes": 34901,
+        "other_votes": 1436,
+        "total_votes": 181476,
+        "dem_candidate": "Steve Cohen",
+        "rep_candidate": "Charlotte Bergmann",
+        "margin": -110238,
+        "margin_pct": -60.7452,
+        "winner": "DEM"
+      }
+    }
+  }
+}

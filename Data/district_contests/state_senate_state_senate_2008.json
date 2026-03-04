@@ -1,0 +1,190 @@
+{
+  "scope": "state_senate",
+  "contest_type": "state_senate",
+  "year": 2008,
+  "meta": {
+    "source": "tn_precinct_csv_direct_district_aggregation",
+    "match_coverage_pct": 100.0,
+    "districts": 16
+  },
+  "general": {
+    "results": {
+      "2": {
+        "dem_votes": 18292,
+        "rep_votes": 48774,
+        "other_votes": 0,
+        "total_votes": 67066,
+        "dem_candidate": "Bill Jones",
+        "rep_candidate": "Ron Ramsey",
+        "margin": 30482,
+        "margin_pct": 45.4508,
+        "winner": "REP"
+      },
+      "4": {
+        "dem_votes": 0,
+        "rep_votes": 29428,
+        "other_votes": 29181,
+        "total_votes": 58609,
+        "dem_candidate": "",
+        "rep_candidate": "Mike Faulk",
+        "margin": 29428,
+        "margin_pct": 50.2107,
+        "winner": "REP"
+      },
+      "6": {
+        "dem_votes": 26177,
+        "rep_votes": 58384,
+        "other_votes": 0,
+        "total_votes": 84561,
+        "dem_candidate": "Gary Farmer",
+        "rep_candidate": "Jamie Woodson",
+        "margin": 32207,
+        "margin_pct": 38.0873,
+        "winner": "REP"
+      },
+      "8": {
+        "dem_votes": 0,
+        "rep_votes": 61299,
+        "other_votes": 13685,
+        "total_votes": 74984,
+        "dem_candidate": "",
+        "rep_candidate": "Doug Overbey",
+        "margin": 61299,
+        "margin_pct": 81.7494,
+        "winner": "REP"
+      },
+      "10": {
+        "dem_votes": 47240,
+        "rep_votes": 19216,
+        "other_votes": 0,
+        "total_votes": 66456,
+        "dem_candidate": "Andy Berke",
+        "rep_candidate": "Oscar Brown",
+        "margin": -28024,
+        "margin_pct": -42.1693,
+        "winner": "DEM"
+      },
+      "12": {
+        "dem_votes": 27983,
+        "rep_votes": 32509,
+        "other_votes": 2954,
+        "total_votes": 63446,
+        "dem_candidate": "Becky Ruppe",
+        "rep_candidate": "Ken Yager",
+        "margin": 4526,
+        "margin_pct": 7.1336,
+        "winner": "REP"
+      },
+      "14": {
+        "dem_votes": 34003,
+        "rep_votes": 29586,
+        "other_votes": 0,
+        "total_votes": 63589,
+        "dem_candidate": "Eric Stewart",
+        "rep_candidate": "Mike Niederhauser",
+        "margin": -4417,
+        "margin_pct": -6.9462,
+        "winner": "DEM"
+      },
+      "16": {
+        "dem_votes": 31746,
+        "rep_votes": 46088,
+        "other_votes": 0,
+        "total_votes": 77834,
+        "dem_candidate": "Jean Anne Rogers",
+        "rep_candidate": "Jim Tracy",
+        "margin": 14342,
+        "margin_pct": 18.4264,
+        "winner": "REP"
+      },
+      "18": {
+        "dem_votes": 29196,
+        "rep_votes": 54552,
+        "other_votes": 0,
+        "total_votes": 83748,
+        "dem_candidate": "Jim Hawkins",
+        "rep_candidate": "Diane Black",
+        "margin": 25356,
+        "margin_pct": 30.2765,
+        "winner": "REP"
+      },
+      "20": {
+        "dem_votes": 45215,
+        "rep_votes": 31418,
+        "other_votes": 0,
+        "total_votes": 76633,
+        "dem_candidate": "Joe MHaynes",
+        "rep_candidate": "David Hall",
+        "margin": -13797,
+        "margin_pct": -18.004,
+        "winner": "DEM"
+      },
+      "22": {
+        "dem_votes": 37030,
+        "rep_votes": 0,
+        "other_votes": 22805,
+        "total_votes": 59835,
+        "dem_candidate": "Tim Barnes",
+        "rep_candidate": "",
+        "margin": -37030,
+        "margin_pct": -61.8869,
+        "winner": "DEM"
+      },
+      "24": {
+        "dem_votes": 45992,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 45992,
+        "dem_candidate": "Roy BHerron",
+        "rep_candidate": "",
+        "margin": -45992,
+        "margin_pct": -100.0,
+        "winner": "DEM"
+      },
+      "26": {
+        "dem_votes": 32165,
+        "rep_votes": 37186,
+        "other_votes": 0,
+        "total_votes": 69351,
+        "dem_candidate": "Randy Camp",
+        "rep_candidate": "Dolores Gresham",
+        "margin": 5021,
+        "margin_pct": 7.24,
+        "winner": "REP"
+      },
+      "28": {
+        "dem_votes": 39007,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 39007,
+        "dem_candidate": "Jim Kyle",
+        "rep_candidate": "",
+        "margin": -39007,
+        "margin_pct": -100.0,
+        "winner": "DEM"
+      },
+      "30": {
+        "dem_votes": 38680,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 38680,
+        "dem_candidate": "Beverly Robison Marrero",
+        "rep_candidate": "",
+        "margin": -38680,
+        "margin_pct": -100.0,
+        "winner": "DEM"
+      },
+      "32": {
+        "dem_votes": 0,
+        "rep_votes": 56866,
+        "other_votes": 0,
+        "total_votes": 56866,
+        "dem_candidate": "",
+        "rep_candidate": "Mark Norris",
+        "margin": 56866,
+        "margin_pct": 100.0,
+        "winner": "REP"
+      }
+    }
+  }
+}

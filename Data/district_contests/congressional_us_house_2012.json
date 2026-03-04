@@ -1,0 +1,113 @@
+{
+  "scope": "congressional",
+  "contest_type": "us_house",
+  "year": 2012,
+  "meta": {
+    "source": "tn_precinct_csv_direct_district_aggregation",
+    "match_coverage_pct": 100.0,
+    "districts": 9
+  },
+  "general": {
+    "results": {
+      "1": {
+        "dem_votes": 47663,
+        "rep_votes": 182252,
+        "other_votes": 9757,
+        "total_votes": 239672,
+        "dem_candidate": "Alan Woodruff",
+        "rep_candidate": "Phil Roe",
+        "margin": 134589,
+        "margin_pct": 56.1555,
+        "winner": "REP"
+      },
+      "2": {
+        "dem_votes": 54522,
+        "rep_votes": 196894,
+        "other_votes": 13089,
+        "total_votes": 264505,
+        "dem_candidate": "Troy Christopher Goodale",
+        "rep_candidate": "John J. Duncan, Jr.",
+        "margin": 142372,
+        "margin_pct": 53.8258,
+        "winner": "REP"
+      },
+      "3": {
+        "dem_votes": 91094,
+        "rep_votes": 157830,
+        "other_votes": 7985,
+        "total_votes": 256909,
+        "dem_candidate": "Mary M. Headrick",
+        "rep_candidate": "Chuck Fleischmann",
+        "margin": 66736,
+        "margin_pct": 25.9765,
+        "winner": "REP"
+      },
+      "4": {
+        "dem_votes": 102022,
+        "rep_votes": 128568,
+        "other_votes": 0,
+        "total_votes": 230590,
+        "dem_candidate": "Eric Stewart",
+        "rep_candidate": "Scott DesJarlais",
+        "margin": 26546,
+        "margin_pct": 11.5122,
+        "winner": "REP"
+      },
+      "5": {
+        "dem_votes": 171621,
+        "rep_votes": 86240,
+        "other_votes": 5234,
+        "total_votes": 263095,
+        "dem_candidate": "Jim Cooper",
+        "rep_candidate": "Brad Staats",
+        "margin": -85381,
+        "margin_pct": -32.4525,
+        "winner": "DEM"
+      },
+      "6": {
+        "dem_votes": 0,
+        "rep_votes": 184383,
+        "other_votes": 56858,
+        "total_votes": 241241,
+        "dem_candidate": "",
+        "rep_candidate": "Diane Black",
+        "margin": 184383,
+        "margin_pct": 76.431,
+        "winner": "REP"
+      },
+      "7": {
+        "dem_votes": 61679,
+        "rep_votes": 182730,
+        "other_votes": 12897,
+        "total_votes": 257306,
+        "dem_candidate": "Credo Amouzouvik",
+        "rep_candidate": "Marsha Blackburn",
+        "margin": 121051,
+        "margin_pct": 47.0455,
+        "winner": "REP"
+      },
+      "8": {
+        "dem_votes": 79490,
+        "rep_votes": 190923,
+        "other_votes": 9009,
+        "total_votes": 279422,
+        "dem_candidate": "Timothy D. Dixon",
+        "rep_candidate": "Stephen Lee Fincher",
+        "margin": 111433,
+        "margin_pct": 39.8798,
+        "winner": "REP"
+      },
+      "9": {
+        "dem_votes": 188422,
+        "rep_votes": 59742,
+        "other_votes": 2823,
+        "total_votes": 250987,
+        "dem_candidate": "Steve Cohen",
+        "rep_candidate": "George S. Flinn, Jr.",
+        "margin": -128680,
+        "margin_pct": -51.2696,
+        "winner": "DEM"
+      }
+    }
+  }
+}

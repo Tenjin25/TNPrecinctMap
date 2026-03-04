@@ -1,0 +1,190 @@
+{
+  "scope": "state_senate",
+  "contest_type": "state_senate",
+  "year": 2020,
+  "meta": {
+    "source": "tn_precinct_csv_direct_district_aggregation",
+    "match_coverage_pct": 100.0,
+    "districts": 16
+  },
+  "general": {
+    "results": {
+      "2": {
+        "dem_votes": 0,
+        "rep_votes": 79674,
+        "other_votes": 1774,
+        "total_votes": 81448,
+        "dem_candidate": "",
+        "rep_candidate": "Art Swann",
+        "margin": 79674,
+        "margin_pct": 97.8219,
+        "winner": "REP"
+      },
+      "4": {
+        "dem_votes": 17381,
+        "rep_votes": 65638,
+        "other_votes": 0,
+        "total_votes": 83019,
+        "dem_candidate": "Amber Riddle",
+        "rep_candidate": "Jon C. Lundberg",
+        "margin": 48257,
+        "margin_pct": 58.1277,
+        "winner": "REP"
+      },
+      "6": {
+        "dem_votes": 35785,
+        "rep_votes": 61286,
+        "other_votes": 0,
+        "total_votes": 97071,
+        "dem_candidate": "Jane George",
+        "rep_candidate": "Becky Duncan Massey",
+        "margin": 25501,
+        "margin_pct": 26.2705,
+        "winner": "REP"
+      },
+      "8": {
+        "dem_votes": 0,
+        "rep_votes": 59713,
+        "other_votes": 0,
+        "total_votes": 59713,
+        "dem_candidate": "",
+        "rep_candidate": "Frank S. Niceley",
+        "margin": 59713,
+        "margin_pct": 100.0,
+        "winner": "REP"
+      },
+      "10": {
+        "dem_votes": 39688,
+        "rep_votes": 45049,
+        "other_votes": 0,
+        "total_votes": 84737,
+        "dem_candidate": "Glenn Scruggs",
+        "rep_candidate": "Todd Gardenhire",
+        "margin": 5361,
+        "margin_pct": 6.3266,
+        "winner": "REP"
+      },
+      "12": {
+        "dem_votes": 0,
+        "rep_votes": 69042,
+        "other_votes": 0,
+        "total_votes": 69042,
+        "dem_candidate": "",
+        "rep_candidate": "Ken Yager",
+        "margin": 69042,
+        "margin_pct": 100.0,
+        "winner": "REP"
+      },
+      "14": {
+        "dem_votes": 24440,
+        "rep_votes": 62351,
+        "other_votes": 0,
+        "total_votes": 86791,
+        "dem_candidate": "Chase Clemons",
+        "rep_candidate": "Shane Reeves",
+        "margin": 37911,
+        "margin_pct": 43.6808,
+        "winner": "REP"
+      },
+      "16": {
+        "dem_votes": 19687,
+        "rep_votes": 62379,
+        "other_votes": 0,
+        "total_votes": 82066,
+        "dem_candidate": "Sheila Younglove",
+        "rep_candidate": "Janice Bowling",
+        "margin": 42692,
+        "margin_pct": 52.0215,
+        "winner": "REP"
+      },
+      "18": {
+        "dem_votes": 0,
+        "rep_votes": 68141,
+        "other_votes": 26261,
+        "total_votes": 94402,
+        "dem_candidate": "",
+        "rep_candidate": "Ferrell Haile",
+        "margin": 68141,
+        "margin_pct": 72.1817,
+        "winner": "REP"
+      },
+      "20": {
+        "dem_votes": 58746,
+        "rep_votes": 54755,
+        "other_votes": 0,
+        "total_votes": 113501,
+        "dem_candidate": "Heidi Campbell",
+        "rep_candidate": "Steven Reid Dickerson",
+        "margin": -3991,
+        "margin_pct": -3.5163,
+        "winner": "DEM"
+      },
+      "22": {
+        "dem_votes": 30383,
+        "rep_votes": 49767,
+        "other_votes": 0,
+        "total_votes": 80150,
+        "dem_candidate": "Ronnie L. Glynn",
+        "rep_candidate": "Bill Powers",
+        "margin": 19384,
+        "margin_pct": 24.1847,
+        "winner": "REP"
+      },
+      "24": {
+        "dem_votes": 0,
+        "rep_votes": 63532,
+        "other_votes": 8795,
+        "total_votes": 72327,
+        "dem_candidate": "",
+        "rep_candidate": "John D. Stevens",
+        "margin": 63532,
+        "margin_pct": 87.8399,
+        "winner": "REP"
+      },
+      "26": {
+        "dem_votes": 19918,
+        "rep_votes": 62701,
+        "other_votes": 0,
+        "total_votes": 82619,
+        "dem_candidate": "Civil Miller-Watkins",
+        "rep_candidate": "Page Walley",
+        "margin": 42783,
+        "margin_pct": 51.7835,
+        "winner": "REP"
+      },
+      "28": {
+        "dem_votes": 0,
+        "rep_votes": 65050,
+        "other_votes": 17875,
+        "total_votes": 82925,
+        "dem_candidate": "",
+        "rep_candidate": "Joey Hensley",
+        "margin": 65050,
+        "margin_pct": 78.4444,
+        "winner": "REP"
+      },
+      "30": {
+        "dem_votes": 43895,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 43895,
+        "dem_candidate": "Sara P. Kyle",
+        "rep_candidate": "",
+        "margin": -43895,
+        "margin_pct": -100.0,
+        "winner": "DEM"
+      },
+      "32": {
+        "dem_votes": 31571,
+        "rep_votes": 70649,
+        "other_votes": 0,
+        "total_votes": 102220,
+        "dem_candidate": "Julie Byrd Ashworth",
+        "rep_candidate": "Paul W. Rose",
+        "margin": 39078,
+        "margin_pct": 38.2293,
+        "winner": "REP"
+      }
+    }
+  }
+}

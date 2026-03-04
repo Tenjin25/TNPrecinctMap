@@ -1,0 +1,113 @@
+{
+  "scope": "congressional",
+  "contest_type": "us_house",
+  "year": 2016,
+  "meta": {
+    "source": "tn_precinct_csv_direct_district_aggregation",
+    "match_coverage_pct": 100.0,
+    "districts": 9
+  },
+  "general": {
+    "results": {
+      "1": {
+        "dem_votes": 39024,
+        "rep_votes": 198293,
+        "other_votes": 15708,
+        "total_votes": 253025,
+        "dem_candidate": "Alan Bohms",
+        "rep_candidate": "Phil Roe",
+        "margin": 159269,
+        "margin_pct": 62.946,
+        "winner": "REP"
+      },
+      "2": {
+        "dem_votes": 68401,
+        "rep_votes": 212455,
+        "other_votes": 0,
+        "total_votes": 280856,
+        "dem_candidate": "Stuart Starr",
+        "rep_candidate": "John J. Duncan, Jr.",
+        "margin": 144054,
+        "margin_pct": 51.2911,
+        "winner": "REP"
+      },
+      "3": {
+        "dem_votes": 76727,
+        "rep_votes": 176613,
+        "other_votes": 12666,
+        "total_votes": 266006,
+        "dem_candidate": "Melody Shekari",
+        "rep_candidate": "Chuck Fleischmann",
+        "margin": 99886,
+        "margin_pct": 37.5503,
+        "winner": "REP"
+      },
+      "4": {
+        "dem_votes": 89141,
+        "rep_votes": 165796,
+        "other_votes": 0,
+        "total_votes": 254937,
+        "dem_candidate": "Steven Reynolds",
+        "rep_candidate": "Scott DesJarlais",
+        "margin": 76655,
+        "margin_pct": 30.0682,
+        "winner": "REP"
+      },
+      "5": {
+        "dem_votes": 171111,
+        "rep_votes": 102433,
+        "other_votes": 0,
+        "total_votes": 273544,
+        "dem_candidate": "Jim Cooper",
+        "rep_candidate": "Stacy Ries Snyder",
+        "margin": -68678,
+        "margin_pct": -25.1067,
+        "winner": "DEM"
+      },
+      "6": {
+        "dem_votes": 61995,
+        "rep_votes": 202234,
+        "other_votes": 20261,
+        "total_votes": 284490,
+        "dem_candidate": "David W. Kent",
+        "rep_candidate": "Diane Black",
+        "margin": 140239,
+        "margin_pct": 49.2949,
+        "winner": "REP"
+      },
+      "7": {
+        "dem_votes": 65226,
+        "rep_votes": 200407,
+        "other_votes": 11880,
+        "total_votes": 277513,
+        "dem_candidate": "Tharon Chandler",
+        "rep_candidate": "Marsha Blackburn",
+        "margin": 135181,
+        "margin_pct": 48.7116,
+        "winner": "REP"
+      },
+      "8": {
+        "dem_votes": 70925,
+        "rep_votes": 194386,
+        "other_votes": 17422,
+        "total_votes": 282733,
+        "dem_candidate": "Rickey Hobson",
+        "rep_candidate": "David Kustoff",
+        "margin": 123461,
+        "margin_pct": 43.667,
+        "winner": "REP"
+      },
+      "9": {
+        "dem_votes": 171631,
+        "rep_votes": 41123,
+        "other_votes": 5203,
+        "total_votes": 217957,
+        "dem_candidate": "Steve Cohen",
+        "rep_candidate": "Wayne Alberson",
+        "margin": -130508,
+        "margin_pct": -59.8779,
+        "winner": "DEM"
+      }
+    }
+  }
+}

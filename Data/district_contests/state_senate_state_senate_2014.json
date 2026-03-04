@@ -1,0 +1,212 @@
+{
+  "scope": "state_senate",
+  "contest_type": "state_senate",
+  "year": 2014,
+  "meta": {
+    "source": "tn_precinct_csv_direct_district_aggregation",
+    "match_coverage_pct": 100.0,
+    "districts": 18
+  },
+  "general": {
+    "results": {
+      "1": {
+        "dem_votes": 0,
+        "rep_votes": 29698,
+        "other_votes": 0,
+        "total_votes": 29698,
+        "dem_candidate": "",
+        "rep_candidate": "Steve Southerland",
+        "margin": 29698,
+        "margin_pct": 100.0,
+        "winner": "REP"
+      },
+      "3": {
+        "dem_votes": 0,
+        "rep_votes": 32508,
+        "other_votes": 0,
+        "total_votes": 32508,
+        "dem_candidate": "",
+        "rep_candidate": "Rusty Crowe",
+        "margin": 32508,
+        "margin_pct": 100.0,
+        "winner": "REP"
+      },
+      "5": {
+        "dem_votes": 0,
+        "rep_votes": 37302,
+        "other_votes": 0,
+        "total_votes": 37302,
+        "dem_candidate": "",
+        "rep_candidate": "Randy McNally",
+        "margin": 37302,
+        "margin_pct": 100.0,
+        "winner": "REP"
+      },
+      "7": {
+        "dem_votes": 14880,
+        "rep_votes": 27942,
+        "other_votes": 0,
+        "total_votes": 42822,
+        "dem_candidate": "Cheri K. Siler",
+        "rep_candidate": "Richard Briggs",
+        "margin": 13062,
+        "margin_pct": 30.503,
+        "winner": "REP"
+      },
+      "9": {
+        "dem_votes": 0,
+        "rep_votes": 31748,
+        "other_votes": 0,
+        "total_votes": 31748,
+        "dem_candidate": "",
+        "rep_candidate": "Mike Bell",
+        "margin": 31748,
+        "margin_pct": 100.0,
+        "winner": "REP"
+      },
+      "11": {
+        "dem_votes": 0,
+        "rep_votes": 37386,
+        "other_votes": 0,
+        "total_votes": 37386,
+        "dem_candidate": "",
+        "rep_candidate": "Bo Watson",
+        "margin": 37386,
+        "margin_pct": 100.0,
+        "winner": "REP"
+      },
+      "13": {
+        "dem_votes": 0,
+        "rep_votes": 29489,
+        "other_votes": 0,
+        "total_votes": 29489,
+        "dem_candidate": "",
+        "rep_candidate": "Bill Ketron",
+        "margin": 29489,
+        "margin_pct": 100.0,
+        "winner": "REP"
+      },
+      "15": {
+        "dem_votes": 10263,
+        "rep_votes": 33674,
+        "other_votes": 2022,
+        "total_votes": 45959,
+        "dem_candidate": "Betty Vaudt",
+        "rep_candidate": "Paul Bailey",
+        "margin": 23411,
+        "margin_pct": 50.9389,
+        "winner": "REP"
+      },
+      "17": {
+        "dem_votes": 0,
+        "rep_votes": 35454,
+        "other_votes": 0,
+        "total_votes": 35454,
+        "dem_candidate": "",
+        "rep_candidate": "Mae Beavers",
+        "margin": 35454,
+        "margin_pct": 100.0,
+        "winner": "REP"
+      },
+      "19": {
+        "dem_votes": 23235,
+        "rep_votes": 4701,
+        "other_votes": 2937,
+        "total_votes": 30873,
+        "dem_candidate": "Thelma M. Harper",
+        "rep_candidate": "Sterlina Inez Brady",
+        "margin": -18534,
+        "margin_pct": -60.033,
+        "winner": "DEM"
+      },
+      "21": {
+        "dem_votes": 25402,
+        "rep_votes": 12714,
+        "other_votes": 0,
+        "total_votes": 38116,
+        "dem_candidate": "Jeff Yarbro",
+        "rep_candidate": "Diana Cuellar",
+        "margin": -12688,
+        "margin_pct": -33.2879,
+        "winner": "DEM"
+      },
+      "23": {
+        "dem_votes": 0,
+        "rep_votes": 45732,
+        "other_votes": 9366,
+        "total_votes": 55098,
+        "dem_candidate": "",
+        "rep_candidate": "Jack Johnson",
+        "margin": 45732,
+        "margin_pct": 83.0012,
+        "winner": "REP"
+      },
+      "25": {
+        "dem_votes": 12316,
+        "rep_votes": 29337,
+        "other_votes": 0,
+        "total_votes": 41653,
+        "dem_candidate": "Tony Gross",
+        "rep_candidate": "Kerry Roberts",
+        "margin": 17021,
+        "margin_pct": 40.8638,
+        "winner": "REP"
+      },
+      "27": {
+        "dem_votes": 13515,
+        "rep_votes": 23331,
+        "other_votes": 1918,
+        "total_votes": 38764,
+        "dem_candidate": "Randy Lamb",
+        "rep_candidate": "Ed Jackson",
+        "margin": 9816,
+        "margin_pct": 25.3225,
+        "winner": "REP"
+      },
+      "29": {
+        "dem_votes": 27707,
+        "rep_votes": 6123,
+        "other_votes": 0,
+        "total_votes": 33830,
+        "dem_candidate": "Lee Harris",
+        "rep_candidate": "James R. \"Jim\" Finney",
+        "margin": -21584,
+        "margin_pct": -63.8014,
+        "winner": "DEM"
+      },
+      "30": {
+        "dem_votes": 18377,
+        "rep_votes": 7044,
+        "other_votes": 858,
+        "total_votes": 26279,
+        "dem_candidate": "Sara Kyle",
+        "rep_candidate": "George Shea Flinn",
+        "margin": -11333,
+        "margin_pct": -43.1257,
+        "winner": "DEM"
+      },
+      "31": {
+        "dem_votes": 0,
+        "rep_votes": 39646,
+        "other_votes": 0,
+        "total_votes": 39646,
+        "dem_candidate": "",
+        "rep_candidate": "Brian Kelsey",
+        "margin": 39646,
+        "margin_pct": 100.0,
+        "winner": "REP"
+      },
+      "33": {
+        "dem_votes": 24839,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 24839,
+        "dem_candidate": "Reginald Tate",
+        "rep_candidate": "",
+        "margin": -24839,
+        "margin_pct": -100.0,
+        "winner": "DEM"
+      }
+    }
+  }
+}

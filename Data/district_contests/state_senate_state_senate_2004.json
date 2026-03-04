@@ -1,0 +1,190 @@
+{
+  "scope": "state_senate",
+  "contest_type": "state_senate",
+  "year": 2004,
+  "meta": {
+    "source": "tn_precinct_csv_direct_district_aggregation",
+    "match_coverage_pct": 100.0,
+    "districts": 16
+  },
+  "general": {
+    "results": {
+      "2": {
+        "dem_votes": 22867,
+        "rep_votes": 43560,
+        "other_votes": 0,
+        "total_votes": 66427,
+        "dem_candidate": "Wm. H. John McKamey",
+        "rep_candidate": "Ron Ramsey",
+        "margin": 20693,
+        "margin_pct": 31.1515,
+        "winner": "REP"
+      },
+      "4": {
+        "dem_votes": 0,
+        "rep_votes": 45160,
+        "other_votes": 0,
+        "total_votes": 45160,
+        "dem_candidate": "",
+        "rep_candidate": "Mike Williams",
+        "margin": 45160,
+        "margin_pct": 100.0,
+        "winner": "REP"
+      },
+      "6": {
+        "dem_votes": 21809,
+        "rep_votes": 59367,
+        "other_votes": 0,
+        "total_votes": 81176,
+        "dem_candidate": "Cindy McGill",
+        "rep_candidate": "Jamie Hagood",
+        "margin": 37558,
+        "margin_pct": 46.2674,
+        "winner": "REP"
+      },
+      "8": {
+        "dem_votes": 20356,
+        "rep_votes": 48200,
+        "other_votes": 3316,
+        "total_votes": 71872,
+        "dem_candidate": "Linda Jo Dees",
+        "rep_candidate": "Raymond Finney",
+        "margin": 27844,
+        "margin_pct": 38.7411,
+        "winner": "REP"
+      },
+      "10": {
+        "dem_votes": 44256,
+        "rep_votes": 17635,
+        "other_votes": 0,
+        "total_votes": 61891,
+        "dem_candidate": "Ward Crutchfield",
+        "rep_candidate": "Basil J. Marceaux",
+        "margin": -26621,
+        "margin_pct": -43.0127,
+        "winner": "DEM"
+      },
+      "12": {
+        "dem_votes": 35624,
+        "rep_votes": 29864,
+        "other_votes": 0,
+        "total_votes": 65488,
+        "dem_candidate": "Tommy Kilby",
+        "rep_candidate": "Jerry Sharp",
+        "margin": -5760,
+        "margin_pct": -8.7955,
+        "winner": "DEM"
+      },
+      "14": {
+        "dem_votes": 47178,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 47178,
+        "dem_candidate": "Jerry W. Cooper",
+        "rep_candidate": "",
+        "margin": -47178,
+        "margin_pct": -100.0,
+        "winner": "DEM"
+      },
+      "16": {
+        "dem_votes": 34675,
+        "rep_votes": 37125,
+        "other_votes": 0,
+        "total_votes": 71800,
+        "dem_candidate": "Larry Trail",
+        "rep_candidate": "Jim Tracy",
+        "margin": 2450,
+        "margin_pct": 3.4123,
+        "winner": "REP"
+      },
+      "18": {
+        "dem_votes": 39894,
+        "rep_votes": 42496,
+        "other_votes": 0,
+        "total_votes": 82390,
+        "dem_candidate": "Jo Ann Graves",
+        "rep_candidate": "Diane Black",
+        "margin": 2602,
+        "margin_pct": 3.1582,
+        "winner": "REP"
+      },
+      "20": {
+        "dem_votes": 57503,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 57503,
+        "dem_candidate": "Joe M. Haynes",
+        "rep_candidate": "",
+        "margin": -57503,
+        "margin_pct": -100.0,
+        "winner": "DEM"
+      },
+      "22": {
+        "dem_votes": 36806,
+        "rep_votes": 27909,
+        "other_votes": 0,
+        "total_votes": 64715,
+        "dem_candidate": "Rosalind Kurita",
+        "rep_candidate": "Brenda Radford",
+        "margin": -8897,
+        "margin_pct": -13.748,
+        "winner": "DEM"
+      },
+      "24": {
+        "dem_votes": 45335,
+        "rep_votes": 24400,
+        "other_votes": 0,
+        "total_votes": 69735,
+        "dem_candidate": "Roy Herron",
+        "rep_candidate": "Dennis J. Doster",
+        "margin": -20935,
+        "margin_pct": -30.0208,
+        "winner": "DEM"
+      },
+      "26": {
+        "dem_votes": 37211,
+        "rep_votes": 29784,
+        "other_votes": 0,
+        "total_votes": 66995,
+        "dem_candidate": "John S. Wilder, Sr.",
+        "rep_candidate": "Ron Stallings",
+        "margin": -7427,
+        "margin_pct": -11.0859,
+        "winner": "DEM"
+      },
+      "28": {
+        "dem_votes": 40765,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 40765,
+        "dem_candidate": "Jim Kyle",
+        "rep_candidate": "",
+        "margin": -40765,
+        "margin_pct": -100.0,
+        "winner": "DEM"
+      },
+      "30": {
+        "dem_votes": 42254,
+        "rep_votes": 14736,
+        "other_votes": 5887,
+        "total_votes": 62877,
+        "dem_candidate": "Steve Cohen",
+        "rep_candidate": "Johnny Hatcher, Jr.",
+        "margin": -27518,
+        "margin_pct": -43.7648,
+        "winner": "DEM"
+      },
+      "32": {
+        "dem_votes": 21814,
+        "rep_votes": 47779,
+        "other_votes": 0,
+        "total_votes": 69593,
+        "dem_candidate": "Pete Parker",
+        "rep_candidate": "Mark Norris",
+        "margin": 25965,
+        "margin_pct": 37.3098,
+        "winner": "REP"
+      }
+    }
+  }
+}

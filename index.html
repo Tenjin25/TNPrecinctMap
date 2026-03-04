@@ -2354,8 +2354,28 @@ document.addEventListener('DOMContentLoaded', function() {
       try { return new URL(p, window.location.href).toString(); } catch (_) { return p; }
     }
 
+    function resolveMapboxToken() {
+      try {
+        const params = new URLSearchParams(window.location.search || '');
+        const fromQuery = (params.get('mapbox_token') || '').toString().trim();
+        if (fromQuery) {
+          try { localStorage.setItem('MAPBOX_TOKEN', fromQuery); } catch (_) {}
+          return fromQuery;
+        }
+      } catch (_) {}
+      try {
+        const fromWindow = (window.MAPBOX_TOKEN || '').toString().trim();
+        if (fromWindow) return fromWindow;
+      } catch (_) {}
+      try {
+        const fromStorage = (localStorage.getItem('MAPBOX_TOKEN') || '').toString().trim();
+        if (fromStorage) return fromStorage;
+      } catch (_) {}
+      return '';
+    }
+
     const CONFIG = {
-      mapboxToken: (window.MAPBOX_TOKEN || ''),
+      mapboxToken: resolveMapboxToken(),
       tilesets: {
         enabled: true,
         sources: {
@@ -2402,7 +2422,10 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     };
 
-    mapboxgl.accessToken = 'pk.eyJ1Ijoic2hhbWFyZGF2aXMiLCJhIjoiY21tYjlxamMxMG5nbTJ2cHU5amE5MTBxZyJ9.JSPHbYwzGQAV8TgI6MBwHw';
+    mapboxgl.accessToken = CONFIG.mapboxToken;
+    if (!CONFIG.mapboxToken) {
+      console.warn('Mapbox token missing. Set window.MAPBOX_TOKEN or add ?mapbox_token=... to the URL.');
+    }
 
     const map = new mapboxgl.Map({ container: 'map', style: 'mapbox://styles/mapbox/light-v11', center: CONFIG.center, zoom: CONFIG.zoom });
 

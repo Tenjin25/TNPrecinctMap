@@ -1,0 +1,113 @@
+{
+  "scope": "congressional",
+  "contest_type": "us_house",
+  "year": 2014,
+  "meta": {
+    "source": "tn_precinct_csv_direct_district_aggregation",
+    "match_coverage_pct": 100.0,
+    "districts": 9
+  },
+  "general": {
+    "results": {
+      "1": {
+        "dem_votes": 0,
+        "rep_votes": 115533,
+        "other_votes": 23937,
+        "total_votes": 139470,
+        "dem_candidate": "",
+        "rep_candidate": "Phil Roe",
+        "margin": 115533,
+        "margin_pct": 82.8372,
+        "winner": "REP"
+      },
+      "2": {
+        "dem_votes": 37612,
+        "rep_votes": 120883,
+        "other_votes": 8256,
+        "total_votes": 166751,
+        "dem_candidate": "Bob Scott",
+        "rep_candidate": "John J. Duncan, Jr.",
+        "margin": 83271,
+        "margin_pct": 49.9373,
+        "winner": "REP"
+      },
+      "3": {
+        "dem_votes": 53983,
+        "rep_votes": 97344,
+        "other_votes": 4770,
+        "total_votes": 156097,
+        "dem_candidate": "Mary M. Headrick",
+        "rep_candidate": "Chuck Fleischmann",
+        "margin": 43361,
+        "margin_pct": 27.7782,
+        "winner": "REP"
+      },
+      "4": {
+        "dem_votes": 51357,
+        "rep_votes": 84815,
+        "other_votes": 9246,
+        "total_votes": 145418,
+        "dem_candidate": "Lenda Sherrell",
+        "rep_candidate": "Scott DesJarlais",
+        "margin": 33458,
+        "margin_pct": 23.0082,
+        "winner": "REP"
+      },
+      "5": {
+        "dem_votes": 96148,
+        "rep_votes": 55078,
+        "other_votes": 3050,
+        "total_votes": 154276,
+        "dem_candidate": "Jim Cooper",
+        "rep_candidate": "Bob Ries",
+        "margin": -41070,
+        "margin_pct": -26.6211,
+        "winner": "DEM"
+      },
+      "6": {
+        "dem_votes": 37232,
+        "rep_votes": 115231,
+        "other_votes": 9634,
+        "total_votes": 162097,
+        "dem_candidate": "Amos Scott Powers",
+        "rep_candidate": "Diane Black",
+        "margin": 77999,
+        "margin_pct": 48.1187,
+        "winner": "REP"
+      },
+      "7": {
+        "dem_votes": 42280,
+        "rep_votes": 110534,
+        "other_votes": 5093,
+        "total_votes": 157907,
+        "dem_candidate": "Daniel Cramer",
+        "rep_candidate": "Marsha Blackburn",
+        "margin": 68254,
+        "margin_pct": 43.2242,
+        "winner": "REP"
+      },
+      "8": {
+        "dem_votes": 42433,
+        "rep_votes": 122255,
+        "other_votes": 7907,
+        "total_votes": 172595,
+        "dem_candidate": "Wes Bradley",
+        "rep_candidate": "Stephen Lee Fincher",
+        "margin": 79822,
+        "margin_pct": 46.2482,
+        "winner": "REP"
+      },
+      "9": {
+        "dem_votes": 87376,
+        "rep_votes": 27173,
+        "other_votes": 2001,
+        "total_votes": 116550,
+        "dem_candidate": "Steve Cohen",
+        "rep_candidate": "Charlotte Bergmann",
+        "margin": -60203,
+        "margin_pct": -51.6542,
+        "winner": "DEM"
+      }
+    }
+  }
+}

@@ -1,0 +1,201 @@
+{
+  "scope": "state_senate",
+  "contest_type": "state_senate",
+  "year": 2010,
+  "meta": {
+    "source": "tn_precinct_csv_direct_district_aggregation",
+    "match_coverage_pct": 100.0,
+    "districts": 17
+  },
+  "general": {
+    "results": {
+      "1": {
+        "dem_votes": 7381,
+        "rep_votes": 32310,
+        "other_votes": 0,
+        "total_votes": 39691,
+        "dem_candidate": "Jackson B(Jack) West",
+        "rep_candidate": "Steve Southerland",
+        "margin": 24929,
+        "margin_pct": 62.8077,
+        "winner": "REP"
+      },
+      "3": {
+        "dem_votes": 7437,
+        "rep_votes": 32736,
+        "other_votes": 0,
+        "total_votes": 40173,
+        "dem_candidate": "Thomas Ken Owens",
+        "rep_candidate": "Rusty Crowe",
+        "margin": 25299,
+        "margin_pct": 62.9751,
+        "winner": "REP"
+      },
+      "5": {
+        "dem_votes": 0,
+        "rep_votes": 44067,
+        "other_votes": 0,
+        "total_votes": 44067,
+        "dem_candidate": "",
+        "rep_candidate": "Randy McNally",
+        "margin": 44067,
+        "margin_pct": 100.0,
+        "winner": "REP"
+      },
+      "7": {
+        "dem_votes": 14514,
+        "rep_votes": 22661,
+        "other_votes": 2470,
+        "total_votes": 39645,
+        "dem_candidate": "Randy Walker",
+        "rep_candidate": "Stacey Campfield",
+        "margin": 8147,
+        "margin_pct": 20.5499,
+        "winner": "REP"
+      },
+      "9": {
+        "dem_votes": 0,
+        "rep_votes": 31628,
+        "other_votes": 0,
+        "total_votes": 31628,
+        "dem_candidate": "",
+        "rep_candidate": "Mike Bell",
+        "margin": 31628,
+        "margin_pct": 100.0,
+        "winner": "REP"
+      },
+      "11": {
+        "dem_votes": 0,
+        "rep_votes": 42140,
+        "other_votes": 0,
+        "total_votes": 42140,
+        "dem_candidate": "",
+        "rep_candidate": "Bo Watson",
+        "margin": 42140,
+        "margin_pct": 100.0,
+        "winner": "REP"
+      },
+      "13": {
+        "dem_votes": 17478,
+        "rep_votes": 40998,
+        "other_votes": 0,
+        "total_votes": 58476,
+        "dem_candidate": "Debbie Matthews",
+        "rep_candidate": "Bill Ketron",
+        "margin": 23520,
+        "margin_pct": 40.2216,
+        "winner": "REP"
+      },
+      "15": {
+        "dem_votes": 22800,
+        "rep_votes": 22615,
+        "other_votes": 8779,
+        "total_votes": 54194,
+        "dem_candidate": "Charlotte Burks",
+        "rep_candidate": "Gary Steakley",
+        "margin": -185,
+        "margin_pct": -0.3414,
+        "winner": "DEM"
+      },
+      "17": {
+        "dem_votes": 21442,
+        "rep_votes": 35927,
+        "other_votes": 0,
+        "total_votes": 57369,
+        "dem_candidate": "George McDonald",
+        "rep_candidate": "Mae Beavers",
+        "margin": 14485,
+        "margin_pct": 25.2488,
+        "winner": "REP"
+      },
+      "19": {
+        "dem_votes": 24569,
+        "rep_votes": 0,
+        "other_votes": 6,
+        "total_votes": 24575,
+        "dem_candidate": "Thelma M Harper",
+        "rep_candidate": "",
+        "margin": -24569,
+        "margin_pct": -99.9756,
+        "winner": "DEM"
+      },
+      "21": {
+        "dem_votes": 27117,
+        "rep_votes": 20775,
+        "other_votes": 0,
+        "total_votes": 47892,
+        "dem_candidate": "Douglas Henry",
+        "rep_candidate": "Steven Dickerson",
+        "margin": -6342,
+        "margin_pct": -13.2423,
+        "winner": "DEM"
+      },
+      "23": {
+        "dem_votes": 0,
+        "rep_votes": 64891,
+        "other_votes": 288,
+        "total_votes": 65179,
+        "dem_candidate": "",
+        "rep_candidate": "Jack Johnson",
+        "margin": 64891,
+        "margin_pct": 99.5581,
+        "winner": "REP"
+      },
+      "25": {
+        "dem_votes": 20455,
+        "rep_votes": 21375,
+        "other_votes": 0,
+        "total_votes": 41830,
+        "dem_candidate": "Doug Jackson",
+        "rep_candidate": "Jim Summerville",
+        "margin": 920,
+        "margin_pct": 2.1994,
+        "winner": "REP"
+      },
+      "27": {
+        "dem_votes": 25885,
+        "rep_votes": 24666,
+        "other_votes": 0,
+        "total_votes": 50551,
+        "dem_candidate": "Lowe Finney",
+        "rep_candidate": "Don McLeary",
+        "margin": -1219,
+        "margin_pct": -2.4114,
+        "winner": "DEM"
+      },
+      "29": {
+        "dem_votes": 18234,
+        "rep_votes": 7657,
+        "other_votes": 2946,
+        "total_votes": 28837,
+        "dem_candidate": "Ophelia Ford",
+        "rep_candidate": "Robert Hill",
+        "margin": -10577,
+        "margin_pct": -36.6786,
+        "winner": "DEM"
+      },
+      "31": {
+        "dem_votes": 19405,
+        "rep_votes": 35267,
+        "other_votes": 0,
+        "total_votes": 54672,
+        "dem_candidate": "Ivon LFaulkner",
+        "rep_candidate": "Brian Kelsey",
+        "margin": 15862,
+        "margin_pct": 29.013,
+        "winner": "REP"
+      },
+      "33": {
+        "dem_votes": 32336,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 32336,
+        "dem_candidate": "Reginald Tate",
+        "rep_candidate": "",
+        "margin": -32336,
+        "margin_pct": -100.0,
+        "winner": "DEM"
+      }
+    }
+  }
+}

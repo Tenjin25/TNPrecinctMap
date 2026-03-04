@@ -1,0 +1,190 @@
+{
+  "scope": "state_senate",
+  "contest_type": "state_senate",
+  "year": 2016,
+  "meta": {
+    "source": "tn_precinct_csv_direct_district_aggregation",
+    "match_coverage_pct": 100.0,
+    "districts": 16
+  },
+  "general": {
+    "results": {
+      "2": {
+        "dem_votes": 0,
+        "rep_votes": 66262,
+        "other_votes": 0,
+        "total_votes": 66262,
+        "dem_candidate": "",
+        "rep_candidate": "Doug Overbey",
+        "margin": 66262,
+        "margin_pct": 100.0,
+        "winner": "REP"
+      },
+      "4": {
+        "dem_votes": 0,
+        "rep_votes": 60516,
+        "other_votes": 0,
+        "total_votes": 60516,
+        "dem_candidate": "",
+        "rep_candidate": "Jon Lundberg",
+        "margin": 60516,
+        "margin_pct": 100.0,
+        "winner": "REP"
+      },
+      "6": {
+        "dem_votes": 0,
+        "rep_votes": 62688,
+        "other_votes": 0,
+        "total_votes": 62688,
+        "dem_candidate": "",
+        "rep_candidate": "Becky Duncan Massey",
+        "margin": 62688,
+        "margin_pct": 100.0,
+        "winner": "REP"
+      },
+      "8": {
+        "dem_votes": 0,
+        "rep_votes": 49440,
+        "other_votes": 0,
+        "total_votes": 49440,
+        "dem_candidate": "",
+        "rep_candidate": "Frank Niceley",
+        "margin": 49440,
+        "margin_pct": 100.0,
+        "winner": "REP"
+      },
+      "10": {
+        "dem_votes": 31043,
+        "rep_votes": 39308,
+        "other_votes": 0,
+        "total_votes": 70351,
+        "dem_candidate": "Khristy Wilkinson",
+        "rep_candidate": "Todd Gardenhire",
+        "margin": 8265,
+        "margin_pct": 11.7482,
+        "winner": "REP"
+      },
+      "12": {
+        "dem_votes": 0,
+        "rep_votes": 55219,
+        "other_votes": 0,
+        "total_votes": 55219,
+        "dem_candidate": "",
+        "rep_candidate": "Ken Yager",
+        "margin": 55219,
+        "margin_pct": 100.0,
+        "winner": "REP"
+      },
+      "14": {
+        "dem_votes": 18259,
+        "rep_votes": 53082,
+        "other_votes": 0,
+        "total_votes": 71341,
+        "dem_candidate": "Gayle Jordan",
+        "rep_candidate": "Jim Tracy",
+        "margin": 34823,
+        "margin_pct": 48.812,
+        "winner": "REP"
+      },
+      "16": {
+        "dem_votes": 22205,
+        "rep_votes": 46846,
+        "other_votes": 0,
+        "total_votes": 69051,
+        "dem_candidate": "Mike Winton",
+        "rep_candidate": "Janice Bowling",
+        "margin": 24641,
+        "margin_pct": 35.6852,
+        "winner": "REP"
+      },
+      "18": {
+        "dem_votes": 0,
+        "rep_votes": 64220,
+        "other_votes": 0,
+        "total_votes": 64220,
+        "dem_candidate": "",
+        "rep_candidate": "Ferrell Haile",
+        "margin": 64220,
+        "margin_pct": 100.0,
+        "winner": "REP"
+      },
+      "20": {
+        "dem_votes": 41172,
+        "rep_votes": 52966,
+        "other_votes": 1,
+        "total_votes": 94139,
+        "dem_candidate": "Erin Coleman",
+        "rep_candidate": "Steven Reid Dickerson",
+        "margin": 11794,
+        "margin_pct": 12.5283,
+        "winner": "REP"
+      },
+      "22": {
+        "dem_votes": 20406,
+        "rep_votes": 41497,
+        "other_votes": 0,
+        "total_votes": 61903,
+        "dem_candidate": "David L. Cutting",
+        "rep_candidate": "Mark E. Green",
+        "margin": 21091,
+        "margin_pct": 34.071,
+        "winner": "REP"
+      },
+      "24": {
+        "dem_votes": 0,
+        "rep_votes": 46945,
+        "other_votes": 0,
+        "total_votes": 46945,
+        "dem_candidate": "",
+        "rep_candidate": "John D. Stevens",
+        "margin": 46945,
+        "margin_pct": 100.0,
+        "winner": "REP"
+      },
+      "26": {
+        "dem_votes": 0,
+        "rep_votes": 54210,
+        "other_votes": 0,
+        "total_votes": 54210,
+        "dem_candidate": "",
+        "rep_candidate": "Dolores Gresham",
+        "margin": 54210,
+        "margin_pct": 100.0,
+        "winner": "REP"
+      },
+      "28": {
+        "dem_votes": 0,
+        "rep_votes": 51251,
+        "other_votes": 17460,
+        "total_votes": 68711,
+        "dem_candidate": "",
+        "rep_candidate": "Joey Hensley",
+        "margin": 51251,
+        "margin_pct": 74.5892,
+        "winner": "REP"
+      },
+      "30": {
+        "dem_votes": 39668,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 39668,
+        "dem_candidate": "Sara P. Kyle",
+        "rep_candidate": "",
+        "margin": -39668,
+        "margin_pct": -100.0,
+        "winner": "DEM"
+      },
+      "32": {
+        "dem_votes": 0,
+        "rep_votes": 57912,
+        "other_votes": 0,
+        "total_votes": 57912,
+        "dem_candidate": "",
+        "rep_candidate": "Mark Norris",
+        "margin": 57912,
+        "margin_pct": 100.0,
+        "winner": "REP"
+      }
+    }
+  }
+}

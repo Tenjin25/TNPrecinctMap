@@ -1,0 +1,113 @@
+{
+  "scope": "congressional",
+  "contest_type": "us_house",
+  "year": 2022,
+  "meta": {
+    "source": "tn_precinct_csv_direct_district_aggregation",
+    "match_coverage_pct": 100.0,
+    "districts": 9
+  },
+  "general": {
+    "results": {
+      "1": {
+        "dem_votes": 37049,
+        "rep_votes": 147241,
+        "other_votes": 3713,
+        "total_votes": 188003,
+        "dem_candidate": "Cameron Parsons",
+        "rep_candidate": "Diana Lynn Harshbarger",
+        "margin": 110192,
+        "margin_pct": 58.6118,
+        "winner": "REP"
+      },
+      "2": {
+        "dem_votes": 66673,
+        "rep_votes": 141089,
+        "other_votes": 0,
+        "total_votes": 207762,
+        "dem_candidate": "Mark Harmon",
+        "rep_candidate": "Tim Burchett",
+        "margin": 74416,
+        "margin_pct": 35.8179,
+        "winner": "REP"
+      },
+      "3": {
+        "dem_votes": 60334,
+        "rep_votes": 136639,
+        "other_votes": 2857,
+        "total_votes": 199830,
+        "dem_candidate": "Meg Gorman",
+        "rep_candidate": "Chuck Fleischmann",
+        "margin": 76305,
+        "margin_pct": 38.185,
+        "winner": "REP"
+      },
+      "4": {
+        "dem_votes": 44648,
+        "rep_votes": 122401,
+        "other_votes": 6388,
+        "total_votes": 173437,
+        "dem_candidate": "Wayne Steele",
+        "rep_candidate": "Scott DesJarlais",
+        "margin": 77753,
+        "margin_pct": 44.8307,
+        "winner": "REP"
+      },
+      "5": {
+        "dem_votes": 93648,
+        "rep_votes": 123558,
+        "other_votes": 4069,
+        "total_votes": 221275,
+        "dem_candidate": "Heidi Campbell",
+        "rep_candidate": "Andy Ogles",
+        "margin": 29910,
+        "margin_pct": 13.5171,
+        "winner": "REP"
+      },
+      "6": {
+        "dem_votes": 65675,
+        "rep_votes": 129388,
+        "other_votes": 0,
+        "total_votes": 195063,
+        "dem_candidate": "Randal Cooper",
+        "rep_candidate": "John Rose",
+        "margin": 63713,
+        "margin_pct": 32.6628,
+        "winner": "REP"
+      },
+      "7": {
+        "dem_votes": 68973,
+        "rep_votes": 108421,
+        "other_votes": 3428,
+        "total_votes": 180822,
+        "dem_candidate": "Odessa Kelly",
+        "rep_candidate": "Mark E Green",
+        "margin": 39448,
+        "margin_pct": 21.8159,
+        "winner": "REP"
+      },
+      "8": {
+        "dem_votes": 51102,
+        "rep_votes": 155602,
+        "other_votes": 3611,
+        "total_votes": 210315,
+        "dem_candidate": "Lynnette P. Williams",
+        "rep_candidate": "David Kustoff",
+        "margin": 104500,
+        "margin_pct": 49.6874,
+        "winner": "REP"
+      },
+      "9": {
+        "dem_votes": 93800,
+        "rep_votes": 35123,
+        "other_votes": 4995,
+        "total_votes": 133918,
+        "dem_candidate": "Steve Cohen",
+        "rep_candidate": "Charlotte Bergmann",
+        "margin": -58677,
+        "margin_pct": -43.8156,
+        "winner": "DEM"
+      }
+    }
+  }
+}

@@ -1,0 +1,212 @@
+{
+  "scope": "state_senate",
+  "contest_type": "state_senate",
+  "year": 2018,
+  "meta": {
+    "source": "tn_precinct_csv_direct_district_aggregation",
+    "match_coverage_pct": 100.0,
+    "districts": 18
+  },
+  "general": {
+    "results": {
+      "1": {
+        "dem_votes": 0,
+        "rep_votes": 43262,
+        "other_votes": 0,
+        "total_votes": 43262,
+        "dem_candidate": "",
+        "rep_candidate": "Steve Southerland",
+        "margin": 43262,
+        "margin_pct": 100.0,
+        "winner": "REP"
+      },
+      "2": {
+        "dem_votes": 0,
+        "rep_votes": 55595,
+        "other_votes": 402,
+        "total_votes": 55997,
+        "dem_candidate": "",
+        "rep_candidate": "Art Swann",
+        "margin": 55595,
+        "margin_pct": 99.2821,
+        "winner": "REP"
+      },
+      "3": {
+        "dem_votes": 0,
+        "rep_votes": 50236,
+        "other_votes": 0,
+        "total_votes": 50236,
+        "dem_candidate": "",
+        "rep_candidate": "Rusty Crowe",
+        "margin": 50236,
+        "margin_pct": 100.0,
+        "winner": "REP"
+      },
+      "5": {
+        "dem_votes": 18948,
+        "rep_votes": 48336,
+        "other_votes": 0,
+        "total_votes": 67284,
+        "dem_candidate": "Stuart Starr",
+        "rep_candidate": "Randy McNally",
+        "margin": 29388,
+        "margin_pct": 43.6775,
+        "winner": "REP"
+      },
+      "7": {
+        "dem_votes": 30826,
+        "rep_votes": 38558,
+        "other_votes": 0,
+        "total_votes": 69384,
+        "dem_candidate": "Jamie Ballinger",
+        "rep_candidate": "Richard Briggs",
+        "margin": 7732,
+        "margin_pct": 11.1438,
+        "winner": "REP"
+      },
+      "9": {
+        "dem_votes": 12887,
+        "rep_votes": 45006,
+        "other_votes": 0,
+        "total_votes": 57893,
+        "dem_candidate": "Carl Lansden",
+        "rep_candidate": "Mike Bell",
+        "margin": 32119,
+        "margin_pct": 55.4799,
+        "winner": "REP"
+      },
+      "11": {
+        "dem_votes": 27332,
+        "rep_votes": 51082,
+        "other_votes": 0,
+        "total_votes": 78414,
+        "dem_candidate": "Randall \"Randy\" Price",
+        "rep_candidate": "Bo Watson",
+        "margin": 23750,
+        "margin_pct": 30.288,
+        "winner": "REP"
+      },
+      "13": {
+        "dem_votes": 25974,
+        "rep_votes": 36594,
+        "other_votes": 1559,
+        "total_votes": 64127,
+        "dem_candidate": "Kelly Northcutt",
+        "rep_candidate": "Dawn White",
+        "margin": 10620,
+        "margin_pct": 16.5609,
+        "winner": "REP"
+      },
+      "15": {
+        "dem_votes": 17512,
+        "rep_votes": 48919,
+        "other_votes": 0,
+        "total_votes": 66431,
+        "dem_candidate": "Angela Hedgecough",
+        "rep_candidate": "Paul Bailey",
+        "margin": 31407,
+        "margin_pct": 47.2776,
+        "winner": "REP"
+      },
+      "17": {
+        "dem_votes": 22452,
+        "rep_votes": 53364,
+        "other_votes": 0,
+        "total_votes": 75816,
+        "dem_candidate": "Mary Alice Carfi",
+        "rep_candidate": "Mark Pody",
+        "margin": 30912,
+        "margin_pct": 40.7724,
+        "winner": "REP"
+      },
+      "19": {
+        "dem_votes": 49586,
+        "rep_votes": 0,
+        "other_votes": 8216,
+        "total_votes": 57802,
+        "dem_candidate": "Brenda Gilmore",
+        "rep_candidate": "",
+        "margin": -49586,
+        "margin_pct": -85.786,
+        "winner": "DEM"
+      },
+      "21": {
+        "dem_votes": 55905,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 55905,
+        "dem_candidate": "Jeff Yarbro",
+        "rep_candidate": "",
+        "margin": -55905,
+        "margin_pct": -100.0,
+        "winner": "DEM"
+      },
+      "23": {
+        "dem_votes": 33710,
+        "rep_votes": 68118,
+        "other_votes": 0,
+        "total_votes": 101828,
+        "dem_candidate": "Kristen Grimm",
+        "rep_candidate": "Jack Johnson",
+        "margin": 34408,
+        "margin_pct": 33.7903,
+        "winner": "REP"
+      },
+      "25": {
+        "dem_votes": 18795,
+        "rep_votes": 47188,
+        "other_votes": 0,
+        "total_votes": 65983,
+        "dem_candidate": "Wade Munday",
+        "rep_candidate": "Kerry Roberts",
+        "margin": 28393,
+        "margin_pct": 43.0308,
+        "winner": "REP"
+      },
+      "27": {
+        "dem_votes": 19177,
+        "rep_votes": 35837,
+        "other_votes": 0,
+        "total_votes": 55014,
+        "dem_candidate": "Savannah Williamson",
+        "rep_candidate": "Ed Jackson",
+        "margin": 16660,
+        "margin_pct": 30.2832,
+        "winner": "REP"
+      },
+      "29": {
+        "dem_votes": 43851,
+        "rep_votes": 8679,
+        "other_votes": 0,
+        "total_votes": 52530,
+        "dem_candidate": "Raumesh Akbari",
+        "rep_candidate": "Tom Stephens",
+        "margin": -35172,
+        "margin_pct": -66.956,
+        "winner": "DEM"
+      },
+      "31": {
+        "dem_votes": 39086,
+        "rep_votes": 40504,
+        "other_votes": 0,
+        "total_votes": 79590,
+        "dem_candidate": "Gabby Salinas",
+        "rep_candidate": "Brian Kelsey",
+        "margin": 1418,
+        "margin_pct": 1.7816,
+        "winner": "REP"
+      },
+      "33": {
+        "dem_votes": 42992,
+        "rep_votes": 0,
+        "other_votes": 0,
+        "total_votes": 42992,
+        "dem_candidate": "Katrina Robinson",
+        "rep_candidate": "",
+        "margin": -42992,
+        "margin_pct": -100.0,
+        "winner": "DEM"
+      }
+    }
+  }
+}
