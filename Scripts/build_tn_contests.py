@@ -329,8 +329,16 @@ def read_blockassign_table(zip_path: Path, suffix: str) -> pd.DataFrame:
     return pd.read_csv(io.StringIO(raw), sep="|", dtype=str)
 
 
-def build_precinct_district_weights() -> Dict[str, Dict[Tuple[str, str], List[Tuple[str, float]]]]:
-    """Build district weights by precinct key (countyfp, vtd_code) using block counts."""
+def build_district_weight_maps() -> Tuple[
+    Dict[str, Dict[Tuple[str, str], List[Tuple[str, float]]]],
+    Dict[str, Dict[str, List[Tuple[str, float]]]],
+]:
+    """Build district weights by precinct and county using block counts.
+
+    Returns:
+      precinct_weights_by_scope: scope -> {(countyfp, vtd_code): [(district, weight), ...]}
+      county_weights_by_scope: scope -> {countyfp: [(district, weight), ...]}
+    """
     zip_path = DATA_DIR / "BlockAssign_ST47_TN.zip"
     if not zip_path.exists():
         raise FileNotFoundError("Missing Data/BlockAssign_ST47_TN.zip")
@@ -347,7 +355,8 @@ def build_precinct_district_weights() -> Dict[str, Dict[Tuple[str, str], List[Tu
         "state_senate": "_SLDU.txt",
     }
 
-    out = {}
+    precinct_out = {}
+    county_out = {}
     for scope, suffix in scopes.items():
         d = read_blockassign_table(zip_path, suffix).rename(
             columns={"BLOCKID": "BLOCKID", "DISTRICT": "DISTRICT"}
@@ -356,8 +365,10 @@ def build_precinct_district_weights() -> Dict[str, Dict[Tuple[str, str], List[Tu
         merged = vtd.merge(d, on="BLOCKID", how="left")
         merged = merged[(merged["DISTRICT"].notna()) & (merged["DISTRICT"] != "")]
         if merged.empty:
-            out[scope] = {}
+            precinct_out[scope] = {}
+            county_out[scope] = {}
             continue
+
         counts = (
             merged.groupby(["COUNTYFP", "VTD", "DISTRICT"], dropna=False)
             .size()
@@ -380,8 +391,32 @@ def build_precinct_district_weights() -> Dict[str, Dict[Tuple[str, str], List[Tu
             if m:
                 district = str(int(m.group(1)))
             mapping[(countyfp, vtd_code)].append((district, float(r["weight"])))
-        out[scope] = dict(mapping)
-    return out
+        precinct_out[scope] = dict(mapping)
+
+        county_counts = (
+            merged.groupby(["COUNTYFP", "DISTRICT"], dropna=False)
+            .size()
+            .reset_index(name="block_count")
+        )
+        county_totals = (
+            county_counts.groupby(["COUNTYFP"], dropna=False)["block_count"]
+            .sum()
+            .reset_index(name="total_blocks")
+        )
+        county_counts = county_counts.merge(county_totals, on=["COUNTYFP"], how="left")
+        county_counts["weight"] = county_counts["block_count"] / county_counts["total_blocks"]
+
+        county_mapping: Dict[str, List[Tuple[str, float]]] = defaultdict(list)
+        for _, r in county_counts.iterrows():
+            countyfp = str(r["COUNTYFP"]).zfill(3)
+            district = str(r["DISTRICT"]).strip()
+            m = re.search(r"(\d+)", district)
+            if m:
+                district = str(int(m.group(1)))
+            county_mapping[countyfp].append((district, float(r["weight"])))
+        county_out[scope] = dict(county_mapping)
+
+    return precinct_out, county_out
 
 
 def build_prctseq_offsets(
@@ -484,7 +519,7 @@ def build() -> dict:
 
     county_norm_to_fp, _fp_to_county_norm = load_county_maps()
     to2024 = load_precinct_to_2024_map()
-    district_weights = build_precinct_district_weights()
+    district_weights, county_district_weights = build_district_weight_maps()
     prctseq_offsets, vtd_ints_by_county = build_prctseq_offsets(
         county_norm_to_fp, district_weights
     )
@@ -577,6 +612,18 @@ def build() -> dict:
 
     # Build statewide contest -> district scope files via precinct district-weights.
     statewide_district: Dict[Tuple[str, str, int, str], Totals] = defaultdict(Totals)
+    statewide_alloc_stats: Dict[Tuple[str, str, int], dict] = defaultdict(
+        lambda: {
+            "rows": 0,
+            "direct_rows": 0,
+            "county_fallback_rows": 0,
+            "dropped_rows": 0,
+            "votes_total": 0.0,
+            "votes_direct": 0.0,
+            "votes_fallback": 0.0,
+            "votes_dropped": 0.0,
+        }
+    )
 
     for (contest_type, year), rows in all_contest_rows_by_contest_year.items():
         if contest_type not in COUNTY_PLUS_PRECINCT_CONTESTS:
@@ -587,9 +634,10 @@ def build() -> dict:
                 continue
             county_norm, code = label.split(" - ", 1)
             county_norm = norm_county(county_norm)
-            code = norm_space(code).zfill(6) if re.fullmatch(r"\d+", norm_space(code)) else norm_space(code)
+            code_raw = norm_space(code)
+            code_numeric = code_raw.zfill(6) if re.fullmatch(r"\d+", code_raw) else ""
             county_fp = county_norm_to_fp.get(county_norm, "")
-            if not county_fp or not re.fullmatch(r"\d{6}", code):
+            if not county_fp:
                 continue
 
             dem_votes = float(r.get("dem_votes", 0))
@@ -599,10 +647,31 @@ def build() -> dict:
             rep_cand = r.get("rep_candidate", "")
 
             for scope in STATEWIDE_DISTRICT_SCOPES:
+                stat_key = (scope, contest_type, year)
+                stat = statewide_alloc_stats[stat_key]
+                stat["rows"] += 1
+
                 wmap = district_weights.get(scope, {})
-                allocs = wmap.get((county_fp, code), [])
+                allocs = wmap.get((county_fp, code_numeric), []) if code_numeric else []
+                votes_total = dem_votes + rep_votes + other_votes
+                stat["votes_total"] += votes_total
+
+                source = "direct"
                 if not allocs:
+                    allocs = county_district_weights.get(scope, {}).get(county_fp, [])
+                    source = "county_fallback" if allocs else "dropped"
+                if not allocs:
+                    stat["dropped_rows"] += 1
+                    stat["votes_dropped"] += votes_total
                     continue
+
+                if source == "direct":
+                    stat["direct_rows"] += 1
+                    stat["votes_direct"] += votes_total
+                else:
+                    stat["county_fallback_rows"] += 1
+                    stat["votes_fallback"] += votes_total
+
                 for district, w in allocs:
                     key = (scope, contest_type, year, district)
                     node = statewide_district[key]
@@ -630,13 +699,45 @@ def build() -> dict:
             rep_total += row["rep_votes"]
 
         file_name = f"{scope}_{contest_type}_{year}.json"
+        alloc = statewide_alloc_stats.get((scope, contest_type, year))
+        coverage_pct = 100.0
+        direct_row_pct = 0.0
+        county_fallback_row_pct = 0.0
+        dropped_row_pct = 0.0
+        direct_vote_pct = 0.0
+        county_fallback_vote_pct = 0.0
+        dropped_vote_pct = 0.0
+        if alloc:
+            rows_total = float(alloc["rows"])
+            votes_total = float(alloc["votes_total"])
+            votes_alloc = float(alloc["votes_direct"] + alloc["votes_fallback"])
+            if rows_total > 0:
+                direct_row_pct = (float(alloc["direct_rows"]) / rows_total) * 100.0
+                county_fallback_row_pct = (
+                    float(alloc["county_fallback_rows"]) / rows_total
+                ) * 100.0
+                dropped_row_pct = (float(alloc["dropped_rows"]) / rows_total) * 100.0
+            if votes_total > 0:
+                coverage_pct = (votes_alloc / votes_total) * 100.0
+                direct_vote_pct = (float(alloc["votes_direct"]) / votes_total) * 100.0
+                county_fallback_vote_pct = (
+                    float(alloc["votes_fallback"]) / votes_total
+                ) * 100.0
+                dropped_vote_pct = (float(alloc["votes_dropped"]) / votes_total) * 100.0
+
         payload = {
             "scope": scope,
             "contest_type": contest_type,
             "year": year,
             "meta": {
                 "source": "tn_precinct_csv_district_aggregation",
-                "match_coverage_pct": 100.0,
+                "match_coverage_pct": round(coverage_pct, 4),
+                "direct_precinct_row_pct": round(direct_row_pct, 4),
+                "county_fallback_row_pct": round(county_fallback_row_pct, 4),
+                "dropped_row_pct": round(dropped_row_pct, 4),
+                "direct_precinct_vote_pct": round(direct_vote_pct, 4),
+                "county_fallback_vote_pct": round(county_fallback_vote_pct, 4),
+                "dropped_vote_pct": round(dropped_vote_pct, 4),
                 "districts": len(results),
             },
             "general": {"results": results},

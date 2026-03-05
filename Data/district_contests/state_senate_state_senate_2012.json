@@ -5,6 +5,12 @@
   "meta": {
     "source": "tn_precinct_csv_district_aggregation",
     "match_coverage_pct": 100.0,
+    "direct_precinct_row_pct": 0.0,
+    "county_fallback_row_pct": 0.0,
+    "dropped_row_pct": 0.0,
+    "direct_precinct_vote_pct": 0.0,
+    "county_fallback_vote_pct": 0.0,
+    "dropped_vote_pct": 0.0,
     "districts": 16
   },
   "general": {
