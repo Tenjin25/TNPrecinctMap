@@ -5809,22 +5809,6 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     };
   }
-  const districtLines2022Btn = document.getElementById('district-lines-2022');
-  if (districtLines2022Btn) {
-    districtLines2022Btn.onclick = function() {
-      if (typeof setDistrictLinesMode === 'function') {
-        setDistrictLinesMode(2022).catch(() => {});
-      }
-    };
-  }
-  const districtLines2024Btn = document.getElementById('district-lines-2024');
-  if (districtLines2024Btn) {
-    districtLines2024Btn.onclick = function() {
-      if (typeof setDistrictLinesMode === 'function') {
-        setDistrictLinesMode(2024).catch(() => {});
-      }
-    };
-  }
 
   // Contest search (filters dropdown without changing the dataset).
   const contestSearch = document.getElementById('contestSearch');
@@ -6035,16 +6019,6 @@ document.addEventListener('DOMContentLoaded', function() {
                   <button id="districts-view" class="view-toggle-btn" onclick="setMapView('districts')">Congress</button>
                   <button id="state-house-view" class="view-toggle-btn" onclick="setMapView('state_house')">State House</button>
                   <button id="state-senate-view" class="view-toggle-btn" onclick="setMapView('state_senate')">State Senate</button>
-                </div>
-            </div>
-            <div class="control-group" style="margin-bottom:10px;">
-                <span class="section-kicker">District Lines</span>
-                <div class="view-toggle-row" style="display:flex;gap:6px;flex-wrap:wrap;">
-                  <button id="district-lines-2022" class="view-toggle-btn active" type="button">2022 Lines</button>
-                  <button id="district-lines-2024" class="view-toggle-btn" type="button">2024 Lines</button>
-                </div>
-                <div style="margin-top:4px;font-size:11px;color:#6b7280;">
-                  Tennessee uses the same published district geometry in this build for both toggles.
                 </div>
             </div>
             <div class="control-group viz-inline-group" style="margin-bottom:10px;">
@@ -6376,23 +6350,13 @@ document.addEventListener('DOMContentLoaded', function() {
         precinct_aliases: '',
         precinct_variant_overrides: '',
         districts: withBase('./Data/tl_2022_47_cd118.geojson'),
-        districts_2022: withBase('./Data/tl_2022_47_cd118.geojson'),
-        districts_2024: withBase('./Data/tl_2022_47_cd118.geojson'),
         state_house: withBase('./Data/tl_2022_47_sldl.geojson'),
-        state_house_2022: withBase('./Data/tl_2022_47_sldl.geojson'),
-        state_house_2024: withBase('./Data/tl_2022_47_sldl.geojson'),
         state_senate: withBase('./Data/tl_2022_47_sldu.geojson'),
-        state_senate_2022: withBase('./Data/tl_2022_47_sldu.geojson'),
-        state_senate_2024: withBase('./Data/tl_2022_47_sldu.geojson'),
         county_demographics: withBase('./Data/county_demographics_2020_dp1.json'),
         election: withBase('./Data/tn_elections_aggregated.json'),
         district_election: withBase('./Data/tn_district_results_2022_lines.json'),
         district_contests_dir: withBase('./Data/district_contests'),
         district_contests_2020_2024_dir: '',
-        district_contests_dirs: {
-          '2022': withBase('./Data/district_contests'),
-          '2024': withBase('./Data/district_contests')
-        },
         districts_info: withBase('./Data/tn_congressional_districts.csv'),
         state_house_info: withBase('./Data/tn_state_house_districts.csv'),
         state_senate_info: withBase('./Data/tn_state_senate_districts.csv'),
@@ -6656,8 +6620,6 @@ document.addEventListener('DOMContentLoaded', function() {
     let electionData = null; // Flattened array for compatibility
     let contestManifest = [];
     let districtManifest = [];
-    let districtManifestByLines = { '2022': [], '2024': [] };
-    let currentDistrictLinesYear = 2022;
     const districtGeometryCache = new Map();
     let congressionalData = []; // Optional legacy district-level table
     let candidateNameCache = new Map();
@@ -6710,31 +6672,16 @@ document.addEventListener('DOMContentLoaded', function() {
     function saveUIState() {}
     async function restoreUIState() {}
 
-    function normalizeDistrictLinesYear(raw) {
-      return Number(raw) === 2024 ? 2024 : 2022;
-    }
-
-    function getDistrictLinesLabel(linesYear = currentDistrictLinesYear) {
-      return `${normalizeDistrictLinesYear(linesYear)} lines`;
-    }
-
-    function getActiveDistrictContestsDir(linesYear = currentDistrictLinesYear) {
-      const y = normalizeDistrictLinesYear(linesYear);
-      const dirs = CONFIG.paths?.district_contests_dirs || {};
-      return dirs[String(y)] || CONFIG.paths.district_contests_dir;
-    }
-
-    function getPreferredDistrictSlicePaths(scope, contestType, year, linesYear = currentDistrictLinesYear) {
+    function getPreferredDistrictSlicePaths(scope, contestType, year) {
       const y = Number(year);
-      const ly = normalizeDistrictLinesYear(linesYear);
       const key = `${scope}_${contestType}_${year}`;
       const out = [];
       const calibrated2020Dir = (CONFIG.paths?.district_contests_2020_2024_dir || '').toString().trim();
-      const baseDir = (getActiveDistrictContestsDir(linesYear) || '').toString().trim();
+      const baseDir = (CONFIG.paths?.district_contests_dir || '').toString().trim();
 
-      // Prefer calibrated slices only for congressional scope on 2022 lines.
+      // Prefer calibrated slices only for congressional scope.
       // Legislative scopes continue to use the primary district_contests data.
-      if (ly === 2022 && scope === 'congressional' && Number.isFinite(y) && y >= 2020 && calibrated2020Dir) {
+      if (scope === 'congressional' && Number.isFinite(y) && y >= 2020 && calibrated2020Dir) {
         out.push(`${calibrated2020Dir}/${key}.json`);
       }
       if (baseDir) out.push(`${baseDir}/${key}.json`);
@@ -6742,52 +6689,32 @@ document.addEventListener('DOMContentLoaded', function() {
       return Array.from(new Set(out));
     }
 
-    function getActiveDistrictManifest(linesYear = currentDistrictLinesYear) {
-      const y = normalizeDistrictLinesYear(linesYear);
-      return districtManifestByLines?.[String(y)] || [];
+    function getActiveDistrictManifest() {
+      return districtManifest || [];
     }
 
-    function getDistrictGeometryPath(scope, linesYear = currentDistrictLinesYear) {
-      const y = normalizeDistrictLinesYear(linesYear);
+    function getDistrictGeometryPath(scope) {
       if (scope === 'congressional') {
-        return y === 2024
-          ? (CONFIG.paths.districts_2024 || CONFIG.paths.districts)
-          : (CONFIG.paths.districts_2022 || CONFIG.paths.districts);
+        return CONFIG.paths.districts || '';
       }
       if (scope === 'state_house') {
-        return y === 2024
-          ? (CONFIG.paths.state_house_2024 || CONFIG.paths.state_house)
-          : (CONFIG.paths.state_house_2022 || CONFIG.paths.state_house);
+        return CONFIG.paths.state_house || '';
       }
       if (scope === 'state_senate') {
-        return y === 2024
-          ? (CONFIG.paths.state_senate_2024 || CONFIG.paths.state_senate)
-          : (CONFIG.paths.state_senate_2022 || CONFIG.paths.state_senate);
+        return CONFIG.paths.state_senate || '';
       }
       return '';
     }
 
-    function getDistrictGeometryPathForSource(sourceId, linesYear = currentDistrictLinesYear) {
-      if (sourceId === 'districts') return getDistrictGeometryPath('congressional', linesYear);
-      if (sourceId === 'state-house') return getDistrictGeometryPath('state_house', linesYear);
-      if (sourceId === 'state-senate') return getDistrictGeometryPath('state_senate', linesYear);
+    function getDistrictGeometryPathForSource(sourceId) {
+      if (sourceId === 'districts') return getDistrictGeometryPath('congressional');
+      if (sourceId === 'state-house') return getDistrictGeometryPath('state_house');
+      if (sourceId === 'state-senate') return getDistrictGeometryPath('state_senate');
       return '';
     }
 
-    function updateDistrictLinesToggleUI() {
-      const y = normalizeDistrictLinesYear(currentDistrictLinesYear);
-      document.getElementById('district-lines-2022')?.classList.toggle('active', y === 2022);
-      document.getElementById('district-lines-2024')?.classList.toggle('active', y === 2024);
-    }
-
-    function clearDistrictSearchGeoJSONCache() {
-      delete window['districts__search_geojson'];
-      delete window['state-house__search_geojson'];
-      delete window['state-senate__search_geojson'];
-    }
-
-    async function loadDistrictGeometry(scope, linesYear = currentDistrictLinesYear) {
-      const path = getDistrictGeometryPath(scope, linesYear);
+    async function loadDistrictGeometry(scope) {
+      const path = getDistrictGeometryPath(scope);
       if (!path) return null;
       const cacheKey = `${scope}:${path}`;
       if (districtGeometryCache.has(cacheKey)) return districtGeometryCache.get(cacheKey);
@@ -6796,91 +6723,20 @@ document.addEventListener('DOMContentLoaded', function() {
       return data;
     }
 
-    async function refreshDistrictGeometrySources(linesYear = currentDistrictLinesYear) {
-      if (!map) return;
-      const targets = [
-        { sourceId: 'districts', scope: 'congressional' },
-        { sourceId: 'state-house', scope: 'state_house' },
-        { sourceId: 'state-senate', scope: 'state_senate' }
-      ];
-      await Promise.all(targets.map(async ({ sourceId, scope }) => {
-        const src = map.getSource(sourceId);
-        if (!src || src.type !== 'geojson' || typeof src.setData !== 'function') return;
-        const data = await loadDistrictGeometry(scope, linesYear);
-        if (!data) return;
-        src.setData(data);
-        window[`${sourceId}__search_geojson`] = data;
-      }));
-    }
-
-    async function setDistrictLinesMode(linesYear) {
-      const nextYear = normalizeDistrictLinesYear(linesYear);
-      if (nextYear === normalizeDistrictLinesYear(currentDistrictLinesYear)) {
-        updateDistrictLinesToggleUI();
-        return;
-      }
-      const contestSelect = document.getElementById('contestSelect');
-      const previousContestValue = (contestSelect?.value || '').toString().trim();
-
-      currentDistrictLinesYear = nextYear;
-      districtManifest = getActiveDistrictManifest();
-      districtSliceCache = new Map();
-      districtCarryCrosswalkCache.clear();
-      vizPrevDistrictCache.clear();
-      clearDistrictSearchGeoJSONCache();
-      updateDistrictLinesToggleUI();
-
-      if (appReady) {
-        try {
-          await refreshDistrictGeometrySources(nextYear);
-        } catch (err) {
-          console.warn('District geometry refresh failed:', err?.message || err);
-        }
-      }
-
-      updateContestSelectForCurrentView();
-      const nextContestSelect = document.getElementById('contestSelect');
-      const canPreserveContest = !!(
-        previousContestValue &&
-        nextContestSelect &&
-        Array.from(nextContestSelect.options || []).some(opt => opt && opt.value === previousContestValue)
-      );
-
-      if (canPreserveContest) {
-        nextContestSelect.value = previousContestValue;
-        if (appReady) {
-          try {
-            await applyContest(previousContestValue);
-          } catch (err) {
-            console.warn('Failed to reapply contest after district-line switch:', err?.message || err);
-            nextContestSelect.value = '';
-            updateContextBanner();
-          }
-        }
-      } else if (nextContestSelect) {
-        nextContestSelect.value = '';
-        updateContextBanner();
-      }
-
-      setStatus(`District lines set to ${getDistrictLinesLabel(nextYear)}`);
-      reinforceMapLabelHalos();
-      saveUIState();
-    }
-
     function getVectorSourceLayer(sourceId) {
       if (!CONFIG.tilesets?.enabled) return null;
       if (sourceId === 'counties') return CONFIG.tilesets.sources?.counties?.sourceLayer || null;
       if (sourceId === 'districts') {
         const cfg = CONFIG.tilesets.sources?.districts || {};
-        return cfg.sourceLayerByLines?.[String(normalizeDistrictLinesYear(currentDistrictLinesYear))] || cfg.sourceLayer || null;
+        return cfg.sourceLayer || null;
       }
       if (sourceId === 'state-house') {
         const cfg = CONFIG.tilesets.sources?.state_house || {};
-        return cfg.sourceLayerByLines?.[String(normalizeDistrictLinesYear(currentDistrictLinesYear))] || cfg.sourceLayer || null;
+        return cfg.sourceLayer || null;
       }
       if (sourceId === 'state-senate') {
         const cfg = CONFIG.tilesets.sources?.state_senate || {};
-        return cfg.sourceLayerByLines?.[String(normalizeDistrictLinesYear(currentDistrictLinesYear))] || cfg.sourceLayer || null;
+        return cfg.sourceLayer || null;
       }
       return null;
     }
@@ -8398,11 +8254,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     async function loadDistrictSlice(scope, contestType, year) {
       const key = `${scope}_${contestType}_${year}`;
-      const linesYear = normalizeDistrictLinesYear(currentDistrictLinesYear);
-      const cacheKey = `${linesYear}|${key}`;
+      const cacheKey = key;
       if (districtSliceCache.has(cacheKey)) return districtSliceCache.get(cacheKey);
 
-      const candidatePaths = getPreferredDistrictSlicePaths(scope, contestType, year, linesYear);
+      const candidatePaths = getPreferredDistrictSlicePaths(scope, contestType, year);
       for (const path of candidatePaths) {
         try {
           const payload = await loadJSON(path);
@@ -8411,9 +8266,7 @@ document.addEventListener('DOMContentLoaded', function() {
         } catch (_) {}
       }
 
-      const fallback = linesYear === 2022
-        ? (districtElectionDataJSON?.results_by_year?.[year]?.[scope]?.[contestType] || null)
-        : null;
+      const fallback = districtElectionDataJSON?.results_by_year?.[year]?.[scope]?.[contestType] || null;
       districtSliceCache.set(cacheKey, fallback);
       return fallback;
     }
@@ -9187,17 +9040,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function getCarryoverCrosswalkPath(scope, year = null) {
       const crosswalks = CONFIG.paths?.crosswalks || {};
-      const linesYear = normalizeDistrictLinesYear(currentDistrictLinesYear);
       if (scope === 'congressional') {
-        return (linesYear === 2024
-          ? (crosswalks.congressional_2024 || crosswalks.congressional_2022 || crosswalks.congressional)
-          : (crosswalks.congressional_2022 || crosswalks.congressional)) || '';
+        return crosswalks.congressional || crosswalks.congressional_2022 || crosswalks.congressional_2024 || '';
       }
       if (scope === 'state_house') {
-        return crosswalks[`state_house_${linesYear}`] || crosswalks.state_house_2022 || '';
+        return crosswalks.state_house || crosswalks.state_house_2022 || crosswalks.state_house_2024 || '';
       }
       if (scope === 'state_senate') {
-        return crosswalks[`state_senate_${linesYear}`] || crosswalks.state_senate_2022 || '';
+        return crosswalks.state_senate || crosswalks.state_senate_2022 || crosswalks.state_senate_2024 || '';
       }
       return '';
     }
@@ -13162,7 +13012,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     async function handleDistrictSelection(districtNum, sourceId, chamber, label) {
-      const path = getDistrictGeometryPathForSource(sourceId, currentDistrictLinesYear);
+      const path = getDistrictGeometryPathForSource(sourceId);
       const gj = await ensureSearchGeoJSON(sourceId, path);
       if (!gj || !gj.features) return;
 
@@ -14219,32 +14069,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         try {
-          let loadedAnyDistrictManifest = false;
-          districtManifestByLines = { '2022': [], '2024': [] };
-          for (const linesYear of [2022, 2024]) {
-            const dir = getActiveDistrictContestsDir(linesYear);
-            if (!dir) continue;
-            try {
-              const dManifest = await loadJSON(`${dir}/manifest.json`);
-              const files = dManifest?.files || [];
-              districtManifestByLines[String(linesYear)] = files;
-              if (files.length > 0) loadedAnyDistrictManifest = true;
-            } catch (err) {
-              districtManifestByLines[String(linesYear)] = [];
-              if (linesYear === 2022) {
-                console.warn('Primary district manifest not loaded:', err?.message || err);
-              }
-            }
-          }
-
-          if (!loadedAnyDistrictManifest) {
-            throw new Error('No district manifests found');
-          }
-
-          districtManifest = getActiveDistrictManifest();
+          const dManifest = await loadJSON(`${CONFIG.paths.district_contests_dir}/manifest.json`);
+          districtManifest = dManifest?.files || [];
           districtElectionDataJSON = null;
           districtSliceCache = new Map();
-          updateDistrictLinesToggleUI();
           if (contestManifest.length > 0 || districtManifest.length > 0) {
             updateContestSelectForCurrentView();
           }
@@ -14254,9 +14082,7 @@ document.addEventListener('DOMContentLoaded', function() {
             districtElectionDataJSON = await loadJSON(CONFIG.paths.district_election);
             debugLog('District election data loaded:', districtElectionDataJSON);
             districtSliceCache = new Map();
-            districtManifestByLines = { '2022': [], '2024': [] };
             districtManifest = [];
-            updateDistrictLinesToggleUI();
           } catch (err) {
             console.warn('District election data not loaded:', err.message);
             districtElectionDataJSON = null;
@@ -14292,7 +14118,7 @@ document.addEventListener('DOMContentLoaded', function() {
           if (CONFIG.tilesets?.enabled && CONFIG.tilesets?.sources?.districts?.url) {
             map.addSource('districts', { type: 'vector', url: CONFIG.tilesets.sources.districts.url });
           } else {
-            const districtsGeoJSON = await loadDistrictGeometry('congressional', currentDistrictLinesYear);
+            const districtsGeoJSON = await loadDistrictGeometry('congressional');
             map.addSource('districts', { type: 'geojson', data: districtsGeoJSON });
             window['districts__search_geojson'] = districtsGeoJSON;
           }
@@ -14306,7 +14132,7 @@ document.addEventListener('DOMContentLoaded', function() {
           if (CONFIG.tilesets?.enabled && CONFIG.tilesets?.sources?.state_house?.url) {
             map.addSource('state-house', { type: 'vector', url: CONFIG.tilesets.sources.state_house.url });
           } else {
-            const stateHouseGeoJSON = await loadDistrictGeometry('state_house', currentDistrictLinesYear);
+            const stateHouseGeoJSON = await loadDistrictGeometry('state_house');
             map.addSource('state-house', { type: 'geojson', data: stateHouseGeoJSON });
             window['state-house__search_geojson'] = stateHouseGeoJSON;
           }
@@ -14322,7 +14148,7 @@ document.addEventListener('DOMContentLoaded', function() {
           if (CONFIG.tilesets?.enabled && CONFIG.tilesets?.sources?.state_senate?.url) {
             map.addSource('state-senate', { type: 'vector', url: CONFIG.tilesets.sources.state_senate.url });
           } else {
-            const stateSenateGeoJSON = await loadDistrictGeometry('state_senate', currentDistrictLinesYear);
+            const stateSenateGeoJSON = await loadDistrictGeometry('state_senate');
             map.addSource('state-senate', { type: 'geojson', data: stateSenateGeoJSON });
             window['state-senate__search_geojson'] = stateSenateGeoJSON;
           }
@@ -14691,8 +14517,8 @@ document.addEventListener('DOMContentLoaded', function() {
       return vizPrevCache;
     }
 
-    async function tryLoadDistrictSliceStrict(scope, contestType, year, linesYear = currentDistrictLinesYear) {
-      const candidatePaths = getPreferredDistrictSlicePaths(scope, contestType, year, linesYear);
+    async function tryLoadDistrictSliceStrict(scope, contestType, year) {
+      const candidatePaths = getPreferredDistrictSlicePaths(scope, contestType, year);
       for (const path of candidatePaths) {
         try {
           return await loadJSON(path);
@@ -14701,11 +14527,11 @@ document.addEventListener('DOMContentLoaded', function() {
       return null;
     }
 
-    async function getPreviousDistrictSlice(scope, contestType, year, linesYear = currentDistrictLinesYear) {
+    async function getPreviousDistrictSlice(scope, contestType, year) {
       const y = Number(year);
       const candidates = [y - 4, y - 6, y - 2, y - 8, y - 12].filter(v => v >= 2000);
       for (const cy of candidates) {
-        const node = await tryLoadDistrictSliceStrict(scope, contestType, cy, linesYear);
+        const node = await tryLoadDistrictSliceStrict(scope, contestType, cy);
         const results = node?.general?.results || null;
         if (results && Object.keys(results).length) return { year: cy, node };
       }
@@ -14714,10 +14540,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     async function ensurePrevDistrictCache(scope, contestType, year) {
       const y = Number(year);
-      const linesYear = normalizeDistrictLinesYear(currentDistrictLinesYear);
-      const key = `${linesYear}_${scope}_${contestType}_${y}`;
+      const key = `${scope}_${contestType}_${y}`;
       if (vizPrevDistrictCache.has(key)) return vizPrevDistrictCache.get(key);
-      const prev = await getPreviousDistrictSlice(scope, contestType, y, linesYear);
+      const prev = await getPreviousDistrictSlice(scope, contestType, y);
       const cached = prev ? { prevYear: prev.year, prevNode: prev.node } : { prevYear: null, prevNode: null };
       vizPrevDistrictCache.set(key, cached);
       return cached;
@@ -15324,7 +15149,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     async function applyStatewideContestToDistricts(contestType, year) {
-      // Prefer district-level results reallocated to 2024 lines when available.
+      // Prefer precomputed district-level reallocation results when available.
       if (currentView === 'districts' || currentView === 'state_house' || currentView === 'state_senate') {
         const districtScope = currentView === 'districts'
           ? 'congressional'
@@ -15433,10 +15258,10 @@ document.addEventListener('DOMContentLoaded', function() {
           const coverageText = (coveragePct !== undefined && coveragePct !== null)
             ? ` | match coverage ${Number(coveragePct).toFixed(2)}%`
             : '';
-          const linesLabel = getDistrictLinesLabel();
-          setStatewideContestTitle(`${formatContestName(contestType, year)} (${year}) - Reallocated to ${linesLabel}${coverageText}`);
+          const geometryLabel = 'district geometry';
+          setStatewideContestTitle(`${formatContestName(contestType, year)} (${year}) - Reallocated to ${geometryLabel}${coverageText}`);
           setStatus(`Applied district crosswalk results: ${formatContestName(contestType, year)} ${year} (${demPct.toFixed(2)}% D, ${repPct.toFixed(2)}% R, ${otherPct.toFixed(2)}% O)${coverageText}`);
-          setVoteCounterBaselineState('Statewide', `${formatContestName(contestType, year)} ${year} (${linesLabel})`, totalDem, totalRep, totalOther, { kind: 'statewide', contestType, year: Number(year) });
+          setVoteCounterBaselineState('Statewide', `${formatContestName(contestType, year)} ${year} (${geometryLabel})`, totalDem, totalRep, totalOther, { kind: 'statewide', contestType, year: Number(year) });
           return;
         }
       }
