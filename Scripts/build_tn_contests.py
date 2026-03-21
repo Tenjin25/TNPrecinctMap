@@ -36,6 +36,7 @@ OVERLAP_MIN_SRC_WEIGHT = 0.001
 PRECINCT_OVERLAY_GEOJSON = DATA_DIR / "tn_voting_precincts.geojson"
 VTD10_SHAPEFILE_ZIP = DATA_DIR / "tl_2012_47_vtd10.zip"
 VTD00_COUNTY_ZIP_DIR = DATA_DIR / "tiger2008_vtd00_counties"
+VTD20_NAME_ZIP = DATA_DIR / "tl_2020_47_vtd20.zip"
 CONGRESSIONAL_DISTRICT_GEOJSON = DATA_DIR / "tl_2022_47_cd118.geojson"
 STATE_HOUSE_DISTRICT_GEOJSON = DATA_DIR / "tl_2022_47_sldl.geojson"
 STATE_SENATE_DISTRICT_GEOJSON = DATA_DIR / "tl_2022_47_sldu.geojson"
@@ -306,6 +307,36 @@ def load_precinct_to_2024_map() -> Dict[Tuple[int, str, str], str]:
                 continue
             out[(from_year, county_norm, from_precinct_norm)] = prct.zfill(6)
     return out
+
+
+def build_precinct_split_key_maps(
+    to2024: Dict[Tuple[int, str, str], str],
+) -> Tuple[Dict[Tuple[int, str, str], str], Dict[Tuple[str, str], str]]:
+    """Build unique split-key lookup maps from strict precinct->2024 mappings."""
+    by_year_raw: Dict[Tuple[int, str, str], set] = defaultdict(set)
+    any_year_raw: Dict[Tuple[str, str], set] = defaultdict(set)
+
+    for (year, county_norm, from_precinct_norm), code in to2024.items():
+        split_key = extract_precinct_split_key(from_precinct_norm)
+        if not split_key:
+            continue
+        norm_code = norm_space(code).zfill(6)
+        if not norm_code or not norm_code.isdigit():
+            continue
+        by_year_raw[(int(year), county_norm, split_key)].add(norm_code)
+        any_year_raw[(county_norm, split_key)].add(norm_code)
+
+    by_year = {
+        k: next(iter(v))
+        for k, v in by_year_raw.items()
+        if len(v) == 1
+    }
+    any_year = {
+        k: next(iter(v))
+        for k, v in any_year_raw.items()
+        if len(v) == 1
+    }
+    return by_year, any_year
 
 
 def load_2024_prctseq_by_county() -> Dict[str, set]:
@@ -628,22 +659,43 @@ def load_vtd_name_key_map(src_year: int) -> Dict[Tuple[str, str], List[str]]:
     }
 
 
-def remap_precinct_code_to_2020_vtd_allocations(
+def load_vtd20_name_key_map() -> Dict[Tuple[str, str], List[str]]:
+    """Map (countyfp, split_key like '01 3') -> VTD20 code(s)."""
+    if not VTD20_NAME_ZIP.exists():
+        return {}
+    out: Dict[Tuple[str, str], set] = defaultdict(set)
+    gdf = gpd.read_file(VTD20_NAME_ZIP)
+    rows = gdf.drop(columns="geometry", errors="ignore").to_dict("records")
+    _add_vtd_name_key_rows(
+        rows=rows,
+        county_col="COUNTYFP20",
+        code_col="VTDST20",
+        name_cols=["NAME20", "NAMELSAD20"],
+        code_width=6,
+        out=out,
+    )
+    return {
+        k: sorted(v)
+        for k, v in out.items()
+        if v
+    }
+
+
+def resolve_source_codes_for_overlap(
     year: int,
     county_fp: str,
     code_numeric: str,
     code_label: str,
-    scope_precinct_weights: Dict[Tuple[str, str], List[Tuple[str, float]]],
     overlap_maps_by_src_year: Dict[int, Dict[Tuple[str, str], List[Tuple[str, float]]]],
     vtd_name_key_maps_by_src_year: Dict[int, Dict[Tuple[str, str], List[str]]],
-) -> List[Tuple[str, float]]:
-    """Return district allocations via historical VTD overlap as fallback."""
+) -> Tuple[Optional[int], List[str]]:
+    """Resolve source-era VTD codes that exist in overlap maps for a precinct label."""
     src_year = overlap_source_year_for_election(year)
     if src_year is None:
-        return []
+        return None, []
     overlap_map = overlap_maps_by_src_year.get(src_year, {})
     if not overlap_map:
-        return []
+        return src_year, []
 
     source_codes: List[str] = []
     seen_codes = set()
@@ -664,8 +716,62 @@ def remap_precinct_code_to_2020_vtd_allocations(
                     seen_codes.add(c)
                     source_codes.append(c)
 
-    if not source_codes:
+    return src_year, source_codes
+
+
+def resolve_precinct_to_2020_code_from_overlap(
+    year: int,
+    county_fp: str,
+    code_numeric: str,
+    code_label: str,
+    overlap_maps_by_src_year: Dict[int, Dict[Tuple[str, str], List[Tuple[str, float]]]],
+    vtd_name_key_maps_by_src_year: Dict[int, Dict[Tuple[str, str], List[str]]],
+) -> str:
+    """Resolve a single best 2020 VTD code from overlap weights."""
+    src_year, source_codes = resolve_source_codes_for_overlap(
+        year=year,
+        county_fp=county_fp,
+        code_numeric=code_numeric,
+        code_label=code_label,
+        overlap_maps_by_src_year=overlap_maps_by_src_year,
+        vtd_name_key_maps_by_src_year=vtd_name_key_maps_by_src_year,
+    )
+    if src_year is None or not source_codes:
+        return ""
+
+    overlap_map = overlap_maps_by_src_year.get(src_year, {})
+    dst_accum: Dict[str, float] = defaultdict(float)
+    source_weight = 1.0 / float(len(source_codes))
+    for src_code in source_codes:
+        src_to_2020 = overlap_map.get((county_fp, src_code), [])
+        for dst_vtd20, src_w in src_to_2020:
+            dst_accum[str(dst_vtd20).zfill(6)] += source_weight * float(src_w)
+    if not dst_accum:
+        return ""
+    return max(sorted(dst_accum.keys()), key=lambda d: dst_accum[d])
+
+
+def remap_precinct_code_to_2020_vtd_allocations(
+    year: int,
+    county_fp: str,
+    code_numeric: str,
+    code_label: str,
+    scope_precinct_weights: Dict[Tuple[str, str], List[Tuple[str, float]]],
+    overlap_maps_by_src_year: Dict[int, Dict[Tuple[str, str], List[Tuple[str, float]]]],
+    vtd_name_key_maps_by_src_year: Dict[int, Dict[Tuple[str, str], List[str]]],
+) -> List[Tuple[str, float]]:
+    """Return district allocations via historical VTD overlap as fallback."""
+    src_year, source_codes = resolve_source_codes_for_overlap(
+        year=year,
+        county_fp=county_fp,
+        code_numeric=code_numeric,
+        code_label=code_label,
+        overlap_maps_by_src_year=overlap_maps_by_src_year,
+        vtd_name_key_maps_by_src_year=vtd_name_key_maps_by_src_year,
+    )
+    if src_year is None or not source_codes:
         return []
+    overlap_map = overlap_maps_by_src_year.get(src_year, {})
 
     district_accum: Dict[str, float] = defaultdict(float)
     source_weight = 1.0 / float(len(source_codes))
@@ -759,8 +865,13 @@ def resolve_precinct_code(
     precinct_raw: str,
     prctseq_raw: str,
     to2024: Dict[Tuple[int, str, str], str],
+    to2024_split_by_year: Dict[Tuple[int, str, str], str],
+    to2024_split_any_year: Dict[Tuple[str, str], str],
     offsets: Dict[str, int],
     vtd_ints_by_county: Dict[str, set],
+    overlap_maps_by_src_year: Dict[int, Dict[Tuple[str, str], List[Tuple[str, float]]]],
+    vtd_name_key_maps_by_src_year: Dict[int, Dict[Tuple[str, str], List[str]]],
+    vtd20_name_key_map: Dict[Tuple[str, str], List[str]],
 ) -> str:
     if year == 2024:
         p = norm_space(prctseq_raw)
@@ -774,6 +885,41 @@ def resolve_precinct_code(
         return prctseq_to_vtd(
             county_fp, code.zfill(6), offsets, vtd_ints_by_county
         )
+
+    # Fallback: resolve by split key (e.g., "01-3") from year-specific then any-year crosswalk rows.
+    split_keys = source_name_keys_for_overlap(precinct_raw)
+    for split_key in split_keys:
+        split_code = to2024_split_by_year.get((year, county_norm, split_key), "")
+        if not split_code:
+            split_code = to2024_split_any_year.get((county_norm, split_key), "")
+        if split_code:
+            return prctseq_to_vtd(
+                county_fp, split_code.zfill(6), offsets, vtd_ints_by_county
+            )
+
+    # Fallback: historical VTD name -> 2020 VTD via overlap (2000/2010 sources).
+    overlap_code = resolve_precinct_to_2020_code_from_overlap(
+        year=year,
+        county_fp=county_fp,
+        code_numeric="",
+        code_label=precinct_raw,
+        overlap_maps_by_src_year=overlap_maps_by_src_year,
+        vtd_name_key_maps_by_src_year=vtd_name_key_maps_by_src_year,
+    )
+    if overlap_code:
+        return prctseq_to_vtd(
+            county_fp, overlap_code.zfill(6), offsets, vtd_ints_by_county
+        )
+
+    # Fallback: direct 2020 VTD name-key lookup when 2020 VTD zip is present locally.
+    if year >= 2020 and county_fp and vtd20_name_key_map:
+        for split_key in split_keys:
+            candidates = vtd20_name_key_map.get((county_fp, split_key), [])
+            if len(candidates) == 1:
+                return prctseq_to_vtd(
+                    county_fp, candidates[0].zfill(6), offsets, vtd_ints_by_county
+                )
+
     if is_non_geographic_precinct_name(precinct_raw):
         return f"NG-{prec_norm[:20]}".replace(" ", "_")
     return f"UNM-{prec_norm[:20]}".replace(" ", "_")
@@ -786,6 +932,7 @@ def build() -> dict:
 
     county_norm_to_fp, _fp_to_county_norm = load_county_maps()
     to2024 = load_precinct_to_2024_map()
+    to2024_split_by_year, to2024_split_any_year = build_precinct_split_key_maps(to2024)
     district_weights, county_district_weights = build_district_weight_maps()
     overlap_maps_by_src_year = {
         2000: load_vtd_overlap_to_2020_map(
@@ -801,6 +948,7 @@ def build() -> dict:
         2000: load_vtd_name_key_map(2000),
         2010: load_vtd_name_key_map(2010),
     }
+    vtd20_name_key_map = load_vtd20_name_key_map()
     prctseq_offsets, vtd_ints_by_county = build_prctseq_offsets(
         county_norm_to_fp, district_weights
     )
@@ -836,8 +984,13 @@ def build() -> dict:
                 precinct_raw=row["precinct"],
                 prctseq_raw=row["prctseq"],
                 to2024=to2024,
+                to2024_split_by_year=to2024_split_by_year,
+                to2024_split_any_year=to2024_split_any_year,
                 offsets=prctseq_offsets,
                 vtd_ints_by_county=vtd_ints_by_county,
+                overlap_maps_by_src_year=overlap_maps_by_src_year,
+                vtd_name_key_maps_by_src_year=vtd_name_key_maps_by_src_year,
+                vtd20_name_key_map=vtd20_name_key_map,
             )
             if not code:
                 continue
