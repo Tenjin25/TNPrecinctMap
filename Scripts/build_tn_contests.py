@@ -9,16 +9,14 @@ Produces:
 from __future__ import annotations
 
 import csv
-import io
 import json
 import re
-import zipfile
 from collections import Counter, defaultdict
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Dict, Iterable, Iterator, List, Optional, Tuple
 
-import pandas as pd
+import geopandas as gpd
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -34,6 +32,13 @@ DISTRICT_SCOPE_BY_OFFICE_CONTEST = {
     "state_senate": "state_senate",
 }
 STATEWIDE_DISTRICT_SCOPES = ("congressional", "state_house", "state_senate")
+OVERLAP_MIN_SRC_WEIGHT = 0.001
+PRECINCT_OVERLAY_GEOJSON = DATA_DIR / "tn_voting_precincts.geojson"
+VTD10_SHAPEFILE_ZIP = DATA_DIR / "tl_2012_47_vtd10.zip"
+VTD00_COUNTY_ZIP_DIR = DATA_DIR / "tiger2008_vtd00_counties"
+CONGRESSIONAL_DISTRICT_GEOJSON = DATA_DIR / "tl_2022_47_cd118.geojson"
+STATE_HOUSE_DISTRICT_GEOJSON = DATA_DIR / "tl_2022_47_sldl.geojson"
+STATE_SENATE_DISTRICT_GEOJSON = DATA_DIR / "tl_2022_47_sldu.geojson"
 
 
 def norm_space(s: str) -> str:
@@ -320,110 +325,372 @@ def load_2024_prctseq_by_county() -> Dict[str, set]:
     return out
 
 
-def read_blockassign_table(zip_path: Path, suffix: str) -> pd.DataFrame:
-    with zipfile.ZipFile(zip_path) as zf:
-        name = next((n for n in zf.namelist() if n.endswith(suffix)), None)
-        if not name:
-            raise RuntimeError(f"{suffix} not found in {zip_path.name}")
-        raw = zf.read(name).decode("utf-8-sig", errors="replace")
-    return pd.read_csv(io.StringIO(raw), sep="|", dtype=str)
+def normalize_district_code(raw) -> str:
+    s = norm_space(str(raw or ""))
+    if not s:
+        return ""
+    m = re.search(r"(\d+)", s)
+    if m:
+        return str(int(m.group(1)))
+    return s
+
+
+def build_district_weight_maps_from_overlay() -> Tuple[
+    Dict[str, Dict[Tuple[str, str], List[Tuple[str, float]]]],
+    Dict[str, Dict[str, List[Tuple[str, float]]]],
+]:
+    """Build district weights by area overlap between precinct polygons and district polygons."""
+    if not PRECINCT_OVERLAY_GEOJSON.exists():
+        raise FileNotFoundError("Missing Data/tn_voting_precincts.geojson")
+
+    scope_shapes = {
+        "congressional": (CONGRESSIONAL_DISTRICT_GEOJSON, "CD118FP"),
+        "state_house": (STATE_HOUSE_DISTRICT_GEOJSON, "SLDLST"),
+        "state_senate": (STATE_SENATE_DISTRICT_GEOJSON, "SLDUST"),
+    }
+    for shp, _field in scope_shapes.values():
+        if not shp.exists():
+            raise FileNotFoundError(f"Missing {shp}")
+
+    county_norm_to_fp, _ = load_county_maps()
+    vtd = gpd.read_file(PRECINCT_OVERLAY_GEOJSON)[["county_norm", "prec_id", "geometry"]].copy()
+    vtd["COUNTYFP"] = vtd["county_norm"].apply(
+        lambda c: county_norm_to_fp.get(norm_county(str(c)), "")
+    )
+    vtd["VTD"] = vtd["prec_id"].astype(str).str.zfill(6)
+    vtd = vtd[(vtd["COUNTYFP"] != "") & (vtd["VTD"] != "")].copy()
+    vtd = vtd[vtd["geometry"].notna()].copy()
+    vtd = vtd.to_crs(5070)
+    vtd["vtd_area"] = vtd.geometry.area
+    vtd = vtd[vtd["vtd_area"] > 0].copy()
+
+    precinct_out: Dict[str, Dict[Tuple[str, str], List[Tuple[str, float]]]] = {}
+    county_out: Dict[str, Dict[str, List[Tuple[str, float]]]] = {}
+
+    for scope, (shape_path, district_field) in scope_shapes.items():
+        districts = gpd.read_file(shape_path)[[district_field, "geometry"]].copy()
+        districts["DISTRICT"] = districts[district_field].apply(normalize_district_code)
+        districts = districts[(districts["DISTRICT"] != "") & districts["geometry"].notna()].copy()
+        districts = districts.to_crs(5070)
+
+        left = vtd[["COUNTYFP", "VTD", "vtd_area", "geometry"]].copy()
+        right = districts[["DISTRICT", "geometry"]].copy()
+        intersections = gpd.overlay(left, right, how="intersection", keep_geom_type=False)
+        if intersections.empty:
+            precinct_out[scope] = {}
+            county_out[scope] = {}
+            continue
+
+        intersections["inter_area"] = intersections.geometry.area
+        intersections = intersections[intersections["inter_area"] > 0].copy()
+        intersections["weight"] = intersections["inter_area"] / intersections["vtd_area"]
+
+        grouped = (
+            intersections.groupby(["COUNTYFP", "VTD", "DISTRICT"], as_index=False)["weight"]
+            .sum()
+        )
+        mapping: Dict[Tuple[str, str], List[Tuple[str, float]]] = defaultdict(list)
+        for (countyfp, vtd_code), frame in grouped.groupby(["COUNTYFP", "VTD"]):
+            total = float(frame["weight"].sum())
+            if total <= 0:
+                continue
+            rows = sorted(
+                (
+                    (str(d), float(w) / total)
+                    for d, w in zip(frame["DISTRICT"], frame["weight"])
+                    if float(w) > 0
+                ),
+                key=lambda x: x[1],
+                reverse=True,
+            )
+            if rows:
+                mapping[(str(countyfp).zfill(3), str(vtd_code).zfill(6))] = rows
+        precinct_out[scope] = dict(mapping)
+
+        county_inter = (
+            intersections.groupby(["COUNTYFP", "DISTRICT"], as_index=False)["inter_area"]
+            .sum()
+        )
+        county_totals = (
+            county_inter.groupby("COUNTYFP", as_index=False)["inter_area"]
+            .sum()
+            .rename(columns={"inter_area": "county_area"})
+        )
+        county_inter = county_inter.merge(county_totals, on="COUNTYFP", how="left")
+        county_inter["weight"] = county_inter["inter_area"] / county_inter["county_area"]
+
+        county_mapping: Dict[str, List[Tuple[str, float]]] = defaultdict(list)
+        for countyfp, frame in county_inter.groupby("COUNTYFP"):
+            rows = sorted(
+                (
+                    (str(d), float(w))
+                    for d, w in zip(frame["DISTRICT"], frame["weight"])
+                    if float(w) > 0
+                ),
+                key=lambda x: x[1],
+                reverse=True,
+            )
+            if rows:
+                county_mapping[str(countyfp).zfill(3)] = rows
+        county_out[scope] = dict(county_mapping)
+
+    return precinct_out, county_out
 
 
 def build_district_weight_maps() -> Tuple[
     Dict[str, Dict[Tuple[str, str], List[Tuple[str, float]]]],
     Dict[str, Dict[str, List[Tuple[str, float]]]],
 ]:
-    """Build district weights by precinct and county using block counts.
+    """Build district weights by precinct-polygon to district-polygon area overlap only."""
+    required = [
+        PRECINCT_OVERLAY_GEOJSON,
+        CONGRESSIONAL_DISTRICT_GEOJSON,
+        STATE_HOUSE_DISTRICT_GEOJSON,
+        STATE_SENATE_DISTRICT_GEOJSON,
+    ]
+    missing = [str(p) for p in required if not p.exists()]
+    if missing:
+        raise FileNotFoundError(
+            "Missing required overlay inputs for district weight join: " + ", ".join(missing)
+        )
+    return build_district_weight_maps_from_overlay()
 
-    Returns:
-      precinct_weights_by_scope: scope -> {(countyfp, vtd_code): [(district, weight), ...]}
-      county_weights_by_scope: scope -> {countyfp: [(district, weight), ...]}
+
+def load_vtd_overlap_to_2020_map(
+    path: Path,
+    src_code_width: int,
+    min_src_weight: float = OVERLAP_MIN_SRC_WEIGHT,
+) -> Dict[Tuple[str, str], List[Tuple[str, float]]]:
+    """Load src-year VTD -> 2020 VTD overlap weights.
+
+    Expected CSV columns from scripts/build_tn_vtd_overlap_crosswalks.py:
+      - src_countyfp, src_vtdst, dst_vtdst, src_weight
     """
-    zip_path = DATA_DIR / "BlockAssign_ST47_TN.zip"
-    if not zip_path.exists():
-        raise FileNotFoundError("Missing Data/BlockAssign_ST47_TN.zip")
+    out: Dict[Tuple[str, str], List[Tuple[str, float]]] = {}
+    if not path.exists():
+        return out
 
-    vtd = read_blockassign_table(zip_path, "_VTD.txt").rename(
-        columns={"BLOCKID": "BLOCKID", "COUNTYFP": "COUNTYFP", "DISTRICT": "VTD"}
-    )[["BLOCKID", "COUNTYFP", "VTD"]]
-    vtd["COUNTYFP"] = vtd["COUNTYFP"].astype(str).str.zfill(3)
-    vtd["VTD"] = vtd["VTD"].astype(str).str.zfill(6)
+    raw: Dict[Tuple[str, str], Dict[str, float]] = defaultdict(lambda: defaultdict(float))
+    with path.open("r", encoding="utf-8", newline="") as f:
+        reader = csv.DictReader(f)
+        for r in reader:
+            countyfp = norm_space(r.get("src_countyfp", "")).zfill(3)
+            src_code = norm_space(r.get("src_vtdst", ""))
+            dst_code = norm_space(r.get("dst_vtdst", ""))
+            try:
+                src_weight = float(r.get("src_weight", "") or 0.0)
+            except ValueError:
+                src_weight = 0.0
 
-    scopes = {
-        "congressional": "_CD.txt",
-        "state_house": "_SLDL.txt",
-        "state_senate": "_SLDU.txt",
+            if not countyfp or not src_code or not dst_code or src_weight <= 0:
+                continue
+            if src_code.isdigit():
+                src_code = src_code.zfill(src_code_width)
+            if dst_code.isdigit():
+                dst_code = dst_code.zfill(6)
+            raw[(countyfp, src_code)][dst_code] += src_weight
+
+    for key, dst_map in raw.items():
+        if not dst_map:
+            continue
+        filtered = {d: w for d, w in dst_map.items() if w >= min_src_weight}
+        if not filtered:
+            # Keep dominant destination if everything is tiny slivers.
+            dmax = max(dst_map.keys(), key=lambda d: dst_map[d])
+            filtered = {dmax: dst_map[dmax]}
+        total = sum(filtered.values())
+        if total <= 0:
+            continue
+        out[key] = sorted(
+            ((d, w / total) for d, w in filtered.items() if w > 0),
+            key=lambda x: x[1],
+            reverse=True,
+        )
+    return out
+
+
+def overlap_source_year_for_election(year: int) -> Optional[int]:
+    y = int(year)
+    if y <= 2008:
+        return 2000
+    if 2009 <= y <= 2018:
+        return 2010
+    return None
+
+
+def source_code_candidates_for_overlap(code_numeric: str, src_year: int) -> List[str]:
+    """Return ordered candidate source VTD codes for overlap lookup."""
+    code = norm_space(code_numeric)
+    if not code or not code.isdigit():
+        return []
+    candidates: List[str] = []
+
+    def add(v: str) -> None:
+        if v and v not in candidates:
+            candidates.append(v)
+
+    # Preserve raw representation first.
+    add(code)
+    # Add integer-normalized forms to handle 0001 vs 000001 mismatches.
+    n = str(int(code))
+    if src_year in {2000, 2010}:
+        add(n.zfill(4))
+        add(code[-4:].zfill(4))
+    add(n.zfill(6))
+    return candidates
+
+
+def extract_precinct_split_key(raw: str) -> str:
+    """Extract key like '01 3' from precinct labels such as '01-3 XYZ'."""
+    s = norm_text(raw)
+    if not s:
+        return ""
+    m = re.match(r"^(\d{1,2})\s+(\d{1,2})\b", s)
+    if not m:
+        m = re.search(r"\b(\d{1,2})\s+(\d{1,2})\b", s)
+    if not m:
+        return ""
+    return f"{int(m.group(1)):02d} {int(m.group(2))}"
+
+
+def source_name_keys_for_overlap(code_label: str) -> List[str]:
+    """Return parsed precinct split keys from non-numeric UNM/NG labels."""
+    s = norm_space(code_label).upper()
+    if not s:
+        return []
+    if s.startswith("UNM-"):
+        s = s[4:]
+    elif s.startswith("NG-"):
+        s = s[3:]
+    s = s.replace("_", " ")
+    key = extract_precinct_split_key(s)
+    return [key] if key else []
+
+
+def _add_vtd_name_key_rows(
+    rows: Iterable[dict],
+    county_col: str,
+    code_col: str,
+    name_cols: List[str],
+    code_width: int,
+    out: Dict[Tuple[str, str], set],
+) -> None:
+    for r in rows:
+        countyfp = norm_space(str(r.get(county_col, ""))).zfill(3)
+        raw_code = norm_space(str(r.get(code_col, "")))
+        if not countyfp or not raw_code:
+            continue
+        src_code = raw_code.zfill(code_width) if raw_code.isdigit() else raw_code
+        for col in name_cols:
+            key = extract_precinct_split_key(r.get(col, ""))
+            if key:
+                out[(countyfp, key)].add(src_code)
+
+
+def load_vtd_name_key_map(src_year: int) -> Dict[Tuple[str, str], List[str]]:
+    """Map (countyfp, split_key like '01 3') -> source VTD codes for a source year."""
+    out: Dict[Tuple[str, str], set] = defaultdict(set)
+
+    if src_year == 2010:
+        if not VTD10_SHAPEFILE_ZIP.exists():
+            return {}
+        gdf = gpd.read_file(VTD10_SHAPEFILE_ZIP)
+        rows = gdf.drop(columns="geometry", errors="ignore").to_dict("records")
+        _add_vtd_name_key_rows(
+            rows=rows,
+            county_col="COUNTYFP10",
+            code_col="VTDST10",
+            name_cols=["NAME10", "NAMELSAD10"],
+            code_width=4,
+            out=out,
+        )
+    elif src_year == 2000:
+        if not VTD00_COUNTY_ZIP_DIR.exists():
+            return {}
+        for zip_path in sorted(VTD00_COUNTY_ZIP_DIR.glob("tl_2008_*_vtd00.zip")):
+            gdf = gpd.read_file(zip_path)
+            rows = gdf.drop(columns="geometry", errors="ignore").to_dict("records")
+            _add_vtd_name_key_rows(
+                rows=rows,
+                county_col="COUNTYFP00",
+                code_col="VTDST00",
+                name_cols=["NAME00", "NAMELSAD00"],
+                code_width=4,
+                out=out,
+            )
+    else:
+        return {}
+
+    return {
+        k: sorted(v)
+        for k, v in out.items()
+        if v
     }
 
-    precinct_out = {}
-    county_out = {}
-    for scope, suffix in scopes.items():
-        d = read_blockassign_table(zip_path, suffix).rename(
-            columns={"BLOCKID": "BLOCKID", "DISTRICT": "DISTRICT"}
-        )[["BLOCKID", "DISTRICT"]]
-        d["DISTRICT"] = d["DISTRICT"].astype(str).str.strip()
-        merged = vtd.merge(d, on="BLOCKID", how="left")
-        merged = merged[(merged["DISTRICT"].notna()) & (merged["DISTRICT"] != "")]
-        if merged.empty:
-            precinct_out[scope] = {}
-            county_out[scope] = {}
+
+def remap_precinct_code_to_2020_vtd_allocations(
+    year: int,
+    county_fp: str,
+    code_numeric: str,
+    code_label: str,
+    scope_precinct_weights: Dict[Tuple[str, str], List[Tuple[str, float]]],
+    overlap_maps_by_src_year: Dict[int, Dict[Tuple[str, str], List[Tuple[str, float]]]],
+    vtd_name_key_maps_by_src_year: Dict[int, Dict[Tuple[str, str], List[str]]],
+) -> List[Tuple[str, float]]:
+    """Return district allocations via historical VTD overlap as fallback."""
+    src_year = overlap_source_year_for_election(year)
+    if src_year is None:
+        return []
+    overlap_map = overlap_maps_by_src_year.get(src_year, {})
+    if not overlap_map:
+        return []
+
+    source_codes: List[str] = []
+    seen_codes = set()
+    for c in source_code_candidates_for_overlap(code_numeric, src_year):
+        if c in seen_codes:
             continue
+        if overlap_map.get((county_fp, c)):
+            seen_codes.add(c)
+            source_codes.append(c)
 
-        counts = (
-            merged.groupby(["COUNTYFP", "VTD", "DISTRICT"], dropna=False)
-            .size()
-            .reset_index(name="block_count")
-        )
-        totals = (
-            counts.groupby(["COUNTYFP", "VTD"], dropna=False)["block_count"]
-            .sum()
-            .reset_index(name="total_blocks")
-        )
-        counts = counts.merge(totals, on=["COUNTYFP", "VTD"], how="left")
-        counts["weight"] = counts["block_count"] / counts["total_blocks"]
+    if not source_codes:
+        name_map = vtd_name_key_maps_by_src_year.get(src_year, {})
+        for key in source_name_keys_for_overlap(code_label):
+            for c in name_map.get((county_fp, key), []):
+                if c in seen_codes:
+                    continue
+                if overlap_map.get((county_fp, c)):
+                    seen_codes.add(c)
+                    source_codes.append(c)
 
-        mapping: Dict[Tuple[str, str], List[Tuple[str, float]]] = defaultdict(list)
-        for _, r in counts.iterrows():
-            countyfp = str(r["COUNTYFP"]).zfill(3)
-            vtd_code = str(r["VTD"]).zfill(6)
-            district = str(r["DISTRICT"]).strip()
-            m = re.search(r"(\d+)", district)
-            if m:
-                district = str(int(m.group(1)))
-            mapping[(countyfp, vtd_code)].append((district, float(r["weight"])))
-        precinct_out[scope] = dict(mapping)
+    if not source_codes:
+        return []
 
-        county_counts = (
-            merged.groupby(["COUNTYFP", "DISTRICT"], dropna=False)
-            .size()
-            .reset_index(name="block_count")
-        )
-        county_totals = (
-            county_counts.groupby(["COUNTYFP"], dropna=False)["block_count"]
-            .sum()
-            .reset_index(name="total_blocks")
-        )
-        county_counts = county_counts.merge(county_totals, on=["COUNTYFP"], how="left")
-        county_counts["weight"] = county_counts["block_count"] / county_counts["total_blocks"]
+    district_accum: Dict[str, float] = defaultdict(float)
+    source_weight = 1.0 / float(len(source_codes))
+    for src_code in source_codes:
+        src_to_2020 = overlap_map.get((county_fp, src_code), [])
+        for dst_vtd20, src_w in src_to_2020:
+            district_weights = scope_precinct_weights.get((county_fp, str(dst_vtd20).zfill(6)), [])
+            for district, dw in district_weights:
+                district_accum[district] += source_weight * float(src_w) * float(dw)
 
-        county_mapping: Dict[str, List[Tuple[str, float]]] = defaultdict(list)
-        for _, r in county_counts.iterrows():
-            countyfp = str(r["COUNTYFP"]).zfill(3)
-            district = str(r["DISTRICT"]).strip()
-            m = re.search(r"(\d+)", district)
-            if m:
-                district = str(int(m.group(1)))
-            county_mapping[countyfp].append((district, float(r["weight"])))
-        county_out[scope] = dict(county_mapping)
-
-    return precinct_out, county_out
+    total = sum(district_accum.values())
+    if total <= 0:
+        return []
+    return sorted(
+        ((d, w / total) for d, w in district_accum.items() if w > 0),
+        key=lambda x: x[1],
+        reverse=True,
+    )
 
 
 def build_prctseq_offsets(
     county_norm_to_fp: Dict[str, str],
     district_weights: Dict[str, Dict[Tuple[str, str], List[Tuple[str, float]]]],
 ) -> Tuple[Dict[str, int], Dict[str, set]]:
-    """Infer county-specific offset to map 2024 PRCTSEQ -> BlockAssign VTD code.
+    """Infer county-specific offset to map 2024 PRCTSEQ -> VTD20 code.
 
     Returns:
       offsets: county_fp -> additive offset
@@ -520,6 +787,20 @@ def build() -> dict:
     county_norm_to_fp, _fp_to_county_norm = load_county_maps()
     to2024 = load_precinct_to_2024_map()
     district_weights, county_district_weights = build_district_weight_maps()
+    overlap_maps_by_src_year = {
+        2000: load_vtd_overlap_to_2020_map(
+            DATA_DIR / "crosswalks" / "tn_vtd00_to_vtd20_overlap.csv",
+            src_code_width=4,
+        ),
+        2010: load_vtd_overlap_to_2020_map(
+            DATA_DIR / "crosswalks" / "tn_vtd10_to_vtd20_overlap.csv",
+            src_code_width=4,
+        ),
+    }
+    vtd_name_key_maps_by_src_year = {
+        2000: load_vtd_name_key_map(2000),
+        2010: load_vtd_name_key_map(2010),
+    }
     prctseq_offsets, vtd_ints_by_county = build_prctseq_offsets(
         county_norm_to_fp, district_weights
     )
@@ -616,10 +897,12 @@ def build() -> dict:
         lambda: {
             "rows": 0,
             "direct_rows": 0,
+            "overlap_rows": 0,
             "county_fallback_rows": 0,
             "dropped_rows": 0,
             "votes_total": 0.0,
             "votes_direct": 0.0,
+            "votes_overlap": 0.0,
             "votes_fallback": 0.0,
             "votes_dropped": 0.0,
         }
@@ -658,6 +941,17 @@ def build() -> dict:
 
                 source = "direct"
                 if not allocs:
+                    allocs = remap_precinct_code_to_2020_vtd_allocations(
+                        year=year,
+                        county_fp=county_fp,
+                        code_numeric=code_numeric,
+                        code_label=code_raw,
+                        scope_precinct_weights=wmap,
+                        overlap_maps_by_src_year=overlap_maps_by_src_year,
+                        vtd_name_key_maps_by_src_year=vtd_name_key_maps_by_src_year,
+                    )
+                    source = "overlap" if allocs else "county_fallback"
+                if not allocs:
                     allocs = county_district_weights.get(scope, {}).get(county_fp, [])
                     source = "county_fallback" if allocs else "dropped"
                 if not allocs:
@@ -668,6 +962,9 @@ def build() -> dict:
                 if source == "direct":
                     stat["direct_rows"] += 1
                     stat["votes_direct"] += votes_total
+                elif source == "overlap":
+                    stat["overlap_rows"] += 1
+                    stat["votes_overlap"] += votes_total
                 else:
                     stat["county_fallback_rows"] += 1
                     stat["votes_fallback"] += votes_total
@@ -702,17 +999,22 @@ def build() -> dict:
         alloc = statewide_alloc_stats.get((scope, contest_type, year))
         coverage_pct = 100.0
         direct_row_pct = 0.0
+        overlap_row_pct = 0.0
         county_fallback_row_pct = 0.0
         dropped_row_pct = 0.0
         direct_vote_pct = 0.0
+        overlap_vote_pct = 0.0
         county_fallback_vote_pct = 0.0
         dropped_vote_pct = 0.0
         if alloc:
             rows_total = float(alloc["rows"])
             votes_total = float(alloc["votes_total"])
-            votes_alloc = float(alloc["votes_direct"] + alloc["votes_fallback"])
+            votes_alloc = float(
+                alloc["votes_direct"] + alloc["votes_overlap"] + alloc["votes_fallback"]
+            )
             if rows_total > 0:
                 direct_row_pct = (float(alloc["direct_rows"]) / rows_total) * 100.0
+                overlap_row_pct = (float(alloc["overlap_rows"]) / rows_total) * 100.0
                 county_fallback_row_pct = (
                     float(alloc["county_fallback_rows"]) / rows_total
                 ) * 100.0
@@ -720,6 +1022,7 @@ def build() -> dict:
             if votes_total > 0:
                 coverage_pct = (votes_alloc / votes_total) * 100.0
                 direct_vote_pct = (float(alloc["votes_direct"]) / votes_total) * 100.0
+                overlap_vote_pct = (float(alloc["votes_overlap"]) / votes_total) * 100.0
                 county_fallback_vote_pct = (
                     float(alloc["votes_fallback"]) / votes_total
                 ) * 100.0
@@ -733,9 +1036,11 @@ def build() -> dict:
                 "source": "tn_precinct_csv_district_aggregation",
                 "match_coverage_pct": round(coverage_pct, 4),
                 "direct_precinct_row_pct": round(direct_row_pct, 4),
+                "overlap_precinct_row_pct": round(overlap_row_pct, 4),
                 "county_fallback_row_pct": round(county_fallback_row_pct, 4),
                 "dropped_row_pct": round(dropped_row_pct, 4),
                 "direct_precinct_vote_pct": round(direct_vote_pct, 4),
+                "overlap_precinct_vote_pct": round(overlap_vote_pct, 4),
                 "county_fallback_vote_pct": round(county_fallback_vote_pct, 4),
                 "dropped_vote_pct": round(dropped_vote_pct, 4),
                 "districts": len(results),
