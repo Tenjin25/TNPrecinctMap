@@ -4,17 +4,17 @@
   "year": 2016,
   "meta": {
     "source": "tn_precinct_csv_district_aggregation",
-    "match_coverage_pct": 99.1606,
-    "direct_precinct_row_pct": 96.5772,
+    "match_coverage_pct": 98.9422,
+    "direct_precinct_row_pct": 96.6371,
     "overlap_precinct_row_pct": 0.0,
-    "non_geo_row_pct": 2.4832,
-    "county_fallback_row_pct": 0.4027,
-    "dropped_row_pct": 0.5369,
-    "direct_precinct_vote_pct": 98.4734,
+    "non_geo_row_pct": 2.3477,
+    "county_fallback_row_pct": 0.3807,
+    "dropped_row_pct": 0.6345,
+    "direct_precinct_vote_pct": 98.255,
     "overlap_precinct_vote_pct": 0.0,
     "non_geo_vote_pct": 0.4559,
     "county_fallback_vote_pct": 0.2312,
-    "dropped_vote_pct": 0.8394,
+    "dropped_vote_pct": 1.0578,
     "districts": 9
   },
   "general": {
@@ -97,25 +97,25 @@
         "winner": "REP"
       },
       "8": {
-        "dem_votes": 66358,
-        "rep_votes": 158845,
-        "other_votes": 6685,
-        "total_votes": 231888,
+        "dem_votes": 99480,
+        "rep_votes": 214523,
+        "other_votes": 10905,
+        "total_votes": 324908,
         "dem_candidate": "Hillary Clinton",
         "rep_candidate": "Donald J. Trump",
-        "margin": 92487,
-        "margin_pct": 39.8843,
+        "margin": 115043,
+        "margin_pct": 35.4079,
         "winner": "REP"
       },
       "9": {
-        "dem_votes": 208018,
-        "rep_votes": 116550,
-        "other_votes": 11893,
-        "total_votes": 336461,
+        "dem_votes": 171028,
+        "rep_votes": 59559,
+        "other_votes": 7378,
+        "total_votes": 237965,
         "dem_candidate": "Hillary Clinton",
         "rep_candidate": "Donald J. Trump",
-        "margin": -91468,
-        "margin_pct": -27.1853,
+        "margin": -111469,
+        "margin_pct": -46.8426,
         "winner": "DEM"
       }
     }

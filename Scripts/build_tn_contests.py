@@ -362,7 +362,11 @@ def build_precinct_split_key_maps(
         norm_code = norm_space(code).zfill(6)
         if not norm_code or not norm_code.isdigit():
             continue
-        keys = extract_precinct_name_keys(from_precinct_norm)
+        keys = [
+            k
+            for k in extract_precinct_name_keys(from_precinct_norm)
+            if is_strong_crosswalk_split_key(k)
+        ]
         for key in keys:
             by_year_raw[(int(year), county_norm, key)].add(norm_code)
             any_year_raw[(county_norm, key)].add(norm_code)
@@ -797,6 +801,13 @@ def source_name_keys_for_overlap(code_label: str) -> List[str]:
     return extract_precinct_name_keys(s)
 
 
+def is_strong_crosswalk_split_key(key: str) -> bool:
+    """Restrict crosswalk split-join keys to high-specificity forms."""
+    if not key:
+        return False
+    return key.startswith("PAIR:") or key.startswith("TXTNUM:") or key.startswith("NUMTXT:")
+
+
 def _add_vtd_name_key_rows(
     rows: Iterable[dict],
     county_col: str,
@@ -1104,7 +1115,8 @@ def resolve_precinct_code(
 
     # Fallback: resolve by split key (e.g., "01-3") from year-specific then any-year crosswalk rows.
     split_keys = source_name_keys_for_overlap(precinct_raw)
-    for split_key in split_keys:
+    split_keys_crosswalk = [k for k in split_keys if is_strong_crosswalk_split_key(k)]
+    for split_key in split_keys_crosswalk:
         split_code = to2024_split_by_year.get((year, county_norm, split_key), "")
         if not split_code:
             split_code = to2024_split_any_year.get((county_norm, split_key), "")

@@ -5,15 +5,15 @@
   "meta": {
     "source": "tn_precinct_csv_district_aggregation",
     "match_coverage_pct": 99.6368,
-    "direct_precinct_row_pct": 98.283,
+    "direct_precinct_row_pct": 98.2502,
     "overlap_precinct_row_pct": 0.0,
-    "non_geo_row_pct": 0.6181,
-    "county_fallback_row_pct": 0.9615,
-    "dropped_row_pct": 0.1374,
-    "direct_precinct_vote_pct": 98.5156,
+    "non_geo_row_pct": 0.5833,
+    "county_fallback_row_pct": 1.0369,
+    "dropped_row_pct": 0.1296,
+    "direct_precinct_vote_pct": 98.351,
     "overlap_precinct_vote_pct": 0.0,
     "non_geo_vote_pct": 0.1919,
-    "county_fallback_vote_pct": 0.9293,
+    "county_fallback_vote_pct": 1.094,
     "dropped_vote_pct": 0.3632,
     "districts": 9
   },
@@ -97,26 +97,26 @@
         "winner": "REP"
       },
       "8": {
-        "dem_votes": 35022,
-        "rep_votes": 84444,
-        "other_votes": 9240,
-        "total_votes": 128706,
+        "dem_votes": 48711,
+        "rep_votes": 125590,
+        "other_votes": 11657,
+        "total_votes": 185958,
         "dem_candidate": "Gordon Ball",
         "rep_candidate": "Lamar Alexander",
-        "margin": 49422,
-        "margin_pct": 38.3991,
+        "margin": 76879,
+        "margin_pct": 41.3421,
         "winner": "REP"
       },
       "9": {
-        "dem_votes": 88823,
-        "rep_votes": 89452,
-        "other_votes": 7628,
-        "total_votes": 185903,
+        "dem_votes": 75134,
+        "rep_votes": 48306,
+        "other_votes": 5210,
+        "total_votes": 128650,
         "dem_candidate": "Gordon Ball",
         "rep_candidate": "Lamar Alexander",
-        "margin": 629,
-        "margin_pct": 0.3383,
-        "winner": "REP"
+        "margin": -26828,
+        "margin_pct": -20.8535,
+        "winner": "DEM"
       }
     }
   }
