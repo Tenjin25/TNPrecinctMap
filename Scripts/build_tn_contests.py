@@ -312,19 +312,18 @@ def load_precinct_to_2024_map() -> Dict[Tuple[int, str, str], str]:
 def build_precinct_split_key_maps(
     to2024: Dict[Tuple[int, str, str], str],
 ) -> Tuple[Dict[Tuple[int, str, str], str], Dict[Tuple[str, str], str]]:
-    """Build unique split-key lookup maps from strict precinct->2024 mappings."""
+    """Build unique precinct-key lookup maps from strict precinct->2024 mappings."""
     by_year_raw: Dict[Tuple[int, str, str], set] = defaultdict(set)
     any_year_raw: Dict[Tuple[str, str], set] = defaultdict(set)
 
     for (year, county_norm, from_precinct_norm), code in to2024.items():
-        split_key = extract_precinct_split_key(from_precinct_norm)
-        if not split_key:
-            continue
         norm_code = norm_space(code).zfill(6)
         if not norm_code or not norm_code.isdigit():
             continue
-        by_year_raw[(int(year), county_norm, split_key)].add(norm_code)
-        any_year_raw[(county_norm, split_key)].add(norm_code)
+        keys = extract_precinct_name_keys(from_precinct_norm)
+        for key in keys:
+            by_year_raw[(int(year), county_norm, key)].add(norm_code)
+            any_year_raw[(county_norm, key)].add(norm_code)
 
     by_year = {
         k: next(iter(v))
@@ -354,6 +353,41 @@ def load_2024_prctseq_by_county() -> Dict[str, set]:
                 continue
             out[county].add(int(seq_raw))
     return out
+
+
+def build_2024_prctseq_to_vtd_lookup(
+    county_norm_to_fp: Dict[str, str],
+    vtd20_name_key_map: Dict[Tuple[str, str], List[str]],
+) -> Dict[Tuple[str, int], str]:
+    """Map (countyfp, PRCTSEQ int) -> VTD20 code using 2024 precinct names."""
+    path = DATA_DIR / "20241105__tn__general__precinct.csv"
+    out_raw: Dict[Tuple[str, int], set] = defaultdict(set)
+    if not path.exists() or not vtd20_name_key_map:
+        return {}
+
+    with path.open("r", encoding="utf-8-sig", newline="") as f:
+        reader = csv.DictReader(f)
+        for r in reader:
+            county_norm = norm_county(r.get("COUNTY", ""))
+            county_fp = county_norm_to_fp.get(county_norm, "")
+            seq_raw = norm_space(r.get("PRCTSEQ", ""))
+            precinct_raw = norm_space(r.get("PRECINCT", ""))
+            if not (county_fp and seq_raw and seq_raw.isdigit() and precinct_raw):
+                continue
+            seq_int = int(seq_raw)
+            codes = set()
+            for key in extract_precinct_name_keys(precinct_raw):
+                for code in vtd20_name_key_map.get((county_fp, key), []):
+                    if code and code.isdigit():
+                        codes.add(str(code).zfill(6))
+            if len(codes) == 1:
+                out_raw[(county_fp, seq_int)].update(codes)
+
+    return {
+        k: next(iter(v))
+        for k, v in out_raw.items()
+        if len(v) == 1
+    }
 
 
 def normalize_district_code(raw) -> str:
@@ -549,6 +583,16 @@ def overlap_source_year_for_election(year: int) -> Optional[int]:
     return None
 
 
+def overlap_source_year_candidates(year: int) -> List[int]:
+    """Preferred source-year lookup order for overlap remapping."""
+    y = int(year)
+    if y <= 2008:
+        return [2000, 2010]
+    if 2009 <= y <= 2018:
+        return [2010, 2000]
+    return []
+
+
 def source_code_candidates_for_overlap(code_numeric: str, src_year: int) -> List[str]:
     """Return ordered candidate source VTD codes for overlap lookup."""
     code = norm_space(code_numeric)
@@ -571,21 +615,99 @@ def source_code_candidates_for_overlap(code_numeric: str, src_year: int) -> List
     return candidates
 
 
-def extract_precinct_split_key(raw: str) -> str:
-    """Extract key like '01 3' from precinct labels such as '01-3 XYZ'."""
+def _precinct_text_variants(raw: str) -> List[str]:
     s = norm_text(raw)
     if not s:
-        return ""
-    m = re.match(r"^(\d{1,2})\s+(\d{1,2})\b", s)
-    if not m:
-        m = re.search(r"\b(\d{1,2})\s+(\d{1,2})\b", s)
-    if not m:
-        return ""
-    return f"{int(m.group(1)):02d} {int(m.group(2))}"
+        return []
+    stop = {
+        "SCHOOL",
+        "ELEMENTARY",
+        "MIDDLE",
+        "HIGH",
+        "CHURCH",
+        "CENTER",
+        "CENTRE",
+        "COMMUNITY",
+        "HALL",
+        "FIRE",
+        "STATION",
+        "BAPTIST",
+        "METHODIST",
+        "PRESBYTERIAN",
+        "CATHOLIC",
+        "UNITED",
+        "COUNTY",
+        "CITY",
+        "PRECINCT",
+        "VOTE",
+        "VOTING",
+        "WARD",
+        "DISTRICT",
+        "LIBRARY",
+        "ANNEX",
+        "CLUB",
+        "HOUSE",
+        "BOARD",
+        "EDUCATION",
+        "CHAPEL",
+        "PARK",
+        "CHRIST",
+        "OF",
+        "THE",
+        "AND",
+    }
+    words = [w for w in re.findall(r"[A-Z]+", s) if len(w) >= 2 and w not in stop]
+    if not words:
+        return []
+    variants: List[str] = []
+
+    def add(v: str) -> None:
+        if v and v not in variants:
+            variants.append(v)
+
+    full = " ".join(words)
+    add(full)
+    add(" ".join(w[:4] for w in words if w))
+    add(" ".join(w[:2] for w in words if w))
+    if words:
+        add(words[0])
+    if len(words) >= 2:
+        add(" ".join(words[:2]))
+    return [v for v in variants if v]
+
+
+def extract_precinct_name_keys(raw: str) -> List[str]:
+    """Build robust precinct matching keys across split and name-based patterns."""
+    s = norm_text(raw)
+    if not s:
+        return []
+    nums = [int(n) for n in re.findall(r"\d+", s)]
+    text_variants = _precinct_text_variants(s)
+    keys: List[str] = []
+
+    def add(k: str) -> None:
+        if k and k not in keys:
+            keys.append(k)
+
+    if len(nums) >= 2:
+        add(f"PAIR:{nums[0]:02d}:{nums[1]:02d}")
+        add(f"PAIR:{nums[0]:02d}:{nums[-1]:02d}")
+    if nums:
+        add(f"NUM:{nums[0]:02d}")
+        add(f"NUM:{nums[-1]:02d}")
+    if nums and text_variants:
+        for tv in text_variants:
+            add(f"TXTNUM:{tv}:{nums[0]:02d}")
+            add(f"NUMTXT:{nums[0]:02d}:{tv}")
+            add(f"TXTNUM:{tv}:{nums[-1]:02d}")
+            add(f"NUMTXT:{nums[-1]:02d}:{tv}")
+    for tv in text_variants:
+        add(f"TXT:{tv}")
+    return keys
 
 
 def source_name_keys_for_overlap(code_label: str) -> List[str]:
-    """Return parsed precinct split keys from non-numeric UNM/NG labels."""
+    """Return parsed precinct matching keys from non-numeric UNM/NG labels."""
     s = norm_space(code_label).upper()
     if not s:
         return []
@@ -594,8 +716,7 @@ def source_name_keys_for_overlap(code_label: str) -> List[str]:
     elif s.startswith("NG-"):
         s = s[3:]
     s = s.replace("_", " ")
-    key = extract_precinct_split_key(s)
-    return [key] if key else []
+    return extract_precinct_name_keys(s)
 
 
 def _add_vtd_name_key_rows(
@@ -613,8 +734,7 @@ def _add_vtd_name_key_rows(
             continue
         src_code = raw_code.zfill(code_width) if raw_code.isdigit() else raw_code
         for col in name_cols:
-            key = extract_precinct_split_key(r.get(col, ""))
-            if key:
+            for key in extract_precinct_name_keys(r.get(col, "")):
                 out[(countyfp, key)].add(src_code)
 
 
@@ -690,33 +810,41 @@ def resolve_source_codes_for_overlap(
     vtd_name_key_maps_by_src_year: Dict[int, Dict[Tuple[str, str], List[str]]],
 ) -> Tuple[Optional[int], List[str]]:
     """Resolve source-era VTD codes that exist in overlap maps for a precinct label."""
-    src_year = overlap_source_year_for_election(year)
-    if src_year is None:
-        return None, []
-    overlap_map = overlap_maps_by_src_year.get(src_year, {})
-    if not overlap_map:
-        return src_year, []
-
-    source_codes: List[str] = []
-    seen_codes = set()
-    for c in source_code_candidates_for_overlap(code_numeric, src_year):
-        if c in seen_codes:
+    tried_any = False
+    for src_year in overlap_source_year_candidates(year):
+        overlap_map = overlap_maps_by_src_year.get(src_year, {})
+        if not overlap_map:
             continue
-        if overlap_map.get((county_fp, c)):
-            seen_codes.add(c)
-            source_codes.append(c)
+        tried_any = True
 
-    if not source_codes:
-        name_map = vtd_name_key_maps_by_src_year.get(src_year, {})
-        for key in source_name_keys_for_overlap(code_label):
-            for c in name_map.get((county_fp, key), []):
-                if c in seen_codes:
+        source_codes: List[str] = []
+        seen_codes = set()
+        for c in source_code_candidates_for_overlap(code_numeric, src_year):
+            if c in seen_codes:
+                continue
+            if overlap_map.get((county_fp, c)):
+                seen_codes.add(c)
+                source_codes.append(c)
+
+        if not source_codes:
+            name_map = vtd_name_key_maps_by_src_year.get(src_year, {})
+            for key in source_name_keys_for_overlap(code_label):
+                candidates = name_map.get((county_fp, key), [])
+                if len(candidates) > 8:
                     continue
-                if overlap_map.get((county_fp, c)):
-                    seen_codes.add(c)
-                    source_codes.append(c)
+                for c in candidates:
+                    if c in seen_codes:
+                        continue
+                    if overlap_map.get((county_fp, c)):
+                        seen_codes.add(c)
+                        source_codes.append(c)
 
-    return src_year, source_codes
+        if source_codes:
+            return src_year, source_codes
+
+    if tried_any:
+        return overlap_source_year_candidates(year)[0], []
+    return None, []
 
 
 def resolve_precinct_to_2020_code_from_overlap(
@@ -795,11 +923,11 @@ def remap_precinct_code_to_2020_vtd_allocations(
 def build_prctseq_offsets(
     county_norm_to_fp: Dict[str, str],
     district_weights: Dict[str, Dict[Tuple[str, str], List[Tuple[str, float]]]],
-) -> Tuple[Dict[str, int], Dict[str, set]]:
+) -> Tuple[Dict[str, List[int]], Dict[str, set]]:
     """Infer county-specific offset to map 2024 PRCTSEQ -> VTD20 code.
 
     Returns:
-      offsets: county_fp -> additive offset
+      offsets_by_county: county_fp -> ordered list[int] additive offsets
       vtd_ints_by_county: county_fp -> set(int vtd_code)
     """
     prctseq_by_county = load_2024_prctseq_by_county()
@@ -809,7 +937,7 @@ def build_prctseq_offsets(
         if vtd_code.isdigit():
             vtd_ints_by_county[county_fp].add(int(vtd_code))
 
-    offsets: Dict[str, int] = {}
+    offsets_by_county: Dict[str, List[int]] = {}
     for county_norm, pset in prctseq_by_county.items():
         county_fp = county_norm_to_fp.get(county_norm, "")
         if not county_fp:
@@ -825,36 +953,43 @@ def build_prctseq_offsets(
                 diff = v - p
                 if -100 <= diff <= 10000:
                     cands[diff] += 1
-        best_k = 0
-        best_score = -1
-        for k, _cnt in cands.most_common(200):
-            score = sum(1 for p in pset if (p + k) in vset)
-            if score > best_score:
-                best_score = score
-                best_k = k
-        if best_score >= 1:
-            offsets[county_fp] = best_k
-    return offsets, vtd_ints_by_county
+        unmatched = set(pset)
+        ranked: List[int] = []
+        for k, _cnt in cands.most_common(400):
+            hit = {p for p in unmatched if (p + k) in vset}
+            if not hit:
+                continue
+            ranked.append(k)
+            unmatched -= hit
+            if len(ranked) >= 8 or not unmatched:
+                break
+        if ranked:
+            offsets_by_county[county_fp] = ranked
+    return offsets_by_county, vtd_ints_by_county
 
 
 def prctseq_to_vtd(
     county_fp: str,
     seq_code6: str,
-    offsets: Dict[str, int],
+    offsets_by_county: Dict[str, List[int]],
     vtd_ints_by_county: Dict[str, set],
+    prctseq_exact_to_vtd: Dict[Tuple[str, int], str],
 ) -> str:
     if not seq_code6 or not seq_code6.isdigit():
         return seq_code6
     seq_int = int(seq_code6)
+    exact = prctseq_exact_to_vtd.get((county_fp, seq_int), "")
+    if exact:
+        return str(exact).zfill(6)
     vset = vtd_ints_by_county.get(county_fp, set())
     if not vset:
         return seq_code6
     if seq_int in vset:
         return str(seq_int).zfill(6)
-    k = offsets.get(county_fp, 0)
-    candidate = seq_int + k
-    if candidate in vset:
-        return str(candidate).zfill(6)
+    for k in offsets_by_county.get(county_fp, []):
+        candidate = seq_int + int(k)
+        if candidate in vset:
+            return str(candidate).zfill(6)
     return seq_code6
 
 
@@ -867,8 +1002,9 @@ def resolve_precinct_code(
     to2024: Dict[Tuple[int, str, str], str],
     to2024_split_by_year: Dict[Tuple[int, str, str], str],
     to2024_split_any_year: Dict[Tuple[str, str], str],
-    offsets: Dict[str, int],
+    offsets_by_county: Dict[str, List[int]],
     vtd_ints_by_county: Dict[str, set],
+    prctseq_exact_to_vtd: Dict[Tuple[str, int], str],
     overlap_maps_by_src_year: Dict[int, Dict[Tuple[str, str], List[Tuple[str, float]]]],
     vtd_name_key_maps_by_src_year: Dict[int, Dict[Tuple[str, str], List[str]]],
     vtd20_name_key_map: Dict[Tuple[str, str], List[str]],
@@ -876,14 +1012,16 @@ def resolve_precinct_code(
     if year == 2024:
         p = norm_space(prctseq_raw)
         if p:
-            return prctseq_to_vtd(county_fp, p.zfill(6), offsets, vtd_ints_by_county)
+            return prctseq_to_vtd(
+                county_fp, p.zfill(6), offsets_by_county, vtd_ints_by_county, prctseq_exact_to_vtd
+            )
     prec_norm = norm_precinct_name(precinct_raw)
     if not prec_norm:
         return ""
     code = to2024.get((year, county_norm, prec_norm), "")
     if code:
         return prctseq_to_vtd(
-            county_fp, code.zfill(6), offsets, vtd_ints_by_county
+            county_fp, code.zfill(6), offsets_by_county, vtd_ints_by_county, prctseq_exact_to_vtd
         )
 
     # Fallback: resolve by split key (e.g., "01-3") from year-specific then any-year crosswalk rows.
@@ -894,7 +1032,7 @@ def resolve_precinct_code(
             split_code = to2024_split_any_year.get((county_norm, split_key), "")
         if split_code:
             return prctseq_to_vtd(
-                county_fp, split_code.zfill(6), offsets, vtd_ints_by_county
+                county_fp, split_code.zfill(6), offsets_by_county, vtd_ints_by_county, prctseq_exact_to_vtd
             )
 
     # Fallback: historical VTD name -> 2020 VTD via overlap (2000/2010 sources).
@@ -908,7 +1046,7 @@ def resolve_precinct_code(
     )
     if overlap_code:
         return prctseq_to_vtd(
-            county_fp, overlap_code.zfill(6), offsets, vtd_ints_by_county
+            county_fp, overlap_code.zfill(6), offsets_by_county, vtd_ints_by_county, prctseq_exact_to_vtd
         )
 
     # Fallback: direct 2020 VTD name-key lookup when 2020 VTD zip is present locally.
@@ -917,7 +1055,7 @@ def resolve_precinct_code(
             candidates = vtd20_name_key_map.get((county_fp, split_key), [])
             if len(candidates) == 1:
                 return prctseq_to_vtd(
-                    county_fp, candidates[0].zfill(6), offsets, vtd_ints_by_county
+                    county_fp, candidates[0].zfill(6), offsets_by_county, vtd_ints_by_county, prctseq_exact_to_vtd
                 )
 
     if is_non_geographic_precinct_name(precinct_raw):
@@ -949,7 +1087,11 @@ def build() -> dict:
         2010: load_vtd_name_key_map(2010),
     }
     vtd20_name_key_map = load_vtd20_name_key_map()
-    prctseq_offsets, vtd_ints_by_county = build_prctseq_offsets(
+    prctseq_exact_to_vtd = build_2024_prctseq_to_vtd_lookup(
+        county_norm_to_fp=county_norm_to_fp,
+        vtd20_name_key_map=vtd20_name_key_map,
+    )
+    prctseq_offsets_by_county, vtd_ints_by_county = build_prctseq_offsets(
         county_norm_to_fp, district_weights
     )
 
@@ -986,8 +1128,9 @@ def build() -> dict:
                 to2024=to2024,
                 to2024_split_by_year=to2024_split_by_year,
                 to2024_split_any_year=to2024_split_any_year,
-                offsets=prctseq_offsets,
+                offsets_by_county=prctseq_offsets_by_county,
                 vtd_ints_by_county=vtd_ints_by_county,
+                prctseq_exact_to_vtd=prctseq_exact_to_vtd,
                 overlap_maps_by_src_year=overlap_maps_by_src_year,
                 vtd_name_key_maps_by_src_year=vtd_name_key_maps_by_src_year,
                 vtd20_name_key_map=vtd20_name_key_map,
@@ -1051,15 +1194,18 @@ def build() -> dict:
             "rows": 0,
             "direct_rows": 0,
             "overlap_rows": 0,
+            "non_geo_rows": 0,
             "county_fallback_rows": 0,
             "dropped_rows": 0,
             "votes_total": 0.0,
             "votes_direct": 0.0,
             "votes_overlap": 0.0,
+            "votes_non_geo": 0.0,
             "votes_fallback": 0.0,
             "votes_dropped": 0.0,
         }
     )
+    unresolved_unm_vote_by_bucket: Dict[Tuple[str, str, int, str, str], float] = defaultdict(float)
 
     for (contest_type, year), rows in all_contest_rows_by_contest_year.items():
         if contest_type not in COUNTY_PLUS_PRECINCT_CONTESTS:
@@ -1089,6 +1235,11 @@ def build() -> dict:
 
                 wmap = district_weights.get(scope, {})
                 allocs = wmap.get((county_fp, code_numeric), []) if code_numeric else []
+                is_non_geo_bucket = code_raw.startswith("NG-")
+                is_unmapped_label_bucket = code_raw.startswith("UNM-")
+                is_low_seq_numeric = bool(
+                    code_numeric and code_numeric.isdigit() and int(code_numeric) < 1000
+                )
                 votes_total = dem_votes + rep_votes + other_votes
                 stat["votes_total"] += votes_total
 
@@ -1104,10 +1255,20 @@ def build() -> dict:
                         vtd_name_key_maps_by_src_year=vtd_name_key_maps_by_src_year,
                     )
                     source = "overlap" if allocs else "county_fallback"
-                if not allocs:
+                if not allocs and is_non_geo_bucket:
+                    allocs = county_district_weights.get(scope, {}).get(county_fp, [])
+                    source = "non_geo_fallback" if allocs else "dropped"
+                allow_county_fallback = not (
+                    is_non_geo_bucket or is_unmapped_label_bucket or is_low_seq_numeric
+                )
+                if not allocs and allow_county_fallback:
                     allocs = county_district_weights.get(scope, {}).get(county_fp, [])
                     source = "county_fallback" if allocs else "dropped"
                 if not allocs:
+                    if is_unmapped_label_bucket:
+                        unresolved_unm_vote_by_bucket[
+                            (scope, contest_type, int(year), county_norm, code_raw)
+                        ] += votes_total
                     stat["dropped_rows"] += 1
                     stat["votes_dropped"] += votes_total
                     continue
@@ -1118,6 +1279,9 @@ def build() -> dict:
                 elif source == "overlap":
                     stat["overlap_rows"] += 1
                     stat["votes_overlap"] += votes_total
+                elif source == "non_geo_fallback":
+                    stat["non_geo_rows"] += 1
+                    stat["votes_non_geo"] += votes_total
                 else:
                     stat["county_fallback_rows"] += 1
                     stat["votes_fallback"] += votes_total
@@ -1153,21 +1317,27 @@ def build() -> dict:
         coverage_pct = 100.0
         direct_row_pct = 0.0
         overlap_row_pct = 0.0
+        non_geo_row_pct = 0.0
         county_fallback_row_pct = 0.0
         dropped_row_pct = 0.0
         direct_vote_pct = 0.0
         overlap_vote_pct = 0.0
+        non_geo_vote_pct = 0.0
         county_fallback_vote_pct = 0.0
         dropped_vote_pct = 0.0
         if alloc:
             rows_total = float(alloc["rows"])
             votes_total = float(alloc["votes_total"])
             votes_alloc = float(
-                alloc["votes_direct"] + alloc["votes_overlap"] + alloc["votes_fallback"]
+                alloc["votes_direct"]
+                + alloc["votes_overlap"]
+                + alloc["votes_non_geo"]
+                + alloc["votes_fallback"]
             )
             if rows_total > 0:
                 direct_row_pct = (float(alloc["direct_rows"]) / rows_total) * 100.0
                 overlap_row_pct = (float(alloc["overlap_rows"]) / rows_total) * 100.0
+                non_geo_row_pct = (float(alloc["non_geo_rows"]) / rows_total) * 100.0
                 county_fallback_row_pct = (
                     float(alloc["county_fallback_rows"]) / rows_total
                 ) * 100.0
@@ -1176,6 +1346,7 @@ def build() -> dict:
                 coverage_pct = (votes_alloc / votes_total) * 100.0
                 direct_vote_pct = (float(alloc["votes_direct"]) / votes_total) * 100.0
                 overlap_vote_pct = (float(alloc["votes_overlap"]) / votes_total) * 100.0
+                non_geo_vote_pct = (float(alloc["votes_non_geo"]) / votes_total) * 100.0
                 county_fallback_vote_pct = (
                     float(alloc["votes_fallback"]) / votes_total
                 ) * 100.0
@@ -1190,10 +1361,12 @@ def build() -> dict:
                 "match_coverage_pct": round(coverage_pct, 4),
                 "direct_precinct_row_pct": round(direct_row_pct, 4),
                 "overlap_precinct_row_pct": round(overlap_row_pct, 4),
+                "non_geo_row_pct": round(non_geo_row_pct, 4),
                 "county_fallback_row_pct": round(county_fallback_row_pct, 4),
                 "dropped_row_pct": round(dropped_row_pct, 4),
                 "direct_precinct_vote_pct": round(direct_vote_pct, 4),
                 "overlap_precinct_vote_pct": round(overlap_vote_pct, 4),
+                "non_geo_vote_pct": round(non_geo_vote_pct, 4),
                 "county_fallback_vote_pct": round(county_fallback_vote_pct, 4),
                 "dropped_vote_pct": round(dropped_vote_pct, 4),
                 "districts": len(results),
@@ -1225,6 +1398,31 @@ def build() -> dict:
     }
     write_json(CONTESTS_DIR / "manifest.json", contests_manifest)
     write_json(DISTRICT_DIR / "manifest.json", district_manifest)
+
+    if unresolved_unm_vote_by_bucket:
+        unm_rows = [
+            {
+                "scope": scope,
+                "contest_type": contest_type,
+                "year": year,
+                "county_norm": county_norm,
+                "code": code,
+                "dropped_votes": round(votes, 3),
+            }
+            for (scope, contest_type, year, county_norm, code), votes in sorted(
+                unresolved_unm_vote_by_bucket.items(),
+                key=lambda kv: kv[1],
+                reverse=True,
+            )
+        ]
+        write_json(
+            DISTRICT_DIR / "unresolved_unm_buckets.json",
+            {
+                "generated_by": "build_tn_contests.py",
+                "rows": unm_rows,
+                "count": len(unm_rows),
+            },
+        )
 
     summary = {
         "contest_files": len(contest_manifest_files),
