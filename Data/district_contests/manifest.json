@@ -6,8 +6,8 @@
       "contest_type": "governor",
       "file": "congressional_governor_2010.json",
       "districts": 9,
-      "dem_total": 519536,
-      "rep_total": 1019503,
+      "dem_total": 528445,
+      "rep_total": 1038048,
       "major_party_contested": true
     },
     {
@@ -16,8 +16,8 @@
       "contest_type": "governor",
       "file": "congressional_governor_2014.json",
       "districts": 9,
-      "dem_total": 305051,
-      "rep_total": 935352,
+      "dem_total": 308358,
+      "rep_total": 948292,
       "major_party_contested": true
     },
     {
@@ -26,8 +26,8 @@
       "contest_type": "governor",
       "file": "congressional_governor_2018.json",
       "districts": 9,
-      "dem_total": 854220,
-      "rep_total": 1318171,
+      "dem_total": 858468,
+      "rep_total": 1327256,
       "major_party_contested": true
     },
     {
@@ -36,8 +36,8 @@
       "contest_type": "president",
       "file": "congressional_president_2004.json",
       "districts": 9,
-      "dem_total": 1021625,
-      "rep_total": 1359125,
+      "dem_total": 1036477,
+      "rep_total": 1384377,
       "major_party_contested": true
     },
     {
@@ -46,8 +46,8 @@
       "contest_type": "president",
       "file": "congressional_president_2008.json",
       "districts": 9,
-      "dem_total": 1055484,
-      "rep_total": 1443716,
+      "dem_total": 1082044,
+      "rep_total": 1470443,
       "major_party_contested": true
     },
     {
@@ -56,8 +56,8 @@
       "contest_type": "president",
       "file": "congressional_president_2012.json",
       "districts": 9,
-      "dem_total": 934498,
-      "rep_total": 1428331,
+      "dem_total": 954410,
+      "rep_total": 1450910,
       "major_party_contested": true
     },
     {
@@ -66,8 +66,8 @@
       "contest_type": "president",
       "file": "congressional_president_2016.json",
       "districts": 9,
-      "dem_total": 857841,
-      "rep_total": 1500964,
+      "dem_total": 862730,
+      "rep_total": 1511156,
       "major_party_contested": true
     },
     {
@@ -76,8 +76,8 @@
       "contest_type": "president",
       "file": "congressional_president_2020.json",
       "districts": 9,
-      "dem_total": 1121973,
-      "rep_total": 1816927,
+      "dem_total": 1133306,
+      "rep_total": 1838023,
       "major_party_contested": true
     },
     {
@@ -86,8 +86,8 @@
       "contest_type": "president",
       "file": "congressional_president_2024.json",
       "districts": 9,
-      "dem_total": 1040972,
-      "rep_total": 1947492,
+      "dem_total": 1044257,
+      "rep_total": 1950671,
       "major_party_contested": true
     },
     {
@@ -186,8 +186,8 @@
       "contest_type": "us_senate",
       "file": "congressional_us_senate_2006.json",
       "districts": 9,
-      "dem_total": 819592,
-      "rep_total": 848170,
+      "dem_total": 834414,
+      "rep_total": 864467,
       "major_party_contested": true
     },
     {
@@ -196,8 +196,8 @@
       "contest_type": "us_senate",
       "file": "congressional_us_senate_2008.json",
       "districts": 9,
-      "dem_total": 744127,
-      "rep_total": 1539548,
+      "dem_total": 763370,
+      "rep_total": 1570034,
       "major_party_contested": true
     },
     {
@@ -206,8 +206,8 @@
       "contest_type": "us_senate",
       "file": "congressional_us_senate_2012.json",
       "districts": 9,
-      "dem_total": 688041,
-      "rep_total": 1468803,
+      "dem_total": 702051,
+      "rep_total": 1493946,
       "major_party_contested": true
     },
     {
@@ -216,8 +216,8 @@
       "contest_type": "us_senate",
       "file": "congressional_us_senate_2014.json",
       "districts": 9,
-      "dem_total": 431099,
-      "rep_total": 835239,
+      "dem_total": 436224,
+      "rep_total": 846943,
       "major_party_contested": true
     },
     {
@@ -226,8 +226,8 @@
       "contest_type": "us_senate",
       "file": "congressional_us_senate_2018.json",
       "districts": 9,
-      "dem_total": 972919,
-      "rep_total": 1211155,
+      "dem_total": 977980,
+      "rep_total": 1219431,
       "major_party_contested": true
     },
     {
@@ -236,8 +236,8 @@
       "contest_type": "us_senate",
       "file": "congressional_us_senate_2020.json",
       "districts": 9,
-      "dem_total": 1021545,
-      "rep_total": 1804078,
+      "dem_total": 1031572,
+      "rep_total": 1825619,
       "major_party_contested": true
     },
     {
@@ -246,8 +246,8 @@
       "contest_type": "us_senate",
       "file": "congressional_us_senate_2024.json",
       "districts": 9,
-      "dem_total": 1012426,
-      "rep_total": 1899460,
+      "dem_total": 1015614,
+      "rep_total": 1902614,
       "major_party_contested": true
     },
     {
@@ -256,8 +256,8 @@
       "contest_type": "governor",
       "file": "state_house_governor_2010.json",
       "districts": 98,
-      "dem_total": 519540,
-      "rep_total": 1019502,
+      "dem_total": 528447,
+      "rep_total": 1038050,
       "major_party_contested": true
     },
     {
@@ -266,8 +266,8 @@
       "contest_type": "governor",
       "file": "state_house_governor_2014.json",
       "districts": 98,
-      "dem_total": 305048,
-      "rep_total": 935351,
+      "dem_total": 308353,
+      "rep_total": 948294,
       "major_party_contested": true
     },
     {
@@ -276,8 +276,8 @@
       "contest_type": "governor",
       "file": "state_house_governor_2018.json",
       "districts": 98,
-      "dem_total": 854221,
-      "rep_total": 1318175,
+      "dem_total": 858469,
+      "rep_total": 1327259,
       "major_party_contested": true
     },
     {
@@ -286,8 +286,8 @@
       "contest_type": "president",
       "file": "state_house_president_2004.json",
       "districts": 99,
-      "dem_total": 1021622,
-      "rep_total": 1359122,
+      "dem_total": 1036470,
+      "rep_total": 1384371,
       "major_party_contested": true
     },
     {
@@ -296,8 +296,8 @@
       "contest_type": "president",
       "file": "state_house_president_2008.json",
       "districts": 99,
-      "dem_total": 1055484,
-      "rep_total": 1443713,
+      "dem_total": 1082047,
+      "rep_total": 1470442,
       "major_party_contested": true
     },
     {
@@ -306,8 +306,8 @@
       "contest_type": "president",
       "file": "state_house_president_2012.json",
       "districts": 98,
-      "dem_total": 934501,
-      "rep_total": 1428338,
+      "dem_total": 954410,
+      "rep_total": 1450913,
       "major_party_contested": true
     },
     {
@@ -316,8 +316,8 @@
       "contest_type": "president",
       "file": "state_house_president_2016.json",
       "districts": 98,
-      "dem_total": 857841,
-      "rep_total": 1500965,
+      "dem_total": 862729,
+      "rep_total": 1511155,
       "major_party_contested": true
     },
     {
@@ -326,8 +326,8 @@
       "contest_type": "president",
       "file": "state_house_president_2020.json",
       "districts": 98,
-      "dem_total": 1121973,
-      "rep_total": 1816929,
+      "dem_total": 1133305,
+      "rep_total": 1838020,
       "major_party_contested": true
     },
     {
@@ -336,8 +336,8 @@
       "contest_type": "president",
       "file": "state_house_president_2024.json",
       "districts": 99,
-      "dem_total": 1040969,
-      "rep_total": 1947493,
+      "dem_total": 1044258,
+      "rep_total": 1950672,
       "major_party_contested": true
     },
     {
@@ -416,8 +416,8 @@
       "contest_type": "us_senate",
       "file": "state_house_us_senate_2006.json",
       "districts": 95,
-      "dem_total": 819594,
-      "rep_total": 848169,
+      "dem_total": 834413,
+      "rep_total": 864469,
       "major_party_contested": true
     },
     {
@@ -426,8 +426,8 @@
       "contest_type": "us_senate",
       "file": "state_house_us_senate_2008.json",
       "districts": 99,
-      "dem_total": 744128,
-      "rep_total": 1539552,
+      "dem_total": 763374,
+      "rep_total": 1570036,
       "major_party_contested": true
     },
     {
@@ -436,8 +436,8 @@
       "contest_type": "us_senate",
       "file": "state_house_us_senate_2012.json",
       "districts": 98,
-      "dem_total": 688035,
-      "rep_total": 1468803,
+      "dem_total": 702050,
+      "rep_total": 1493945,
       "major_party_contested": true
     },
     {
@@ -446,8 +446,8 @@
       "contest_type": "us_senate",
       "file": "state_house_us_senate_2014.json",
       "districts": 98,
-      "dem_total": 431105,
-      "rep_total": 835244,
+      "dem_total": 436229,
+      "rep_total": 846949,
       "major_party_contested": true
     },
     {
@@ -456,8 +456,8 @@
       "contest_type": "us_senate",
       "file": "state_house_us_senate_2018.json",
       "districts": 98,
-      "dem_total": 972920,
-      "rep_total": 1211158,
+      "dem_total": 977980,
+      "rep_total": 1219435,
       "major_party_contested": true
     },
     {
@@ -466,8 +466,8 @@
       "contest_type": "us_senate",
       "file": "state_house_us_senate_2020.json",
       "districts": 98,
-      "dem_total": 1021544,
-      "rep_total": 1804080,
+      "dem_total": 1031572,
+      "rep_total": 1825619,
       "major_party_contested": true
     },
     {
@@ -476,8 +476,8 @@
       "contest_type": "us_senate",
       "file": "state_house_us_senate_2024.json",
       "districts": 99,
-      "dem_total": 1012428,
-      "rep_total": 1899455,
+      "dem_total": 1015614,
+      "rep_total": 1902607,
       "major_party_contested": true
     },
     {
@@ -486,8 +486,8 @@
       "contest_type": "governor",
       "file": "state_senate_governor_2010.json",
       "districts": 33,
-      "dem_total": 519536,
-      "rep_total": 1019503,
+      "dem_total": 528445,
+      "rep_total": 1038048,
       "major_party_contested": true
     },
     {
@@ -496,8 +496,8 @@
       "contest_type": "governor",
       "file": "state_senate_governor_2014.json",
       "districts": 33,
-      "dem_total": 305050,
-      "rep_total": 935350,
+      "dem_total": 308357,
+      "rep_total": 948293,
       "major_party_contested": true
     },
     {
@@ -506,8 +506,8 @@
       "contest_type": "governor",
       "file": "state_senate_governor_2018.json",
       "districts": 33,
-      "dem_total": 854220,
-      "rep_total": 1318171,
+      "dem_total": 858467,
+      "rep_total": 1327255,
       "major_party_contested": true
     },
     {
@@ -516,8 +516,8 @@
       "contest_type": "president",
       "file": "state_senate_president_2004.json",
       "districts": 33,
-      "dem_total": 1021625,
-      "rep_total": 1359125,
+      "dem_total": 1036477,
+      "rep_total": 1384375,
       "major_party_contested": true
     },
     {
@@ -526,8 +526,8 @@
       "contest_type": "president",
       "file": "state_senate_president_2008.json",
       "districts": 33,
-      "dem_total": 1055486,
-      "rep_total": 1443715,
+      "dem_total": 1082045,
+      "rep_total": 1470443,
       "major_party_contested": true
     },
     {
@@ -536,8 +536,8 @@
       "contest_type": "president",
       "file": "state_senate_president_2012.json",
       "districts": 33,
-      "dem_total": 934497,
-      "rep_total": 1428331,
+      "dem_total": 954410,
+      "rep_total": 1450909,
       "major_party_contested": true
     },
     {
@@ -546,8 +546,8 @@
       "contest_type": "president",
       "file": "state_senate_president_2016.json",
       "districts": 33,
-      "dem_total": 857841,
-      "rep_total": 1500964,
+      "dem_total": 862730,
+      "rep_total": 1511156,
       "major_party_contested": true
     },
     {
@@ -556,8 +556,8 @@
       "contest_type": "president",
       "file": "state_senate_president_2020.json",
       "districts": 33,
-      "dem_total": 1121972,
-      "rep_total": 1816929,
+      "dem_total": 1133305,
+      "rep_total": 1838026,
       "major_party_contested": true
     },
     {
@@ -566,8 +566,8 @@
       "contest_type": "president",
       "file": "state_senate_president_2024.json",
       "districts": 33,
-      "dem_total": 1040972,
-      "rep_total": 1947493,
+      "dem_total": 1044257,
+      "rep_total": 1950671,
       "major_party_contested": true
     },
     {
@@ -666,8 +666,8 @@
       "contest_type": "us_senate",
       "file": "state_senate_us_senate_2006.json",
       "districts": 33,
-      "dem_total": 819592,
-      "rep_total": 848173,
+      "dem_total": 834413,
+      "rep_total": 864469,
       "major_party_contested": true
     },
     {
@@ -676,8 +676,8 @@
       "contest_type": "us_senate",
       "file": "state_senate_us_senate_2008.json",
       "districts": 33,
-      "dem_total": 744127,
-      "rep_total": 1539549,
+      "dem_total": 763370,
+      "rep_total": 1570036,
       "major_party_contested": true
     },
     {
@@ -686,8 +686,8 @@
       "contest_type": "us_senate",
       "file": "state_senate_us_senate_2012.json",
       "districts": 33,
-      "dem_total": 688043,
-      "rep_total": 1468804,
+      "dem_total": 702052,
+      "rep_total": 1493950,
       "major_party_contested": true
     },
     {
@@ -696,8 +696,8 @@
       "contest_type": "us_senate",
       "file": "state_senate_us_senate_2014.json",
       "districts": 33,
-      "dem_total": 431100,
-      "rep_total": 835239,
+      "dem_total": 436223,
+      "rep_total": 846943,
       "major_party_contested": true
     },
     {
@@ -706,8 +706,8 @@
       "contest_type": "us_senate",
       "file": "state_senate_us_senate_2018.json",
       "districts": 33,
-      "dem_total": 972920,
-      "rep_total": 1211153,
+      "dem_total": 977981,
+      "rep_total": 1219430,
       "major_party_contested": true
     },
     {
@@ -716,8 +716,8 @@
       "contest_type": "us_senate",
       "file": "state_senate_us_senate_2020.json",
       "districts": 33,
-      "dem_total": 1021548,
-      "rep_total": 1804078,
+      "dem_total": 1031573,
+      "rep_total": 1825620,
       "major_party_contested": true
     },
     {
@@ -726,8 +726,8 @@
       "contest_type": "us_senate",
       "file": "state_senate_us_senate_2024.json",
       "districts": 33,
-      "dem_total": 1012428,
-      "rep_total": 1899458,
+      "dem_total": 1015615,
+      "rep_total": 1902612,
       "major_party_contested": true
     }
   ]

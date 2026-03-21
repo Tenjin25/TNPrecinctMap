@@ -3,7 +3,7 @@
   "year": 2024,
   "meta": {
     "source": "tn_precinct_csv_to_2024_precinct_ids",
-    "rows": 1628
+    "rows": 1633
   },
   "rows": [
     {
@@ -1762,6 +1762,19 @@
       "color": ""
     },
     {
+      "county": "CARTER - 000905",
+      "dem_votes": 371,
+      "rep_votes": 1010,
+      "other_votes": 33,
+      "total_votes": 1414,
+      "dem_candidate": "Gloria Johnson",
+      "rep_candidate": "Marsha Blackburn",
+      "margin": 639,
+      "margin_pct": 45.1909,
+      "winner": "REP",
+      "color": ""
+    },
+    {
       "county": "CARTER - 000906",
       "dem_votes": 200,
       "rep_votes": 1090,
@@ -1971,14 +1984,14 @@
     },
     {
       "county": "CARTER - 000922",
-      "dem_votes": 411,
-      "rep_votes": 1275,
-      "other_votes": 39,
-      "total_votes": 1725,
+      "dem_votes": 40,
+      "rep_votes": 265,
+      "other_votes": 6,
+      "total_votes": 311,
       "dem_candidate": "Gloria Johnson",
       "rep_candidate": "Marsha Blackburn",
-      "margin": 864,
-      "margin_pct": 50.087,
+      "margin": 225,
+      "margin_pct": 72.3473,
       "winner": "REP",
       "color": ""
     },
@@ -6091,7 +6104,7 @@
       "color": ""
     },
     {
-      "county": "DYER - 002363",
+      "county": "DYER - 002364",
       "dem_votes": 149,
       "rep_votes": 481,
       "other_votes": 11,
@@ -6313,14 +6326,14 @@
     },
     {
       "county": "FENTRESS - 002554",
-      "dem_votes": 151,
-      "rep_votes": 1118,
-      "other_votes": 24,
-      "total_votes": 1293,
+      "dem_votes": 74,
+      "rep_votes": 512,
+      "other_votes": 11,
+      "total_votes": 597,
       "dem_candidate": "Gloria Johnson",
       "rep_candidate": "Marsha Blackburn",
-      "margin": 967,
-      "margin_pct": 74.7873,
+      "margin": 438,
+      "margin_pct": 73.3668,
       "winner": "REP",
       "color": ""
     },
@@ -6347,6 +6360,19 @@
       "rep_candidate": "Marsha Blackburn",
       "margin": 850,
       "margin_pct": 77.343,
+      "winner": "REP",
+      "color": ""
+    },
+    {
+      "county": "FENTRESS - 002557",
+      "dem_votes": 77,
+      "rep_votes": 606,
+      "other_votes": 13,
+      "total_votes": 696,
+      "dem_candidate": "Gloria Johnson",
+      "rep_candidate": "Marsha Blackburn",
+      "margin": 529,
+      "margin_pct": 76.0057,
       "winner": "REP",
       "color": ""
     },
@@ -7261,6 +7287,19 @@
       "color": ""
     },
     {
+      "county": "GREENE - 003061",
+      "dem_votes": 452,
+      "rep_votes": 1049,
+      "other_votes": 39,
+      "total_votes": 1540,
+      "dem_candidate": "Gloria Johnson",
+      "rep_candidate": "Marsha Blackburn",
+      "margin": 597,
+      "margin_pct": 38.7662,
+      "winner": "REP",
+      "color": ""
+    },
+    {
       "county": "GREENE - 003063",
       "dem_votes": 766,
       "rep_votes": 3444,
@@ -7287,6 +7326,19 @@
       "color": ""
     },
     {
+      "county": "GREENE - 003066",
+      "dem_votes": 206,
+      "rep_votes": 700,
+      "other_votes": 28,
+      "total_votes": 934,
+      "dem_candidate": "Gloria Johnson",
+      "rep_candidate": "Marsha Blackburn",
+      "margin": 494,
+      "margin_pct": 52.8908,
+      "winner": "REP",
+      "color": ""
+    },
+    {
       "county": "GREENE - 003067",
       "dem_votes": 183,
       "rep_votes": 1168,
@@ -7301,27 +7353,14 @@
     },
     {
       "county": "GREENE - 003069",
-      "dem_votes": 840,
-      "rep_votes": 2882,
-      "other_votes": 74,
-      "total_votes": 3796,
+      "dem_votes": 388,
+      "rep_votes": 1833,
+      "other_votes": 35,
+      "total_votes": 2256,
       "dem_candidate": "Gloria Johnson",
       "rep_candidate": "Marsha Blackburn",
-      "margin": 2042,
-      "margin_pct": 53.7935,
-      "winner": "REP",
-      "color": ""
-    },
-    {
-      "county": "GREENE - 003072",
-      "dem_votes": 206,
-      "rep_votes": 700,
-      "other_votes": 28,
-      "total_votes": 934,
-      "dem_candidate": "Gloria Johnson",
-      "rep_candidate": "Marsha Blackburn",
-      "margin": 494,
-      "margin_pct": 52.8908,
+      "margin": 1445,
+      "margin_pct": 64.0514,
       "winner": "REP",
       "color": ""
     },
@@ -14724,14 +14763,14 @@
     },
     {
       "county": "PICKETT - 007051",
-      "dem_votes": 86,
-      "rep_votes": 368,
-      "other_votes": 8,
-      "total_votes": 462,
+      "dem_votes": 145,
+      "rep_votes": 494,
+      "other_votes": 14,
+      "total_votes": 653,
       "dem_candidate": "Gloria Johnson",
       "rep_candidate": "Marsha Blackburn",
-      "margin": 282,
-      "margin_pct": 61.039,
+      "margin": 349,
+      "margin_pct": 53.4456,
       "winner": "REP",
       "color": ""
     },
@@ -14750,14 +14789,27 @@
     },
     {
       "county": "PICKETT - 007053",
-      "dem_votes": 205,
-      "rep_votes": 889,
-      "other_votes": 23,
-      "total_votes": 1117,
+      "dem_votes": 60,
+      "rep_votes": 395,
+      "other_votes": 9,
+      "total_votes": 464,
       "dem_candidate": "Gloria Johnson",
       "rep_candidate": "Marsha Blackburn",
-      "margin": 684,
-      "margin_pct": 61.2355,
+      "margin": 335,
+      "margin_pct": 72.1983,
+      "winner": "REP",
+      "color": ""
+    },
+    {
+      "county": "PICKETT - 007054",
+      "dem_votes": 86,
+      "rep_votes": 368,
+      "other_votes": 8,
+      "total_votes": 462,
+      "dem_candidate": "Gloria Johnson",
+      "rep_candidate": "Marsha Blackburn",
+      "margin": 282,
+      "margin_pct": 61.039,
       "winner": "REP",
       "color": ""
     },
@@ -19065,6 +19117,19 @@
       "color": ""
     },
     {
+      "county": "UNICOI - 008901",
+      "dem_votes": 280,
+      "rep_votes": 924,
+      "other_votes": 31,
+      "total_votes": 1235,
+      "dem_candidate": "Gloria Johnson",
+      "rep_candidate": "Marsha Blackburn",
+      "margin": 644,
+      "margin_pct": 52.1457,
+      "winner": "REP",
+      "color": ""
+    },
+    {
       "county": "UNICOI - 008902",
       "dem_votes": 230,
       "rep_votes": 1082,
@@ -19092,14 +19157,14 @@
     },
     {
       "county": "UNICOI - 008904",
-      "dem_votes": 598,
-      "rep_votes": 2421,
-      "other_votes": 60,
-      "total_votes": 3079,
+      "dem_votes": 318,
+      "rep_votes": 1497,
+      "other_votes": 29,
+      "total_votes": 1844,
       "dem_candidate": "Gloria Johnson",
       "rep_candidate": "Marsha Blackburn",
-      "margin": 1823,
-      "margin_pct": 59.2075,
+      "margin": 1179,
+      "margin_pct": 63.9371,
       "winner": "REP",
       "color": ""
     },

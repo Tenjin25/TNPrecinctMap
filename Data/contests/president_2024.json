@@ -3,7 +3,7 @@
   "year": 2024,
   "meta": {
     "source": "tn_precinct_csv_to_2024_precinct_ids",
-    "rows": 1628
+    "rows": 1633
   },
   "rows": [
     {
@@ -1762,6 +1762,19 @@
       "color": ""
     },
     {
+      "county": "CARTER - 000905",
+      "dem_votes": 408,
+      "rep_votes": 1034,
+      "other_votes": 17,
+      "total_votes": 1459,
+      "dem_candidate": "Kamala D. Harris",
+      "rep_candidate": "Donald J. Trump",
+      "margin": 626,
+      "margin_pct": 42.9061,
+      "winner": "REP",
+      "color": ""
+    },
+    {
       "county": "CARTER - 000906",
       "dem_votes": 234,
       "rep_votes": 1114,
@@ -1971,14 +1984,14 @@
     },
     {
       "county": "CARTER - 000922",
-      "dem_votes": 458,
-      "rep_votes": 1295,
-      "other_votes": 21,
-      "total_votes": 1774,
+      "dem_votes": 50,
+      "rep_votes": 261,
+      "other_votes": 4,
+      "total_votes": 315,
       "dem_candidate": "Kamala D. Harris",
       "rep_candidate": "Donald J. Trump",
-      "margin": 837,
-      "margin_pct": 47.1815,
+      "margin": 211,
+      "margin_pct": 66.9841,
       "winner": "REP",
       "color": ""
     },
@@ -6091,7 +6104,7 @@
       "color": ""
     },
     {
-      "county": "DYER - 002363",
+      "county": "DYER - 002364",
       "dem_votes": 156,
       "rep_votes": 507,
       "other_votes": 5,
@@ -6313,14 +6326,14 @@
     },
     {
       "county": "FENTRESS - 002554",
-      "dem_votes": 133,
-      "rep_votes": 1219,
-      "other_votes": 8,
-      "total_votes": 1360,
+      "dem_votes": 60,
+      "rep_votes": 565,
+      "other_votes": 3,
+      "total_votes": 628,
       "dem_candidate": "Kamala D. Harris",
       "rep_candidate": "Donald J. Trump",
-      "margin": 1086,
-      "margin_pct": 79.8529,
+      "margin": 505,
+      "margin_pct": 80.414,
       "winner": "REP",
       "color": ""
     },
@@ -6347,6 +6360,19 @@
       "rep_candidate": "Donald J. Trump",
       "margin": 898,
       "margin_pct": 79.2586,
+      "winner": "REP",
+      "color": ""
+    },
+    {
+      "county": "FENTRESS - 002557",
+      "dem_votes": 73,
+      "rep_votes": 654,
+      "other_votes": 5,
+      "total_votes": 732,
+      "dem_candidate": "Kamala D. Harris",
+      "rep_candidate": "Donald J. Trump",
+      "margin": 581,
+      "margin_pct": 79.3716,
       "winner": "REP",
       "color": ""
     },
@@ -7261,6 +7287,19 @@
       "color": ""
     },
     {
+      "county": "GREENE - 003061",
+      "dem_votes": 482,
+      "rep_votes": 1068,
+      "other_votes": 28,
+      "total_votes": 1578,
+      "dem_candidate": "Kamala D. Harris",
+      "rep_candidate": "Donald J. Trump",
+      "margin": 586,
+      "margin_pct": 37.1356,
+      "winner": "REP",
+      "color": ""
+    },
+    {
       "county": "GREENE - 003063",
       "dem_votes": 843,
       "rep_votes": 3499,
@@ -7287,6 +7326,19 @@
       "color": ""
     },
     {
+      "county": "GREENE - 003066",
+      "dem_votes": 209,
+      "rep_votes": 726,
+      "other_votes": 19,
+      "total_votes": 954,
+      "dem_candidate": "Kamala D. Harris",
+      "rep_candidate": "Donald J. Trump",
+      "margin": 517,
+      "margin_pct": 54.1929,
+      "winner": "REP",
+      "color": ""
+    },
+    {
       "county": "GREENE - 003067",
       "dem_votes": 194,
       "rep_votes": 1184,
@@ -7301,27 +7353,14 @@
     },
     {
       "county": "GREENE - 003069",
-      "dem_votes": 900,
-      "rep_votes": 2906,
-      "other_votes": 56,
-      "total_votes": 3862,
+      "dem_votes": 418,
+      "rep_votes": 1838,
+      "other_votes": 28,
+      "total_votes": 2284,
       "dem_candidate": "Kamala D. Harris",
       "rep_candidate": "Donald J. Trump",
-      "margin": 2006,
-      "margin_pct": 51.942,
-      "winner": "REP",
-      "color": ""
-    },
-    {
-      "county": "GREENE - 003072",
-      "dem_votes": 209,
-      "rep_votes": 726,
-      "other_votes": 19,
-      "total_votes": 954,
-      "dem_candidate": "Kamala D. Harris",
-      "rep_candidate": "Donald J. Trump",
-      "margin": 517,
-      "margin_pct": 54.1929,
+      "margin": 1420,
+      "margin_pct": 62.1716,
       "winner": "REP",
       "color": ""
     },
@@ -14724,14 +14763,14 @@
     },
     {
       "county": "PICKETT - 007051",
-      "dem_votes": 76,
-      "rep_votes": 397,
-      "other_votes": 5,
-      "total_votes": 478,
+      "dem_votes": 142,
+      "rep_votes": 529,
+      "other_votes": 6,
+      "total_votes": 677,
       "dem_candidate": "Kamala D. Harris",
       "rep_candidate": "Donald J. Trump",
-      "margin": 321,
-      "margin_pct": 67.1548,
+      "margin": 387,
+      "margin_pct": 57.164,
       "winner": "REP",
       "color": ""
     },
@@ -14750,14 +14789,27 @@
     },
     {
       "county": "PICKETT - 007053",
-      "dem_votes": 198,
-      "rep_votes": 949,
-      "other_votes": 7,
-      "total_votes": 1154,
+      "dem_votes": 56,
+      "rep_votes": 420,
+      "other_votes": 1,
+      "total_votes": 477,
       "dem_candidate": "Kamala D. Harris",
       "rep_candidate": "Donald J. Trump",
-      "margin": 751,
-      "margin_pct": 65.078,
+      "margin": 364,
+      "margin_pct": 76.3103,
+      "winner": "REP",
+      "color": ""
+    },
+    {
+      "county": "PICKETT - 007054",
+      "dem_votes": 76,
+      "rep_votes": 397,
+      "other_votes": 5,
+      "total_votes": 478,
+      "dem_candidate": "Kamala D. Harris",
+      "rep_candidate": "Donald J. Trump",
+      "margin": 321,
+      "margin_pct": 67.1548,
       "winner": "REP",
       "color": ""
     },
@@ -19065,6 +19117,19 @@
       "color": ""
     },
     {
+      "county": "UNICOI - 008901",
+      "dem_votes": 312,
+      "rep_votes": 943,
+      "other_votes": 14,
+      "total_votes": 1269,
+      "dem_candidate": "Kamala D. Harris",
+      "rep_candidate": "Donald J. Trump",
+      "margin": 631,
+      "margin_pct": 49.7242,
+      "winner": "REP",
+      "color": ""
+    },
+    {
       "county": "UNICOI - 008902",
       "dem_votes": 255,
       "rep_votes": 1094,
@@ -19092,14 +19157,14 @@
     },
     {
       "county": "UNICOI - 008904",
-      "dem_votes": 674,
-      "rep_votes": 2462,
-      "other_votes": 32,
-      "total_votes": 3168,
+      "dem_votes": 362,
+      "rep_votes": 1519,
+      "other_votes": 18,
+      "total_votes": 1899,
       "dem_candidate": "Kamala D. Harris",
       "rep_candidate": "Donald J. Trump",
-      "margin": 1788,
-      "margin_pct": 56.4394,
+      "margin": 1157,
+      "margin_pct": 60.9268,
       "winner": "REP",
       "color": ""
     },
