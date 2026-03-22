@@ -7732,7 +7732,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
       return {
         cls: shift > 0 ? 'rep' : 'dem',
-        text: `${shift > 0 ? 'R' : 'D'} +${Math.abs(shift).toFixed(2)} vs ${prevYear}`
+        text: `${Math.abs(shift).toFixed(2)} vs ${prevYear}`
       };
     }
 
@@ -9515,12 +9515,11 @@ document.addEventListener('DOMContentLoaded', function() {
       return `${marginPctValue(repVotes, demVotes, totalVotes).toFixed(2)}%`;
     }
 
-    // Prefix with party for the vote-counter Lead pill only (R+ / D+).
+    // Lead pill uses neutral margin text (no party prefix).
     function focusLeadMarginLabel(repVotes, demVotes, totalVotes) {
       const margin = Number(repVotes || 0) - Number(demVotes || 0);
       if (!margin) return 'Tie';
-      const party = margin > 0 ? 'R' : 'D';
-      return `${party}+${marginPctValue(repVotes, demVotes, totalVotes).toFixed(2)}%`;
+      return `${marginPctValue(repVotes, demVotes, totalVotes).toFixed(2)}%`;
     }
 
     function compactWinnerMarginLabel(repVotes, demVotes, totalVotes, repCandidate, demCandidate) {
@@ -13260,12 +13259,12 @@ document.addEventListener('DOMContentLoaded', function() {
               const demPct = (demVotes / totalVotes) * 100;
               const repPct = (repVotes / totalVotes) * 100;
               const margin = demPct - repPct;
-              const winner = margin > 0 ? 'D' : 'R';
+              const winnerLabel = margin > 0 ? 'Democratic' : 'Republican';
               const marginAbs = Math.abs(margin);
               
               trends.push({
                 year: year,
-                display: `${year}: ${winner}+${marginAbs.toFixed(2)}`,
+                display: `${year}: ${winnerLabel} ${marginAbs.toFixed(2)}%`,
                 margin: margin,
                 type: 'house'
               });
@@ -13304,7 +13303,7 @@ document.addEventListener('DOMContentLoaded', function() {
               
               trends.push({
                 year: year,
-                display: `${year}: ${candidateInfo}+${marginAbs.toFixed(2)}`,
+                display: `${year}: ${candidateInfo} ${marginAbs.toFixed(2)}%`,
                 margin: margin,
                 type: 'president'
               });
@@ -13341,7 +13340,7 @@ document.addEventListener('DOMContentLoaded', function() {
             candidateInfo = margin > 0 ? getCandidateName(year, 'Governor', 'Democrat') : getCandidateName(year, 'Governor', 'Republican');
             trends.push({
               year: year,
-              display: `${year}: ${candidateInfo}+${marginAbs.toFixed(2)}`,
+              display: `${year}: ${candidateInfo} ${marginAbs.toFixed(2)}%`,
               margin: margin,
               type: 'governor'
             });
@@ -13361,12 +13360,12 @@ document.addEventListener('DOMContentLoaded', function() {
               const demPct = (demVotes / totalVotes) * 100;
               const repPct = (repVotes / totalVotes) * 100;
               const margin = demPct - repPct;
-              const winner = margin > 0 ? 'D' : 'R';
+              const winnerLabel = margin > 0 ? 'Democratic' : 'Republican';
               const marginAbs = Math.abs(margin);
               
               trends.push({
                 year: year,
-                display: `${year}: ${winner}+${marginAbs.toFixed(2)} (House)`,
+                display: `${year}: ${winnerLabel} ${marginAbs.toFixed(2)}% (House)`,
                 margin: margin,
                 type: 'state_house'
               });
@@ -13964,12 +13963,12 @@ document.addEventListener('DOMContentLoaded', function() {
         const demPct = (recent.president_dem / recent.president_total) * 100;
         const repPct = (recent.president_rep / recent.president_total) * 100;
         const margin = demPct - repPct;
-        const winner = margin > 0 ? 'D' : 'R';
+        const winnerLabel = margin > 0 ? 'Democratic' : 'Republican';
         const marginAbs = Math.abs(margin);
         
         return `<div class="quick-tooltip">
           <strong>${countyName} County</strong><br>
-          ${recent.year}: ${winner}+${marginAbs.toFixed(2)}%<br>
+          ${recent.year}: ${winnerLabel} ${marginAbs.toFixed(2)}%<br>
           <em>Click for full trends</em>
         </div>`;
       }
@@ -14046,13 +14045,13 @@ document.addEventListener('DOMContentLoaded', function() {
           const demPct = (recent.us_house_dem / recent.us_house_total) * 100;
           const repPct = (recent.us_house_rep / recent.us_house_total) * 100;
           const margin = demPct - repPct;
-          const winner = margin > 0 ? 'D' : 'R';
+          const winnerLabel = margin > 0 ? 'Democratic' : 'Republican';
           const marginAbs = Math.abs(margin);
           
           return `<div class="quick-tooltip">
             <strong>${displayName}</strong><br>
             ${desc ? `<span style="color:#64748b;font-weight:700;">${desc}</span><br>` : ''}
-            ${recent.year}: ${winner}+${marginAbs.toFixed(2)}%<br>
+            ${recent.year}: ${winnerLabel} ${marginAbs.toFixed(2)}%<br>
             <em>Click for full trends</em>
           </div>`;
         }
