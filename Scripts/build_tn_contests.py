@@ -49,6 +49,7 @@ LEGACY_PRECINCT_VTD20_OVERRIDES: Dict[Tuple[str, str], str] = {
     ("TIPTON", "S W TIPTON"): "008706",
     ("BLOUNT", "WM BLOUNT MIDDLE"): "000419",
 }
+PRCTSEQ_OFFSET_DISABLED_COUNTYFPS = {"093"}  # Knox: avoid unreliable seq->VTD offset jumps
 
 
 def norm_space(s: str) -> str:
@@ -487,9 +488,62 @@ def load_2024_prctseq_by_county() -> Dict[str, set]:
     return out
 
 
+def extract_leading_precinct_code_tokens(raw: str) -> List[str]:
+    """Extract normalized leading precinct code tokens, e.g. '65E' -> ['65-E', '65']."""
+    s = norm_space(raw).upper()
+    if not s:
+        return []
+
+    m = re.match(r"^\s*(\d{1,3})(?:\s*[- ]?\s*([A-Z]{1,2}))?\b", s)
+    if not m:
+        return []
+
+    num = str(int(m.group(1)))
+    suf = norm_space(m.group(2) or "")
+    out: List[str] = []
+    if suf:
+        out.append(f"{num}-{suf}")
+    out.append(num)
+    return out
+
+
+def load_vtd20_leading_code_map() -> Dict[Tuple[str, str], List[str]]:
+    """Map (countyfp, leading code like '65-E'/'65') -> VTD20 code(s)."""
+    if not VTD20_NAME_ZIP.exists():
+        return {}
+
+    out: Dict[Tuple[str, str], set] = defaultdict(set)
+    gdf = gpd.read_file(VTD20_NAME_ZIP)
+    rows = gdf.drop(columns="geometry", errors="ignore").to_dict("records")
+    for r in rows:
+        countyfp = norm_space(str(r.get("COUNTYFP20", ""))).zfill(3)
+        raw_code = norm_space(str(r.get("VTDST20", "")))
+        name20 = norm_space(str(r.get("NAME20", ""))).upper()
+        if not (countyfp and raw_code and name20):
+            continue
+        vtd_code = raw_code.zfill(6) if raw_code.isdigit() else raw_code
+
+        m = re.match(r"^\s*(\d{1,3})(?:\s*-\s*([A-Z]{1,2}))?\s*$", name20)
+        if not m:
+            continue
+        num = str(int(m.group(1)))
+        suf = norm_space(m.group(2) or "")
+        if suf:
+            out[(countyfp, f"{num}-{suf}")].add(vtd_code)
+        else:
+            out[(countyfp, num)].add(vtd_code)
+
+    return {
+        k: sorted(v)
+        for k, v in out.items()
+        if v
+    }
+
+
 def build_2024_prctseq_to_vtd_lookup(
     county_norm_to_fp: Dict[str, str],
     vtd20_name_key_map: Dict[Tuple[str, str], List[str]],
+    vtd20_leading_code_map: Dict[Tuple[str, str], List[str]],
 ) -> Dict[Tuple[str, int], str]:
     """Map (countyfp, PRCTSEQ int) -> VTD20 code using 2024 precinct names."""
     path = DATA_DIR / "20241105__tn__general__precinct.csv"
@@ -508,7 +562,18 @@ def build_2024_prctseq_to_vtd_lookup(
                 continue
             seq_int = int(seq_raw)
             codes = set()
+            for token in extract_leading_precinct_code_tokens(precinct_raw):
+                for code in vtd20_leading_code_map.get((county_fp, token), []):
+                    if code and code.isdigit():
+                        codes.add(str(code).zfill(6))
+            if len(codes) == 1:
+                out_raw[(county_fp, seq_int)].update(codes)
+                continue
+
+            strong_prefixes = ("FULL:", "PAIR:", "TXTNUM:", "NUMTXT:")
             for key in extract_precinct_name_keys(precinct_raw):
+                if not key.startswith(strong_prefixes):
+                    continue
                 for code in vtd20_name_key_map.get((county_fp, key), []):
                     if code and code.isdigit():
                         codes.add(str(code).zfill(6))
@@ -520,6 +585,117 @@ def build_2024_prctseq_to_vtd_lookup(
         for k, v in out_raw.items()
         if len(v) == 1
     }
+
+
+def build_2024_prctseq_district_weights_raw(
+    county_norm_to_fp: Dict[str, str],
+    office_marker: str,
+) -> Dict[Tuple[str, str], List[Tuple[str, float]]]:
+    """Build (countyfp, PRCTSEQ6) -> district weights from 2024 precinct rows."""
+    path = DATA_DIR / "20241105__tn__general__precinct.csv"
+    if not path.exists():
+        return {}
+
+    raw: Dict[Tuple[str, str], Dict[str, float]] = defaultdict(lambda: defaultdict(float))
+    with path.open("r", encoding="utf-8-sig", newline="") as f:
+        reader = csv.DictReader(f)
+        for r in reader:
+            county_norm = norm_county(r.get("COUNTY", ""))
+            county_fp = county_norm_to_fp.get(county_norm, "")
+            seq_raw = norm_space(r.get("PRCTSEQ", ""))
+            office = norm_space(r.get("OFFICENAME", "")).upper()
+            if not (county_fp and seq_raw and seq_raw.isdigit()):
+                continue
+            if office_marker not in office:
+                continue
+
+            district = parse_district(r.get("JURISID", ""), office)
+            if not district:
+                district = parse_district("", office)
+            if not district:
+                continue
+
+            votes_total = 0.0
+            for k, v in r.items():
+                if str(k).upper().startswith("PVTALLY"):
+                    votes_total += float(parse_votes(v))
+            row_weight = votes_total if votes_total > 0 else 1.0
+            raw[(county_fp, seq_raw.zfill(6))][str(district)] += row_weight
+
+    out: Dict[Tuple[str, str], List[Tuple[str, float]]] = {}
+    for key, dmap in raw.items():
+        total = float(sum(v for v in dmap.values() if v > 0))
+        if total <= 0:
+            continue
+        rows = sorted(
+            ((str(d), float(v) / total) for d, v in dmap.items() if float(v) > 0),
+            key=lambda x: x[1],
+            reverse=True,
+        )
+        if rows:
+            out[key] = rows
+    return out
+
+
+def build_2024_state_house_prctseq_district_weights_raw(
+    county_norm_to_fp: Dict[str, str],
+) -> Dict[Tuple[str, str], List[Tuple[str, float]]]:
+    """Build (countyfp, PRCTSEQ6) -> state-house district weights from 2024 precinct rows."""
+    return build_2024_prctseq_district_weights_raw(
+        county_norm_to_fp=county_norm_to_fp,
+        office_marker="TENNESSEE HOUSE OF REPRESENTATIVES DISTRICT",
+    )
+
+
+def build_2024_state_senate_prctseq_district_weights_raw(
+    county_norm_to_fp: Dict[str, str],
+) -> Dict[Tuple[str, str], List[Tuple[str, float]]]:
+    """Build (countyfp, PRCTSEQ6) -> state-senate district weights from 2024 precinct rows."""
+    return build_2024_prctseq_district_weights_raw(
+        county_norm_to_fp=county_norm_to_fp,
+        office_marker="TENNESSEE SENATE DISTRICT",
+    )
+
+
+def build_2024_prctseq_district_weights_to_vtd(
+    prctseq_weights: Dict[Tuple[str, str], List[Tuple[str, float]]],
+    offsets_by_county: Dict[str, List[int]],
+    vtd_ints_by_county: Dict[str, set],
+    prctseq_exact_to_vtd: Dict[Tuple[str, int], str],
+) -> Dict[Tuple[str, str], List[Tuple[str, float]]]:
+    """Convert (countyfp, PRCTSEQ6) district weights into (countyfp, VTD20) weights."""
+    raw: Dict[Tuple[str, str], Dict[str, float]] = defaultdict(lambda: defaultdict(float))
+    for (county_fp, seq_code), rows in prctseq_weights.items():
+        if not seq_code or not seq_code.isdigit():
+            continue
+        vtd_code = prctseq_to_vtd(
+            county_fp=county_fp,
+            seq_code6=seq_code,
+            offsets_by_county=offsets_by_county,
+            vtd_ints_by_county=vtd_ints_by_county,
+            prctseq_exact_to_vtd=prctseq_exact_to_vtd,
+        )
+        if not vtd_code or not vtd_code.isdigit():
+            continue
+        for district, weight in rows:
+            w = float(weight)
+            if w <= 0:
+                continue
+            raw[(county_fp, vtd_code.zfill(6))][str(district)] += w
+
+    out: Dict[Tuple[str, str], List[Tuple[str, float]]] = {}
+    for key, dmap in raw.items():
+        total = float(sum(v for v in dmap.values() if v > 0))
+        if total <= 0:
+            continue
+        rows = sorted(
+            ((str(d), float(v) / total) for d, v in dmap.items() if float(v) > 0),
+            key=lambda x: x[1],
+            reverse=True,
+        )
+        if rows:
+            out[key] = rows
+    return out
 
 
 def normalize_district_code(raw) -> str:
@@ -1227,6 +1403,8 @@ def prctseq_to_vtd(
         return seq_code6
     if seq_int in vset:
         return str(seq_int).zfill(6)
+    if county_fp in PRCTSEQ_OFFSET_DISABLED_COUNTYFPS:
+        return seq_code6
     for k in offsets_by_county.get(county_fp, []):
         candidate = seq_int + int(k)
         if candidate in vset:
@@ -1250,6 +1428,7 @@ def resolve_precinct_code(
     overlap_maps_by_src_year: Dict[int, Dict[Tuple[str, str], List[Tuple[str, float]]]],
     vtd_name_key_maps_by_src_year: Dict[int, Dict[Tuple[str, str], List[str]]],
     vtd20_name_key_map: Dict[Tuple[str, str], List[str]],
+    vtd20_leading_code_map: Dict[Tuple[str, str], List[str]],
 ) -> str:
     if year == 2024:
         p = norm_space(prctseq_raw)
@@ -1263,6 +1442,34 @@ def resolve_precinct_code(
     override_code = legacy_precinct_override_vtd20_code(county_norm, prec_norm)
     if override_code:
         return override_code
+
+    # 2020-era precinct labels are often directly matchable to 2020 VTD names.
+    # Prefer these exact county-local name matches before older crosswalk heuristics.
+    if year >= 2020 and county_fp:
+        for token in extract_leading_precinct_code_tokens(precinct_raw):
+            candidates = vtd20_leading_code_map.get((county_fp, token), [])
+            if len(candidates) == 1:
+                return prctseq_to_vtd(
+                    county_fp,
+                    candidates[0].zfill(6),
+                    offsets_by_county,
+                    vtd_ints_by_county,
+                    prctseq_exact_to_vtd,
+                )
+        strong_prefixes = ("FULL:", "PAIR:", "TXTNUM:", "NUMTXT:")
+        for key in extract_precinct_name_keys(precinct_raw):
+            if not key.startswith(strong_prefixes):
+                continue
+            candidates = vtd20_name_key_map.get((county_fp, key), [])
+            if len(candidates) == 1:
+                return prctseq_to_vtd(
+                    county_fp,
+                    candidates[0].zfill(6),
+                    offsets_by_county,
+                    vtd_ints_by_county,
+                    prctseq_exact_to_vtd,
+                )
+
     code = to2024.get((year, county_norm, prec_norm), "")
     if code:
         return prctseq_to_vtd(
@@ -1294,7 +1501,7 @@ def resolve_precinct_code(
 
     # Fallback: leading numeric precinct labels (e.g., "25 MILLENNIUM", "04 WILL BLOUNT MID")
     # often correspond to PRCTSEQ identifiers.
-    mnum = re.match(r"^\s*(\d{1,3})(?:[A-Z])?\b", prec_norm)
+    mnum = re.match(r"^\s*(\d{1,3})\b", prec_norm)
     if mnum:
         seq_guess = str(int(mnum.group(1))).zfill(6)
         guessed = prctseq_to_vtd(
@@ -1341,6 +1548,12 @@ def build() -> dict:
     to2024_split_by_year, to2024_split_any_year = build_precinct_split_key_maps(to2024)
     to2024_fuzzy_candidates = build_precinct_fuzzy_candidates(to2024)
     district_weights, county_district_weights = build_district_weight_maps()
+    state_house_2024_prctseq_weights = build_2024_state_house_prctseq_district_weights_raw(
+        county_norm_to_fp
+    )
+    state_senate_2024_prctseq_weights = build_2024_state_senate_prctseq_district_weights_raw(
+        county_norm_to_fp
+    )
     overlap_maps_by_src_year = {
         2000: load_vtd_overlap_to_2020_map(
             DATA_DIR / "crosswalks" / "tn_vtd00_to_vtd20_overlap.csv",
@@ -1356,12 +1569,26 @@ def build() -> dict:
         2010: load_vtd_name_key_map(2010),
     }
     vtd20_name_key_map = load_vtd20_name_key_map()
+    vtd20_leading_code_map = load_vtd20_leading_code_map()
     prctseq_exact_to_vtd = build_2024_prctseq_to_vtd_lookup(
         county_norm_to_fp=county_norm_to_fp,
         vtd20_name_key_map=vtd20_name_key_map,
+        vtd20_leading_code_map=vtd20_leading_code_map,
     )
     prctseq_offsets_by_county, vtd_ints_by_county = build_prctseq_offsets(
         county_norm_to_fp, district_weights
+    )
+    state_house_2024_vote_weights = build_2024_prctseq_district_weights_to_vtd(
+        prctseq_weights=state_house_2024_prctseq_weights,
+        offsets_by_county=prctseq_offsets_by_county,
+        vtd_ints_by_county=vtd_ints_by_county,
+        prctseq_exact_to_vtd=prctseq_exact_to_vtd,
+    )
+    state_senate_2024_vote_weights = build_2024_prctseq_district_weights_to_vtd(
+        prctseq_weights=state_senate_2024_prctseq_weights,
+        offsets_by_county=prctseq_offsets_by_county,
+        vtd_ints_by_county=vtd_ints_by_county,
+        prctseq_exact_to_vtd=prctseq_exact_to_vtd,
     )
 
     # Contest rows keyed by (contest, year, "COUNTY - CODE")
@@ -1372,6 +1599,8 @@ def build() -> dict:
     # Keep a thin cache of statewide precinct rows for district reaggregation.
     statewide_precinct_rows: List[Tuple[str, int, str, str, str, Totals]] = []
     # tuple: contest, year, county_norm, countyfp, code, Totals ref
+    statewide_2024_prctseq: Dict[Tuple[str, str, str], Totals] = defaultdict(Totals)
+    # tuple: contest_type, countyfp, prctseq6
     direct_precinct_scope_votes: Dict[Tuple[str, int, str, str], Dict[str, float]] = defaultdict(
         lambda: defaultdict(float)
     )
@@ -1407,12 +1636,19 @@ def build() -> dict:
                 overlap_maps_by_src_year=overlap_maps_by_src_year,
                 vtd_name_key_maps_by_src_year=vtd_name_key_maps_by_src_year,
                 vtd20_name_key_map=vtd20_name_key_map,
+                vtd20_leading_code_map=vtd20_leading_code_map,
             )
             if not code:
                 continue
             label = f"{county_norm} - {code}"
             key = (contest_type, year, label)
             contest_precinct[key].add(party, candidate, votes)
+            if year == 2024 and county_fp:
+                seq_raw = norm_space(row["prctseq"])
+                if seq_raw.isdigit():
+                    statewide_2024_prctseq[(contest_type, county_fp, seq_raw.zfill(6))].add(
+                        party, candidate, votes
+                    )
 
         # Direct district office contest slices.
         scope = DISTRICT_SCOPE_BY_OFFICE_CONTEST.get(contest_type)
@@ -1500,6 +1736,12 @@ def build() -> dict:
     for (contest_type, year), rows in all_contest_rows_by_contest_year.items():
         if contest_type not in COUNTY_PLUS_PRECINCT_CONTESTS:
             continue
+        # Running county+scope vote distribution from already-mapped geographic rows.
+        # Used to place administrative/non-geographic buckets more realistically than
+        # county-area fallback, especially in urban counties.
+        county_scope_geo_vote_accum: Dict[Tuple[str, str], Dict[str, float]] = defaultdict(
+            lambda: defaultdict(float)
+        )
         for r in rows:
             label = norm_space(r.get("county", ""))
             if " - " not in label:
@@ -1519,12 +1761,22 @@ def build() -> dict:
             rep_cand = r.get("rep_candidate", "")
 
             for scope in STATEWIDE_DISTRICT_SCOPES:
+                if scope in {"state_house", "state_senate"} and int(year) == 2024:
+                    continue
                 stat_key = (scope, contest_type, year)
                 stat = statewide_alloc_stats[stat_key]
                 stat["rows"] += 1
 
                 wmap = district_weights.get(scope, {})
-                allocs = wmap.get((county_fp, code_numeric), []) if code_numeric else []
+                allocs: List[Tuple[str, float]] = []
+                if scope == "state_house" and code_numeric:
+                    allocs = state_house_2024_prctseq_weights.get((county_fp, code_numeric), [])
+                    if not allocs:
+                        allocs = state_house_2024_vote_weights.get((county_fp, code_numeric), [])
+                if scope == "state_senate" and code_numeric:
+                    allocs = state_senate_2024_vote_weights.get((county_fp, code_numeric), [])
+                if not allocs:
+                    allocs = wmap.get((county_fp, code_numeric), []) if code_numeric else []
                 is_non_geo_bucket = code_raw.startswith("NG-")
                 is_unmapped_label_bucket = code_raw.startswith("UNM-")
                 is_unmapped_non_geo = is_unmapped_label_bucket and is_unmapped_non_geo_bucket(code_raw)
@@ -1557,6 +1809,20 @@ def build() -> dict:
                     if hint_allocs:
                         allocs = hint_allocs
                         source = "direct"
+                if not allocs and (is_non_geo_bucket or is_unmapped_non_geo):
+                    geo_dist = county_scope_geo_vote_accum.get((scope, county_fp), {})
+                    geo_total = float(sum(v for v in geo_dist.values() if v > 0))
+                    if geo_total > 0:
+                        allocs = sorted(
+                            (
+                                (str(d), float(v) / geo_total)
+                                for d, v in geo_dist.items()
+                                if float(v) > 0
+                            ),
+                            key=lambda x: x[1],
+                            reverse=True,
+                        )
+                        source = "non_geo_fallback" if allocs else source
                 if not allocs and (is_non_geo_bucket or is_unmapped_non_geo):
                     allocs = county_allocs
                     source = "non_geo_fallback" if allocs else "dropped"
@@ -1604,6 +1870,67 @@ def build() -> dict:
                     node.add("DEM", dem_cand, dem_votes * w)
                     node.add("REP", rep_cand, rep_votes * w)
                     node.add("OTHER", "", other_votes * w)
+
+                    if source in {"direct", "overlap"} and not (is_non_geo_bucket or is_unmapped_non_geo):
+                        county_scope_geo_vote_accum[(scope, county_fp)][str(district)] += votes_total * float(w)
+
+    # For 2024 statewide contests, allocate to legislative districts directly by PRCTSEQ
+    # using 2024 legislative district rows to avoid PRCTSEQ->VTD remap distortion.
+    legislative_2024_scope_weights = {
+        "state_house": (state_house_2024_prctseq_weights, state_house_2024_vote_weights),
+        "state_senate": (state_senate_2024_prctseq_weights, state_senate_2024_vote_weights),
+    }
+    for scope, (prctseq_weights, vtd_weights) in legislative_2024_scope_weights.items():
+        for (contest_type, county_fp, seq_code), totals in statewide_2024_prctseq.items():
+            if contest_type not in COUNTY_PLUS_PRECINCT_CONTESTS:
+                continue
+            stat_key = (scope, contest_type, 2024)
+            stat = statewide_alloc_stats[stat_key]
+            stat["rows"] += 1
+
+            dem_votes = float(totals.dem)
+            rep_votes = float(totals.rep)
+            other_votes = float(totals.other)
+            votes_total = dem_votes + rep_votes + other_votes
+            stat["votes_total"] += votes_total
+            dem_cand = totals.dem_cands.most_common(1)[0][0] if totals.dem_cands else ""
+            rep_cand = totals.rep_cands.most_common(1)[0][0] if totals.rep_cands else ""
+
+            allocs = prctseq_weights.get((county_fp, seq_code), [])
+            source = "direct"
+            if not allocs:
+                vtd_code = prctseq_to_vtd(
+                    county_fp=county_fp,
+                    seq_code6=seq_code,
+                    offsets_by_county=prctseq_offsets_by_county,
+                    vtd_ints_by_county=vtd_ints_by_county,
+                    prctseq_exact_to_vtd=prctseq_exact_to_vtd,
+                )
+                if vtd_code and vtd_code.isdigit():
+                    allocs = vtd_weights.get((county_fp, vtd_code.zfill(6)), [])
+                    if not allocs:
+                        allocs = district_weights.get(scope, {}).get((county_fp, vtd_code.zfill(6)), [])
+            if not allocs:
+                allocs = county_district_weights.get(scope, {}).get(county_fp, [])
+                source = "county_fallback" if allocs else "dropped"
+            if not allocs:
+                stat["dropped_rows"] += 1
+                stat["votes_dropped"] += votes_total
+                continue
+
+            if source == "direct":
+                stat["direct_rows"] += 1
+                stat["votes_direct"] += votes_total
+            else:
+                stat["county_fallback_rows"] += 1
+                stat["votes_fallback"] += votes_total
+
+            for district, w in allocs:
+                key = (scope, contest_type, 2024, district)
+                node = statewide_district[key]
+                node.add("DEM", dem_cand, dem_votes * w)
+                node.add("REP", rep_cand, rep_votes * w)
+                node.add("OTHER", "", other_votes * w)
 
     # Build district files + manifest (direct + statewide-reallocated).
     district_manifest_files: List[dict] = []
