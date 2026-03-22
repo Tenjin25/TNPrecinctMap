@@ -4,17 +4,17 @@
   "year": 2020,
   "meta": {
     "source": "tn_precinct_csv_district_aggregation",
-    "match_coverage_pct": 98.9253,
-    "direct_precinct_row_pct": 98.7867,
+    "match_coverage_pct": 99.1526,
+    "direct_precinct_row_pct": 98.9737,
     "overlap_precinct_row_pct": 0.0,
-    "non_geo_row_pct": 0.0639,
-    "county_fallback_row_pct": 0.5109,
-    "dropped_row_pct": 0.6386,
-    "direct_precinct_vote_pct": 97.402,
+    "non_geo_row_pct": 0.0641,
+    "county_fallback_row_pct": 0.449,
+    "dropped_row_pct": 0.5131,
+    "direct_precinct_vote_pct": 97.6704,
     "overlap_precinct_vote_pct": 0.0,
     "non_geo_vote_pct": 1.1427,
-    "county_fallback_vote_pct": 0.3806,
-    "dropped_vote_pct": 1.0747,
+    "county_fallback_vote_pct": 0.3395,
+    "dropped_vote_pct": 0.8474,
     "districts": 9
   },
   "general": {
@@ -97,25 +97,25 @@
         "winner": "REP"
       },
       "8": {
-        "dem_votes": 106468,
-        "rep_votes": 245748,
-        "other_votes": 7831,
-        "total_votes": 360047,
+        "dem_votes": 104145,
+        "rep_votes": 245581,
+        "other_votes": 7736,
+        "total_votes": 357462,
         "dem_candidate": "Marquita Bradshaw",
         "rep_candidate": "Bill Hagerty",
-        "margin": 139280,
-        "margin_pct": 38.6838,
+        "margin": 141436,
+        "margin_pct": 39.5667,
         "winner": "REP"
       },
       "9": {
-        "dem_votes": 181567,
-        "rep_votes": 67524,
-        "other_votes": 7592,
-        "total_votes": 256683,
+        "dem_votes": 188529,
+        "rep_votes": 69641,
+        "other_votes": 7806,
+        "total_votes": 265976,
         "dem_candidate": "Marquita Bradshaw",
         "rep_candidate": "Bill Hagerty",
-        "margin": -114043,
-        "margin_pct": -44.4295,
+        "margin": -118888,
+        "margin_pct": -44.6988,
         "winner": "DEM"
       }
     }

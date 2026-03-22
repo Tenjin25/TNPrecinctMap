@@ -4,17 +4,17 @@
   "year": 2008,
   "meta": {
     "source": "tn_precinct_csv_district_aggregation",
-    "match_coverage_pct": 98.9927,
-    "direct_precinct_row_pct": 95.5598,
+    "match_coverage_pct": 99.4505,
+    "direct_precinct_row_pct": 95.8816,
     "overlap_precinct_row_pct": 0.0,
     "non_geo_row_pct": 2.7027,
     "county_fallback_row_pct": 1.094,
-    "dropped_row_pct": 0.6435,
-    "direct_precinct_vote_pct": 94.4478,
+    "dropped_row_pct": 0.3218,
+    "direct_precinct_vote_pct": 94.9055,
     "overlap_precinct_vote_pct": 0.0,
     "non_geo_vote_pct": 3.9722,
     "county_fallback_vote_pct": 0.5727,
-    "dropped_vote_pct": 1.0073,
+    "dropped_vote_pct": 0.5495,
     "districts": 9
   },
   "general": {
@@ -97,25 +97,25 @@
         "winner": "REP"
       },
       "8": {
-        "dem_votes": 115865,
-        "rep_votes": 206182,
-        "other_votes": 3563,
-        "total_votes": 325610,
+        "dem_votes": 117754,
+        "rep_votes": 210060,
+        "other_votes": 3617,
+        "total_votes": 331431,
         "dem_candidate": "Barack Obama",
         "rep_candidate": "John McCain",
-        "margin": 90317,
-        "margin_pct": 27.7378,
+        "margin": 92306,
+        "margin_pct": 27.8507,
         "winner": "REP"
       },
       "9": {
-        "dem_votes": 228410,
-        "rep_votes": 88572,
-        "other_votes": 1823,
-        "total_votes": 318805,
+        "dem_votes": 232755,
+        "rep_votes": 90262,
+        "other_votes": 1867,
+        "total_votes": 324884,
         "dem_candidate": "Barack Obama",
         "rep_candidate": "John McCain",
-        "margin": -139838,
-        "margin_pct": -43.8632,
+        "margin": -142493,
+        "margin_pct": -43.8597,
         "winner": "DEM"
       }
     }

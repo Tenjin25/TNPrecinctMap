@@ -4,17 +4,17 @@
   "year": 2012,
   "meta": {
     "source": "tn_precinct_csv_district_aggregation",
-    "match_coverage_pct": 99.0689,
-    "direct_precinct_row_pct": 96.6091,
+    "match_coverage_pct": 99.2525,
+    "direct_precinct_row_pct": 96.7949,
     "overlap_precinct_row_pct": 0.0,
-    "non_geo_row_pct": 2.1753,
-    "county_fallback_row_pct": 0.6398,
-    "dropped_row_pct": 0.5758,
-    "direct_precinct_vote_pct": 96.9389,
+    "non_geo_row_pct": 2.1795,
+    "county_fallback_row_pct": 0.5769,
+    "dropped_row_pct": 0.4487,
+    "direct_precinct_vote_pct": 97.1352,
     "overlap_precinct_vote_pct": 0.0,
     "non_geo_vote_pct": 1.7395,
-    "county_fallback_vote_pct": 0.3905,
-    "dropped_vote_pct": 0.9311,
+    "county_fallback_vote_pct": 0.3778,
+    "dropped_vote_pct": 0.7475,
     "districts": 9
   },
   "general": {
@@ -97,25 +97,25 @@
         "winner": "REP"
       },
       "8": {
-        "dem_votes": 86831,
-        "rep_votes": 214356,
-        "other_votes": 10770,
-        "total_votes": 311957,
+        "dem_votes": 84333,
+        "rep_votes": 214033,
+        "other_votes": 10621,
+        "total_votes": 308987,
         "dem_candidate": "Mark E. Clayton",
         "rep_candidate": "Bob Corker",
-        "margin": 127525,
-        "margin_pct": 40.879,
+        "margin": 129700,
+        "margin_pct": 41.9759,
         "winner": "REP"
       },
       "9": {
-        "dem_votes": 157041,
-        "rep_votes": 84758,
-        "other_votes": 10899,
-        "total_votes": 252698,
+        "dem_votes": 161634,
+        "rep_votes": 87042,
+        "other_votes": 11256,
+        "total_votes": 259932,
         "dem_candidate": "Mark E. Clayton",
         "rep_candidate": "Bob Corker",
-        "margin": -72283,
-        "margin_pct": -28.6045,
+        "margin": -74592,
+        "margin_pct": -28.6967,
         "winner": "DEM"
       }
     }

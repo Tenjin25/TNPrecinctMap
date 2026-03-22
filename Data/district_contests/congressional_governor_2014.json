@@ -5,15 +5,15 @@
   "meta": {
     "source": "tn_precinct_csv_district_aggregation",
     "match_coverage_pct": 99.6432,
-    "direct_precinct_row_pct": 98.123,
+    "direct_precinct_row_pct": 98.2524,
     "overlap_precinct_row_pct": 0.0,
     "non_geo_row_pct": 0.712,
-    "county_fallback_row_pct": 1.0356,
+    "county_fallback_row_pct": 0.9061,
     "dropped_row_pct": 0.1294,
-    "direct_precinct_vote_pct": 98.3617,
+    "direct_precinct_vote_pct": 98.527,
     "overlap_precinct_vote_pct": 0.0,
     "non_geo_vote_pct": 0.1945,
-    "county_fallback_vote_pct": 1.087,
+    "county_fallback_vote_pct": 0.9217,
     "dropped_vote_pct": 0.3568,
     "districts": 9
   },
@@ -97,25 +97,25 @@
         "winner": "REP"
       },
       "8": {
-        "dem_votes": 38196,
-        "rep_votes": 135908,
-        "other_votes": 10362,
-        "total_votes": 184466,
+        "dem_votes": 37048,
+        "rep_votes": 135267,
+        "other_votes": 10248,
+        "total_votes": 182563,
         "dem_candidate": "Charles V. \"Charlie\" Brown",
         "rep_candidate": "Bill Haslam",
-        "margin": 97712,
-        "margin_pct": 52.9702,
+        "margin": 98219,
+        "margin_pct": 53.8001,
         "winner": "REP"
       },
       "9": {
-        "dem_votes": 59696,
-        "rep_votes": 61448,
-        "other_votes": 6853,
-        "total_votes": 127997,
+        "dem_votes": 60844,
+        "rep_votes": 62089,
+        "other_votes": 6967,
+        "total_votes": 129900,
         "dem_candidate": "Charles V. \"Charlie\" Brown",
         "rep_candidate": "Bill Haslam",
-        "margin": 1752,
-        "margin_pct": 1.3688,
+        "margin": 1245,
+        "margin_pct": 0.9584,
         "winner": "REP"
       }
     }

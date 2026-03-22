@@ -13,6 +13,7 @@ import json
 import re
 from collections import Counter, defaultdict
 from dataclasses import dataclass, field
+from difflib import SequenceMatcher
 from pathlib import Path
 from typing import Dict, Iterable, Iterator, List, Optional, Tuple
 
@@ -41,6 +42,13 @@ VTD20_NAME_ZIP = DATA_DIR / "tl_2020_47_vtd20.zip"
 CONGRESSIONAL_DISTRICT_GEOJSON = DATA_DIR / "tl_2022_47_cd118.geojson"
 STATE_HOUSE_DISTRICT_GEOJSON = DATA_DIR / "tl_2022_47_sldl.geojson"
 STATE_SENATE_DISTRICT_GEOJSON = DATA_DIR / "tl_2022_47_sldu.geojson"
+LEGACY_PRECINCT_VTD20_OVERRIDES: Dict[Tuple[str, str], str] = {
+    ("TIPTON", "NE COVINGTON"): "008708",
+    ("TIPTON", "SE COVINGTON"): "008705",
+    ("TIPTON", "SW TIPTON"): "008706",
+    ("TIPTON", "S W TIPTON"): "008706",
+    ("BLOUNT", "WM BLOUNT MIDDLE"): "000419",
+}
 
 
 def norm_space(s: str) -> str:
@@ -97,7 +105,7 @@ def infer_contest_type(office_raw: str) -> Optional[str]:
         return "us_senate"
     if "U.S. HOUSE" in o or "UNITED STATES HOUSE OF REPRESENTATIVES" in o:
         return "us_house"
-    if "STATE HOUSE" in o:
+    if "STATE HOUSE" in o or "STATE REPRESENTATIVE" in o:
         return "state_house"
     if "STATE SENATE" in o:
         return "state_senate"
@@ -382,6 +390,84 @@ def build_precinct_split_key_maps(
         if len(v) == 1
     }
     return by_year, any_year
+
+
+def build_precinct_fuzzy_candidates(
+    to2024: Dict[Tuple[int, str, str], str],
+) -> Dict[str, List[Tuple[str, str]]]:
+    """Build county-level candidate list for fuzzy precinct -> 2024 PRCTSEQ fallback."""
+    raw: Dict[str, set] = defaultdict(set)
+    for (_year, county_norm, from_precinct_norm), code in to2024.items():
+        c = norm_county(county_norm)
+        p = norm_precinct_name(from_precinct_norm)
+        prct = norm_space(code).zfill(6)
+        if not (c and p and prct and prct.isdigit()):
+            continue
+        raw[c].add((p, prct))
+    return {
+        county: sorted(items)
+        for county, items in raw.items()
+        if items
+    }
+
+
+def fuzzy_precinct_tokens(raw: str) -> set:
+    s = norm_precinct_name(raw)
+    if not s:
+        return set()
+    tokens = [t for t in re.findall(r"[A-Z0-9]+", s) if t]
+    drop = {"PRECINCT", "VOTE", "VOTING", "DISTRICT", "THE", "OF", "AND"}
+    return {t for t in tokens if t not in drop}
+
+
+def fuzzy_match_precinct_to_2024_code(
+    county_norm: str,
+    precinct_norm: str,
+    fuzzy_candidates: Dict[str, List[Tuple[str, str]]],
+) -> str:
+    """Conservative fuzzy fallback for legacy labels missing direct crosswalk rows."""
+    county = norm_county(county_norm)
+    query = norm_precinct_name(precinct_norm)
+    cands = fuzzy_candidates.get(county, [])
+    if not (county and query and cands):
+        return ""
+
+    q_tokens = fuzzy_precinct_tokens(query)
+    scored: List[Tuple[float, int, str, str]] = []
+    for cand_norm, code in cands:
+        score = SequenceMatcher(None, query, cand_norm).ratio()
+        shared = len(q_tokens.intersection(fuzzy_precinct_tokens(cand_norm)))
+        scored.append((float(score), int(shared), cand_norm, code))
+    if not scored:
+        return ""
+
+    scored.sort(key=lambda x: (x[0], x[1], x[2]), reverse=True)
+    best_score, best_shared, _best_name, best_code = scored[0]
+
+    second_diff_score = 0.0
+    for score, _shared, _name, code in scored[1:]:
+        if code != best_code:
+            second_diff_score = float(score)
+            break
+
+    strong_match = best_score >= 0.82 and (best_score - second_diff_score) >= 0.02
+    medium_match = (
+        best_score >= 0.78
+        and best_shared >= 2
+        and (best_score - second_diff_score) >= 0.04
+    )
+    if strong_match or medium_match:
+        return best_code
+    return ""
+
+
+def legacy_precinct_override_vtd20_code(county_norm: str, precinct_norm: str) -> str:
+    county = norm_county(county_norm)
+    precinct = norm_precinct_name(precinct_norm)
+    code = LEGACY_PRECINCT_VTD20_OVERRIDES.get((county, precinct), "")
+    if code and code.isdigit():
+        return code.zfill(6)
+    return ""
 
 
 def load_2024_prctseq_by_county() -> Dict[str, set]:
@@ -771,6 +857,8 @@ def extract_precinct_name_keys(raw: str) -> List[str]:
         if k and k not in keys:
             keys.append(k)
 
+    # Preserve exact normalized label for high-confidence lookups.
+    add(f"FULL:{s}")
     if len(nums) >= 2:
         add(f"PAIR:{nums[0]:02d}:{nums[1]:02d}")
         add(f"PAIR:{nums[0]:02d}:{nums[-1]:02d}")
@@ -788,8 +876,17 @@ def extract_precinct_name_keys(raw: str) -> List[str]:
     return keys
 
 
-def source_name_keys_for_overlap(code_label: str) -> List[str]:
-    """Return parsed precinct matching keys from non-numeric UNM/NG labels."""
+def _expand_compass_abbrev_tokens(raw: str) -> str:
+    s = norm_space(raw)
+    if not s:
+        return ""
+    for short, full in (("N", "NORTH"), ("S", "SOUTH"), ("E", "EAST"), ("W", "WEST")):
+        s = re.sub(rf"\b{short}\b", full, s)
+    return norm_text(s)
+
+
+def source_label_variants_for_overlap(code_label: str) -> List[str]:
+    """Generate normalized label variants for historical VTD name matching."""
     s = norm_space(code_label).upper()
     if not s:
         return []
@@ -798,7 +895,53 @@ def source_name_keys_for_overlap(code_label: str) -> List[str]:
     elif s.startswith("NG-"):
         s = s[3:]
     s = s.replace("_", " ")
-    return extract_precinct_name_keys(s)
+
+    variants: List[str] = []
+
+    def add(v: str) -> None:
+        nv = norm_text(v)
+        if nv and nv not in variants:
+            variants.append(nv)
+
+    raw_forms = [s]
+    lead_trim = re.sub(r"^\d+\s+", "", s).strip()
+    if lead_trim and lead_trim != s:
+        raw_forms.append(lead_trim)
+
+    for raw in raw_forms:
+        add(raw)
+        add(_expand_compass_abbrev_tokens(raw))
+
+        trimmed = re.sub(r"\b\d+\b\s*$", "", raw).strip()
+        if trimmed and trimmed != raw:
+            add(trimmed)
+            add(_expand_compass_abbrev_tokens(trimmed))
+
+        leadless = re.sub(r"^\d+\s+", "", raw).strip()
+        if leadless and leadless != raw:
+            add(leadless)
+            add(_expand_compass_abbrev_tokens(leadless))
+
+            leadless_trimmed = re.sub(r"\b\d+\b\s*$", "", leadless).strip()
+            if leadless_trimmed and leadless_trimmed != leadless:
+                add(leadless_trimmed)
+                add(_expand_compass_abbrev_tokens(leadless_trimmed))
+
+    return variants
+
+
+def source_name_keys_for_overlap(code_label: str) -> List[str]:
+    """Return parsed precinct matching keys from non-numeric UNM/NG labels."""
+    out: List[str] = []
+
+    def add(k: str) -> None:
+        if k and k not in out:
+            out.append(k)
+
+    for label_variant in source_label_variants_for_overlap(code_label):
+        for key in extract_precinct_name_keys(label_variant):
+            add(key)
+    return out
 
 
 def is_strong_crosswalk_split_key(key: str) -> bool:
@@ -890,6 +1033,15 @@ def load_vtd20_name_key_map() -> Dict[Tuple[str, str], List[str]]:
     }
 
 
+def max_name_key_candidates_for_overlap(key: str) -> int:
+    """Cap ambiguous name-key candidate fanout by key specificity."""
+    if key.startswith("FULL:"):
+        return 64
+    if key.startswith("PAIR:") or key.startswith("TXTNUM:") or key.startswith("NUMTXT:"):
+        return 24
+    return 8
+
+
 def resolve_source_codes_for_overlap(
     year: int,
     county_fp: str,
@@ -919,7 +1071,7 @@ def resolve_source_codes_for_overlap(
             name_map = vtd_name_key_maps_by_src_year.get(src_year, {})
             for key in source_name_keys_for_overlap(code_label):
                 candidates = name_map.get((county_fp, key), [])
-                if len(candidates) > 8:
+                if len(candidates) > max_name_key_candidates_for_overlap(key):
                     continue
                 for c in candidates:
                     if c in seen_codes:
@@ -1091,6 +1243,7 @@ def resolve_precinct_code(
     to2024: Dict[Tuple[int, str, str], str],
     to2024_split_by_year: Dict[Tuple[int, str, str], str],
     to2024_split_any_year: Dict[Tuple[str, str], str],
+    to2024_fuzzy_candidates: Dict[str, List[Tuple[str, str]]],
     offsets_by_county: Dict[str, List[int]],
     vtd_ints_by_county: Dict[str, set],
     prctseq_exact_to_vtd: Dict[Tuple[str, int], str],
@@ -1107,6 +1260,9 @@ def resolve_precinct_code(
     prec_norm = norm_precinct_name(precinct_raw)
     if not prec_norm:
         return ""
+    override_code = legacy_precinct_override_vtd20_code(county_norm, prec_norm)
+    if override_code:
+        return override_code
     code = to2024.get((year, county_norm, prec_norm), "")
     if code:
         return prctseq_to_vtd(
@@ -1124,6 +1280,17 @@ def resolve_precinct_code(
             return prctseq_to_vtd(
                 county_fp, split_code.zfill(6), offsets_by_county, vtd_ints_by_county, prctseq_exact_to_vtd
             )
+
+    # Fallback: conservative fuzzy match against county-local labels already mapped to 2024 PRCTSEQ.
+    fuzzy_code = fuzzy_match_precinct_to_2024_code(
+        county_norm=county_norm,
+        precinct_norm=prec_norm,
+        fuzzy_candidates=to2024_fuzzy_candidates,
+    )
+    if fuzzy_code:
+        return prctseq_to_vtd(
+            county_fp, fuzzy_code.zfill(6), offsets_by_county, vtd_ints_by_county, prctseq_exact_to_vtd
+        )
 
     # Fallback: leading numeric precinct labels (e.g., "25 MILLENNIUM", "04 WILL BLOUNT MID")
     # often correspond to PRCTSEQ identifiers.
@@ -1172,6 +1339,7 @@ def build() -> dict:
     county_norm_to_fp, _fp_to_county_norm = load_county_maps()
     to2024 = load_precinct_to_2024_map()
     to2024_split_by_year, to2024_split_any_year = build_precinct_split_key_maps(to2024)
+    to2024_fuzzy_candidates = build_precinct_fuzzy_candidates(to2024)
     district_weights, county_district_weights = build_district_weight_maps()
     overlap_maps_by_src_year = {
         2000: load_vtd_overlap_to_2020_map(
@@ -1204,6 +1372,9 @@ def build() -> dict:
     # Keep a thin cache of statewide precinct rows for district reaggregation.
     statewide_precinct_rows: List[Tuple[str, int, str, str, str, Totals]] = []
     # tuple: contest, year, county_norm, countyfp, code, Totals ref
+    direct_precinct_scope_votes: Dict[Tuple[str, int, str, str], Dict[str, float]] = defaultdict(
+        lambda: defaultdict(float)
+    )
 
     for row in iter_all_rows(csv_files):
         contest_type = infer_contest_type(row["office"])
@@ -1229,6 +1400,7 @@ def build() -> dict:
                 to2024=to2024,
                 to2024_split_by_year=to2024_split_by_year,
                 to2024_split_any_year=to2024_split_any_year,
+                to2024_fuzzy_candidates=to2024_fuzzy_candidates,
                 offsets_by_county=prctseq_offsets_by_county,
                 vtd_ints_by_county=vtd_ints_by_county,
                 prctseq_exact_to_vtd=prctseq_exact_to_vtd,
@@ -1249,6 +1421,23 @@ def build() -> dict:
             if district:
                 dkey = (scope, contest_type, year, district)
                 direct_district[dkey].add(party, candidate, votes)
+                precinct_norm = norm_precinct_name(row["precinct"])
+                if precinct_norm and not is_non_geographic_precinct_name(row["precinct"]):
+                    hint_key = (scope, year, county_norm, precinct_norm)
+                    direct_precinct_scope_votes[hint_key][district] += votes
+
+    direct_precinct_scope_weights: Dict[Tuple[str, int, str, str], List[Tuple[str, float]]] = {}
+    for key, dmap in direct_precinct_scope_votes.items():
+        total = float(sum(v for v in dmap.values() if v > 0))
+        if total <= 0:
+            continue
+        rows = sorted(
+            ((str(d), float(v) / total) for d, v in dmap.items() if float(v) > 0),
+            key=lambda x: x[1],
+            reverse=True,
+        )
+        if rows:
+            direct_precinct_scope_weights[key] = rows
 
     # Build contest JSON files + manifest.
     contest_manifest_files: List[dict] = []
@@ -1359,6 +1548,15 @@ def build() -> dict:
                         vtd_name_key_maps_by_src_year=vtd_name_key_maps_by_src_year,
                     )
                     source = "overlap" if allocs else "county_fallback"
+                if not allocs and is_unmapped_label_bucket and scope in {"state_house", "state_senate"}:
+                    hint_precinct_norm = norm_precinct_name(code_raw[4:].replace("_", " "))
+                    hint_allocs = direct_precinct_scope_weights.get(
+                        (scope, int(year), county_norm, hint_precinct_norm),
+                        [],
+                    )
+                    if hint_allocs:
+                        allocs = hint_allocs
+                        source = "direct"
                 if not allocs and (is_non_geo_bucket or is_unmapped_non_geo):
                     allocs = county_allocs
                     source = "non_geo_fallback" if allocs else "dropped"

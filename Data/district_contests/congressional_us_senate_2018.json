@@ -4,17 +4,17 @@
   "year": 2018,
   "meta": {
     "source": "tn_precinct_csv_district_aggregation",
-    "match_coverage_pct": 99.0741,
-    "direct_precinct_row_pct": 98.6495,
+    "match_coverage_pct": 99.3024,
+    "direct_precinct_row_pct": 98.7734,
     "overlap_precinct_row_pct": 0.0,
-    "non_geo_row_pct": 0.3215,
-    "county_fallback_row_pct": 0.5145,
-    "dropped_row_pct": 0.5145,
-    "direct_precinct_vote_pct": 96.6105,
+    "non_geo_row_pct": 0.3228,
+    "county_fallback_row_pct": 0.5165,
+    "dropped_row_pct": 0.3873,
+    "direct_precinct_vote_pct": 96.8388,
     "overlap_precinct_vote_pct": 0.0,
     "non_geo_vote_pct": 2.1702,
     "county_fallback_vote_pct": 0.2934,
-    "dropped_vote_pct": 0.9259,
+    "dropped_vote_pct": 0.6976,
     "districts": 9
   },
   "general": {
@@ -97,25 +97,25 @@
         "winner": "REP"
       },
       "8": {
-        "dem_votes": 102939,
-        "rep_votes": 172680,
-        "other_votes": 4073,
-        "total_votes": 279692,
+        "dem_votes": 101039,
+        "rep_votes": 172585,
+        "other_votes": 4035,
+        "total_votes": 277659,
         "dem_candidate": "Phil Bredesen",
         "rep_candidate": "Marsha Blackburn",
-        "margin": 69741,
-        "margin_pct": 24.9349,
+        "margin": 71546,
+        "margin_pct": 25.7676,
         "winner": "REP"
       },
       "9": {
-        "dem_votes": 149622,
-        "rep_votes": 47043,
-        "other_votes": 2872,
-        "total_votes": 199537,
+        "dem_votes": 155493,
+        "rep_votes": 48256,
+        "other_votes": 2944,
+        "total_votes": 206693,
         "dem_candidate": "Phil Bredesen",
         "rep_candidate": "Marsha Blackburn",
-        "margin": -102579,
-        "margin_pct": -51.4085,
+        "margin": -107237,
+        "margin_pct": -51.8823,
         "winner": "DEM"
       }
     }

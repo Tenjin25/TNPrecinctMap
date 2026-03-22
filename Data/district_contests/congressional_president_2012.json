@@ -4,17 +4,17 @@
   "year": 2012,
   "meta": {
     "source": "tn_precinct_csv_district_aggregation",
-    "match_coverage_pct": 99.0803,
-    "direct_precinct_row_pct": 96.6709,
+    "match_coverage_pct": 99.2664,
+    "direct_precinct_row_pct": 96.857,
     "overlap_precinct_row_pct": 0.0,
-    "non_geo_row_pct": 2.1127,
-    "county_fallback_row_pct": 0.6402,
-    "dropped_row_pct": 0.5762,
-    "direct_precinct_vote_pct": 96.9667,
+    "non_geo_row_pct": 2.1167,
+    "county_fallback_row_pct": 0.5773,
+    "dropped_row_pct": 0.449,
+    "direct_precinct_vote_pct": 97.1656,
     "overlap_precinct_vote_pct": 0.0,
     "non_geo_vote_pct": 1.7243,
-    "county_fallback_vote_pct": 0.3894,
-    "dropped_vote_pct": 0.9197,
+    "county_fallback_vote_pct": 0.3766,
+    "dropped_vote_pct": 0.7336,
     "districts": 9
   },
   "general": {
@@ -97,25 +97,25 @@
         "winner": "REP"
       },
       "8": {
-        "dem_votes": 113738,
-        "rep_votes": 214818,
-        "other_votes": 3533,
-        "total_votes": 332089,
+        "dem_votes": 110609,
+        "rep_votes": 214695,
+        "other_votes": 3522,
+        "total_votes": 328826,
         "dem_candidate": "Barack Obama",
         "rep_candidate": "Mitt Romney",
-        "margin": 101080,
-        "margin_pct": 30.4376,
+        "margin": 104086,
+        "margin_pct": 31.6538,
         "winner": "REP"
       },
       "9": {
-        "dem_votes": 199249,
-        "rep_votes": 71217,
-        "other_votes": 2080,
-        "total_votes": 272546,
+        "dem_votes": 205285,
+        "rep_votes": 72939,
+        "other_votes": 2162,
+        "total_votes": 280386,
         "dem_candidate": "Barack Obama",
         "rep_candidate": "Mitt Romney",
-        "margin": -128032,
-        "margin_pct": -46.9763,
+        "margin": -132346,
+        "margin_pct": -47.2014,
         "winner": "DEM"
       }
     }

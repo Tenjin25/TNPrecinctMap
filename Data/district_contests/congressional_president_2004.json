@@ -5,15 +5,15 @@
   "meta": {
     "source": "tn_precinct_csv_district_aggregation",
     "match_coverage_pct": 100.0,
-    "direct_precinct_row_pct": 87.8403,
+    "direct_precinct_row_pct": 87.9027,
     "overlap_precinct_row_pct": 0.0,
-    "non_geo_row_pct": 10.8893,
-    "county_fallback_row_pct": 1.2704,
+    "non_geo_row_pct": 10.9422,
+    "county_fallback_row_pct": 1.155,
     "dropped_row_pct": 0.0,
-    "direct_precinct_vote_pct": 78.4897,
+    "direct_precinct_vote_pct": 78.575,
     "overlap_precinct_vote_pct": 0.0,
     "non_geo_vote_pct": 20.9312,
-    "county_fallback_vote_pct": 0.5791,
+    "county_fallback_vote_pct": 0.4938,
     "dropped_vote_pct": 0.0,
     "districts": 9
   },
@@ -97,25 +97,25 @@
         "winner": "REP"
       },
       "8": {
-        "dem_votes": 197768,
-        "rep_votes": 228508,
-        "other_votes": 2431,
-        "total_votes": 428707,
+        "dem_votes": 197245,
+        "rep_votes": 228433,
+        "other_votes": 2427,
+        "total_votes": 428105,
         "dem_candidate": "John F. Kerry",
         "rep_candidate": "George W. Bush",
-        "margin": 30740,
-        "margin_pct": 7.1704,
+        "margin": 31188,
+        "margin_pct": 7.2851,
         "winner": "REP"
       },
       "9": {
-        "dem_votes": 118724,
-        "rep_votes": 63467,
-        "other_votes": 1107,
-        "total_votes": 183298,
+        "dem_votes": 119248,
+        "rep_votes": 63541,
+        "other_votes": 1111,
+        "total_votes": 183900,
         "dem_candidate": "John F. Kerry",
         "rep_candidate": "George W. Bush",
-        "margin": -55257,
-        "margin_pct": -30.146,
+        "margin": -55707,
+        "margin_pct": -30.292,
         "winner": "DEM"
       }
     }
