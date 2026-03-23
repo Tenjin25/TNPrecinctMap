@@ -7732,7 +7732,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
       return {
         cls: shift > 0 ? 'rep' : 'dem',
-        text: `Shift: ${Math.abs(shift).toFixed(2)} since ${prevYear}`
+        text: `Shift: ${shift > 0 ? 'R' : 'D'}+${Math.abs(shift).toFixed(2)} since ${prevYear}`
       };
     }
 
