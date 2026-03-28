@@ -3187,6 +3187,23 @@ body { height: var(--app-height); }
     line-height: 1;
   }
 
+  .focus-census-summary {
+    margin: 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 7px;
+    font-size: 13px;
+    font-weight: 800;
+    line-height: 1.4;
+    color: #0f172a;
+  }
+
+  .focus-census-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
   .focus-census-note,
   .focus-census-source {
     margin: 0;
@@ -3407,6 +3424,156 @@ body { height: var(--app-height); }
   .focus-trajectory-meaning.tone-neutral {
     border-color: rgba(217, 119, 6, 0.24);
     background: rgba(255, 251, 235, 0.9);
+  }
+
+  .focus-trajectory-trendline {
+    margin: 0;
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 8px;
+    min-height: 30px;
+    padding: 7px 8px;
+    border-radius: 10px;
+    border: 1px dashed rgba(148, 163, 184, 0.24);
+    background: rgba(255, 255, 255, 0.78);
+    font-size: 11px;
+    line-height: 1.4;
+    color: #334155;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  .focus-trajectory-trendline .trend-tag {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 20px;
+    padding: 0 8px;
+    border-radius: 999px;
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    background: rgba(241, 245, 249, 0.9);
+    color: #475569;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .focus-trajectory-trendline .trend-text {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 800;
+    color: #0f172a;
+  }
+
+  .focus-trajectory-trendline .focus-trajectory-arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 14px;
+    font-weight: 900;
+  }
+
+  .focus-trajectory-trendline.tone-rep {
+    color: #991b1b;
+    border-color: rgba(220, 38, 38, 0.2);
+    background: rgba(254, 242, 242, 0.84);
+  }
+
+  .focus-trajectory-trendline.tone-dem {
+    color: #1d4ed8;
+    border-color: rgba(37, 99, 235, 0.22);
+    background: rgba(239, 246, 255, 0.9);
+  }
+
+  .focus-trajectory-trendline.tone-neutral {
+    color: #475569;
+  }
+
+  .focus-trajectory-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 8px;
+  }
+
+  .focus-trajectory-item {
+    --trajectory-item-shadow: inset 3px 0 0 rgba(100, 116, 139, 0.34);
+    display: grid;
+    min-width: 0;
+    gap: 2px;
+    padding: 8px 9px;
+    border-radius: 12px;
+    border: 1px solid rgba(148, 163, 184, 0.16);
+    background: rgba(255, 255, 255, 0.82);
+    box-shadow: var(--trajectory-item-shadow);
+  }
+
+  .focus-trajectory-item.is-latest {
+    grid-column: 1 / -1;
+    gap: 3px;
+    padding: 10px 11px;
+    border-color: rgba(var(--trajectory-accent-rgb), 0.28);
+    background: linear-gradient(
+      180deg,
+      rgba(var(--trajectory-accent-rgb), 0.06) 0%,
+      rgba(255, 255, 255, 0.95) 100%
+    );
+  }
+
+  .focus-trajectory-label {
+    font-size: 10px;
+    font-weight: 800;
+    line-height: 1.3;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #64748b;
+  }
+
+  .focus-trajectory-value {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    min-width: 0;
+    font-size: 12px;
+    font-weight: 900;
+    line-height: 1.3;
+    color: #0f172a;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .focus-trajectory-value.tone-dem {
+    color: #1d4ed8;
+  }
+
+  .focus-trajectory-value.tone-rep {
+    color: #b91c1c;
+  }
+
+  .focus-trajectory-value.tone-neutral {
+    color: #334155;
+  }
+
+  .focus-trajectory-growth {
+    font-size: 10px;
+    font-weight: 800;
+    line-height: 1.35;
+    color: #64748b;
+  }
+
+  .focus-trajectory-item.tone-dem {
+    --trajectory-item-shadow: inset 3px 0 0 rgba(37, 99, 235, 0.42);
+    border-color: rgba(37, 99, 235, 0.18);
+  }
+
+  .focus-trajectory-item.tone-rep {
+    --trajectory-item-shadow: inset 3px 0 0 rgba(220, 38, 38, 0.42);
+    border-color: rgba(220, 38, 38, 0.18);
+  }
+
+  .focus-trajectory-item.tone-neutral {
+    --trajectory-item-shadow: inset 3px 0 0 rgba(100, 116, 139, 0.34);
   }
 
   .focus-trend-dots {
@@ -7014,8 +7181,14 @@ document.addEventListener('DOMContentLoaded', function() {
       };
 
       const base = templates[bucket] || templates.middle_tn_rural;
+      const sourceNote = tnCountyPopEstimates
+        ? 'Based on Tennessee county population estimates (CO-EST) loaded in this map (2020–2025).'
+        : 'Population estimate table not loaded; insight is limited to what is available in the app.';
       return {
-        label: 'County Census Insight',
+        label: tnBucketPrettyLabel(bucket),
+        summary: base,
+        note: growthLine,
+        sourceNote,
         explanation: `${base} ${growthLine}`
       };
     }
@@ -8313,23 +8486,59 @@ document.addEventListener('DOMContentLoaded', function() {
       return map[b] || 'County context';
     }
 
-    function renderFocusTrajectoryBlockHTML(kicker, statusLabel, explanation, tone = 'neutral') {
+    function renderFocusTrajectoryBlockHTML(kicker, statusLabel, trend, meaning, details = [], tone = 'neutral') {
       const statusClass = tone === 'dem' ? 'dem' : (tone === 'rep' ? 'rep' : 'competitive');
       const toneClass = trajectoryToneClass(tone);
+      const trendTone = trend?.tone || 'neutral';
+      const trendToneClass = trajectoryToneClass(trendTone);
+      const arrow = String(trend?.arrow || '').trim();
+      const trendText = String(trend?.text || '').trim();
+      const detailsRows = Array.isArray(details) ? details : [];
+
+      const gridHtml = detailsRows.length
+        ? `
+          <div class="focus-trajectory-grid">
+            ${detailsRows.map((row, idx) => {
+              const rowTone = row?.tone || 'neutral';
+              const rowToneClass = trajectoryToneClass(rowTone);
+              const roleClass = row?.role === 'latest' ? 'is-latest' : 'is-shift';
+              const growthLine = row?.growth ? `<span class=\"focus-trajectory-growth\">${escapeHtml(String(row.growth))}</span>` : '';
+              return `
+                <div class="focus-trajectory-item ${rowToneClass} ${roleClass}">
+                  <span class="focus-trajectory-label">${escapeHtml(String(row?.label || `Item ${idx + 1}`))}</span>
+                  <span class="focus-trajectory-value ${rowToneClass}">${escapeHtml(String(row?.value || ''))}</span>
+                  ${growthLine}
+                </div>
+              `;
+            }).join('')}
+          </div>
+        `
+        : '';
+
       return `
         <div class="focus-trajectory status-${statusClass}" role="group" aria-label="${escapeHtml(kicker || 'Trajectory Snapshot')}">
           <div class="focus-trajectory-head">
             <span class="focus-trajectory-kicker">${escapeHtml(kicker || 'Trajectory Snapshot')}</span>
             <span class="focus-trajectory-status ${toneClass}">${escapeHtml(statusLabel || '')}</span>
           </div>
-          <p class="focus-trajectory-meaning ${toneClass}"><strong>Summary:</strong> ${escapeHtml(explanation || '')}</p>
+          ${trendText ? `
+            <p class="focus-trajectory-trendline ${trendToneClass}">
+              <span class="trend-tag">Momentum</span>
+              <span class="trend-text">
+                ${arrow ? `<span class=\"focus-trajectory-arrow ${trendToneClass}\">${escapeHtml(arrow)}</span>` : ''}
+                ${escapeHtml(trendText)}
+              </span>
+            </p>
+          ` : ''}
+          <p class="focus-trajectory-meaning ${toneClass}"><strong>Meaning:</strong> ${escapeHtml(meaning || '')}</p>
+          ${gridHtml}
         </div>
       `;
     }
 
     function renderFocusCensusCheckHTML(statusLabel, explanation, tone = 'neutral') {
       const toneClass = trajectoryToneClass(tone);
-      const lead = statusLabel ? `Census Check — ${statusLabel}` : 'Census Check';
+      const lead = statusLabel ? `Census check (${statusLabel})` : 'Census check';
       return `
         <p class="focus-census-check ${toneClass}" role="note" aria-label="Census check">
           <strong>${escapeHtml(lead)}:</strong> ${escapeHtml(explanation || '')}
@@ -8337,7 +8546,10 @@ document.addEventListener('DOMContentLoaded', function() {
       `;
     }
 
-    function renderFocusCensusInsightHTML(title, pillLabel, explanation) {
+    function renderFocusCensusInsightHTML(title, pillLabel, summaryText, noteText, sourceNote = '') {
+      const summary = String(summaryText || '').trim();
+      const note = String(noteText || '').trim();
+      const source = String(sourceNote || '').trim();
       return `
         <div class="focus-census-insight" role="note" aria-label="${escapeHtml(title || 'County Census Insight')}">
           <div class="focus-census-head">
@@ -8347,7 +8559,9 @@ document.addEventListener('DOMContentLoaded', function() {
               ${escapeHtml(pillLabel || '')}
             </span>
           </div>
-          <p class="focus-census-note">${escapeHtml(explanation || '')}</p>
+          ${summary ? `<p class=\"focus-census-summary\"><span class=\"focus-census-inline-emoji\">🧭</span>${escapeHtml(summary)}</p>` : ''}
+          ${note ? `<p class=\"focus-census-note\">${escapeHtml(note)}</p>` : ''}
+          ${source ? `<p class=\"focus-census-source\">${escapeHtml(source)}</p>` : ''}
         </div>
       `;
     }
@@ -8443,12 +8657,36 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const trajectoryTone = tnFocusToneFromLabel(trajectory?.label);
         const censusTone = tnFocusToneFromLabel(censusCheck?.label);
-        const insightPill = tnBucketPrettyLabel(bucket);
+
+        const recentWindow = annotated.slice(Math.max(0, annotated.length - 4));
+        const recentDelta = recentWindow.length
+          ? (Number(recentWindow[recentWindow.length - 1]?.signedPct || 0) - Number(recentWindow[0]?.signedPct || 0))
+          : 0;
+        let momentum = { arrow: '↔', text: 'Little directional change', tone: 'neutral' };
+        if (recentDelta >= 2.5) momentum = { arrow: '→', text: 'GOP margins strengthening', tone: 'rep' };
+        else if (recentDelta <= -2.5) momentum = { arrow: '←', text: 'Democratic margins strengthening', tone: 'dem' };
+
+        const normCounty = normalizeRegionCountyName(county);
+        const pop = tnCountyPopEstimates?.[normCounty] || null;
+        const pop2020 = Number(pop?.pop_2020 || 0) || 0;
+        const pop2025 = Number(pop?.pop_2025 || 0) || 0;
+        const popGrowthPct = (pop2020 > 0 && pop2025 > 0) ? ((pop2025 - pop2020) / pop2020 * 100.0) : null;
+        const popValue = (popGrowthPct === null)
+          ? 'No estimate loaded'
+          : `${popGrowthPct >= 0 ? '+' : '-'}${Math.abs(popGrowthPct).toFixed(1)}% since 2020`;
+
+        const latestTone = latest?.winnerMeta?.partyClass === 'rep' ? 'rep' : (latest?.winnerMeta?.partyClass === 'dem' ? 'dem' : 'neutral');
+        const shiftTone = historyShift?.cls === 'rep' ? 'rep' : (historyShift?.cls === 'dem' ? 'dem' : 'neutral');
+        const details = [
+          { label: 'Latest result', value: `${latest.item.year}: ${latest.leadLabel === 'Tie' ? 'Even race' : latest.leadLabel}`, role: 'latest', tone: latestTone },
+          { label: `Since ${earliest.item.year}`, value: historyShift.text, role: 'shift', tone: shiftTone },
+          { label: 'Population', value: popValue, role: 'shift', tone: 'neutral' }
+        ];
 
         return `
-          ${renderFocusTrajectoryBlockHTML('Trajectory Snapshot', trajectory?.label, trajectory?.explanation, trajectoryTone)}
+          ${renderFocusTrajectoryBlockHTML('Trajectory Snapshot', trajectory?.label, momentum, trajectory?.explanation, details, trajectoryTone)}
           ${renderFocusCensusCheckHTML(censusCheck?.label, censusCheck?.explanation, censusTone)}
-          ${renderFocusCensusInsightHTML('County Census Insight', insightPill, insight?.explanation)}
+          ${renderFocusCensusInsightHTML('County Census Insight', insight?.label, insight?.summary, insight?.note, insight?.sourceNote)}
         `;
       })();
 
