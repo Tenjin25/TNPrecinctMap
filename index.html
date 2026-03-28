@@ -6227,6 +6227,33 @@ document.addEventListener('DOMContentLoaded', function() {
           <div class="focus-trend-empty">Select a contest to load trend history.</div>
         </div>
       </div>
+      <div class="focus-trend" id="tn-county-trajectory-section" hidden>
+        <div class="focus-trend-head">
+          <span class="focus-trend-title">Trajectory Snapshot</span>
+          <span class="focus-trend-caption" id="tn-county-trajectory-caption"></span>
+        </div>
+        <div class="focus-trend-chart" id="tn-county-trajectory-chart">
+          <div class="focus-trend-empty">Select a county to view trajectory.</div>
+        </div>
+      </div>
+      <div class="focus-trend" id="tn-county-census-check-section" hidden>
+        <div class="focus-trend-head">
+          <span class="focus-trend-title">Census Check</span>
+          <span class="focus-trend-caption" id="tn-county-census-check-caption"></span>
+        </div>
+        <div class="focus-trend-chart" id="tn-county-census-check-chart">
+          <div class="focus-trend-empty">Select a county to view census check.</div>
+        </div>
+      </div>
+      <div class="focus-trend" id="tn-county-census-insight-section" hidden>
+        <div class="focus-trend-head">
+          <span class="focus-trend-title">County Census Insight</span>
+          <span class="focus-trend-caption" id="tn-county-census-insight-caption"></span>
+        </div>
+        <div class="focus-trend-chart" id="tn-county-census-insight-chart">
+          <div class="focus-trend-empty">Select a county to view census insight.</div>
+        </div>
+      </div>
     </div>
     <div class="vote-counter-row">
       <div class="vote-item dem">
@@ -6412,6 +6439,7 @@ document.addEventListener('DOMContentLoaded', function() {
         state_house: withBase('./Data/tl_2022_47_sldl.geojson'),
         state_senate: withBase('./Data/tl_2022_47_sldu.geojson'),
         county_demographics: withBase('./Data/county_demographics_2020_dp1.json'),
+        tn_county_pop_estimates: withBase('./Data/CO-EST2025-POP-47.cleaned.csv'),
         election: withBase('./Data/tn_elections_aggregated.json'),
         district_election: withBase('./Data/tn_district_results_2022_lines.json'),
         district_contests_dir: withBase('./Data/district_contests'),
@@ -6478,6 +6506,271 @@ document.addEventListener('DOMContentLoaded', function() {
     function getRegionCountySet(regionKey) {
       const counties = REGION_JUMPS[regionKey]?.counties || [];
       return new Set(counties.map(normalizeRegionCountyName).filter(Boolean));
+    }
+
+    function indexTNCountyPopEstimates(rows) {
+      const out = {};
+      (rows || []).forEach(r => {
+        const level = (r?.level || '').toString().trim().toLowerCase();
+        if (level !== 'county') return;
+        const name = (r?.county_name || '').toString();
+        const norm = normalizeRegionCountyName(name);
+        if (!norm) return;
+        out[norm] = {
+          county_name: (r?.county_name || '').toString().trim(),
+          countyfp: (r?.countyfp || '').toString().trim(),
+          pop_2020: Number(r?.pop_2020 || 0) || 0,
+          pop_2025: Number(r?.pop_2025 || 0) || 0,
+          pct_state_pop_2025: Number(r?.pct_state_pop_2025 || 0) || 0
+        };
+      });
+      return out;
+    }
+
+    function tnCountyContextBucket(countyNorm) {
+      const c = normalizeRegionCountyName(countyNorm);
+      if (!c) return 'middle_tn_rural';
+
+      if (c === 'SHELBY') return 'memphis_urban';
+      if (c === 'DAVIDSON') return 'nashville_core';
+
+      const nashSub = new Set(['WILLIAMSON', 'RUTHERFORD', 'WILSON', 'SUMNER', 'MAURY', 'ROBERTSON']);
+      if (nashSub.has(c)) return 'nashville_suburban';
+
+      const growth = new Set(['MONTGOMERY', 'MADISON']);
+      if (growth.has(c)) return 'suburban_growth';
+
+      if (c === 'HAMILTON') return 'chattanooga_regional';
+      if (c === 'KNOX') return 'knoxville_regional';
+
+      const tri = new Set(['WASHINGTON', 'SULLIVAN', 'CARTER']);
+      if (tri.has(c)) return 'tri_cities_appalachian';
+
+      const east = getRegionCountySet('east_tn');
+      const west = getRegionCountySet('west_tn');
+      if (east.has(c)) return 'appalachian_rural';
+      if (west.has(c)) return 'west_tn_rural';
+      return 'middle_tn_rural';
+    }
+
+    function signedMarginPct(repVotes, demVotes, totalVotes) {
+      const t = Number(totalVotes) || 0;
+      if (t <= 0) return 0;
+      return ((Number(repVotes) - Number(demVotes)) / t) * 100.0;
+    }
+
+    function tnTrajectorySnapshotFromSeries(series, countyNorm, contextBucket) {
+      const c = normalizeRegionCountyName(countyNorm);
+      const bucket = (contextBucket || tnCountyContextBucket(c)).toString();
+
+      const points = (series || [])
+        .filter(s => Number(s?.total_votes || 0) > 0)
+        .map(s => ({
+          year: Number(s.year) || 0,
+          signed: signedMarginPct(s.rep_votes, s.dem_votes, s.total_votes)
+        }))
+        .filter(p => p.year)
+        .sort((a, b) => a.year - b.year);
+
+      const latest = points.length ? points[points.length - 1] : null;
+      const latestYear = latest?.year || null;
+      const latestSigned = latest ? (latest.signed || 0) : 0;
+      const latestParty = latestSigned > 0 ? 'REP' : (latestSigned < 0 ? 'DEM' : 'TIE');
+      let latestLabel = '';
+      if (latestYear) {
+        if (latestParty === 'TIE') {
+          latestLabel = ` Most recently (${latestYear}), the county was essentially even.`;
+        } else {
+          latestLabel = ` Most recently (${latestYear}), ${latestParty === 'REP' ? 'Republicans' : 'Democrats'} carried the county by ${latestParty === 'REP' ? 'R' : 'D'}+${Math.abs(latestSigned).toFixed(1)}.`;
+        }
+      }
+
+      if (c === 'SHELBY') {
+        return {
+          label: 'Democratic stronghold',
+          explanation: `Democratic strength here remains firmly established and consistent across modern cycles.${latestLabel}`
+        };
+      }
+      if (c === 'DAVIDSON') {
+        return {
+          label: 'Democratic stronghold',
+          explanation: `Democratic strength here is firmly established and has generally held steady or strengthened over time.${latestLabel}`
+        };
+      }
+
+      if (!points.length) {
+        return {
+          label: 'Durable Republican',
+          explanation: 'Recent patterns suggest durable Republican strength, though historical detail is limited for this contest view.'
+        };
+      }
+
+      const recent = points.slice(Math.max(0, points.length - 4));
+      const last = recent[recent.length - 1];
+      const first = recent[0];
+      const delta = (last?.signed || 0) - (first?.signed || 0);
+      const avgAbs = recent.reduce((acc, p) => acc + Math.abs(p.signed || 0), 0) / recent.length;
+      const lastParty = (last?.signed || 0) > 0 ? 'REP' : ((last?.signed || 0) < 0 ? 'DEM' : 'TIE');
+      const isMonotoneR = recent.length >= 3 && recent.every((p, i, arr) => i === 0 || (p.signed >= arr[i - 1].signed));
+      const flipped = recent.some(p => (p.signed || 0) > 0) && recent.some(p => (p.signed || 0) < 0);
+
+      // Nashville suburbs: default durable Republican unless sustained Democratic trend exists.
+      if (bucket === 'nashville_suburban') {
+        const last3 = points.slice(Math.max(0, points.length - 3));
+        const sustainedDem = last3.length === 3 && last3.every(p => (p.signed || 0) < 0);
+        if (!sustainedDem) {
+          const note = delta < -4 ? 'Margins have tightened somewhat, but the overall direction remains stable.' : 'The overall direction remains stable across recent cycles.';
+          return { label: 'Durable Republican', explanation: `This county has shown durable Republican strength. ${note}${latestLabel}` };
+        }
+      }
+
+      if (flipped && avgAbs < 8) {
+        return {
+          label: 'Volatile / transitional',
+          explanation: `Results have fluctuated across cycles, suggesting a rare transitional pattern rather than a stable long-term direction.${latestLabel}`
+        };
+      }
+
+      if (lastParty === 'DEM') {
+        return {
+          label: avgAbs >= 20 ? 'Democratic stronghold' : 'Durable Democratic',
+          explanation: `Democratic performance has remained durable across recent cycles with limited variation.${latestLabel}`
+        };
+      }
+
+      // Default Republican framing for most TN counties.
+      if (lastParty === 'REP') {
+        if (isMonotoneR && delta >= 4.5 && avgAbs >= 10) {
+          return {
+            label: 'Deepening Republican advantage',
+            explanation: `Republican margins have continued to grow across recent cycles, reinforcing an already strong advantage.${latestLabel}`
+          };
+        }
+        if (delta >= 6 && points.length >= 5) {
+          return {
+            label: 'Republican consolidation',
+            explanation: `Republican performance has strengthened over time, reinforcing the county’s longer-term direction.${latestLabel}`
+          };
+        }
+        return {
+          label: 'Durable Republican',
+          explanation: `This county has shown durable Republican strength with relatively little variation across recent cycles.${latestLabel}`
+        };
+      }
+
+      return {
+        label: 'Durable Republican',
+        explanation: `Overall patterns point to durable Republican strength; Tennessee counties are generally high-stability rather than frequently competitive.${latestLabel}`
+      };
+    }
+
+    function tnCensusCheckFromSeries(series, countyNorm, contextBucket) {
+      const c = normalizeRegionCountyName(countyNorm);
+      const bucket = (contextBucket || tnCountyContextBucket(c)).toString();
+
+      const pop = tnCountyPopEstimates?.[c] || null;
+      const pop2020 = Number(pop?.pop_2020 || 0) || 0;
+      const pop2025 = Number(pop?.pop_2025 || 0) || 0;
+      const growthPct = (pop2020 > 0 && pop2025 > 0) ? ((pop2025 - pop2020) / pop2020 * 100.0) : null;
+
+      const points = (series || [])
+        .filter(s => Number(s?.total_votes || 0) > 0)
+        .map(s => ({
+          year: Number(s.year) || 0,
+          signed: signedMarginPct(s.rep_votes, s.dem_votes, s.total_votes)
+        }))
+        .filter(p => p.year)
+        .sort((a, b) => a.year - b.year);
+      const recent = points.slice(Math.max(0, points.length - 4));
+      const lastSigned = recent.length ? (recent[recent.length - 1].signed || 0) : 0;
+      const lastParty = lastSigned > 0 ? 'REP' : (lastSigned < 0 ? 'DEM' : 'TIE');
+      const delta = recent.length ? ((recent[recent.length - 1].signed || 0) - (recent[0].signed || 0)) : 0;
+      const lastYear = recent.length ? (recent[recent.length - 1].year || null) : null;
+
+      const growthText = (growthPct === null)
+        ? 'Population estimates are not available here, so the signal is limited.'
+        : `Population is ${growthPct >= 0 ? 'up' : 'down'} ${Math.abs(growthPct).toFixed(1)}% since 2020.`;
+      let electionText = '';
+      if (lastYear) {
+        if (lastParty === 'TIE') {
+          electionText = ` Most recently (${lastYear}), the county was essentially even.`;
+        } else {
+          electionText = ` Most recently (${lastYear}), the county voted ${lastParty === 'REP' ? 'R' : 'D'}+${Math.abs(lastSigned).toFixed(1)}.`;
+        }
+      }
+
+      if (bucket === 'memphis_urban' || bucket === 'nashville_core' || c === 'SHELBY' || c === 'DAVIDSON') {
+        return {
+          label: 'Reinforcing Democratic stronghold',
+          explanation: `${growthText}${electionText} In Tennessee, growth in core urban counties often reinforces an already-established base rather than creating a new alignment.`
+        };
+      }
+
+      if (lastParty === 'DEM') {
+        if (growthPct !== null && Math.abs(growthPct) < 1.0) {
+          return {
+            label: 'Stable Democratic base',
+            explanation: `${growthText}${electionText} Electoral results remain broadly steady, suggesting a stable base rather than major demographic pressure for change.`
+          };
+        }
+        return {
+          label: 'Mixed demographic signal',
+          explanation: `${growthText}${electionText} The county is changing, but recent electoral patterns do not clearly indicate a new direction.`
+        };
+      }
+
+      // Republican-leaning default for most counties.
+      if (growthPct !== null && (growthPct < 0 || Math.abs(growthPct) < 1.0) && Math.abs(delta) < 3.0) {
+        return {
+          label: 'Limited demographic change',
+          explanation: `${growthText}${electionText} With little population movement and steady margins, the data suggests limited demographic pressure for political change.`
+        };
+      }
+
+      if (delta >= 5.0) {
+        return {
+          label: 'Continued Republican consolidation',
+          explanation: `${growthText}${electionText} Republican margins have strengthened over time, suggesting reinforcement rather than a growth-driven realignment.`
+        };
+      }
+
+      return {
+        label: 'Reinforcing Republican trend',
+        explanation: `${growthText}${electionText} In Tennessee, population change more often reinforces existing voting patterns than it drives a uniform partisan shift.`
+      };
+    }
+
+    function tnCountyCensusInsight(countyNorm, contextBucket) {
+      const c = normalizeRegionCountyName(countyNorm);
+      const bucket = (contextBucket || tnCountyContextBucket(c)).toString();
+
+      const pop = tnCountyPopEstimates?.[c] || null;
+      const pop2020 = Number(pop?.pop_2020 || 0) || 0;
+      const pop2025 = Number(pop?.pop_2025 || 0) || 0;
+      const growthPct = (pop2020 > 0 && pop2025 > 0) ? ((pop2025 - pop2020) / pop2020 * 100.0) : null;
+
+      const growthLine = (growthPct === null)
+        ? 'Population change is not available in the current dataset.'
+        : `Population is ${growthPct >= 0 ? 'up' : 'down'} ${Math.abs(growthPct).toFixed(1)}% since 2020.`;
+
+      const templates = {
+        memphis_urban: 'Population trends reflect an established urban base with consistent political patterns.',
+        nashville_core: 'Rapid growth and in-migration are consistent with continued Democratic strength.',
+        nashville_suburban: 'Suburban growth appears consistent with reinforcing the county’s existing political direction.',
+        suburban_growth: 'Population growth tied to nearby metros appears consistent with reinforcing current voting patterns.',
+        chattanooga_regional: 'Growth around this regional center may be contributing to gradual but limited political change.',
+        knoxville_regional: 'Growth around this regional center may be contributing to gradual but limited political change.',
+        tri_cities_appalachian: 'Population change has been limited, suggesting little demographic pressure for political change.',
+        appalachian_rural: 'Population change has been limited, suggesting little demographic pressure for political change.',
+        west_tn_rural: 'Slower growth or population softness appears consistent with stable voting patterns.',
+        middle_tn_rural: 'Moderate or limited growth has not significantly altered the county’s political direction.'
+      };
+
+      const base = templates[bucket] || templates.middle_tn_rural;
+      return {
+        label: 'County Census Insight',
+        explanation: `${base} ${growthLine}`
+      };
     }
 
     function aggregateContestRowsForRegion(rows, contestType, regionKey) {
@@ -6690,6 +6983,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let stateSenateInfo = null;
     let districtDescriptions = null; // Optional labels like "Sampson & Bladen Counties" or "Concord–Harrisburg"
     let countyDemographics = null; // County-level VAP (18+) + total-pop race/ethnicity from DP1
+    let tnCountyPopEstimates = null; // TN county population estimates 2020-2025 (CO-EST)
     let countyNameMap = {};
     let currentView = 'counties'; // 'counties', 'districts', 'state_house', 'state_senate'
     let currentElectionResults = null; // Current contest results for county details
@@ -7893,6 +8187,76 @@ document.addEventListener('DOMContentLoaded', function() {
       try { updateMobileOverlayOffsets(); } catch (_) {}
     }
 
+    function renderTennesseeCountyAnalysisEmpty(message = 'Select a county to view analysis.') {
+      const sections = [
+        { sectionId: 'tn-county-trajectory-section', chartId: 'tn-county-trajectory-chart' },
+        { sectionId: 'tn-county-census-check-section', chartId: 'tn-county-census-check-chart' },
+        { sectionId: 'tn-county-census-insight-section', chartId: 'tn-county-census-insight-chart' }
+      ];
+      sections.forEach(s => {
+        const sectionEl = document.getElementById(s.sectionId);
+        const chartEl = document.getElementById(s.chartId);
+        if (sectionEl) sectionEl.hidden = false;
+        if (chartEl) chartEl.innerHTML = `<div class="focus-trend-empty">${escapeHtml(message)}</div>`;
+      });
+      try { updateMobileOverlayOffsets(); } catch (_) {}
+    }
+
+    function hideTennesseeCountyAnalysisSections() {
+      const ids = [
+        'tn-county-trajectory-section',
+        'tn-county-census-check-section',
+        'tn-county-census-insight-section'
+      ];
+      ids.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.hidden = true;
+      });
+      try { updateMobileOverlayOffsets(); } catch (_) {}
+    }
+
+    function renderTennesseeCountyAnalysis(meta, series) {
+      if (!meta || meta.kind !== 'county' || !meta.county) {
+        hideTennesseeCountyAnalysisSections();
+        return;
+      }
+
+      const county = meta.county;
+      const bucket = tnCountyContextBucket(county);
+      const trajectory = tnTrajectorySnapshotFromSeries(series || [], county, bucket);
+      const censusCheck = tnCensusCheckFromSeries(series || [], county, bucket);
+      const insight = tnCountyCensusInsight(county, bucket);
+
+      const template = (kicker, label, explanation) => `
+        <div class="focus-trend-plot">
+          <div class="focus-trend-summary">
+            <div class="focus-trend-summary-copy">
+              <span class="focus-trend-summary-kicker">${escapeHtml(kicker)}</span>
+              <div class="focus-trend-summary-call">${escapeHtml(label)}</div>
+              <div class="focus-trend-summary-note">${escapeHtml(explanation)}</div>
+            </div>
+          </div>
+        </div>
+      `;
+
+      const trajSection = document.getElementById('tn-county-trajectory-section');
+      const trajChart = document.getElementById('tn-county-trajectory-chart');
+      if (trajSection) trajSection.hidden = false;
+      if (trajChart) trajChart.innerHTML = template('Trajectory Snapshot', trajectory.label, trajectory.explanation);
+
+      const censusSection = document.getElementById('tn-county-census-check-section');
+      const censusChart = document.getElementById('tn-county-census-check-chart');
+      if (censusSection) censusSection.hidden = false;
+      if (censusChart) censusChart.innerHTML = template('Census Check', censusCheck.label, censusCheck.explanation);
+
+      const insightSection = document.getElementById('tn-county-census-insight-section');
+      const insightChart = document.getElementById('tn-county-census-insight-chart');
+      if (insightSection) insightSection.hidden = false;
+      if (insightChart) insightChart.innerHTML = template('County Census Insight', insight.label, insight.explanation);
+
+      try { updateMobileOverlayOffsets(); } catch (_) {}
+    }
+
     async function getStatewideTrendSeries(contestType) {
       const entries = (contestManifest || [])
         .filter(f => f && f.contest_type === contestType && Number.isFinite(Number(f.year)))
@@ -7965,6 +8329,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const [contestType, year] = parseContestValue(contestValue);
       if (!contestType || !year) {
         renderFocusTrendEmpty('Select a contest to load trend history.', 'Trend history');
+        hideTennesseeCountyAnalysisSections();
         return;
       }
 
@@ -7982,6 +8347,11 @@ document.addEventListener('DOMContentLoaded', function() {
               : (meta.kind === 'precinct' ? `${meta.precinct}` : 'Trend history'))));
 
       renderFocusTrendEmpty('Loading trend history...', baseCaption);
+      if (meta.kind === 'county') {
+        renderTennesseeCountyAnalysisEmpty('Loading county analysis...');
+      } else {
+        hideTennesseeCountyAnalysisSections();
+      }
 
       try {
         let series = [];
@@ -7998,9 +8368,12 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         if (reqId !== voteCounterTrendRequestId) return;
         renderFocusTrendSeries(series, baseCaption);
+        renderTennesseeCountyAnalysis(meta, series);
       } catch (err) {
         if (reqId !== voteCounterTrendRequestId) return;
         renderFocusTrendEmpty('Failed to load trend history.', baseCaption);
+        if (meta.kind === 'county') renderTennesseeCountyAnalysisEmpty('Failed to load county analysis.');
+        else hideTennesseeCountyAnalysisSections();
         console.warn('Failed to load focus trend:', err?.message || err);
       }
     }
@@ -14169,6 +14542,15 @@ document.addEventListener('DOMContentLoaded', function() {
         } catch (err) {
           countyDemographics = null;
           console.warn('County demographics not loaded:', err?.message || err);
+        }
+
+        // Optional TN county population estimates (CO-EST) for county analysis sections.
+        try {
+          const popCSV = await loadCSV(CONFIG.paths.tn_county_pop_estimates);
+          tnCountyPopEstimates = indexTNCountyPopEstimates(parseCSV(popCSV));
+        } catch (err) {
+          tnCountyPopEstimates = null;
+          console.warn('TN county population estimates not loaded:', err?.message || err);
         }
 
         try {
