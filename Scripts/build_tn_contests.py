@@ -24,6 +24,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = ROOT / "Data"
 CONTESTS_DIR = DATA_DIR / "contests"
 DISTRICT_DIR = DATA_DIR / "district_contests"
+DISTRICT_CALIBRATION_OVERRIDES = DISTRICT_DIR / "calibration_overrides.json"
 
 
 COUNTY_PLUS_PRECINCT_CONTESTS = {"president", "us_senate", "governor"}
@@ -50,6 +51,21 @@ LEGACY_PRECINCT_VTD20_OVERRIDES: Dict[Tuple[str, str], str] = {
     ("BLOUNT", "WM BLOUNT MIDDLE"): "000419",
 }
 PRCTSEQ_OFFSET_DISABLED_COUNTYFPS = {"093"}  # Knox: avoid unreliable seq->VTD offset jumps
+FORCE_OVERLAP_2024_DISTRICTS: Dict[str, set] = {
+    # Use geometry/overlap-based allocation for selected 2024 legislative districts.
+    "state_senate": set(),
+}
+# For selected counties, derive 2024 state-senate allocations from 2024 state-house
+# PRCTSEQ splits (via house->senate overlap) when direct senate PRCTSEQ weights are
+# missing (staggered-election districts).
+DERIVE_STATE_SENATE_2024_FROM_STATE_HOUSE_COUNTYFPS = {"157"}  # Shelby (SD-31)
+# In selected urban counties, overlap-based VTD splits can leak too much vote share
+# across neighboring districts. When enabled, assign overlap rows to the dominant
+# district instead of fractional splitting.
+OVERLAP_DOMINANT_ASSIGN_COUNTYFPS: Dict[str, set] = {
+    # Disabled by default; enable per-scope/county to reduce fractional leakage.
+}
+OVERLAP_DOMINANT_MIN_SHARE = 0.6
 
 
 def norm_space(s: str) -> str:
@@ -258,6 +274,87 @@ class Totals:
             "margin_pct": round(margin_pct, 4),
             "winner": winner,
         }
+
+
+def load_district_result_overrides() -> Dict[Tuple[str, str, int, str], dict]:
+    """Load per-district result overrides from Data/district_contests/calibration_overrides.json."""
+    path = DISTRICT_CALIBRATION_OVERRIDES
+    if not path.exists():
+        return {}
+    with path.open("r", encoding="utf-8") as f:
+        try:
+            payload = json.load(f)
+        except json.JSONDecodeError:
+            return {}
+
+    # Keep overrides opt-in to avoid accidentally baking manual calibration into outputs.
+    if not isinstance(payload, dict) or payload.get("enabled") is not True:
+        return {}
+    rows = payload.get("overrides", [])
+    out: Dict[Tuple[str, str, int, str], dict] = {}
+    for r in rows:
+        if not isinstance(r, dict):
+            continue
+        scope = norm_space(str(r.get("scope", "")))
+        contest_type = norm_space(str(r.get("contest_type", "")))
+        try:
+            year = int(r.get("year", 0) or 0)
+        except (TypeError, ValueError):
+            year = 0
+        district = normalize_district_code(r.get("district", ""))
+        if not (scope and contest_type and year and district):
+            continue
+        out[(scope, contest_type, year, str(int(district)))] = dict(r)
+    return out
+
+
+def district_result_from_override(override: dict, fallback_totals: Optional[Totals]) -> dict:
+    """Build a district result row from override votes with optional candidate fallback."""
+    dem_votes = int(override.get("dem_votes", 0) or 0)
+    rep_votes = int(override.get("rep_votes", 0) or 0)
+    other_votes = int(override.get("other_votes", 0) or 0)
+    total_votes = dem_votes + rep_votes + other_votes
+    margin_votes = rep_votes - dem_votes
+    margin_pct = (margin_votes / total_votes * 100.0) if total_votes else 0.0
+    winner = "REP" if margin_votes > 0 else ("DEM" if margin_votes < 0 else "TIE")
+
+    dem_candidate = norm_space(str(override.get("dem_candidate", "")))
+    rep_candidate = norm_space(str(override.get("rep_candidate", "")))
+    if not dem_candidate and fallback_totals and fallback_totals.dem_cands:
+        dem_candidate = fallback_totals.dem_cands.most_common(1)[0][0]
+    if not rep_candidate and fallback_totals and fallback_totals.rep_cands:
+        rep_candidate = fallback_totals.rep_cands.most_common(1)[0][0]
+
+    return {
+        "dem_votes": dem_votes,
+        "rep_votes": rep_votes,
+        "other_votes": other_votes,
+        "total_votes": total_votes,
+        "dem_candidate": dem_candidate,
+        "rep_candidate": rep_candidate,
+        "margin": margin_votes,
+        "margin_pct": round(margin_pct, 4),
+        "winner": winner,
+    }
+
+
+def maybe_apply_overlap_dominant_assignment(
+    scope: str,
+    county_fp: str,
+    source: str,
+    allocs: List[Tuple[str, float]],
+) -> List[Tuple[str, float]]:
+    """Optionally collapse overlap allocations to a single dominant district."""
+    if source != "overlap" or not allocs:
+        return allocs
+    counties = OVERLAP_DOMINANT_ASSIGN_COUNTYFPS.get(scope, set())
+    if county_fp not in counties:
+        return allocs
+    allocs_sorted = sorted(allocs, key=lambda x: float(x[1]), reverse=True)
+    top_district, top_share = allocs_sorted[0]
+    if float(top_share) < OVERLAP_DOMINANT_MIN_SHARE:
+        return allocs
+    return [(str(top_district), 1.0)]
 
 
 def iter_standard_rows(path: Path, year: int) -> Iterator[dict]:
@@ -655,6 +752,94 @@ def build_2024_state_senate_prctseq_district_weights_raw(
         county_norm_to_fp=county_norm_to_fp,
         office_marker="TENNESSEE SENATE DISTRICT",
     )
+
+
+def build_state_house_to_state_senate_weights() -> Dict[str, List[Tuple[str, float]]]:
+    """Build state-house -> state-senate weights by polygon area overlap."""
+    if not (STATE_HOUSE_DISTRICT_GEOJSON.exists() and STATE_SENATE_DISTRICT_GEOJSON.exists()):
+        return {}
+
+    house = gpd.read_file(STATE_HOUSE_DISTRICT_GEOJSON)[["SLDLST", "geometry"]].copy()
+    senate = gpd.read_file(STATE_SENATE_DISTRICT_GEOJSON)[["SLDUST", "geometry"]].copy()
+
+    house["HOUSE"] = house["SLDLST"].apply(normalize_district_code)
+    senate["SENATE"] = senate["SLDUST"].apply(normalize_district_code)
+
+    house = house[(house["HOUSE"] != "") & house["geometry"].notna()].copy()
+    senate = senate[(senate["SENATE"] != "") & senate["geometry"].notna()].copy()
+    if house.empty or senate.empty:
+        return {}
+
+    house = house.to_crs(5070)
+    senate = senate.to_crs(5070)
+
+    inter = gpd.overlay(
+        house[["HOUSE", "geometry"]],
+        senate[["SENATE", "geometry"]],
+        how="intersection",
+        keep_geom_type=False,
+    )
+    if inter.empty:
+        return {}
+
+    inter["area"] = inter.geometry.area
+    inter = inter[inter["area"] > 0].copy()
+    if inter.empty:
+        return {}
+
+    grouped = inter.groupby(["HOUSE", "SENATE"], as_index=False)["area"].sum()
+    out: Dict[str, List[Tuple[str, float]]] = {}
+    for house_dist, frame in grouped.groupby("HOUSE"):
+        total = float(frame["area"].sum())
+        if total <= 0:
+            continue
+        rows = sorted(
+            (
+                (str(sen), float(area) / total)
+                for sen, area in zip(frame["SENATE"], frame["area"])
+                if float(area) > 0
+            ),
+            key=lambda x: x[1],
+            reverse=True,
+        )
+        if rows:
+            out[str(house_dist)] = rows
+    return out
+
+
+def derive_state_senate_prctseq_weights_from_state_house(
+    state_house_prctseq_weights: Dict[Tuple[str, str], List[Tuple[str, float]]],
+    house_to_senate_weights: Dict[str, List[Tuple[str, float]]],
+) -> Dict[Tuple[str, str], List[Tuple[str, float]]]:
+    """Derive (countyfp, PRCTSEQ6) -> state-senate weights from state-house weights."""
+    if not state_house_prctseq_weights or not house_to_senate_weights:
+        return {}
+
+    raw: Dict[Tuple[str, str], Dict[str, float]] = defaultdict(lambda: defaultdict(float))
+    for key, house_allocs in state_house_prctseq_weights.items():
+        for house_dist, w_house in house_allocs:
+            w_house_f = float(w_house)
+            if w_house_f <= 0:
+                continue
+            for senate_dist, w_map in house_to_senate_weights.get(str(house_dist), []):
+                w = w_house_f * float(w_map)
+                if w <= 0:
+                    continue
+                raw[key][str(senate_dist)] += w
+
+    out: Dict[Tuple[str, str], List[Tuple[str, float]]] = {}
+    for key, dmap in raw.items():
+        total = float(sum(v for v in dmap.values() if v > 0))
+        if total <= 0:
+            continue
+        rows = sorted(
+            ((str(d), float(v) / total) for d, v in dmap.items() if float(v) > 0),
+            key=lambda x: x[1],
+            reverse=True,
+        )
+        if rows:
+            out[key] = rows
+    return out
 
 
 def build_2024_prctseq_district_weights_to_vtd(
@@ -1543,6 +1728,8 @@ def build() -> dict:
     if not csv_files:
         raise RuntimeError("No TN precinct CSV files found in Data/")
 
+    district_result_overrides = load_district_result_overrides()
+
     county_norm_to_fp, _fp_to_county_norm = load_county_maps()
     to2024 = load_precinct_to_2024_map()
     to2024_split_by_year, to2024_split_any_year = build_precinct_split_key_maps(to2024)
@@ -1553,6 +1740,11 @@ def build() -> dict:
     )
     state_senate_2024_prctseq_weights = build_2024_state_senate_prctseq_district_weights_raw(
         county_norm_to_fp
+    )
+    house_to_senate_weights = build_state_house_to_state_senate_weights()
+    state_senate_2024_prctseq_weights_derived = derive_state_senate_prctseq_weights_from_state_house(
+        state_house_prctseq_weights=state_house_2024_prctseq_weights,
+        house_to_senate_weights=house_to_senate_weights,
     )
     overlap_maps_by_src_year = {
         2000: load_vtd_overlap_to_2020_map(
@@ -1851,6 +2043,13 @@ def build() -> dict:
                     stat["votes_dropped"] += votes_total
                     continue
 
+                allocs = maybe_apply_overlap_dominant_assignment(
+                    scope=scope,
+                    county_fp=county_fp,
+                    source=source,
+                    allocs=allocs,
+                )
+
                 if source == "direct":
                     stat["direct_rows"] += 1
                     stat["votes_direct"] += votes_total
@@ -1897,7 +2096,25 @@ def build() -> dict:
             rep_cand = totals.rep_cands.most_common(1)[0][0] if totals.rep_cands else ""
 
             allocs = prctseq_weights.get((county_fp, seq_code), [])
-            source = "direct"
+            source = "direct" if allocs else ""
+            if (
+                not allocs
+                and scope == "state_senate"
+                and county_fp in DERIVE_STATE_SENATE_2024_FROM_STATE_HOUSE_COUNTYFPS
+            ):
+                allocs = state_senate_2024_prctseq_weights_derived.get((county_fp, seq_code), [])
+                if allocs:
+                    source = "derived"
+            forced_overlap_districts = FORCE_OVERLAP_2024_DISTRICTS.get(scope, set())
+            if allocs and forced_overlap_districts:
+                touches_forced = any(
+                    str(district) in forced_overlap_districts for district, _w in allocs
+                )
+                if touches_forced:
+                    # Drop direct PRCTSEQ-derived rows for targeted districts and
+                    # intentionally use overlap/VTD allocation path instead.
+                    allocs = []
+                    source = ""
             if not allocs:
                 vtd_code = prctseq_to_vtd(
                     county_fp=county_fp,
@@ -1910,6 +2127,8 @@ def build() -> dict:
                     allocs = vtd_weights.get((county_fp, vtd_code.zfill(6)), [])
                     if not allocs:
                         allocs = district_weights.get(scope, {}).get((county_fp, vtd_code.zfill(6)), [])
+                    if allocs:
+                        source = "overlap"
             if not allocs:
                 allocs = county_district_weights.get(scope, {}).get(county_fp, [])
                 source = "county_fallback" if allocs else "dropped"
@@ -1918,9 +2137,19 @@ def build() -> dict:
                 stat["votes_dropped"] += votes_total
                 continue
 
-            if source == "direct":
+            allocs = maybe_apply_overlap_dominant_assignment(
+                scope=scope,
+                county_fp=county_fp,
+                source=source,
+                allocs=allocs,
+            )
+
+            if source == "direct" or source == "derived":
                 stat["direct_rows"] += 1
                 stat["votes_direct"] += votes_total
+            elif source == "overlap":
+                stat["overlap_rows"] += 1
+                stat["votes_overlap"] += votes_total
             else:
                 stat["county_fallback_rows"] += 1
                 stat["votes_fallback"] += votes_total
@@ -1945,8 +2174,23 @@ def build() -> dict:
         results = {}
         dem_total = 0
         rep_total = 0
-        for district in sorted(dmap.keys(), key=lambda d: int(d)):
-            row = dmap[district].as_district_result()
+        override_districts = {
+            district
+            for (o_scope, o_contest, o_year, district) in district_result_overrides.keys()
+            if o_scope == scope and o_contest == contest_type and o_year == int(year)
+        }
+        district_keys = set(dmap.keys()).union(override_districts)
+        for district in sorted(district_keys, key=lambda d: int(d)):
+            base_totals = dmap.get(district)
+            override = district_result_overrides.get(
+                (scope, contest_type, int(year), str(int(district)))
+            )
+            if override:
+                row = district_result_from_override(override, base_totals)
+            elif base_totals:
+                row = base_totals.as_district_result()
+            else:
+                continue
             results[str(int(district))] = row
             dem_total += row["dem_votes"]
             rep_total += row["rep_votes"]
