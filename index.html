@@ -3135,6 +3135,280 @@ body { height: var(--app-height); }
     background: rgba(226, 232, 240, 0.86);
   }
 
+  /* --- County analysis blocks (format similar to NCMap.html) --- */
+  .focus-census-insight {
+    display: grid;
+    gap: 8px;
+    padding: 12px;
+    border-radius: 16px;
+    border: 1px solid rgba(148, 163, 184, 0.18);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(248, 250, 252, 0.94) 100%);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  }
+
+  .focus-census-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .focus-census-kicker {
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #64748b;
+  }
+
+  .focus-census-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 26px;
+    max-width: 100%;
+    padding: 5px 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(14, 116, 144, 0.18);
+    background: rgba(236, 254, 255, 0.92);
+    color: #155e75;
+    font-size: 11px;
+    font-weight: 800;
+    line-height: 1.25;
+  }
+
+  .focus-census-pill-emoji,
+  .focus-census-inline-emoji {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 16px;
+    line-height: 1;
+  }
+
+  .focus-census-note,
+  .focus-census-source {
+    margin: 0;
+  }
+
+  .focus-census-note {
+    font-size: 12px;
+    line-height: 1.45;
+    color: #334155;
+  }
+
+  .focus-census-source {
+    font-size: 11px;
+    line-height: 1.4;
+    color: #64748b;
+  }
+
+  .focus-census-check {
+    margin: 0;
+    padding: 7px 8px 7px 10px;
+    border-radius: 10px;
+    border: 1px dashed rgba(139, 92, 246, 0.24);
+    background: rgba(245, 243, 255, 0.9);
+    box-shadow: inset 3px 0 0 rgba(139, 92, 246, 0.38);
+    font-size: 11px;
+    line-height: 1.4;
+    color: #334155;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  .focus-census-check strong {
+    font-weight: 800;
+    color: #0f172a;
+  }
+
+  .focus-census-check.tone-dem {
+    box-shadow: inset 3px 0 0 rgba(37, 99, 235, 0.42);
+  }
+
+  .focus-census-check.tone-rep {
+    box-shadow: inset 3px 0 0 rgba(220, 38, 38, 0.4);
+  }
+
+  .focus-census-check.tone-competitive,
+  .focus-census-check.tone-neutral {
+    box-shadow: inset 3px 0 0 rgba(217, 119, 6, 0.42);
+  }
+
+  .focus-trajectory {
+    --trajectory-accent-rgb: 100, 116, 139;
+    --trajectory-accent-soft: rgba(100, 116, 139, 0.2);
+    --trajectory-accent-glow: rgba(100, 116, 139, 0.2);
+    position: relative;
+    display: grid;
+    gap: 10px;
+    padding: 12px;
+    border-radius: 16px;
+    border: 1px solid var(--trajectory-accent-soft);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(241, 245, 249, 0.92) 100%);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.74), 0 6px 16px rgba(15, 23, 42, 0.08);
+    overflow: hidden;
+    isolation: isolate;
+    animation: trajectory-fade-up 0.22s ease-out;
+  }
+
+  .focus-trajectory.status-dem {
+    --trajectory-accent-rgb: 37, 99, 235;
+    --trajectory-accent-soft: rgba(37, 99, 235, 0.22);
+    --trajectory-accent-glow: rgba(37, 99, 235, 0.24);
+  }
+
+  .focus-trajectory.status-rep {
+    --trajectory-accent-rgb: 220, 38, 38;
+    --trajectory-accent-soft: rgba(220, 38, 38, 0.24);
+    --trajectory-accent-glow: rgba(220, 38, 38, 0.24);
+  }
+
+  .focus-trajectory.status-competitive {
+    --trajectory-accent-rgb: 217, 119, 6;
+    --trajectory-accent-soft: rgba(217, 119, 6, 0.24);
+    --trajectory-accent-glow: rgba(217, 119, 6, 0.26);
+  }
+
+  @keyframes trajectory-fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(3px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .focus-trajectory::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(
+      90deg,
+      rgba(var(--trajectory-accent-rgb), 0.95) 0%,
+      rgba(var(--trajectory-accent-rgb), 0.35) 52%,
+      rgba(var(--trajectory-accent-rgb), 0) 100%
+    );
+    pointer-events: none;
+  }
+
+  .focus-trajectory::after {
+    content: '';
+    position: absolute;
+    top: -28%;
+    right: -14%;
+    width: 180px;
+    height: 180px;
+    border-radius: 999px;
+    background: radial-gradient(circle, var(--trajectory-accent-glow) 0%, rgba(255, 255, 255, 0) 70%);
+    opacity: 0.72;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  .focus-trajectory-head {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 6px;
+    padding-bottom: 6px;
+    border-bottom: 1px dashed rgba(var(--trajectory-accent-rgb), 0.25);
+  }
+
+  .focus-trajectory-kicker {
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #64748b;
+  }
+
+  .focus-trajectory-status {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 24px;
+    max-width: 100%;
+    padding: 4px 11px;
+    border-radius: 999px;
+    border: 1px solid rgba(148, 163, 184, 0.18);
+    background: rgba(226, 232, 240, 0.84);
+    color: #475569;
+    font-size: 10px;
+    font-weight: 800;
+    line-height: 1.25;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    white-space: normal;
+    text-align: center;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.72);
+  }
+
+  .focus-trajectory-status.tone-dem {
+    color: #1d4ed8;
+    border-color: rgba(37, 99, 235, 0.2);
+    background: rgba(219, 234, 254, 0.88);
+  }
+
+  .focus-trajectory-status.tone-rep {
+    color: #b91c1c;
+    border-color: rgba(220, 38, 38, 0.2);
+    background: rgba(254, 226, 226, 0.84);
+  }
+
+  .focus-trajectory-status.tone-competitive {
+    color: #92400e;
+    border-color: rgba(217, 119, 6, 0.24);
+    background: rgba(254, 243, 199, 0.9);
+  }
+
+  .focus-trajectory-status.tone-neutral {
+    color: #475569;
+  }
+
+  .focus-trajectory-meaning {
+    margin: 0;
+    padding: 7px 8px;
+    border-radius: 10px;
+    border: 1px dashed rgba(148, 163, 184, 0.28);
+    background: rgba(248, 250, 252, 0.9);
+    font-size: 11px;
+    line-height: 1.4;
+    color: #334155;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  .focus-trajectory-meaning strong {
+    font-weight: 800;
+    color: #0f172a;
+  }
+
+  .focus-trajectory-meaning.tone-dem {
+    border-color: rgba(37, 99, 235, 0.26);
+    background: rgba(239, 246, 255, 0.9);
+  }
+
+  .focus-trajectory-meaning.tone-rep {
+    border-color: rgba(220, 38, 38, 0.24);
+    background: rgba(254, 242, 242, 0.88);
+  }
+
+  .focus-trajectory-meaning.tone-competitive,
+  .focus-trajectory-meaning.tone-neutral {
+    border-color: rgba(217, 119, 6, 0.24);
+    background: rgba(255, 251, 235, 0.9);
+  }
+
   .focus-trend-dots {
     display: grid;
     grid-auto-flow: column;
@@ -6227,33 +6501,6 @@ document.addEventListener('DOMContentLoaded', function() {
           <div class="focus-trend-empty">Select a contest to load trend history.</div>
         </div>
       </div>
-      <div class="focus-trend" id="tn-county-trajectory-section" hidden>
-        <div class="focus-trend-head">
-          <span class="focus-trend-title">Trajectory Snapshot</span>
-          <span class="focus-trend-caption" id="tn-county-trajectory-caption"></span>
-        </div>
-        <div class="focus-trend-chart" id="tn-county-trajectory-chart">
-          <div class="focus-trend-empty">Select a county to view trajectory.</div>
-        </div>
-      </div>
-      <div class="focus-trend" id="tn-county-census-check-section" hidden>
-        <div class="focus-trend-head">
-          <span class="focus-trend-title">Census Check</span>
-          <span class="focus-trend-caption" id="tn-county-census-check-caption"></span>
-        </div>
-        <div class="focus-trend-chart" id="tn-county-census-check-chart">
-          <div class="focus-trend-empty">Select a county to view census check.</div>
-        </div>
-      </div>
-      <div class="focus-trend" id="tn-county-census-insight-section" hidden>
-        <div class="focus-trend-head">
-          <span class="focus-trend-title">County Census Insight</span>
-          <span class="focus-trend-caption" id="tn-county-census-insight-caption"></span>
-        </div>
-        <div class="focus-trend-chart" id="tn-county-census-insight-chart">
-          <div class="focus-trend-empty">Select a county to view census insight.</div>
-        </div>
-      </div>
     </div>
     <div class="vote-counter-row">
       <div class="vote-item dem">
@@ -8030,7 +8277,82 @@ document.addEventListener('DOMContentLoaded', function() {
       };
     }
 
-    function renderFocusTrendSeries(series, caption = 'Trend history') {
+    function trajectoryToneClass(tone) {
+      const normalized = String(tone || '').trim().toLowerCase();
+      if (normalized === 'dem') return 'tone-dem';
+      if (normalized === 'rep') return 'tone-rep';
+      if (normalized === 'competitive') return 'tone-competitive';
+      return 'tone-neutral';
+    }
+
+    function tnFocusToneFromLabel(label) {
+      const text = String(label || '').trim().toLowerCase();
+      if (!text) return 'neutral';
+      if (text.includes('democratic')) return 'dem';
+      if (text.includes('republican')) return 'rep';
+      if (text.includes('volatile') || text.includes('transitional')) return 'competitive';
+      if (text.includes('mixed')) return 'competitive';
+      if (text.includes('limited')) return 'neutral';
+      return 'neutral';
+    }
+
+    function tnBucketPrettyLabel(bucket) {
+      const b = String(bucket || '').trim();
+      const map = {
+        memphis_urban: 'Memphis urban context',
+        nashville_core: 'Nashville core context',
+        nashville_suburban: 'Nashville suburban context',
+        suburban_growth: 'Suburban growth context',
+        chattanooga_regional: 'Chattanooga regional context',
+        knoxville_regional: 'Knoxville regional context',
+        tri_cities_appalachian: 'Tri-Cities Appalachian context',
+        appalachian_rural: 'Appalachian rural context',
+        west_tn_rural: 'West Tennessee rural context',
+        middle_tn_rural: 'Middle Tennessee rural context'
+      };
+      return map[b] || 'County context';
+    }
+
+    function renderFocusTrajectoryBlockHTML(kicker, statusLabel, explanation, tone = 'neutral') {
+      const statusClass = tone === 'dem' ? 'dem' : (tone === 'rep' ? 'rep' : 'competitive');
+      const toneClass = trajectoryToneClass(tone);
+      return `
+        <div class="focus-trajectory status-${statusClass}" role="group" aria-label="${escapeHtml(kicker || 'Trajectory Snapshot')}">
+          <div class="focus-trajectory-head">
+            <span class="focus-trajectory-kicker">${escapeHtml(kicker || 'Trajectory Snapshot')}</span>
+            <span class="focus-trajectory-status ${toneClass}">${escapeHtml(statusLabel || '')}</span>
+          </div>
+          <p class="focus-trajectory-meaning ${toneClass}"><strong>Summary:</strong> ${escapeHtml(explanation || '')}</p>
+        </div>
+      `;
+    }
+
+    function renderFocusCensusCheckHTML(statusLabel, explanation, tone = 'neutral') {
+      const toneClass = trajectoryToneClass(tone);
+      const lead = statusLabel ? `Census Check — ${statusLabel}` : 'Census Check';
+      return `
+        <p class="focus-census-check ${toneClass}" role="note" aria-label="Census check">
+          <strong>${escapeHtml(lead)}:</strong> ${escapeHtml(explanation || '')}
+        </p>
+      `;
+    }
+
+    function renderFocusCensusInsightHTML(title, pillLabel, explanation) {
+      return `
+        <div class="focus-census-insight" role="note" aria-label="${escapeHtml(title || 'County Census Insight')}">
+          <div class="focus-census-head">
+            <span class="focus-census-kicker">${escapeHtml(title || 'County Census Insight')}</span>
+            <span class="focus-census-pill">
+              <span class="focus-census-pill-emoji">📊</span>
+              ${escapeHtml(pillLabel || '')}
+            </span>
+          </div>
+          <p class="focus-census-note">${escapeHtml(explanation || '')}</p>
+        </div>
+      `;
+    }
+
+    function renderFocusTrendSeries(series, caption = 'Trend history', options = null) {
       const captionEl = document.getElementById('focus-trend-caption');
       const chartEl = document.getElementById('focus-trend-chart');
       if (!chartEl) return;
@@ -8110,6 +8432,26 @@ document.addEventListener('DOMContentLoaded', function() {
         );
       }
 
+      const tnCountyAnalysisHtml = (() => {
+        const meta = options?.meta || null;
+        if (!meta || meta.kind !== 'county' || !meta.county) return '';
+        const county = meta.county;
+        const bucket = tnCountyContextBucket(county);
+        const trajectory = tnTrajectorySnapshotFromSeries(series, county, bucket);
+        const censusCheck = tnCensusCheckFromSeries(series, county, bucket);
+        const insight = tnCountyCensusInsight(county, bucket);
+
+        const trajectoryTone = tnFocusToneFromLabel(trajectory?.label);
+        const censusTone = tnFocusToneFromLabel(censusCheck?.label);
+        const insightPill = tnBucketPrettyLabel(bucket);
+
+        return `
+          ${renderFocusTrajectoryBlockHTML('Trajectory Snapshot', trajectory?.label, trajectory?.explanation, trajectoryTone)}
+          ${renderFocusCensusCheckHTML(censusCheck?.label, censusCheck?.explanation, censusTone)}
+          ${renderFocusCensusInsightHTML('County Census Insight', insightPill, insight?.explanation)}
+        `;
+      })();
+
       const cards = annotated
         .slice()
         .reverse()
@@ -8182,78 +8524,9 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
           </div>
         </div>
+        ${tnCountyAnalysisHtml}
         <div class="focus-trend-list">${cards}</div>
       `;
-      try { updateMobileOverlayOffsets(); } catch (_) {}
-    }
-
-    function renderTennesseeCountyAnalysisEmpty(message = 'Select a county to view analysis.') {
-      const sections = [
-        { sectionId: 'tn-county-trajectory-section', chartId: 'tn-county-trajectory-chart' },
-        { sectionId: 'tn-county-census-check-section', chartId: 'tn-county-census-check-chart' },
-        { sectionId: 'tn-county-census-insight-section', chartId: 'tn-county-census-insight-chart' }
-      ];
-      sections.forEach(s => {
-        const sectionEl = document.getElementById(s.sectionId);
-        const chartEl = document.getElementById(s.chartId);
-        if (sectionEl) sectionEl.hidden = false;
-        if (chartEl) chartEl.innerHTML = `<div class="focus-trend-empty">${escapeHtml(message)}</div>`;
-      });
-      try { updateMobileOverlayOffsets(); } catch (_) {}
-    }
-
-    function hideTennesseeCountyAnalysisSections() {
-      const ids = [
-        'tn-county-trajectory-section',
-        'tn-county-census-check-section',
-        'tn-county-census-insight-section'
-      ];
-      ids.forEach(id => {
-        const el = document.getElementById(id);
-        if (el) el.hidden = true;
-      });
-      try { updateMobileOverlayOffsets(); } catch (_) {}
-    }
-
-    function renderTennesseeCountyAnalysis(meta, series) {
-      if (!meta || meta.kind !== 'county' || !meta.county) {
-        hideTennesseeCountyAnalysisSections();
-        return;
-      }
-
-      const county = meta.county;
-      const bucket = tnCountyContextBucket(county);
-      const trajectory = tnTrajectorySnapshotFromSeries(series || [], county, bucket);
-      const censusCheck = tnCensusCheckFromSeries(series || [], county, bucket);
-      const insight = tnCountyCensusInsight(county, bucket);
-
-      const template = (kicker, label, explanation) => `
-        <div class="focus-trend-plot">
-          <div class="focus-trend-summary">
-            <div class="focus-trend-summary-copy">
-              <span class="focus-trend-summary-kicker">${escapeHtml(kicker)}</span>
-              <div class="focus-trend-summary-call">${escapeHtml(label)}</div>
-              <div class="focus-trend-summary-note">${escapeHtml(explanation)}</div>
-            </div>
-          </div>
-        </div>
-      `;
-
-      const trajSection = document.getElementById('tn-county-trajectory-section');
-      const trajChart = document.getElementById('tn-county-trajectory-chart');
-      if (trajSection) trajSection.hidden = false;
-      if (trajChart) trajChart.innerHTML = template('Trajectory Snapshot', trajectory.label, trajectory.explanation);
-
-      const censusSection = document.getElementById('tn-county-census-check-section');
-      const censusChart = document.getElementById('tn-county-census-check-chart');
-      if (censusSection) censusSection.hidden = false;
-      if (censusChart) censusChart.innerHTML = template('Census Check', censusCheck.label, censusCheck.explanation);
-
-      const insightSection = document.getElementById('tn-county-census-insight-section');
-      const insightChart = document.getElementById('tn-county-census-insight-chart');
-      if (insightSection) insightSection.hidden = false;
-      if (insightChart) insightChart.innerHTML = template('County Census Insight', insight.label, insight.explanation);
-
       try { updateMobileOverlayOffsets(); } catch (_) {}
     }
 
@@ -8329,7 +8602,6 @@ document.addEventListener('DOMContentLoaded', function() {
       const [contestType, year] = parseContestValue(contestValue);
       if (!contestType || !year) {
         renderFocusTrendEmpty('Select a contest to load trend history.', 'Trend history');
-        hideTennesseeCountyAnalysisSections();
         return;
       }
 
@@ -8347,11 +8619,6 @@ document.addEventListener('DOMContentLoaded', function() {
               : (meta.kind === 'precinct' ? `${meta.precinct}` : 'Trend history'))));
 
       renderFocusTrendEmpty('Loading trend history...', baseCaption);
-      if (meta.kind === 'county') {
-        renderTennesseeCountyAnalysisEmpty('Loading county analysis...');
-      } else {
-        hideTennesseeCountyAnalysisSections();
-      }
 
       try {
         let series = [];
@@ -8367,13 +8634,10 @@ document.addEventListener('DOMContentLoaded', function() {
           series = await getStatewideTrendSeries(contestType);
         }
         if (reqId !== voteCounterTrendRequestId) return;
-        renderFocusTrendSeries(series, baseCaption);
-        renderTennesseeCountyAnalysis(meta, series);
+        renderFocusTrendSeries(series, baseCaption, { meta });
       } catch (err) {
         if (reqId !== voteCounterTrendRequestId) return;
         renderFocusTrendEmpty('Failed to load trend history.', baseCaption);
-        if (meta.kind === 'county') renderTennesseeCountyAnalysisEmpty('Failed to load county analysis.');
-        else hideTennesseeCountyAnalysisSections();
         console.warn('Failed to load focus trend:', err?.message || err);
       }
     }
