@@ -8570,69 +8570,71 @@ document.addEventListener('DOMContentLoaded', function() {
       const captionEl = document.getElementById('focus-trend-caption');
       const chartEl = document.getElementById('focus-trend-chart');
       if (!chartEl) return;
-      if (captionEl) captionEl.textContent = caption;
-      if (!series || !series.length) {
-        chartEl.innerHTML = `<div class="focus-trend-empty">No historical trend data available.</div>`;
-        return;
-      }
 
-      const sortedSeries = series
-        .slice()
-        .sort((a, b) => a.year - b.year);
-      const annotated = sortedSeries.map((item, idx) => {
-        const prev = idx > 0 ? sortedSeries[idx - 1] : null;
-        const totalVotes = Number(item.total_votes || 0);
-        const demVotes = Number(item.dem_votes || 0);
-        const repVotes = Number(item.rep_votes || 0);
-        const otherVotes = Number(item.other_votes || 0);
-        const demPct = totalVotes > 0 ? (demVotes / totalVotes) * 100 : 0;
-        const repPct = totalVotes > 0 ? (repVotes / totalVotes) * 100 : 0;
-        const otherPct = totalVotes > 0 ? (otherVotes / totalVotes) * 100 : 0;
-        const signedPct = Number(item.margin_pct || 0);
-        const winnerMeta = getTrendWinnerMeta(item);
-        const leadLabel = leadMarginPctLabel(repVotes, demVotes, totalVotes);
-        const shiftMeta = describeTrendShift(signedPct, prev ? prev.margin_pct : NaN, prev ? prev.year : '');
-        const flip = prev ? flipInfo(prev.margin_pct, signedPct) : { flipped: false, from: 'T', to: 'T' };
-        return {
-          item,
-          prev,
-          totalVotes,
-          demVotes,
-          repVotes,
-          otherVotes,
-          demPct,
-          repPct,
-          otherPct,
-          signedPct,
-          winnerMeta,
-          leadLabel,
-          shiftMeta,
-          flip
-        };
-      });
+      try {
+        if (captionEl) captionEl.textContent = caption;
+        if (!series || !series.length) {
+          chartEl.innerHTML = `<div class="focus-trend-empty">No historical trend data available.</div>`;
+          return;
+        }
 
-      const latest = annotated[annotated.length - 1];
-      const closest = annotated.reduce((best, entry) => {
-        if (!best) return entry;
-        return Math.abs(entry.signedPct) < Math.abs(best.signedPct) ? entry : best;
-      }, null);
-      const latestSummary = winnerMarginLabelShort(
-        latest.repVotes,
-        latest.demVotes,
-        latest.totalVotes,
-        latest.item.rep_candidate,
-        latest.item.dem_candidate
-      );
-      const earliest = annotated[0];
-      const historyShift = describeTrendShift(latest.signedPct, earliest ? earliest.signedPct : NaN, earliest ? earliest.item.year : '');
-      let streakCount = 0;
-      for (let i = annotated.length - 1; i >= 0; i -= 1) {
-        if (annotated[i].winnerMeta.partyClass !== latest.winnerMeta.partyClass) break;
-        streakCount += 1;
-      }
-      const streakLabel = latest.winnerMeta.partyClass === 'tie'
-        ? 'Latest result was an even race.'
-        : `${latest.winnerMeta.partyClass === 'rep' ? 'Republican' : 'Democratic'} streak: ${streakCount} election${streakCount === 1 ? '' : 's'}.`;
+        const sortedSeries = series
+          .slice()
+          .sort((a, b) => a.year - b.year);
+        const annotated = sortedSeries.map((item, idx) => {
+          const prev = idx > 0 ? sortedSeries[idx - 1] : null;
+          const totalVotes = Number(item.total_votes || 0);
+          const demVotes = Number(item.dem_votes || 0);
+          const repVotes = Number(item.rep_votes || 0);
+          const otherVotes = Number(item.other_votes || 0);
+          const demPct = totalVotes > 0 ? (demVotes / totalVotes) * 100 : 0;
+          const repPct = totalVotes > 0 ? (repVotes / totalVotes) * 100 : 0;
+          const otherPct = totalVotes > 0 ? (otherVotes / totalVotes) * 100 : 0;
+          const signedPct = Number(item.margin_pct || 0);
+          const winnerMeta = getTrendWinnerMeta(item);
+          const leadLabel = leadMarginPctLabel(repVotes, demVotes, totalVotes);
+          const shiftMeta = describeTrendShift(signedPct, prev ? prev.margin_pct : NaN, prev ? prev.year : '');
+          const flip = prev ? flipInfo(prev.margin_pct, signedPct) : { flipped: false, from: 'T', to: 'T' };
+          return {
+            item,
+            prev,
+            totalVotes,
+            demVotes,
+            repVotes,
+            otherVotes,
+            demPct,
+            repPct,
+            otherPct,
+            signedPct,
+            winnerMeta,
+            leadLabel,
+            shiftMeta,
+            flip
+          };
+        });
+
+        const latest = annotated[annotated.length - 1];
+        const closest = annotated.reduce((best, entry) => {
+          if (!best) return entry;
+          return Math.abs(entry.signedPct) < Math.abs(best.signedPct) ? entry : best;
+        }, null);
+        const latestSummary = winnerMarginLabelShort(
+          latest.repVotes,
+          latest.demVotes,
+          latest.totalVotes,
+          latest.item.rep_candidate,
+          latest.item.dem_candidate
+        );
+        const earliest = annotated[0];
+        const historyShift = describeTrendShift(latest.signedPct, earliest ? earliest.signedPct : NaN, earliest ? earliest.item.year : '');
+        let streakCount = 0;
+        for (let i = annotated.length - 1; i >= 0; i -= 1) {
+          if (annotated[i].winnerMeta.partyClass !== latest.winnerMeta.partyClass) break;
+          streakCount += 1;
+        }
+        const streakLabel = latest.winnerMeta.partyClass === 'tie'
+          ? 'Latest result was an even race.'
+          : `${latest.winnerMeta.partyClass === 'rep' ? 'Republican' : 'Democratic'} streak: ${streakCount} election${streakCount === 1 ? '' : 's'}.`;
 
       const summaryBadges = [];
       if (latest.shiftMeta) {
@@ -8646,49 +8648,55 @@ document.addEventListener('DOMContentLoaded', function() {
         );
       }
 
-      const tnCountyAnalysisHtml = (() => {
-        const meta = options?.meta || null;
-        if (!meta || meta.kind !== 'county' || !meta.county) return '';
-        const county = meta.county;
-        const bucket = tnCountyContextBucket(county);
-        const trajectory = tnTrajectorySnapshotFromSeries(series, county, bucket);
-        const censusCheck = tnCensusCheckFromSeries(series, county, bucket);
-        const insight = tnCountyCensusInsight(county, bucket);
+      let tnCountyAnalysisHtml = '';
+      try {
+        tnCountyAnalysisHtml = (() => {
+          const meta = options?.meta || null;
+          if (!meta || meta.kind !== 'county' || !meta.county) return '';
+          const county = meta.county;
+          const bucket = tnCountyContextBucket(county);
+          const trajectory = tnTrajectorySnapshotFromSeries(series, county, bucket);
+          const censusCheck = tnCensusCheckFromSeries(series, county, bucket);
+          const insight = tnCountyCensusInsight(county, bucket);
 
-        const trajectoryTone = tnFocusToneFromLabel(trajectory?.label);
-        const censusTone = tnFocusToneFromLabel(censusCheck?.label);
+          const trajectoryTone = tnFocusToneFromLabel(trajectory?.label);
+          const censusTone = tnFocusToneFromLabel(censusCheck?.label);
 
-        const recentWindow = annotated.slice(Math.max(0, annotated.length - 4));
-        const recentDelta = recentWindow.length
-          ? (Number(recentWindow[recentWindow.length - 1]?.signedPct || 0) - Number(recentWindow[0]?.signedPct || 0))
-          : 0;
-        let momentum = { arrow: '↔', text: 'Little directional change', tone: 'neutral' };
-        if (recentDelta >= 2.5) momentum = { arrow: '→', text: 'GOP margins strengthening', tone: 'rep' };
-        else if (recentDelta <= -2.5) momentum = { arrow: '←', text: 'Democratic margins strengthening', tone: 'dem' };
+          const recentWindow = annotated.slice(Math.max(0, annotated.length - 4));
+          const recentDelta = recentWindow.length
+            ? (Number(recentWindow[recentWindow.length - 1]?.signedPct || 0) - Number(recentWindow[0]?.signedPct || 0))
+            : 0;
+          let momentum = { arrow: '↔', text: 'Little directional change', tone: 'neutral' };
+          if (recentDelta >= 2.5) momentum = { arrow: '→', text: 'GOP margins strengthening', tone: 'rep' };
+          else if (recentDelta <= -2.5) momentum = { arrow: '←', text: 'Democratic margins strengthening', tone: 'dem' };
 
-        const normCounty = normalizeRegionCountyName(county);
-        const pop = tnCountyPopEstimates?.[normCounty] || null;
-        const pop2020 = Number(pop?.pop_2020 || 0) || 0;
-        const pop2025 = Number(pop?.pop_2025 || 0) || 0;
-        const popGrowthPct = (pop2020 > 0 && pop2025 > 0) ? ((pop2025 - pop2020) / pop2020 * 100.0) : null;
-        const popValue = (popGrowthPct === null)
-          ? 'No estimate loaded'
-          : `${popGrowthPct >= 0 ? '+' : '-'}${Math.abs(popGrowthPct).toFixed(1)}% since 2020`;
+          const normCounty = normalizeRegionCountyName(county);
+          const pop = tnCountyPopEstimates?.[normCounty] || null;
+          const pop2020 = Number(pop?.pop_2020 || 0) || 0;
+          const pop2025 = Number(pop?.pop_2025 || 0) || 0;
+          const popGrowthPct = (pop2020 > 0 && pop2025 > 0) ? ((pop2025 - pop2020) / pop2020 * 100.0) : null;
+          const popValue = (popGrowthPct === null)
+            ? 'No estimate loaded'
+            : `${popGrowthPct >= 0 ? '+' : '-'}${Math.abs(popGrowthPct).toFixed(1)}% since 2020`;
 
-        const latestTone = latest?.winnerMeta?.partyClass === 'rep' ? 'rep' : (latest?.winnerMeta?.partyClass === 'dem' ? 'dem' : 'neutral');
-        const shiftTone = historyShift?.cls === 'rep' ? 'rep' : (historyShift?.cls === 'dem' ? 'dem' : 'neutral');
-        const details = [
-          { label: 'Latest result', value: `${latest.item.year}: ${latest.leadLabel === 'Tie' ? 'Even race' : latest.leadLabel}`, role: 'latest', tone: latestTone },
-          { label: `Since ${earliest.item.year}`, value: historyShift.text, role: 'shift', tone: shiftTone },
-          { label: 'Population', value: popValue, role: 'shift', tone: 'neutral' }
-        ];
+          const latestTone = latest?.winnerMeta?.partyClass === 'rep' ? 'rep' : (latest?.winnerMeta?.partyClass === 'dem' ? 'dem' : 'neutral');
+          const shiftTone = historyShift?.cls === 'rep' ? 'rep' : (historyShift?.cls === 'dem' ? 'dem' : 'neutral');
+          const details = [
+            { label: 'Latest result', value: `${latest.item.year}: ${latest.leadLabel === 'Tie' ? 'Even race' : latest.leadLabel}`, role: 'latest', tone: latestTone },
+            { label: `Since ${earliest.item.year}`, value: historyShift.text, role: 'shift', tone: shiftTone },
+            { label: 'Population', value: popValue, role: 'shift', tone: 'neutral' }
+          ];
 
-        return `
-          ${renderFocusTrajectoryBlockHTML('Trajectory Snapshot', trajectory?.label, momentum, trajectory?.explanation, details, trajectoryTone)}
-          ${renderFocusCensusCheckHTML(censusCheck?.label, censusCheck?.explanation, censusTone)}
-          ${renderFocusCensusInsightHTML('County Census Insight', insight?.label, insight?.summary, insight?.note, insight?.sourceNote)}
-        `;
-      })();
+          return `
+            ${renderFocusTrajectoryBlockHTML('Trajectory Snapshot', trajectory?.label, momentum, trajectory?.explanation, details, trajectoryTone)}
+            ${renderFocusCensusCheckHTML(censusCheck?.label, censusCheck?.explanation, censusTone)}
+            ${renderFocusCensusInsightHTML('County Census Insight', insight?.label, insight?.summary, insight?.note, insight?.sourceNote)}
+          `;
+        })();
+      } catch (err) {
+        tnCountyAnalysisHtml = '';
+        console.warn('TN county analysis render failed:', err?.message || err);
+      }
 
       const cards = annotated
         .slice()
@@ -8737,35 +8745,39 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .join('');
 
-      chartEl.innerHTML = `
-        <div class="focus-trend-plot">
-          <div class="focus-trend-summary">
-            <div class="focus-trend-summary-copy">
-              <span class="focus-trend-summary-kicker">Trend at a glance</span>
-              <div class="focus-trend-summary-call">${escapeHtml(`${latest.item.year}: ${latestSummary}`)}</div>
-              <div class="focus-trend-summary-note">${escapeHtml(`Showing ${annotated.length} elections from ${earliest.item.year} to ${latest.item.year}. ${streakLabel}`)}</div>
-            </div>
-            <div class="focus-trend-summary-badges">${summaryBadges.join('')}</div>
-            <div class="focus-trend-stats">
-              <div class="focus-trend-stat">
-                <span class="focus-trend-stat-label">Latest</span>
-                <span class="focus-trend-stat-value ${latest.winnerMeta.partyClass}">${escapeHtml(`${latest.item.year}: ${latestSummary}`)}</span>
+        chartEl.innerHTML = `
+          <div class="focus-trend-plot">
+            <div class="focus-trend-summary">
+              <div class="focus-trend-summary-copy">
+                <span class="focus-trend-summary-kicker">Trend at a glance</span>
+                <div class="focus-trend-summary-call">${escapeHtml(`${latest.item.year}: ${latestSummary}`)}</div>
+                <div class="focus-trend-summary-note">${escapeHtml(`Showing ${annotated.length} elections from ${earliest.item.year} to ${latest.item.year}. ${streakLabel}`)}</div>
               </div>
-              <div class="focus-trend-stat">
-                <span class="focus-trend-stat-label">Closest</span>
-                <span class="focus-trend-stat-value ${closest.winnerMeta.partyClass}">${escapeHtml(`${closest.item.year}: ${winnerMarginLabelShort(closest.repVotes, closest.demVotes, closest.totalVotes, closest.item.rep_candidate, closest.item.dem_candidate)}`)}</span>
-              </div>
-              <div class="focus-trend-stat">
-                <span class="focus-trend-stat-label">Since ${escapeHtml(earliest.item.year)}</span>
-                <span class="focus-trend-stat-value ${historyShift.cls}">${escapeHtml(historyShift.text)}</span>
+              <div class="focus-trend-summary-badges">${summaryBadges.join('')}</div>
+              <div class="focus-trend-stats">
+                <div class="focus-trend-stat">
+                  <span class="focus-trend-stat-label">Latest</span>
+                  <span class="focus-trend-stat-value ${latest.winnerMeta.partyClass}">${escapeHtml(`${latest.item.year}: ${latestSummary}`)}</span>
+                </div>
+                <div class="focus-trend-stat">
+                  <span class="focus-trend-stat-label">Closest</span>
+                  <span class="focus-trend-stat-value ${closest.winnerMeta.partyClass}">${escapeHtml(`${closest.item.year}: ${winnerMarginLabelShort(closest.repVotes, closest.demVotes, closest.totalVotes, closest.item.rep_candidate, closest.item.dem_candidate)}`)}</span>
+                </div>
+                <div class="focus-trend-stat">
+                  <span class="focus-trend-stat-label">Since ${escapeHtml(earliest.item.year)}</span>
+                  <span class="focus-trend-stat-value ${historyShift.cls}">${escapeHtml(historyShift.text)}</span>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        ${tnCountyAnalysisHtml}
-        <div class="focus-trend-list">${cards}</div>
-      `;
-      try { updateMobileOverlayOffsets(); } catch (_) {}
+          ${tnCountyAnalysisHtml}
+          <div class="focus-trend-list">${cards}</div>
+        `;
+        try { updateMobileOverlayOffsets(); } catch (_) {}
+      } catch (err) {
+        chartEl.innerHTML = `<div class="focus-trend-empty">Failed to render trend panel.</div>`;
+        console.warn('renderFocusTrendSeries failed:', err?.message || err);
+      }
     }
 
     async function getStatewideTrendSeries(contestType) {
