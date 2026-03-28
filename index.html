@@ -6957,7 +6957,7 @@ document.addEventListener('DOMContentLoaded', function() {
       if (c === 'HAMILTON') return 'chattanooga_regional';
       if (c === 'KNOX') return 'knoxville_regional';
 
-      const tri = new Set(['WASHINGTON', 'SULLIVAN', 'CARTER']);
+      const tri = new Set(['WASHINGTON', 'SULLIVAN', 'CARTER', 'HAWKINS']);
       if (tri.has(c)) return 'tri_cities_appalachian';
 
       const east = getRegionCountySet('east_tn');
@@ -6965,6 +6965,24 @@ document.addEventListener('DOMContentLoaded', function() {
       if (east.has(c)) return 'appalachian_rural';
       if (west.has(c)) return 'west_tn_rural';
       return 'middle_tn_rural';
+    }
+
+    // Metro / CSA context used only for Tennessee census insights (does not affect map navigation).
+    const TN_CSA_CONTEXTS = [
+      {
+        kind: 'CSA',
+        label: 'Tri-Cities CSA (TN portion)',
+        counties: new Set(['WASHINGTON', 'SULLIVAN', 'CARTER', 'HAWKINS'])
+      }
+    ];
+
+    function tnMetroOrCsaContextLabel(countyNorm) {
+      const c = normalizeRegionCountyName(countyNorm);
+      if (!c) return '';
+      for (const ctx of TN_CSA_CONTEXTS) {
+        if (ctx?.counties?.has?.(c)) return String(ctx.label || '').trim();
+      }
+      return '';
     }
 
     function signedMarginPct(repVotes, demVotes, totalVotes) {
@@ -7163,9 +7181,12 @@ document.addEventListener('DOMContentLoaded', function() {
       const pop2025 = Number(pop?.pop_2025 || 0) || 0;
       const growthPct = (pop2020 > 0 && pop2025 > 0) ? ((pop2025 - pop2020) / pop2020 * 100.0) : null;
 
+      const metroOrCsa = tnMetroOrCsaContextLabel(c);
+      const metroSentence = metroOrCsa ? ` Metro/CSA: ${metroOrCsa}.` : '';
       const growthLine = (growthPct === null)
         ? 'Population change is not available in the current dataset.'
         : `Population is ${growthPct >= 0 ? 'up' : 'down'} ${Math.abs(growthPct).toFixed(1)}% since 2020.`;
+      const noteLine = `${growthLine}${metroSentence}`.trim();
 
       const templates = {
         memphis_urban: 'Population trends reflect an established urban base with consistent political patterns.',
@@ -7187,9 +7208,9 @@ document.addEventListener('DOMContentLoaded', function() {
       return {
         label: tnBucketPrettyLabel(bucket),
         summary: base,
-        note: growthLine,
+        note: noteLine,
         sourceNote,
-        explanation: `${base} ${growthLine}`
+        explanation: `${base} ${noteLine}`
       };
     }
 
