@@ -2,10 +2,10 @@
 <html>
 <head>
   <script>
-  // Ensure Mapbox token is available before any scripts run
-  window.MAPBOX_TOKEN = 'pk.eyJ1Ijoic2hhbWFyZGF2aXMiLCJhIjoiY21tYjlxamMxMG5nbTJ2cHU5amE5MTBxZyJ9.JSPHbYwzGQAV8TgI6MBwHw';
-</script>
-  <style> 
+    // Set your public Mapbox token here so the map loads in browsers without relying on localStorage or URL params.
+    window.MAPBOX_TOKEN = window.MAPBOX_TOKEN || 'pk.eyJ1Ijoic2hhbWFyZGF2aXMiLCJhIjoiY21tYjlxamMxMG5nbTJ2cHU5amE5MTBxZyJ9.JSPHbYwzGQAV8TgI6MBwHw';
+  </script>
+  <style>
   /* Mobile Styles - Enhanced for touch and small screens */
   @media (max-width: 768px) {
     /* Make minimize buttons touch-friendly */
@@ -6974,8 +6974,38 @@ document.addEventListener('DOMContentLoaded', function() {
     // Metro / CSA context used only for Tennessee census insights (does not affect map navigation).
     const TN_CSA_CONTEXTS = [
       {
+        kind: 'MSA',
+        label: 'Memphis, TN-MS-AR MSA',
+        counties: new Set(['SHELBY'])
+      },
+      {
+        kind: 'MSA',
+        label: 'Nashville-Davidson--Murfreesboro--Franklin, TN MSA',
+        counties: new Set(['DAVIDSON', 'WILLIAMSON', 'RUTHERFORD', 'WILSON', 'SUMNER', 'MAURY', 'ROBERTSON'])
+      },
+      {
+        kind: 'MSA',
+        label: 'Clarksville, TN-KY MSA',
+        counties: new Set(['MONTGOMERY'])
+      },
+      {
+        kind: 'MSA',
+        label: 'Jackson, TN MSA',
+        counties: new Set(['MADISON'])
+      },
+      {
+        kind: 'MSA',
+        label: 'Chattanooga, TN-GA MSA',
+        counties: new Set(['HAMILTON'])
+      },
+      {
+        kind: 'MSA',
+        label: 'Knoxville, TN MSA',
+        counties: new Set(['KNOX'])
+      },
+      {
         kind: 'CSA',
-        label: 'Tri-Cities CSA (TN portion)',
+        label: 'Johnson City-Kingsport-Bristol, TN-VA CSA (TN portion)',
         counties: new Set(['WASHINGTON', 'SULLIVAN', 'CARTER', 'HAWKINS'])
       }
     ];
