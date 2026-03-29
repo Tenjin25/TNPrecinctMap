@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <style>
+  <script>
+  // Ensure Mapbox token is available before any scripts run
+  window.MAPBOX_TOKEN = 'pk.eyJ1Ijoic2hhbWFyZGF2aXMiLCJhIjoiY21tYjlxamMxMG5nbTJ2cHU5amE5MTBxZyJ9.JSPHbYwzGQAV8TgI6MBwHw';
+</script>
+  <style> 
   /* Mobile Styles - Enhanced for touch and small screens */
   @media (max-width: 768px) {
     /* Make minimize buttons touch-friendly */
@@ -7313,7 +7317,7 @@ document.addEventListener('DOMContentLoaded', function() {
       return true;
     }
 
-    mapboxgl.accessToken = CONFIG.mapboxToken;
+    mapboxgl.accessToken = window.MAPBOX_TOKEN || CONFIG.mapboxToken || 'pk.eyJ1Ijoic2hhbWFyZGF2aXMiLCJhIjoiY21tYjlxamMxMG5nbTJ2cHU5amE5MTBxZyJ9.JSPHbYwzGQAV8TgI6MBwHw';
 
     const map = new mapboxgl.Map({ container: 'map', style: 'mapbox://styles/mapbox/light-v11', center: CONFIG.center, zoom: CONFIG.zoom });
 
