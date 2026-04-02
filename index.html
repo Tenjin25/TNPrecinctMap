@@ -7217,6 +7217,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
       const metroOrCsa = tnMetroOrCsaContextLabel(c);
       const metroSentence = metroOrCsa ? ` Metro/CSA: ${metroOrCsa}.` : '';
+      const pillLabel = metroOrCsa ? `${tnBucketPrettyLabel(bucket)} • ${metroOrCsa}` : tnBucketPrettyLabel(bucket);
       const growthLine = (growthPct === null)
         ? 'Population change is not available in the current dataset.'
         : `Population is ${growthPct >= 0 ? 'up' : 'down'} ${Math.abs(growthPct).toFixed(1)}% since 2020.`;
@@ -7240,7 +7241,7 @@ document.addEventListener('DOMContentLoaded', function() {
         ? 'Based on Tennessee county population estimates (CO-EST) loaded in this map (2020–2025).'
         : 'Population estimate table not loaded; insight is limited to what is available in the app.';
       return {
-        label: tnBucketPrettyLabel(bucket),
+        label: pillLabel,
         summary: base,
         note: noteLine,
         sourceNote,
