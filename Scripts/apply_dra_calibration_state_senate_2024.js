@@ -1,22 +1,54 @@
 #!/usr/bin/env node
 /* eslint-disable no-console */
 /**
- * Calibrate TN State Senate 2024 presidential district results to match a DRA
+ * Calibrate TN State Senate presidential district results to match a DRA
  * "district-statistics" export (Dem/Rep/Oth shares).
  *
- * Updates:
- * - Data/district_contests/state_senate_president_2024.json (per-district votes/margins)
+ * Defaults to year=2024 and DRA file:
+ *   Data/district-statistics 2024 state senate pres.csv
+ *
+ * Usage:
+ *   node Scripts/apply_dra_calibration_state_senate_2024.js --year 2020
+ *   node Scripts/apply_dra_calibration_state_senate_2024.js --year 2016 --dra "Data/district-statistics 2016 state senate pres.csv"
+ *
+ * Updates (for the selected year):
+ * - Data/district_contests/state_senate_president_${year}.json (per-district votes/margins)
  * - Data/district_contests/manifest.json (dem_total/rep_total for that file)
- * - Data/district_contests/calibration_targets.csv (merge/replace targets for state_senate/president/2024)
- * - Data/district_contests/calibration_overrides.json (enable + merge/replace overrides for state_senate/president/2024)
+ * - Data/district_contests/calibration_targets.csv (merge/replace targets for state_senate/president/${year})
+ * - Data/district_contests/calibration_overrides.json (enable + merge/replace overrides for state_senate/president/${year})
  */
 
 const fs = require("node:fs");
 const path = require("node:path");
 
 const ROOT = path.join(__dirname, "..");
-const DRA_PATH = path.join(ROOT, "Data", "district-statistics 2024 state senate pres.csv");
-const SLICE_PATH = path.join(ROOT, "Data", "district_contests", "state_senate_president_2024.json");
+function parseArgs(argv) {
+  const out = {};
+  for (let i = 0; i < argv.length; i += 1) {
+    const a = argv[i];
+    if (!a.startsWith("--")) continue;
+    const key = a.slice(2);
+    const next = argv[i + 1];
+    if (next && !next.startsWith("--")) {
+      out[key] = next;
+      i += 1;
+    } else {
+      out[key] = true;
+    }
+  }
+  return out;
+}
+
+const args = parseArgs(process.argv.slice(2));
+const year = Number(args.year || 2024);
+if (!Number.isFinite(year) || year < 2000) {
+  console.error(`Invalid --year: ${args.year}`);
+  process.exit(2);
+}
+
+const draRel = String(args.dra || `Data/district-statistics ${year} state senate pres.csv`);
+const DRA_PATH = path.isAbsolute(draRel) ? draRel : path.join(ROOT, draRel);
+const SLICE_PATH = path.join(ROOT, "Data", "district_contests", `state_senate_president_${year}.json`);
 const MANIFEST_PATH = path.join(ROOT, "Data", "district_contests", "manifest.json");
 const TARGETS_PATH = path.join(ROOT, "Data", "district_contests", "calibration_targets.csv");
 const OVERRIDES_PATH = path.join(ROOT, "Data", "district_contests", "calibration_overrides.json");
@@ -256,7 +288,7 @@ function main() {
   if (fs.existsSync(MANIFEST_PATH)) {
     const manifest = readJson(MANIFEST_PATH);
     const files = Array.isArray(manifest?.files) ? manifest.files : [];
-    const entry = files.find((f) => f?.scope === "state_senate" && Number(f?.year) === 2024 && f?.contest_type === "president");
+    const entry = files.find((f) => f?.scope === "state_senate" && Number(f?.year) === year && f?.contest_type === "president");
     if (entry) {
       entry.dem_total = demTotal;
       entry.rep_total = repTotal;
@@ -294,8 +326,8 @@ function main() {
         .filter((cols) => {
           const scope = normSpace(cols[0]).toLowerCase();
           const contest = normSpace(cols[1]).toLowerCase();
-          const year = normSpace(cols[2]);
-          return !(scope === "state_senate" && contest === "president" && year === "2024");
+          const rowYear = normSpace(cols[2]);
+          return !(scope === "state_senate" && contest === "president" && rowYear === String(year));
         });
     }
   }
@@ -308,7 +340,7 @@ function main() {
     newRows.push([
       "state_senate",
       "president",
-      "2024",
+      String(year),
       key,
       String(Number(r.dem_votes || 0) || 0),
       String(Number(r.rep_votes || 0) || 0),
@@ -333,8 +365,8 @@ function main() {
   const keep = prev.filter((o) => {
     const scope = normSpace(o?.scope).toLowerCase();
     const contest = normSpace(o?.contest_type).toLowerCase();
-    const year = String(o?.year ?? "");
-    return !(scope === "state_senate" && contest === "president" && year === "2024");
+    const rowYear = String(o?.year ?? "");
+    return !(scope === "state_senate" && contest === "president" && rowYear === String(year));
   });
   const next = [];
   for (let d = 1; d <= 33; d += 1) {
@@ -344,7 +376,7 @@ function main() {
     next.push({
       scope: "state_senate",
       contest_type: "president",
-      year: 2024,
+      year,
       district: key,
       dem_votes: Number(r.dem_votes || 0) || 0,
       rep_votes: Number(r.rep_votes || 0) || 0,
@@ -368,6 +400,7 @@ function main() {
   writeJson(OVERRIDES_PATH, overridesPayload);
 
   console.log(JSON.stringify({
+    year,
     updated_districts: updated.length,
     missing_dra_districts: missing,
     example_sd31: updated.find((u) => u.district === "31")
