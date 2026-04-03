@@ -9490,7 +9490,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const knoxSub = new Set(['KNOX', 'BLOUNT', 'ANDERSON', 'LOUDON', 'SEVIER', 'UNION', 'GRAINGER']);
       const college = new Set(['DAVIDSON', 'KNOX', 'RUTHERFORD', 'MONTGOMERY', 'WASHINGTON', 'PUTNAM', 'MADISON', 'CUMBERLAND']);
       const tourism = new Set(['SEVIER', 'CUMBERLAND', 'MONROE', 'COCKE', 'POLK', 'RHEA', 'GRAINGER']);
-      const smallMetro = new Set(['MONTGOMERY', 'MADISON', 'SULLIVAN', 'WASHINGTON', 'HAMBLEN', 'BRADLEY', 'BLOUNT']);
+      const smallMetro = new Set(['MONTGOMERY', 'MADISON', 'SULLIVAN', 'WASHINGTON', 'BRADLEY', 'BLOUNT']);
 
       const blackShare = Number(blackPct);
       const growth = Number(growthPct);
@@ -9565,6 +9565,24 @@ document.addEventListener('DOMContentLoaded', function() {
           whyHeadline: 'Tourism and retiree migration are now part of this county’s political story.',
           whyLines: [trendStory, growthStory],
           watchLine: 'Watch whether continued in-migration changes the pace of partisan movement over the next few cycles.'
+        };
+      }
+
+      // Hamblen behaves more like a durable East Tennessee GOP county than a small-metro swing county.
+      if (c === 'HAMBLEN') {
+        if (latestSigned >= 6) {
+          return {
+            label: 'Appalachian Republican stronghold',
+            whyHeadline: 'Appalachian East Tennessee voting habits still define this county.',
+            whyLines: [trendStory, growthStory],
+            watchLine: 'Watch for any sustained narrowing, but the county currently looks like a durable GOP stronghold.'
+          };
+        }
+        return {
+          label: 'Long-term Republican trend county',
+          whyHeadline: 'A rural and small-town Republican base continues to set the county’s direction.',
+          whyLines: [trendStory, growthStory],
+          watchLine: 'Watch whether metro spillover reaches this county quickly enough to soften the GOP edge.'
         };
       }
 
