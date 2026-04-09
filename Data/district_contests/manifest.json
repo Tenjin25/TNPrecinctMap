@@ -32,6 +32,16 @@
     },
     {
       "scope": "congressional",
+      "year": 2022,
+      "contest_type": "governor",
+      "file": "congressional_governor_2022.json",
+      "districts": 9,
+      "dem_total": 571690,
+      "rep_total": 1128381,
+      "major_party_contested": true
+    },
+    {
+      "scope": "congressional",
       "year": 2004,
       "contest_type": "president",
       "file": "congressional_president_2004.json",
@@ -278,6 +288,16 @@
       "districts": 99,
       "dem_total": 864864,
       "rep_total": 1336107,
+      "major_party_contested": true
+    },
+    {
+      "scope": "state_house",
+      "year": 2022,
+      "contest_type": "governor",
+      "file": "state_house_governor_2022.json",
+      "districts": 97,
+      "dem_total": 572822,
+      "rep_total": 1129392,
       "major_party_contested": true
     },
     {
@@ -538,6 +558,16 @@
       "districts": 33,
       "dem_total": 864863,
       "rep_total": 1336108,
+      "major_party_contested": true
+    },
+    {
+      "scope": "state_senate",
+      "year": 2022,
+      "contest_type": "governor",
+      "file": "state_senate_governor_2022.json",
+      "districts": 33,
+      "dem_total": 572818,
+      "rep_total": 1129391,
       "major_party_contested": true
     },
     {

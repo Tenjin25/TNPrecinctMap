@@ -28,6 +28,15 @@
       "major_party_contested": true
     },
     {
+      "year": 2022,
+      "contest_type": "governor",
+      "file": "governor_2022.json",
+      "rows": 1571,
+      "dem_total": 572818,
+      "rep_total": 1129390,
+      "major_party_contested": true
+    },
+    {
       "year": 2004,
       "contest_type": "president",
       "file": "president_2004.json",
