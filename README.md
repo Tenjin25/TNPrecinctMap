@@ -57,6 +57,11 @@ The county-detail experience was upgraded to a story-first, election-desk standa
   - cycle-by-cycle history
 - Keeps first-read county interpretation fast while preserving depth for power users.
 
+### 7) Hover Tooltip Chips (Winner / Rating / Flip)
+- Hover tooltips now include a competitiveness “rating” (tier) chip alongside the winner chip.
+- Flip badges now appear after the rating chip (matching the ordering/placement used in `NCMap.html`).
+- Applied across hover tooltips for counties, districts, and precincts in `index.html`.
+
 ## Hierarchy and Story Flow
 
 County panel now reads in this order:
@@ -129,4 +134,3 @@ From the project root:
 Then open:
 
 `http://127.0.0.1:4173/index.html`
-
