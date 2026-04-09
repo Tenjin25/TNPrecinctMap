@@ -122,9 +122,13 @@ def infer_contest_type(office_raw: str) -> Optional[str]:
         return "us_senate"
     if "U.S. HOUSE" in o or "UNITED STATES HOUSE OF REPRESENTATIVES" in o:
         return "us_house"
-    if "STATE HOUSE" in o or "STATE REPRESENTATIVE" in o:
+    if (
+        "STATE HOUSE" in o
+        or "STATE REPRESENTATIVE" in o
+        or "TENNESSEE HOUSE OF REPRESENTATIVES" in o
+    ):
         return "state_house"
-    if "STATE SENATE" in o:
+    if "STATE SENATE" in o or "TENNESSEE SENATE" in o:
         return "state_senate"
     return None
 

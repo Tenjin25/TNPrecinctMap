@@ -432,6 +432,16 @@
     },
     {
       "scope": "state_house",
+      "year": 2024,
+      "contest_type": "state_house",
+      "file": "state_house_state_house_2024.json",
+      "districts": 99,
+      "dem_total": 873533,
+      "rep_total": 1853837,
+      "major_party_contested": true
+    },
+    {
+      "scope": "state_house",
       "year": 2006,
       "contest_type": "us_senate",
       "file": "state_house_us_senate_2006.json",
@@ -678,6 +688,16 @@
       "districts": 17,
       "dem_total": 207704,
       "rep_total": 547146,
+      "major_party_contested": true
+    },
+    {
+      "scope": "state_senate",
+      "year": 2024,
+      "contest_type": "state_senate",
+      "file": "state_senate_state_senate_2024.json",
+      "districts": 16,
+      "dem_total": 325890,
+      "rep_total": 969827,
       "major_party_contested": true
     },
     {
