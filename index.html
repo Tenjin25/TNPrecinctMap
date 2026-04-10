@@ -15031,16 +15031,14 @@ document.addEventListener('DOMContentLoaded', function() {
               // Reuse the fly-to county path so click and search have consistent zoom behavior.
               handleCountySelection(countyName);
               setCountyHoverOutline(countyName);
+              // NCMap behavior: map click selects/flies, but does not pin the hover card on desktop.
+              // Touch users still get a pinned card (tap-to-pin).
+              setTooltipPinned(false);
               if (isTouchInteractionMode()) {
-                setTooltipPinned(false);
                 renderCountyHoverAtPoint(e, { forceTooltip: true });
                 setTooltipPinned(true);
               } else {
-                // Desktop: pin the hover card on click (matches the "Click to pin details" hint
-                // and is the only place we show optional census/CVAP lines without changing the
-                // default hover-card size).
-                setTooltipPinned(true);
-                renderCountyHoverAtPoint(e, { forceTooltip: true });
+                hideHoverTooltip();
               }
             }
           }
