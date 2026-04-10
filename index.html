@@ -698,8 +698,11 @@ body.focus-active #hover-tooltip[data-context="preview"] {
 .hover-tooltip .tooltip-quickline {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px 10px;
-  font-size: 12px;
+  align-items: baseline;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1.25;
   color: rgba(226, 232, 240, 0.92);
 }
 
@@ -2271,7 +2274,7 @@ body.focus-active #hover-tooltip[data-context="preview"] {
     box-shadow: 0 18px 44px rgba(15, 23, 42, 0.25);
     backdrop-filter: blur(14px);
     border-radius: 14px;
-    max-width: 360px;
+    max-width: 280px;
     animation: tooltip-in 140ms ease-out;
   }
 
@@ -2280,6 +2283,15 @@ body.focus-active #hover-tooltip[data-context="preview"] {
     align-items: flex-start;
     justify-content: space-between;
     gap: 10px;
+    margin-bottom: 8px;
+  }
+
+  .hover-tooltip .tooltip-head.is-compact {
+    margin-bottom: 6px;
+  }
+
+  .hover-tooltip .tooltip-title {
+    margin-bottom: 0;
   }
 
   .hover-tooltip .tooltip-actions {
@@ -12830,7 +12842,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const shell = buildTooltipShell(
           buildTooltipTitleWithTier(`${countyDisplay} County`),
           `${emptyState}${censusLine}`,
-          { pinned: pinnedShell, copyText }
+          { pinned: pinnedShell, copyText, headClass: (!pinnedShell && isDesktopTooltipMode()) ? 'is-compact' : '' }
         );
         showHoverTooltip(e.point.x, e.point.y, shell, { force: !!forceTooltip, pinned: pinnedShell, context: pinnedShell ? 'pinned' : 'detail', copyText });
         wireTooltipButtons();
@@ -12852,7 +12864,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const shell = buildTooltipShell(
           buildTooltipTitleWithTier(`${countyDisplay} County`),
           `${emptyState}${censusLine}`,
-          { pinned: pinnedShell, copyText }
+          { pinned: pinnedShell, copyText, headClass: (!pinnedShell && isDesktopTooltipMode()) ? 'is-compact' : '' }
         );
         showHoverTooltip(e.point.x, e.point.y, shell, { force: !!forceTooltip, pinned: pinnedShell, context: pinnedShell ? 'pinned' : 'detail', copyText });
         wireTooltipButtons();
@@ -12931,7 +12943,6 @@ document.addEventListener('DOMContentLoaded', function() {
       const desktopCollapsedInner = `
         <div class="tooltip-quickline">
           <span class="${escapeHtml(marginCall.party || 'tie')}">${escapeHtml(marginCall.text || '')}</span>
-          ${tierLong ? `<span class="tier">${escapeHtml(tierLong)}</span>` : ''}
         </div>
         ${flipLine}
         ${tooltipInsight ? `<div class="tooltip-insight">${escapeHtml(tooltipInsight)}</div>` : ''}
@@ -12941,7 +12952,6 @@ document.addEventListener('DOMContentLoaded', function() {
       const compactInner = `
         <div class="tooltip-quickline">
           <span class="${escapeHtml(marginCall.party || 'tie')}">${escapeHtml(marginCall.text || '')}</span>
-          ${tierShort ? `<span class="tier">${escapeHtml(tierShort)}</span>` : ''}
         </div>
         ${flipLine}
         ${tooltipInsight ? `<div class="tooltip-insight">${escapeHtml(tooltipInsight)}</div>` : ''}
@@ -12964,7 +12974,11 @@ document.addEventListener('DOMContentLoaded', function() {
         : `${useCompact ? compactInner : classicInner}${actionHint ? `<div class="tooltip-hint">${escapeHtml(actionHint)}</div>` : ''}`;
 
       const hoverTitle = buildTooltipTitleWithTier(`${countyDisplay} County`, tierMeta);
-      const shell = buildTooltipShell(hoverTitle, inner, { pinned: pinnedShell, showClose: pinnedShell, copyText });
+      const shell = buildTooltipShell(
+        hoverTitle,
+        inner,
+        { pinned: pinnedShell, showClose: pinnedShell, copyText, headClass: (desktopCollapsed ? 'is-compact' : '') }
+      );
       showHoverTooltip(e.point.x, e.point.y, shell, { force: !!forceTooltip, pinned: pinnedShell, context: pinnedShell ? 'pinned' : 'detail', copyText });
       wireTooltipButtons();
     }
@@ -16340,8 +16354,9 @@ document.addEventListener('DOMContentLoaded', function() {
       const showClose = !!(pinned || options.showClose === true);
       const safeTitle = (title || '').toString();
       const key = (options && options.copyText ? String(options.copyText || '') : '').trim();
+      const headClass = (options && options.headClass ? String(options.headClass || '').trim() : '');
       return `
-        <div class="tooltip-head">
+        <div class="tooltip-head${headClass ? ` ${headClass}` : ''}">
           <div class="tooltip-title">${safeTitle}</div>
           ${showClose ? `
             <div class="tooltip-actions">
