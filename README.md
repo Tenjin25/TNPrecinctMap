@@ -4,6 +4,22 @@ Interactive Tennessee election map focused on county, district, and precinct ana
 
 This project runs as a single-page app from `index.html` and reads local data assets from `Data/`.
 
+## County Hover (NCMap-style)
+
+County hover tooltips are intentionally modeled after `NCMap.html`:
+
+- **Hover (desktop):** shows a compact “quickline” + delta block; click the hover card itself to expand/pin the full card.
+- **Click county (desktop):** selects/flies to the county but does **not** pin the hover card (matches NCMap).
+- **Tap county (touch):** shows the county card and pins it (tap Close to dismiss).
+- **No raw vote totals in the card body:** the result card is percent/margin-focused (raw vote *deltas* still appear in the delta block).
+
+### Delta block
+
+When available, the county delta block includes:
+
+- **Population change (2020→2025)** plus optional **2020→2024** and **2024→2025** lines (U.S. Census County Population Estimates / CO-EST).
+- **Vote deltas vs the previous available cycle → current** for the active contest (R delta, D delta, total vote gain).
+
 ## What Was Upgraded
 
 The county-detail experience was upgraded to a story-first, election-desk standard with stronger hierarchy, clearer context, and better scanability.
@@ -128,9 +144,11 @@ Live browser smoke validation (Playwright harness) confirmed:
 From the project root:
 
 ```powershell
-.\.venv\Scripts\python.exe -m http.server 4173
+node .\.tmp_local_server.js
 ```
 
 Then open:
 
-`http://127.0.0.1:4173/index.html`
+`http://127.0.0.1:8000/index.html`
+
+If you update and don’t see changes, hard refresh (`Ctrl+F5`) to bypass cached `index.html` / CSV loads.
