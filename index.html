@@ -12702,37 +12702,62 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     }
 
-    function buildCountyCensusTooltipHTML(countyNorm) {
-      const parts = [];
+    function getCountyCensusSnapshot(countyNorm) {
       const norm = normalizeRegionCountyName(countyNorm);
-      if (!norm) return '';
-
+      if (!norm) return null;
+      const out = { norm, vap: null, p20: null, p24: null, p25: null, share: null, d20_25: null, p20_25: null, d24_25: null, p24_25: null };
       try {
         const demo = countyDemographics?.counties?.[norm] || null;
         const vap = demo ? Number(demo.vap_18plus || 0) : 0;
-        if (demo && vap > 0) {
-          parts.push(`<div class="meta-subtle" style="color:#94a3b8;"><strong>VAP (18+):</strong> ${vap.toLocaleString()}</div>`);
-        }
+        if (demo && vap > 0) out.vap = vap;
       } catch (_) {}
-
       try {
         const est = tnCountyPopEstimates?.[norm] || null;
-        const p20 = est ? Number(est.pop_2020 || 0) : 0;
-        const p25 = est ? Number(est.pop_2025 || 0) : 0;
-        if (est && p25 > 0) {
-          const delta = p25 - p20;
-          const pct = p20 > 0 ? ((delta / p20) * 100) : null;
-          const share = Number(est.pct_state_pop_2025 || 0);
-          const deltaText = `${delta >= 0 ? '+' : ''}${delta.toLocaleString()}`;
-          const pctText = (pct === null) ? '' : ` (${delta >= 0 ? '+' : ''}${pct.toFixed(1)}%)`;
-          const shareText = share > 0 ? ` • ${share.toFixed(2)}% of state` : '';
-          parts.push(
-            `<div class="meta-subtle" style="color:#94a3b8;"><strong>Census pop est:</strong> ${p25.toLocaleString()} (2020: ${p20.toLocaleString()}, ${deltaText}${pctText})${shareText}</div>`
-          );
+        if (!est) return out;
+        const p20 = Number(est.pop_2020 || 0);
+        const p24 = Number(est.pop_2024 || 0);
+        const p25 = Number(est.pop_2025 || 0);
+        const share = Number(est.pct_state_pop_2025 || 0);
+        if (p20 > 0) out.p20 = p20;
+        if (p24 > 0) out.p24 = p24;
+        if (p25 > 0) out.p25 = p25;
+        if (Number.isFinite(share) && share > 0) out.share = share;
+        if (out.p20 && out.p25) {
+          out.d20_25 = out.p25 - out.p20;
+          out.p20_25 = (out.d20_25 / out.p20) * 100.0;
+        }
+        if (out.p24 && out.p25) {
+          out.d24_25 = out.p25 - out.p24;
+          out.p24_25 = (out.d24_25 / out.p24) * 100.0;
         }
       } catch (_) {}
+      return out;
+    }
 
-      return parts.join('');
+    function buildCountyCensusTooltipHTML(countyNorm, { compact = false } = {}) {
+      const snap = getCountyCensusSnapshot(countyNorm);
+      if (!snap) return '';
+      const lines = [];
+      if (snap.p25) {
+        lines.push(`<div class="meta-subtle" style="color:#94a3b8;"><strong>Census pop est (2025):</strong> ${Math.round(snap.p25).toLocaleString()}${snap.share ? ` • ${snap.share.toFixed(2)}% of Tennessee` : ''}</div>`);
+      }
+      if (snap.d20_25 !== null && snap.p20_25 !== null) {
+        const delta = `${snap.d20_25 >= 0 ? '+' : ''}${Math.round(snap.d20_25).toLocaleString()}`;
+        const pct = `${snap.p20_25 >= 0 ? '+' : ''}${snap.p20_25.toFixed(1)}%`;
+        lines.push(`<div class="meta-subtle" style="color:#94a3b8;"><strong>Growth (2020→2025):</strong> ${delta} (${pct})</div>`);
+      }
+      if (!compact && snap.d24_25 !== null && snap.p24_25 !== null) {
+        const delta = `${snap.d24_25 >= 0 ? '+' : ''}${Math.round(snap.d24_25).toLocaleString()}`;
+        const pct = `${snap.p24_25 >= 0 ? '+' : ''}${snap.p24_25.toFixed(1)}%`;
+        lines.push(`<div class="meta-subtle" style="color:#94a3b8;"><strong>Growth (2024→2025):</strong> ${delta} (${pct})</div>`);
+      }
+      if (!compact && snap.vap) {
+        lines.push(`<div class="meta-subtle" style="color:#94a3b8;"><strong>VAP (18+):</strong> ${Math.round(snap.vap).toLocaleString()}</div>`);
+      }
+      if (!compact && lines.length) {
+        lines.push(`<div class="meta-subtle" style="color:#64748b;">Source: U.S. Census County Population Estimates (CO-EST).</div>`);
+      }
+      return lines.join('');
     }
 
     function buildTooltipTitleWithTier(titleText, tierMeta = null) {
@@ -12851,6 +12876,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const subtitle = `${formatContestName(contestType, year)} ${year}`;
 
       const demoLine = buildCountyCensusTooltipHTML(norm);
+      const compactCensusLine = buildCountyCensusTooltipHTML(norm, { compact: true });
 
       const chips = [];
       let prevSignedForFlip = null;
@@ -12909,6 +12935,7 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
         ${flipLine}
         ${tooltipInsight ? `<div class="tooltip-insight">${escapeHtml(tooltipInsight)}</div>` : ''}
+        ${compactCensusLine}
       `.trim();
 
       const compactInner = `
@@ -12918,6 +12945,7 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
         ${flipLine}
         ${tooltipInsight ? `<div class="tooltip-insight">${escapeHtml(tooltipInsight)}</div>` : ''}
+        ${compactCensusLine}
         <details class="tooltip-more" aria-label="More details">
           <summary>Details</summary>
           <div class="tooltip-more-body">
