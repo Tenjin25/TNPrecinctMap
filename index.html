@@ -8222,6 +8222,14 @@ document.addEventListener('DOMContentLoaded', function() {
       try { return !!(window.matchMedia && window.matchMedia('(max-width: 768px)').matches); } catch (_) { return window.innerWidth <= 768; }
     }
 
+    function isMobileTooltipMode() {
+      return isMobileViewportNow();
+    }
+
+    function isDesktopTooltipMode() {
+      return !isMobileTooltipMode();
+    }
+
     function isTouchInteractionMode() {
       try {
         if (IS_COARSE_POINTER) return true;
@@ -12248,6 +12256,22 @@ document.addEventListener('DOMContentLoaded', function() {
       return `<span class="meta-chip flip ${cls}"><span class="dot"></span>Flip ${labelFrom}\u2192${labelTo}</span>`;
     }
 
+    function flipLineHTML(prevSignedPct, curSignedPct, fromYear = null, toYear = null) {
+      const f = flipInfo(prevSignedPct, curSignedPct);
+      if (!f.flipped) return '';
+      const labelFrom = f.from === 'R' ? 'R' : 'D';
+      const labelTo = f.to === 'R' ? 'R' : 'D';
+      const cls = f.to === 'R' ? 'rep' : 'dem';
+      const fy = Number(fromYear);
+      const ty = Number(toYear);
+      const hasYears = Number.isFinite(fy) && Number.isFinite(ty);
+      const years = hasYears ? ` (${String(fy).slice(-2)}\u2192${String(ty).slice(-2)})` : '';
+      const title = hasYears
+        ? ` title="Flip ${labelFrom}\u2192${labelTo} (${fy}\u2192${ty})"`
+        : '';
+      return `<div class="tooltip-flip ${cls}"${title}>Flip: ${labelFrom}\u2192${labelTo}${years}</div>`;
+    }
+
     function buildResultCardHTML(title, subtitle, demVotes, repVotes, otherVotes, demCandidate, repCandidate) {
       const d = Number(demVotes || 0);
       const r = Number(repVotes || 0);
@@ -12848,14 +12872,71 @@ document.addEventListener('DOMContentLoaded', function() {
         if (flipChip) chips.push(flipChip);
       }
 
-      const inner = `
+      const marginCall = winnerMarginCall(repVotes, demVotes, totalVotes, repCandidate, demCandidate);
+      const tierShort = tierMeta?.shortLabel || tierMeta?.label || '';
+      const tierLong = tierMeta?.label || '';
+      const flipLine = (prevSignedForFlip !== null)
+        ? flipLineHTML(prevSignedForFlip, signedMarginPct, vizPrevCache?.prevYear || null, Number(year))
+        : '';
+      const shiftDelta = (prevSignedForFlip !== null && Number.isFinite(Number(prevSignedForFlip)))
+        ? (signedMarginPct - Number(prevSignedForFlip))
+        : NaN;
+      const tooltipInsight = (() => {
+        if (currentVizMode !== 'shift') return '';
+        const abs = Math.abs(Number(signedMarginPct) || 0);
+        if (abs < 0.5) return 'Tiny changes can flip it.';
+        if (!Number.isFinite(shiftDelta) || Math.abs(shiftDelta) < 1.25) return '';
+        if (signedMarginPct > 0 && shiftDelta < 0) return 'Still Republican, but weakening.';
+        if (signedMarginPct < 0 && shiftDelta > 0) return 'Still Democratic, but slipping.';
+        if (shiftDelta < 0) return 'Democrats gaining ground lately.';
+        if (shiftDelta > 0) return 'Republicans gaining ground lately.';
+        return '';
+      })();
+      const desktopCollapsed = isDesktopTooltipMode() && !pinnedShell;
+      const useCompact = isMobileTooltipMode();
+
+      const classicInner = `
         <div class="hover-meta">${chips.join('')}</div>
         ${buildResultCardHTML('', subtitle, demVotes, repVotes, otherVotes, demCandidate, repCandidate)}
+        ${tooltipInsight ? `<div class="tooltip-insight">${escapeHtml(tooltipInsight)}</div>` : ''}
         ${demoLine}
-      `;
+      `.trim();
+
+      const desktopCollapsedInner = `
+        <div class="tooltip-quickline">
+          <span class="${escapeHtml(marginCall.party || 'tie')}">${escapeHtml(marginCall.text || '')}</span>
+          ${tierLong ? `<span class="tier">${escapeHtml(tierLong)}</span>` : ''}
+        </div>
+        ${flipLine}
+        ${tooltipInsight ? `<div class="tooltip-insight">${escapeHtml(tooltipInsight)}</div>` : ''}
+      `.trim();
+
+      const compactInner = `
+        <div class="tooltip-quickline">
+          <span class="${escapeHtml(marginCall.party || 'tie')}">${escapeHtml(marginCall.text || '')}</span>
+          ${tierShort ? `<span class="tier">${escapeHtml(tierShort)}</span>` : ''}
+        </div>
+        ${flipLine}
+        ${tooltipInsight ? `<div class="tooltip-insight">${escapeHtml(tooltipInsight)}</div>` : ''}
+        <details class="tooltip-more" aria-label="More details">
+          <summary>Details</summary>
+          <div class="tooltip-more-body">
+            <div class="hover-meta">${chips.join('')}</div>
+            ${buildResultCardHTML('', subtitle, demVotes, repVotes, otherVotes, demCandidate, repCandidate)}
+            ${demoLine}
+          </div>
+        </details>
+      `.trim();
+
+      const actionHint = useCompact
+        ? (pinnedShell ? 'Pinned • tap Close to dismiss' : (isTouchInteractionMode() ? 'Tap to pin details' : 'Click to pin details'))
+        : '';
+      const inner = isDesktopTooltipMode()
+        ? (desktopCollapsed ? desktopCollapsedInner : classicInner)
+        : `${useCompact ? compactInner : classicInner}${actionHint ? `<div class="tooltip-hint">${escapeHtml(actionHint)}</div>` : ''}`;
 
       const hoverTitle = buildTooltipTitleWithTier(`${countyDisplay} County`, tierMeta);
-      const shell = buildTooltipShell(hoverTitle, inner, { pinned: pinnedShell, copyText });
+      const shell = buildTooltipShell(hoverTitle, inner, { pinned: pinnedShell, showClose: pinnedShell, copyText });
       showHoverTooltip(e.point.x, e.point.y, shell, { force: !!forceTooltip, pinned: pinnedShell, context: pinnedShell ? 'pinned' : 'detail', copyText });
       wireTooltipButtons();
     }
