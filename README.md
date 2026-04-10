@@ -1,4 +1,4 @@
-# Tri-Star Volunteer Atlas (Tennessee Election Atlas)
+# Volunteer State Election Atlas (Tennessee Election Atlas)
 
 Interactive Tennessee election map focused on county, district, and precinct analysis with a newsroom-style county storytelling panel.
 

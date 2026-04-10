@@ -483,12 +483,12 @@
   <script src="https://cdn.jsdelivr.net/npm/@turf/turf@6.5.0/turf.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
     <meta charset='utf-8'>
-    <title>Tri-Star Volunteer Atlas (Tennessee, 2004-2024)</title>
+    <title>Volunteer State Election Atlas (Tennessee, 2004-2024)</title>
     <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover'>
     <meta name="author" content="Shamar Davis">
     <meta name="copyright" content="© 2026 Shamar Does Elections. All Rights Reserved.">
     <!-- Watermark: SDE Creator Attribution | Created by Shamar Davis | Copyright 2026 Shamar Does Elections -->
-    <meta property="og:title" content="Tri-Star Volunteer Atlas (Tennessee, 2004-2024)">
+    <meta property="og:title" content="Volunteer State Election Atlas (Tennessee, 2004-2024)">
     <meta property="og:description" content="Interactive visualization of Tennessee election trends from 2004 to 2024, with county, precinct, and district views.">
     <meta property="og:image" content="preview.png">
     <meta name="twitter:card" content="summary_large_image">
@@ -2147,12 +2147,13 @@ body.focus-active #hover-tooltip[data-context="preview"] {
 
   /* Aesthetic refresh overrides */
   :root {
-    --state-blue: #0c2340;
-    --state-blue-strong: #08182d;
-    --state-red: #c8102e;
-    --state-red-strong: #980f24;
-    --state-ribbon: linear-gradient(90deg, var(--state-red) 0%, #f8fafc 50%, var(--state-blue) 100%);
-    --state-accent-gradient: linear-gradient(135deg, var(--state-red-strong) 0%, var(--state-blue-strong) 100%);
+    /* UT-inspired palette (Volunteer State): orange + Smokey gray. */
+    --state-blue: #ff8200; /* UT Orange */
+    --state-blue-strong: #e86f00;
+    --state-red: #58595b; /* Smokey Gray */
+    --state-red-strong: #3b3c3d;
+    --state-ribbon: linear-gradient(90deg, var(--state-blue) 0%, #ffffff 52%, var(--state-red) 100%);
+    --state-accent-gradient: linear-gradient(135deg, var(--state-blue-strong) 0%, var(--state-red-strong) 100%);
     --ui-bg: rgba(255, 255, 255, 0.9);
     --ui-border: rgba(15, 23, 42, 0.12);
     --ui-shadow: 0 14px 36px rgba(15, 23, 42, 0.2);
@@ -2188,25 +2189,25 @@ body.focus-active #hover-tooltip[data-context="preview"] {
   #desktop-fly-search:focus,
   #county-search:focus,
   #sidebar-county-search:focus {
-    border-color: var(--state-red) !important;
-    box-shadow: 0 0 0 3px rgba(200, 16, 46, 0.14) !important;
+    border-color: var(--state-blue) !important;
+    box-shadow: 0 0 0 3px rgba(255, 130, 0, 0.16) !important;
   }
 
   .desktop-fly-group {
-    background: linear-gradient(180deg, rgba(12, 35, 64, 0.10) 0%, rgba(248, 250, 252, 0.94) 55%, rgba(200, 16, 46, 0.08) 100%) !important;
-    border-color: rgba(12, 35, 64, 0.24) !important;
+    background: linear-gradient(180deg, rgba(255, 130, 0, 0.10) 0%, rgba(248, 250, 252, 0.94) 55%, rgba(88, 89, 91, 0.10) 100%) !important;
+    border-color: rgba(88, 89, 91, 0.28) !important;
   }
 
   .desktop-quick-stats {
-    border-color: rgba(12, 35, 64, 0.34) !important;
+    border-color: rgba(88, 89, 91, 0.34) !important;
     background: rgba(255, 255, 255, 0.9) !important;
   }
 
   body {
     font-family: 'Manrope', 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
     background:
-      radial-gradient(circle at 16% 12%, rgba(12, 35, 64, 0.22) 0%, rgba(220, 230, 244, 0.66) 30%, rgba(248, 250, 252, 0) 60%),
-      radial-gradient(circle at 86% 8%, rgba(200, 16, 46, 0.15) 0%, rgba(254, 227, 232, 0.62) 26%, rgba(248, 250, 252, 0) 58%),
+      radial-gradient(circle at 16% 12%, rgba(255, 130, 0, 0.24) 0%, rgba(255, 246, 235, 0.72) 30%, rgba(248, 250, 252, 0) 60%),
+      radial-gradient(circle at 86% 8%, rgba(88, 89, 91, 0.16) 0%, rgba(236, 236, 236, 0.60) 26%, rgba(248, 250, 252, 0) 58%),
       #f8fafc;
     color: var(--ui-text);
   }
@@ -2845,7 +2846,7 @@ body.focus-active #hover-tooltip[data-context="preview"] {
     flex: 0 0 auto;
     padding: 6px 10px;
     border-radius: 999px;
-    background: linear-gradient(135deg, rgba(220, 38, 38, 0.24) 0%, rgba(37, 99, 235, 0.22) 100%);
+    background: var(--state-accent-gradient);
     color: #e2e8f0;
     font-size: 11px;
     font-weight: 800;
@@ -2891,8 +2892,8 @@ body.focus-active #hover-tooltip[data-context="preview"] {
   }
 
   .fly-search-field:focus-within {
-    border-color: rgba(37, 99, 235, 0.68);
-    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.16), 0 0 0 7px rgba(220, 38, 38, 0.08);
+    border-color: rgba(255, 130, 0, 0.72);
+    box-shadow: 0 0 0 4px rgba(255, 130, 0, 0.18), 0 0 0 7px rgba(88, 89, 91, 0.10);
   }
 
   .fly-search-icon {
@@ -7226,7 +7227,7 @@ document.addEventListener('DOMContentLoaded', function() {
   <div class="desktop-ui-left">
   <div class="map-topbar" id="map-topbar">
     <div class="map-topbar-meta">
-      <div class="map-topbar-badge">Tri-Star Volunteer Atlas</div>
+      <div class="map-topbar-badge">Volunteer State Election Atlas</div>
       <div class="map-topbar-copy">
         <strong>Fly to a county, district, or precinct</strong>
         <span>Try Davidson, CD 5, HD 60, SD 19, or Knox 01.</span>
@@ -7337,11 +7338,11 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="controls-header">
             <div class="controls-heading">
               <span class="controls-kicker">Atlas controls</span>
-              <h3 class="controls-title-pill">Tri-Star Volunteer Atlas</h3>
+              <h3 class="controls-title-pill">Volunteer State Election Atlas</h3>
               <p class="controls-subtitle">Switch layers, jump to major regions, and compare contests without leaving the map.</p>
             </div>
             <div class="controls-actions">
-              <span class="controls-collapsed-label">Tri-Star Volunteer Atlas</span>
+              <span class="controls-collapsed-label">Volunteer State Election Atlas</span>
               <button id="help-btn" title="Help" type="button">?</button>
               <button class="minimize-btn" onclick="toggleMainControls()" id="controls-minimize-btn" title="Minimize controls">-</button>
             </div>
@@ -7680,7 +7681,7 @@ document.addEventListener('DOMContentLoaded', function() {
       creator: 'Shamar Davis',
       studio: 'Shamar Does Elections',
       year: 2026,
-      project: 'Tri-Star Volunteer Atlas',
+      project: 'Volunteer State Election Atlas',
       signature: 'SDE-TSVA-2026-SD'
     });
     try {
