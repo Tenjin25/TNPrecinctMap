@@ -11733,22 +11733,32 @@ document.addEventListener('DOMContentLoaded', function() {
       return Math.abs(repPct - demPct);
     }
 
+    function marginDisplayDigits(marginPct) {
+      const pct = Math.abs(Number(marginPct) || 0);
+      return pct < 0.05 ? 3 : 2;
+    }
+
+    function formatMarginPctForDisplay(marginPct) {
+      const pct = Math.abs(Number(marginPct) || 0);
+      return pct.toFixed(marginDisplayDigits(pct));
+    }
+
     function leadMarginPctLabel(repVotes, demVotes, totalVotes) {
       const margin = Number(repVotes || 0) - Number(demVotes || 0);
       if (!margin) return 'Tie';
-      return `${marginPctValue(repVotes, demVotes, totalVotes).toFixed(2)}%`;
+      return `${formatMarginPctForDisplay(marginPctValue(repVotes, demVotes, totalVotes))}%`;
     }
 
     // Lead pill uses neutral margin text (no party prefix).
     function focusLeadMarginLabel(repVotes, demVotes, totalVotes) {
       const margin = Number(repVotes || 0) - Number(demVotes || 0);
       if (!margin) return 'Tie';
-      return `${marginPctValue(repVotes, demVotes, totalVotes).toFixed(2)}%`;
+      return `${formatMarginPctForDisplay(marginPctValue(repVotes, demVotes, totalVotes))}%`;
     }
 
     function compactWinnerMarginLabel(repVotes, demVotes, totalVotes, repCandidate, demCandidate) {
       const margin = Number(repVotes || 0) - Number(demVotes || 0);
-      const pctLabel = `${marginPctValue(repVotes, demVotes, totalVotes).toFixed(2)}%`;
+      const pctLabel = `${formatMarginPctForDisplay(marginPctValue(repVotes, demVotes, totalVotes))}%`;
       if (margin > 0) {
         return `${shortCandidateLabel(repCandidate, 'R')} +${pctLabel}`;
       }
@@ -11789,13 +11799,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function winnerMarginCall(repVotes, demVotes, totalVotes, repCandidate, demCandidate) {
       const marginPct = totalVotes > 0 ? Math.abs((repVotes - demVotes) / totalVotes * 100) : 0;
+      const marginLabel = formatMarginPctForDisplay(marginPctValue(repVotes, demVotes, totalVotes));
       if (repVotes > demVotes) {
         return {
           party: 'rep',
           winnerName: fullCandidateLabel(repCandidate, 'Republican'),
           shortLabel: shortCandidateLabel(repCandidate, 'Republican'),
           marginPct,
-          text: `${shortCandidateLabel(repCandidate, 'Republican')} +${marginPct.toFixed(2)}`
+          text: `${shortCandidateLabel(repCandidate, 'Republican')} +${marginLabel}%`
         };
       }
       if (demVotes > repVotes) {
@@ -11804,7 +11815,7 @@ document.addEventListener('DOMContentLoaded', function() {
           winnerName: fullCandidateLabel(demCandidate, 'Democratic'),
           shortLabel: shortCandidateLabel(demCandidate, 'Democratic'),
           marginPct,
-          text: `${shortCandidateLabel(demCandidate, 'Democratic')} +${marginPct.toFixed(2)}`
+          text: `${shortCandidateLabel(demCandidate, 'Democratic')} +${marginLabel}%`
         };
       }
       return {
@@ -11812,7 +11823,7 @@ document.addEventListener('DOMContentLoaded', function() {
         winnerName: 'Tie',
         shortLabel: 'Even',
         marginPct,
-        text: `Even ${marginPct.toFixed(2)}`
+        text: `Even ${marginLabel}`
       };
     }
 
@@ -12831,7 +12842,6 @@ document.addEventListener('DOMContentLoaded', function() {
       const props = e.features[0].properties || {};
       const countyName = props.NAME20 || props.CountyName || props.COUNTYNAME || props.county_nam || props.NAME || props.name || 'Unknown County';
       const countyDisplay = displayCountyName(countyName);
-      const copyText = `${countyDisplay} County`;
       const pinnedShell = !!(tooltipPinned || (forceTooltip && isTouchInteractionMode()));
       setCountyHoverOutline(countyName);
       const norm = (countyName || '').toString().replace(/[^a-z0-9 .\-]/gi, '').replace(/\s+/g, ' ').trim().toUpperCase();
@@ -12847,7 +12857,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
       const contestValue = document.getElementById('contestSelect')?.value || '';
       try {
-        const hoverKey = `${norm}|${contestValue}|${currentVizMode}|p${pinnedShell ? '1' : '0'}|${isMobileViewportNow() ? 'm' : 'd'}`;
+        const hoverKey = `${norm}|${contestValue}|${currentVizMode}|${isDesktopTooltipMode() ? 'd' : 'm'}|p${tooltipPinned ? '1' : '0'}`;
         const tooltip = document.getElementById('hover-tooltip');
         const tooltipVisible = !!tooltip && tooltip.style.display !== 'none' && (tooltip.innerHTML || '').trim().length > 0;
         const now = (typeof performance !== 'undefined' && performance.now) ? performance.now() : Date.now();
@@ -12860,16 +12870,31 @@ document.addEventListener('DOMContentLoaded', function() {
       } catch (_) {}
 
       if (!contestValue || !row) {
-        const censusLine = buildCountyCensusTooltipHTML(norm);
-        const emptyState = isTouchInteractionMode()
-          ? '<div class="tooltip-kicker">Start</div><div style="color:rgba(226,232,240,0.92);font-weight:650;">Choose a contest to see county results.</div>'
-          : '<div style="color:#94a3b8;">Select a contest to see results</div>';
-        const shell = buildTooltipShell(
-          buildTooltipTitleWithTier(`${countyDisplay} County`),
-          `${emptyState}${censusLine}`,
-          { pinned: pinnedShell, copyText, headClass: (!pinnedShell && isDesktopTooltipMode()) ? 'is-compact' : '' }
+        const hoverTitle = buildTooltipTitleWithTier(`${countyDisplay} County`);
+        const copyText = `${countyDisplay} County`;
+        const demoLine = pinnedShell ? buildCountyCensusTooltipHTML(norm) : '';
+        if (isDesktopTooltipMode()) {
+          showHoverTooltip(
+            e.point.x,
+            e.point.y,
+            buildTooltipShell(hoverTitle, `<div style="color:#64748b;">Select a contest to see results</div>${demoLine}`, { pinned: pinnedShell, copyText }),
+            { force: !!forceTooltip, pinned: pinnedShell, context: pinnedShell ? 'pinned' : 'detail', copyText }
+          );
+          wireTooltipButtons();
+          return;
+        }
+        let startText = '';
+        try { startText = buildStartHereHintText({ hasContest: false }); } catch (_) { startText = 'Choose a contest to see results.'; }
+        showHoverTooltip(
+          e.point.x,
+          e.point.y,
+          buildTooltipShell(
+            hoverTitle,
+            `<div class="tooltip-kicker">Start</div><div style="color:rgba(226,232,240,0.92);font-weight:650;">${escapeHtml(startText)}</div>${demoLine}`,
+            { pinned: pinnedShell, copyText }
+          ),
+          { force: !!forceTooltip, pinned: pinnedShell, context: pinnedShell ? 'pinned' : 'detail', copyText }
         );
-        showHoverTooltip(e.point.x, e.point.y, shell, { force: !!forceTooltip, pinned: pinnedShell, context: pinnedShell ? 'pinned' : 'detail', copyText });
         wireTooltipButtons();
         return;
       }
@@ -12882,16 +12907,25 @@ document.addEventListener('DOMContentLoaded', function() {
       const otherVotes = Number(row[`${contestType}_other`] || 0);
       const totalVotes = Number(row[`${contestType}_total`] || 0);
       if (totalVotes <= 0) {
-        const censusLine = buildCountyCensusTooltipHTML(norm);
-        const emptyState = isTouchInteractionMode()
-          ? '<div class="tooltip-kicker">No data</div><div style="color:rgba(226,232,240,0.92);">No results reported for this contest.</div>'
-          : '<div style="color:#94a3b8;">No data available</div>';
-        const shell = buildTooltipShell(
-          buildTooltipTitleWithTier(`${countyDisplay} County`),
-          `${emptyState}${censusLine}`,
-          { pinned: pinnedShell, copyText, headClass: (!pinnedShell && isDesktopTooltipMode()) ? 'is-compact' : '' }
+        const hoverTitle = buildTooltipTitleWithTier(`${countyDisplay} County`);
+        const copyText = `${countyDisplay} County`;
+        const demoLine = pinnedShell ? buildCountyCensusTooltipHTML(norm) : '';
+        if (isDesktopTooltipMode()) {
+          showHoverTooltip(
+            e.point.x,
+            e.point.y,
+            buildTooltipShell(hoverTitle, `<div style="color:#64748b;">No data available</div>${demoLine}`, { pinned: pinnedShell, copyText }),
+            { force: !!forceTooltip, pinned: pinnedShell, context: pinnedShell ? 'pinned' : 'detail', copyText }
+          );
+          wireTooltipButtons();
+          return;
+        }
+        showHoverTooltip(
+          e.point.x,
+          e.point.y,
+          buildTooltipShell(hoverTitle, `<div class="tooltip-kicker">No data</div><div style="color:rgba(226,232,240,0.92);">No results reported for this contest.</div>${demoLine}`, { pinned: pinnedShell, copyText }),
+          { force: !!forceTooltip, pinned: pinnedShell, context: pinnedShell ? 'pinned' : 'detail', copyText }
         );
-        showHoverTooltip(e.point.x, e.point.y, shell, { force: !!forceTooltip, pinned: pinnedShell, context: pinnedShell ? 'pinned' : 'detail', copyText });
         wireTooltipButtons();
         return;
       }
@@ -12912,8 +12946,10 @@ document.addEventListener('DOMContentLoaded', function() {
       const winner = signedMarginPct > 0 ? 'R' : (signedMarginPct < 0 ? 'D' : 'T');
       const subtitle = `${formatContestName(contestType, year)} ${year}`;
 
-      const demoLine = buildCountyCensusTooltipHTML(norm);
-      const compactCensusLine = buildCountyCensusTooltipHTML(norm, { compact: true });
+      let demoLine = '';
+      try { demoLine = buildCountyCensusTooltipHTML(norm); } catch (_) { demoLine = ''; }
+      if (!pinnedShell) demoLine = '';
+      const deltaBlock = '';
 
       const chips = [];
       let prevSignedForFlip = null;
@@ -12962,30 +12998,34 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="hover-meta">${chips.join('')}</div>
         ${buildResultCardHTML('', subtitle, demVotes, repVotes, otherVotes, demCandidate, repCandidate)}
         ${tooltipInsight ? `<div class="tooltip-insight">${escapeHtml(tooltipInsight)}</div>` : ''}
+        ${deltaBlock}
         ${demoLine}
       `.trim();
 
       const desktopCollapsedInner = `
         <div class="tooltip-quickline">
           <span class="${escapeHtml(marginCall.party || 'tie')}">${escapeHtml(marginCall.text || '')}</span>
+          ${tierLong ? `<span class="tier">${escapeHtml(tierLong)}</span>` : ''}
         </div>
         ${flipLine}
         ${tooltipInsight ? `<div class="tooltip-insight">${escapeHtml(tooltipInsight)}</div>` : ''}
-        ${compactCensusLine}
+        ${deltaBlock}
       `.trim();
 
       const compactInner = `
         <div class="tooltip-quickline">
           <span class="${escapeHtml(marginCall.party || 'tie')}">${escapeHtml(marginCall.text || '')}</span>
+          ${tierShort ? `<span class="tier">${escapeHtml(tierShort)}</span>` : ''}
         </div>
         ${flipLine}
         ${tooltipInsight ? `<div class="tooltip-insight">${escapeHtml(tooltipInsight)}</div>` : ''}
-        ${compactCensusLine}
+        ${deltaBlock}
         <details class="tooltip-more" aria-label="More details">
           <summary>Details</summary>
           <div class="tooltip-more-body">
             <div class="hover-meta">${chips.join('')}</div>
             ${buildResultCardHTML('', subtitle, demVotes, repVotes, otherVotes, demCandidate, repCandidate)}
+            ${deltaBlock}
             ${demoLine}
           </div>
         </details>
@@ -12998,13 +13038,14 @@ document.addEventListener('DOMContentLoaded', function() {
         ? (desktopCollapsed ? desktopCollapsedInner : classicInner)
         : `${useCompact ? compactInner : classicInner}${actionHint ? `<div class="tooltip-hint">${escapeHtml(actionHint)}</div>` : ''}`;
 
-      const hoverTitle = buildTooltipTitleWithTier(`${countyDisplay} County`, tierMeta);
-      const shell = buildTooltipShell(
-        hoverTitle,
-        inner,
-        { pinned: pinnedShell, showClose: pinnedShell, copyText, headClass: (desktopCollapsed ? 'is-compact' : '') }
+      const hoverTitle = buildTooltipTitleWithTier(`${countyDisplay} County`);
+      const copyText = `${countyDisplay} County`;
+      showHoverTooltip(
+        e.point.x,
+        e.point.y,
+        buildTooltipShell(hoverTitle, inner, { pinned: pinnedShell, showClose: pinnedShell, copyText }),
+        { force: !!forceTooltip, pinned: pinnedShell, context: pinnedShell ? 'pinned' : 'detail', copyText }
       );
-      showHoverTooltip(e.point.x, e.point.y, shell, { force: !!forceTooltip, pinned: pinnedShell, context: pinnedShell ? 'pinned' : 'detail', copyText });
       wireTooltipButtons();
     }
 
@@ -16325,15 +16366,28 @@ document.addEventListener('DOMContentLoaded', function() {
     function buildTooltipShell(title, innerHtml, options = {}) {
       const pinned = options && options.pinned === true;
       const showClose = !!(pinned || options.showClose === true);
-      const safeTitle = (title || '').toString();
-      const key = (options && options.copyText ? String(options.copyText || '') : '').trim();
-      const headClass = (options && options.headClass ? String(options.headClass || '').trim() : '');
+      const copyText = (options && options.copyText ? String(options.copyText || '') : '').trim();
+      if (isDesktopTooltipMode()) {
+        return `
+          <div class="tooltip-head">
+            <div class="tooltip-title">${title}</div>
+            ${showClose ? `
+              <div class="tooltip-actions">
+                ${(pinned && copyText) ? `<button class="tooltip-btn" id="tooltip-copy-btn" type="button" aria-label="Copy selection label">Copy</button>` : ''}
+                <button class="tooltip-btn" id="tooltip-close-btn" type="button">Close</button>
+              </div>
+            `.trim() : ''}
+          </div>
+          <div class="tooltip-trends">${innerHtml}</div>
+        `;
+      }
+      const headClass = pinned ? 'is-pinned' : (showClose ? 'is-classic' : 'is-compact');
       return `
-        <div class="tooltip-head${headClass ? ` ${headClass}` : ''}">
-          <div class="tooltip-title">${safeTitle}</div>
+        <div class="tooltip-head ${headClass}">
+          <div class="tooltip-title">${title}</div>
           ${showClose ? `
             <div class="tooltip-actions">
-              ${(pinned && key) ? `<button class="tooltip-btn" id="tooltip-copy-btn" type="button" aria-label="Copy selection label">Copy</button>` : ''}
+              ${(pinned && copyText) ? `<button class="tooltip-btn" id="tooltip-copy-btn" type="button" aria-label="Copy selection label">Copy</button>` : ''}
               <button class="tooltip-btn" id="tooltip-close-btn" type="button">Close</button>
             </div>
           `.trim() : ''}
