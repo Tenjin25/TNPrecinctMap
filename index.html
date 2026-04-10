@@ -7732,6 +7732,7 @@ document.addEventListener('DOMContentLoaded', function() {
         state_senate: withBase('./Data/tl_2022_47_sldu.geojson'),
         county_demographics: withBase('./Data/county_demographics_2020_dp1.json'),
         tn_county_pop_estimates: withBase('./Data/CO-EST2025-POP-47.cleaned.csv'),
+        tn_cvap_by_precinct_2020: withBase('./Data/tn_cvap_by_precinct_2020.json'),
         election: withBase('./Data/tn_elections_aggregated.json'),
         district_election: withBase('./Data/tn_district_results_2022_lines.json'),
         district_contests_dir: withBase('./Data/district_contests'),
@@ -8342,6 +8343,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let districtDescriptions = null; // Optional labels like "Sampson & Bladen Counties" or "Concord–Harrisburg"
     let countyDemographics = null; // County-level VAP (18+) + total-pop race/ethnicity from DP1
     let tnCountyPopEstimates = null; // TN county population estimates 2020-2025 (CO-EST)
+    let tnCvapByPrecinct2020 = null; // Block-assigned CVAP estimates aggregated to county + precinct
     let countyNameMap = {};
     let currentView = 'counties'; // 'counties', 'districts', 'state_house', 'state_senate'
     let currentElectionResults = null; // Current contest results for county details
@@ -8367,6 +8369,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let tooltipPinned = false;
     let precinctDotHoverRaf = null;
     let lastPrecinctDotHoverEvent = null;
+    // (Removed) legacy VTD 2000 view state.
     let districtHoverRequestId = 0;
     let lastPointerPoint = null;
     let hoverRefreshRaf = null;
@@ -10954,7 +10957,7 @@ document.addEventListener('DOMContentLoaded', function() {
         (Array.isArray(activeDistrictManifest) && activeDistrictManifest.length > 0);
       let entries = null;
 
-      if (currentView === 'counties' || currentView === 'vtds_2000' || !currentView) {
+      if (currentView === 'counties' || !currentView) {
         entries = contestManifest || [];
       } else {
         const scope = currentView === 'districts'
@@ -10973,7 +10976,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
 
       // If we have manifests but no matches for this view, don't fall back to county contests (they won't load here).
-      if (inManifestMode && currentView !== 'counties' && currentView !== 'vtds_2000') {
+      if (inManifestMode && currentView !== 'counties') {
         const sel = document.getElementById('contestSelect');
         if (sel) {
           sel.innerHTML = '<option value="">No contests available for this view</option>';
@@ -11484,14 +11487,14 @@ document.addEventListener('DOMContentLoaded', function() {
         return showAndPinDistrictSelection(targetScope, targetDistrictNum, contestValue);
       }
 
-      if (meta.kind === 'county' && (view === 'counties' || view === 'vtds_2000')) {
+      if (meta.kind === 'county' && view === 'counties') {
         const countyName = (meta.county || '').toString().trim();
         if (!countyName) return false;
         showCountyDetails(countyName);
         return true;
       }
 
-      if (meta.kind === 'precinct' && (view === 'counties' || view === 'vtds_2000')) {
+      if (meta.kind === 'precinct' && view === 'counties') {
         const county = (meta.county || '').toString().trim();
         const precinct = (meta.precinct || '').toString().trim();
         if (!county || !precinct) return false;
@@ -11522,26 +11525,19 @@ document.addEventListener('DOMContentLoaded', function() {
       document.getElementById('state-house-view')?.classList.toggle('active', view === 'state_house');
       document.getElementById('state-senate-view')?.classList.toggle('active', view === 'state_senate');
       
-      // Update 2000 VTDs button if available
-      const vtds2000Button = document.getElementById('vtds-2000-view');
-      if (vtds2000Button) {
-        vtds2000Button.classList.toggle('active', view === 'vtds_2000');
-      }
-      
       // Update sidebar title
       const sidebarTitle = document.querySelector('.sidebar-header h3');
       const titles = {
         'counties': 'County Analysis',
         'districts': 'Congressional District Analysis', 
         'state_house': 'State House District Analysis',
-        'state_senate': 'State Senate District Analysis',
-        'vtds_2000': '2000 Precinct Analysis'
+        'state_senate': 'State Senate District Analysis'
       };
       sidebarTitle.textContent = titles[view];
       
       // Clear all map layers for the active view.
       // Precincts are an overlay; don't destroy precinct layers when switching views.
-      const layerTypes = ['county', 'district', 'state-house', 'state-senate', 'vtds-2000'];
+      const layerTypes = ['county', 'district', 'state-house', 'state-senate'];
       layerTypes.forEach(type => {
         if (map.getLayer(`${type}-fill`)) {
           map.removeLayer(`${type}-fill`);
@@ -11567,8 +11563,6 @@ document.addEventListener('DOMContentLoaded', function() {
         addStateHouseLayers();
       } else if (view === 'state_senate') {
         addStateSenatelayers();
-      } else if (view === 'vtds_2000') {
-        add2000VTDLayers();
       }
       
       // Repopulate contest selector
@@ -12590,8 +12584,7 @@ document.addEventListener('DOMContentLoaded', function() {
         counties: 'Counties',
         districts: 'Congress',
         state_house: 'State House',
-        state_senate: 'State Senate',
-        vtds_2000: 'Precincts 2000'
+        state_senate: 'State Senate'
       };
       return labels[view] || 'Counties';
     }
@@ -12717,7 +12710,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function getCountyCensusSnapshot(countyNorm) {
       const norm = normalizeRegionCountyName(countyNorm);
       if (!norm) return null;
-      const out = { norm, vap: null, p20: null, p24: null, p25: null, share: null, d20_25: null, p20_25: null, d24_25: null, p24_25: null };
+      const out = { norm, vap: null, p20: null, p24: null, p25: null, share: null, d20_25: null, p20_25: null, d24_25: null, p24_25: null, cvap: null, cvap_pct_pop20: null };
       try {
         const demo = countyDemographics?.counties?.[norm] || null;
         const vap = demo ? Number(demo.vap_18plus || 0) : 0;
@@ -12730,10 +12723,17 @@ document.addEventListener('DOMContentLoaded', function() {
         const p24 = Number(est.pop_2024 || 0);
         const p25 = Number(est.pop_2025 || 0);
         const share = Number(est.pct_state_pop_2025 || 0);
+        const countyfp = (est.countyfp || '').toString().trim().padStart(3, '0');
         if (p20 > 0) out.p20 = p20;
         if (p24 > 0) out.p24 = p24;
         if (p25 > 0) out.p25 = p25;
         if (Number.isFinite(share) && share > 0) out.share = share;
+        try {
+          const cv = countyfp ? (tnCvapByPrecinct2020?.counties?.[countyfp] || null) : null;
+          const cvapTot = cv ? Number(cv.cvap_tot || 0) : 0;
+          if (cv && cvapTot > 0) out.cvap = cvapTot;
+          if (out.cvap && out.p20) out.cvap_pct_pop20 = (out.cvap / out.p20) * 100.0;
+        } catch (_) {}
         if (out.p20 && out.p25) {
           out.d20_25 = out.p25 - out.p20;
           out.p20_25 = (out.d20_25 / out.p20) * 100.0;
@@ -12758,6 +12758,12 @@ document.addEventListener('DOMContentLoaded', function() {
         const pct = `${snap.p20_25 >= 0 ? '+' : ''}${snap.p20_25.toFixed(1)}%`;
         lines.push(`<div class="meta-subtle" style="color:#94a3b8;"><strong>Growth (2020→2025):</strong> ${delta} (${pct})</div>`);
       }
+      if (snap.cvap) {
+        const pct = (snap.cvap_pct_pop20 !== null && Number.isFinite(Number(snap.cvap_pct_pop20)))
+          ? ` • ${snap.cvap_pct_pop20.toFixed(1)}% of 2020 pop`
+          : '';
+        lines.push(`<div class="meta-subtle" style="color:#94a3b8;"><strong>CVAP (2020 est.):</strong> ${Math.round(snap.cvap).toLocaleString()}${pct}</div>`);
+      }
       if (!compact && snap.d24_25 !== null && snap.p24_25 !== null) {
         const delta = `${snap.d24_25 >= 0 ? '+' : ''}${Math.round(snap.d24_25).toLocaleString()}`;
         const pct = `${snap.p24_25 >= 0 ? '+' : ''}${snap.p24_25.toFixed(1)}%`;
@@ -12767,9 +12773,28 @@ document.addEventListener('DOMContentLoaded', function() {
         lines.push(`<div class="meta-subtle" style="color:#94a3b8;"><strong>VAP (18+):</strong> ${Math.round(snap.vap).toLocaleString()}</div>`);
       }
       if (!compact && lines.length) {
-        lines.push(`<div class="meta-subtle" style="color:#64748b;">Source: U.S. Census County Population Estimates (CO-EST).</div>`);
+        lines.push(`<div class="meta-subtle" style="color:#64748b;">Sources: U.S. Census County Population Estimates (CO-EST) • CVAP (2020, block-assigned).</div>`);
       }
       return lines.join('');
+    }
+
+    function buildPrecinctCvapTooltipHTML(countyNorm, precId, { compact = false } = {}) {
+      const county = normalizeRegionCountyName(countyNorm);
+      if (!county) return '';
+      const est = tnCountyPopEstimates?.[county] || null;
+      const countyfp = (est?.countyfp || '').toString().trim().padStart(3, '0');
+      if (!countyfp) return '';
+
+      const rawCode = (precId || '').toString().trim();
+      if (!rawCode || !/^\d+$/.test(rawCode)) return '';
+      const code = rawCode.padStart(6, '0');
+      const key = `${countyfp}-${code}`;
+      const rec = tnCvapByPrecinct2020?.precincts?.[key] || null;
+      const cvap = rec ? Number(rec.cvap_tot || 0) : 0;
+      if (!rec || !Number.isFinite(cvap) || cvap <= 0) return '';
+
+      const label = compact ? 'Precinct CVAP:' : 'Precinct CVAP (2020 est.):';
+      return `<div class="meta-subtle" style="color:#94a3b8;"><strong>${label}</strong> ${Math.round(cvap).toLocaleString()}</div>`;
     }
 
     function buildTooltipTitleWithTier(titleText, tierMeta = null) {
@@ -13013,7 +13038,8 @@ document.addEventListener('DOMContentLoaded', function() {
       if (!contestType || !year) {
         if (pinSelection) setTooltipPinned(true);
         const censusLine = buildCountyCensusTooltipHTML(countyNorm);
-        const shell = buildTooltipShell(title, `<div style="color:#94a3b8;">Select a contest to see results</div>${censusLine}`, { pinned: !!pinSelection, copyText });
+        const precinctCvapLine = buildPrecinctCvapTooltipHTML(countyNorm, precId, { compact: true });
+        const shell = buildTooltipShell(title, `<div style="color:#94a3b8;">Select a contest to see results</div>${censusLine}${precinctCvapLine}`, { pinned: !!pinSelection, copyText });
         showHoverTooltip(point.x, point.y, shell, { force: !!forceTooltip, pinned: !!pinSelection, context: pinSelection ? 'selection' : 'preview', copyText });
         wireTooltipButtons();
         return;
@@ -13023,7 +13049,8 @@ document.addEventListener('DOMContentLoaded', function() {
       if (!row) {
         if (pinSelection) setTooltipPinned(true);
         const censusLine = buildCountyCensusTooltipHTML(countyNorm);
-        const shell = buildTooltipShell(title, `<div style="color:#94a3b8;">No precinct results loaded for this contest in this view. Switch to Counties and pick the contest.</div>${censusLine}`, { pinned: !!pinSelection, copyText });
+        const precinctCvapLine = buildPrecinctCvapTooltipHTML(countyNorm, precId, { compact: true });
+        const shell = buildTooltipShell(title, `<div style="color:#94a3b8;">No precinct results loaded for this contest in this view. Switch to Counties and pick the contest.</div>${censusLine}${precinctCvapLine}`, { pinned: !!pinSelection, copyText });
         showHoverTooltip(point.x, point.y, shell, { force: !!forceTooltip, pinned: !!pinSelection, context: pinSelection ? 'selection' : 'preview', copyText });
         wireTooltipButtons();
         return;
@@ -13060,10 +13087,12 @@ document.addEventListener('DOMContentLoaded', function() {
       }
 
       const censusLine = buildCountyCensusTooltipHTML(countyNorm);
+      const precinctCvapLine = buildPrecinctCvapTooltipHTML(countyNorm, precId);
       const inner = `
         <div class="hover-meta">${chips.join('')}</div>
         ${buildResultCardHTML('', subtitle, demVotes, repVotes, otherVotes, demCandidate, repCandidate)}
         ${censusLine}
+        ${precinctCvapLine}
       `;
       if (pinSelection) setTooltipPinned(true);
       const shell = buildTooltipShell(title, inner, { pinned: !!pinSelection, copyText });
@@ -13254,62 +13283,6 @@ document.addEventListener('DOMContentLoaded', function() {
       `;
       showHoverTooltip(e.point.x, e.point.y, buildTooltipShell(`${districtLabel} ${districtNum}`, inner), { force: !!forceTooltip });
       wireTooltipButtons();
-    }
-
-    // Placeholder function for 2000 VTD layers (will be implemented when data is available)
-    function add2000VTDLayers() {
-      if (typeof window.vtds2000Data === 'undefined') {
-        setStatus('2000 VTD data not loaded. Please load VTD shapefiles and election data.');
-        // Switch back to counties view
-        setMapView('counties');
-        return;
-      }
-      
-      if (!map.getLayer('vtds-2000-fill')) {
-        map.addLayer({ 
-          id: 'vtds-2000-fill', 
-          type: 'fill', 
-          source: 'vtds-2000', 
-          paint: { 'fill-color': '#e0e0e0', 'fill-opacity': 0.3 } 
-        });
-        map.addLayer({ 
-          id: 'vtds-2000-stroke', 
-          type: 'line', 
-          source: 'vtds-2000', 
-          paint: { 'line-color': '#666', 'line-width': 0.5 } 
-        });
-        
-        // Add click handler for VTDs
-        map.on('click', 'vtds-2000-fill', (e) => {
-          if (e.features && e.features[0] && e.features[0].properties) {
-            const vtdProps = e.features[0].properties;
-            const vtdId = vtdProps.VTD || vtdProps.VTDST || vtdProps.NAME || 'Unknown';
-            
-            // Show VTD details
-            showVTDDetails(vtdId, vtdProps);
-          }
-        });
-        
-        setStatus('2000 VTD layer loaded');
-      }
-    }
-    
-    // Function to show VTD details (placeholder)
-    function showVTDDetails(vtdId, vtdProps) {
-      const detailsDiv = document.getElementById('area-details');
-      detailsDiv.innerHTML = `
-        <h4>2000 Precinct ${vtdId}</h4>
-        <div class="data-row">
-          <span class="label">VTD ID:</span>
-          <span class="value">${vtdId}</span>
-        </div>
-        <div class="data-row">
-          <span class="label">Properties:</span>
-          <span class="value">${Object.keys(vtdProps).length} attributes</span>
-        </div>
-        <p><em>Election results will be displayed when precinct-level data is loaded.</em></p>
-      `;
-      detailsDiv.style.display = 'block';
     }
 
     function toggleLegend() {
@@ -17149,6 +17122,14 @@ document.addEventListener('DOMContentLoaded', function() {
         } catch (err) {
           tnCountyPopEstimates = null;
           console.warn('TN county population estimates not loaded:', err?.message || err);
+        }
+
+        // Optional TN CVAP (block-assigned to 2020 precinct geometry). Used for county/precinct hover context.
+        try {
+          tnCvapByPrecinct2020 = await loadJSON(CONFIG.paths.tn_cvap_by_precinct_2020);
+        } catch (err) {
+          tnCvapByPrecinct2020 = null;
+          console.warn('TN CVAP estimates not loaded:', err?.message || err);
         }
 
         try {

@@ -1,0 +1,41 @@
+{
+  "inputs": {
+    "vtd00": "tn_vtd_2000.geojson",
+    "vtd10": "tl_2012_47_vtd10.zip",
+    "vtd20": "tl_2020_47_vtd20.zip"
+  },
+  "outputs": {
+    "vtd00_to_vtd10": "tn_vtd00_to_vtd10_overlap.csv",
+    "vtd10_to_vtd20": "tn_vtd10_to_vtd20_overlap.csv",
+    "vtd00_to_vtd20": "tn_vtd00_to_vtd20_overlap.csv"
+  },
+  "metrics": [
+    {
+      "pair": "2000->2010",
+      "rows": 11913,
+      "src_units": 2407,
+      "dst_units": 2174,
+      "src_weight_sum_min": 0.9366209776062547,
+      "src_weight_sum_mean": 0.9998691314720088,
+      "src_weight_sum_max": 1.0000000000010634
+    },
+    {
+      "pair": "2010->2020",
+      "rows": 7213,
+      "src_units": 2174,
+      "dst_units": 1965,
+      "src_weight_sum_min": 0.9186041968392854,
+      "src_weight_sum_mean": 0.9997836056960482,
+      "src_weight_sum_max": 1.0000000000000207
+    },
+    {
+      "pair": "2000->2020",
+      "rows": 11080,
+      "src_units": 2407,
+      "dst_units": 1965,
+      "src_weight_sum_min": 0.8286194884342074,
+      "src_weight_sum_mean": 0.9996119225772592,
+      "src_weight_sum_max": 1.000000000001042
+    }
+  ]
+}

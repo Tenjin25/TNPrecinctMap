@@ -1,8 +1,24 @@
 .venv/
 __pycache__/
 _upstream_TNPrecinctMap/
+node_modules/
+tmp_ui_smoke_live/
+.tmp_local_server.js
+NCMap.html
 
 # Too large for standard GitHub push (>100 MB)
 Data/tl_2010_47_tabblock00.zip
 Data/tl_2020_47_tabblock10.zip
 Data/tl_2020_47_tabblock20.zip
+
+# Local data inputs / scratch outputs (keep derived small JSONs checked in instead)
+Data/20221108AllbyPrecinct.xlsx
+Data/CO-EST2025-POP-47.csv
+Data/_sample_tl_2008_47001_vtd00.zip
+Data/tiger2008_vtd00_counties/
+Data/tl_2012_47_vtd10.zip
+Data/tl_2020_47_vtd20.zip
+Data/tn_vtd_2000.geojson
+Data/tn_vtd_2000_build_summary.json
+Data/tn_cvap_2024_2020_b_csv/
+Data/tn_cvap_2024_2020_b_csv.zip
