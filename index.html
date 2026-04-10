@@ -12289,7 +12289,7 @@ document.addEventListener('DOMContentLoaded', function() {
       return `<div class="tooltip-flip ${cls}"${title}>Flip: ${labelFrom}\u2192${labelTo}${years}</div>`;
     }
 
-    function buildResultCardHTML(title, subtitle, demVotes, repVotes, otherVotes, demCandidate, repCandidate) {
+    function buildResultCardHTML(title, subtitle, demVotes, repVotes, otherVotes, demCandidate, repCandidate, options = {}) {
       const d = Number(demVotes || 0);
       const r = Number(repVotes || 0);
       const o = Number(otherVotes || 0);
@@ -12297,6 +12297,16 @@ document.addEventListener('DOMContentLoaded', function() {
       if (total <= 0) {
         return `<div class="result-card"><div class="rc-sub">${subtitle || ''}</div><div style="margin-top:8px;color:#64748b;">No data</div></div>`;
       }
+
+      const demPartyLabel = (() => {
+        const raw = (options?.demPartyLabel || 'D').toString().trim().toUpperCase();
+        if (!raw) return 'D';
+        if (raw === 'D' || raw === 'DEM') return 'D';
+        if (raw === 'I' || raw === 'IND' || raw === 'INDEPENDENT') return 'I';
+        return raw.length <= 3 ? raw : 'D';
+      })();
+      const demBarColor = demPartyLabel === 'I' ? '#a855f7' : '#3b82f6';
+      const demTextColor = demPartyLabel === 'I' ? '#7e22ce' : '#1d4ed8';
 
       const demPct = (d / total) * 100.0;
       const repPct = (r / total) * 100.0;
@@ -12311,7 +12321,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
       const bar = `
         <div class="rc-bar" aria-label="Vote share bar">
-          <div style="width:${demPct.toFixed(4)}%;background:#3b82f6;"></div>
+          <div style="width:${demPct.toFixed(4)}%;background:${demBarColor};"></div>
           <div style="width:${otherPct.toFixed(4)}%;background:#9ca3af;"></div>
           <div style="width:${repPct.toFixed(4)}%;background:#ef4444;"></div>
         </div>
@@ -12329,8 +12339,8 @@ document.addEventListener('DOMContentLoaded', function() {
           ${bar}
           <div class="rc-row">
             <div class="rc-chip">
-              <div class="k">D: ${demFull}</div>
-              <div class="v" style="color:#1d4ed8;">${d.toLocaleString()} (${demPct.toFixed(2)}%)</div>
+              <div class="k">${escapeHtml(demPartyLabel)}: ${demFull}</div>
+              <div class="v" style="color:${demTextColor};">${d.toLocaleString()} (${demPct.toFixed(2)}%)</div>
             </div>
             <div class="rc-chip">
               <div class="k">OTHER</div>
@@ -13287,6 +13297,8 @@ document.addEventListener('DOMContentLoaded', function() {
       const tierMeta = competitivenessTierMetaFromSignedMarginPct(signedMarginPct);
       const winnerRaw = (row.winner || '').toString().toUpperCase();
       const winner = winnerRaw.startsWith('REP') ? 'R' : (winnerRaw.startsWith('DEM') ? 'D' : (signedMarginPct > 0 ? 'R' : (signedMarginPct < 0 ? 'D' : 'T')));
+      const demPartyLabelOverride = (row.dem_party_label || '').toString().trim().toUpperCase();
+      const resultCardOptions = demPartyLabelOverride ? { demPartyLabel: demPartyLabelOverride } : {};
 
       const chips = [];
       let prevSignedForFlip = null;
@@ -13320,7 +13332,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="hover-meta">${chips.join('')}</div>
         ${desc ? `<div style="margin-top:6px;font-size:12px;color:#94a3b8;"><strong style="color:#e2e8f0;">Area:</strong> ${desc}</div>` : ''}
         ${_demoHTML}
-        ${buildResultCardHTML('', subtitle, demVotes, repVotes, otherVotes, demCandidate, repCandidate)}
+        ${buildResultCardHTML('', subtitle, demVotes, repVotes, otherVotes, demCandidate, repCandidate, resultCardOptions)}
       `;
       showHoverTooltip(e.point.x, e.point.y, buildTooltipShell(`${districtLabel} ${districtNum}`, inner), { force: !!forceTooltip });
       wireTooltipButtons();
@@ -14748,12 +14760,16 @@ document.addEventListener('DOMContentLoaded', function() {
               // Reuse the fly-to county path so click and search have consistent zoom behavior.
               handleCountySelection(countyName);
               setCountyHoverOutline(countyName);
-              setTooltipPinned(false);
               if (isTouchInteractionMode()) {
+                setTooltipPinned(false);
                 renderCountyHoverAtPoint(e, { forceTooltip: true });
                 setTooltipPinned(true);
               } else {
-                hideHoverTooltip();
+                // Desktop: pin the hover card on click (matches the "Click to pin details" hint
+                // and is the only place we show optional census/CVAP lines without changing the
+                // default hover-card size).
+                setTooltipPinned(true);
+                renderCountyHoverAtPoint(e, { forceTooltip: true });
               }
             }
           }
@@ -14777,9 +14793,11 @@ document.addEventListener('DOMContentLoaded', function() {
         
         map.on('mouseleave', 'county-fill', () => {
           map.getCanvas().style.cursor = '';
-          hideHoverTooltip();
-          clearVoteCounterHoverState();
-          clearHoverOutline();
+          if (!tooltipPinned) {
+            hideHoverTooltip();
+            clearVoteCounterHoverState();
+            clearHoverOutline();
+          }
         });
       }
       updatePrecinctVisibility();
@@ -16705,6 +16723,16 @@ document.addEventListener('DOMContentLoaded', function() {
       const totalVotes = Number(row.total_votes || (demVotes + repVotes + otherVotes));
       if (totalVotes <= 0) return '<div style="color:#999;">No results for this district/contest.</div>';
 
+      const demPartyLabel = (() => {
+        const raw = (row.dem_party_label || 'D').toString().trim().toUpperCase();
+        if (!raw) return 'D';
+        if (raw === 'D' || raw === 'DEM') return 'D';
+        if (raw === 'I' || raw === 'IND' || raw === 'INDEPENDENT') return 'I';
+        return raw.length <= 3 ? raw : 'D';
+      })();
+      const demPartyWord = demPartyLabel === 'I' ? 'Independent' : 'Democratic';
+      const demColor = demPartyLabel === 'I' ? '#7e22ce' : '#2563eb';
+
       let demCandidate = stripRunningMateName((row.dem_candidate || '').toString().trim());
       let repCandidate = stripRunningMateName((row.rep_candidate || '').toString().trim());
       if (!demCandidate) demCandidate = stripRunningMateName((fallbackCandidates?.dem || '').toString().trim());
@@ -16717,29 +16745,30 @@ document.addEventListener('DOMContentLoaded', function() {
       const othPct = (otherVotes / totalVotes) * 100.0;
       const marginPct = Math.abs(repPct - demPct);
       const winnerParty = repPct > demPct ? 'R' : (demPct > repPct ? 'D' : 'TIE');
+      const winnerPartyLabel = winnerParty === 'D' ? demPartyLabel : winnerParty;
 
       let compLabel = '';
       let compColor = '#6b7280';
       if (marginPct >= 40) {
-        compLabel = winnerParty === 'R' ? "Annihilation Republican" : "Annihilation Democratic";
+        compLabel = winnerParty === 'R' ? "Annihilation Republican" : `Annihilation ${demPartyWord}`;
         compColor = winnerParty === 'R' ? '#7f1d1d' : '#1e3a8a';
       } else if (marginPct >= 30) {
-        compLabel = winnerParty === 'R' ? "Dominant Republican" : "Dominant Democratic";
+        compLabel = winnerParty === 'R' ? "Dominant Republican" : `Dominant ${demPartyWord}`;
         compColor = winnerParty === 'R' ? '#7f1d1d' : '#1e3a8a';
       } else if (marginPct >= 20) {
-        compLabel = winnerParty === 'R' ? "Stronghold Republican" : "Stronghold Democratic";
+        compLabel = winnerParty === 'R' ? "Stronghold Republican" : `Stronghold ${demPartyWord}`;
         compColor = winnerParty === 'R' ? '#dc2626' : '#2563eb';
       } else if (marginPct >= 10) {
-        compLabel = winnerParty === 'R' ? "Safe Republican" : "Safe Democratic";
+        compLabel = winnerParty === 'R' ? "Safe Republican" : `Safe ${demPartyWord}`;
         compColor = winnerParty === 'R' ? '#dc2626' : '#3b82f6';
       } else if (marginPct >= 5.5) {
-        compLabel = winnerParty === 'R' ? "Likely Republican" : "Likely Democratic";
+        compLabel = winnerParty === 'R' ? "Likely Republican" : `Likely ${demPartyWord}`;
         compColor = winnerParty === 'R' ? '#ef4444' : '#60a5fa';
       } else if (marginPct >= 1) {
-        compLabel = winnerParty === 'R' ? "Lean Republican" : "Lean Democratic";
+        compLabel = winnerParty === 'R' ? "Lean Republican" : `Lean ${demPartyWord}`;
         compColor = winnerParty === 'R' ? '#f87171' : '#93c5fd';
       } else if (marginPct >= 0.5) {
-        compLabel = winnerParty === 'R' ? "Tilt Republican" : "Tilt Democratic";
+        compLabel = winnerParty === 'R' ? "Tilt Republican" : `Tilt ${demPartyWord}`;
         compColor = winnerParty === 'R' ? '#fff1f2' : '#dbeafe';
       } else {
         compLabel = "Tossup";
@@ -16748,18 +16777,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
       const winName = winnerParty === 'R'
         ? fullCandidateLabel(repCandidate, 'Republican')
-        : (winnerParty === 'D' ? fullCandidateLabel(demCandidate, 'Democratic') : 'Tie');
+        : (winnerParty === 'D' ? fullCandidateLabel(demCandidate, demPartyWord) : 'Tie');
       const winColor = winnerParty === 'R' ? '#dc2626' : (winnerParty === 'D' ? '#2563eb' : '#6b7280');
 
       return `
         <div style="margin-bottom: 12px;">
           <h5 style="margin:0 0 6px 0;">${year} ${formatContestName(contestType, year)}</h5>
-          <div style="font-size:15px;font-weight:800;color:${winColor};">Winner: ${winName} (${winnerParty})</div>
+          <div style="font-size:15px;font-weight:800;color:${winColor};">Winner: ${winName} (${winnerPartyLabel})</div>
           <div style="margin-top:4px;font-size:15px;font-weight:800;color:${winColor};">
             Margin: ${winnerMarginLabel(repVotes, demVotes, totalVotes, repCandidate, demCandidate)} <span style="color:#64748b;font-weight:600;">(${Math.abs(repVotes - demVotes).toLocaleString()} votes)</span>
           </div>
           <div style="margin-top:8px;font-size:14px;">
-            <div><span style="color:#2563eb;font-weight:800;">${fullCandidateLabel(demCandidate, 'Democratic')} (D)</span>: ${demPct.toFixed(2)}% (${demVotes.toLocaleString()})</div>
+            <div><span style="color:${demColor};font-weight:800;">${fullCandidateLabel(demCandidate, demPartyWord)} (${escapeHtml(demPartyLabel)})</span>: ${demPct.toFixed(2)}% (${demVotes.toLocaleString()})</div>
             <div><span style="color:#dc2626;font-weight:800;">${fullCandidateLabel(repCandidate, 'Republican')} (R)</span>: ${repPct.toFixed(2)}% (${repVotes.toLocaleString()})</div>
             ${otherVotes > 0 ? `<div><span style="color:#6b7280;font-weight:800;">Other</span>: ${othPct.toFixed(2)}% (${otherVotes.toLocaleString()})</div>` : ''}
             <div style="margin-top:6px;color:#374151;font-weight:700;">Total Votes: ${totalVotes.toLocaleString()}</div>
