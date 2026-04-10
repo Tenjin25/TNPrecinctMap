@@ -591,7 +591,7 @@ body { height: var(--app-height); }
   border-radius: 10px;
   font-size: 13px;
   font-weight: 500;
-  pointer-events: none;
+  pointer-events: auto;
   z-index: 10000;
   max-width: 280px;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), 0 2px 8px rgba(0, 0, 0, 0.3);
@@ -651,6 +651,19 @@ body.focus-active #hover-tooltip[data-context="preview"] {
   opacity: 0.95;
 }
 
+.hover-tooltip .tooltip-title {
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #ffffff;
+  font-size: 14px;
+  letter-spacing: 0.3px;
+}
+
+.hover-tooltip .tooltip-trends {
+  font-size: 12px;
+  line-height: 1.6;
+}
+
 .hover-tooltip .tooltip-title-wrap {
   display: flex;
   flex-wrap: wrap;
@@ -666,15 +679,17 @@ body.focus-active #hover-tooltip[data-context="preview"] {
 .hover-tooltip .tooltip-title-badge {
   display: inline-flex;
   align-items: center;
-  padding: 1px 7px;
+  padding: 2px 8px;
   border-radius: 999px;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 800;
+  letter-spacing: 0.01em;
   border: 1px solid transparent;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
 }
-
 .hover-tooltip .tooltip-title-badge:hover {
-  filter: brightness(1.1);
+  transform: translateY(-1px) scale(1.04);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
 
 .hover-tooltip .tooltip-title-badge.rep {
@@ -691,8 +706,24 @@ body.focus-active #hover-tooltip[data-context="preview"] {
 
 .hover-tooltip .tooltip-title-badge.tie {
   color: #e2e8f0;
-  background: rgba(148, 163, 184, 0.22);
+  background: rgba(148, 163, 184, 0.2);
   border-color: rgba(148, 163, 184, 0.35);
+}
+
+.hover-tooltip .tooltip-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.hover-tooltip .tooltip-head.is-compact {
+  margin-bottom: 6px;
+}
+
+.hover-tooltip .tooltip-title {
+  margin-bottom: 0;
 }
 
 .hover-tooltip .tooltip-quickline {
@@ -703,65 +734,79 @@ body.focus-active #hover-tooltip[data-context="preview"] {
   font-size: 13px;
   font-weight: 800;
   line-height: 1.25;
-  color: rgba(226, 232, 240, 0.92);
 }
 
 .hover-tooltip .tooltip-quickline .rep { color: #fecaca; }
 .hover-tooltip .tooltip-quickline .dem { color: #bfdbfe; }
 .hover-tooltip .tooltip-quickline .tie { color: #e2e8f0; }
 
-.hover-tooltip .tooltip-quickline .tier {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding-left: 2px;
-}
-
-.hover-tooltip .tooltip-quickline .tier::before {
-  content: "";
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: rgba(148, 163, 184, 0.7);
-  display: inline-block;
-}
+		.hover-tooltip .tooltip-quickline .tier {
+		  font-size: 13px;
+		  font-weight: 900;
+		  letter-spacing: 0.01em;
+		  color: rgba(255, 255, 255, 0.92);
+		}
+	.hover-tooltip .tooltip-quickline .tier::before {
+	  content: "";
+	  margin: 0;
+	}
+	.hover-tooltip .tooltip-quickline .tier {
+	  margin-left: 4px;
+	}
 
 .hover-tooltip .tooltip-insight {
   margin-top: 6px;
   font-size: 12px;
-  color: rgba(226, 232, 240, 0.9);
+  line-height: 1.4;
+  color: rgba(226, 232, 240, 0.92);
 }
 
 .hover-tooltip .tooltip-delta {
-  margin-top: 6px;
-  font-size: 12px;
-  color: rgba(226, 232, 240, 0.9);
+  margin-top: 8px;
+  font-size: 11.5px;
+  line-height: 1.35;
+  color: rgba(226, 232, 240, 0.92);
 }
 
 .hover-tooltip .tooltip-delta-line {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
+  margin-top: 4px;
+  color: rgba(226, 232, 240, 0.92);
 }
 
 .hover-tooltip .tooltip-flip {
   margin-top: 6px;
-  font-size: 12px;
-  font-weight: 750;
+  font-size: 11.5px;
+  font-weight: 850;
+  letter-spacing: 0.01em;
+  color: rgba(226, 232, 240, 0.92);
 }
 
 .hover-tooltip .tooltip-flip.rep { color: #fecaca; }
 .hover-tooltip .tooltip-flip.dem { color: #bfdbfe; }
 
 .hover-tooltip .tooltip-more {
-  margin-top: 8px;
-  font-size: 12px;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(148, 163, 184, 0.22);
 }
 
 .hover-tooltip .tooltip-more summary {
+  list-style: none;
   cursor: pointer;
-  font-weight: 800;
-  color: rgba(226, 232, 240, 0.92);
+  user-select: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 8px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  background: rgba(15, 23, 42, 0.18);
+  color: rgba(226, 232, 240, 0.96);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
 .hover-tooltip .tooltip-more summary::-webkit-details-marker {
@@ -769,22 +814,7 @@ body.focus-active #hover-tooltip[data-context="preview"] {
 }
 
 .hover-tooltip .tooltip-more-body {
-  margin-top: 6px;
-  color: rgba(226, 232, 240, 0.85);
-  line-height: 1.45;
-}
-
-.hover-tooltip .tooltip-title {
-  font-weight: 700;
-  margin-bottom: 10px;
-  color: #ffffff;
-  font-size: 14px;
-  letter-spacing: 0.3px;
-}
-
-.hover-tooltip .tooltip-trends {
-  font-size: 12px;
-  line-height: 1.6;
+  margin-top: 10px;
 }
 
 .quick-tooltip {
@@ -11728,9 +11758,33 @@ document.addEventListener('DOMContentLoaded', function() {
     function marginPctValue(repVotes, demVotes, totalVotes) {
       const t = Number(totalVotes) || 0;
       if (t <= 0) return 0;
-      const repPct = partyPctValue(repVotes, t);
-      const demPct = partyPctValue(demVotes, t);
-      return Math.abs(repPct - demPct);
+      return Math.abs((Number(repVotes || 0) - Number(demVotes || 0)) / t * 100.0);
+    }
+
+    function closeRaceDisplayDigits(marginPct, value = null) {
+      const pct = Math.abs(Number(marginPct) || 0);
+      const v = Math.abs(Number(value));
+      if (pct < 0.05) return 3;
+      if (pct < 0.1 && Number.isFinite(v) && v > 0 && Number(v.toFixed(2)) === 0) return 3;
+      return 2;
+    }
+
+    function formatPctForCloseRace(value, marginPct) {
+      const numeric = Number(value || 0);
+      const digits = closeRaceDisplayDigits(marginPct, numeric);
+      return numeric.toFixed(digits);
+    }
+
+    function marginPctDisplayValue(repVotes, demVotes, totalVotes) {
+      const rawMarginPct = marginPctValue(repVotes, demVotes, totalVotes);
+      // Keep raw precision for extremely close races so 0.000-style display remains intact.
+      if (marginDisplayDigits(rawMarginPct) >= 3) return rawMarginPct;
+      const t = Number(totalVotes) || 0;
+      if (t <= 0) return 0;
+      const repPctDisplay = Number(formatPctForCloseRace((Number(repVotes || 0) / t) * 100, rawMarginPct));
+      const demPctDisplay = Number(formatPctForCloseRace((Number(demVotes || 0) / t) * 100, rawMarginPct));
+      if (!Number.isFinite(repPctDisplay) || !Number.isFinite(demPctDisplay)) return rawMarginPct;
+      return Math.abs(repPctDisplay - demPctDisplay);
     }
 
     function marginDisplayDigits(marginPct) {
@@ -11746,19 +11800,52 @@ document.addEventListener('DOMContentLoaded', function() {
     function leadMarginPctLabel(repVotes, demVotes, totalVotes) {
       const margin = Number(repVotes || 0) - Number(demVotes || 0);
       if (!margin) return 'Tie';
-      return `${formatMarginPctForDisplay(marginPctValue(repVotes, demVotes, totalVotes))}%`;
+      return `${formatMarginPctForDisplay(marginPctDisplayValue(repVotes, demVotes, totalVotes))}%`;
     }
 
     // Lead pill uses neutral margin text (no party prefix).
     function focusLeadMarginLabel(repVotes, demVotes, totalVotes) {
       const margin = Number(repVotes || 0) - Number(demVotes || 0);
       if (!margin) return 'Tie';
-      return `${formatMarginPctForDisplay(marginPctValue(repVotes, demVotes, totalVotes))}%`;
+      return `${formatMarginPctForDisplay(marginPctDisplayValue(repVotes, demVotes, totalVotes))}%`;
+    }
+
+    function countyMarginDisplayDigits(marginPct) {
+      const pct = Math.abs(Number(marginPct) || 0);
+      return pct < 0.005 ? 3 : 2;
+    }
+
+    function formatCountyMarginPctForDisplay(marginPct) {
+      const pct = Math.abs(Number(marginPct) || 0);
+      return pct.toFixed(countyMarginDisplayDigits(pct));
+    }
+
+    function countyMarginPctDisplayValue(repVotes, demVotes, totalVotes) {
+      const rawMarginPct = marginPctValue(repVotes, demVotes, totalVotes);
+      if (countyMarginDisplayDigits(rawMarginPct) >= 3) return rawMarginPct;
+      const t = Number(totalVotes) || 0;
+      if (t <= 0) return 0;
+      const repPctDisplay = Number(formatPctForCloseRace((Number(repVotes || 0) / t) * 100, rawMarginPct));
+      const demPctDisplay = Number(formatPctForCloseRace((Number(demVotes || 0) / t) * 100, rawMarginPct));
+      if (!Number.isFinite(repPctDisplay) || !Number.isFinite(demPctDisplay)) return rawMarginPct;
+      return Math.abs(repPctDisplay - demPctDisplay);
+    }
+
+    function compactCountyWinnerMarginLabel(repVotes, demVotes, totalVotes, repCandidate, demCandidate) {
+      const margin = Number(repVotes || 0) - Number(demVotes || 0);
+      const pctLabel = `${formatCountyMarginPctForDisplay(countyMarginPctDisplayValue(repVotes, demVotes, totalVotes))}%`;
+      if (margin > 0) {
+        return `${shortCandidateLabel(repCandidate, 'R')} +${pctLabel}`;
+      }
+      if (margin < 0) {
+        return `${shortCandidateLabel(demCandidate, 'D')} +${pctLabel}`;
+      }
+      return 'Tie';
     }
 
     function compactWinnerMarginLabel(repVotes, demVotes, totalVotes, repCandidate, demCandidate) {
       const margin = Number(repVotes || 0) - Number(demVotes || 0);
-      const pctLabel = `${formatMarginPctForDisplay(marginPctValue(repVotes, demVotes, totalVotes))}%`;
+      const pctLabel = `${formatMarginPctForDisplay(marginPctDisplayValue(repVotes, demVotes, totalVotes))}%`;
       if (margin > 0) {
         return `${shortCandidateLabel(repCandidate, 'R')} +${pctLabel}`;
       }
@@ -11799,7 +11886,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function winnerMarginCall(repVotes, demVotes, totalVotes, repCandidate, demCandidate) {
       const marginPct = totalVotes > 0 ? Math.abs((repVotes - demVotes) / totalVotes * 100) : 0;
-      const marginLabel = formatMarginPctForDisplay(marginPctValue(repVotes, demVotes, totalVotes));
+      const marginLabel = formatMarginPctForDisplay(marginPctDisplayValue(repVotes, demVotes, totalVotes));
       if (repVotes > demVotes) {
         return {
           party: 'rep',
@@ -12382,7 +12469,10 @@ document.addEventListener('DOMContentLoaded', function() {
       const repPct = (r / total) * 100.0;
       const otherPct = (o / total) * 100.0;
 
-      const marginLabel = winnerMarginLabel(r, d, total, repCandidate || '', demCandidate || '');
+      const useCountyPrecision = String(options?.precision || '').toLowerCase() === 'county';
+      const marginLabel = useCountyPrecision
+        ? compactCountyWinnerMarginLabel(r, d, total, repCandidate || '', demCandidate || '')
+        : winnerMarginLabel(r, d, total, repCandidate || '', demCandidate || '');
       const demFull = fullCandidateLabel(demCandidate, 'Democratic');
       const repFull = fullCandidateLabel(repCandidate, 'Republican');
 
@@ -13043,12 +13133,11 @@ document.addEventListener('DOMContentLoaded', function() {
       if (!contestValue || !row) {
         const hoverTitle = buildTooltipTitleWithTier(`${countyDisplay} County`);
         const copyText = `${countyDisplay} County`;
-        const demoLine = pinnedShell ? buildCountyCensusTooltipHTML(norm) : '';
         if (isDesktopTooltipMode()) {
           showHoverTooltip(
             e.point.x,
             e.point.y,
-            buildTooltipShell(hoverTitle, `<div style="color:#64748b;">Select a contest to see results</div>${demoLine}`, { pinned: pinnedShell, copyText }),
+            buildTooltipShell(hoverTitle, `<div style="color:#64748b;">Select a contest to see results</div>`, { pinned: pinnedShell, copyText }),
             { force: !!forceTooltip, pinned: pinnedShell, context: pinnedShell ? 'pinned' : 'detail', copyText }
           );
           wireTooltipButtons();
@@ -13061,7 +13150,7 @@ document.addEventListener('DOMContentLoaded', function() {
           e.point.y,
           buildTooltipShell(
             hoverTitle,
-            `<div class="tooltip-kicker">Start</div><div style="color:rgba(226,232,240,0.92);font-weight:650;">${escapeHtml(startText)}</div>${demoLine}`,
+            `<div class="tooltip-kicker">Start</div><div style="color:rgba(226,232,240,0.92);font-weight:650;">${escapeHtml(startText)}</div>`,
             { pinned: pinnedShell, copyText }
           ),
           { force: !!forceTooltip, pinned: pinnedShell, context: pinnedShell ? 'pinned' : 'detail', copyText }
@@ -13080,12 +13169,11 @@ document.addEventListener('DOMContentLoaded', function() {
       if (totalVotes <= 0) {
         const hoverTitle = buildTooltipTitleWithTier(`${countyDisplay} County`);
         const copyText = `${countyDisplay} County`;
-        const demoLine = pinnedShell ? buildCountyCensusTooltipHTML(norm) : '';
         if (isDesktopTooltipMode()) {
           showHoverTooltip(
             e.point.x,
             e.point.y,
-            buildTooltipShell(hoverTitle, `<div style="color:#64748b;">No data available</div>${demoLine}`, { pinned: pinnedShell, copyText }),
+            buildTooltipShell(hoverTitle, `<div style="color:#64748b;">No data available</div>`, { pinned: pinnedShell, copyText }),
             { force: !!forceTooltip, pinned: pinnedShell, context: pinnedShell ? 'pinned' : 'detail', copyText }
           );
           wireTooltipButtons();
@@ -13094,7 +13182,7 @@ document.addEventListener('DOMContentLoaded', function() {
         showHoverTooltip(
           e.point.x,
           e.point.y,
-          buildTooltipShell(hoverTitle, `<div class="tooltip-kicker">No data</div><div style="color:rgba(226,232,240,0.92);">No results reported for this contest.</div>${demoLine}`, { pinned: pinnedShell, copyText }),
+          buildTooltipShell(hoverTitle, `<div class="tooltip-kicker">No data</div><div style="color:rgba(226,232,240,0.92);">No results reported for this contest.</div>`, { pinned: pinnedShell, copyText }),
           { force: !!forceTooltip, pinned: pinnedShell, context: pinnedShell ? 'pinned' : 'detail', copyText }
         );
         wireTooltipButtons();
@@ -13121,18 +13209,14 @@ document.addEventListener('DOMContentLoaded', function() {
       const useCompact = isMobileTooltipMode();
 
       let demoLine = '';
-      let compactCensusLine = '';
       try {
         demoLine = buildCountyCensusTooltipHTML(norm);
-        compactCensusLine = buildCountyCensusTooltipHTML(norm, { compact: true });
       } catch (_) {
         demoLine = '';
-        compactCensusLine = '';
       }
-      // Show compact census in hover preview; show full census when pinned.
-      const censusLinePreview = compactCensusLine;
-      const censusLinePinned = demoLine;
-      const censusLine = pinnedShell ? censusLinePinned : censusLinePreview;
+      const showDemoLine = tooltipPinned || (forceTooltip && isTouchInteractionMode());
+      if (!showDemoLine) demoLine = '';
+      const splitInsightLine = '';
       const deltaBlock = buildCountyDeltaBlockHTML(norm, contestType, { presentation: desktopCollapsed ? 'desktop-collapsed' : 'desktop-expanded' });
 
       const chips = [];
@@ -13175,13 +13259,16 @@ document.addEventListener('DOMContentLoaded', function() {
         if (shiftDelta > 0) return 'Republicans gaining ground lately.';
         return '';
       })();
+      const smartInsight = '';
+      const finalInsight = tooltipInsight || smartInsight;
 
       const classicInner = `
         <div class="hover-meta">${chips.join('')}</div>
-        ${buildResultCardNoRawVotesHTML('', subtitle, demVotes, repVotes, otherVotes, demCandidate, repCandidate)}
-        ${tooltipInsight ? `<div class="tooltip-insight">${escapeHtml(tooltipInsight)}</div>` : ''}
+        ${buildResultCardNoRawVotesHTML('', subtitle, demVotes, repVotes, otherVotes, demCandidate, repCandidate, { precision: 'county' })}
+        ${finalInsight ? `<div class="tooltip-insight">${escapeHtml(finalInsight)}</div>` : ''}
         ${deltaBlock}
-        ${censusLine}
+        ${splitInsightLine}
+        ${demoLine}
       `.trim();
 
       const desktopCollapsedInner = `
@@ -13190,7 +13277,7 @@ document.addEventListener('DOMContentLoaded', function() {
           ${tierLong ? `<span class="tier">${escapeHtml(tierLong)}</span>` : ''}
         </div>
         ${flipLine}
-        ${tooltipInsight ? `<div class="tooltip-insight">${escapeHtml(tooltipInsight)}</div>` : ''}
+        ${finalInsight ? `<div class="tooltip-insight">${escapeHtml(finalInsight)}</div>` : ''}
         ${deltaBlock}
       `.trim();
 
@@ -13200,14 +13287,15 @@ document.addEventListener('DOMContentLoaded', function() {
           ${tierShort ? `<span class="tier">${escapeHtml(tierShort)}</span>` : ''}
         </div>
         ${flipLine}
-        ${tooltipInsight ? `<div class="tooltip-insight">${escapeHtml(tooltipInsight)}</div>` : ''}
+        ${finalInsight ? `<div class="tooltip-insight">${escapeHtml(finalInsight)}</div>` : ''}
         ${deltaBlock}
         <details class="tooltip-more" aria-label="More details">
           <summary>Details</summary>
           <div class="tooltip-more-body">
             <div class="hover-meta">${chips.join('')}</div>
-            ${buildResultCardNoRawVotesHTML('', subtitle, demVotes, repVotes, otherVotes, demCandidate, repCandidate)}
-            ${censusLine}
+            ${buildResultCardNoRawVotesHTML('', subtitle, demVotes, repVotes, otherVotes, demCandidate, repCandidate, { precision: 'county' })}
+            ${splitInsightLine}
+            ${demoLine}
           </div>
         </details>
       `.trim();
@@ -13233,13 +13321,7 @@ document.addEventListener('DOMContentLoaded', function() {
           x: e.point.x,
           y: e.point.y,
           title: hoverTitle,
-          expandedInner: `
-            <div class="hover-meta">${chips.join('')}</div>
-            ${buildResultCardNoRawVotesHTML('', subtitle, demVotes, repVotes, otherVotes, demCandidate, repCandidate)}
-            ${tooltipInsight ? `<div class="tooltip-insight">${escapeHtml(tooltipInsight)}</div>` : ''}
-            ${deltaBlock}
-            ${censusLinePinned}
-          `.trim(),
+          expandedInner: classicInner,
           copyText
         };
       } else {
