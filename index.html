@@ -12799,6 +12799,63 @@ document.addEventListener('DOMContentLoaded', function() {
       return lines.join('');
     }
 
+    function formatSignedCompactDeltaInt(raw) {
+      const n = Number(raw);
+      if (!Number.isFinite(n) || n === 0) return '0';
+      const abs = Math.abs(n);
+      const sign = n > 0 ? '+' : '-';
+      return `${sign}${Math.round(abs).toLocaleString()}`;
+    }
+
+    function formatSignedPctDelta(rawPct, digits = 1) {
+      const n = Number(rawPct);
+      if (!Number.isFinite(n) || n === 0) return '0%';
+      const sign = n > 0 ? '+' : '-';
+      return `${sign}${Math.abs(n).toFixed(Math.max(0, Number(digits) || 0))}%`;
+    }
+
+    function buildCountyDeltaBlockHTML(countyNorm, contestType, options = {}) {
+      const presentation = String(options?.presentation || '').trim(); // 'desktop-collapsed' | 'desktop-expanded' | ''
+      const snap = getCountyCensusSnapshot(countyNorm);
+      if (!snap) return '';
+
+      const has2020 = Number(snap.p20 || 0) > 0;
+      const has2024 = Number(snap.p24 || 0) > 0;
+      const has2025 = Number(snap.p25 || 0) > 0;
+      if (!(has2020 && has2025)) return '';
+
+      const d20_25 = (snap.d20_25 !== null && Number.isFinite(Number(snap.d20_25))) ? Number(snap.d20_25) : (Number(snap.p25) - Number(snap.p20));
+      const p20_25 = (snap.p20_25 !== null && Number.isFinite(Number(snap.p20_25))) ? Number(snap.p20_25) : ((d20_25 / Number(snap.p20)) * 100.0);
+
+      const d20_24 = (has2024 && has2020) ? (Number(snap.p24) - Number(snap.p20)) : NaN;
+      const p20_24 = (has2024 && has2020 && Number(snap.p20) > 0) ? ((d20_24 / Number(snap.p20)) * 100.0) : NaN;
+
+      const d24_25 = (snap.d24_25 !== null && Number.isFinite(Number(snap.d24_25))) ? Number(snap.d24_25) : (has2024 ? (Number(snap.p25) - Number(snap.p24)) : NaN);
+      const p24_25 = (snap.p24_25 !== null && Number.isFinite(Number(snap.p24_25))) ? Number(snap.p24_25) : (has2024 && Number(snap.p24) > 0 ? ((d24_25 / Number(snap.p24)) * 100.0) : NaN);
+
+      const line2025 = `Population (20→25): <span style="font-weight:800;">${escapeHtml(formatSignedCompactDeltaInt(d20_25))} (${escapeHtml(formatSignedPctDelta(p20_25, 1))})</span>`;
+      const line2024 = (Number.isFinite(d20_24) && Number.isFinite(p20_24))
+        ? `Population (20→24): <span style="font-weight:800;">${escapeHtml(formatSignedCompactDeltaInt(d20_24))} (${escapeHtml(formatSignedPctDelta(p20_24, 1))})</span>`
+        : '';
+      const line2425 = (Number.isFinite(d24_25) && Number.isFinite(p24_25))
+        ? `Population (24→25): <span style="font-weight:800;">${escapeHtml(formatSignedCompactDeltaInt(d24_25))} (${escapeHtml(formatSignedPctDelta(p24_25, 1))})</span>`
+        : '';
+
+      const collapsed = isDesktopTooltipMode() && presentation === 'desktop-collapsed';
+      const lines = [
+        line2025,
+        ...(collapsed ? [] : (line2024 ? [line2024] : [])),
+        ...(line2425 ? [line2425] : [])
+      ].filter(Boolean);
+
+      if (!lines.length) return '';
+      return `
+        <div class="tooltip-delta" aria-label="County population deltas">
+          ${lines.map(line => `<div class="tooltip-delta-line">${line}</div>`).join('')}
+        </div>
+      `.trim();
+    }
+
     function buildPrecinctCvapTooltipHTML(countyNorm, precId, { compact = false } = {}) {
       const county = normalizeRegionCountyName(countyNorm);
       if (!county) return '';
@@ -12959,7 +13016,7 @@ document.addEventListener('DOMContentLoaded', function() {
       let demoLine = '';
       try { demoLine = buildCountyCensusTooltipHTML(norm); } catch (_) { demoLine = ''; }
       if (!pinnedShell) demoLine = '';
-      const deltaBlock = '';
+      const deltaBlock = buildCountyDeltaBlockHTML(norm, contestType, { presentation: desktopCollapsed ? 'desktop-collapsed' : 'desktop-expanded' });
 
       const chips = [];
       let prevSignedForFlip = null;
