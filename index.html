@@ -12358,6 +12358,73 @@ document.addEventListener('DOMContentLoaded', function() {
       `;
     }
 
+    // NCMap-style result card without raw vote counts (keeps the same layout + bar).
+    function buildResultCardNoRawVotesHTML(title, subtitle, demVotes, repVotes, otherVotes, demCandidate, repCandidate, options = {}) {
+      const d = Number(demVotes || 0);
+      const r = Number(repVotes || 0);
+      const o = Number(otherVotes || 0);
+      const total = d + r + o;
+      if (total <= 0) {
+        return `<div class="result-card"><div class="rc-sub">${subtitle || ''}</div><div style="margin-top:8px;color:#64748b;">No data</div></div>`;
+      }
+
+      const demPartyLabel = (() => {
+        const raw = (options?.demPartyLabel || 'D').toString().trim().toUpperCase();
+        if (!raw) return 'D';
+        if (raw === 'D' || raw === 'DEM') return 'D';
+        if (raw === 'I' || raw === 'IND' || raw === 'INDEPENDENT') return 'I';
+        return raw.length <= 3 ? raw : 'D';
+      })();
+      const demBarColor = demPartyLabel === 'I' ? '#a855f7' : '#3b82f6';
+      const demTextColor = demPartyLabel === 'I' ? '#7e22ce' : '#1d4ed8';
+
+      const demPct = (d / total) * 100.0;
+      const repPct = (r / total) * 100.0;
+      const otherPct = (o / total) * 100.0;
+
+      const marginLabel = winnerMarginLabel(r, d, total, repCandidate || '', demCandidate || '');
+      const demFull = fullCandidateLabel(demCandidate, 'Democratic');
+      const repFull = fullCandidateLabel(repCandidate, 'Republican');
+
+      const safeTitle = (title || '').toString();
+      const safeSubtitle = (subtitle || '').toString();
+
+      const bar = `
+        <div class="rc-bar" aria-label="Vote share bar">
+          <div style="width:${demPct.toFixed(4)}%;background:${demBarColor};"></div>
+          <div style="width:${otherPct.toFixed(4)}%;background:#9ca3af;"></div>
+          <div style="width:${repPct.toFixed(4)}%;background:#ef4444;"></div>
+        </div>
+      `;
+
+      return `
+        <div class="result-card">
+          <div class="rc-top">
+            <div>
+              ${safeTitle ? `<div class="rc-title">${safeTitle}</div>` : ''}
+              <div class="rc-sub">${safeSubtitle}</div>
+            </div>
+            <div style="font-weight:900;color:#0f172a;white-space:nowrap;">${marginLabel}</div>
+          </div>
+          ${bar}
+          <div class="rc-row">
+            <div class="rc-chip">
+              <div class="k">${escapeHtml(demPartyLabel)}: ${demFull}</div>
+              <div class="v" style="color:${demTextColor};">${demPct.toFixed(2)}%</div>
+            </div>
+            <div class="rc-chip">
+              <div class="k">OTHER</div>
+              <div class="v" style="color:#475569;">${otherPct.toFixed(2)}%</div>
+            </div>
+            <div class="rc-chip">
+              <div class="k">R: ${repFull}</div>
+              <div class="v" style="color:#b91c1c;">${repPct.toFixed(2)}%</div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
     async function getDistrictTrendSeries(scope, contestType, districtNum) {
       const entries = (getActiveDistrictManifest() || [])
         .filter(f => f && f.scope === scope && f.contest_type === contestType && Number.isFinite(Number(f.year)))
@@ -12503,13 +12570,50 @@ document.addEventListener('DOMContentLoaded', function() {
     let lastPrecinctHoverRenderedAt = 0;
     const PRECINCT_HOVER_THROTTLE_MS = 75;
 
+    // Desktop: allow click-to-expand (pin) for collapsed hover cards without changing map click behavior.
+    let desktopHoverExpandState = null; // { kind, x, y, title, expandedInner, copyText }
+
+    function clearDesktopHoverExpandState() {
+      desktopHoverExpandState = null;
+    }
+
+    function wireDesktopTooltipExpandOnClick() {
+      const tooltip = document.getElementById('hover-tooltip');
+      if (!tooltip) return;
+      if (tooltip.dataset && tooltip.dataset.expandWired === '1') return;
+      try { tooltip.dataset.expandWired = '1'; } catch (_) {}
+      tooltip.addEventListener('click', (ev) => {
+        try {
+          if (!isDesktopTooltipMode()) return;
+          if (tooltipPinned) return;
+          if (!desktopHoverExpandState || desktopHoverExpandState.kind !== 'county') return;
+          const targetId = String(ev?.target?.id || '');
+          if (targetId === 'tooltip-close-btn' || targetId === 'tooltip-copy-btn') return;
+
+          const state = desktopHoverExpandState;
+          clearDesktopHoverExpandState();
+          setTooltipPinned(true);
+          showHoverTooltip(
+            state.x,
+            state.y,
+            buildTooltipShell(state.title, state.expandedInner, { pinned: true, showClose: true, copyText: state.copyText }),
+            { force: true, pinned: true, context: 'pinned', copyText: state.copyText }
+          );
+          wireTooltipButtons();
+        } catch (_) {}
+      });
+    }
+
     function setLayerVisibilityIfExists(layerId, visibility) {
       if (!layerId || !map.getLayer(layerId)) return;
       try { map.setLayoutProperty(layerId, 'visibility', visibility); } catch (_) {}
     }
 
     function clearHoverOutline() {
-      if (lastHoverOutlineKey === null) return;
+      if (lastHoverOutlineKey === null) {
+        clearDesktopHoverExpandState();
+        return;
+      }
       lastHoverOutlineKey = null;
       lastCountyHoverKey = null;
       HOVER_OUTLINE_LAYER_IDS.forEach(id => setLayerVisibilityIfExists(id, 'none'));
@@ -13026,7 +13130,9 @@ document.addEventListener('DOMContentLoaded', function() {
         compactCensusLine = '';
       }
       // Show compact census in hover preview; show full census when pinned.
-      const censusLine = pinnedShell ? demoLine : compactCensusLine;
+      const censusLinePreview = compactCensusLine;
+      const censusLinePinned = demoLine;
+      const censusLine = pinnedShell ? censusLinePinned : censusLinePreview;
       const deltaBlock = buildCountyDeltaBlockHTML(norm, contestType, { presentation: desktopCollapsed ? 'desktop-collapsed' : 'desktop-expanded' });
 
       const chips = [];
@@ -13072,7 +13178,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
       const classicInner = `
         <div class="hover-meta">${chips.join('')}</div>
-        ${buildResultCardHTML('', subtitle, demVotes, repVotes, otherVotes, demCandidate, repCandidate)}
+        ${buildResultCardNoRawVotesHTML('', subtitle, demVotes, repVotes, otherVotes, demCandidate, repCandidate)}
         ${tooltipInsight ? `<div class="tooltip-insight">${escapeHtml(tooltipInsight)}</div>` : ''}
         ${deltaBlock}
         ${censusLine}
@@ -13086,7 +13192,6 @@ document.addEventListener('DOMContentLoaded', function() {
         ${flipLine}
         ${tooltipInsight ? `<div class="tooltip-insight">${escapeHtml(tooltipInsight)}</div>` : ''}
         ${deltaBlock}
-        ${censusLine}
       `.trim();
 
       const compactInner = `
@@ -13101,8 +13206,7 @@ document.addEventListener('DOMContentLoaded', function() {
           <summary>Details</summary>
           <div class="tooltip-more-body">
             <div class="hover-meta">${chips.join('')}</div>
-            ${buildResultCardHTML('', subtitle, demVotes, repVotes, otherVotes, demCandidate, repCandidate)}
-            ${deltaBlock}
+            ${buildResultCardNoRawVotesHTML('', subtitle, demVotes, repVotes, otherVotes, demCandidate, repCandidate)}
             ${censusLine}
           </div>
         </details>
@@ -13123,6 +13227,24 @@ document.addEventListener('DOMContentLoaded', function() {
         buildTooltipShell(hoverTitle, inner, { pinned: pinnedShell, showClose: pinnedShell, copyText }),
         { force: !!forceTooltip, pinned: pinnedShell, context: pinnedShell ? 'pinned' : 'detail', copyText }
       );
+      if (desktopCollapsed) {
+        desktopHoverExpandState = {
+          kind: 'county',
+          x: e.point.x,
+          y: e.point.y,
+          title: hoverTitle,
+          expandedInner: `
+            <div class="hover-meta">${chips.join('')}</div>
+            ${buildResultCardNoRawVotesHTML('', subtitle, demVotes, repVotes, otherVotes, demCandidate, repCandidate)}
+            ${tooltipInsight ? `<div class="tooltip-insight">${escapeHtml(tooltipInsight)}</div>` : ''}
+            ${deltaBlock}
+            ${censusLinePinned}
+          `.trim(),
+          copyText
+        };
+      } else {
+        clearDesktopHoverExpandState();
+      }
       wireTooltipButtons();
     }
 
@@ -16413,6 +16535,7 @@ document.addEventListener('DOMContentLoaded', function() {
       tooltip.dataset.context = String(context || '');
       tooltip.dataset.copyText = (copyText || '').toString();
       try { document.body.classList.toggle('hover-preview-active', !pinned); } catch (_) {}
+      try { wireDesktopTooltipExpandOnClick(); } catch (_) {}
 
       const tooltipRect = tooltip.getBoundingClientRect();
       const padding = 15;
@@ -16439,6 +16562,7 @@ document.addEventListener('DOMContentLoaded', function() {
       try { tooltip.dataset.context = ''; } catch (_) {}
       try { tooltip.dataset.copyText = ''; } catch (_) {}
       try { document.body.classList.remove('hover-preview-active'); } catch (_) {}
+      clearDesktopHoverExpandState();
     }
 
     function setTooltipPinned(pinned) {
@@ -16510,6 +16634,7 @@ document.addEventListener('DOMContentLoaded', function() {
           } catch (_) {}
 
           setTooltipPinned(false);
+          clearDesktopHoverExpandState();
           const tooltip = document.getElementById('hover-tooltip');
           if (tooltip) tooltip.style.display = 'none';
           try { if (tooltip) tooltip.dataset.context = ''; } catch (_) {}
