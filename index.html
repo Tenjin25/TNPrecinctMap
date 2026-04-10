@@ -602,6 +602,175 @@ body { height: var(--app-height); }
   transition: opacity 0.15s ease;
 }
 
+/* UI hierarchy helpers: keep one dominant layer at a time. */
+body.hover-preview-active .main-controls,
+body.hover-preview-active .vote-counter,
+body.hover-preview-active .viz-modes,
+body.hover-preview-active .legend {
+  opacity: 0.94;
+}
+
+body.focus-active.hover-preview-active .vote-counter {
+  opacity: 1;
+}
+
+/* Desktop: keep the classic hover-card feel (no global UI dimming). */
+@media (min-width: 769px) {
+  body.hover-preview-active .main-controls,
+  body.hover-preview-active .vote-counter,
+  body.hover-preview-active .viz-modes,
+  body.hover-preview-active .legend {
+    opacity: 1;
+  }
+}
+
+#hover-tooltip[data-context="preview"] {
+  max-width: 252px;
+  opacity: 0.88;
+  border-color: rgba(148, 163, 184, 0.18);
+}
+
+body.focus-active #hover-tooltip[data-context="preview"] {
+  opacity: 0.82;
+}
+
+.hover-tooltip .tooltip-kicker {
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(148, 163, 184, 0.92);
+  margin-bottom: 6px;
+}
+
+.hover-tooltip .tooltip-hint {
+  margin-top: 8px;
+  font-size: 11px;
+  font-weight: 750;
+  color: rgba(226, 232, 240, 0.92);
+  opacity: 0.95;
+}
+
+.hover-tooltip .tooltip-title-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+
+.hover-tooltip .tooltip-title-main {
+  display: inline-flex;
+  align-items: center;
+}
+
+.hover-tooltip .tooltip-title-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 1px 7px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 800;
+  border: 1px solid transparent;
+}
+
+.hover-tooltip .tooltip-title-badge:hover {
+  filter: brightness(1.1);
+}
+
+.hover-tooltip .tooltip-title-badge.rep {
+  color: #fecaca;
+  background: rgba(239, 68, 68, 0.2);
+  border-color: rgba(248, 113, 113, 0.35);
+}
+
+.hover-tooltip .tooltip-title-badge.dem {
+  color: #bfdbfe;
+  background: rgba(59, 130, 246, 0.2);
+  border-color: rgba(96, 165, 250, 0.35);
+}
+
+.hover-tooltip .tooltip-title-badge.tie {
+  color: #e2e8f0;
+  background: rgba(148, 163, 184, 0.22);
+  border-color: rgba(148, 163, 184, 0.35);
+}
+
+.hover-tooltip .tooltip-quickline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 10px;
+  font-size: 12px;
+  color: rgba(226, 232, 240, 0.92);
+}
+
+.hover-tooltip .tooltip-quickline .rep { color: #fecaca; }
+.hover-tooltip .tooltip-quickline .dem { color: #bfdbfe; }
+.hover-tooltip .tooltip-quickline .tie { color: #e2e8f0; }
+
+.hover-tooltip .tooltip-quickline .tier {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding-left: 2px;
+}
+
+.hover-tooltip .tooltip-quickline .tier::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(148, 163, 184, 0.7);
+  display: inline-block;
+}
+
+.hover-tooltip .tooltip-insight {
+  margin-top: 6px;
+  font-size: 12px;
+  color: rgba(226, 232, 240, 0.9);
+}
+
+.hover-tooltip .tooltip-delta {
+  margin-top: 6px;
+  font-size: 12px;
+  color: rgba(226, 232, 240, 0.9);
+}
+
+.hover-tooltip .tooltip-delta-line {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.hover-tooltip .tooltip-flip {
+  margin-top: 6px;
+  font-size: 12px;
+  font-weight: 750;
+}
+
+.hover-tooltip .tooltip-flip.rep { color: #fecaca; }
+.hover-tooltip .tooltip-flip.dem { color: #bfdbfe; }
+
+.hover-tooltip .tooltip-more {
+  margin-top: 8px;
+  font-size: 12px;
+}
+
+.hover-tooltip .tooltip-more summary {
+  cursor: pointer;
+  font-weight: 800;
+  color: rgba(226, 232, 240, 0.92);
+}
+
+.hover-tooltip .tooltip-more summary::-webkit-details-marker {
+  display: none;
+}
+
+.hover-tooltip .tooltip-more-body {
+  margin-top: 6px;
+  color: rgba(226, 232, 240, 0.85);
+  line-height: 1.45;
+}
+
 .hover-tooltip .tooltip-title {
   font-weight: 700;
   margin-bottom: 10px;
@@ -12276,6 +12445,9 @@ document.addEventListener('DOMContentLoaded', function() {
     ];
     let lastHoverOutlineKey = null;
     let precinctHoverFeatureId = null; // feature-state hover on precinct polygons (performance-friendly)
+    let lastCountyHoverKey = null;
+    let lastCountyHoverRenderedAt = 0;
+    const COUNTY_HOVER_THROTTLE_MS = 90;
     let lastPrecinctHoverKey = null;
     let lastPrecinctHoverRenderedAt = 0;
     const PRECINCT_HOVER_THROTTLE_MS = 75;
@@ -12288,6 +12460,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function clearHoverOutline() {
       if (lastHoverOutlineKey === null) return;
       lastHoverOutlineKey = null;
+      lastCountyHoverKey = null;
       HOVER_OUTLINE_LAYER_IDS.forEach(id => setLayerVisibilityIfExists(id, 'none'));
       clearPrecinctHoverFeature();
     }
@@ -12538,7 +12711,20 @@ document.addEventListener('DOMContentLoaded', function() {
       return parts.join('');
     }
 
-    function renderCountyHoverAtPoint(e, { forceTooltip = false, pinSelection = false } = {}) {
+    function buildTooltipTitleWithTier(titleText, tierMeta = null) {
+      const safeTitle = escapeHtml(String(titleText || '').trim());
+      if (!safeTitle) return '';
+      if (!tierMeta || !tierMeta.label) return safeTitle;
+      const partyClass = tierMeta.party === 'rep' ? 'rep' : (tierMeta.party === 'dem' ? 'dem' : 'tie');
+      return `
+        <span class="tooltip-title-wrap">
+          <span class="tooltip-title-main">${safeTitle}</span>
+          <span class="tooltip-title-badge ${partyClass}">${escapeHtml(tierMeta.label)}</span>
+        </span>
+      `;
+    }
+
+    function renderCountyHoverAtPoint(e, { forceTooltip = false } = {}) {
       if (!(e.features && e.features[0])) return;
 
       // If precinct overlay is enabled and a precinct feature is under the cursor, let the
@@ -12560,6 +12746,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const countyName = props.NAME20 || props.CountyName || props.COUNTYNAME || props.county_nam || props.NAME || props.name || 'Unknown County';
       const countyDisplay = displayCountyName(countyName);
       const copyText = `${countyDisplay} County`;
+      const pinnedShell = !!(tooltipPinned || (forceTooltip && isTouchInteractionMode()));
       setCountyHoverOutline(countyName);
       const norm = (countyName || '').toString().replace(/[^a-z0-9 .\-]/gi, '').replace(/\s+/g, ' ').trim().toUpperCase();
       let row = currentElectionResults ? currentElectionResults[norm] : null;
@@ -12573,16 +12760,30 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       }
       const contestValue = document.getElementById('contestSelect')?.value || '';
+      try {
+        const hoverKey = `${norm}|${contestValue}|${currentVizMode}|p${pinnedShell ? '1' : '0'}|${isMobileViewportNow() ? 'm' : 'd'}`;
+        const tooltip = document.getElementById('hover-tooltip');
+        const tooltipVisible = !!tooltip && tooltip.style.display !== 'none' && (tooltip.innerHTML || '').trim().length > 0;
+        const now = (typeof performance !== 'undefined' && performance.now) ? performance.now() : Date.now();
+        if (!forceTooltip && !tooltipPinned && tooltipVisible) {
+          if (hoverKey === lastCountyHoverKey) return;
+          if (now - lastCountyHoverRenderedAt < COUNTY_HOVER_THROTTLE_MS) return;
+        }
+        lastCountyHoverKey = hoverKey;
+        lastCountyHoverRenderedAt = now;
+      } catch (_) {}
 
       if (!contestValue || !row) {
-        if (pinSelection) setTooltipPinned(true);
         const censusLine = buildCountyCensusTooltipHTML(norm);
+        const emptyState = isTouchInteractionMode()
+          ? '<div class="tooltip-kicker">Start</div><div style="color:rgba(226,232,240,0.92);font-weight:650;">Choose a contest to see county results.</div>'
+          : '<div style="color:#94a3b8;">Select a contest to see results</div>';
         const shell = buildTooltipShell(
-          `${countyDisplay} County`,
-          `<div style="color:#94a3b8;">Select a contest to see results</div>${censusLine}`,
-          { pinned: !!pinSelection, copyText }
+          buildTooltipTitleWithTier(`${countyDisplay} County`),
+          `${emptyState}${censusLine}`,
+          { pinned: pinnedShell, copyText }
         );
-        showHoverTooltip(e.point.x, e.point.y, shell, { force: !!forceTooltip, pinned: !!pinSelection, context: pinSelection ? 'selection' : 'preview', copyText });
+        showHoverTooltip(e.point.x, e.point.y, shell, { force: !!forceTooltip, pinned: pinnedShell, context: pinnedShell ? 'pinned' : 'detail', copyText });
         wireTooltipButtons();
         return;
       }
@@ -12595,14 +12796,16 @@ document.addEventListener('DOMContentLoaded', function() {
       const otherVotes = Number(row[`${contestType}_other`] || 0);
       const totalVotes = Number(row[`${contestType}_total`] || 0);
       if (totalVotes <= 0) {
-        if (pinSelection) setTooltipPinned(true);
         const censusLine = buildCountyCensusTooltipHTML(norm);
+        const emptyState = isTouchInteractionMode()
+          ? '<div class="tooltip-kicker">No data</div><div style="color:rgba(226,232,240,0.92);">No results reported for this contest.</div>'
+          : '<div style="color:#94a3b8;">No data available</div>';
         const shell = buildTooltipShell(
-          `${countyDisplay} County`,
-          `<div style="color:#94a3b8;">No data available</div>${censusLine}`,
-          { pinned: !!pinSelection, copyText }
+          buildTooltipTitleWithTier(`${countyDisplay} County`),
+          `${emptyState}${censusLine}`,
+          { pinned: pinnedShell, copyText }
         );
-        showHoverTooltip(e.point.x, e.point.y, shell, { force: !!forceTooltip, pinned: !!pinSelection, context: pinSelection ? 'selection' : 'preview', copyText });
+        showHoverTooltip(e.point.x, e.point.y, shell, { force: !!forceTooltip, pinned: pinnedShell, context: pinnedShell ? 'pinned' : 'detail', copyText });
         wireTooltipButtons();
         return;
       }
@@ -12651,9 +12854,9 @@ document.addEventListener('DOMContentLoaded', function() {
         ${demoLine}
       `;
 
-      if (pinSelection) setTooltipPinned(true);
-      const shell = buildTooltipShell(`${countyDisplay} County`, inner, { pinned: !!pinSelection, copyText });
-      showHoverTooltip(e.point.x, e.point.y, shell, { force: !!forceTooltip, pinned: !!pinSelection, context: pinSelection ? 'selection' : 'preview', copyText });
+      const hoverTitle = buildTooltipTitleWithTier(`${countyDisplay} County`, tierMeta);
+      const shell = buildTooltipShell(hoverTitle, inner, { pinned: pinnedShell, copyText });
+      showHoverTooltip(e.point.x, e.point.y, shell, { force: !!forceTooltip, pinned: pinnedShell, context: pinnedShell ? 'pinned' : 'detail', copyText });
       wireTooltipButtons();
     }
 
@@ -12813,12 +13016,11 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     }
 
-    async function renderDistrictHover(e, scope, districtLabel, districtFieldCandidates, { forceTooltip = false, pinSelection = false } = {}) {
+    async function renderDistrictHover(e, scope, districtLabel, districtFieldCandidates, { forceTooltip = false } = {}) {
       if (!(e.features && e.features[0])) return;
       const props = e.features[0].properties || {};
       const districtNum = getDistrictNumberFromPropsCandidates(props, districtFieldCandidates);
       if (!districtNum) return;
-      const copyText = `${districtLabel} ${districtNum}`;
       const requestId = ++districtHoverRequestId;
       setDistrictHoverOutline(scope, districtNum);
 
@@ -12826,12 +13028,8 @@ document.addEventListener('DOMContentLoaded', function() {
       const _demoRow = getDistrictDemographics(scope, districtNum);
       const _demoHTML = buildDemoHTML(_demoRow);
       if (!contestValue) {
-        if (pinSelection) setTooltipPinned(true);
-        const shell = buildTooltipShell(`${districtLabel} ${districtNum}`,
-          _demoHTML + '<div style="color:#94a3b8;margin-top:6px;">Select a contest to see results</div>',
-          { pinned: !!pinSelection, copyText }
-        );
-        showHoverTooltip(e.point.x, e.point.y, shell, { force: !!forceTooltip, pinned: !!pinSelection, context: pinSelection ? 'selection' : 'preview', copyText });
+        showHoverTooltip(e.point.x, e.point.y, buildTooltipShell(`${districtLabel} ${districtNum}`,
+          _demoHTML + '<div style="color:#94a3b8;margin-top:6px;">Select a contest to see results</div>'), { force: !!forceTooltip });
         wireTooltipButtons();
         return;
       }
@@ -12853,12 +13051,8 @@ document.addEventListener('DOMContentLoaded', function() {
       }
 
       if (!row) {
-        if (pinSelection) setTooltipPinned(true);
-        const shell = buildTooltipShell(`${districtLabel} ${districtNum}`,
-          _demoHTML + '<div style="color:#94a3b8;margin-top:6px;">No data for this contest</div>',
-          { pinned: !!pinSelection, copyText }
-        );
-        showHoverTooltip(e.point.x, e.point.y, shell, { force: !!forceTooltip, pinned: !!pinSelection, context: pinSelection ? 'selection' : 'preview', copyText });
+        showHoverTooltip(e.point.x, e.point.y, buildTooltipShell(`${districtLabel} ${districtNum}`,
+          _demoHTML + '<div style="color:#94a3b8;margin-top:6px;">No data for this contest</div>'), { force: !!forceTooltip });
         wireTooltipButtons();
         return;
       }
@@ -12868,12 +13062,8 @@ document.addEventListener('DOMContentLoaded', function() {
       const otherVotes = Number(row.other_votes || 0);
       const totalVotes = Number(row.total_votes || 0);
       if (totalVotes <= 0) {
-        if (pinSelection) setTooltipPinned(true);
-        const shell = buildTooltipShell(`${districtLabel} ${districtNum}`,
-          _demoHTML + '<div style="color:#94a3b8;margin-top:6px;">No data for this contest</div>',
-          { pinned: !!pinSelection, copyText }
-        );
-        showHoverTooltip(e.point.x, e.point.y, shell, { force: !!forceTooltip, pinned: !!pinSelection, context: pinSelection ? 'selection' : 'preview', copyText });
+        showHoverTooltip(e.point.x, e.point.y, buildTooltipShell(`${districtLabel} ${districtNum}`,
+          _demoHTML + '<div style="color:#94a3b8;margin-top:6px;">No data for this contest</div>'), { force: !!forceTooltip });
         wireTooltipButtons();
         return;
       }
@@ -12939,9 +13129,7 @@ document.addEventListener('DOMContentLoaded', function() {
         ${_demoHTML}
         ${buildResultCardHTML('', subtitle, demVotes, repVotes, otherVotes, demCandidate, repCandidate)}
       `;
-      if (pinSelection) setTooltipPinned(true);
-      const shell = buildTooltipShell(`${districtLabel} ${districtNum}`, inner, { pinned: !!pinSelection, copyText });
-      showHoverTooltip(e.point.x, e.point.y, shell, { force: !!forceTooltip, pinned: !!pinSelection, context: pinSelection ? 'selection' : 'preview', copyText });
+      showHoverTooltip(e.point.x, e.point.y, buildTooltipShell(`${districtLabel} ${districtNum}`, inner), { force: !!forceTooltip });
       wireTooltipButtons();
     }
 
@@ -14425,7 +14613,8 @@ document.addEventListener('DOMContentLoaded', function() {
               setCountyHoverOutline(countyName);
               setTooltipPinned(false);
               if (isTouchInteractionMode()) {
-                renderCountyHoverAtPoint(e, { forceTooltip: true, pinSelection: true });
+                renderCountyHoverAtPoint(e, { forceTooltip: true });
+                setTooltipPinned(true);
               } else {
                 hideHoverTooltip();
               }
@@ -15009,8 +15198,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     'congressional',
                     'Congressional District',
                     ['DISTRICT', 'CD118FP', 'CD119FP', 'district_id', 'district', 'NAMELSAD'],
-                    { forceTooltip: true, pinSelection: true }
+                    { forceTooltip: true }
                   );
+                  setTooltipPinned(true);
                 } else {
                   hideHoverTooltip();
                 }
@@ -15116,8 +15306,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     'state_house',
                     'State House District',
                     ['DISTRICT', 'SLDLST', 'district_id', 'district', 'NAMELSAD'],
-                    { forceTooltip: true, pinSelection: true }
+                    { forceTooltip: true }
                   );
+                  setTooltipPinned(true);
                 } else {
                   hideHoverTooltip();
                 }
@@ -15223,8 +15414,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     'state_senate',
                     'State Senate District',
                     ['DISTRICT', 'SLDUST', 'district_id', 'district', 'NAMELSAD'],
-                    { forceTooltip: true, pinSelection: true }
+                    { forceTooltip: true }
                   );
+                  setTooltipPinned(true);
                 } else {
                   hideHoverTooltip();
                 }
