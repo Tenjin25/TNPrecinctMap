@@ -13013,9 +13013,20 @@ document.addEventListener('DOMContentLoaded', function() {
       const winner = signedMarginPct > 0 ? 'R' : (signedMarginPct < 0 ? 'D' : 'T');
       const subtitle = `${formatContestName(contestType, year)} ${year}`;
 
+      const desktopCollapsed = isDesktopTooltipMode() && !pinnedShell;
+      const useCompact = isMobileTooltipMode();
+
       let demoLine = '';
-      try { demoLine = buildCountyCensusTooltipHTML(norm); } catch (_) { demoLine = ''; }
-      if (!pinnedShell) demoLine = '';
+      let compactCensusLine = '';
+      try {
+        demoLine = buildCountyCensusTooltipHTML(norm);
+        compactCensusLine = buildCountyCensusTooltipHTML(norm, { compact: true });
+      } catch (_) {
+        demoLine = '';
+        compactCensusLine = '';
+      }
+      // Show compact census in hover preview; show full census when pinned.
+      const censusLine = pinnedShell ? demoLine : compactCensusLine;
       const deltaBlock = buildCountyDeltaBlockHTML(norm, contestType, { presentation: desktopCollapsed ? 'desktop-collapsed' : 'desktop-expanded' });
 
       const chips = [];
@@ -13058,15 +13069,13 @@ document.addEventListener('DOMContentLoaded', function() {
         if (shiftDelta > 0) return 'Republicans gaining ground lately.';
         return '';
       })();
-      const desktopCollapsed = isDesktopTooltipMode() && !pinnedShell;
-      const useCompact = isMobileTooltipMode();
 
       const classicInner = `
         <div class="hover-meta">${chips.join('')}</div>
         ${buildResultCardHTML('', subtitle, demVotes, repVotes, otherVotes, demCandidate, repCandidate)}
         ${tooltipInsight ? `<div class="tooltip-insight">${escapeHtml(tooltipInsight)}</div>` : ''}
         ${deltaBlock}
-        ${demoLine}
+        ${censusLine}
       `.trim();
 
       const desktopCollapsedInner = `
@@ -13077,6 +13086,7 @@ document.addEventListener('DOMContentLoaded', function() {
         ${flipLine}
         ${tooltipInsight ? `<div class="tooltip-insight">${escapeHtml(tooltipInsight)}</div>` : ''}
         ${deltaBlock}
+        ${censusLine}
       `.trim();
 
       const compactInner = `
@@ -13093,7 +13103,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="hover-meta">${chips.join('')}</div>
             ${buildResultCardHTML('', subtitle, demVotes, repVotes, otherVotes, demCandidate, repCandidate)}
             ${deltaBlock}
-            ${demoLine}
+            ${censusLine}
           </div>
         </details>
       `.trim();
@@ -17688,7 +17698,31 @@ document.addEventListener('DOMContentLoaded', function() {
 
     async function getPreviousDistrictSlice(scope, contestType, year) {
       const y = Number(year);
-      const candidates = [y - 4, y - 6, y - 2, y - 8, y - 12].filter(v => v >= 2000);
+
+      // Prefer the manifest to find the immediately-previous available year for this
+      // scope/contestType. This keeps shift/flip comparisons on the correct cycle
+      // (e.g. state_house 2022 compares to 2020, not 2018).
+      const manifest = getActiveDistrictManifest();
+      let candidates = [];
+      try {
+        if (manifest && manifest.length) {
+          candidates = Array.from(new Set(
+            manifest
+              .filter(e => e && e.scope === scope && e.contest_type === contestType)
+              .map(e => Number(e.year))
+              .filter(v => Number.isFinite(v) && v >= 2000 && v < y)
+          )).sort((a, b) => b - a);
+        }
+      } catch (_) {
+        candidates = [];
+      }
+
+      // Fallback heuristic: try common cycles. Put y-2 first so 2-year races (US House,
+      // State House/Senate) behave correctly.
+      if (!candidates.length) {
+        candidates = [y - 2, y - 4, y - 6, y - 8, y - 12].filter(v => v >= 2000);
+      }
+
       for (const cy of candidates) {
         const node = await tryLoadDistrictSliceStrict(scope, contestType, cy);
         const results = node?.general?.results || null;
