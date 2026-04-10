@@ -7843,6 +7843,7 @@ document.addEventListener('DOMContentLoaded', function() {
           county_name: (r?.county_name || '').toString().trim(),
           countyfp: (r?.countyfp || '').toString().trim(),
           pop_2020: Number(r?.pop_2020 || 0) || 0,
+          pop_2024: Number(r?.pop_2024 || 0) || 0,
           pop_2025: Number(r?.pop_2025 || 0) || 0,
           pct_state_pop_2025: Number(r?.pct_state_pop_2025 || 0) || 0
         };
@@ -13036,10 +13037,25 @@ document.addEventListener('DOMContentLoaded', function() {
         : '';
 
       const collapsed = isDesktopTooltipMode() && presentation === 'desktop-collapsed';
+      const vote = options?.vote || null; // { fromYear, toYear, repDelta, demDelta, totalDelta }
+      const hasVote = !!vote && [vote.repDelta, vote.demDelta, vote.totalDelta].every(n => Number.isFinite(Number(n)));
+      const yrFrom = Number(vote?.fromYear);
+      const yrTo = Number(vote?.toYear);
+      const yearsLabel = (Number.isFinite(yrFrom) && Number.isFinite(yrTo))
+        ? `${String(yrFrom).slice(-2)}\u2192${String(yrTo).slice(-2)}`
+        : 'prev\u2192cur';
+      const votesParts = hasVote
+        ? [
+            `Raw votes (${yearsLabel}): <span style="color:#fecaca;font-weight:800;">R ${escapeHtml(formatSignedCompactDeltaInt(vote.repDelta))}</span> • <span style="color:#bfdbfe;font-weight:800;">D ${escapeHtml(formatSignedCompactDeltaInt(vote.demDelta))}</span>`,
+            `Total vote gain (${yearsLabel}): <span style="font-weight:800;">${escapeHtml(formatSignedCompactDeltaInt(vote.totalDelta))}</span>`
+          ]
+        : [];
+
       const lines = [
         line2025,
         ...(collapsed ? [] : (line2024 ? [line2024] : [])),
-        ...(line2425 ? [line2425] : [])
+        ...(line2425 ? [line2425] : []),
+        ...votesParts
       ].filter(Boolean);
 
       if (!lines.length) return '';
@@ -13217,7 +13233,22 @@ document.addEventListener('DOMContentLoaded', function() {
       const showDemoLine = tooltipPinned || (forceTooltip && isTouchInteractionMode());
       if (!showDemoLine) demoLine = '';
       const splitInsightLine = '';
-      const deltaBlock = buildCountyDeltaBlockHTML(norm, contestType, { presentation: desktopCollapsed ? 'desktop-collapsed' : 'desktop-expanded' });
+      const voteDelta = (() => {
+        if (!(vizPrevCache?.prevYear && vizPrevCache?.prevCountyTotals)) return null;
+        const prev = vizPrevCache.prevCountyTotals[norm] || null;
+        if (!prev) return null;
+        return {
+          fromYear: vizPrevCache.prevYear,
+          toYear: Number(year),
+          repDelta: Number(repVotes) - Number(prev.rep || 0),
+          demDelta: Number(demVotes) - Number(prev.dem || 0),
+          totalDelta: Number(totalVotes) - Number(prev.total || 0)
+        };
+      })();
+      const deltaBlock = buildCountyDeltaBlockHTML(norm, contestType, {
+        presentation: desktopCollapsed ? 'desktop-collapsed' : 'desktop-expanded',
+        vote: voteDelta
+      });
 
       const chips = [];
       let prevSignedForFlip = null;
@@ -17682,9 +17713,33 @@ document.addEventListener('DOMContentLoaded', function() {
 
     async function getPreviousContestSlice(contestType, year) {
       const y = Number(year);
-      const candidates = [y - 4, y - 6, y - 2, y - 8, y - 12].filter(v => v >= 2000);
+      const ct = String(contestType || '').trim();
+      if (!ct || !Number.isFinite(y)) return null;
+
+      // Prefer the contest manifest to find the immediately-previous available year for
+      // this contest type. This keeps comparisons on the correct cycle (including
+      // special-election years that break the usual -4/-6 pattern).
+      let candidates = [];
+      try {
+        if (contestManifest && contestManifest.length) {
+          candidates = Array.from(new Set(
+            contestManifest
+              .filter(e => e && e.contest_type === ct)
+              .map(e => Number(e.year))
+              .filter(v => Number.isFinite(v) && v >= 2000 && v < y)
+          )).sort((a, b) => b - a);
+        }
+      } catch (_) {
+        candidates = [];
+      }
+
+      // Fallback heuristic: try common cycles. Put y-2 first so 2-year races behave correctly.
+      if (!candidates.length) {
+        candidates = [y - 2, y - 4, y - 6, y - 8, y - 12].filter(v => v >= 2000);
+      }
+
       for (const cy of candidates) {
-        const rows = await tryLoadContestSliceStrict(contestType, cy);
+        const rows = await tryLoadContestSliceStrict(ct, cy);
         if (rows && rows.length) return { year: cy, rows };
       }
       return null;
