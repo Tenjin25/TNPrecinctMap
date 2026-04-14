@@ -17712,31 +17712,52 @@ document.addEventListener('DOMContentLoaded', function() {
 	      }
 	    }
 
+    function getPriorComparisonYears(contestType, year, availableYears = []) {
+      const y = Number(year);
+      const ct = String(contestType || '').trim();
+      if (!ct || !Number.isFinite(y)) return [];
+
+      const normalized = Array.from(new Set(
+        (availableYears || [])
+          .map(v => Number(v))
+          .filter(v => Number.isFinite(v) && v >= 2000 && v < y)
+      )).sort((a, b) => b - a);
+
+      // US Senate races are staggered by class. Comparing 2024 to 2020 would mix the
+      // Blackburn seat with the Hagerty seat, so prefer the previous year on the same
+      // 6-year cycle first and only fall back if that history is unavailable.
+      if (ct === 'us_senate') {
+        const sameSeatYears = normalized.filter(v => ((y - v) % 6) === 0);
+        const otherYears = normalized.filter(v => ((y - v) % 6) !== 0);
+        if (sameSeatYears.length) return sameSeatYears.concat(otherYears);
+        return normalized.length ? normalized : [y - 6, y - 12, y - 18].filter(v => v >= 2000);
+      }
+
+      if (normalized.length) return normalized;
+
+      // Default heuristic: try the nearest common cycle first.
+      return [y - 2, y - 4, y - 6, y - 8, y - 12].filter(v => v >= 2000);
+    }
+
     async function getPreviousContestSlice(contestType, year) {
       const y = Number(year);
       const ct = String(contestType || '').trim();
       if (!ct || !Number.isFinite(y)) return null;
 
-      // Prefer the contest manifest to find the immediately-previous available year for
-      // this contest type. This keeps comparisons on the correct cycle (including
-      // special-election years that break the usual -4/-6 pattern).
       let candidates = [];
       try {
         if (contestManifest && contestManifest.length) {
-          candidates = Array.from(new Set(
-            contestManifest
-              .filter(e => e && e.contest_type === ct)
-              .map(e => Number(e.year))
-              .filter(v => Number.isFinite(v) && v >= 2000 && v < y)
-          )).sort((a, b) => b - a);
+          const availableYears = contestManifest
+            .filter(e => e && e.contest_type === ct)
+            .map(e => Number(e.year));
+          candidates = getPriorComparisonYears(ct, y, availableYears);
         }
       } catch (_) {
         candidates = [];
       }
 
-      // Fallback heuristic: try common cycles. Put y-2 first so 2-year races behave correctly.
       if (!candidates.length) {
-        candidates = [y - 2, y - 4, y - 6, y - 8, y - 12].filter(v => v >= 2000);
+        candidates = getPriorComparisonYears(ct, y);
       }
 
       for (const cy of candidates) {
@@ -17960,28 +17981,21 @@ document.addEventListener('DOMContentLoaded', function() {
     async function getPreviousDistrictSlice(scope, contestType, year) {
       const y = Number(year);
 
-      // Prefer the manifest to find the immediately-previous available year for this
-      // scope/contestType. This keeps shift/flip comparisons on the correct cycle
-      // (e.g. state_house 2022 compares to 2020, not 2018).
       const manifest = getActiveDistrictManifest();
       let candidates = [];
       try {
         if (manifest && manifest.length) {
-          candidates = Array.from(new Set(
-            manifest
-              .filter(e => e && e.scope === scope && e.contest_type === contestType)
-              .map(e => Number(e.year))
-              .filter(v => Number.isFinite(v) && v >= 2000 && v < y)
-          )).sort((a, b) => b - a);
+          const availableYears = manifest
+            .filter(e => e && e.scope === scope && e.contest_type === contestType)
+            .map(e => Number(e.year));
+          candidates = getPriorComparisonYears(contestType, y, availableYears);
         }
       } catch (_) {
         candidates = [];
       }
 
-      // Fallback heuristic: try common cycles. Put y-2 first so 2-year races (US House,
-      // State House/Senate) behave correctly.
       if (!candidates.length) {
-        candidates = [y - 2, y - 4, y - 6, y - 8, y - 12].filter(v => v >= 2000);
+        candidates = getPriorComparisonYears(contestType, y);
       }
 
       for (const cy of candidates) {
