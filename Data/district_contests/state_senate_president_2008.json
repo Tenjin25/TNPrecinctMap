@@ -5,10 +5,10 @@
   "meta": {
     "source": "tn_precinct_csv_district_aggregation",
     "match_coverage_pct": 100.0,
-    "direct_precinct_row_pct": 97.5111,
+    "direct_precinct_row_pct": 97.5193,
     "overlap_precinct_row_pct": 0.0,
-    "non_geo_row_pct": 2.2677,
-    "county_fallback_row_pct": 0.2212,
+    "non_geo_row_pct": 2.2602,
+    "county_fallback_row_pct": 0.2205,
     "dropped_row_pct": 0.0,
     "direct_precinct_vote_pct": 96.2345,
     "overlap_precinct_vote_pct": 0.0,

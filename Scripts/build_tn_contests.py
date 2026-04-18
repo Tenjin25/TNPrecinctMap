@@ -705,6 +705,65 @@ def build_2024_prctseq_to_vtd_lookup(
     }
 
 
+def build_2024_prctseq_to_vtd_candidates(
+    county_norm_to_fp: Dict[str, str],
+    vtd20_name_key_map: Dict[Tuple[str, str], List[str]],
+    vtd20_leading_code_map: Dict[Tuple[str, str], List[str]],
+    *,
+    max_candidates_per_precinct: int = 60,
+) -> Dict[Tuple[str, int], List[str]]:
+    """Return (countyfp, PRCTSEQ int) -> list[VTD20 code] candidates from 2024 precinct labels."""
+    path = DATA_DIR / "20241105__tn__general__precinct.csv"
+    out_raw: Dict[Tuple[str, int], set] = defaultdict(set)
+    if not path.exists() or not vtd20_name_key_map:
+        return {}
+
+    allowed_prefixes = ("FULL:", "PAIR:", "TXTNUM:", "NUMTXT:", "TXT:", "NUM:")
+    with path.open("r", encoding="utf-8-sig", newline="") as f:
+        reader = csv.DictReader(f)
+        for r in reader:
+            county_norm = norm_county(r.get("COUNTY", ""))
+            county_fp = county_norm_to_fp.get(county_norm, "")
+            seq_raw = norm_space(r.get("PRCTSEQ", ""))
+            precinct_raw = norm_space(r.get("PRECINCT", ""))
+            if not (county_fp and seq_raw and seq_raw.isdigit() and precinct_raw):
+                continue
+            seq_int = int(seq_raw)
+            key = (county_fp, seq_int)
+            cur = out_raw[key]
+            if len(cur) >= int(max_candidates_per_precinct):
+                continue
+
+            for token in extract_leading_precinct_code_tokens(precinct_raw):
+                for code in vtd20_leading_code_map.get((county_fp, token), []):
+                    if code and str(code).isdigit():
+                        cur.add(str(code).zfill(6))
+                        if len(cur) >= int(max_candidates_per_precinct):
+                            break
+                if len(cur) >= int(max_candidates_per_precinct):
+                    break
+
+            if len(cur) >= int(max_candidates_per_precinct):
+                continue
+            for key_name in extract_precinct_name_keys(precinct_raw):
+                if not key_name.startswith(allowed_prefixes):
+                    continue
+                for code in vtd20_name_key_map.get((county_fp, key_name), []):
+                    if code and str(code).isdigit():
+                        cur.add(str(code).zfill(6))
+                        if len(cur) >= int(max_candidates_per_precinct):
+                            break
+                if len(cur) >= int(max_candidates_per_precinct):
+                    break
+
+    out: Dict[Tuple[str, int], List[str]] = {}
+    for k, v in out_raw.items():
+        if not v:
+            continue
+        out[k] = sorted(v)
+    return out
+
+
 def build_2024_prctseq_district_weights_raw(
     county_norm_to_fp: Dict[str, str],
     office_marker: str,
@@ -1658,6 +1717,7 @@ def build_prctseq_unique_to_vtd_map(
     vtd_ints_by_county: Dict[str, set],
     offset_candidates_by_county: Dict[str, List[int]],
     prctseq_exact_to_vtd: Dict[Tuple[str, int], str],
+    prctseq_name_candidates: Dict[Tuple[str, int], List[str]],
     *,
     max_offsets: int = 120,
 ) -> Dict[Tuple[str, int], str]:
@@ -1740,6 +1800,10 @@ def build_prctseq_unique_to_vtd_map(
                 if v in vset and v not in seen:
                     neighbors.append(v)
                     seen.add(v)
+
+            for code in prctseq_name_candidates.get((county_fp, int(p)), []):
+                if code and str(code).isdigit():
+                    add(int(str(code)))
 
             exact = prctseq_exact_to_vtd.get((county_fp, int(p)), "")
             if exact and str(exact).isdigit():
@@ -1828,6 +1892,10 @@ def resolve_precinct_code(
         p = norm_space(prctseq_raw)
         if p:
             prctseq_candidate = to_vtd(p)
+        if is_non_geographic_precinct_name(precinct_raw):
+            return f"NG-{norm_precinct_name(precinct_raw)[:20]}".replace(" ", "_")
+        if prctseq_candidate:
+            return prctseq_candidate
     prec_norm = norm_precinct_name(precinct_raw)
     if not prec_norm:
         return ""
@@ -1857,9 +1925,6 @@ def resolve_precinct_code(
                 out = to_vtd(candidates[0])
                 if out:
                     return out
-
-    if year == 2024 and prctseq_candidate:
-        return prctseq_candidate
 
     code = to2024.get((year, county_norm, prec_norm), "")
     if code:
@@ -1973,6 +2038,11 @@ def build() -> dict:
         vtd20_name_key_map=vtd20_name_key_map,
         vtd20_leading_code_map=vtd20_leading_code_map,
     )
+    prctseq_name_candidates = build_2024_prctseq_to_vtd_candidates(
+        county_norm_to_fp=county_norm_to_fp,
+        vtd20_name_key_map=vtd20_name_key_map,
+        vtd20_leading_code_map=vtd20_leading_code_map,
+    )
     prctseq_exact_to_vtd.update(load_prctseq_to_vtd20_overrides())
     prctseq_offsets_by_county, vtd_ints_by_county, prctseq_offset_candidates_by_county = build_prctseq_offsets(
         county_norm_to_fp, district_weights, prctseq_exact_to_vtd
@@ -1986,6 +2056,7 @@ def build() -> dict:
         vtd_ints_by_county=vtd_ints_by_county,
         offset_candidates_by_county=prctseq_offset_candidates_by_county,
         prctseq_exact_to_vtd=prctseq_exact_to_vtd,
+        prctseq_name_candidates=prctseq_name_candidates,
     )
     prctseq_exact_to_vtd.update(prctseq_unique_to_vtd)
     state_house_2024_vote_weights = build_2024_prctseq_district_weights_to_vtd(
