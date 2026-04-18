@@ -17459,7 +17459,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
         try {
           const dManifest = await loadJSON(`${CONFIG.paths.district_contests_dir}/manifest.json`);
-          districtManifest = dManifest?.files || [];
+          districtManifest = (dManifest?.files || []).filter(e => {
+            if (!e) return false;
+            // Tennessee redistricted for 2022+; hide pre-2022 state-house election
+            // contests (the statewide overlays like president/us_senate still work).
+            if (e.scope === 'state_house' && e.contest_type === 'state_house' && Number(e.year) < 2022) {
+              return false;
+            }
+            return true;
+          });
           districtElectionDataJSON = null;
           districtSliceCache = new Map();
           if (contestManifest.length > 0 || districtManifest.length > 0) {

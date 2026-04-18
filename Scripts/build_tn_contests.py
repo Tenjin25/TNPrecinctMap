@@ -351,6 +351,7 @@ def district_result_from_override(override: dict, fallback_totals: Optional[Tota
 def maybe_apply_overlap_dominant_assignment(
     scope: str,
     county_fp: str,
+    year: int,
     source: str,
     allocs: List[Tuple[str, float]],
 ) -> List[Tuple[str, float]]:
@@ -362,7 +363,14 @@ def maybe_apply_overlap_dominant_assignment(
         return allocs
     allocs_sorted = sorted(allocs, key=lambda x: float(x[1]), reverse=True)
     top_district, top_share = allocs_sorted[0]
-    if float(top_share) < OVERLAP_DOMINANT_MIN_SHARE:
+    min_share = OVERLAP_DOMINANT_MIN_SHARE
+    # Historical elections are mapped onto modern district/precinct boundaries.
+    # In selected counties this can produce noticeable sliver leakage across a
+    # neighboring district. Use a slightly more aggressive collapse threshold
+    # for pre-redistricting years to keep the visualization stable.
+    if scope == "state_house" and county_fp == "065" and int(year) < 2022:
+        min_share = min(min_share, 0.35)
+    if float(top_share) < float(min_share):
         return allocs
     return [(str(top_district), 1.0)]
 
@@ -2119,6 +2127,7 @@ def build() -> dict:
                 allocs = maybe_apply_overlap_dominant_assignment(
                     scope=scope,
                     county_fp=county_fp,
+                    year=int(year),
                     source=source,
                     allocs=allocs,
                 )
@@ -2215,6 +2224,7 @@ def build() -> dict:
             allocs = maybe_apply_overlap_dominant_assignment(
                 scope=scope,
                 county_fp=county_fp,
+                year=int(year),
                 source=source,
                 allocs=allocs,
             )
