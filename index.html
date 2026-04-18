@@ -15114,7 +15114,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const original = feature.properties || {};
         const countyRaw = (original.county_nam || original.COUNTYNAME || original.County || original.NAME || '').toString().trim();
         const countyNorm = countyRaw.replace(/[^a-z0-9 .\-]/gi, '').replace(/\s+/g, ' ').trim().toUpperCase();
-        const precRaw = (original.prec_id || original.PREC_ID || '').toString().trim();
+        let precRaw = (original.prec_id || original.PREC_ID || '').toString().trim();
+        if (/^\d+$/.test(precRaw)) precRaw = precRaw.padStart(6, '0');
         const precinctRaw = countyRaw && precRaw ? `${countyRaw} - ${precRaw}` : countyRaw;
         const precinctNorm = (precinctRaw || '').replace(/[^a-z0-9 .\-]/gi, '').replace(/\s+/g, ' ').trim().toUpperCase();
         feature.properties = {
@@ -15217,7 +15218,8 @@ document.addEventListener('DOMContentLoaded', function() {
             precinctCentroidsData.features = (precinctCentroidsData.features || []).map(f => {
               const p = f.properties || {};
               const county = (p.county_nam || p.COUNTYNAME || p.County || p.NAME || '').toString().trim();
-              const prec = (p.prec_id || p.PREC_ID || '').toString().trim();
+              let prec = (p.prec_id || p.PREC_ID || '').toString().trim();
+              if (/^\d+$/.test(prec)) prec = prec.padStart(6, '0');
               const norm = (p.precinct_norm || (county && prec ? `${county} - ${prec}` : '')).toString()
                 .replace(/[^a-z0-9 .\-]/gi, '')
                 .replace(/\s+/g, ' ')

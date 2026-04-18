@@ -5,9 +5,9 @@
   "meta": {
     "source": "tn_precinct_csv_district_aggregation",
     "match_coverage_pct": 100.0,
-    "direct_precinct_row_pct": 99.9469,
+    "direct_precinct_row_pct": 99.9474,
     "overlap_precinct_row_pct": 0.0,
-    "non_geo_row_pct": 0.0531,
+    "non_geo_row_pct": 0.0526,
     "county_fallback_row_pct": 0.0,
     "dropped_row_pct": 0.0,
     "direct_precinct_vote_pct": 98.8573,
@@ -97,14 +97,14 @@
         "winner": "REP"
       },
       "8": {
-        "dem_votes": 7638,
-        "rep_votes": 25845,
-        "other_votes": 609,
-        "total_votes": 34092,
+        "dem_votes": 7916,
+        "rep_votes": 27076,
+        "other_votes": 646,
+        "total_votes": 35638,
         "dem_candidate": "Marquita Bradshaw",
         "rep_candidate": "Bill Hagerty",
-        "margin": 18207,
-        "margin_pct": 53.4055,
+        "margin": 19160,
+        "margin_pct": 53.7628,
         "winner": "REP"
       },
       "9": {
@@ -130,25 +130,25 @@
         "winner": "REP"
       },
       "11": {
-        "dem_votes": 5028,
-        "rep_votes": 23999,
-        "other_votes": 648,
-        "total_votes": 29675,
+        "dem_votes": 4570,
+        "rep_votes": 22339,
+        "other_votes": 598,
+        "total_votes": 27507,
         "dem_candidate": "Marquita Bradshaw",
         "rep_candidate": "Bill Hagerty",
-        "margin": 18971,
-        "margin_pct": 63.9292,
+        "margin": 17769,
+        "margin_pct": 64.5981,
         "winner": "REP"
       },
       "12": {
-        "dem_votes": 5767,
-        "rep_votes": 23482,
-        "other_votes": 734,
-        "total_votes": 29983,
+        "dem_votes": 4789,
+        "rep_votes": 19355,
+        "other_votes": 617,
+        "total_votes": 24761,
         "dem_candidate": "Marquita Bradshaw",
         "rep_candidate": "Bill Hagerty",
-        "margin": 17715,
-        "margin_pct": 59.0835,
+        "margin": 14566,
+        "margin_pct": 58.8264,
         "winner": "REP"
       },
       "13": {
@@ -196,14 +196,14 @@
         "winner": "REP"
       },
       "17": {
-        "dem_votes": 4488,
-        "rep_votes": 20967,
-        "other_votes": 611,
-        "total_votes": 26066,
+        "dem_votes": 5925,
+        "rep_votes": 26753,
+        "other_votes": 779,
+        "total_votes": 33457,
         "dem_candidate": "Marquita Bradshaw",
         "rep_candidate": "Bill Hagerty",
-        "margin": 16479,
-        "margin_pct": 63.2203,
+        "margin": 20828,
+        "margin_pct": 62.253,
         "winner": "REP"
       },
       "18": {
@@ -229,25 +229,25 @@
         "winner": "REP"
       },
       "20": {
-        "dem_votes": 8312,
-        "rep_votes": 21546,
-        "other_votes": 638,
-        "total_votes": 30496,
+        "dem_votes": 8034,
+        "rep_votes": 20315,
+        "other_votes": 601,
+        "total_votes": 28950,
         "dem_candidate": "Marquita Bradshaw",
         "rep_candidate": "Bill Hagerty",
-        "margin": 13234,
-        "margin_pct": 43.3959,
+        "margin": 12281,
+        "margin_pct": 42.4214,
         "winner": "REP"
       },
       "21": {
-        "dem_votes": 6480,
-        "rep_votes": 25091,
-        "other_votes": 637,
-        "total_votes": 32208,
+        "dem_votes": 5676,
+        "rep_votes": 22926,
+        "other_votes": 591,
+        "total_votes": 29193,
         "dem_candidate": "Marquita Bradshaw",
         "rep_candidate": "Bill Hagerty",
-        "margin": 18611,
-        "margin_pct": 57.7838,
+        "margin": 17250,
+        "margin_pct": 59.0895,
         "winner": "REP"
       },
       "22": {
@@ -361,25 +361,25 @@
         "winner": "REP"
       },
       "32": {
-        "dem_votes": 7314,
-        "rep_votes": 25178,
-        "other_votes": 889,
-        "total_votes": 33381,
+        "dem_votes": 8118,
+        "rep_votes": 27342,
+        "other_votes": 934,
+        "total_votes": 36394,
         "dem_candidate": "Marquita Bradshaw",
         "rep_candidate": "Bill Hagerty",
-        "margin": 17864,
-        "margin_pct": 53.5155,
+        "margin": 19224,
+        "margin_pct": 52.8219,
         "winner": "REP"
       },
       "33": {
-        "dem_votes": 9264,
-        "rep_votes": 17583,
-        "other_votes": 539,
-        "total_votes": 27386,
+        "dem_votes": 9341,
+        "rep_votes": 17746,
+        "other_votes": 549,
+        "total_votes": 27636,
         "dem_candidate": "Marquita Bradshaw",
         "rep_candidate": "Bill Hagerty",
-        "margin": 8319,
-        "margin_pct": 30.3768,
+        "margin": 8405,
+        "margin_pct": 30.4132,
         "winner": "REP"
       },
       "34": {
@@ -394,14 +394,14 @@
         "winner": "REP"
       },
       "35": {
-        "dem_votes": 6947,
-        "rep_votes": 19857,
-        "other_votes": 555,
-        "total_votes": 27359,
+        "dem_votes": 5668,
+        "rep_votes": 15877,
+        "other_votes": 443,
+        "total_votes": 21988,
         "dem_candidate": "Marquita Bradshaw",
         "rep_candidate": "Bill Hagerty",
-        "margin": 12910,
-        "margin_pct": 47.1874,
+        "margin": 10209,
+        "margin_pct": 46.4299,
         "winner": "REP"
       },
       "36": {
@@ -460,14 +460,14 @@
         "winner": "REP"
       },
       "41": {
-        "dem_votes": 5149,
-        "rep_votes": 24711,
-        "other_votes": 555,
-        "total_votes": 30415,
+        "dem_votes": 5072,
+        "rep_votes": 24548,
+        "other_votes": 545,
+        "total_votes": 30165,
         "dem_candidate": "Marquita Bradshaw",
         "rep_candidate": "Bill Hagerty",
-        "margin": 19562,
-        "margin_pct": 64.3169,
+        "margin": 19476,
+        "margin_pct": 64.5649,
         "winner": "REP"
       },
       "42": {
@@ -493,25 +493,25 @@
         "winner": "REP"
       },
       "44": {
-        "dem_votes": 7308,
-        "rep_votes": 21857,
-        "other_votes": 658,
-        "total_votes": 29823,
+        "dem_votes": 7905,
+        "rep_votes": 23293,
+        "other_votes": 707,
+        "total_votes": 31905,
         "dem_candidate": "Marquita Bradshaw",
         "rep_candidate": "Bill Hagerty",
-        "margin": 14549,
-        "margin_pct": 48.7845,
+        "margin": 15388,
+        "margin_pct": 48.2307,
         "winner": "REP"
       },
       "45": {
-        "dem_votes": 10611,
-        "rep_votes": 24426,
-        "other_votes": 770,
-        "total_votes": 35807,
+        "dem_votes": 11292,
+        "rep_votes": 26969,
+        "other_votes": 833,
+        "total_votes": 39094,
         "dem_candidate": "Marquita Bradshaw",
         "rep_candidate": "Bill Hagerty",
-        "margin": 13815,
-        "margin_pct": 38.5818,
+        "margin": 15677,
+        "margin_pct": 40.1008,
         "winner": "REP"
       },
       "46": {
@@ -625,14 +625,14 @@
         "winner": "DEM"
       },
       "56": {
-        "dem_votes": 19537,
-        "rep_votes": 12064,
-        "other_votes": 648,
-        "total_votes": 32249,
+        "dem_votes": 21503,
+        "rep_votes": 13369,
+        "other_votes": 762,
+        "total_votes": 35634,
         "dem_candidate": "Marquita Bradshaw",
         "rep_candidate": "Bill Hagerty",
-        "margin": -7473,
-        "margin_pct": -23.1728,
+        "margin": -8134,
+        "margin_pct": -22.8265,
         "winner": "DEM"
       },
       "57": {
@@ -658,14 +658,14 @@
         "winner": "DEM"
       },
       "59": {
-        "dem_votes": 22488,
-        "rep_votes": 23761,
-        "other_votes": 1032,
-        "total_votes": 47281,
+        "dem_votes": 20522,
+        "rep_votes": 22456,
+        "other_votes": 918,
+        "total_votes": 43896,
         "dem_candidate": "Marquita Bradshaw",
         "rep_candidate": "Bill Hagerty",
-        "margin": 1273,
-        "margin_pct": 2.6924,
+        "margin": 1934,
+        "margin_pct": 4.4059,
         "winner": "REP"
       },
       "60": {
@@ -691,14 +691,14 @@
         "winner": "REP"
       },
       "62": {
-        "dem_votes": 6190,
-        "rep_votes": 24370,
-        "other_votes": 693,
-        "total_votes": 31253,
+        "dem_votes": 5808,
+        "rep_votes": 22980,
+        "other_votes": 647,
+        "total_votes": 29435,
         "dem_candidate": "Marquita Bradshaw",
         "rep_candidate": "Bill Hagerty",
-        "margin": 18180,
-        "margin_pct": 58.1704,
+        "margin": 17172,
+        "margin_pct": 58.3387,
         "winner": "REP"
       },
       "63": {
@@ -779,14 +779,14 @@
         "winner": "REP"
       },
       "70": {
-        "dem_votes": 5185,
-        "rep_votes": 21716,
-        "other_votes": 614,
-        "total_votes": 27515,
+        "dem_votes": 5568,
+        "rep_votes": 23106,
+        "other_votes": 661,
+        "total_votes": 29335,
         "dem_candidate": "Marquita Bradshaw",
         "rep_candidate": "Bill Hagerty",
-        "margin": 16531,
-        "margin_pct": 60.08,
+        "margin": 17538,
+        "margin_pct": 59.7852,
         "winner": "REP"
       },
       "71": {
@@ -845,14 +845,14 @@
         "winner": "REP"
       },
       "76": {
-        "dem_votes": 5482,
-        "rep_votes": 20057,
-        "other_votes": 835,
-        "total_votes": 26374,
+        "dem_votes": 5709,
+        "rep_votes": 21020,
+        "other_votes": 857,
+        "total_votes": 27586,
         "dem_candidate": "Marquita Bradshaw",
         "rep_candidate": "Bill Hagerty",
-        "margin": 14575,
-        "margin_pct": 55.2628,
+        "margin": 15311,
+        "margin_pct": 55.5028,
         "winner": "REP"
       },
       "77": {
@@ -878,47 +878,47 @@
         "winner": "REP"
       },
       "79": {
-        "dem_votes": 5465,
-        "rep_votes": 19511,
-        "other_votes": 601,
-        "total_votes": 25577,
+        "dem_votes": 5445,
+        "rep_votes": 19051,
+        "other_votes": 605,
+        "total_votes": 25101,
         "dem_candidate": "Marquita Bradshaw",
         "rep_candidate": "Bill Hagerty",
-        "margin": 14046,
-        "margin_pct": 54.9165,
+        "margin": 13606,
+        "margin_pct": 54.205,
         "winner": "REP"
       },
       "80": {
-        "dem_votes": 10156,
-        "rep_votes": 8306,
-        "other_votes": 541,
-        "total_votes": 19003,
+        "dem_votes": 9973,
+        "rep_votes": 8090,
+        "other_votes": 531,
+        "total_votes": 18594,
         "dem_candidate": "Marquita Bradshaw",
         "rep_candidate": "Bill Hagerty",
-        "margin": -1850,
-        "margin_pct": -9.7353,
+        "margin": -1883,
+        "margin_pct": -10.1269,
         "winner": "DEM"
       },
       "81": {
-        "dem_votes": 8032,
-        "rep_votes": 21768,
-        "other_votes": 700,
-        "total_votes": 30500,
+        "dem_votes": 8215,
+        "rep_votes": 21984,
+        "other_votes": 710,
+        "total_votes": 30909,
         "dem_candidate": "Marquita Bradshaw",
         "rep_candidate": "Bill Hagerty",
-        "margin": 13736,
-        "margin_pct": 45.0361,
+        "margin": 13769,
+        "margin_pct": 44.5469,
         "winner": "REP"
       },
       "82": {
-        "dem_votes": 6313,
-        "rep_votes": 19967,
-        "other_votes": 774,
-        "total_votes": 27054,
+        "dem_votes": 6105,
+        "rep_votes": 19464,
+        "other_votes": 748,
+        "total_votes": 26317,
         "dem_candidate": "Marquita Bradshaw",
         "rep_candidate": "Bill Hagerty",
-        "margin": 13654,
-        "margin_pct": 50.4694,
+        "margin": 13359,
+        "margin_pct": 50.7619,
         "winner": "REP"
       },
       "83": {

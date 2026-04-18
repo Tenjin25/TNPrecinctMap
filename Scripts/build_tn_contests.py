@@ -1571,12 +1571,13 @@ def build_prctseq_offsets(
     county_norm_to_fp: Dict[str, str],
     district_weights: Dict[str, Dict[Tuple[str, str], List[Tuple[str, float]]]],
     prctseq_exact_to_vtd: Dict[Tuple[str, int], str],
-) -> Tuple[Dict[str, List[int]], Dict[str, set]]:
+) -> Tuple[Dict[str, List[int]], Dict[str, set], Dict[str, List[int]]]:
     """Infer county-specific offset to map 2024 PRCTSEQ -> VTD20 code.
 
     Returns:
       offsets_by_county: county_fp -> ordered list[int] additive offsets
       vtd_ints_by_county: county_fp -> set(int vtd_code)
+      offset_candidates_by_county: county_fp -> high-score offsets for matching
     """
     prctseq_by_county = load_2024_prctseq_by_county()
     vtd_keys = district_weights.get("congressional", {})
@@ -1586,6 +1587,7 @@ def build_prctseq_offsets(
             vtd_ints_by_county[county_fp].add(int(vtd_code))
 
     offsets_by_county: Dict[str, List[int]] = {}
+    offset_candidates_by_county: Dict[str, List[int]] = {}
     for county_norm, pset in prctseq_by_county.items():
         county_fp = county_norm_to_fp.get(county_norm, "")
         if not county_fp:
@@ -1631,7 +1633,9 @@ def build_prctseq_offsets(
                 hits += min(25, bonus)
                 weight += 0.5 * float(min(50, bonus))
             scored.append((int(hits), float(weight), int(k)))
+
         scored.sort(key=lambda x: (x[0], x[1], x[2]), reverse=True)
+        offset_candidates = [int(k) for _hits, _weight, k in scored[:250]]
         unmatched = set(pset)
         ranked: List[int] = []
         for _hits, _weight, k in scored[:400]:
@@ -1644,7 +1648,115 @@ def build_prctseq_offsets(
                 break
         if ranked:
             offsets_by_county[county_fp] = ranked
-    return offsets_by_county, vtd_ints_by_county
+        if offset_candidates:
+            offset_candidates_by_county[county_fp] = offset_candidates
+    return offsets_by_county, vtd_ints_by_county, offset_candidates_by_county
+
+
+def build_prctseq_unique_to_vtd_map(
+    county_norm_to_fp: Dict[str, str],
+    vtd_ints_by_county: Dict[str, set],
+    offset_candidates_by_county: Dict[str, List[int]],
+    prctseq_exact_to_vtd: Dict[Tuple[str, int], str],
+    *,
+    max_offsets: int = 120,
+) -> Dict[Tuple[str, int], str]:
+    """Assign 2024 PRCTSEQ -> VTD20 codes with unique (injective) matches per county.
+
+    The PRCTSEQ IDs in 2024 exports are often a compact 1..N sequence per county,
+    while VTD20 codes are larger and can have gaps. A pure "first offset that lands
+    in VTD set" approach can map multiple PRCTSEQ values onto the same VTD code.
+    This routine builds a county-local bipartite matching using the highest scoring
+    offset candidates and any exact name-key matches, producing a stable one-to-one
+    mapping where possible.
+    """
+
+    def hopcroft_karp(adj: Dict[int, List[int]]) -> Dict[int, int]:
+        from collections import deque
+
+        match_r: Dict[int, int] = {}
+        dist: Dict[int, int] = {}
+        inf = 10**12
+
+        def bfs() -> bool:
+            q = deque()
+            for u in adj.keys():
+                if u not in match_l:
+                    dist[u] = 0
+                    q.append(u)
+                else:
+                    dist[u] = inf
+            reachable_free = False
+            while q:
+                u = q.popleft()
+                for v in adj.get(u, []):
+                    u2 = match_r.get(v, None)
+                    if u2 is None:
+                        reachable_free = True
+                    elif dist.get(u2, inf) == inf:
+                        dist[u2] = dist[u] + 1
+                        q.append(u2)
+            return reachable_free
+
+        def dfs(u: int) -> bool:
+            for v in adj.get(u, []):
+                u2 = match_r.get(v, None)
+                if u2 is None or (dist.get(u2, inf) == dist[u] + 1 and dfs(u2)):
+                    match_l[u] = v
+                    match_r[v] = u
+                    return True
+            dist[u] = inf
+            return False
+
+        match_l: Dict[int, int] = {}
+        while bfs():
+            for u in adj.keys():
+                if u in match_l:
+                    continue
+                dfs(u)
+        return match_l
+
+    prctseq_by_county = load_2024_prctseq_by_county()
+    out: Dict[Tuple[str, int], str] = {}
+    for county_norm, pset in prctseq_by_county.items():
+        county_fp = county_norm_to_fp.get(county_norm, "")
+        if not county_fp:
+            continue
+        vset = vtd_ints_by_county.get(county_fp, set())
+        if not vset or not pset:
+            continue
+        if county_fp in PRCTSEQ_OFFSET_DISABLED_COUNTYFPS:
+            continue
+        offsets = offset_candidates_by_county.get(county_fp, [])[: int(max_offsets)]
+        if not offsets:
+            continue
+
+        adj: Dict[int, List[int]] = {}
+        for p in sorted(pset):
+            neighbors: List[int] = []
+            seen: set = set()
+
+            def add(v: int) -> None:
+                if v in vset and v not in seen:
+                    neighbors.append(v)
+                    seen.add(v)
+
+            exact = prctseq_exact_to_vtd.get((county_fp, int(p)), "")
+            if exact and str(exact).isdigit():
+                add(int(str(exact)))
+            if int(p) in vset:
+                add(int(p))
+            for k in offsets:
+                add(int(p) + int(k))
+            if neighbors:
+                adj[int(p)] = neighbors
+
+        if not adj:
+            continue
+        matched = hopcroft_karp(adj)
+        for p, v in matched.items():
+            out[(county_fp, int(p))] = str(int(v)).zfill(6)
+    return out
 
 
 def prctseq_to_vtd(
@@ -1707,12 +1819,15 @@ def resolve_precinct_code(
                 return ""
         return out
 
+    prctseq_candidate = ""
     if year == 2024:
+        # For 2024 results, PRCTSEQ is a strong signal but offsets can mis-map in
+        # counties where PRCTSEQ does not align linearly with VTD20 codes. Prefer
+        # precinct-label -> VTD20 exact matches (below) when those are county-unique,
+        # and only fall back to PRCTSEQ/offset mapping when label matching fails.
         p = norm_space(prctseq_raw)
         if p:
-            candidate = to_vtd(p)
-            if candidate:
-                return candidate
+            prctseq_candidate = to_vtd(p)
     prec_norm = norm_precinct_name(precinct_raw)
     if not prec_norm:
         return ""
@@ -1742,6 +1857,9 @@ def resolve_precinct_code(
                 out = to_vtd(candidates[0])
                 if out:
                     return out
+
+    if year == 2024 and prctseq_candidate:
+        return prctseq_candidate
 
     code = to2024.get((year, county_norm, prec_norm), "")
     if code:
@@ -1856,9 +1974,20 @@ def build() -> dict:
         vtd20_leading_code_map=vtd20_leading_code_map,
     )
     prctseq_exact_to_vtd.update(load_prctseq_to_vtd20_overrides())
-    prctseq_offsets_by_county, vtd_ints_by_county = build_prctseq_offsets(
+    prctseq_offsets_by_county, vtd_ints_by_county, prctseq_offset_candidates_by_county = build_prctseq_offsets(
         county_norm_to_fp, district_weights, prctseq_exact_to_vtd
     )
+
+    # Build a collision-free PRCTSEQ -> VTD20 assignment and merge it into the "exact" map.
+    # This stabilizes statewide 2024 precinct slices by preventing multiple PRCTSEQ values
+    # from collapsing onto the same VTD code due to offset ambiguity.
+    prctseq_unique_to_vtd = build_prctseq_unique_to_vtd_map(
+        county_norm_to_fp=county_norm_to_fp,
+        vtd_ints_by_county=vtd_ints_by_county,
+        offset_candidates_by_county=prctseq_offset_candidates_by_county,
+        prctseq_exact_to_vtd=prctseq_exact_to_vtd,
+    )
+    prctseq_exact_to_vtd.update(prctseq_unique_to_vtd)
     state_house_2024_vote_weights = build_2024_prctseq_district_weights_to_vtd(
         prctseq_weights=state_house_2024_prctseq_weights,
         offsets_by_county=prctseq_offsets_by_county,
