@@ -139,6 +139,15 @@ Live browser smoke validation (Playwright harness) confirmed:
 - `Data/`: contests, geometry, demographics, and support datasets
 - `Scripts/`: local data-prep utilities
 
+## Improving VTD (Precinct) Matches
+
+Statewide precinct-level results are keyed to the 2020 precinct geometry IDs (6-digit `VTD`/`VTDST20` codes).
+
+- Rebuild contest slices with `Scripts/build_tn_contests.py` after changing crosswalk logic or overrides.
+- If a specific precinct label won’t resolve cleanly, add a one-off mapping in `LEGACY_PRECINCT_VTD20_OVERRIDES` in `Scripts/build_tn_contests.py`.
+- If a specific **2024 PRCTSEQ** value won’t map to a valid `VTDST20` (which can break older-year precinct joins too), add a manual mapping row in `Data/crosswalks/tn_prctseq_to_vtd20_overrides.csv` and rebuild.
+- If the issue is a recurring name variant across years, update the crosswalk inputs in `Data/crosswalks/` (notably `tn_precinct_to_2024.csv` and `tn_precinct_aliases.csv`) and rebuild.
+
 ## Local Run
 
 From the project root:

@@ -1816,6 +1816,28 @@
       "other_votes": 924,
       "dem_candidate": "Kamala D. Harris",
       "rep_candidate": "Donald J. Trump"
+    },
+    {
+      "scope": "state_house",
+      "contest_type": "president",
+      "year": 2008,
+      "district": "30",
+      "dem_votes": 21854,
+      "rep_votes": 21855,
+      "other_votes": 362,
+      "dem_candidate": "Barack Obama",
+      "rep_candidate": "John McCain"
+    },
+    {
+      "scope": "state_house",
+      "contest_type": "president",
+      "year": 2012,
+      "district": "30",
+      "dem_votes": 17369,
+      "rep_votes": 17371,
+      "other_votes": 496,
+      "dem_candidate": "Barack Obama",
+      "rep_candidate": "Mitt Romney"
     }
   ]
 }

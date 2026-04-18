@@ -22,3 +22,6 @@ Data/tn_vtd_2000.geojson
 Data/tn_vtd_2000_build_summary.json
 Data/tn_cvap_2024_2020_b_csv/
 Data/tn_cvap_2024_2020_b_csv.zip
+
+# Local server / scratch logs
+tmp_*.log
