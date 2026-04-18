@@ -3,7 +3,8 @@
   "year": 2014,
   "meta": {
     "source": "tn_precinct_csv_to_2024_precinct_ids",
-    "rows": 1909
+    "rows": 1977,
+    "synthetic_zero_rows_added": 68
   },
   "rows": [
     {
@@ -186,6 +187,19 @@
       "margin": 65,
       "margin_pct": 16.25,
       "winner": "REP",
+      "color": ""
+    },
+    {
+      "county": "ANDERSON - 000015",
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0,
+      "total_votes": 0,
+      "dem_candidate": "",
+      "rep_candidate": "",
+      "margin": 0,
+      "margin_pct": 0.0,
+      "winner": "TIE",
       "color": ""
     },
     {
@@ -514,6 +528,19 @@
       "color": ""
     },
     {
+      "county": "BENTON - 000203",
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0,
+      "total_votes": 0,
+      "dem_candidate": "",
+      "rep_candidate": "",
+      "margin": 0,
+      "margin_pct": 0.0,
+      "winner": "TIE",
+      "color": ""
+    },
+    {
       "county": "BENTON - 000204",
       "dem_votes": 196,
       "rep_votes": 350,
@@ -524,6 +551,19 @@
       "margin": 154,
       "margin_pct": 26.2799,
       "winner": "REP",
+      "color": ""
+    },
+    {
+      "county": "BENTON - 000205",
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0,
+      "total_votes": 0,
+      "dem_candidate": "",
+      "rep_candidate": "",
+      "margin": 0,
+      "margin_pct": 0.0,
+      "winner": "TIE",
       "color": ""
     },
     {
@@ -722,6 +762,32 @@
       "color": ""
     },
     {
+      "county": "BLOUNT - 000403",
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0,
+      "total_votes": 0,
+      "dem_candidate": "",
+      "rep_candidate": "",
+      "margin": 0,
+      "margin_pct": 0.0,
+      "winner": "TIE",
+      "color": ""
+    },
+    {
+      "county": "BLOUNT - 000404",
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0,
+      "total_votes": 0,
+      "dem_candidate": "",
+      "rep_candidate": "",
+      "margin": 0,
+      "margin_pct": 0.0,
+      "winner": "TIE",
+      "color": ""
+    },
+    {
       "county": "BLOUNT - 000405",
       "dem_votes": 181,
       "rep_votes": 629,
@@ -901,6 +967,19 @@
       "margin": 339,
       "margin_pct": 44.4299,
       "winner": "REP",
+      "color": ""
+    },
+    {
+      "county": "BLOUNT - 000419",
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0,
+      "total_votes": 0,
+      "dem_candidate": "",
+      "rep_candidate": "",
+      "margin": 0,
+      "margin_pct": 0.0,
+      "winner": "TIE",
       "color": ""
     },
     {
@@ -1216,6 +1295,19 @@
       "color": ""
     },
     {
+      "county": "BRADLEY - 000510",
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0,
+      "total_votes": 0,
+      "dem_candidate": "",
+      "rep_candidate": "",
+      "margin": 0,
+      "margin_pct": 0.0,
+      "winner": "TIE",
+      "color": ""
+    },
+    {
       "county": "BRADLEY - 000511",
       "dem_votes": 204,
       "rep_votes": 925,
@@ -1395,6 +1487,32 @@
       "margin": 259,
       "margin_pct": 46.8354,
       "winner": "REP",
+      "color": ""
+    },
+    {
+      "county": "CAMPBELL - 000609",
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0,
+      "total_votes": 0,
+      "dem_candidate": "",
+      "rep_candidate": "",
+      "margin": 0,
+      "margin_pct": 0.0,
+      "winner": "TIE",
+      "color": ""
+    },
+    {
+      "county": "CAMPBELL - 000610",
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0,
+      "total_votes": 0,
+      "dem_candidate": "",
+      "rep_candidate": "",
+      "margin": 0,
+      "margin_pct": 0.0,
+      "winner": "TIE",
       "color": ""
     },
     {
@@ -3062,6 +3180,32 @@
       "color": ""
     },
     {
+      "county": "COFFEE - 001506",
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0,
+      "total_votes": 0,
+      "dem_candidate": "",
+      "rep_candidate": "",
+      "margin": 0,
+      "margin_pct": 0.0,
+      "winner": "TIE",
+      "color": ""
+    },
+    {
+      "county": "COFFEE - 001507",
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0,
+      "total_votes": 0,
+      "dem_candidate": "",
+      "rep_candidate": "",
+      "margin": 0,
+      "margin_pct": 0.0,
+      "winner": "TIE",
+      "color": ""
+    },
+    {
       "county": "COFFEE - 001508",
       "dem_votes": 136,
       "rep_votes": 427,
@@ -3176,6 +3320,19 @@
       "margin": 533,
       "margin_pct": 52.5123,
       "winner": "REP",
+      "color": ""
+    },
+    {
+      "county": "COFFEE - 001517",
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0,
+      "total_votes": 0,
+      "dem_candidate": "",
+      "rep_candidate": "",
+      "margin": 0,
+      "margin_pct": 0.0,
+      "winner": "TIE",
       "color": ""
     },
     {
@@ -5935,6 +6092,19 @@
       "color": ""
     },
     {
+      "county": "DECATUR - 002061",
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0,
+      "total_votes": 0,
+      "dem_candidate": "",
+      "rep_candidate": "",
+      "margin": 0,
+      "margin_pct": 0.0,
+      "winner": "TIE",
+      "color": ""
+    },
+    {
       "county": "DECATUR - 002062",
       "dem_votes": 24,
       "rep_votes": 61,
@@ -5945,6 +6115,19 @@
       "margin": 37,
       "margin_pct": 40.6593,
       "winner": "REP",
+      "color": ""
+    },
+    {
+      "county": "DECATUR - 002063",
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0,
+      "total_votes": 0,
+      "dem_candidate": "",
+      "rep_candidate": "",
+      "margin": 0,
+      "margin_pct": 0.0,
+      "winner": "TIE",
       "color": ""
     },
     {
@@ -7170,6 +7353,32 @@
       "color": ""
     },
     {
+      "county": "FRANKLIN - 005757",
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0,
+      "total_votes": 0,
+      "dem_candidate": "",
+      "rep_candidate": "",
+      "margin": 0,
+      "margin_pct": 0.0,
+      "winner": "TIE",
+      "color": ""
+    },
+    {
+      "county": "FRANKLIN - 005764",
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0,
+      "total_votes": 0,
+      "dem_candidate": "",
+      "rep_candidate": "",
+      "margin": 0,
+      "margin_pct": 0.0,
+      "winner": "TIE",
+      "color": ""
+    },
+    {
       "county": "GIBSON - 002751",
       "dem_votes": 135,
       "rep_votes": 915,
@@ -7248,6 +7457,19 @@
       "color": ""
     },
     {
+      "county": "GIBSON - 002757",
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0,
+      "total_votes": 0,
+      "dem_candidate": "",
+      "rep_candidate": "",
+      "margin": 0,
+      "margin_pct": 0.0,
+      "winner": "TIE",
+      "color": ""
+    },
+    {
       "county": "GIBSON - 002758",
       "dem_votes": 344,
       "rep_votes": 452,
@@ -7313,6 +7535,19 @@
       "color": ""
     },
     {
+      "county": "GIBSON - 002763",
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0,
+      "total_votes": 0,
+      "dem_candidate": "",
+      "rep_candidate": "",
+      "margin": 0,
+      "margin_pct": 0.0,
+      "winner": "TIE",
+      "color": ""
+    },
+    {
       "county": "GIBSON - 002764",
       "dem_votes": 63,
       "rep_votes": 251,
@@ -7349,6 +7584,19 @@
       "margin": 542,
       "margin_pct": 60.2892,
       "winner": "REP",
+      "color": ""
+    },
+    {
+      "county": "GIBSON - 002767",
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0,
+      "total_votes": 0,
+      "dem_candidate": "",
+      "rep_candidate": "",
+      "margin": 0,
+      "margin_pct": 0.0,
+      "winner": "TIE",
       "color": ""
     },
     {
@@ -7830,6 +8078,19 @@
       "margin": 224,
       "margin_pct": 48.2759,
       "winner": "REP",
+      "color": ""
+    },
+    {
+      "county": "GREENE - 003053",
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0,
+      "total_votes": 0,
+      "dem_candidate": "",
+      "rep_candidate": "",
+      "margin": 0,
+      "margin_pct": 0.0,
+      "winner": "TIE",
       "color": ""
     },
     {
@@ -10498,6 +10759,19 @@
       "color": ""
     },
     {
+      "county": "HAWKINS - 003801",
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0,
+      "total_votes": 0,
+      "dem_candidate": "",
+      "rep_candidate": "",
+      "margin": 0,
+      "margin_pct": 0.0,
+      "winner": "TIE",
+      "color": ""
+    },
+    {
       "county": "HAWKINS - 003802",
       "dem_votes": 42,
       "rep_votes": 105,
@@ -10914,6 +11188,19 @@
       "color": ""
     },
     {
+      "county": "HENDERSON - 004003",
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0,
+      "total_votes": 0,
+      "dem_candidate": "",
+      "rep_candidate": "",
+      "margin": 0,
+      "margin_pct": 0.0,
+      "winner": "TIE",
+      "color": ""
+    },
+    {
       "county": "HENDERSON - 004004",
       "dem_votes": 104,
       "rep_votes": 361,
@@ -11015,6 +11302,19 @@
       "margin": 317,
       "margin_pct": 47.2429,
       "winner": "REP",
+      "color": ""
+    },
+    {
+      "county": "HENDERSON - 004012",
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0,
+      "total_votes": 0,
+      "dem_candidate": "",
+      "rep_candidate": "",
+      "margin": 0,
+      "margin_pct": 0.0,
+      "winner": "TIE",
       "color": ""
     },
     {
@@ -11993,6 +12293,19 @@
       "color": ""
     },
     {
+      "county": "JOHNSON - 004707",
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0,
+      "total_votes": 0,
+      "dem_candidate": "",
+      "rep_candidate": "",
+      "margin": 0,
+      "margin_pct": 0.0,
+      "winner": "TIE",
+      "color": ""
+    },
+    {
       "county": "JOHNSON - 004708",
       "dem_votes": 70,
       "rep_votes": 246,
@@ -12107,6 +12420,19 @@
       "margin": 251,
       "margin_pct": 27.2826,
       "winner": "REP",
+      "color": ""
+    },
+    {
+      "county": "KNOX - 004807",
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0,
+      "total_votes": 0,
+      "dem_candidate": "",
+      "rep_candidate": "",
+      "margin": 0,
+      "margin_pct": 0.0,
+      "winner": "TIE",
       "color": ""
     },
     {
@@ -12357,6 +12683,19 @@
       "color": ""
     },
     {
+      "county": "KNOX - 004828",
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0,
+      "total_votes": 0,
+      "dem_candidate": "",
+      "rep_candidate": "",
+      "margin": 0,
+      "margin_pct": 0.0,
+      "winner": "TIE",
+      "color": ""
+    },
+    {
       "county": "KNOX - 004829",
       "dem_votes": 562,
       "rep_votes": 1026,
@@ -12500,6 +12839,19 @@
       "color": ""
     },
     {
+      "county": "KNOX - 004841",
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0,
+      "total_votes": 0,
+      "dem_candidate": "",
+      "rep_candidate": "",
+      "margin": 0,
+      "margin_pct": 0.0,
+      "winner": "TIE",
+      "color": ""
+    },
+    {
       "county": "KNOX - 004842",
       "dem_votes": 835,
       "rep_votes": 2631,
@@ -12549,6 +12901,19 @@
       "margin": 829,
       "margin_pct": 46.9157,
       "winner": "REP",
+      "color": ""
+    },
+    {
+      "county": "KNOX - 004847",
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0,
+      "total_votes": 0,
+      "dem_candidate": "",
+      "rep_candidate": "",
+      "margin": 0,
+      "margin_pct": 0.0,
+      "winner": "TIE",
       "color": ""
     },
     {
@@ -13121,6 +13486,19 @@
       "margin": 2583,
       "margin_pct": 49.0785,
       "winner": "REP",
+      "color": ""
+    },
+    {
+      "county": "KNOX - 004897",
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0,
+      "total_votes": 0,
+      "dem_candidate": "",
+      "rep_candidate": "",
+      "margin": 0,
+      "margin_pct": 0.0,
+      "winner": "TIE",
       "color": ""
     },
     {
@@ -13722,6 +14100,19 @@
       "color": ""
     },
     {
+      "county": "LINCOLN - 000001",
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0,
+      "total_votes": 0,
+      "dem_candidate": "",
+      "rep_candidate": "",
+      "margin": 0,
+      "margin_pct": 0.0,
+      "winner": "TIE",
+      "color": ""
+    },
+    {
       "county": "LINCOLN - 000002",
       "dem_votes": 31,
       "rep_votes": 123,
@@ -13927,6 +14318,19 @@
       "margin": 47,
       "margin_pct": 40.5172,
       "winner": "REP",
+      "color": ""
+    },
+    {
+      "county": "LINCOLN - 000018",
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0,
+      "total_votes": 0,
+      "dem_candidate": "",
+      "rep_candidate": "",
+      "margin": 0,
+      "margin_pct": 0.0,
+      "winner": "TIE",
       "color": ""
     },
     {
@@ -14190,6 +14594,19 @@
       "color": ""
     },
     {
+      "county": "MACON - 005554",
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0,
+      "total_votes": 0,
+      "dem_candidate": "",
+      "rep_candidate": "",
+      "margin": 0,
+      "margin_pct": 0.0,
+      "winner": "TIE",
+      "color": ""
+    },
+    {
       "county": "MACON - 005555",
       "dem_votes": 161,
       "rep_votes": 499,
@@ -14226,6 +14643,19 @@
       "margin": 174,
       "margin_pct": 46.4,
       "winner": "REP",
+      "color": ""
+    },
+    {
+      "county": "MACON - 005558",
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0,
+      "total_votes": 0,
+      "dem_candidate": "",
+      "rep_candidate": "",
+      "margin": 0,
+      "margin_pct": 0.0,
+      "winner": "TIE",
       "color": ""
     },
     {
@@ -14697,6 +15127,19 @@
       "color": ""
     },
     {
+      "county": "MARION - 002660",
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0,
+      "total_votes": 0,
+      "dem_candidate": "",
+      "rep_candidate": "",
+      "margin": 0,
+      "margin_pct": 0.0,
+      "winner": "TIE",
+      "color": ""
+    },
+    {
       "county": "MARION - 005751",
       "dem_votes": 23,
       "rep_votes": 114,
@@ -14902,6 +15345,19 @@
       "margin": 238,
       "margin_pct": 34.1463,
       "winner": "REP",
+      "color": ""
+    },
+    {
+      "county": "MARION - 005767",
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0,
+      "total_votes": 0,
+      "dem_candidate": "",
+      "rep_candidate": "",
+      "margin": 0,
+      "margin_pct": 0.0,
+      "winner": "TIE",
       "color": ""
     },
     {
@@ -15295,6 +15751,19 @@
       "color": ""
     },
     {
+      "county": "MCMINN - 006052",
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0,
+      "total_votes": 0,
+      "dem_candidate": "",
+      "rep_candidate": "",
+      "margin": 0,
+      "margin_pct": 0.0,
+      "winner": "TIE",
+      "color": ""
+    },
+    {
       "county": "MCMINN - 006053",
       "dem_votes": 217,
       "rep_votes": 868,
@@ -15370,6 +15839,19 @@
       "margin": 348,
       "margin_pct": 56.77,
       "winner": "REP",
+      "color": ""
+    },
+    {
+      "county": "MCMINN - 006059",
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0,
+      "total_votes": 0,
+      "dem_candidate": "",
+      "rep_candidate": "",
+      "margin": 0,
+      "margin_pct": 0.0,
+      "winner": "TIE",
       "color": ""
     },
     {
@@ -15487,6 +15969,19 @@
       "margin": 163,
       "margin_pct": 51.2579,
       "winner": "REP",
+      "color": ""
+    },
+    {
+      "county": "MCNAIRY - 006153",
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0,
+      "total_votes": 0,
+      "dem_candidate": "",
+      "rep_candidate": "",
+      "margin": 0,
+      "margin_pct": 0.0,
+      "winner": "TIE",
       "color": ""
     },
     {
@@ -15789,6 +16284,19 @@
       "color": ""
     },
     {
+      "county": "MONROE - 006354",
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0,
+      "total_votes": 0,
+      "dem_candidate": "",
+      "rep_candidate": "",
+      "margin": 0,
+      "margin_pct": 0.0,
+      "winner": "TIE",
+      "color": ""
+    },
+    {
       "county": "MONROE - 006355",
       "dem_votes": 409,
       "rep_votes": 772,
@@ -15812,6 +16320,19 @@
       "margin": 664,
       "margin_pct": 37.4085,
       "winner": "REP",
+      "color": ""
+    },
+    {
+      "county": "MONROE - 006357",
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0,
+      "total_votes": 0,
+      "dem_candidate": "",
+      "rep_candidate": "",
+      "margin": 0,
+      "margin_pct": 0.0,
+      "winner": "TIE",
       "color": ""
     },
     {
@@ -16777,6 +17298,19 @@
       "color": ""
     },
     {
+      "county": "PERRY - 006952",
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0,
+      "total_votes": 0,
+      "dem_candidate": "",
+      "rep_candidate": "",
+      "margin": 0,
+      "margin_pct": 0.0,
+      "winner": "TIE",
+      "color": ""
+    },
+    {
       "county": "PERRY - 006953",
       "dem_votes": 48,
       "rep_votes": 96,
@@ -16800,6 +17334,19 @@
       "margin": 45,
       "margin_pct": 31.9149,
       "winner": "REP",
+      "color": ""
+    },
+    {
+      "county": "PERRY - 006955",
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0,
+      "total_votes": 0,
+      "dem_candidate": "",
+      "rep_candidate": "",
+      "margin": 0,
+      "margin_pct": 0.0,
+      "winner": "TIE",
       "color": ""
     },
     {
@@ -17086,6 +17633,19 @@
       "margin": 35,
       "margin_pct": 36.8421,
       "winner": "REP",
+      "color": ""
+    },
+    {
+      "county": "POLK - 007159",
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0,
+      "total_votes": 0,
+      "dem_candidate": "",
+      "rep_candidate": "",
+      "margin": 0,
+      "margin_pct": 0.0,
+      "winner": "TIE",
       "color": ""
     },
     {
@@ -18753,6 +19313,32 @@
       "color": ""
     },
     {
+      "county": "RUTHERFORD - 007699",
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0,
+      "total_votes": 0,
+      "dem_candidate": "",
+      "rep_candidate": "",
+      "margin": 0,
+      "margin_pct": 0.0,
+      "winner": "TIE",
+      "color": ""
+    },
+    {
+      "county": "RUTHERFORD - 007700",
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0,
+      "total_votes": 0,
+      "dem_candidate": "",
+      "rep_candidate": "",
+      "margin": 0,
+      "margin_pct": 0.0,
+      "winner": "TIE",
+      "color": ""
+    },
+    {
       "county": "SCOTT - 007751",
       "dem_votes": 51,
       "rep_votes": 133,
@@ -19156,6 +19742,32 @@
       "color": ""
     },
     {
+      "county": "SEVIER - 007963",
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0,
+      "total_votes": 0,
+      "dem_candidate": "",
+      "rep_candidate": "",
+      "margin": 0,
+      "margin_pct": 0.0,
+      "winner": "TIE",
+      "color": ""
+    },
+    {
+      "county": "SEVIER - 007964",
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0,
+      "total_votes": 0,
+      "dem_candidate": "",
+      "rep_candidate": "",
+      "margin": 0,
+      "margin_pct": 0.0,
+      "winner": "TIE",
+      "color": ""
+    },
+    {
       "county": "SEVIER - 007965",
       "dem_votes": 691,
       "rep_votes": 2680,
@@ -19195,6 +19807,19 @@
       "color": ""
     },
     {
+      "county": "SEVIER - 007968",
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0,
+      "total_votes": 0,
+      "dem_candidate": "",
+      "rep_candidate": "",
+      "margin": 0,
+      "margin_pct": 0.0,
+      "winner": "TIE",
+      "color": ""
+    },
+    {
       "county": "SEVIER - 007969",
       "dem_votes": 225,
       "rep_votes": 1010,
@@ -19218,6 +19843,19 @@
       "margin": 275,
       "margin_pct": 44.9346,
       "winner": "REP",
+      "color": ""
+    },
+    {
+      "county": "SEVIER - 007971",
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0,
+      "total_votes": 0,
+      "dem_candidate": "",
+      "rep_candidate": "",
+      "margin": 0,
+      "margin_pct": 0.0,
+      "winner": "TIE",
       "color": ""
     },
     {
@@ -19257,6 +19895,19 @@
       "margin": 80,
       "margin_pct": 57.1429,
       "winner": "REP",
+      "color": ""
+    },
+    {
+      "county": "SEVIER - 007975",
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0,
+      "total_votes": 0,
+      "dem_candidate": "",
+      "rep_candidate": "",
+      "margin": 0,
+      "margin_pct": 0.0,
+      "winner": "TIE",
       "color": ""
     },
     {
@@ -21977,6 +22628,19 @@
       "color": ""
     },
     {
+      "county": "SUMNER - 008603",
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0,
+      "total_votes": 0,
+      "dem_candidate": "",
+      "rep_candidate": "",
+      "margin": 0,
+      "margin_pct": 0.0,
+      "winner": "TIE",
+      "color": ""
+    },
+    {
       "county": "SUMNER - 008607",
       "dem_votes": 402,
       "rep_votes": 990,
@@ -22000,6 +22664,19 @@
       "margin": 890,
       "margin_pct": 32.0144,
       "winner": "REP",
+      "color": ""
+    },
+    {
+      "county": "SUMNER - 008609",
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0,
+      "total_votes": 0,
+      "dem_candidate": "",
+      "rep_candidate": "",
+      "margin": 0,
+      "margin_pct": 0.0,
+      "winner": "TIE",
       "color": ""
     },
     {
@@ -22133,6 +22810,19 @@
       "color": ""
     },
     {
+      "county": "SUMNER - 008623",
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0,
+      "total_votes": 0,
+      "dem_candidate": "",
+      "rep_candidate": "",
+      "margin": 0,
+      "margin_pct": 0.0,
+      "winner": "TIE",
+      "color": ""
+    },
+    {
       "county": "SUMNER - 008624",
       "dem_votes": 309,
       "rep_votes": 650,
@@ -22234,6 +22924,19 @@
       "margin": 770,
       "margin_pct": 44.6377,
       "winner": "REP",
+      "color": ""
+    },
+    {
+      "county": "SUMNER - 008635",
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0,
+      "total_votes": 0,
+      "dem_candidate": "",
+      "rep_candidate": "",
+      "margin": 0,
+      "margin_pct": 0.0,
+      "winner": "TIE",
       "color": ""
     },
     {
@@ -22510,6 +23213,19 @@
       "color": ""
     },
     {
+      "county": "UNICOI - 008901",
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0,
+      "total_votes": 0,
+      "dem_candidate": "",
+      "rep_candidate": "",
+      "margin": 0,
+      "margin_pct": 0.0,
+      "winner": "TIE",
+      "color": ""
+    },
+    {
       "county": "UNICOI - 008902",
       "dem_votes": 102,
       "rep_votes": 423,
@@ -22611,6 +23327,19 @@
       "margin": 342,
       "margin_pct": 48.927,
       "winner": "REP",
+      "color": ""
+    },
+    {
+      "county": "UNION - 009001",
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0,
+      "total_votes": 0,
+      "dem_candidate": "",
+      "rep_candidate": "",
+      "margin": 0,
+      "margin_pct": 0.0,
+      "winner": "TIE",
       "color": ""
     },
     {
@@ -23108,6 +23837,45 @@
       "color": ""
     },
     {
+      "county": "WASHINGTON - 009304",
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0,
+      "total_votes": 0,
+      "dem_candidate": "",
+      "rep_candidate": "",
+      "margin": 0,
+      "margin_pct": 0.0,
+      "winner": "TIE",
+      "color": ""
+    },
+    {
+      "county": "WASHINGTON - 009305",
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0,
+      "total_votes": 0,
+      "dem_candidate": "",
+      "rep_candidate": "",
+      "margin": 0,
+      "margin_pct": 0.0,
+      "winner": "TIE",
+      "color": ""
+    },
+    {
+      "county": "WASHINGTON - 009306",
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0,
+      "total_votes": 0,
+      "dem_candidate": "",
+      "rep_candidate": "",
+      "margin": 0,
+      "margin_pct": 0.0,
+      "winner": "TIE",
+      "color": ""
+    },
+    {
       "county": "WASHINGTON - 009307",
       "dem_votes": 98,
       "rep_votes": 396,
@@ -23118,6 +23886,19 @@
       "margin": 298,
       "margin_pct": 55.2876,
       "winner": "REP",
+      "color": ""
+    },
+    {
+      "county": "WASHINGTON - 009308",
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0,
+      "total_votes": 0,
+      "dem_candidate": "",
+      "rep_candidate": "",
+      "margin": 0,
+      "margin_pct": 0.0,
+      "winner": "TIE",
       "color": ""
     },
     {
@@ -23144,6 +23925,19 @@
       "margin": 134,
       "margin_pct": 59.0308,
       "winner": "REP",
+      "color": ""
+    },
+    {
+      "county": "WASHINGTON - 009311",
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0,
+      "total_votes": 0,
+      "dem_candidate": "",
+      "rep_candidate": "",
+      "margin": 0,
+      "margin_pct": 0.0,
+      "winner": "TIE",
       "color": ""
     },
     {
@@ -23225,6 +24019,19 @@
       "color": ""
     },
     {
+      "county": "WASHINGTON - 009318",
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0,
+      "total_votes": 0,
+      "dem_candidate": "",
+      "rep_candidate": "",
+      "margin": 0,
+      "margin_pct": 0.0,
+      "winner": "TIE",
+      "color": ""
+    },
+    {
       "county": "WASHINGTON - 009319",
       "dem_votes": 113,
       "rep_votes": 543,
@@ -23235,6 +24042,32 @@
       "margin": 430,
       "margin_pct": 59.6394,
       "winner": "REP",
+      "color": ""
+    },
+    {
+      "county": "WASHINGTON - 009320",
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0,
+      "total_votes": 0,
+      "dem_candidate": "",
+      "rep_candidate": "",
+      "margin": 0,
+      "margin_pct": 0.0,
+      "winner": "TIE",
+      "color": ""
+    },
+    {
+      "county": "WASHINGTON - 009321",
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0,
+      "total_votes": 0,
+      "dem_candidate": "",
+      "rep_candidate": "",
+      "margin": 0,
+      "margin_pct": 0.0,
+      "winner": "TIE",
       "color": ""
     },
     {
@@ -23287,6 +24120,19 @@
       "margin": 182,
       "margin_pct": 46.4286,
       "winner": "REP",
+      "color": ""
+    },
+    {
+      "county": "WASHINGTON - 009326",
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0,
+      "total_votes": 0,
+      "dem_candidate": "",
+      "rep_candidate": "",
+      "margin": 0,
+      "margin_pct": 0.0,
+      "winner": "TIE",
       "color": ""
     },
     {
@@ -24392,6 +25238,45 @@
       "margin": 589,
       "margin_pct": 52.1701,
       "winner": "REP",
+      "color": ""
+    },
+    {
+      "county": "WILLIAMSON - 009741",
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0,
+      "total_votes": 0,
+      "dem_candidate": "",
+      "rep_candidate": "",
+      "margin": 0,
+      "margin_pct": 0.0,
+      "winner": "TIE",
+      "color": ""
+    },
+    {
+      "county": "WILLIAMSON - 009742",
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0,
+      "total_votes": 0,
+      "dem_candidate": "",
+      "rep_candidate": "",
+      "margin": 0,
+      "margin_pct": 0.0,
+      "winner": "TIE",
+      "color": ""
+    },
+    {
+      "county": "WILLIAMSON - 009999",
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0,
+      "total_votes": 0,
+      "dem_candidate": "",
+      "rep_candidate": "",
+      "margin": 0,
+      "margin_pct": 0.0,
+      "winner": "TIE",
       "color": ""
     },
     {

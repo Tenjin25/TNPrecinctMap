@@ -8380,6 +8380,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentView = 'counties'; // 'counties', 'districts', 'state_house', 'state_senate'
     let currentElectionResults = null; // Current contest results for county details
     let currentPrecinctResults = null; // Current contest results keyed by precinct
+    let currentPrecinctMissingNorms = null; // Set<string precinct_norm> present in geometry but absent from selected contest rows.
     let currentVizMode = 'margins'; // 'margins', 'winners', 'shift', 'flips'
     let previousElectionData = null; // For shift mode
     let precinctsEnabled = false;
@@ -13402,9 +13403,18 @@ document.addEventListener('DOMContentLoaded', function() {
       const row = currentPrecinctResults ? currentPrecinctResults.get(precinctNorm) : null;
       if (!row) {
         if (pinSelection) setTooltipPinned(true);
+        const noRowMessage = (() => {
+          if (currentView !== 'counties') {
+            return 'No precinct results loaded for this contest in this view. Switch to Counties and pick the contest.';
+          }
+          if (currentPrecinctMissingNorms && currentPrecinctMissingNorms.has(precinctNorm)) {
+            return `This precinct exists in geometry, but ${formatContestName(contestType, year)} ${year} has no emitted precinct row yet.`;
+          }
+          return 'No precinct row matched this geometry feature for the selected contest.';
+        })();
         const censusLine = buildCountyCensusTooltipHTML(countyNorm);
         const precinctCvapLine = buildPrecinctCvapTooltipHTML(countyNorm, precId, { compact: true });
-        const shell = buildTooltipShell(title, `<div style="color:#94a3b8;">No precinct results loaded for this contest in this view. Switch to Counties and pick the contest.</div>${censusLine}${precinctCvapLine}`, { pinned: !!pinSelection, copyText });
+        const shell = buildTooltipShell(title, `<div style="color:#94a3b8;">${escapeHtml(noRowMessage)}</div>${censusLine}${precinctCvapLine}`, { pinned: !!pinSelection, copyText });
         showHoverTooltip(point.x, point.y, shell, { force: !!forceTooltip, pinned: !!pinSelection, context: pinSelection ? 'selection' : 'preview', copyText });
         wireTooltipButtons();
         return;
@@ -15462,8 +15472,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
             const row = currentPrecinctResults ? currentPrecinctResults.get(precinctNorm) : null;
             if (!row) {
+              const noRowMessage = (() => {
+                if (currentView !== 'counties') {
+                  return 'No precinct results loaded for this contest in this view. Switch to Counties and pick the contest.';
+                }
+                if (currentPrecinctMissingNorms && currentPrecinctMissingNorms.has(precinctNorm)) {
+                  return `This precinct exists in geometry, but ${formatContestName(contestType, year)} ${year} has no emitted precinct row yet.`;
+                }
+                return 'No precinct row matched this geometry feature for the selected contest.';
+              })();
               const censusLine = buildCountyCensusTooltipHTML(countyNorm);
-              const shell = buildTooltipShell(title, `<div style="color:#94a3b8;">No precinct results loaded for this contest in this view. Switch to Counties and pick the contest.</div>${censusLine}`, { pinned: false, copyText });
+              const precinctCvapLine = buildPrecinctCvapTooltipHTML(countyNorm, precId, { compact: true });
+              const shell = buildTooltipShell(title, `<div style="color:#94a3b8;">${escapeHtml(noRowMessage)}</div>${censusLine}${precinctCvapLine}`, { pinned: false, copyText });
               showHoverTooltip(evt.point.x, evt.point.y, shell, { pinned: false, context: 'preview', copyText });
               wireTooltipButtons();
               return;
@@ -18277,6 +18297,7 @@ document.addEventListener('DOMContentLoaded', function() {
       // Build county aggregates from precinct-level rows.
       const countyAgg = {};
       currentPrecinctResults = needsPrecinctDetail ? new Map() : null;
+      currentPrecinctMissingNorms = null;
       contestData.forEach(row => {
         const rowName = (row.county || '').toString();
         const countyOnly = rowName.includes(' - ') ? rowName.split(' - ')[0] : rowName;
@@ -18316,6 +18337,28 @@ document.addEventListener('DOMContentLoaded', function() {
         countyAgg[countyNorm][`${contestType}_other`] += otherVotes;
         countyAgg[countyNorm][`${contestType}_total`] += totalVotes;
       });
+
+      if (needsPrecinctDetail && currentPrecinctResults) {
+        const sourceNorms = new Set();
+        if (precinctPolygonNormSet && precinctPolygonNormSet.size) {
+          precinctPolygonNormSet.forEach(n => {
+            const norm = (n || '').toString().trim().toUpperCase();
+            if (norm) sourceNorms.add(norm);
+          });
+        } else if (precinctCentroidsData?.features?.length) {
+          precinctCentroidsData.features.forEach(f => {
+            const norm = ((f?.properties?.precinct_norm) || '').toString().trim().toUpperCase();
+            if (norm) sourceNorms.add(norm);
+          });
+        }
+        if (sourceNorms.size) {
+          const missingNorms = new Set();
+          sourceNorms.forEach(norm => {
+            if (!currentPrecinctResults.has(norm)) missingNorms.add(norm);
+          });
+          currentPrecinctMissingNorms = missingNorms;
+        }
+      }
       currentElectionResults = countyAgg;
 
       // Calculate statewide totals
@@ -18564,7 +18607,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       }
   setStatewideContestTitle(`${formatContestName(contestType, year)} (${year})`);
-      setStatus(`Applied contest: ${formatContestName(contestType, year)} ${year}`);
+      const missingPrecinctSuffix = (needsPrecinctDetail && currentPrecinctMissingNorms && currentPrecinctMissingNorms.size)
+        ? ` | no row for ${currentPrecinctMissingNorms.size.toLocaleString()} precincts`
+        : '';
+      setStatus(`Applied contest: ${formatContestName(contestType, year)} ${year}${missingPrecinctSuffix}`);
     }
 
     async function applyDistrictContest(contestType, year) {

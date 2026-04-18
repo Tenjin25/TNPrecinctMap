@@ -456,6 +456,26 @@ def load_county_maps() -> Tuple[Dict[str, str], Dict[str, str]]:
     return norm_to_fp, fp_to_norm
 
 
+def load_precinct_overlay_labels_by_county() -> Dict[str, List[str]]:
+    """Return county_norm -> sorted list of canonical precinct labels from overlay geometry."""
+    if not PRECINCT_OVERLAY_GEOJSON.exists():
+        raise FileNotFoundError("Missing Data/tn_voting_precincts.geojson")
+    with PRECINCT_OVERLAY_GEOJSON.open("r", encoding="utf-8") as f:
+        gj = json.load(f)
+
+    out: Dict[str, set] = defaultdict(set)
+    for feat in gj.get("features", []):
+        props = feat.get("properties", {})
+        county_norm = norm_county(props.get("county_norm", ""))
+        prec_id_raw = norm_space(str(props.get("prec_id", "")))
+        if not county_norm or not prec_id_raw:
+            continue
+        prec_id = prec_id_raw.zfill(6) if prec_id_raw.isdigit() else prec_id_raw
+        out[county_norm].add(f"{county_norm} - {prec_id}")
+
+    return {county_norm: sorted(labels) for county_norm, labels in out.items()}
+
+
 def load_precinct_to_2024_map() -> Dict[Tuple[int, str, str], str]:
     """Map (from_year, county_norm, from_precinct_norm) -> 2024 PRCTSEQ (zfill 6)."""
     path = DATA_DIR / "crosswalks" / "tn_precinct_to_2024.csv"
@@ -2002,6 +2022,12 @@ def build() -> dict:
     district_result_overrides = load_district_result_overrides()
 
     county_norm_to_fp, _fp_to_county_norm = load_county_maps()
+    overlay_labels_by_county = load_precinct_overlay_labels_by_county()
+    overlay_labels_all_sorted = sorted(
+        label
+        for labels in overlay_labels_by_county.values()
+        for label in labels
+    )
     to2024 = load_precinct_to_2024_map()
     to2024_split_by_year, to2024_split_any_year = build_precinct_split_key_maps(to2024)
     to2024_fuzzy_candidates = build_precinct_fuzzy_candidates(to2024)
@@ -2162,23 +2188,44 @@ def build() -> dict:
 
     contests_present = sorted({(k[0], k[1]) for k in contest_precinct.keys()})
     for contest_type, year in contests_present:
-        rows = []
+        row_map: Dict[str, dict] = {}
         dem_total = 0
         rep_total = 0
         for (c_type, y, label), totals in sorted(contest_precinct.items(), key=lambda x: x[0][2]):
             if c_type != contest_type or y != year:
                 continue
             row_out = totals.as_precinct_row(label)
-            rows.append(row_out)
+            row_map[label] = row_out
             dem_total += row_out["dem_votes"]
             rep_total += row_out["rep_votes"]
-        all_contest_rows_by_contest_year[(contest_type, year)] = rows
+
+        # Ensure statewide precinct contest files include every precinct polygon from the
+        # overlay so the UI can display explicit zero/no-return precincts instead of
+        # silently omitting unmatched geometry keys.
+        synthetic_rows_added = 0
+        if contest_type in COUNTY_PLUS_PRECINCT_CONTESTS:
+            zero_totals = Totals()
+            for label in overlay_labels_all_sorted:
+                if label in row_map:
+                    continue
+                row_map[label] = zero_totals.as_precinct_row(label)
+                synthetic_rows_added += 1
+
+        rows = [row_map[label] for label in sorted(row_map.keys())]
+        # District reallocation should only consume rows with actual votes.
+        all_contest_rows_by_contest_year[(contest_type, year)] = [
+            r for r in rows if float(r.get("total_votes", 0)) > 0
+        ]
 
         file_name = f"{contest_type}_{year}.json"
         payload = {
             "contest_type": contest_type,
             "year": year,
-            "meta": {"source": "tn_precinct_csv_to_2024_precinct_ids", "rows": len(rows)},
+            "meta": {
+                "source": "tn_precinct_csv_to_2024_precinct_ids",
+                "rows": len(rows),
+                "synthetic_zero_rows_added": synthetic_rows_added,
+            },
             "rows": rows,
         }
         write_json(CONTESTS_DIR / file_name, payload)
