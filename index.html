@@ -6266,6 +6266,30 @@ body.focus-active #hover-tooltip[data-context="preview"] {
       width: 100%;
     }
 
+    .contest-toolbar .tool-chip-btn,
+    .contest-toolbar .tool-chip-select {
+      width: 100%;
+      min-width: 0 !important;
+      justify-content: center;
+    }
+
+    .contest-toolbar .tool-chip-btn {
+      min-height: 40px;
+      font-size: 12px;
+      padding: 0 10px;
+    }
+
+    .contest-toolbar .tool-chip-select {
+      min-height: 40px;
+      font-size: 14px;
+      padding: 0 34px 0 12px;
+    }
+
+    #snapshot-variant {
+      grid-column: 1 / -1;
+      min-width: 0 !important;
+    }
+
     .controls-subtitle,
     .desktop-fly-helper,
     .desktop-quick-stats,
@@ -6285,6 +6309,19 @@ body.focus-active #hover-tooltip[data-context="preview"] {
       justify-content: center;
     }
 
+    .map-topbar.mobile-sheet-panel .map-topbar-hints {
+      display: grid !important;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+      overflow: visible;
+      margin-top: 10px;
+    }
+
+    .map-topbar.mobile-sheet-panel .fly-search-chip {
+      width: 100%;
+      justify-content: center;
+    }
+
     .vote-counter {
       max-height: min(62vh, 620px) !important;
       overflow-y: auto !important;
@@ -6293,6 +6330,7 @@ body.focus-active #hover-tooltip[data-context="preview"] {
     .vote-counter.minimized {
       max-height: 64px !important;
       overflow: hidden !important;
+      bottom: calc(var(--safe-bottom, 0px) + var(--mobile-dock-h, 62px) + 44px) !important;
     }
 
     .focus-trend-head {
@@ -6312,6 +6350,77 @@ body.focus-active #hover-tooltip[data-context="preview"] {
     .focus-trend-plot {
       padding: 10px;
       border-radius: 14px;
+    }
+
+    .focus-trajectory {
+      gap: 8px;
+      padding: 10px;
+      border-radius: 14px;
+    }
+
+    .focus-trajectory-head {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .focus-trajectory-status {
+      min-height: 22px;
+      padding: 0 9px;
+      font-size: 10px;
+    }
+
+    .focus-trajectory-grid {
+      grid-template-columns: 1fr;
+      gap: 6px;
+    }
+
+    .focus-trajectory-item.is-latest {
+      padding: 9px 10px;
+    }
+
+    .focus-trajectory-trendline {
+      flex-wrap: wrap;
+      gap: 6px;
+      min-height: 0;
+      padding: 6px 7px;
+    }
+
+    .focus-trajectory-trendline .trend-tag {
+      min-height: 18px;
+      padding: 0 6px;
+      font-size: 9px;
+    }
+
+    .focus-trajectory-meaning {
+      font-size: 10px;
+      padding: 6px 7px;
+      line-height: 1.35;
+    }
+
+    .focus-census-check {
+      font-size: 10px;
+      padding: 6px 7px 6px 9px;
+      line-height: 1.35;
+    }
+
+    .focus-census-insight {
+      gap: 7px;
+      padding: 10px;
+      border-radius: 14px;
+    }
+
+    .focus-census-pill {
+      font-size: 10px;
+    }
+
+    .focus-census-summary {
+      font-size: 12px;
+    }
+
+    .focus-census-note,
+    .focus-census-source {
+      font-size: 11px;
     }
 
     .focus-trend-stats {
@@ -6387,6 +6496,30 @@ body.focus-active #hover-tooltip[data-context="preview"] {
     }
   }
 
+  @media (max-width: 600px) {
+    .contest-toolbar {
+      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+
+    .contest-toolbar #split-ticket-toggle,
+    .contest-toolbar #gps-locate-btn,
+    .contest-toolbar #snapshot-share-btn,
+    .contest-toolbar #copy-link-btn,
+    .contest-toolbar #reset-view-btn,
+    .contest-toolbar #snapshot-variant,
+    .contest-toolbar #precinct-toggle {
+      grid-column: 1 / -1;
+    }
+
+    .contest-toolbar #accessibility-toggle,
+    .contest-toolbar #label-toggle {
+      width: 100% !important;
+      min-width: 0 !important;
+      border-radius: 10px !important;
+      font-size: 14px !important;
+    }
+  }
+
   @media (max-width: 420px) {
     .desktop-fly-chip-row {
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -6416,6 +6549,116 @@ body.focus-active #hover-tooltip[data-context="preview"] {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 6px;
+    }
+  }
+
+  @media (max-width: 375px) {
+    :root {
+      --mobile-dock-h: 56px;
+      --mobile-sheet-gap: 8px;
+    }
+
+    .mobile-dock {
+      left: 6px;
+      right: 6px;
+      bottom: calc(6px + var(--safe-bottom, 0px));
+      gap: 6px;
+      padding: 6px;
+      border-radius: 14px;
+    }
+
+    .mobile-dock-btn {
+      min-height: 40px;
+      font-size: 12px;
+      border-radius: 10px;
+    }
+
+    .mobile-sheet-panel {
+      left: 6px !important;
+      right: 6px !important;
+      border-radius: 14px !important;
+    }
+
+    .map-topbar.mobile-sheet-panel,
+    .main-controls.mobile-sheet-panel,
+    .legend.mobile-sheet-panel {
+      border-radius: 14px !important;
+    }
+
+    .legend.mobile-sheet-panel .legend-header {
+      border-radius: 14px 14px 0 0 !important;
+    }
+
+    .contest-toolbar {
+      grid-template-columns: 1fr !important;
+      gap: 6px !important;
+    }
+
+    .contest-toolbar .tool-chip-btn,
+    .contest-toolbar .tool-chip-select,
+    .contest-toolbar #precinct-toggle,
+    .contest-toolbar #snapshot-variant,
+    .contest-toolbar #split-ticket-toggle,
+    .contest-toolbar #gps-locate-btn,
+    .contest-toolbar #snapshot-share-btn,
+    .contest-toolbar #copy-link-btn,
+    .contest-toolbar #reset-view-btn,
+    .contest-toolbar #accessibility-toggle,
+    .contest-toolbar #label-toggle {
+      grid-column: 1 / -1;
+      width: 100% !important;
+      min-width: 0 !important;
+    }
+
+    .contest-toolbar .tool-chip-btn {
+      min-height: 38px;
+      font-size: 11px;
+    }
+
+    .contest-toolbar .tool-chip-select {
+      min-height: 38px;
+      font-size: 13px;
+      padding: 0 32px 0 10px;
+    }
+
+    .map-topbar.mobile-sheet-panel .map-topbar-hints {
+      grid-template-columns: 1fr !important;
+      gap: 6px;
+    }
+
+    #main-controls .control-group {
+      margin-bottom: 10px !important;
+    }
+
+    #main-controls .view-toggle-btn,
+    #main-controls .region-jump-btn,
+    .viz-mode-btn {
+      min-height: 40px !important;
+      font-size: 11px !important;
+      padding: 8px 10px !important;
+    }
+
+    #main-controls select,
+    #main-controls input[type="search"],
+    #main-controls input[type="text"] {
+      font-size: 15px !important;
+    }
+
+    .focus-trend-summary-call {
+      font-size: 14px;
+    }
+
+    .focus-trend-summary-note {
+      font-size: 11px;
+      line-height: 1.35;
+    }
+
+    .focus-trend-stat-label {
+      font-size: 10px;
+    }
+
+    .focus-trend-stat-value {
+      font-size: 12px;
     }
   }
 
@@ -6451,11 +6694,13 @@ body.focus-active #hover-tooltip[data-context="preview"] {
 
   @media (max-width: 768px) {
     .atlas-credit-bar {
-      bottom: calc(var(--safe-bottom, 0px) + var(--mobile-dock-h, 62px) + 12px);
+      bottom: calc(6px + var(--safe-bottom, 0px));
+      z-index: 10018;
       max-width: calc(100vw - 16px);
       padding: 5px 10px;
       font-size: 10px;
       white-space: normal;
+      opacity: 0.85;
     }
   }
 
@@ -13793,8 +14038,12 @@ document.addEventListener('DOMContentLoaded', function() {
           root.style.removeProperty('--legend-h');
           root.style.removeProperty('--controls-h');
           root.style.removeProperty('--mobile-dock-h');
+          root.style.removeProperty('--vote-counter-h');
           return;
         }
+        const counterVisibleMobile = !!(voteCounter && voteCounter.style.display !== 'none' && voteCounter.getClientRects().length);
+        const vhm = counterVisibleMobile ? Math.round(voteCounter.getBoundingClientRect().height || 0) : 0;
+        root.style.setProperty('--vote-counter-h', `${Math.max(0, vhm)}px`);
         const legend = document.getElementById('legend');
         const controls = document.getElementById('main-controls');
         const legendVisible = !!(legend && legend.classList.contains('mobile-sheet-active'));
