@@ -658,14 +658,14 @@
         "winner": "DEM"
       },
       "59": {
-        "dem_votes": 19558,
-        "rep_votes": 20019,
-        "other_votes": 435,
+        "dem_votes": 16485,
+        "rep_votes": 23111,
+        "other_votes": 416,
         "total_votes": 40012,
         "dem_candidate": "Barack Obama",
         "rep_candidate": "John McCain",
-        "margin": 461,
-        "margin_pct": 1.1522,
+        "margin": 6626,
+        "margin_pct": 16.56,
         "winner": "REP"
       },
       "60": {
