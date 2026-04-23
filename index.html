@@ -10726,6 +10726,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	        const year = Number(entry.year);
 	        const rows = Number(entry.rows || entry.districts || 0) || 0;
 	        if (!contestType || rows <= 0) return;
+          if (contestType === 'us_house' && Number.isFinite(year) && year < 2022) return;
 
           // Hide older judicial contests until we have reliable D/R-alignment (endorsement) data.
           // Appellate judicial races are nonpartisan in older cycles; without endorsements they read as "OTHER".
@@ -11043,6 +11044,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const years = [...new Set(csvData.map(row => row.year))].sort();
       
       years.forEach(year => {
+        if (Number(year) < 2022) return;
         const hasData = csvData.some(row => 
           row.year == year && row.us_house_total > 0
         );
