@@ -316,8 +316,8 @@
       "contest_type": "president",
       "file": "state_house_president_2008.json",
       "districts": 99,
-      "dem_total": 1087131,
-      "rep_total": 1481029,
+      "dem_total": 1083823,
+      "rep_total": 1483974,
       "major_party_contested": true
     },
     {
@@ -326,8 +326,8 @@
       "contest_type": "president",
       "file": "state_house_president_2012.json",
       "districts": 99,
-      "dem_total": 957992,
-      "rep_total": 1462936,
+      "dem_total": 954442,
+      "rep_total": 1467330,
       "major_party_contested": true
     },
     {
@@ -336,8 +336,8 @@
       "contest_type": "president",
       "file": "state_house_president_2016.json",
       "districts": 99,
-      "dem_total": 870696,
-      "rep_total": 1522928,
+      "dem_total": 870534,
+      "rep_total": 1523068,
       "major_party_contested": true
     },
     {

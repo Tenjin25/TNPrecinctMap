@@ -1821,10 +1821,76 @@
       "scope": "state_house",
       "contest_type": "president",
       "year": 2008,
+      "district": "28",
+      "dem_votes": 9562,
+      "rep_votes": 2228,
+      "other_votes": 151,
+      "dem_candidate": "Barack Obama",
+      "rep_candidate": "John McCain"
+    },
+    {
+      "scope": "state_house",
+      "contest_type": "president",
+      "year": 2012,
+      "district": "28",
+      "dem_votes": 9455,
+      "rep_votes": 2466,
+      "other_votes": 0,
+      "dem_candidate": "Barack Obama",
+      "rep_candidate": "Mitt Romney"
+    },
+    {
+      "scope": "state_house",
+      "contest_type": "president",
+      "year": 2016,
+      "district": "80",
+      "dem_votes": 11180,
+      "rep_votes": 7158,
+      "other_votes": 445,
+      "dem_candidate": "Hillary Clinton",
+      "rep_candidate": "Donald J. Trump"
+    },
+    {
+      "scope": "state_house",
+      "contest_type": "president",
+      "year": 2012,
+      "district": "80",
+      "dem_votes": 14111,
+      "rep_votes": 7763,
+      "other_votes": 0,
+      "dem_candidate": "Barack Obama",
+      "rep_candidate": "Mitt Romney"
+    },
+    {
+      "scope": "state_house",
+      "contest_type": "president",
+      "year": 2008,
+      "district": "80",
+      "dem_votes": 15239,
+      "rep_votes": 7538,
+      "other_votes": 295,
+      "dem_candidate": "Barack Obama",
+      "rep_candidate": "John McCain"
+    },
+    {
+      "scope": "state_house",
+      "contest_type": "president",
+      "year": 2016,
+      "district": "28",
+      "dem_votes": 17489,
+      "rep_votes": 4440,
+      "other_votes": 1065,
+      "dem_candidate": "Hillary Clinton",
+      "rep_candidate": "Donald J. Trump"
+    },
+    {
+      "scope": "state_house",
+      "contest_type": "president",
+      "year": 2008,
       "district": "30",
-      "dem_votes": 21854,
-      "rep_votes": 21855,
-      "other_votes": 362,
+      "dem_votes": 16443,
+      "rep_votes": 27082,
+      "other_votes": 546,
       "dem_candidate": "Barack Obama",
       "rep_candidate": "John McCain"
     },
@@ -1833,11 +1899,22 @@
       "contest_type": "president",
       "year": 2012,
       "district": "30",
-      "dem_votes": 17369,
-      "rep_votes": 17371,
-      "other_votes": 496,
+      "dem_votes": 13259,
+      "rep_votes": 21977,
+      "other_votes": 0,
       "dem_candidate": "Barack Obama",
       "rep_candidate": "Mitt Romney"
+    },
+    {
+      "scope": "state_house",
+      "contest_type": "president",
+      "year": 2016,
+      "district": "30",
+      "dem_votes": 9883,
+      "rep_votes": 17125,
+      "other_votes": 1754,
+      "dem_candidate": "Hillary Clinton",
+      "rep_candidate": "Donald J. Trump"
     }
   ]
 }

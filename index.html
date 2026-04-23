@@ -6637,7 +6637,26 @@ body.focus-active #hover-tooltip[data-context="preview"] {
       bottom: calc(var(--safe-bottom, 0px) + var(--mobile-dock-h, 62px) + 8px) !important;
     }
 
+    body.mobile-sheet-open #hover-tooltip {
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(6px) !important;
+    }
+
+    body.mobile-sheet-open .vote-counter,
+    body.mobile-sheet-open .viz-modes {
+      opacity: 0.22;
+      pointer-events: none;
+      transform: translateY(6px) !important;
+    }
+
     body.mobile-input-active .vote-counter {
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(8px) !important;
+    }
+
+    body.mobile-input-active #hover-tooltip {
       opacity: 0;
       pointer-events: none;
       transform: translateY(8px) !important;
@@ -13282,6 +13301,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const MOBILE_SHEET_FLICK_WINDOW_MS = 120;
     const MOBILE_SHEET_FLICK_MIN_TRAVEL_PX = 10;
     let activeMobileSheetKey = null;
+    let mobileSheetVoteCounterSnapshot = null;
     let mobileSheetSystemReady = false;
     let mobileInputFocusWired = false;
     let mobileInputRestoreTimer = null;
@@ -13483,6 +13503,15 @@ document.addEventListener('DOMContentLoaded', function() {
         btn.title = pressed ? `Collapse ${panelLabel} panel` : `Open ${panelLabel} panel`;
       });
       document.body.classList.toggle('mobile-sheet-open', !!activeMobileSheetKey && isMobileViewportNow());
+      try {
+        if (!activeMobileSheetKey && mobileSheetVoteCounterSnapshot !== null) {
+          const blocked = !!(document.body.classList.contains('mobile-input-active') || mobileInputFocusSnapshot);
+          if (!blocked && mobileSheetVoteCounterSnapshot) {
+            setVoteCounterMinimizedState(false);
+          }
+          mobileSheetVoteCounterSnapshot = null;
+        }
+      } catch (_) {}
     }
 
     function expandLegendOnMobile() {
@@ -13529,6 +13558,14 @@ document.addEventListener('DOMContentLoaded', function() {
       if (!isMobileViewportNow()) return;
       const panel = getMobileSheetPanel(key);
       if (!panel) return;
+      try {
+        if (mobileSheetVoteCounterSnapshot === null) {
+          const counter = document.getElementById('vote-counter');
+          mobileSheetVoteCounterSnapshot = !!(counter && !counter.classList.contains('minimized'));
+        }
+        setVoteCounterMinimizedState(true);
+      } catch (_) {}
+      try { closeHoverUI({ force: true }); } catch (_) {}
       Object.keys(MOBILE_SHEET_PANEL_IDS).forEach(otherKey => {
         if (otherKey === key) return;
         closeMobileSheet(otherKey);
