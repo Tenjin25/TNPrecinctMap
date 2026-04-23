@@ -15382,6 +15382,39 @@ document.addEventListener('DOMContentLoaded', function() {
       } catch (_) {}
     }
 
+    function getDraDistrictStrokePaint(scope) {
+      if (scope === 'congressional') {
+        return {
+          'line-color': 'rgba(17, 24, 39, 0.88)',
+          'line-width': 2.4,
+          'line-opacity': 0.95,
+          'line-dasharray': [3.2, 1.4]
+        };
+      }
+      if (scope === 'state_house') {
+        return {
+          'line-color': 'rgba(31, 41, 55, 0.8)',
+          'line-width': 1.8,
+          'line-opacity': 0.9,
+          'line-dasharray': [2.1, 1.2]
+        };
+      }
+      return {
+        'line-color': 'rgba(55, 65, 81, 0.82)',
+        'line-width': 2,
+        'line-opacity': 0.92,
+        'line-dasharray': [2.6, 1.2]
+      };
+    }
+
+    function getDraDistrictStrokeLayout(hidden = false) {
+      return {
+        'line-cap': 'round',
+        'line-join': 'round',
+        ...(hidden ? { visibility: 'none' } : {})
+      };
+    }
+
     function addDistrictLayers() {
       if (!map.getSource('districts')) return;
       if (!map.getLayer('district-fill')) {
@@ -15398,14 +15431,15 @@ document.addEventListener('DOMContentLoaded', function() {
           type: 'line',
           source: 'districts',
           beforeId: baseSymbolLayerId,
-          paint: { 'line-color': '#1f2937', 'line-width': 2 }
+          layout: getDraDistrictStrokeLayout(),
+          paint: getDraDistrictStrokePaint('congressional')
         });
         addLayerWithOptionalSourceLayer({
           id: 'district-stroke-hover',
           type: 'line',
           source: 'districts',
           beforeId: baseSymbolLayerId,
-          layout: { visibility: 'none' },
+          layout: getDraDistrictStrokeLayout(true),
           filter: ['==', ['get', '_'], '__'],
           paint: { 'line-color': 'rgba(15, 23, 42, 0.55)', 'line-width': 4, 'line-opacity': 0.95 }
         });
@@ -15507,14 +15541,15 @@ document.addEventListener('DOMContentLoaded', function() {
           type: 'line',
           source: 'state-house',
           beforeId: baseSymbolLayerId,
-          paint: { 'line-color': '#374151', 'line-width': 1 }
+          layout: getDraDistrictStrokeLayout(),
+          paint: getDraDistrictStrokePaint('state_house')
         });
         addLayerWithOptionalSourceLayer({
           id: 'state-house-stroke-hover',
           type: 'line',
           source: 'state-house',
           beforeId: baseSymbolLayerId,
-          layout: { visibility: 'none' },
+          layout: getDraDistrictStrokeLayout(true),
           filter: ['==', ['get', '_'], '__'],
           paint: { 'line-color': 'rgba(15, 23, 42, 0.55)', 'line-width': 3, 'line-opacity': 0.95 }
         });
@@ -15614,14 +15649,15 @@ document.addEventListener('DOMContentLoaded', function() {
           type: 'line',
           source: 'state-senate',
           beforeId: baseSymbolLayerId,
-          paint: { 'line-color': '#4b5563', 'line-width': 1 }
+          layout: getDraDistrictStrokeLayout(),
+          paint: getDraDistrictStrokePaint('state_senate')
         });
         addLayerWithOptionalSourceLayer({
           id: 'state-senate-stroke-hover',
           type: 'line',
           source: 'state-senate',
           beforeId: baseSymbolLayerId,
-          layout: { visibility: 'none' },
+          layout: getDraDistrictStrokeLayout(true),
           filter: ['==', ['get', '_'], '__'],
           paint: { 'line-color': 'rgba(15, 23, 42, 0.55)', 'line-width': 3, 'line-opacity': 0.95 }
         });
@@ -18057,14 +18093,23 @@ document.addEventListener('DOMContentLoaded', function() {
           if (map.getLayer(strokeLayerName)) {
             try {
               if (strokeLayerName === 'district-stroke') {
-                map.setPaintProperty(strokeLayerName, 'line-color', '#1f2937');
-                map.setPaintProperty(strokeLayerName, 'line-width', 2);
+                const paint = getDraDistrictStrokePaint('congressional');
+                map.setPaintProperty(strokeLayerName, 'line-color', paint['line-color']);
+                map.setPaintProperty(strokeLayerName, 'line-width', paint['line-width']);
+                map.setPaintProperty(strokeLayerName, 'line-opacity', paint['line-opacity']);
+                map.setPaintProperty(strokeLayerName, 'line-dasharray', paint['line-dasharray']);
               } else if (strokeLayerName === 'state-house-stroke') {
-                map.setPaintProperty(strokeLayerName, 'line-color', '#374151');
-                map.setPaintProperty(strokeLayerName, 'line-width', 1);
+                const paint = getDraDistrictStrokePaint('state_house');
+                map.setPaintProperty(strokeLayerName, 'line-color', paint['line-color']);
+                map.setPaintProperty(strokeLayerName, 'line-width', paint['line-width']);
+                map.setPaintProperty(strokeLayerName, 'line-opacity', paint['line-opacity']);
+                map.setPaintProperty(strokeLayerName, 'line-dasharray', paint['line-dasharray']);
               } else {
-                map.setPaintProperty(strokeLayerName, 'line-color', '#4b5563');
-                map.setPaintProperty(strokeLayerName, 'line-width', 1);
+                const paint = getDraDistrictStrokePaint('state_senate');
+                map.setPaintProperty(strokeLayerName, 'line-color', paint['line-color']);
+                map.setPaintProperty(strokeLayerName, 'line-width', paint['line-width']);
+                map.setPaintProperty(strokeLayerName, 'line-opacity', paint['line-opacity']);
+                map.setPaintProperty(strokeLayerName, 'line-dasharray', paint['line-dasharray']);
               }
             } catch (_) {}
           }
