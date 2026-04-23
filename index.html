@@ -9,7 +9,6 @@
   /* Mobile Styles - Enhanced for touch and small screens */
   @media (max-width: 768px) {
     /* Make minimize buttons touch-friendly */
-    #sidebar-minimize-btn,
     #main-controls .controls-header #controls-minimize-btn,
     #legend-minimize-btn {
       position: absolute !important;
@@ -178,10 +177,7 @@
   </style>
   <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
   <script>
-    // Define toggleSidebar function before DOMContentLoaded
-    const SIDEBAR_ENABLED = false;
-    // Gate sidebar rendering/styles without a flash-of-sidebar on load.
-    document.documentElement.classList.toggle('sidebar-enabled', SIDEBAR_ENABLED);
+    // Sidebar architecture removed (no sidebar-enabled gating).
 
     // Mobile viewport height fallback for browsers that don't support dvh/svh well (older Android Chrome/WebView).
     // Keeps fixed panels from "jumping" when the URL bar collapses/expands.
@@ -236,49 +232,6 @@
         window.visualViewport.addEventListener('scroll', setAndroidViewportInsets, { passive: true });
       }
     })();
-
-    function toggleSidebar() {
-      if (!SIDEBAR_ENABLED) return;
-      const sidebar = document.getElementById('sidebar');
-      const sidebarContent = document.querySelector('.sidebar-content');
-      const sidebarHeader = document.querySelector('.sidebar-header');
-      const minimizeBtn = document.getElementById('sidebar-minimize-btn');
-      const floatBtn = document.getElementById('sidebar-float-toggle');
-      const detailsDiv = document.getElementById('county-details');
-      const contentEl = document.getElementById('county-info-content');
-      
-      if (sidebar && sidebar.classList.contains('minimized')) {
-        // Expand sidebar
-        sidebar.classList.remove('minimized');
-        if (sidebarHeader) sidebarHeader.style.display = 'flex';
-        if (sidebarContent) sidebarContent.style.display = 'block';
-        if (detailsDiv) detailsDiv.style.display = 'block';
-        // Ensure there's content to show
-        if (contentEl && (!contentEl.innerHTML || contentEl.innerHTML.trim() === '')) {
-          contentEl.innerHTML = '<p>Select a contest or county to see results.</p>';
-        }
-        if (minimizeBtn) {
-          minimizeBtn.textContent = '-';
-          minimizeBtn.title = 'Minimize sidebar';
-        }
-        if (floatBtn) {
-          floatBtn.textContent = '-';
-          floatBtn.title = 'Minimize sidebar';
-        }
-      } else if (sidebar) {
-        // Minimize sidebar
-        sidebar.classList.add('minimized');
-        if (sidebarContent) sidebarContent.style.display = 'none';
-        if (minimizeBtn) {
-          minimizeBtn.textContent = '+';
-          minimizeBtn.title = 'Expand sidebar';
-        }
-        if (floatBtn) {
-          floatBtn.textContent = '+';
-          floatBtn.title = 'Expand sidebar';
-        }
-      }
-    }
 
     document.addEventListener('DOMContentLoaded', function() {
       function isMobileViewport() {
@@ -346,11 +299,6 @@
 
       prioritizeContestControl();
 
-      var sidebar = document.getElementById('sidebar');
-      var sidebarBtn = document.getElementById('sidebar-minimize-btn');
-      var floatBtn = document.getElementById('sidebar-float-toggle');
-      var detailsDiv = document.getElementById('county-details');
-      var contentEl = document.getElementById('county-info-content');
       var statusExit = document.getElementById('status-exit');
       var mobileTopbarToggle = document.getElementById('mobile-topbar-toggle');
       var topbar = document.getElementById('map-topbar');
@@ -364,43 +312,6 @@
         });
       }
 
-      if (!SIDEBAR_ENABLED) {
-        if (sidebar) sidebar.style.display = 'none';
-        if (floatBtn) floatBtn.style.display = 'none';
-      }
-      
-      // Always start minimized and set button text
-      if (sidebar) sidebar.classList.add('minimized');
-      
-      // Sidebar minimize button
-      if (sidebarBtn) {
-        sidebarBtn.textContent = '+';
-        sidebarBtn.title = 'Expand sidebar';
-        sidebarBtn.onclick = function() {
-          toggleSidebar();
-          // If no county is selected, show default message
-          if (detailsDiv && contentEl && (!window.lastSelectedCounty || window.lastSelectedCounty === '')) {
-            contentEl.innerHTML = '<p>Select a contest or county to see results.</p>';
-            detailsDiv.style.display = 'block';
-          }
-        };
-      }
-      
-      // Floating sidebar button
-      if (floatBtn) {
-        floatBtn.onclick = function() {
-          toggleSidebar();
-        };
-        // Set initial float button text based on sidebar state
-        if (sidebar && !sidebar.classList.contains('minimized')) {
-          floatBtn.textContent = '-';
-          floatBtn.title = 'Minimize sidebar';
-        } else {
-          floatBtn.textContent = '+';
-          floatBtn.title = 'Expand sidebar';
-        }
-      }
-
       // Keyboard shortcuts (ignore when typing in inputs/selects).
       document.addEventListener('keydown', function(ev) {
         const t = (ev.target && ev.target.tagName) ? ev.target.tagName.toLowerCase() : '';
@@ -412,9 +323,6 @@
           const btn = document.getElementById('label-toggle');
           if (btn) btn.click();
         }
-        if (ev.key === 's' || ev.key === 'S') {
-          toggleSidebar();
-        }
       });
       
       // Status panel close button
@@ -422,12 +330,6 @@
         statusExit.onclick = function() {
           document.getElementById('status-panel').style.display = 'none';
         };
-      }
-      
-      // Show default message on load
-      if (detailsDiv && contentEl) {
-        contentEl.innerHTML = '<p>Select a contest or county to see results.</p>';
-        detailsDiv.style.display = 'block';
       }
 
       syncMobileTopbarToggle();
@@ -497,25 +399,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
-/* Sidebar is disabled by default; show only when html has .sidebar-enabled. */
-#sidebar, #sidebar-float-toggle { display: none; }
-html.sidebar-enabled #sidebar { display: block; }
-
-/* Floating button (only when sidebar exists) */
-#sidebar-float-toggle { position: fixed; top: 10px; right: 10px; z-index: 10010; }
-/* Mobile: Larger touch-friendly floating button */
-@media (max-width: 768px) {
-  #sidebar-float-toggle {
-    top: auto !important;
-    bottom: calc(50vh + 16px) !important;
-    right: 16px !important;
-    width: 56px !important;
-    height: 56px !important;
-    font-size: 28px !important;
-    border-radius: 50% !important;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.2) !important;
-  }
-}
 html, body {
   height: 100vh;
   margin: 0;
@@ -832,97 +715,6 @@ body.focus-active #hover-tooltip[data-context="preview"] {
   color: #fff;
   font-weight: 600;
 }
-
-.sidebar {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 400px;
-  height: 100vh;
-  background: #fff;
-  box-shadow: -2px 0 10px rgba(0,0,0,0.1);
-  border-left: 1px solid #e5e7eb;
-  overflow-y: auto;
-  transition: width 0.3s cubic-bezier(.4,0,.2,1);
-  z-index: 2;
-}
-/* Mobile: Full-screen sidebar */
-@media (max-width: 768px) {
-  .sidebar {
-    position: fixed !important;
-    top: 0 !important;
-    right: 0 !important;
-    left: 0 !important;
-    width: 100vw !important;
-    height: 100vh !important;
-    z-index: 10003 !important;
-    box-shadow: none !important;
-    border: none !important;
-  }
-  .sidebar-header {
-    padding: 16px !important;
-    border-bottom: 2px solid #e5e7eb !important;
-  }
-  .sidebar-header h3 {
-    font-size: 18px !important;
-    padding-right: 50px;
-  }
-  .sidebar-content {
-    padding: 16px !important;
-  }
-  .sidebar-footer {
-    padding: 16px !important;
-    font-size: 14px !important;
-  }
-}
-.sidebar.minimized {
-  width: 0 !important;
-  min-width: 0 !important;
-  max-width: 0 !important;
-  overflow: hidden !important;
-  pointer-events: none;
-  border: none !important;
-  box-shadow: none !important;
-  background: transparent !important;
-  padding: 0 !important;
-  margin: 0 !important;
-}
-.sidebar.minimized .sidebar-content {
-  display: none !important;
-}
-.sidebar.minimized .sidebar-header {
-  display: none !important;
-}
-.sidebar.minimized .minimize-btn {
-  display: flex !important;
-  position: fixed !important;
-  top: 15px;
-  right: 15px;
-  transform: none;
-  background: #2563eb;
-  color: white;
-  border: 1px solid #1d4ed8;
-  pointer-events: auto !important;
-  cursor: pointer !important;
-  z-index: 10001;
-}
-.sidebar-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px;
-  border-bottom: 1px solid #e5e7eb;
-  background: #f9fafb;
-}
-.sidebar-header h3 {
-  margin: 0;
-  font-size: 18px;
-  font-weight: 600;
-  color: #1f2937;
-}
-.sidebar-content {
-  padding: 20px;
-}
 .minimize-btn {
   background: #2563eb;
   border: 1px solid #1d4ed8;
@@ -1227,59 +1019,13 @@ body.focus-active #hover-tooltip[data-context="preview"] {
   flex-shrink: 0;
 }
 /* County Details */
-.county-details {
-  margin-bottom: 20px;
-  padding: 16px;
-  background: #f9fafb;
-  border-radius: 8px;
-  border: 1px solid #e5e7eb;
-}
-.county-details h4 {
-  margin: 0 0 12px 0;
-  color: #374151;
-  font-size: 16px;
-  font-weight: 700;
-}
 /* Mobile: Better spacing for county details */
 @media (max-width: 768px) {
-  .county-details {
-    padding: 14px !important;
-    margin-bottom: 16px !important;
-  }
-  .county-details h4 {
-    font-size: 18px !important;
-  }
-  #county-name {
+#county-name {
     font-size: 20px !important;
   }
 }
 /* Sidebar Card Classes for Consistent Font Sizes */
-.sidebar-section-title {
-  font-size: 14px !important;
-  font-weight: 700 !important;
-  margin-bottom: 6px !important;
-  color: #222 !important;
-}
-.sidebar-winner {
-  font-size: 14px !important;
-  font-weight: 700 !important;
-  margin-bottom: 8px !important;
-}
-.sidebar-margin {
-  font-size: 14px !important;
-  font-weight: 700 !important;
-  margin-bottom: 4px !important;
-}
-.sidebar-margin-details {
-  font-size: 13px !important;
-  color: #64748b !important;
-  margin-bottom: 8px !important;
-}
-.sidebar-breakdown {
-  font-size: 14px !important;
-  font-weight: 600 !important;
-  margin-bottom: 2px !important;
-}
 #county-info-content {
   display: grid;
   gap: 12px;
@@ -2061,12 +1807,7 @@ body.focus-active #hover-tooltip[data-context="preview"] {
 /* Mobile: Touch-friendly inputs and buttons */
 @media (max-width: 768px) {
   #county-search,
-  #sidebar-county-search {
-    font-size: 16px !important;
-    padding: 12px !important;
-    border-radius: 8px !important;
-  }
-  .minimize-btn {
+.minimize-btn {
     min-width: 44px !important;
     min-height: 44px !important;
     font-size: 22px !important;
@@ -2117,34 +1858,6 @@ body.focus-active #hover-tooltip[data-context="preview"] {
     max-width: none !important;
   }
 }
-    .sidebar.minimized .sidebar-footer {
-      display: none !important;
-    }
-    #sidebar-float-toggle {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      z-index: 10001;
-      width: 40px;
-      height: 40px;
-      background: #2563eb;
-      color: #fff;
-      border: none;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.10);
-      font-size: 24px;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-    #sidebar-float-toggle:hover {
-      background: #1746a0;
-    }
-    html.sidebar-enabled .sidebar.minimized ~ #sidebar-float-toggle {
-      display: flex !important;
-    }
   /* Removed empty ruleset for #map.sidebar-minimized */
 
   /* Aesthetic refresh overrides */
@@ -2166,10 +1879,8 @@ body.focus-active #hover-tooltip[data-context="preview"] {
   }
 
   /* Tennessee accent pass for controls and search affordances. */
-  #sidebar-minimize-btn,
   #legend-minimize-btn,
   #main-controls .controls-header #controls-minimize-btn,
-  #sidebar-float-toggle,
   .minimize-btn,
   .desktop-fly-submit,
   .fly-search-submit {
@@ -2178,7 +1889,6 @@ body.focus-active #hover-tooltip[data-context="preview"] {
     color: #fff !important;
   }
 
-  #sidebar-float-toggle:hover,
   .minimize-btn:hover,
   .desktop-fly-submit:hover,
   .fly-search-submit:hover {
@@ -2190,12 +1900,7 @@ body.focus-active #hover-tooltip[data-context="preview"] {
   .main-controls input[type="text"]:focus,
   #desktop-fly-search:focus,
   #county-search:focus,
-  #sidebar-county-search:focus {
-    border-color: var(--state-blue) !important;
-    box-shadow: 0 0 0 3px rgba(255, 130, 0, 0.16) !important;
-  }
-
-  .desktop-fly-group {
+.desktop-fly-group {
     background: linear-gradient(180deg, rgba(255, 130, 0, 0.10) 0%, rgba(248, 250, 252, 0.94) 55%, rgba(88, 89, 91, 0.10) 100%) !important;
     border-color: rgba(88, 89, 91, 0.28) !important;
   }
@@ -2220,7 +1925,6 @@ body.focus-active #hover-tooltip[data-context="preview"] {
 
   .main-controls,
   .legend,
-  .sidebar,
   .status-panel,
   .vote-counter,
   .viz-modes {
@@ -2232,14 +1936,7 @@ body.focus-active #hover-tooltip[data-context="preview"] {
 
   .controls-header h3,
   .legend-header h4,
-  .sidebar-header h3 {
-    font-family: "Manrope", "IBM Plex Sans", sans-serif;
-    font-weight: 800;
-    letter-spacing: 0.01em;
-    color: var(--ui-text);
-  }
-
-  .main-controls {
+.main-controls {
     border-radius: 14px;
   }
 
@@ -2248,61 +1945,11 @@ body.focus-active #hover-tooltip[data-context="preview"] {
   .viz-modes {
     border-radius: 14px;
   }
-
-  .sidebar {
-    border-left: 1px solid var(--ui-border);
-  }
-
-  .sidebar-header,
   .legend-header {
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.94) 0%, rgba(248, 250, 252, 0.94) 100%);
   }
-
-  .sidebar-panel {
-    border: 1px solid rgba(15, 23, 42, 0.10);
-    border-radius: 12px;
-    background: rgba(255, 255, 255, 0.72);
-    padding: 10px 12px;
-    margin: 10px 0;
-  }
-
-  .sidebar-panel summary {
-    list-style: none;
-    cursor: pointer;
-    font-weight: 800;
-    color: #0f172a;
-    letter-spacing: 0.01em;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    user-select: none;
-  }
-
-  .sidebar-panel summary::-webkit-details-marker {
-    display: none;
-  }
-
-  .sidebar-panel summary::after {
-    content: '+';
-    font-weight: 900;
-    color: rgba(15, 23, 42, 0.55);
-  }
-
-  .sidebar-panel[open] summary::after {
-    content: '-';
-  }
-
-  #county-search,
-  #sidebar-county-search {
-    width: 100%;
-    padding: 10px 12px;
-    border-radius: 10px;
-    margin-top: 6px;
-    border: 1px solid rgba(148, 163, 184, 0.55);
-    background: rgba(255, 255, 255, 0.95);
-  }
-
-  .hover-tooltip {
+#county-search,
+.hover-tooltip {
     border: 1px solid rgba(15, 23, 42, 0.20);
     box-shadow: 0 18px 44px rgba(15, 23, 42, 0.25);
     backdrop-filter: blur(14px);
@@ -2629,7 +2276,6 @@ body.focus-active #hover-tooltip[data-context="preview"] {
   }
 
   .minimize-btn,
-  #sidebar-float-toggle,
   #accessibility-toggle,
   #label-toggle,
   #precinct-toggle {
@@ -2638,11 +2284,7 @@ body.focus-active #hover-tooltip[data-context="preview"] {
   }
 
   .minimize-btn,
-  #sidebar-float-toggle {
-    background: linear-gradient(180deg, var(--ui-accent) 0%, var(--ui-accent-2) 100%);
-  }
-
-  .control-group select {
+.control-group select {
     border: 1px solid rgba(148, 163, 184, 0.55);
     border-radius: 10px;
     background: rgba(255, 255, 255, 0.95);
@@ -7280,53 +6922,6 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
   </div>
 
-  <!-- Sidebar for County Details and Analysis (single instance only) -->
-    <div class="sidebar minimized" id="sidebar">
-      <div class="sidebar-header" id="sidebar-header">
-        <h3>County Analysis</h3>
-        <button class="minimize-btn" id="sidebar-minimize-btn">+</button>
-      </div>
-      <div class="sidebar-content">
-        <details class="sidebar-panel" id="panel-focus" open>
-          <summary>Focus</summary>
-          <div class="county-details" id="county-details" style="display: block;">
-            <h4 id="county-name">Select a County</h4>
-            <div id="county-info-content">
-              Click on any county or district to see results. Click again to see trends.
-            </div>
-          </div>
-        </details>
-
-        <details class="sidebar-panel" id="panel-search">
-          <summary>Search</summary>
-          <div style="margin-top: 10px;">
-            <label for="sidebar-county-search" style="font-weight:600;">Find</label>
-            <input type="text" id="sidebar-county-search" placeholder="Davidson, CD 5, HD 60, SD 19, Knox 01" autocomplete="off" spellcheck="false" />
-            <div style="margin-top:6px;font-size:12px;color:#64748b;">
-              Tips: use <span style="font-weight:700;">CD</span> for Congress, <span style="font-weight:700;">HD</span> for House, <span style="font-weight:700;">SD</span> for Senate.
-            </div>
-          </div>
-        </details>
-
-        <details class="sidebar-panel" id="panel-statewide" open>
-          <summary>Statewide</summary>
-          <div class="statewide-results" id="statewide-results" style="margin-top: 10px;">
-            <h4 id="contest-name" data-statewide-contest-name="true" style="margin:0 0 12px 0; font-size:14px; font-weight:800; color:#0f172a;"></h4>
-            <div id="statewide-content" data-statewide-content="true">
-              <p>Select a contest to see statewide results and margin.</p>
-              <div id="statewide-temperature-bar" style="width:100%;height:24px;margin:12px 0;display:none;"></div>
-            </div>
-          </div>
-        </details>
-      </div>
-      <div class="sidebar-footer" style="padding: 14px 10px; text-align: center; color: #64748b; font-size: 12px; line-height: 1.45; border-top: 1px solid #e5e7eb; background: #f9fafb;">
-        © 2026 Shamar Does Elections. All Rights Reserved.<br>
-        Created by Shamar Davis.
-      </div>
-    </div>
-  <!-- Floating Sidebar Expand/Collapse Button (smaller size) -->
-  <button id="sidebar-float-toggle" title="Expand Sidebar">+</button>
-
   <!-- Floating Status Panel -->
   <div class="status-panel" id="status-panel" style="display:none;position:fixed;top:20px;right:90px;z-index:10002;background:rgba(255,255,255,0.97);backdrop-filter:blur(10px);padding:18px 24px 18px 18px;border-radius:12px;box-shadow:0 4px 16px rgba(0,0,0,0.12);border:1px solid #e5e7eb;max-width:340px;min-width:200px;font-size:15px;color:#34495e;">
     <span id="status-message"></span>
@@ -11473,14 +11068,8 @@ document.addEventListener('DOMContentLoaded', function() {
       if (!scope || !Number.isFinite(districtId)) return false;
 
       const title = getDistrictTitleForScope(scope, districtId);
-      if (scope === 'congressional') {
-        showDistrictDetails(districtId);
-      } else {
-        const chamber = getDistrictChamberForScope(scope);
-        if (chamber !== 'house' && chamber !== 'senate') return false;
-        showStateDistrictDetails(districtId, chamber);
-      }
       window.lastSelectedCounty = title;
+      updateContextBanner();
       try { setDistrictHoverOutline(scope, districtId); } catch (_) {}
 
       const selectedContest = (contestValue || document.getElementById('contestSelect')?.value || '').toString().trim();
@@ -11559,16 +11148,6 @@ document.addEventListener('DOMContentLoaded', function() {
       document.getElementById('districts-view')?.classList.toggle('active', view === 'districts');
       document.getElementById('state-house-view')?.classList.toggle('active', view === 'state_house');
       document.getElementById('state-senate-view')?.classList.toggle('active', view === 'state_senate');
-      
-      // Update sidebar title
-      const sidebarTitle = document.querySelector('.sidebar-header h3');
-      const titles = {
-        'counties': 'County Analysis',
-        'districts': 'Congressional District Analysis', 
-        'state_house': 'State House District Analysis',
-        'state_senate': 'State Senate District Analysis'
-      };
-      sidebarTitle.textContent = titles[view];
       
       // Clear all map layers for the active view.
       // Precincts are an overlay; don't destroy precinct layers when switching views.
@@ -14296,8 +13875,6 @@ document.addEventListener('DOMContentLoaded', function() {
       try { updateMobileOverlayOffsets(); } catch (_) {}
     }
 
-    let countySidebarRequestId = 0;
-
     function normalizeCountyLookupKey(name) {
       return (name || '')
         .toString()
@@ -14880,40 +14457,11 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function showCountyDetails(countyName) {
-      const sidebar = document.getElementById('sidebar');
-      const detailsDiv = document.getElementById('county-details');
-      const contentEl = document.getElementById('county-info-content');
-      const sidebarReady = !!(SIDEBAR_ENABLED && contentEl && detailsDiv);
-
-      if (sidebarReady && sidebar) {
-        sidebar.classList.remove('minimized');
-        const sidebarContentEl = document.querySelector('.sidebar-content');
-        if (sidebarContentEl) sidebarContentEl.style.display = 'block';
-        const floatBtn = document.getElementById('sidebar-float-toggle');
-        if (floatBtn) {
-          floatBtn.textContent = '-';
-          floatBtn.title = 'Minimize sidebar';
-        }
-        const btn = document.getElementById('sidebar-minimize-btn');
-        if (btn) {
-          btn.textContent = '-';
-          btn.title = 'Minimize sidebar';
-        }
-      }
-
-      const countyNameElement = document.getElementById('county-name');
       const countyDisplay = displayCountyName(countyName);
       window.lastSelectedCounty = countyDisplay;
       updateContextBanner();
-      if (countyNameElement) countyNameElement.textContent = `${countyDisplay} County`;
 
-      if (!currentElectionResults) {
-        if (sidebarReady) {
-          contentEl.innerHTML = '<p>Select a contest to see county results.</p>';
-          detailsDiv.style.display = 'block';
-        }
-        return;
-      }
+      if (!currentElectionResults) return;
 
       const normCounty = normalizeCountyLookupKey(countyName);
       let countyData = currentElectionResults[normCounty];
@@ -14925,40 +14473,22 @@ document.addEventListener('DOMContentLoaded', function() {
           }
         }
       }
-
-      if (!countyData) {
-        if (sidebarReady) {
-          contentEl.innerHTML = '<p>No results found for this county in the selected contest.</p>';
-          detailsDiv.style.display = 'block';
-        }
-        return;
-      }
+      if (!countyData) return;
 
       const contestKey = document.getElementById('contestSelect')?.value || '';
-      if (!contestKey) {
-        if (sidebarReady) {
-          contentEl.innerHTML = '<p>Select a contest to see detailed results.</p>';
-          detailsDiv.style.display = 'block';
-        }
-        return;
-      }
+      if (!contestKey) return;
 
       const [contestType, year] = parseContestValue(contestKey);
       const demVotes = Number(countyData?.[`${contestType}_dem`] || 0);
       const repVotes = Number(countyData?.[`${contestType}_rep`] || 0);
       const otherVotes = Number(countyData?.[`${contestType}_other`] || 0);
       const totalVotes = Number(countyData?.[`${contestType}_total`] || 0);
+      if (totalVotes <= 0) return;
 
-      if (totalVotes <= 0) {
-        if (sidebarReady) {
-          contentEl.innerHTML = `<p>No ${formatContestName(contestType, year)} data available for ${countyDisplay} County in ${year}.</p>`;
-          detailsDiv.style.display = 'block';
-        }
-        return;
-      }
-
-      let demCandidate = (countyData?.[`${contestType}_dem_candidate`] || '').toString().trim() || getCandidateName(year, formatContestName(contestType, year), 'Democrat');
-      let repCandidate = (countyData?.[`${contestType}_rep_candidate`] || '').toString().trim() || getCandidateName(year, formatContestName(contestType, year), 'Republican');
+      let demCandidate = (countyData?.[`${contestType}_dem_candidate`] || '').toString().trim()
+        || getCandidateName(year, formatContestName(contestType, year), 'Democrat');
+      let repCandidate = (countyData?.[`${contestType}_rep_candidate`] || '').toString().trim()
+        || getCandidateName(year, formatContestName(contestType, year), 'Republican');
       demCandidate = stripRunningMateName(demCandidate);
       repCandidate = stripRunningMateName(repCandidate);
 
@@ -14971,45 +14501,6 @@ document.addEventListener('DOMContentLoaded', function() {
         { kind: 'county', county: countyDisplay.toUpperCase(), contestType, year: Number(year) },
         { demCandidate, repCandidate }
       );
-
-      if (!sidebarReady) return;
-
-      const precincts = countyData?.precincts || countyData?.Precincts || countyData?.PRECINCTS || '';
-      const demo = countyDemographics?.counties?.[normCounty] || null;
-      const specialBuckets = buildCountySpecialVoteBuckets(normCounty, contestType);
-      const panelArgs = {
-        countyDisplay,
-        contestType,
-        year,
-        demVotes,
-        repVotes,
-        otherVotes,
-        totalVotes,
-        demCandidate,
-        repCandidate,
-        precincts,
-        demo,
-        specialBuckets
-      };
-
-      const requestId = ++countySidebarRequestId;
-      contentEl.innerHTML = buildCountyPanelHTML({ ...panelArgs, pendingTrend: true, series: [] });
-      detailsDiv.style.display = 'block';
-
-      (async () => {
-        try {
-          const series = await getCountyTrendSeries(contestType, countyDisplay);
-          if (requestId !== countySidebarRequestId) return;
-          contentEl.innerHTML = buildCountyPanelHTML({ ...panelArgs, pendingTrend: false, series });
-          detailsDiv.style.display = 'block';
-          try { updateMobileOverlayOffsets(); } catch (_) {}
-        } catch (err) {
-          if (requestId !== countySidebarRequestId) return;
-          contentEl.innerHTML = buildCountyPanelHTML({ ...panelArgs, pendingTrend: false, series: [] });
-          detailsDiv.style.display = 'block';
-          console.warn('Failed to load county trends:', err?.message || err);
-        }
-      })();
     }
 
     function addCountyLayers() {
@@ -15640,9 +15131,8 @@ document.addEventListener('DOMContentLoaded', function() {
             const districtNum = normalizeDistrictNumber(props.DISTRICT || props.CD118FP || props.CD119FP || props.district_id || props.district);
             if (districtNum) {
               zoomToClickedDistrictFeature(e.features[0], { padding: 40, duration: 850, maxZoom: 10.5 });
-              // Show detailed sidebar (results + trends).
-              showDistrictDetails(districtNum);
-              lastSelectedCounty = `District ${districtNum}`;
+              lastSelectedCounty = `Congressional District ${districtNum}`;
+              updateContextBanner();
 
               // Pin vote counter to this district for current contest (if any).
               const contestValue = document.getElementById('contestSelect')?.value || '';
@@ -15750,9 +15240,8 @@ document.addEventListener('DOMContentLoaded', function() {
             const districtNum = normalizeDistrictNumber(props.DISTRICT || props.SLDLST || props.district_id || props.district);
             if (districtNum) {
               zoomToClickedDistrictFeature(e.features[0], { padding: 40, duration: 850, maxZoom: 11.2 });
-              // Show detailed sidebar (results + trends).
-              showStateDistrictDetails(districtNum, 'house');
               lastSelectedCounty = `State House District ${districtNum}`;
+              updateContextBanner();
 
               const contestValue = document.getElementById('contestSelect')?.value || '';
               if (contestValue) {
@@ -15858,9 +15347,8 @@ document.addEventListener('DOMContentLoaded', function() {
             const districtNum = normalizeDistrictNumber(props.DISTRICT || props.SLDUST || props.district_id || props.district);
             if (districtNum) {
               zoomToClickedDistrictFeature(e.features[0], { padding: 40, duration: 850, maxZoom: 11.0 });
-              // Show detailed sidebar (results + trends).
-              showStateDistrictDetails(districtNum, 'senate');
               lastSelectedCounty = `State Senate District ${districtNum}`;
+              updateContextBanner();
 
               const contestValue = document.getElementById('contestSelect')?.value || '';
               if (contestValue) {
@@ -15932,14 +15420,15 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function clearCountyDetails() {
-      document.getElementById('county-details').style.display = 'none';
+      const details = document.getElementById('county-details');
+      if (details) details.style.display = 'none';
     }
 
 
     let flySearchWired = false;
 
     function getFlySearchInputs() {
-      return ['county-search', 'desktop-fly-search', 'sidebar-county-search']
+      return ['county-search', 'desktop-fly-search']
         .map(id => document.getElementById(id))
         .filter(Boolean);
     }
@@ -16320,9 +15809,6 @@ document.addEventListener('DOMContentLoaded', function() {
       setFlySearchFeedback('#10b981');
       map.fitBounds([[bbox[0], bbox[1]], [bbox[2], bbox[3]]], { padding: 40, duration: 900 });
 
-      const sidebar = document.getElementById('sidebar');
-      if (sidebar && sidebar.classList.contains('minimized')) toggleSidebar();
-
       const scope = sourceId === 'districts'
         ? 'congressional'
         : (sourceId === 'state-house' ? 'state_house' : 'state_senate');
@@ -16408,9 +15894,6 @@ document.addEventListener('DOMContentLoaded', function() {
           { demCandidate: row[`${contestType}_dem_candidate`] || '', repCandidate: row[`${contestType}_rep_candidate`] || '' }
         );
       }
-
-      const sidebar = document.getElementById('sidebar');
-      if (sidebar && sidebar.classList.contains('minimized')) toggleSidebar();
     }
 
     function handleCountySelection(countyName) {
@@ -16454,10 +15937,6 @@ document.addEventListener('DOMContentLoaded', function() {
           setFlySearchFeedback('#10b981');
           map.fitBounds([[bbox[0], bbox[1]], [bbox[2], bbox[3]]], { padding: 40, duration: 1000 });
           showCountyDetails(lastSelectedCounty);
-          const sidebar = document.getElementById('sidebar');
-          if (sidebar && sidebar.classList.contains('minimized')) {
-            toggleSidebar();
-          }
         } else {
           console.warn('[DIAGNOSTIC] County not found:', countyName, 'normalized:', normTarget);
           setFlySearchFeedback('#ef4444');
@@ -16832,480 +16311,7 @@ document.addEventListener('DOMContentLoaded', function() {
       tooltip.style.top = top + 'px';
     }
 
-    function showDistrictDetails(districtNum) {
-      if (!SIDEBAR_ENABLED) return;
-      const detailsDiv = document.getElementById('county-details');
-      const nameEl = document.getElementById('county-name');
-      const contentEl = document.getElementById('county-info-content');
-      
-      nameEl.textContent = `Congressional District ${districtNum}`;
-      
-      // Get district info from districtsInfo CSV
-      const districtInfo = (districtsInfo || []).find(d => d.district == districtNum);
-      
-      let demographicInfo = '';
-      if (districtInfo) {
-        demographicInfo = `
-          <div style="margin-bottom: 16px;">
-            <h5>👥 Demographics (VAP)</h5>
-            <p><strong>Total Population:</strong> ${districtInfo.total_population.toLocaleString()}</p>
-            <p><strong>White:</strong> ${districtInfo.white_vap_pct}%</p>
-            <p><strong>Black:</strong> ${districtInfo.black_vap_pct}%</p>
-            <p><strong>Hispanic:</strong> ${districtInfo.hispanic_vap_pct}%</p>
-          </div>
-        `;
-      }
-      
-      // Get current contest results if available
-      const contestValue = document.getElementById('contestSelect').value;
-      let electionInfo = '';
-      
-      if (contestValue && congressionalData) {
-        const [contestType, year] = parseContestValue(contestValue);
-        if (contestType === 'us_house') {
-          const result = congressionalData.find(row => 
-            row.year == year && row.district == districtNum
-          );
-          
-          if (result && result.us_house_total > 0) {
-            const demVotes = result.us_house_dem || 0;
-            const repVotes = result.us_house_rep || 0;
-            const totalVotes = result.us_house_total || 0;
-            
-            const demPct = totalVotes > 0 ? (demVotes / totalVotes) * 100 : 0;
-            const repPct = totalVotes > 0 ? (repVotes / totalVotes) * 100 : 0;
-            const marginPct = Math.abs(demPct - repPct);
-            const winner = demPct > repPct ? 'Democratic' : 'Republican';
-            
-            // Determine competitiveness
-            let competitiveness;
-            if (marginPct >= 40) {
-              competitiveness = winner === 'Republican' ? 'Annihilation Republican' : 'Annihilation Democratic';
-            } else if (marginPct >= 30 && marginPct <= 39.99) {
-              competitiveness = winner === 'Republican' ? 'Dominant Republican' : 'Dominant Democratic';
-            } else if (marginPct >= 20 && marginPct <= 29.99) {
-              competitiveness = winner === 'Republican' ? 'Stronghold Republican' : 'Stronghold Democratic';
-            } else if (marginPct >= 10 && marginPct <= 19.99) {
-              competitiveness = winner === 'Republican' ? 'Safe Republican' : 'Safe Democratic';
-            } else if (marginPct >= 5.51 && marginPct <= 9.99) {
-              competitiveness = winner === 'Republican' ? 'Likely Republican' : 'Likely Democratic';
-            } else if (marginPct >= 1 && marginPct <= 5.5) {
-              competitiveness = winner === 'Republican' ? 'Lean Republican' : 'Lean Democratic';
-            } else if (marginPct >= 0.51 && marginPct <= 0.99) {
-              competitiveness = winner === 'Republican' ? 'Tilt Republican' : 'Tilt Democratic';
-            } else {
-              competitiveness = winner === 'Democratic' ? 'Tossup (Democratic Win)' : 'Tossup (Republican Win)';
-            }
-            let compColor = '#6b7280';
-            // Handle tossup cases with better colors and formatting like index (1).html
-            if (competitiveness.includes('Tossup')) {
-              compColor = winner === 'Democratic' ? '#2563eb' : '#dc2626';
-            } else if (competitiveness.includes('Rep')) {
-              if (competitiveness.includes('Annihilation')) compColor = '#7f1d1d';
-              else if (competitiveness.includes('Dominant')) compColor = '#b91c1c';
-              else if (competitiveness.includes('Stronghold')) compColor = '#dc2626';
-              else if (competitiveness.includes('Safe')) compColor = '#ef4444';
-              else if (competitiveness.includes('Likely')) compColor = '#f87171';
-              else if (competitiveness.includes('Lean')) compColor = '#fecaca';
-              else if (competitiveness.includes('Tilt')) compColor = '#fff1f2';
-            } else if (competitiveness.includes('Dem')) {
-              if (competitiveness.includes('Annihilation')) compColor = '#1e3a8a';
-              else if (competitiveness.includes('Dominant')) compColor = '#1d4ed8';
-              else if (competitiveness.includes('Stronghold')) compColor = '#2563eb';
-              else if (competitiveness.includes('Safe')) compColor = '#3b82f6';
-              else if (competitiveness.includes('Likely')) compColor = '#60a5fa';
-              else if (competitiveness.includes('Lean')) compColor = '#93c5fd';
-              else if (competitiveness.includes('Tilt')) compColor = '#dbeafe';
-            }
-            
-            electionInfo = `
-              <div style="margin-bottom: 16px;">
-                <h5>Competitiveness</h5>
-                <p style="color: ${compColor}; font-weight: bold; font-size: 16px;">${competitiveness}</p>
-              </div>
-              <div style="margin-bottom: 16px;">
-                <h5>Margin</h5>
-                <p style="color: ${winner === 'Republican' ? '#dc2626' : '#2563eb'}; font-weight: bold; font-size: 18px;">
-                  ${winner} +${marginPct.toFixed(2)}%
-                </p>
-              </div>
-              <div style="margin-bottom: 16px;">
-                <h5>Vote Breakdown</h5>
-                <p><span style="color: #2563eb; font-weight: bold;">Democratic: </span>${demPct.toFixed(2)}% (${demVotes.toLocaleString()})</p>
-                <p><span style="color: #dc2626; font-weight: bold;">Republican: </span>${repPct.toFixed(2)}% (${repVotes.toLocaleString()})</p>
-                <p><strong>Total Votes:</strong> ${totalVotes.toLocaleString()}</p>
-              </div>
-            `;
-          }
-        }
-      }
-      
-      contentEl.innerHTML = demographicInfo + electionInfo;
-      detailsDiv.style.display = 'block';
-    }
-
-    function showStateDistrictDetails(districtNum, chamber) {
-      if (!SIDEBAR_ENABLED) return;
-      const detailsDiv = document.getElementById('county-details');
-      const nameEl = document.getElementById('county-name');
-      const contentEl = document.getElementById('county-info-content');
-      
-      const title = chamber === 'house' ? `State House District ${districtNum}` : `State Senate District ${districtNum}`;
-      nameEl.textContent = title;
-      
-      // Get district info from appropriate CSV
-      const districtInfo = chamber === 'house' 
-        ? stateHouseInfo?.find(d => d.district == districtNum)
-        : stateSenateInfo?.find(d => d.district == districtNum);
-      
-      let demographicInfo = '';
-      if (districtInfo) {
-        demographicInfo = `
-          <div style="margin-bottom: 16px;">
-            <h5>👥 Demographics (VAP)</h5>
-            <p><strong>Total Population:</strong> ${districtInfo.total_population.toLocaleString()}</p>
-            <p><strong>White:</strong> ${districtInfo.white_vap_pct}%</p>
-            <p><strong>Black:</strong> ${districtInfo.black_vap_pct}%</p>
-            <p><strong>Hispanic:</strong> ${districtInfo.hispanic_vap_pct}%</p>
-          </div>
-        `;
-      }
-      
-      // Get current contest results if available
-      const contestValue = document.getElementById('contestSelect').value;
-      let electionInfo = '';
-      const expectedType = chamber === 'house' ? 'state_house' : 'state_senate';
-      
-      if (contestValue && electionData) {
-        const [contestType, year] = parseContestValue(contestValue);
-        if (contestType === expectedType) {
-          // For state legislative districts, we need to aggregate county data by district
-          // This is complex without a county-to-district mapping, so show general message
-          electionInfo = `
-            <div style="margin-bottom: 16px;">
-              <h5>${year} ${chamber === 'house' ? 'State House' : 'State Senate'}</h5>
-              <p style="color: #666; font-style: italic;">District-level results require county-to-district mapping. 
-              Click to see general trends for this contest type.</p>
-            </div>
-          `;
-        }
-      }
-      
-      contentEl.innerHTML = demographicInfo + electionInfo;
-      detailsDiv.style.display = 'block';
-    }
-
-    function getStateDistrictTrends(districtNum, chamber) {
-      // For state legislative districts, we'll show recent election years
-      const recentYears = [2024, 2022, 2020, 2018, 2016];
-      const trends = [];
-      
-      // This is simplified - in reality you'd need county-to-district mapping
-      // For now, just show that data is available
-      recentYears.forEach(year => {
-        const contestType = chamber === 'house' ? 'state_house' : 'state_senate';
-        const hasData = electionData.some(row => 
-          row.year == year && row[`${contestType}_total`] > 0
-        );
-        
-        if (hasData) {
-          trends.push({
-            year: year,
-            display: `${year}: Data Available`,
-            margin: 0,
-            type: contestType
-          });
-        }
-      });
-      
-      if (trends.length === 0) {
-        trends.push({
-          year: 0,
-          display: 'District mapping needed',
-          margin: 0,
-          type: 'info'
-        });
-      }
-      
-      return trends;
-    }
-
-    // --- District Sidebar (Manifest-Based) ---
-    // The legacy district sidebar functions above only handled US House via a CSV and did not
-    // show state legislative results. Override them here to use district contest slices.
-    let districtSidebarRequestId = 0;
-
-    function pickDistrictSliceRow(payload, districtNum) {
-      const results = payload?.general?.results || null;
-      if (!results) return null;
-      const keyA = String(districtNum);
-      const keyB = String(Number(districtNum));
-      return results[keyA] || results[keyB] || null;
-    }
-
-    function renderDistrictElectionInfoHTML(contestType, year, row, fallbackCandidates) {
-      if (!row) return '<div style="color:#999;">No results for this district/contest.</div>';
-      const demVotes = Number(row.dem_votes || 0);
-      const repVotes = Number(row.rep_votes || 0);
-      const otherVotes = Number(row.other_votes || 0);
-      const totalVotes = Number(row.total_votes || (demVotes + repVotes + otherVotes));
-      if (totalVotes <= 0) return '<div style="color:#999;">No results for this district/contest.</div>';
-
-      const demPartyLabel = (() => {
-        const raw = (row.dem_party_label || 'D').toString().trim().toUpperCase();
-        if (!raw) return 'D';
-        if (raw === 'D' || raw === 'DEM') return 'D';
-        if (raw === 'I' || raw === 'IND' || raw === 'INDEPENDENT') return 'I';
-        return raw.length <= 3 ? raw : 'D';
-      })();
-      const demPartyWord = demPartyLabel === 'I' ? 'Independent' : 'Democratic';
-      const demColor = demPartyLabel === 'I' ? '#7e22ce' : '#2563eb';
-
-      let demCandidate = stripRunningMateName((row.dem_candidate || '').toString().trim());
-      let repCandidate = stripRunningMateName((row.rep_candidate || '').toString().trim());
-      if (!demCandidate) demCandidate = stripRunningMateName((fallbackCandidates?.dem || '').toString().trim());
-      if (!repCandidate) repCandidate = stripRunningMateName((fallbackCandidates?.rep || '').toString().trim());
-      if (!demCandidate) demCandidate = 'D';
-      if (!repCandidate) repCandidate = 'R';
-
-      const demPct = (demVotes / totalVotes) * 100.0;
-      const repPct = (repVotes / totalVotes) * 100.0;
-      const othPct = (otherVotes / totalVotes) * 100.0;
-      const marginPct = Math.abs(repPct - demPct);
-      const winnerParty = repPct > demPct ? 'R' : (demPct > repPct ? 'D' : 'TIE');
-      const winnerPartyLabel = winnerParty === 'D' ? demPartyLabel : winnerParty;
-
-      let compLabel = '';
-      let compColor = '#6b7280';
-      if (marginPct >= 40) {
-        compLabel = winnerParty === 'R' ? "Annihilation Republican" : `Annihilation ${demPartyWord}`;
-        compColor = winnerParty === 'R' ? '#7f1d1d' : '#1e3a8a';
-      } else if (marginPct >= 30) {
-        compLabel = winnerParty === 'R' ? "Dominant Republican" : `Dominant ${demPartyWord}`;
-        compColor = winnerParty === 'R' ? '#7f1d1d' : '#1e3a8a';
-      } else if (marginPct >= 20) {
-        compLabel = winnerParty === 'R' ? "Stronghold Republican" : `Stronghold ${demPartyWord}`;
-        compColor = winnerParty === 'R' ? '#dc2626' : '#2563eb';
-      } else if (marginPct >= 10) {
-        compLabel = winnerParty === 'R' ? "Safe Republican" : `Safe ${demPartyWord}`;
-        compColor = winnerParty === 'R' ? '#dc2626' : '#3b82f6';
-      } else if (marginPct >= 5.5) {
-        compLabel = winnerParty === 'R' ? "Likely Republican" : `Likely ${demPartyWord}`;
-        compColor = winnerParty === 'R' ? '#ef4444' : '#60a5fa';
-      } else if (marginPct >= 1) {
-        compLabel = winnerParty === 'R' ? "Lean Republican" : `Lean ${demPartyWord}`;
-        compColor = winnerParty === 'R' ? '#f87171' : '#93c5fd';
-      } else if (marginPct >= 0.5) {
-        compLabel = winnerParty === 'R' ? "Tilt Republican" : `Tilt ${demPartyWord}`;
-        compColor = winnerParty === 'R' ? '#fff1f2' : '#dbeafe';
-      } else {
-        compLabel = "Tossup";
-        compColor = '#6b7280';
-      }
-
-      const winName = winnerParty === 'R'
-        ? fullCandidateLabel(repCandidate, 'Republican')
-        : (winnerParty === 'D' ? fullCandidateLabel(demCandidate, demPartyWord) : 'Tie');
-      const winColor = winnerParty === 'R' ? '#dc2626' : (winnerParty === 'D' ? '#2563eb' : '#6b7280');
-
-      return `
-        <div style="margin-bottom: 12px;">
-          <h5 style="margin:0 0 6px 0;">${year} ${formatContestName(contestType, year)}</h5>
-          <div style="font-size:15px;font-weight:800;color:${winColor};">Winner: ${winName} (${winnerPartyLabel})</div>
-          <div style="margin-top:4px;font-size:15px;font-weight:800;color:${winColor};">
-            Margin: ${winnerMarginLabel(repVotes, demVotes, totalVotes, repCandidate, demCandidate)} <span style="color:#64748b;font-weight:600;">(${Math.abs(repVotes - demVotes).toLocaleString()} votes)</span>
-          </div>
-          <div style="margin-top:8px;font-size:14px;">
-            <div><span style="color:${demColor};font-weight:800;">${fullCandidateLabel(demCandidate, demPartyWord)} (${escapeHtml(demPartyLabel)})</span>: ${demPct.toFixed(2)}% (${demVotes.toLocaleString()})</div>
-            <div><span style="color:#dc2626;font-weight:800;">${fullCandidateLabel(repCandidate, 'Republican')} (R)</span>: ${repPct.toFixed(2)}% (${repVotes.toLocaleString()})</div>
-            ${otherVotes > 0 ? `<div><span style="color:#6b7280;font-weight:800;">Other</span>: ${othPct.toFixed(2)}% (${otherVotes.toLocaleString()})</div>` : ''}
-            <div style="margin-top:6px;color:#374151;font-weight:700;">Total Votes: ${totalVotes.toLocaleString()}</div>
-          </div>
-          <div style="margin-top:8px;font-size:14px;font-weight:800;color:${compColor};">Competitiveness: ${compLabel}</div>
-        </div>
-      `;
-    }
-
-    function renderDistrictTrendLinesHTML(series) {
-      if (!series || series.length === 0) return '<div style="color:#999;">No historical data</div>';
-      return series
-        .slice()
-        .sort((a, b) => a.year - b.year)
-        .map(s => {
-          const win = (s.winner || '').toString().toUpperCase();
-          const color = win === 'REP' ? '#ef4444' : (win === 'DEM' ? '#3b82f6' : '#a3a3a3');
-          const label = winnerMarginLabelShort(s.rep_votes, s.dem_votes, s.total_votes, s.rep_candidate, s.dem_candidate);
-          return `<div style="margin-top:4px;color:${color};font-weight:800;">${s.year}: ${label}</div>`;
-        })
-        .join('');
-    }
-
-    function showDistrictDetails(districtNum) {
-      if (!SIDEBAR_ENABLED) return;
-      const detailsDiv = document.getElementById('county-details');
-      const nameEl = document.getElementById('county-name');
-      const contentEl = document.getElementById('county-info-content');
-      if (!detailsDiv || !nameEl || !contentEl) return;
-
-      window.lastSelectedCounty = `Congressional District ${districtNum}`;
-      updateContextBanner();
-      nameEl.textContent = `Congressional District ${districtNum}`;
-
-      const districtInfo = (districtsInfo || []).find(d => d.district == districtNum);
-      let demographicInfo = '';
-      const desc = getDistrictDescription('congressional', districtNum);
-      if (districtInfo) {
-        demographicInfo = `
-          <div style="margin-bottom: 12px;">
-            ${desc ? `<div style="margin:0 0 10px 0;color:#475569;font-weight:800;">${desc}</div>` : ''}
-            <h5 style="margin:0 0 6px 0;">Demographics (VAP)</h5>
-            <div style="font-size:14px;"><strong>Total Population:</strong> ${Number(districtInfo.total_population || 0).toLocaleString()}</div>
-            <div style="font-size:14px;"><strong>White:</strong> ${districtInfo.white_vap_pct}%</div>
-            <div style="font-size:14px;"><strong>Black:</strong> ${districtInfo.black_vap_pct}%</div>
-            <div style="font-size:14px;"><strong>Hispanic:</strong> ${districtInfo.hispanic_vap_pct}%</div>
-          </div>
-        `;
-      } else if (desc) {
-        demographicInfo = `<div style="margin:0 0 12px 0;color:#475569;font-weight:800;">${desc}</div>`;
-      }
-
-      const contestValue = document.getElementById('contestSelect')?.value || '';
-      if (!contestValue) {
-        contentEl.innerHTML = demographicInfo + '<div style="color:#999;">Select a contest to see district results.</div>';
-        detailsDiv.style.display = 'block';
-        return;
-      }
-
-      const [contestType, year] = parseContestValue(contestValue);
-      const reqId = ++districtSidebarRequestId;
-      contentEl.innerHTML = demographicInfo + `
-        <div id="district-election" style="margin-bottom: 14px;color:#94a3b8;">Loading results...</div>
-        <div style="margin-top:10px;">
-          <h5 style="margin:0 0 6px 0;">Historical Trends</h5>
-          <div id="district-trends" style="color:#94a3b8;">Loading...</div>
-        </div>
-      `;
-      detailsDiv.style.display = 'block';
-
-      (async () => {
-        try {
-          const payload = await loadDistrictSlice('congressional', contestType, year);
-          const row = pickDistrictSliceRow(payload, districtNum);
-          if (reqId !== districtSidebarRequestId) return;
-          const el = document.getElementById('district-election');
-          let cand = null;
-          if (row && contestType !== 'us_house') {
-            const demBlank = !((row.dem_candidate || '').toString().trim());
-            const repBlank = !((row.rep_candidate || '').toString().trim());
-            if (demBlank || repBlank) cand = await getContestCandidates(contestType, year);
-          }
-          if (el) el.innerHTML = renderDistrictElectionInfoHTML(contestType, year, row, cand);
-        } catch (err) {
-          if (reqId !== districtSidebarRequestId) return;
-          const el = document.getElementById('district-election');
-          if (el) el.innerHTML = '<div style="color:#999;">Failed to load district results.</div>';
-          console.warn('Failed to load district results:', err?.message || err);
-        }
-
-        try {
-          const series = await getDistrictTrendSeries('congressional', contestType, districtNum);
-          if (reqId !== districtSidebarRequestId) return;
-          const el = document.getElementById('district-trends');
-          if (el) el.innerHTML = renderDistrictTrendLinesHTML(series);
-        } catch (err) {
-          if (reqId !== districtSidebarRequestId) return;
-          const el = document.getElementById('district-trends');
-          if (el) el.innerHTML = '<div style="color:#999;">Failed to load trends.</div>';
-          console.warn('Failed to load district trends:', err?.message || err);
-        }
-      })();
-    }
-
-    function showStateDistrictDetails(districtNum, chamber) {
-      if (!SIDEBAR_ENABLED) return;
-      const detailsDiv = document.getElementById('county-details');
-      const nameEl = document.getElementById('county-name');
-      const contentEl = document.getElementById('county-info-content');
-      if (!detailsDiv || !nameEl || !contentEl) return;
-
-      const title = chamber === 'house' ? `State House District ${districtNum}` : `State Senate District ${districtNum}`;
-      window.lastSelectedCounty = title;
-      updateContextBanner();
-      nameEl.textContent = title;
-
-      const scope = chamber === 'house' ? 'state_house' : 'state_senate';
-      const infoRow = chamber === 'house'
-        ? stateHouseInfo?.find(d => d.district == districtNum)
-        : stateSenateInfo?.find(d => d.district == districtNum);
-
-      let demographicInfo = '';
-      const desc = getDistrictDescription(scope, districtNum);
-      if (infoRow) {
-        demographicInfo = `
-          <div style="margin-bottom: 12px;">
-            ${desc ? `<div style="margin:0 0 10px 0;color:#475569;font-weight:800;">${desc}</div>` : ''}
-            <h5 style="margin:0 0 6px 0;">Demographics (VAP)</h5>
-            <div style="font-size:14px;"><strong>Total Population:</strong> ${Number(infoRow.total_population || 0).toLocaleString()}</div>
-            <div style="font-size:14px;"><strong>White:</strong> ${infoRow.white_vap_pct}%</div>
-            <div style="font-size:14px;"><strong>Black:</strong> ${infoRow.black_vap_pct}%</div>
-            <div style="font-size:14px;"><strong>Hispanic:</strong> ${infoRow.hispanic_vap_pct}%</div>
-          </div>
-        `;
-      } else if (desc) {
-        demographicInfo = `<div style="margin:0 0 12px 0;color:#475569;font-weight:800;">${desc}</div>`;
-      }
-
-      const contestValue = document.getElementById('contestSelect')?.value || '';
-      if (!contestValue) {
-        contentEl.innerHTML = demographicInfo + '<div style="color:#999;">Select a contest to see district results.</div>';
-        detailsDiv.style.display = 'block';
-        return;
-      }
-
-      const [contestType, year] = parseContestValue(contestValue);
-      const reqId = ++districtSidebarRequestId;
-      contentEl.innerHTML = demographicInfo + `
-        <div id="district-election" style="margin-bottom: 14px;color:#94a3b8;">Loading results...</div>
-        <div style="margin-top:10px;">
-          <h5 style="margin:0 0 6px 0;">Historical Trends</h5>
-          <div id="district-trends" style="color:#94a3b8;">Loading...</div>
-        </div>
-      `;
-      detailsDiv.style.display = 'block';
-
-      (async () => {
-        try {
-          const payload = await loadDistrictSlice(scope, contestType, year);
-          const row = pickDistrictSliceRow(payload, districtNum);
-          if (reqId !== districtSidebarRequestId) return;
-          const el = document.getElementById('district-election');
-          let cand = null;
-          if (row && contestType !== 'us_house') {
-            const demBlank = !((row.dem_candidate || '').toString().trim());
-            const repBlank = !((row.rep_candidate || '').toString().trim());
-            if (demBlank || repBlank) cand = await getContestCandidates(contestType, year);
-          }
-          if (el) el.innerHTML = renderDistrictElectionInfoHTML(contestType, year, row, cand);
-        } catch (err) {
-          if (reqId !== districtSidebarRequestId) return;
-          const el = document.getElementById('district-election');
-          if (el) el.innerHTML = '<div style="color:#999;">Failed to load district results.</div>';
-          console.warn('Failed to load state district results:', err?.message || err);
-        }
-
-        try {
-          const series = await getDistrictTrendSeries(scope, contestType, districtNum);
-          if (reqId !== districtSidebarRequestId) return;
-          const el = document.getElementById('district-trends');
-          if (el) el.innerHTML = renderDistrictTrendLinesHTML(series);
-        } catch (err) {
-          if (reqId !== districtSidebarRequestId) return;
-          const el = document.getElementById('district-trends');
-          if (el) el.innerHTML = '<div style="color:#999;">Failed to load trends.</div>';
-          console.warn('Failed to load state district trends:', err?.message || err);
-        }
-      })();
-    }
+    // Sidebar-based district detail panels removed; details now live in the main hover tooltip + pinned vote counter flow.
 
     // Quick info functions for hover tooltips
     function getQuickCountyInfo(countyName) {
@@ -18848,3 +17854,6 @@ document.addEventListener('DOMContentLoaded', function() {
   </script>
 </body>
 </html>
+
+
+
