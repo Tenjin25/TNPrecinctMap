@@ -108,6 +108,7 @@ The Tennessee atlas now includes a substantially more complete phone/tablet inte
 - **Smarter overlay choreography:** opening a mobile sheet tucks away hover UI, dims or collapses competing overlays, and restores the vote counter when the sheet closes.
 - **Small-screen layout polish:** the contest toolbar, search hint chips, vote breakdown panel, and trend/census cards now reflow more cleanly on narrow screens.
 - **Height-aware positioning:** mobile overlay offsets now track dock height and vote-counter height so stacked panels avoid collisions more reliably.
+- **Selection persistence across contest changes:** when a county, precinct, district, or region is pinned, changing contests now refreshes that same selected geography automatically instead of leaving the panel on stale results.
 
 This work lives primarily in `index.html` and keeps the Tennessee mobile experience aligned with the NC map interaction model.
 

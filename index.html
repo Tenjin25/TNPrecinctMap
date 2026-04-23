@@ -17525,14 +17525,14 @@ document.addEventListener('DOMContentLoaded', function() {
     async function applyContest(contestKey) {
       if (!contestKey) return setStatus('Select a contest');
 
-      const previousRegionPinnedState = voteCounterPinned?.meta?.kind === 'region'
+      const previousPinnedState = voteCounterPinned
         ? {
             ...voteCounterPinned,
             meta: voteCounterPinned.meta ? { ...voteCounterPinned.meta } : null,
             candidates: voteCounterPinned.candidates ? { ...voteCounterPinned.candidates } : null
           }
         : null;
-      if (previousRegionPinnedState) {
+      if (previousPinnedState) {
         voteCounterPinned = null;
         voteCounterHoverActive = false;
       }
@@ -17551,11 +17551,11 @@ document.addEventListener('DOMContentLoaded', function() {
         // All other contests (statewide) aggregate county data by district
         await applyStatewideContestToDistricts(contestType, year);
       }
-      if (previousRegionPinnedState?.meta?.regionKey) {
+      if (previousPinnedState?.meta) {
         try {
-          await focusRegionSummary(previousRegionPinnedState.meta.regionKey);
+          await restorePinnedSelectionForView(previousPinnedState, currentView, contestKey);
         } catch (err) {
-          console.warn('Failed to restore regional selection after contest change:', err?.message || err);
+          console.warn('Failed to restore pinned selection after contest change:', err?.message || err);
         }
       }
       updateContextBanner();

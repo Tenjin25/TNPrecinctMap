@@ -1865,6 +1865,17 @@
       "scope": "state_house",
       "contest_type": "president",
       "year": 2008,
+      "district": "37",
+      "dem_votes": 5673,
+      "rep_votes": 8936,
+      "other_votes": 218,
+      "dem_candidate": "Barack Obama",
+      "rep_candidate": "John McCain"
+    },
+    {
+      "scope": "state_house",
+      "contest_type": "president",
+      "year": 2008,
       "district": "50",
       "dem_votes": 15013,
       "rep_votes": 17714,
