@@ -559,15 +559,15 @@
         "winner": "REP"
       },
       "50": {
-        "dem_votes": 17972,
-        "rep_votes": 14799,
-        "other_votes": 408,
+        "dem_votes": 15013,
+        "rep_votes": 17714,
+        "other_votes": 452,
         "total_votes": 33179,
         "dem_candidate": "Barack Obama",
         "rep_candidate": "John McCain",
-        "margin": -3173,
-        "margin_pct": -9.5633,
-        "winner": "DEM"
+        "margin": 2701,
+        "margin_pct": 8.1407,
+        "winner": "REP"
       },
       "51": {
         "dem_votes": 17467,
@@ -834,15 +834,15 @@
         "winner": "REP"
       },
       "75": {
-        "dem_votes": 6562,
-        "rep_votes": 7077,
-        "other_votes": 151,
+        "dem_votes": 6827,
+        "rep_votes": 6785,
+        "other_votes": 178,
         "total_votes": 13790,
         "dem_candidate": "Barack Obama",
         "rep_candidate": "John McCain",
-        "margin": 515,
-        "margin_pct": 3.7346,
-        "winner": "REP"
+        "margin": -42,
+        "margin_pct": -0.3046,
+        "winner": "DEM"
       },
       "76": {
         "dem_votes": 9998,
