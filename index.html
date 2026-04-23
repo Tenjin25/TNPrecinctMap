@@ -1851,8 +1851,9 @@ body.focus-active #hover-tooltip[data-context="preview"] {
 
 .vote-counter-context {
   display: flex;
-  align-items: baseline;
+  align-items: flex-start;
   justify-content: space-between;
+  flex-wrap: wrap;
   gap: 12px;
   margin-bottom: 10px;
   padding-bottom: 10px;
@@ -1860,6 +1861,7 @@ body.focus-active #hover-tooltip[data-context="preview"] {
 }
 
 .vote-counter-context .context-left {
+  flex: 1 1 220px;
   min-width: 0;
 }
 
@@ -1870,9 +1872,8 @@ body.focus-active #hover-tooltip[data-context="preview"] {
   text-transform: uppercase;
   color: #111827;
   line-height: 1.1;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  white-space: normal;
+  overflow-wrap: anywhere;
 }
 
 .vote-counter-context .context-sub {
@@ -1890,6 +1891,7 @@ body.focus-active #hover-tooltip[data-context="preview"] {
   align-items: center;
   gap: 8px;
   flex-shrink: 0;
+  margin-left: auto;
 }
 
 .vote-counter-context .context-clear {
