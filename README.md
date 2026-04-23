@@ -100,6 +100,17 @@ Additional CSS refinements were added to prevent clipped text and over-compresse
 
 These updates improve readability for long county narratives, long contest labels, and narrow viewport edge cases.
 
+## Mobile UI Port (NCMap-style)
+
+The Tennessee atlas now includes a substantially more complete phone/tablet interaction model ported from the NC map:
+
+- **Bottom dock + sheets:** mobile uses docked `Search`, `Layers`, and `Legend` buttons that open draggable bottom sheets instead of stacking floating panels over the map.
+- **Smarter overlay choreography:** opening a mobile sheet tucks away hover UI, dims or collapses competing overlays, and restores the vote counter when the sheet closes.
+- **Small-screen layout polish:** the contest toolbar, search hint chips, vote breakdown panel, and trend/census cards now reflow more cleanly on narrow screens.
+- **Height-aware positioning:** mobile overlay offsets now track dock height and vote-counter height so stacked panels avoid collisions more reliably.
+
+This work lives primarily in `index.html` and keeps the Tennessee mobile experience aligned with the NC map interaction model.
+
 ## Key Implementation Areas (index.html)
 
 - Editorial county render path and narrative block composition:
@@ -114,6 +125,7 @@ These updates improve readability for long county narratives, long contest label
   - `.focus-county-*`
   - `.focus-trend-*` wrapping safeguards
   - `.county-story-*` overflow safeguards
+  - `.mobile-dock`, `.mobile-sheet-*`, and mobile-only focus card refinements
 
 ## Validation Summary
 
@@ -138,6 +150,27 @@ Live browser smoke validation (Playwright harness) confirmed:
 - `index.html`: single-file app UI, logic, and styling
 - `Data/`: contests, geometry, demographics, and support datasets
 - `Scripts/`: local data-prep utilities
+
+## District Calibration Notes
+
+Some district-level statewide results are intentionally calibrated after the base allocation pass.
+
+- Manual district overrides live in `Data/district_contests/calibration_overrides.json`.
+- Rebuild district outputs with `Scripts/build_tn_contests.py` after changing allocation logic or adding overrides.
+- Generated district slices are written to `Data/district_contests/`, with the file list tracked in `Data/district_contests/manifest.json`.
+- External district-stat reference files can be used as calibration targets when generated district margins are directionally or numerically off.
+
+### HD-30 guardrail
+
+There is a lightweight validation script for the current Tennessee House District 30 assumption set:
+
+```powershell
+.\.venv\Scripts\python.exe Scripts\validate_hd30_safe_r.py
+```
+
+Current rule:
+- district `30` should be Republican for `state_house` statewide contests in `president`, `governor`, and `us_senate`
+- except `us_senate 2006`, which is allowed to remain non-Republican
 
 ## Improving VTD (Precinct) Matches
 
