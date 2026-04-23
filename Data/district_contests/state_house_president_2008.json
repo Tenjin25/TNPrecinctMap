@@ -823,14 +823,14 @@
         "winner": "REP"
       },
       "74": {
-        "dem_votes": 12192,
-        "rep_votes": 14912,
-        "other_votes": 529,
+        "dem_votes": 12048,
+        "rep_votes": 14803,
+        "other_votes": 782,
         "total_votes": 27633,
         "dem_candidate": "Barack Obama",
         "rep_candidate": "John McCain",
-        "margin": 2720,
-        "margin_pct": 9.8433,
+        "margin": 2755,
+        "margin_pct": 9.97,
         "winner": "REP"
       },
       "75": {
