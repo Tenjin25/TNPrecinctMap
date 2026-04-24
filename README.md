@@ -13,6 +13,14 @@ County hover tooltips are intentionally modeled after `NCMap.html`:
 - **Tap county (touch):** shows the county card and pins it (tap Close to dismiss).
 - **No raw vote totals in the card body:** the result card is percent/margin-focused (raw vote *deltas* still appear in the delta block).
 
+### Shift mode hover tooltips
+
+When `Viz Mode = Shift`, hover tooltips prioritize the actual shift value (current signed margin minus prior-cycle signed margin):
+
+- Headline: `Shift: R+X.XX since YYYY` / `Shift: D+X.XX since YYYY`
+- Lines: current-year result + prior-year result + short interpretation (moved left/right / nearly unchanged)
+- If prior-cycle data is missing for that geography, the tooltip shows `No comparable prior result` instead of a misleading shift.
+
 ### Delta block
 
 When available, the county delta block includes:

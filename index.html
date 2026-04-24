@@ -12950,6 +12950,67 @@ document.addEventListener('DOMContentLoaded', function() {
       `;
     }
 
+    function buildShiftModeHoverBlock({
+      curSignedMarginPct,
+      prevSignedMarginPct,
+      curYear,
+      prevYear,
+      demCandidate = '',
+      repCandidate = '',
+      compact = false
+    } = {}) {
+      const cy = Number(curYear);
+      const py = Number(prevYear);
+      const cur = Number(curSignedMarginPct);
+      const prev = Number(prevSignedMarginPct);
+      const hasPrev = Number.isFinite(py) && Number.isFinite(prev);
+      if (!Number.isFinite(cy) || !Number.isFinite(cur) || !hasPrev) {
+        return `
+          <div class="tooltip-quickline">
+            <span style="color:rgba(226,232,240,0.92);">Shift:</span>
+            <span class="tie">No comparable prior result</span>
+          </div>
+        `.trim();
+      }
+
+      const shift = cur - prev;
+      const shiftAbs = Math.abs(shift);
+      const shiftParty = shift >= 0 ? 'R' : 'D';
+      const shiftCls = shift >= 0 ? 'rep' : 'dem';
+      const shiftLabel = `${shiftParty}+${shiftAbs.toFixed(2)}`;
+      const interp = shiftAbs < 0.25 ? 'Nearly unchanged' : (shift > 0 ? 'Moved right' : 'Moved left');
+
+      function formatSignedResultLabel(signedPct, { allowCandidate } = {}) {
+        const s = Number(signedPct);
+        if (!Number.isFinite(s)) return '';
+        const abs = Math.abs(s);
+        if (abs < 0.005) return 'Even 0.00';
+        const party = s >= 0 ? 'R' : 'D';
+        if (!allowCandidate) return `${party}+${abs.toFixed(2)}`;
+        const name = s >= 0
+          ? shortCandidateLabel(repCandidate, 'Republican')
+          : shortCandidateLabel(demCandidate, 'Democratic');
+        if (!name || name === 'Republican' || name === 'Democratic') return `${party}+${abs.toFixed(2)}`;
+        return `${name} +${abs.toFixed(2)}`;
+      }
+
+      const curLabel = formatSignedResultLabel(cur, { allowCandidate: !compact });
+      const prevLabel = formatSignedResultLabel(prev, { allowCandidate: false });
+
+      return `
+        <div class="tooltip-quickline">
+          <span style="color:rgba(226,232,240,0.92);">Shift:</span>
+          <span class="${shiftCls}">${escapeHtml(shiftLabel)}</span>
+          <span style="color:#94a3b8;font-weight:800;">since ${escapeHtml(String(py))}</span>
+        </div>
+        <div class="tooltip-delta" aria-label="Shift details">
+          <div class="tooltip-delta-line">${escapeHtml(String(cy))}: ${escapeHtml(curLabel)}</div>
+          <div class="tooltip-delta-line">${escapeHtml(String(py))}: ${escapeHtml(prevLabel)}</div>
+          <div class="tooltip-delta-line" style="color:#94a3b8;">${escapeHtml(interp)}</div>
+        </div>
+      `.trim();
+    }
+
     function renderCountyHoverAtPoint(e, { forceTooltip = false } = {}) {
       if (!(e.features && e.features[0])) return;
 
@@ -13106,15 +13167,38 @@ document.addEventListener('DOMContentLoaded', function() {
       let prevSignedForFlip = null;
       if (vizPrevCache?.prevYear && vizPrevCache?.prevCountyTotals) {
         const prev = vizPrevCache.prevCountyTotals[norm] || null;
-        prevSignedForFlip = prev ? signedMarginPctFromVotes(prev.dem, prev.rep, prev.total) : 0;
+        if (prev && Number(prev.total || 0) > 0) {
+          prevSignedForFlip = signedMarginPctFromVotes(prev.dem, prev.rep, prev.total);
+        }
       }
 
-      if (currentVizMode === 'shift' && vizShiftCache?.prevYear) {
-        const prevSigned = (prevSignedForFlip !== null) ? prevSignedForFlip : 0;
-        chips.push(shiftChipHTML(signedMarginPct - prevSigned, vizShiftCache.prevYear, vizShiftCache.year));
-      } else {
-        chips.push(winnerChipHTML(winner));
-      }
+      // Shift mode: show a proper headline block (with "No comparable prior result" when missing),
+      // and keep chips focused on the current-year result.
+      const shiftBlock = (currentVizMode === 'shift')
+        ? (() => {
+            const shiftCacheOk =
+              vizShiftCache &&
+              vizShiftCache.contestType === contestType &&
+              Number(vizShiftCache.year) === Number(year) &&
+              Number.isFinite(Number(vizShiftCache.prevYear));
+            const prevYear = shiftCacheOk ? Number(vizShiftCache.prevYear) : NaN;
+            const prev = shiftCacheOk ? (vizShiftCache?.prevCountyTotals?.[norm] || null) : null;
+            const prevSigned = (prev && Number(prev.total || 0) > 0)
+              ? signedMarginPctFromVotes(prev.dem, prev.rep, prev.total)
+              : NaN;
+            return buildShiftModeHoverBlock({
+              curSignedMarginPct: signedMarginPct,
+              prevSignedMarginPct: prevSigned,
+              curYear: Number(year),
+              prevYear,
+              demCandidate,
+              repCandidate,
+              compact: (useCompact || desktopCollapsed)
+            });
+          })()
+        : '';
+
+      chips.push(winnerChipHTML(winner));
       chips.push(tierChipHTML(tierMeta));
 
       if (prevSignedForFlip !== null) {
@@ -13133,19 +13217,17 @@ document.addEventListener('DOMContentLoaded', function() {
         : NaN;
       const tooltipInsight = (() => {
         if (currentVizMode !== 'shift') return '';
+        // Shift mode uses the shift headline block instead of the legacy insight sentence.
         const abs = Math.abs(Number(signedMarginPct) || 0);
-        if (abs < 0.5) return 'Tiny changes can flip it.';
-        if (!Number.isFinite(shiftDelta) || Math.abs(shiftDelta) < 1.25) return '';
-        if (signedMarginPct > 0 && shiftDelta < 0) return 'Still Republican, but weakening.';
-        if (signedMarginPct < 0 && shiftDelta > 0) return 'Still Democratic, but slipping.';
-        if (shiftDelta < 0) return 'Democrats gaining ground lately.';
-        if (shiftDelta > 0) return 'Republicans gaining ground lately.';
+        void abs;
+        void shiftDelta;
         return '';
       })();
       const smartInsight = '';
       const finalInsight = tooltipInsight || smartInsight;
 
       const classicInner = `
+        ${shiftBlock}
         <div class="hover-meta">${chips.join('')}</div>
         ${buildResultCardNoRawVotesHTML('', subtitle, demVotes, repVotes, otherVotes, demCandidate, repCandidate, { precision: 'county' })}
         ${finalInsight ? `<div class="tooltip-insight">${escapeHtml(finalInsight)}</div>` : ''}
@@ -13154,34 +13236,55 @@ document.addEventListener('DOMContentLoaded', function() {
         ${demoLine}
       `.trim();
 
-      const desktopCollapsedInner = `
-        <div class="tooltip-quickline">
-          <span class="${escapeHtml(marginCall.party || 'tie')}">${escapeHtml(marginCall.text || '')}</span>
-          ${tierLong ? `<span class="tier">${escapeHtml(tierLong)}</span>` : ''}
-        </div>
-        ${flipLine}
-        ${finalInsight ? `<div class="tooltip-insight">${escapeHtml(finalInsight)}</div>` : ''}
-        ${deltaBlock}
-      `.trim();
-
-      const compactInner = `
-        <div class="tooltip-quickline">
-          <span class="${escapeHtml(marginCall.party || 'tie')}">${escapeHtml(marginCall.text || '')}</span>
-          ${tierShort ? `<span class="tier">${escapeHtml(tierShort)}</span>` : ''}
-        </div>
-        ${flipLine}
-        ${finalInsight ? `<div class="tooltip-insight">${escapeHtml(finalInsight)}</div>` : ''}
-        ${deltaBlock}
-        <details class="tooltip-more" aria-label="More details">
-          <summary>Details</summary>
-          <div class="tooltip-more-body">
-            <div class="hover-meta">${chips.join('')}</div>
-            ${buildResultCardNoRawVotesHTML('', subtitle, demVotes, repVotes, otherVotes, demCandidate, repCandidate, { precision: 'county' })}
-            ${splitInsightLine}
-            ${demoLine}
+      const desktopCollapsedInner = (currentVizMode === 'shift')
+        ? `
+          ${shiftBlock}
+          ${flipLine}
+          ${deltaBlock}
+        `.trim()
+        : `
+          <div class="tooltip-quickline">
+            <span class="${escapeHtml(marginCall.party || 'tie')}">${escapeHtml(marginCall.text || '')}</span>
+            ${tierLong ? `<span class="tier">${escapeHtml(tierLong)}</span>` : ''}
           </div>
-        </details>
-      `.trim();
+          ${flipLine}
+          ${finalInsight ? `<div class="tooltip-insight">${escapeHtml(finalInsight)}</div>` : ''}
+          ${deltaBlock}
+        `.trim();
+
+      const compactInner = (currentVizMode === 'shift')
+        ? `
+          ${shiftBlock}
+          ${flipLine}
+          <details class="tooltip-more" aria-label="More details">
+            <summary>Details</summary>
+            <div class="tooltip-more-body">
+              <div class="hover-meta">${chips.join('')}</div>
+              ${buildResultCardNoRawVotesHTML('', subtitle, demVotes, repVotes, otherVotes, demCandidate, repCandidate, { precision: 'county' })}
+              ${deltaBlock}
+              ${splitInsightLine}
+              ${demoLine}
+            </div>
+          </details>
+        `.trim()
+        : `
+          <div class="tooltip-quickline">
+            <span class="${escapeHtml(marginCall.party || 'tie')}">${escapeHtml(marginCall.text || '')}</span>
+            ${tierShort ? `<span class="tier">${escapeHtml(tierShort)}</span>` : ''}
+          </div>
+          ${flipLine}
+          ${finalInsight ? `<div class="tooltip-insight">${escapeHtml(finalInsight)}</div>` : ''}
+          ${deltaBlock}
+          <details class="tooltip-more" aria-label="More details">
+            <summary>Details</summary>
+            <div class="tooltip-more-body">
+              <div class="hover-meta">${chips.join('')}</div>
+              ${buildResultCardNoRawVotesHTML('', subtitle, demVotes, repVotes, otherVotes, demCandidate, repCandidate, { precision: 'county' })}
+              ${splitInsightLine}
+              ${demoLine}
+            </div>
+          </details>
+        `.trim();
 
       const actionHint = useCompact
         ? (pinnedShell ? 'Pinned • tap Close to dismiss' : (isTouchInteractionMode() ? 'Tap to pin details' : 'Click to pin details'))
@@ -13284,15 +13387,38 @@ document.addEventListener('DOMContentLoaded', function() {
       const chips = [];
       let prevSignedForFlip = null;
       if (vizPrevCache?.prevYear && vizPrevCache?.prevPrecinctMarginByNorm) {
-        prevSignedForFlip = Number(vizPrevCache.prevPrecinctMarginByNorm.get(precinctNorm) || 0);
+        if (vizPrevCache.prevPrecinctMarginByNorm.has(precinctNorm)) {
+          prevSignedForFlip = Number(vizPrevCache.prevPrecinctMarginByNorm.get(precinctNorm));
+        }
       }
 
-      if (currentVizMode === 'shift' && vizShiftCache?.prevYear) {
-        const prevSigned = (prevSignedForFlip !== null) ? prevSignedForFlip : 0;
-        chips.push(shiftChipHTML(curSigned - prevSigned, vizShiftCache.prevYear, vizShiftCache.year));
-      } else {
-        chips.push(winnerChipHTML(winner));
-      }
+      const shiftBlock = (currentVizMode === 'shift')
+        ? (() => {
+            const shiftCacheOk =
+              vizShiftCache &&
+              vizShiftCache.contestType === contestType &&
+              Number(vizShiftCache.year) === Number(year) &&
+              Number.isFinite(Number(vizShiftCache.prevYear));
+            const prevYear = shiftCacheOk ? Number(vizShiftCache.prevYear) : NaN;
+            let prevSigned = NaN;
+            try {
+              if (shiftCacheOk && vizShiftCache?.prevPrecinctMarginByNorm && vizShiftCache.prevPrecinctMarginByNorm.has(precinctNorm)) {
+                prevSigned = Number(vizShiftCache.prevPrecinctMarginByNorm.get(precinctNorm));
+              }
+            } catch (_) { prevSigned = NaN; }
+            return buildShiftModeHoverBlock({
+              curSignedMarginPct: curSigned,
+              prevSignedMarginPct: prevSigned,
+              curYear: Number(year),
+              prevYear,
+              demCandidate,
+              repCandidate,
+              compact: isMobileTooltipMode()
+            });
+          })()
+        : '';
+
+      chips.push(winnerChipHTML(winner));
       chips.push(tierChipHTML(tierMeta));
 
       if (prevSignedForFlip !== null) {
@@ -13303,6 +13429,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const censusLine = buildCountyCensusTooltipHTML(countyNorm);
       const precinctCvapLine = buildPrecinctCvapTooltipHTML(countyNorm, precId);
       const inner = `
+        ${shiftBlock}
         <div class="hover-meta">${chips.join('')}</div>
         ${buildResultCardHTML('', subtitle, demVotes, repVotes, otherVotes, demCandidate, repCandidate)}
         ${censusLine}
@@ -13476,13 +13603,19 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       } catch (_) {}
 
-      if (currentVizMode === 'shift' && prevSignedForFlip !== null && prevYearForFlip) {
-        chips.push(shiftChipHTML(signedMarginPct - prevSignedForFlip, prevYearForFlip, Number(year)));
-      } else if (currentVizMode === 'shift') {
-        chips.push(shiftChipHTML(0, null, null));
-      } else {
-        chips.push(winnerChipHTML(winner));
-      }
+      const shiftBlock = (currentVizMode === 'shift')
+        ? buildShiftModeHoverBlock({
+            curSignedMarginPct: signedMarginPct,
+            prevSignedMarginPct: (prevSignedForFlip !== null && Number.isFinite(Number(prevSignedForFlip))) ? prevSignedForFlip : NaN,
+            curYear: Number(year),
+            prevYear: prevYearForFlip,
+            demCandidate,
+            repCandidate,
+            compact: isMobileTooltipMode()
+          })
+        : '';
+
+      chips.push(winnerChipHTML(winner));
       chips.push(tierChipHTML(tierMeta));
 
       if (prevSignedForFlip !== null) {
@@ -13492,6 +13625,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
       const desc = getDistrictDescription(scope, districtNum);
       const inner = `
+        ${shiftBlock}
         <div class="hover-meta">${chips.join('')}</div>
         ${desc ? `<div style="margin-top:6px;font-size:12px;color:#94a3b8;"><strong style="color:#e2e8f0;">Area:</strong> ${desc}</div>` : ''}
         ${_demoHTML}
