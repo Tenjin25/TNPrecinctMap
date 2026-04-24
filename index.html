@@ -12977,21 +12977,21 @@ document.addEventListener('DOMContentLoaded', function() {
       const shiftAbs = Math.abs(shift);
       const shiftParty = shift >= 0 ? 'R' : 'D';
       const shiftCls = shift >= 0 ? 'rep' : 'dem';
-      const shiftLabel = `${shiftParty}+${shiftAbs.toFixed(2)}`;
+      const shiftLabel = `${shiftParty}+${shiftAbs.toFixed(2)}%`;
       const interp = shiftAbs < 0.25 ? 'Nearly unchanged' : (shift > 0 ? 'Moved right' : 'Moved left');
 
       function formatSignedResultLabel(signedPct, { allowCandidate } = {}) {
         const s = Number(signedPct);
         if (!Number.isFinite(s)) return '';
         const abs = Math.abs(s);
-        if (abs < 0.005) return 'Even 0.00';
+        if (abs < 0.005) return 'Even 0.00%';
         const party = s >= 0 ? 'R' : 'D';
-        if (!allowCandidate) return `${party}+${abs.toFixed(2)}`;
+        if (!allowCandidate) return `${party}+${abs.toFixed(2)}%`;
         const name = s >= 0
           ? shortCandidateLabel(repCandidate, 'Republican')
           : shortCandidateLabel(demCandidate, 'Democratic');
-        if (!name || name === 'Republican' || name === 'Democratic') return `${party}+${abs.toFixed(2)}`;
-        return `${name} +${abs.toFixed(2)}`;
+        if (!name || name === 'Republican' || name === 'Democratic') return `${party}+${abs.toFixed(2)}%`;
+        return `${name} +${abs.toFixed(2)}%`;
       }
 
       const curLabel = formatSignedResultLabel(cur, { allowCandidate: !compact });

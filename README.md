@@ -17,8 +17,8 @@ County hover tooltips are intentionally modeled after `NCMap.html`:
 
 When `Viz Mode = Shift`, hover tooltips prioritize the actual shift value (current signed margin minus prior-cycle signed margin):
 
-- Headline: `Shift: R+X.XX since YYYY` / `Shift: D+X.XX since YYYY`
-- Lines: current-year result + prior-year result + short interpretation (moved left/right / nearly unchanged)
+- Headline: `Shift: R+X.XX% since YYYY` / `Shift: D+X.XX% since YYYY`
+- Lines: current-year result + prior-year result + short interpretation (moved left/right / nearly unchanged), with `%` shown on margins
 - If prior-cycle data is missing for that geography, the tooltip shows `No comparable prior result` instead of a misleading shift.
 
 ### Delta block
