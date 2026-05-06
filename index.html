@@ -7617,7 +7617,7 @@ document.addEventListener('DOMContentLoaded', function() {
         counties: withBase('./Data/tl_2020_47_county20.geojson'),
         precincts: withBase('./Data/tn_voting_precincts.geojson'),
         precinct_centroids: withBase('./Data/tn_precinct_centroids.geojson'),
-        precinct_aliases: '',
+        precinct_aliases: withBase('./Data/crosswalks/tn_precinct_aliases.csv'),
         precinct_variant_overrides: '',
         districts: withBase('./Data/tl_2022_47_cd118.geojson'),
         state_house: withBase('./Data/tl_2022_47_sldl.geojson'),
@@ -15549,24 +15549,57 @@ document.addEventListener('DOMContentLoaded', function() {
       if (!path) return null;
       precinctAliasLoadInFlight = true;
       try {
-        const payload = await loadJSON(path);
-        const counties = payload?.counties || {};
         const idx = new Map();
-        Object.entries(counties).forEach(([countyRaw, aliasObj]) => {
+
+        const addAliasCode = (countyRaw, aliasRaw, codeRaw) => {
           const county = normalizeCountyToken(countyRaw);
-          if (!county || !aliasObj || typeof aliasObj !== 'object') return;
-          const aliasMap = new Map();
-          Object.entries(aliasObj).forEach(([aliasRaw, codesRaw]) => {
-            const alias = (aliasRaw || '').toString().trim().toUpperCase();
-            if (!alias) return;
-            const codes = Array.isArray(codesRaw)
-              ? Array.from(new Set(codesRaw.map(v => (v || '').toString().trim().toUpperCase()).filter(Boolean)))
-              : [];
-            if (!codes.length) return;
-            aliasMap.set(alias, codes);
+          const alias = (aliasRaw || '').toString().trim().toUpperCase();
+          const code = (codeRaw || '').toString().trim().toUpperCase();
+          if (!county || !alias || !code) return;
+          if (!idx.has(county)) idx.set(county, new Map());
+          const aliasMap = idx.get(county);
+          if (!aliasMap.has(alias)) aliasMap.set(alias, []);
+          const codes = aliasMap.get(alias);
+          if (!codes.includes(code)) codes.push(code);
+        };
+
+        if (/\.csv(?:\?|$)/i.test(path)) {
+          const csvText = await loadCSV(path);
+          const rows = parseCSV(csvText);
+          rows.forEach(r => {
+            const county = r?.county_norm || '';
+            const prctseqRaw = (r?.prctseq_2024 ?? '').toString().trim();
+            const has2024 = Number(r?.has_2024 || 0) === 1;
+            if (!county || !prctseqRaw || !has2024) return;
+            const n = parseInt(prctseqRaw, 10);
+            if (!Number.isFinite(n)) return;
+            const code = String(n).padStart(6, '0');
+            const aliasCandidates = new Set();
+            const precinctNorm = (r?.precinct_norm || '').toString().trim().toUpperCase();
+            const canonicalLabel = (r?.canonical_label || '').toString().trim().toUpperCase();
+            if (precinctNorm) aliasCandidates.add(precinctNorm);
+            if (canonicalLabel) aliasCandidates.add(canonicalLabel);
+            try {
+              if (precinctNorm) extractPrecinctAliasCandidates(precinctNorm).forEach(a => aliasCandidates.add((a || '').toString().trim().toUpperCase()));
+              if (canonicalLabel) extractPrecinctAliasCandidates(canonicalLabel).forEach(a => aliasCandidates.add((a || '').toString().trim().toUpperCase()));
+            } catch (_) {}
+            aliasCandidates.forEach(alias => addAliasCode(county, alias, code));
           });
-          if (aliasMap.size) idx.set(county, aliasMap);
-        });
+        } else {
+          const payload = await loadJSON(path);
+          const counties = payload?.counties || {};
+          Object.entries(counties).forEach(([countyRaw, aliasObj]) => {
+            const county = normalizeCountyToken(countyRaw);
+            if (!county || !aliasObj || typeof aliasObj !== 'object') return;
+            Object.entries(aliasObj).forEach(([aliasRaw, codesRaw]) => {
+              const codes = Array.isArray(codesRaw)
+                ? Array.from(new Set(codesRaw.map(v => (v || '').toString().trim().toUpperCase()).filter(Boolean)))
+                : [];
+              codes.forEach(code => addAliasCode(county, aliasRaw, code));
+            });
+          });
+        }
+
         precinctAliasIndexByCounty = idx;
       } catch (err) {
         console.warn('Failed to load precinct alias index:', err?.message || err);
