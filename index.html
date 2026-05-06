@@ -8242,6 +8242,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentElectionResults = null; // Current contest results for county details
     let currentPrecinctResults = null; // Current contest results keyed by precinct
     let currentPrecinctMissingNorms = null; // Set<string precinct_norm> present in geometry but absent from selected contest rows.
+    let precinctMatchDiagnostics = null; // Debug-only (precinct overlay): matching summary for current contest.
     let currentVizMode = 'margins'; // 'margins', 'winners', 'shift', 'flips'
     let previousElectionData = null; // For shift mode
     let precinctsEnabled = false;
@@ -8511,7 +8512,8 @@ document.addEventListener('DOMContentLoaded', function() {
       let t = (value || '').toString().trim().toUpperCase();
       if (!t) return '';
       PRECINCT_ALIAS_COMMON_WORDS.forEach(word => {
-        t = t.replace(new RegExp(word, 'g'), ' ');
+        // Word-boundary match to avoid stripping substrings inside legitimate names.
+        t = t.replace(new RegExp(`\\b${word}\\b`, 'g'), ' ');
       });
       t = t.replace(/[-_.]/g, ' ');
       t = t.replace(/\s+/g, ' ').trim();
@@ -8858,6 +8860,321 @@ document.addEventListener('DOMContentLoaded', function() {
           if (c) addVariantFn(c);
         });
       });
+    }
+
+    let precinctMatchCacheByCounty = null; // Map<string countyNorm, { codesRef: Set<string>, codes: string[], byCompact: Map<string,string[]>, byNumericBase: Map<number,string[]> }>
+
+    function ensurePrecinctMatchCacheForCounty(countyNorm) {
+      const cn = (countyNorm || '').toString().trim().toUpperCase();
+      if (!cn) return null;
+      const codesRef = precinctCodeIndexByCounty ? precinctCodeIndexByCounty.get(cn) : null;
+      if (!codesRef || !codesRef.size) return null;
+      if (!precinctMatchCacheByCounty) precinctMatchCacheByCounty = new Map();
+      const cached = precinctMatchCacheByCounty.get(cn);
+      if (cached && cached.codesRef === codesRef) return cached;
+
+      const codes = Array.from(codesRef).map(c => (c || '').toString().trim().toUpperCase()).filter(Boolean);
+      const byCompact = new Map();
+      const byNumericBase = new Map();
+      codes.forEach(code => {
+        const compact = compactPrecinctAliasToken(code);
+        if (compact) {
+          if (!byCompact.has(compact)) byCompact.set(compact, []);
+          byCompact.get(compact).push(code);
+        }
+        const mNum = code.match(/^0*([0-9]{1,6})(?:[A-Z]{0,2})$/);
+        if (mNum) {
+          const n = parseInt(mNum[1], 10);
+          if (!isNaN(n)) {
+            if (!byNumericBase.has(n)) byNumericBase.set(n, []);
+            byNumericBase.get(n).push(code);
+          }
+        }
+      });
+
+      const entry = { codesRef, codes, byCompact, byNumericBase };
+      precinctMatchCacheByCounty.set(cn, entry);
+      return entry;
+    }
+
+    // Returns ordered, county-scoped candidate precinct_norm keys like "COUNTY - PRECINCT".
+    // Uses existing indices (precinctCodeIndexByCounty / precinctAliasIndexByCounty / precinctVariantOverridesByCounty)
+    // and avoids heavy work unless those are already loaded by precinct overlay guards.
+    function buildPrecinctMatchCandidates(countyName, precinctRaw) {
+      const countyOnly = (countyName || '').toString().trim();
+      const countyNorm = normalizeCountyToken(countyOnly);
+      const precRaw = (precinctRaw || '').toString().trim().toUpperCase();
+      if (!countyOnly || !countyNorm || !precRaw) return [];
+
+      // Do not generate candidates for non-geographic buckets (absentee/early/etc).
+      try {
+        if (isNonGeographicPrecinctToken(precRaw, countyNorm)) return [];
+      } catch (_) {}
+
+      const out = [];
+      const seen = new Set();
+      const phaseByKey = new Map();
+      const pushKey = (token, phase) => {
+        const t = (token || '').toString().trim().toUpperCase();
+        if (!t) return;
+        const full = normalizeCountyToken(`${countyOnly} - ${t}`);
+        if (!full || seen.has(full)) return;
+        seen.add(full);
+        out.push(full);
+        if (!phaseByKey.has(full)) phaseByKey.set(full, phase);
+      };
+
+      // 0) Exact (raw) county - precinct
+      pushKey(precRaw, 0);
+
+      // 1) Normalized precinct label variants (strip common words/separators, remove hash suffixes)
+      try {
+        const pn = normalizePrecinctAliasToken(precRaw);
+        if (pn && pn !== precRaw) pushKey(pn, 1);
+      } catch (_) {}
+      try {
+        const noHash = precRaw.replace(/#\s*\d+\b/g, ' ').replace(/\s+/g, ' ').trim();
+        if (noHash && noHash !== precRaw) {
+          pushKey(noHash, 1);
+          const noHashNorm = normalizePrecinctAliasToken(noHash);
+          if (noHashNorm && noHashNorm !== noHash) pushKey(noHashNorm, 1);
+        }
+      } catch (_) {}
+
+      // 2) Compact token variants (helps reconcile punctuation/hyphens/spaces)
+      try {
+        const pc = compactPrecinctAliasToken(precRaw);
+        if (pc && pc !== precRaw) pushKey(pc, 2);
+      } catch (_) {}
+      try {
+        const pn = normalizePrecinctAliasToken(precRaw);
+        const pnC = pn ? compactPrecinctAliasToken(pn) : '';
+        if (pnC) pushKey(pnC, 2);
+      } catch (_) {}
+
+      const cache = ensurePrecinctMatchCacheForCounty(countyNorm);
+      const codesRef = cache ? cache.codesRef : null;
+
+      const addLeadingZeroNumericVariants = (token, phase) => {
+        const t = (token || '').toString().trim().toUpperCase();
+        const m = t.match(/^0*([0-9]{1,6})([A-Z]{0,2})$/);
+        if (!m) return;
+        const n = parseInt(m[1], 10);
+        if (isNaN(n)) return;
+        const suf = (m[2] || '').toUpperCase();
+        const pads = [0, 2, 3, 4, 6];
+        pads.forEach(p => {
+          const base = p ? String(n).padStart(p, '0') : String(n);
+          pushKey(`${base}${suf}`, phase);
+        });
+      };
+
+      const addCompoundSeparatorVariants = (token, phase) => {
+        const t = (token || '').toString().trim().toUpperCase();
+        if (!t) return;
+        // Support formats like 01-02, 01.02, 01 02, 01/02, 01_02 (+ optional alpha suffix on second chunk).
+        const m = t.match(/^0*([0-9]{1,3})\s*[-._\/\s]\s*0*([0-9]{1,3})([A-Z]{0,2})$/);
+        if (!m) return;
+        const a = parseInt(m[1], 10);
+        const b = parseInt(m[2], 10);
+        const suf = (m[3] || '').toUpperCase();
+        if (isNaN(a) || isNaN(b)) return;
+        const z2 = (x) => String(x).padStart(2, '0');
+        const a2 = z2(a);
+        const b2 = z2(b);
+        pushKey(`${a2}-${b2}${suf}`, phase);
+        pushKey(`${a2}.${b}${suf}`, phase);
+        pushKey(`${a2}.${b2}${suf}`, phase);
+        pushKey(`${a2} ${b2}${suf}`, phase);
+        pushKey(`${a2}${b2}${suf}`, phase);
+        pushKey(`${a}-${b}${suf}`, phase);
+        pushKey(`${a}.${b}${suf}`, phase);
+        pushKey(`${a} ${b}${suf}`, phase);
+        pushKey(`${a}${b}${suf}`, phase);
+      };
+
+      // 3) Numeric/base variants and prefix-stripping variants
+      try { addLeadingZeroNumericVariants(precRaw, 3); } catch (_) {}
+      try { addCompoundSeparatorVariants(precRaw, 3); } catch (_) {}
+      try { addNumericBaseVariantsFromAlphaSuffix(precRaw, (t) => pushKey(t, 3)); } catch (_) {}
+
+      // Prefixes like "PRECINCT 01-14A", "PCT 3", "PR01 ..." or "DIST 10B".
+      try {
+        const stripped = precRaw.replace(/^(?:PRECINCT|PCT|PR|WARD|DIST|DISTRICT)\s*[:#-]?\s+/i, '').trim();
+        if (stripped && stripped !== precRaw) {
+          pushKey(stripped, 3);
+          try { addLeadingZeroNumericVariants(stripped, 3); } catch (_) {}
+          try { addCompoundSeparatorVariants(stripped, 3); } catch (_) {}
+          try { addNumericBaseVariantsFromAlphaSuffix(stripped, (t) => pushKey(t, 3)); } catch (_) {}
+          try { addEmbeddedPrecinctCodeVariants(stripped, (t) => pushKey(t, 4)); } catch (_) {}
+        }
+      } catch (_) {}
+
+      // Slash/underscore compound labels (include parts so "A/B" or "A_B" can still resolve).
+      try {
+        extractPrecinctAliasCandidates(precRaw).forEach(a => {
+          const v = (a || '').toString().trim().toUpperCase();
+          if (!v) return;
+          // Keep only reasonably code-like alias parts to avoid ballooning variants.
+          if (/^[A-Z]{0,3}\d/.test(v) || /^[0-9]/.test(v)) {
+            pushKey(v, 3);
+            addLeadingZeroNumericVariants(v, 3);
+            addCompoundSeparatorVariants(v, 3);
+          }
+        });
+      } catch (_) {}
+
+      // 4) Embedded codes in verbose labels.
+      try { addEmbeddedPrecinctCodeVariants(precRaw, (t) => pushKey(t, 4)); } catch (_) {}
+
+      // If a precinct token begins with a code (e.g., "08.1 ASHEVILLE 8" or "0020B MONROE"),
+      // include the bare code as a matching variant (+ leading-zero family).
+      try {
+        const firstToken = precRaw.split(/\s+/, 1)[0].trim();
+        const token0 = (firstToken.includes('_') ? firstToken.split('_', 1)[0] : firstToken).trim().toUpperCase();
+        const baseToken = (token0 || '').toString().replace(/[^A-Z0-9.\-]/g, '').trim();
+        if (baseToken) {
+          const tokenOk = /^[A-Z]{0,3}\d{1,6}(?:-\d{1,6})?[A-Z]{0,2}$/.test(baseToken) || /^0*\d{1,3}\.\d{1,3}$/.test(baseToken);
+          if (tokenOk) {
+            pushKey(baseToken, 3);
+            addLeadingZeroNumericVariants(baseToken, 3);
+            addCompoundSeparatorVariants(baseToken, 3);
+            // Decimal codes: normalize common zero-padding (e.g., 08.1).
+            const md = baseToken.match(/^0*([0-9]{1,3})\.([0-9]{1,3})$/);
+            if (md) {
+              const a = String(parseInt(md[1], 10)).padStart(2, '0');
+              const b = String(parseInt(md[2], 10));
+              pushKey(`${a}.${b}`, 3);
+            }
+          }
+          // County-specific narrow bridges and geometry-aware compact/prefix variants.
+          try { addKnownLegacyCentroidBridges(countyNorm, precRaw, (t) => pushKey(t, 3)); } catch (_) {}
+          try { addKnownLegacyCentroidBridges(countyNorm, baseToken, (t) => pushKey(t, 3)); } catch (_) {}
+          try {
+            if (codesRef) {
+              // Exact compact equality against known codes, but only accept unique hits.
+              const bc = compactPrecinctAliasToken(baseToken);
+              if (bc && cache?.byCompact) {
+                const hits = cache.byCompact.get(bc) || [];
+                if (hits.length === 1) pushKey(hits[0], 3);
+              }
+              addPrefixStrippedNumericVariants(baseToken, codesRef, (t) => pushKey(t, 3));
+              addPrefixStrippedNumericVariants(precRaw, codesRef, (t) => pushKey(t, 3));
+            }
+          } catch (_) {}
+
+          // Split-precinct expansion (county-scoped): allow base codes like "03S" or "10" to
+          // match geometry codes that extend them by short suffixes ("03SE"/"03SM", "10A"/"10B", "10-1").
+          try {
+            if (codesRef) {
+              const baseCompact = compactPrecinctAliasToken(baseToken) || compactPrecinctAliasToken(precRaw);
+              if (baseCompact) {
+                const baseNum = baseCompact.match(/^0*([0-9]+)$/);
+                codesRef.forEach(code => {
+                  const c = (code || '').toString().trim().toUpperCase();
+                  const cCompact = compactPrecinctAliasToken(c);
+                  if (!cCompact || cCompact === baseCompact) return;
+
+                  if (baseNum) {
+                    const cmCompactAlpha = cCompact.match(/^0*([0-9]+)([A-Z]{1,2})$/);
+                    const cmHyphenAlpha = c.match(/^0*([0-9]+)-([A-Z]{1,2})$/);
+                    const cmHyphenNumeric = c.match(/^0*([0-9]+)-([0-9]{1,2})$/);
+                    const cm = cmCompactAlpha || cmHyphenAlpha || cmHyphenNumeric;
+                    if (!cm) return;
+                    if (parseInt(cm[1], 10) !== parseInt(baseNum[1], 10)) return;
+                    pushKey(c, 3);
+                    return;
+                  }
+
+                  if (!cCompact.startsWith(baseCompact)) return;
+                  const suffix = cCompact.slice(baseCompact.length);
+                  if (!suffix || suffix.length > 3) return;
+                  const alphaNumSplit = /^[A-Z0-9]{1,2}$/.test(suffix) && /[A-Z]/.test(suffix);
+                  const hyphenNumericSplit = /^-[0-9]{1,2}$/.test(suffix);
+                  if (!(alphaNumSplit || hyphenNumericSplit)) return;
+                  pushKey(c, 3);
+                });
+              }
+            }
+          } catch (_) {}
+        }
+      } catch (_) {}
+
+      // 5) Alias index matches (name -> unique code) within the same county.
+      try {
+        const countyAliases = precinctAliasIndexByCounty && countyNorm ? precinctAliasIndexByCounty.get(countyNorm) : null;
+        if (countyAliases) {
+          const resolvedCode = resolveUniquePrecinctCodeByAlias(countyAliases, precRaw);
+          if (resolvedCode) pushKey(resolvedCode, 5);
+        }
+      } catch (_) {}
+
+      // 6) Explicit county-scoped overrides (stronger than alias).
+      try {
+        applyPrecinctVariantOverrides(countyNorm, precRaw, (t) => pushKey(t, 6));
+      } catch (_) {}
+
+      // Allow immediate caller to classify matches without changing return signature.
+      try { buildPrecinctMatchCandidates._lastPhaseByKey = phaseByKey; } catch (_) {}
+      return out;
+    }
+
+    function resolveFuzzyPrecinctNormInCounty(countyName, precinctRaw) {
+      const countyOnly = (countyName || '').toString().trim();
+      const countyNorm = normalizeCountyToken(countyOnly);
+      const precRaw = (precinctRaw || '').toString().trim().toUpperCase();
+      if (!countyOnly || !countyNorm || !precRaw) return null;
+      try {
+        if (isNonGeographicPrecinctToken(precRaw, countyNorm)) return null;
+      } catch (_) {}
+
+      const cache = ensurePrecinctMatchCacheForCounty(countyNorm);
+      if (!cache || !cache.codes || !cache.codes.length) return null;
+
+      const rawCompact = compactPrecinctAliasToken(precRaw);
+      if (rawCompact) {
+        const hits = cache.byCompact?.get(rawCompact) || [];
+        if (hits.length === 1) return normalizeCountyToken(`${countyOnly} - ${hits[0]}`);
+      }
+
+      const rawNorm = normalizePrecinctAliasToken(precRaw);
+      if (rawNorm) {
+        // Exact normalized name match (unique) against code labels.
+        const normHits = [];
+        for (const c of cache.codes) {
+          if (normalizePrecinctAliasToken(c) === rawNorm) normHits.push(c);
+          if (normHits.length > 2) break;
+        }
+        if (normHits.length === 1) return normalizeCountyToken(`${countyOnly} - ${normHits[0]}`);
+      }
+
+      const mNum = precRaw.match(/^0*([0-9]{1,6})(?:[A-Z]{0,2})$/);
+      if (mNum) {
+        const n = parseInt(mNum[1], 10);
+        const hits = (!isNaN(n) && cache.byNumericBase) ? (cache.byNumericBase.get(n) || []) : [];
+        if (hits.length === 1) return normalizeCountyToken(`${countyOnly} - ${hits[0]}`);
+      }
+
+      // Conservative prefix agreement scan (only for modest county code lists).
+      if (rawNorm && rawNorm.length >= 6 && cache.codes.length <= 600) {
+        const hits = [];
+        const rawFirst = rawNorm.split(' ', 1)[0];
+        for (const c of cache.codes) {
+          const cn = normalizePrecinctAliasToken(c);
+          if (!cn) continue;
+          const cFirst = cn.split(' ', 1)[0];
+          if (rawFirst && cFirst && rawFirst !== cFirst) continue;
+          const ok = cn.startsWith(rawNorm) || rawNorm.startsWith(cn);
+          if (!ok) continue;
+          // Avoid very short/ambiguous prefixes.
+          if (Math.abs(cn.length - rawNorm.length) > 6) continue;
+          hits.push(c);
+          if (hits.length > 2) break;
+        }
+        if (hits.length === 1) return normalizeCountyToken(`${countyOnly} - ${hits[0]}`);
+      }
+
+      return null;
     }
 
     function isKnownPrecinctCodeForCounty(countyNameOrNorm, code) {
@@ -17460,121 +17777,9 @@ document.addEventListener('DOMContentLoaded', function() {
 	        const precRaw = (precRaw0 || '').trim().toUpperCase();
 	        if (!countyOnly || !precRaw) return Array.from(out);
 	        if (isNonGeographicPrecinctCode(precRaw, countyNorm)) return [];
-	        const addKey = (t) => {
-	          const altFull = normalize(`${countyOnly} - ${t}`);
-	          if (altFull) out.add(altFull);
-	        };
 
-          // If results use numeric alpha suffix codes (e.g., "10A") but geometry
-          // uses the numeric base ("10"), include base numeric variants.
-          addNumericBaseVariantsFromAlphaSuffix(precRaw, addKey);
-          // Extract embedded precinct codes from verbose labels like
-          // "PRECINCT 01-14A" and "PR01 GAMEWELL #1".
-          addEmbeddedPrecinctCodeVariants(precRaw, addKey);
-
-	        // Try to extract a compact base token for later split/alias expansion.
-	        let baseToken = '';
-	        try {
-	          const firstToken = precRaw.split(/\s+/, 1)[0].trim();
-	          const token0 = (firstToken.includes('_') ? firstToken.split('_', 1)[0] : firstToken).trim().toUpperCase();
-	          baseToken = (token0 || '').toString().replace(/[^A-Z0-9.\-]/g, '').trim();
-	        } catch (_) { baseToken = ''; }
-	        if (baseToken) addKey(baseToken);
-
-	        const m = precRaw.match(/^(\d{1,3})(?:-(\d+))?$/);
-	        if (m) {
-	          const baseInt = String(parseInt(m[1], 10));
-	          if (baseInt && baseInt !== 'NaN') {
-	            const altPrec = `${baseInt}A`;
-	            const altFull = normalize(`${countyOnly} - ${altPrec}`);
-	            if (altFull) out.add(altFull);
-	          }
-	        }
-	        try {
-	          const codes = precinctIdx && countyNorm ? precinctIdx.get(countyNorm) : null;
-            addKnownLegacyCentroidBridges(countyNorm, precRaw, addKey);
-            if (baseToken && baseToken !== precRaw) addKnownLegacyCentroidBridges(countyNorm, baseToken, addKey);
-            if (codes) {
-              addCompactCodeVariants(precRaw, codes, addKey);
-              addPrefixStrippedNumericVariants(precRaw, codes, addKey);
-              if (baseToken && baseToken !== precRaw) {
-                addCompactCodeVariants(baseToken, codes, addKey);
-                addPrefixStrippedNumericVariants(baseToken, codes, addKey);
-              }
-            }
-            if (codes && countyNorm === 'WAKE') addClosestHyphenCodeVariants(precRaw, codes, addKey);
-	          const baseCompact = (baseToken || precRaw).replace(/\s+/g, '');
-	          if (codes && baseCompact) {
-	            const baseNum = baseCompact.match(/^0*([0-9]+)$/);
-	            codes.forEach(code => {
-	              const c = (code || '').toString().trim().toUpperCase();
-	              const cCompact = c.replace(/\s+/g, '');
-	              if (!cCompact || cCompact === baseCompact) return;
-
-	              // Numeric-only bases should only match the exact numeric portion + a short split suffix
-	              // (e.g. "10" -> "10A", "10-1", "10-A").
-	              if (baseNum) {
-	                const cmCompactAlpha = cCompact.match(/^0*([0-9]+)([A-Z]{1,2})$/);
-	                const cmHyphenAlpha = c.match(/^0*([0-9]+)-([A-Z]{1,2})$/);
-	                const cmHyphenNumeric = c.match(/^0*([0-9]+)-([0-9]{1,2})$/);
-	                const cm = cmCompactAlpha || cmHyphenAlpha || cmHyphenNumeric;
-	                if (!cm) return;
-	                if (parseInt(cm[1], 10) !== parseInt(baseNum[1], 10)) return;
-	                const altFull = normalize(`${countyOnly} - ${c}`);
-	                if (altFull) out.add(altFull);
-	                return;
-	              }
-
-	              if (!cCompact.startsWith(baseCompact)) return;
-	              const suffix = cCompact.slice(baseCompact.length);
-	              if (!suffix || suffix.length > 3) return;
-	              const alphaNumSplit = /^[A-Z0-9]{1,2}$/.test(suffix) && /[A-Z]/.test(suffix);
-                const hyphenNumericSplit = /^-[0-9]{1,2}$/.test(suffix);
-	              if (!(alphaNumSplit || hyphenNumericSplit)) return;
-	              const altFull = normalize(`${countyOnly} - ${c}`);
-	              if (altFull) out.add(altFull);
-	            });
-	          }
-	        } catch (_) {}
-
-	        // If a precinct token begins with a code (e.g., "08.1 ASHEVILLE 8" or "0020B MONROE"),
-	        // include the bare code as a matching variant.
-	        try {
-	          if (baseToken) {
-	            // Decimal codes like Buncombe "08.1".
-	            const md = baseToken.match(/^0*([0-9]{1,3})\.([0-9]{1,3})$/);
-	            if (md) {
-	              const a = String(parseInt(md[1], 10)).padStart(2, '0');
-	              const b = String(parseInt(md[2], 10));
-	              addKey(`${a}.${b}`);
-	            } else {
-	              // Alphanumeric codes with leading zeros like UNION "0020B" or "0044".
-	              const ma = baseToken.match(/^0*([0-9]{1,4})([A-Z]{0,2})$/);
-	              if (ma) {
-	                const n = parseInt(ma[1], 10);
-	                const suf = (ma[2] || '').toUpperCase();
-	                if (!isNaN(n)) {
-	                  addKey(`${n}${suf}`);
-	                  addKey(`${String(n).padStart(2, '0')}${suf}`);
-	                  addKey(`${String(n).padStart(3, '0')}${suf}`);
-	                  addKey(`${String(n).padStart(4, '0')}${suf}`);
-	                }
-	              }
-	            }
-	          }
-	        } catch (_) {}
-
-          // Name-only fallback (e.g., "GASTON - ARMSTRONG") via prebuilt
-          // county alias index from precinct geometry ENR_DESC values.
           try {
-            const countyAliases = precinctAliasIdx && countyNorm ? precinctAliasIdx.get(countyNorm) : null;
-            if (countyAliases) {
-              const resolvedCode = resolveUniquePrecinctCodeByAlias(countyAliases, precRaw);
-              if (resolvedCode) addKey(resolvedCode);
-            }
-          } catch (_) {}
-          try {
-            applyPrecinctVariantOverrides(countyNorm, precRaw, addKey);
+            buildPrecinctMatchCandidates(countyOnly, precRaw).forEach(k => out.add(k));
           } catch (_) {}
 	        return Array.from(out);
 	      }
@@ -17730,6 +17935,41 @@ document.addEventListener('DOMContentLoaded', function() {
         try { await ensurePrecinctVariantOverrides(); } catch (_) {}
       }
 
+      precinctMatchDiagnostics = needsPrecinctDetail
+        ? { matchedExact: 0, matchedAlias: 0, matchedOverride: 0, matchedFuzzy: 0, unmatchedRows: [], skippedNonGeographic: 0 }
+        : null;
+      try { window.precinctMatchDiagnostics = precinctMatchDiagnostics; } catch (_) {}
+
+      let precinctSourceNormSet = null; // Set<string precinct_norm> from currently-loaded geometry (polygons if available, else centroids)
+      if (needsPrecinctDetail) {
+        try {
+          const s = new Set();
+          if (precinctPolygonNormSet && precinctPolygonNormSet.size) {
+            precinctPolygonNormSet.forEach(n => {
+              const norm = (n || '').toString().trim().toUpperCase();
+              if (norm) s.add(norm);
+            });
+          } else if (precinctCentroidsData?.features?.length) {
+            precinctCentroidsData.features.forEach(f => {
+              const norm = ((f?.properties?.precinct_norm) || '').toString().trim().toUpperCase();
+              if (norm) s.add(norm);
+            });
+          }
+          // Filter out any non-geographic buckets that may sneak into geometry sources.
+          if (s.size) {
+            precinctSourceNormSet = new Set();
+            s.forEach(norm => {
+              if (!norm.includes(' - ')) return;
+              const [cRaw, pRaw] = norm.split(' - ', 2);
+              const cn = normalizeCountyName(cRaw);
+              const p = (pRaw || '').toString().trim().toUpperCase();
+              if (!cn || !p) return;
+              if (!isNonGeographicPrecinctCode(p, cn)) precinctSourceNormSet.add(norm);
+            });
+          }
+        } catch (_) { precinctSourceNormSet = null; }
+      }
+
 	      function isNonGeographicPrecinctCode(code, countyNorm = '') {
 	        const c = (code || '').toString().trim().toUpperCase();
 	        if (c && precinctIdx && countyNorm) {
@@ -17739,7 +17979,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	        return isNonGeographicPrecinctToken(c, countyNorm);
 	      }
 
-	      function precinctNormVariants(rowName) {
+      function precinctNormVariants(rowName) {
 	        // rowName format: "COUNTY - PREC"
 	        const raw = (rowName || '').toString();
 	        const out = new Set();
@@ -17753,152 +17993,24 @@ document.addEventListener('DOMContentLoaded', function() {
 	        const precRaw = (precRaw0 || '').trim().toUpperCase();
 	        if (!countyOnly || !precRaw) return Array.from(out);
 	        if (isNonGeographicPrecinctCode(precRaw, countyNorm)) return [];
-	        const addKey = (t) => {
-	          const altFull = normalizeCountyName(`${countyOnly} - ${t}`);
-	          if (altFull) out.add(altFull);
-	        };
 
-          // If results use numeric alpha suffix codes (e.g., "10A") but geometry
-          // uses the numeric base ("10"), include base numeric variants.
-          addNumericBaseVariantsFromAlphaSuffix(precRaw, addKey);
-          // Extract embedded precinct codes from verbose labels like
-          // "PRECINCT 01-14A" and "PR01 GAMEWELL #1".
-          addEmbeddedPrecinctCodeVariants(precRaw, addKey);
-
-	        // Extract a compact code token (if present) so we can handle split precinct IDs
-	        // like "03S" -> "03SE"/"03SM" and "10" -> "10A"/"10B" using the centroid index.
-	        let baseToken = '';
-	        try {
-	          const firstToken = precRaw.split(/\s+/, 1)[0].trim();
-	          const token0 = (firstToken.includes('_') ? firstToken.split('_', 1)[0] : firstToken).trim();
-	          baseToken = (token0 || '').toString().trim().toUpperCase().replace(/[^A-Z0-9.\-]/g, '').trim();
-	        } catch (_) { baseToken = ''; }
-	        try {
-	          addKnownLegacyCentroidBridges(countyNorm, precRaw, addKey);
-	          if (baseToken && baseToken !== precRaw) addKnownLegacyCentroidBridges(countyNorm, baseToken, addKey);
-	        } catch (_) {}
-
-          // Many older exports use "CODE NAME" or "CODE_NAME ..." where the geometry key
-          // is just the code token (e.g., "HARNETT - PR01 ANDERSON CREEK" => "HARNETT - PR01",
-          // "RICHMOND - 06_WOLF PIT #3" => "RICHMOND - 06"). Add those variants.
+          // County-scoped ordered candidates (exact -> variants -> alias -> overrides).
           try {
-            const tokenRaw = (baseToken || '').toString().trim().toUpperCase();
-            const token = tokenRaw.replace(/[^A-Z0-9.\-]/g, '').trim();
-            const tokenOk = token && (
-              /^[A-Z]{0,3}\d{1,4}(?:-\d{1,4})?[A-Z]{0,2}$/.test(token) ||
-              /^0*\d{1,3}\.\d{1,3}$/.test(token)
-            );
-            if (tokenOk) {
-              addKey(token);
-              // Numeric codes: include both trimmed and zero-padded forms.
-              if (/^\d{1,5}$/.test(token)) {
-                const n = parseInt(token, 10);
-                if (!isNaN(n)) {
-                  addKey(String(n));
-                  addKey(String(n).padStart(2, '0'));
-                  addKey(String(n).padStart(3, '0'));
-                  addKey(String(n).padStart(4, '0'));
-                }
-              }
-              // Alphanumeric codes with leading zeros like UNION "0020B" or "0044".
-              const mu = token.match(/^0*([0-9]{1,4})([A-Z]{1,2})$/);
-              if (mu) {
-                const n = parseInt(mu[1], 10);
-                const suf = (mu[2] || '').toUpperCase();
-                if (!isNaN(n)) {
-                  addKey(`${n}${suf}`);
-                  addKey(`${String(n).padStart(2, '0')}${suf}`);
-                  addKey(`${String(n).padStart(3, '0')}${suf}`);
-                  addKey(`${String(n).padStart(4, '0')}${suf}`);
-                }
-              }
-              // Decimal codes like Buncombe "08.1".
-              const md = token.match(/^0*([0-9]{1,3})\.([0-9]{1,3})$/);
-              if (md) {
-                const a = String(parseInt(md[1], 10)).padStart(2, '0');
-                const b = String(parseInt(md[2], 10));
-                addKey(`${a}.${b}`);
-              }
-              // PRxx codes (Harnett): include both padded/unpadded variants.
-              const mpr = token.match(/^PR(\d{1,3})$/);
-              if (mpr) {
-                const n = parseInt(mpr[1], 10);
-                if (!isNaN(n)) {
-                  addKey(`PR${String(n)}`);
-                  addKey(`PR${String(n).padStart(2, '0')}`);
-                }
-              }
-            }
+            buildPrecinctMatchCandidates(countyOnly, precRaw).forEach(k => out.add(k));
           } catch (_) {}
 
-	        // Some precinct boundary datasets key precincts as "1A", "14A", etc, while official
-	        // precinct results use "01" or "04-1". Add an alternate key for those cases.
-	        // Example: "GASTON - 04-1" -> "GASTON - 4A"
-	        const m = precRaw.match(/^(\d{1,3})(?:-(\d+))?$/);
-	        if (m) {
-	          const base = m[1];
-	          const baseInt = String(parseInt(base, 10)); // strips leading zeros
-	          if (baseInt && baseInt !== 'NaN') {
-	            const altPrec = `${baseInt}A`;
-	            const altFull = normalizeCountyName(`${countyOnly} - ${altPrec}`);
-	            if (altFull) out.add(altFull);
-	          }
-	        }
-
-	        // Historical results sometimes use a base code that later gets split into multiple
-	        // precinct IDs in the modern geometry. If we have the geometry code index, map the
-	        // base to any known precinct IDs that extend it by a short suffix.
-	        try {
-	          const codes = precinctIdx && countyNorm ? precinctIdx.get(countyNorm) : null;
-            if (codes && countyNorm === 'WAKE') addClosestHyphenCodeVariants(precRaw, codes, addKey);
-	          const baseCompact = (baseToken || precRaw).replace(/\s+/g, '');
-	          if (codes && baseCompact) {
-	            const baseNum = baseCompact.match(/^0*([0-9]+)$/);
-	            codes.forEach(code => {
-	              const c = (code || '').toString().trim().toUpperCase();
-	              const cCompact = c.replace(/\s+/g, '');
-	              if (!cCompact || cCompact === baseCompact) return;
-
-	              // Numeric-only bases should only match the exact numeric portion + a short split suffix
-	              // (e.g. "10" -> "10A", "10-1", "10-A").
-	              if (baseNum) {
-	                const cmCompactAlpha = cCompact.match(/^0*([0-9]+)([A-Z]{1,2})$/);
-	                const cmHyphenAlpha = c.match(/^0*([0-9]+)-([A-Z]{1,2})$/);
-	                const cmHyphenNumeric = c.match(/^0*([0-9]+)-([0-9]{1,2})$/);
-	                const cm = cmCompactAlpha || cmHyphenAlpha || cmHyphenNumeric;
-	                if (!cm) return;
-	                if (parseInt(cm[1], 10) !== parseInt(baseNum[1], 10)) return;
-	                const altFull = normalizeCountyName(`${countyOnly} - ${c}`);
-	                if (altFull) out.add(altFull);
-	                return;
-	              }
-
-	              if (!cCompact.startsWith(baseCompact)) return;
-	              const suffix = cCompact.slice(baseCompact.length);
-	              if (!suffix || suffix.length > 3) return;
-	              const alphaNumSplit = /^[A-Z0-9]{1,2}$/.test(suffix) && /[A-Z]/.test(suffix);
-                const hyphenNumericSplit = /^-[0-9]{1,2}$/.test(suffix);
-	              if (!(alphaNumSplit || hyphenNumericSplit)) return;
-	              const altFull = normalizeCountyName(`${countyOnly} - ${c}`);
-	              if (altFull) out.add(altFull);
-	            });
-	          }
-	        } catch (_) {}
-
-          // Name-only fallback (e.g., legacy keys like "ARMSTRONG")
-          // using county alias lookup built from precinct geometry ENR_DESC.
+          // Conservative fuzzy fallback (county-scoped only) after exact/alias/override candidates fail.
           try {
-            const countyAliases = precinctAliasIdx && countyNorm ? precinctAliasIdx.get(countyNorm) : null;
-            if (countyAliases) {
-              const resolvedCode = resolveUniquePrecinctCodeByAlias(countyAliases, precRaw);
-              if (resolvedCode) {
-                const altFull = normalizeCountyName(`${countyOnly} - ${resolvedCode}`);
-                if (altFull) out.add(altFull);
+            if (precinctSourceNormSet && precinctSourceNormSet.size) {
+              let anyHit = false;
+              for (const k of out) {
+                if (precinctSourceNormSet.has(k)) { anyHit = true; break; }
+              }
+              if (!anyHit) {
+                const fuzzy = resolveFuzzyPrecinctNormInCounty(countyOnly, precRaw);
+                if (fuzzy) out.add(fuzzy);
               }
             }
-          } catch (_) {}
-          try {
-            applyPrecinctVariantOverrides(countyNorm, precRaw, addKey);
           } catch (_) {}
 
 	        return Array.from(out);
@@ -17926,6 +18038,37 @@ document.addEventListener('DOMContentLoaded', function() {
           norms.forEach(n => {
             currentPrecinctResults.set(n, row);
           });
+          // Diagnostics: classify and track unmatched geographic precinct rows (county-scoped only).
+          try {
+            if (precinctMatchDiagnostics && rowName.includes(' - ')) {
+              const precRaw = (rowName.split(' - ', 2)[1] || '').toString().trim().toUpperCase();
+              if (precRaw && isNonGeographicPrecinctCode(precRaw, countyNorm)) {
+                precinctMatchDiagnostics.skippedNonGeographic++;
+              } else if (precRaw) {
+                let matched = null;
+                if (precinctSourceNormSet && precinctSourceNormSet.size) {
+                  for (const n of norms) {
+                    if (precinctSourceNormSet.has(n)) { matched = n; break; }
+                  }
+                }
+                if (matched) {
+                  const phases = (typeof buildPrecinctMatchCandidates === 'function') ? (buildPrecinctMatchCandidates._lastPhaseByKey || null) : null;
+                  const phase = phases && phases.has(matched) ? phases.get(matched) : 7;
+                  if (phase === 6) precinctMatchDiagnostics.matchedOverride++;
+                  else if (phase === 5) precinctMatchDiagnostics.matchedAlias++;
+                  else if (phase >= 7) precinctMatchDiagnostics.matchedFuzzy++;
+                  else precinctMatchDiagnostics.matchedExact++;
+                } else {
+                  precinctMatchDiagnostics.unmatchedRows.push({
+                    county: countyOnly,
+                    precinct: precRaw,
+                    row: rowName,
+                    total: totalVotes
+                  });
+                }
+              }
+            }
+          } catch (_) {}
         }
         if (!countyAgg[countyNorm]) {
           countyAgg[countyNorm] = {
@@ -17949,18 +18092,7 @@ document.addEventListener('DOMContentLoaded', function() {
       });
 
       if (needsPrecinctDetail && currentPrecinctResults) {
-        const sourceNorms = new Set();
-        if (precinctPolygonNormSet && precinctPolygonNormSet.size) {
-          precinctPolygonNormSet.forEach(n => {
-            const norm = (n || '').toString().trim().toUpperCase();
-            if (norm) sourceNorms.add(norm);
-          });
-        } else if (precinctCentroidsData?.features?.length) {
-          precinctCentroidsData.features.forEach(f => {
-            const norm = ((f?.properties?.precinct_norm) || '').toString().trim().toUpperCase();
-            if (norm) sourceNorms.add(norm);
-          });
-        }
+        const sourceNorms = precinctSourceNormSet || new Set();
         if (sourceNorms.size) {
           const missingNorms = new Set();
           sourceNorms.forEach(norm => {
@@ -17970,6 +18102,14 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       }
       currentElectionResults = countyAgg;
+
+      if (precinctMatchDiagnostics && DEBUG) {
+        try {
+          if (precinctMatchDiagnostics.unmatchedRows && precinctMatchDiagnostics.unmatchedRows.length) {
+            console.table(precinctMatchDiagnostics.unmatchedRows.slice(0, 50));
+          }
+        } catch (_) {}
+      }
 
       // Calculate statewide totals
       let statewidedemVotes = 0;
