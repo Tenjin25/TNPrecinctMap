@@ -8062,11 +8062,26 @@ document.addEventListener('DOMContentLoaded', function() {
       return totals;
     }
 
-    async function getRegionTrendSeries(contestType, regionKey) {
-      const entries = (contestManifest || [])
+    function filterTrendEntriesForContest(entries, contestType, referenceYear) {
+      const list = Array.isArray(entries) ? entries.slice() : [];
+      const ct = String(contestType || '').trim();
+      const y = Number(referenceYear);
+      if (ct !== 'us_senate' || !Number.isFinite(y)) return list;
+
+      const seatA = [2006, 2012, 2018, 2024];
+      const seatB = [2008, 2014, 2020];
+      const chain = seatA.includes(y) ? seatA : (seatB.includes(y) ? seatB : null);
+      if (!chain) return list;
+
+      const allowed = new Set(chain.filter(v => v <= y));
+      return list.filter(e => allowed.has(Number(e?.year)));
+    }
+
+    async function getRegionTrendSeries(contestType, regionKey, referenceYear = null) {
+      const entries = filterTrendEntriesForContest((contestManifest || [])
         .filter(f => f && f.contest_type === contestType && Number.isFinite(Number(f.year)))
         .slice()
-        .sort((a, b) => Number(a.year) - Number(b.year));
+        .sort((a, b) => Number(a.year) - Number(b.year)), contestType, referenceYear);
 
       const out = [];
       for (const e of entries) {
@@ -10334,11 +10349,11 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }
 
-    async function getStatewideTrendSeries(contestType) {
-      const entries = (contestManifest || [])
+    async function getStatewideTrendSeries(contestType, referenceYear = null) {
+      const entries = filterTrendEntriesForContest((contestManifest || [])
         .filter(f => f && f.contest_type === contestType && Number.isFinite(Number(f.year)))
         .slice()
-        .sort((a, b) => Number(a.year) - Number(b.year));
+        .sort((a, b) => Number(a.year) - Number(b.year)), contestType, referenceYear);
 
       const out = [];
       for (const e of entries) {
@@ -10427,15 +10442,15 @@ document.addEventListener('DOMContentLoaded', function() {
       try {
         let series = [];
         if (meta.kind === 'county' && meta.county) {
-          series = await getCountyTrendSeries(contestType, meta.county);
+          series = await getCountyTrendSeries(contestType, meta.county, year);
         } else if (meta.kind === 'region' && meta.regionKey) {
-          series = await getRegionTrendSeries(contestType, meta.regionKey);
+          series = await getRegionTrendSeries(contestType, meta.regionKey, year);
         } else if (meta.kind === 'district' && meta.scope && meta.districtNum !== undefined) {
-          series = await getDistrictTrendSeries(meta.scope, contestType, meta.districtNum);
+          series = await getDistrictTrendSeries(meta.scope, contestType, meta.districtNum, year);
         } else if (meta.kind === 'precinct' && meta.county) {
-          series = await getCountyTrendSeries(contestType, meta.county);
+          series = await getCountyTrendSeries(contestType, meta.county, year);
         } else {
-          series = await getStatewideTrendSeries(contestType);
+          series = await getStatewideTrendSeries(contestType, year);
         }
         if (reqId !== voteCounterTrendRequestId) return;
         renderFocusTrendSeries(series, baseCaption, { meta });
@@ -12685,11 +12700,11 @@ document.addEventListener('DOMContentLoaded', function() {
       `;
     }
 
-    async function getDistrictTrendSeries(scope, contestType, districtNum) {
-      const entries = (getActiveDistrictManifest() || [])
+    async function getDistrictTrendSeries(scope, contestType, districtNum, referenceYear = null) {
+      const entries = filterTrendEntriesForContest((getActiveDistrictManifest() || [])
         .filter(f => f && f.scope === scope && f.contest_type === contestType && Number.isFinite(Number(f.year)))
         .slice()
-        .sort((a, b) => Number(a.year) - Number(b.year));
+        .sort((a, b) => Number(a.year) - Number(b.year)), contestType, referenceYear);
 
       const out = [];
       for (const e of entries) {
@@ -12728,11 +12743,11 @@ document.addEventListener('DOMContentLoaded', function() {
       return out;
     }
 
-    async function getCountyTrendSeries(contestType, countyName) {
-      const entries = (contestManifest || [])
+    async function getCountyTrendSeries(contestType, countyName, referenceYear = null) {
+      const entries = filterTrendEntriesForContest((contestManifest || [])
         .filter(f => f && f.contest_type === contestType && Number.isFinite(Number(f.year)))
         .slice()
-        .sort((a, b) => Number(a.year) - Number(b.year));
+        .sort((a, b) => Number(a.year) - Number(b.year)), contestType, referenceYear);
 
       const target = (countyName || '').toString().trim().toUpperCase();
       const out = [];
