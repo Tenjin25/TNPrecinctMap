@@ -12029,6 +12029,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function compactWinnerMarginLabel(repVotes, demVotes, totalVotes, repCandidate, demCandidate) {
+      const uncontestedParty = uncontestedPartyFromVotes(repVotes, demVotes, totalVotes);
+      if (uncontestedParty === 'rep') return 'Uncontested R';
+      if (uncontestedParty === 'dem') return 'Uncontested D';
       const margin = Number(repVotes || 0) - Number(demVotes || 0);
       const pctLabel = `${formatMarginPctForDisplay(marginPctDisplayValue(repVotes, demVotes, totalVotes))}%`;
       if (margin > 0) {
@@ -12055,6 +12058,16 @@ document.addEventListener('DOMContentLoaded', function() {
       return compactWinnerMarginLabel(repVotes, demVotes, totalVotes, repCandidate, demCandidate);
     }
 
+    function uncontestedPartyFromVotes(repVotes, demVotes, totalVotes) {
+      const r = Number(repVotes || 0);
+      const d = Number(demVotes || 0);
+      const t = Number(totalVotes || 0);
+      if (t <= 0) return null;
+      if (r > 0 && d === 0) return 'rep';
+      if (d > 0 && r === 0) return 'dem';
+      return null;
+    }
+
     function winnerFromSignedMarginPct(signedPct) {
       const v = Number(signedPct) || 0;
       if (v > 0) return 'R';
@@ -12071,6 +12084,27 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function winnerMarginCall(repVotes, demVotes, totalVotes, repCandidate, demCandidate) {
       const marginPct = totalVotes > 0 ? Math.abs((repVotes - demVotes) / totalVotes * 100) : 0;
+      const uncontestedParty = uncontestedPartyFromVotes(repVotes, demVotes, totalVotes);
+      if (uncontestedParty === 'rep') {
+        return {
+          party: 'rep',
+          winnerName: fullCandidateLabel(repCandidate, 'Republican'),
+          shortLabel: shortCandidateLabel(repCandidate, 'Republican'),
+          marginPct,
+          text: 'Uncontested R',
+          uncontested: true
+        };
+      }
+      if (uncontestedParty === 'dem') {
+        return {
+          party: 'dem',
+          winnerName: fullCandidateLabel(demCandidate, 'Democratic'),
+          shortLabel: shortCandidateLabel(demCandidate, 'Democratic'),
+          marginPct,
+          text: 'Uncontested D',
+          uncontested: true
+        };
+      }
       const marginLabel = formatMarginPctForDisplay(marginPctDisplayValue(repVotes, demVotes, totalVotes));
       if (repVotes > demVotes) {
         return {
@@ -12078,7 +12112,8 @@ document.addEventListener('DOMContentLoaded', function() {
           winnerName: fullCandidateLabel(repCandidate, 'Republican'),
           shortLabel: shortCandidateLabel(repCandidate, 'Republican'),
           marginPct,
-          text: `${shortCandidateLabel(repCandidate, 'Republican')} +${marginLabel}%`
+          text: `${shortCandidateLabel(repCandidate, 'Republican')} +${marginLabel}%`,
+          uncontested: false
         };
       }
       if (demVotes > repVotes) {
@@ -12087,7 +12122,8 @@ document.addEventListener('DOMContentLoaded', function() {
           winnerName: fullCandidateLabel(demCandidate, 'Democratic'),
           shortLabel: shortCandidateLabel(demCandidate, 'Democratic'),
           marginPct,
-          text: `${shortCandidateLabel(demCandidate, 'Democratic')} +${marginLabel}%`
+          text: `${shortCandidateLabel(demCandidate, 'Democratic')} +${marginLabel}%`,
+          uncontested: false
         };
       }
       return {
@@ -12095,7 +12131,8 @@ document.addEventListener('DOMContentLoaded', function() {
         winnerName: 'Tie',
         shortLabel: 'Even',
         marginPct,
-        text: `Even ${marginLabel}`
+        text: `Even ${marginLabel}`,
+        uncontested: false
       };
     }
 
@@ -13462,7 +13499,8 @@ document.addEventListener('DOMContentLoaded', function() {
       );
 
       const signedMarginPct = signedMarginPctFromVotes(demVotes, repVotes, totalVotes);
-      const tierMeta = competitivenessTierMetaFromSignedMarginPct(signedMarginPct);
+      const isUncontested = !!uncontestedPartyFromVotes(repVotes, demVotes, totalVotes);
+      const tierMeta = isUncontested ? null : competitivenessTierMetaFromSignedMarginPct(signedMarginPct);
       const winner = signedMarginPct > 0 ? 'R' : (signedMarginPct < 0 ? 'D' : 'T');
       const subtitle = `${formatContestName(contestType, year)} ${year}`;
 
@@ -13531,7 +13569,7 @@ document.addEventListener('DOMContentLoaded', function() {
         : '';
 
       chips.push(winnerChipHTML(winner));
-      chips.push(tierChipHTML(tierMeta));
+      if (tierMeta) chips.push(tierChipHTML(tierMeta));
 
       if (prevSignedForFlip !== null) {
         const flipChip = flipChipHTML(prevSignedForFlip, signedMarginPct);
@@ -13714,7 +13752,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
       const signedMarginPct = Number(row[`${contestType}_margin_pct`]);
       const curSigned = isNaN(signedMarginPct) ? signedMarginPctFromVotes(demVotes, repVotes, demVotes + repVotes + otherVotes) : signedMarginPct;
-      const tierMeta = competitivenessTierMetaFromSignedMarginPct(curSigned);
+      const isUncontested = !!uncontestedPartyFromVotes(repVotes, demVotes, demVotes + repVotes + otherVotes);
+      const tierMeta = isUncontested ? null : competitivenessTierMetaFromSignedMarginPct(curSigned);
       const winner = curSigned > 0 ? 'R' : (curSigned < 0 ? 'D' : 'T');
       const chips = [];
       let prevSignedForFlip = null;
@@ -13751,7 +13790,7 @@ document.addEventListener('DOMContentLoaded', function() {
         : '';
 
       chips.push(winnerChipHTML(winner));
-      chips.push(tierChipHTML(tierMeta));
+      if (tierMeta) chips.push(tierChipHTML(tierMeta));
 
       if (prevSignedForFlip !== null) {
         const flipChip = flipChipHTML(prevSignedForFlip, curSigned);
@@ -13916,7 +13955,8 @@ document.addEventListener('DOMContentLoaded', function() {
       );
 
       const signedMarginPct = ('margin_pct' in row) ? Number(row.margin_pct || 0) : signedMarginPctFromVotes(demVotes, repVotes, totalVotes);
-      const tierMeta = competitivenessTierMetaFromSignedMarginPct(signedMarginPct);
+      const isUncontested = !!uncontestedPartyFromVotes(repVotes, demVotes, totalVotes);
+      const tierMeta = isUncontested ? null : competitivenessTierMetaFromSignedMarginPct(signedMarginPct);
       const winnerRaw = (row.winner || '').toString().toUpperCase();
       const winner = winnerRaw.startsWith('REP') ? 'R' : (winnerRaw.startsWith('DEM') ? 'D' : (signedMarginPct > 0 ? 'R' : (signedMarginPct < 0 ? 'D' : 'T')));
       const demPartyLabelOverride = (row.dem_party_label || '').toString().trim().toUpperCase();
@@ -13948,7 +13988,7 @@ document.addEventListener('DOMContentLoaded', function() {
         : '';
 
       chips.push(winnerChipHTML(winner));
-      chips.push(tierChipHTML(tierMeta));
+      if (tierMeta) chips.push(tierChipHTML(tierMeta));
 
       if (prevSignedForFlip !== null) {
         const flipChip = flipChipHTML(prevSignedForFlip, signedMarginPct);
