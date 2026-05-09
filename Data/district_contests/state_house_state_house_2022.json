@@ -460,14 +460,14 @@
         "winner": "REP"
       },
       "41": {
-        "dem_votes": 0,
+        "dem_votes": 8184,
         "rep_votes": 9079,
-        "other_votes": 8184,
+        "other_votes": 0,
         "total_votes": 17263,
-        "dem_candidate": "",
+        "dem_candidate": "John Mark Windle (Independent)",
         "rep_candidate": "Ed Butler",
-        "margin": 9079,
-        "margin_pct": 52.5922,
+        "margin": 895,
+        "margin_pct": 5.1845,
         "winner": "REP"
       },
       "42": {
