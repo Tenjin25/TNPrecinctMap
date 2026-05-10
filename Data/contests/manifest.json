@@ -3,7 +3,7 @@
     {
       "year": 1998,
       "contest_type": "governor",
-      "file": "governor_1998_county.json",
+      "file": "governor_1998.json",
       "rows": 95,
       "dem_total": 287750,
       "rep_total": 669973,
@@ -209,3 +209,4 @@
     }
   ]
 }
+
