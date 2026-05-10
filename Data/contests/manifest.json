@@ -1,6 +1,24 @@
 {
   "files": [
     {
+      "year": 2002,
+      "contest_type": "governor",
+      "file": "governor_2002.json",
+      "rows": 2148,
+      "dem_total": 837004,
+      "rep_total": 786349,
+      "major_party_contested": true
+    },
+    {
+      "year": 2006,
+      "contest_type": "governor",
+      "file": "governor_2006.json",
+      "rows": 2019,
+      "dem_total": 1245787,
+      "rep_total": 539990,
+      "major_party_contested": true
+    },
+    {
       "year": 2010,
       "contest_type": "governor",
       "file": "governor_2010.json",
@@ -34,6 +52,15 @@
       "rows": 1968,
       "dem_total": 572818,
       "rep_total": 1129390,
+      "major_party_contested": true
+    },
+    {
+      "year": 2000,
+      "contest_type": "president",
+      "file": "president_2000.json",
+      "rows": 2147,
+      "dem_total": 981424,
+      "rep_total": 1061380,
       "major_party_contested": true
     },
     {
@@ -88,6 +115,24 @@
       "rows": 1966,
       "dem_total": 1056265,
       "rep_total": 1966865,
+      "major_party_contested": true
+    },
+    {
+      "year": 2000,
+      "contest_type": "us_senate",
+      "file": "us_senate_2000.json",
+      "rows": 2147,
+      "dem_total": 621018,
+      "rep_total": 1254881,
+      "major_party_contested": true
+    },
+    {
+      "year": 2002,
+      "contest_type": "us_senate",
+      "file": "us_senate_2002.json",
+      "rows": 2148,
+      "dem_total": 728118,
+      "rep_total": 890901,
       "major_party_contested": true
     },
     {

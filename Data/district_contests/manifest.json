@@ -2,6 +2,26 @@
   "files": [
     {
       "scope": "congressional",
+      "year": 2002,
+      "contest_type": "governor",
+      "file": "congressional_governor_2002.json",
+      "districts": 9,
+      "dem_total": 837004,
+      "rep_total": 786348,
+      "major_party_contested": true
+    },
+    {
+      "scope": "congressional",
+      "year": 2006,
+      "contest_type": "governor",
+      "file": "congressional_governor_2006.json",
+      "districts": 9,
+      "dem_total": 1245786,
+      "rep_total": 539991,
+      "major_party_contested": true
+    },
+    {
+      "scope": "congressional",
       "year": 2010,
       "contest_type": "governor",
       "file": "congressional_governor_2010.json",
@@ -38,6 +58,16 @@
       "districts": 9,
       "dem_total": 572819,
       "rep_total": 1129389,
+      "major_party_contested": true
+    },
+    {
+      "scope": "congressional",
+      "year": 2000,
+      "contest_type": "president",
+      "file": "congressional_president_2000.json",
+      "districts": 9,
+      "dem_total": 979174,
+      "rep_total": 1058956,
       "major_party_contested": true
     },
     {
@@ -192,6 +222,26 @@
     },
     {
       "scope": "congressional",
+      "year": 2000,
+      "contest_type": "us_senate",
+      "file": "congressional_us_senate_2000.json",
+      "districts": 9,
+      "dem_total": 619492,
+      "rep_total": 1251965,
+      "major_party_contested": true
+    },
+    {
+      "scope": "congressional",
+      "year": 2002,
+      "contest_type": "us_senate",
+      "file": "congressional_us_senate_2002.json",
+      "districts": 9,
+      "dem_total": 728117,
+      "rep_total": 890902,
+      "major_party_contested": true
+    },
+    {
+      "scope": "congressional",
       "year": 2006,
       "contest_type": "us_senate",
       "file": "congressional_us_senate_2006.json",
@@ -262,11 +312,31 @@
     },
     {
       "scope": "state_house",
+      "year": 2002,
+      "contest_type": "governor",
+      "file": "state_house_governor_2002.json",
+      "districts": 99,
+      "dem_total": 836998,
+      "rep_total": 786347,
+      "major_party_contested": true
+    },
+    {
+      "scope": "state_house",
+      "year": 2006,
+      "contest_type": "governor",
+      "file": "state_house_governor_2006.json",
+      "districts": 99,
+      "dem_total": 1245787,
+      "rep_total": 539990,
+      "major_party_contested": true
+    },
+    {
+      "scope": "state_house",
       "year": 2010,
       "contest_type": "governor",
       "file": "state_house_governor_2010.json",
       "districts": 99,
-      "dem_total": 529852,
+      "dem_total": 529853,
       "rep_total": 1041546,
       "major_party_contested": true
     },
@@ -298,6 +368,16 @@
       "districts": 95,
       "dem_total": 572818,
       "rep_total": 1129393,
+      "major_party_contested": true
+    },
+    {
+      "scope": "state_house",
+      "year": 2000,
+      "contest_type": "president",
+      "file": "state_house_president_2000.json",
+      "districts": 99,
+      "dem_total": 979175,
+      "rep_total": 1058951,
       "major_party_contested": true
     },
     {
@@ -462,6 +542,26 @@
     },
     {
       "scope": "state_house",
+      "year": 2000,
+      "contest_type": "us_senate",
+      "file": "state_house_us_senate_2000.json",
+      "districts": 99,
+      "dem_total": 619485,
+      "rep_total": 1251969,
+      "major_party_contested": true
+    },
+    {
+      "scope": "state_house",
+      "year": 2002,
+      "contest_type": "us_senate",
+      "file": "state_house_us_senate_2002.json",
+      "districts": 99,
+      "dem_total": 728122,
+      "rep_total": 890900,
+      "major_party_contested": true
+    },
+    {
+      "scope": "state_house",
       "year": 2006,
       "contest_type": "us_senate",
       "file": "state_house_us_senate_2006.json",
@@ -532,6 +632,26 @@
     },
     {
       "scope": "state_senate",
+      "year": 2002,
+      "contest_type": "governor",
+      "file": "state_senate_governor_2002.json",
+      "districts": 33,
+      "dem_total": 837003,
+      "rep_total": 786348,
+      "major_party_contested": true
+    },
+    {
+      "scope": "state_senate",
+      "year": 2006,
+      "contest_type": "governor",
+      "file": "state_senate_governor_2006.json",
+      "districts": 33,
+      "dem_total": 1245788,
+      "rep_total": 539990,
+      "major_party_contested": true
+    },
+    {
+      "scope": "state_senate",
       "year": 2010,
       "contest_type": "governor",
       "file": "state_senate_governor_2010.json",
@@ -568,6 +688,16 @@
       "districts": 33,
       "dem_total": 572819,
       "rep_total": 1129389,
+      "major_party_contested": true
+    },
+    {
+      "scope": "state_senate",
+      "year": 2000,
+      "contest_type": "president",
+      "file": "state_senate_president_2000.json",
+      "districts": 33,
+      "dem_total": 979173,
+      "rep_total": 1058954,
       "major_party_contested": true
     },
     {
@@ -728,6 +858,26 @@
       "districts": 16,
       "dem_total": 325890,
       "rep_total": 969827,
+      "major_party_contested": true
+    },
+    {
+      "scope": "state_senate",
+      "year": 2000,
+      "contest_type": "us_senate",
+      "file": "state_senate_us_senate_2000.json",
+      "districts": 33,
+      "dem_total": 619494,
+      "rep_total": 1251965,
+      "major_party_contested": true
+    },
+    {
+      "scope": "state_senate",
+      "year": 2002,
+      "contest_type": "us_senate",
+      "file": "state_senate_us_senate_2002.json",
+      "districts": 33,
+      "dem_total": 728116,
+      "rep_total": 890900,
       "major_party_contested": true
     },
     {
