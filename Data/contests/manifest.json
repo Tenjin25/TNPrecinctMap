@@ -1,6 +1,15 @@
 {
   "files": [
     {
+      "year": 1998,
+      "contest_type": "governor",
+      "file": "governor_1998_county.json",
+      "rows": 95,
+      "dem_total": 287750,
+      "rep_total": 669973,
+      "major_party_contested": true
+    },
+    {
       "year": 2002,
       "contest_type": "governor",
       "file": "governor_2002.json",

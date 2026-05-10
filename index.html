@@ -8068,8 +8068,8 @@ document.addEventListener('DOMContentLoaded', function() {
       const y = Number(referenceYear);
       if (ct !== 'us_senate' || !Number.isFinite(y)) return list;
 
-      const seatA = [2006, 2012, 2018, 2024];
-      const seatB = [2008, 2014, 2020];
+      const seatA = [2000, 2006, 2012, 2018, 2024];
+      const seatB = [2002, 2008, 2014, 2020];
       const chain = seatA.includes(y) ? seatA : (seatB.includes(y) ? seatB : null);
       if (!chain) return list;
 
@@ -17774,8 +17774,8 @@ document.addEventListener('DOMContentLoaded', function() {
       //   Seat B: 2008 -> 2014 -> 2020
       // Keep comparisons inside the same chain so flip chips don't mix seat classes.
       if (ct === 'us_senate') {
-        const seatA = [2006, 2012, 2018, 2024];
-        const seatB = [2008, 2014, 2020];
+        const seatA = [2000, 2006, 2012, 2018, 2024];
+        const seatB = [2002, 2008, 2014, 2020];
         const chain = seatA.includes(y) ? seatA : (seatB.includes(y) ? seatB : null);
 
         if (chain) {
