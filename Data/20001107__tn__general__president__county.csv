@@ -1,0 +1,961 @@
+county,office,district,party,candidate,votes
+ANDERSON,President,,D,Al Gore,13556
+ANDERSON,President,,R,George W. Bush,14688
+ANDERSON,President,,I,Cathy Gordon Brown,26
+ANDERSON,President,,I,Harry Browne,79
+ANDERSON,President,,I,Patrick J. Buchanan,76
+ANDERSON,President,,I,Howard Phillips,10
+ANDERSON,President,,I,John Hagelin,16
+ANDERSON,President,,I,Randall Venson,3
+ANDERSON,President,,I,Write-Ins,9
+ANDERSON,President,,I,Ralph Nader,316
+BEDFORD,President,,D,Al Gore,6136
+BEDFORD,President,,R,George W. Bush,5911
+BEDFORD,President,,I,Cathy Gordon Brown,13
+BEDFORD,President,,I,Harry Browne,28
+BEDFORD,President,,I,Patrick J. Buchanan,16
+BEDFORD,President,,I,Howard Phillips,4
+BEDFORD,President,,I,John Hagelin,17
+BEDFORD,President,,I,Randall Venson,2
+BEDFORD,President,,I,Write-Ins,0
+BEDFORD,President,,I,Ralph Nader,80
+BENTON,President,,D,Al Gore,3700
+BENTON,President,,R,George W. Bush,2484
+BENTON,President,,I,Cathy Gordon Brown,8
+BENTON,President,,I,Harry Browne,12
+BENTON,President,,I,Patrick J. Buchanan,37
+BENTON,President,,I,Howard Phillips,3
+BENTON,President,,I,John Hagelin,4
+BENTON,President,,I,Randall Venson,1
+BENTON,President,,I,Write-Ins,0
+BENTON,President,,I,Ralph Nader,62
+BLEDSOE,President,,D,Al Gore,1756
+BLEDSOE,President,,R,George W. Bush,2380
+BLEDSOE,President,,I,Cathy Gordon Brown,6
+BLEDSOE,President,,I,Harry Browne,5
+BLEDSOE,President,,I,Patrick J. Buchanan,14
+BLEDSOE,President,,I,Howard Phillips,0
+BLEDSOE,President,,I,John Hagelin,0
+BLEDSOE,President,,I,Randall Venson,0
+BLEDSOE,President,,I,Write-Ins,0
+BLEDSOE,President,,I,Ralph Nader,35
+BLOUNT,President,,D,Al Gore,14688
+BLOUNT,President,,R,George W. Bush,25273
+BLOUNT,President,,I,Cathy Gordon Brown,28
+BLOUNT,President,,I,Harry Browne,117
+BLOUNT,President,,I,Patrick J. Buchanan,117
+BLOUNT,President,,I,Howard Phillips,14
+BLOUNT,President,,I,John Hagelin,34
+BLOUNT,President,,I,Randall Venson,4
+BLOUNT,President,,I,Write-Ins,8
+BLOUNT,President,,I,Ralph Nader,379
+BRADLEY,President,,D,Al Gore,8768
+BRADLEY,President,,R,George W. Bush,20167
+BRADLEY,President,,I,Cathy Gordon Brown,34
+BRADLEY,President,,I,Harry Browne,64
+BRADLEY,President,,I,Patrick J. Buchanan,109
+BRADLEY,President,,I,Howard Phillips,5
+BRADLEY,President,,I,John Hagelin,18
+BRADLEY,President,,I,Randall Venson,4
+BRADLEY,President,,I,Write-Ins,3
+BRADLEY,President,,I,Ralph Nader,271
+CAMPBELL,President,,D,Al Gore,6492
+CAMPBELL,President,,R,George W. Bush,5784
+CAMPBELL,President,,I,Cathy Gordon Brown,11
+CAMPBELL,President,,I,Harry Browne,15
+CAMPBELL,President,,I,Patrick J. Buchanan,37
+CAMPBELL,President,,I,Howard Phillips,2
+CAMPBELL,President,,I,John Hagelin,1
+CAMPBELL,President,,I,Randall Venson,5
+CAMPBELL,President,,I,Write-Ins,0
+CAMPBELL,President,,I,Ralph Nader,74
+CANNON,President,,D,Al Gore,2697
+CANNON,President,,R,George W. Bush,1924
+CANNON,President,,I,Cathy Gordon Brown,3
+CANNON,President,,I,Harry Browne,12
+CANNON,President,,I,Patrick J. Buchanan,14
+CANNON,President,,I,Howard Phillips,0
+CANNON,President,,I,John Hagelin,2
+CANNON,President,,I,Randall Venson,0
+CANNON,President,,I,Write-Ins,0
+CANNON,President,,I,Ralph Nader,45
+CARROLL,President,,D,Al Gore,5239
+CARROLL,President,,R,George W. Bush,5465
+CARROLL,President,,I,Cathy Gordon Brown,10
+CARROLL,President,,I,Harry Browne,11
+CARROLL,President,,I,Patrick J. Buchanan,32
+CARROLL,President,,I,Howard Phillips,0
+CARROLL,President,,I,John Hagelin,3
+CARROLL,President,,I,Randall Venson,2
+CARROLL,President,,I,Write-Ins,0
+CARROLL,President,,I,Ralph Nader,65
+CARTER,President,,D,Al Gore,6724
+CARTER,President,,R,George W. Bush,12111
+CARTER,President,,I,Cathy Gordon Brown,17
+CARTER,President,,I,Harry Browne,38
+CARTER,President,,I,Patrick J. Buchanan,48
+CARTER,President,,I,Howard Phillips,4
+CARTER,President,,I,John Hagelin,2
+CARTER,President,,I,Randall Venson,1
+CARTER,President,,I,Write-Ins,0
+CARTER,President,,I,Ralph Nader,157
+CHEATHAM,President,,D,Al Gore,6062
+CHEATHAM,President,,R,George W. Bush,6356
+CHEATHAM,President,,I,Cathy Gordon Brown,5
+CHEATHAM,President,,I,Harry Browne,27
+CHEATHAM,President,,I,Patrick J. Buchanan,19
+CHEATHAM,President,,I,Howard Phillips,4
+CHEATHAM,President,,I,John Hagelin,4
+CHEATHAM,President,,I,Randall Venson,0
+CHEATHAM,President,,I,Write-Ins,0
+CHEATHAM,President,,I,Ralph Nader,139
+CHESTER,President,,D,Al Gore,2192
+CHESTER,President,,R,George W. Bush,3487
+CHESTER,President,,I,Cathy Gordon Brown,2
+CHESTER,President,,I,Harry Browne,3
+CHESTER,President,,I,Patrick J. Buchanan,16
+CHESTER,President,,I,Howard Phillips,1
+CHESTER,President,,I,John Hagelin,0
+CHESTER,President,,I,Randall Venson,2
+CHESTER,President,,I,Write-Ins,0
+CHESTER,President,,I,Ralph Nader,25
+CLAIBORNE,President,,D,Al Gore,3841
+CLAIBORNE,President,,R,George W. Bush,5023
+CLAIBORNE,President,,I,Cathy Gordon Brown,13
+CLAIBORNE,President,,I,Harry Browne,25
+CLAIBORNE,President,,I,Patrick J. Buchanan,28
+CLAIBORNE,President,,I,Howard Phillips,3
+CLAIBORNE,President,,I,John Hagelin,3
+CLAIBORNE,President,,I,Randall Venson,2
+CLAIBORNE,President,,I,Write-Ins,2
+CLAIBORNE,President,,I,Ralph Nader,60
+CLAY,President,,D,Al Gore,1931
+CLAY,President,,R,George W. Bush,1468
+CLAY,President,,I,Cathy Gordon Brown,4
+CLAY,President,,I,Harry Browne,4
+CLAY,President,,I,Patrick J. Buchanan,11
+CLAY,President,,I,Howard Phillips,2
+CLAY,President,,I,John Hagelin,1
+CLAY,President,,I,Randall Venson,2
+CLAY,President,,I,Write-Ins,0
+CLAY,President,,I,Ralph Nader,19
+COCKE,President,,D,Al Gore,3872
+COCKE,President,,R,George W. Bush,6185
+COCKE,President,,I,Cathy Gordon Brown,21
+COCKE,President,,I,Harry Browne,28
+COCKE,President,,I,Patrick J. Buchanan,28
+COCKE,President,,I,Howard Phillips,3
+COCKE,President,,I,John Hagelin,6
+COCKE,President,,I,Randall Venson,3
+COCKE,President,,I,Write-Ins,0
+COCKE,President,,I,Ralph Nader,93
+COFFEE,President,,D,Al Gore,8741
+COFFEE,President,,R,George W. Bush,8788
+COFFEE,President,,I,Cathy Gordon Brown,19
+COFFEE,President,,I,Harry Browne,38
+COFFEE,President,,I,Patrick J. Buchanan,41
+COFFEE,President,,I,Howard Phillips,1
+COFFEE,President,,I,John Hagelin,4
+COFFEE,President,,I,Randall Venson,2
+COFFEE,President,,I,Write-Ins,3
+COFFEE,President,,I,Ralph Nader,151
+CROCKETT,President,,D,Al Gore,2705
+CROCKETT,President,,R,George W. Bush,2676
+CROCKETT,President,,I,Cathy Gordon Brown,3
+CROCKETT,President,,I,Harry Browne,0
+CROCKETT,President,,I,Patrick J. Buchanan,14
+CROCKETT,President,,I,Howard Phillips,0
+CROCKETT,President,,I,John Hagelin,0
+CROCKETT,President,,I,Randall Venson,0
+CROCKETT,President,,I,Write-Ins,0
+CROCKETT,President,,I,Ralph Nader,42
+CUMBERLAND,President,,D,Al Gore,7644
+CUMBERLAND,President,,R,George W. Bush,10994
+CUMBERLAND,President,,I,Cathy Gordon Brown,10
+CUMBERLAND,President,,I,Harry Browne,32
+CUMBERLAND,President,,I,Patrick J. Buchanan,96
+CUMBERLAND,President,,I,Howard Phillips,2
+CUMBERLAND,President,,I,John Hagelin,11
+CUMBERLAND,President,,I,Randall Venson,4
+CUMBERLAND,President,,I,Write-Ins,1
+CUMBERLAND,President,,I,Ralph Nader,223
+DAVIDSON,President,,D,Al Gore,120508
+DAVIDSON,President,,R,George W. Bush,84117
+DAVIDSON,President,,I,Cathy Gordon Brown,118
+DAVIDSON,President,,I,Harry Browne,529
+DAVIDSON,President,,I,Patrick J. Buchanan,216
+DAVIDSON,President,,I,Howard Phillips,77
+DAVIDSON,President,,I,John Hagelin,41
+DAVIDSON,President,,I,Randall Venson,22
+DAVIDSON,President,,I,Write-Ins,40
+DAVIDSON,President,,I,Ralph Nader,2920
+DECATUR,President,,D,Al Gore,2278
+DECATUR,President,,R,George W. Bush,2046
+DECATUR,President,,I,Cathy Gordon Brown,2
+DECATUR,President,,I,Harry Browne,4
+DECATUR,President,,I,Patrick J. Buchanan,16
+DECATUR,President,,I,Howard Phillips,1
+DECATUR,President,,I,John Hagelin,0
+DECATUR,President,,I,Randall Venson,1
+DECATUR,President,,I,Write-Ins,0
+DECATUR,President,,I,Ralph Nader,22
+DEKALB,President,,D,Al Gore,3765
+DEKALB,President,,R,George W. Bush,2411
+DEKALB,President,,I,Cathy Gordon Brown,8
+DEKALB,President,,I,Harry Browne,10
+DEKALB,President,,I,Patrick J. Buchanan,5
+DEKALB,President,,I,Howard Phillips,1
+DEKALB,President,,I,John Hagelin,0
+DEKALB,President,,I,Randall Venson,0
+DEKALB,President,,I,Write-Ins,2
+DEKALB,President,,I,Ralph Nader,63
+DICKSON,President,,D,Al Gore,8332
+DICKSON,President,,R,George W. Bush,7016
+DICKSON,President,,I,Cathy Gordon Brown,20
+DICKSON,President,,I,Harry Browne,37
+DICKSON,President,,I,Patrick J. Buchanan,25
+DICKSON,President,,I,Howard Phillips,2
+DICKSON,President,,I,John Hagelin,3
+DICKSON,President,,I,Randall Venson,1
+DICKSON,President,,I,Write-Ins,0
+DICKSON,President,,I,Ralph Nader,120
+DYER,President,,D,Al Gore,5425
+DYER,President,,R,George W. Bush,6282
+DYER,President,,I,Cathy Gordon Brown,10
+DYER,President,,I,Harry Browne,5
+DYER,President,,I,Patrick J. Buchanan,19
+DYER,President,,I,Howard Phillips,3
+DYER,President,,I,John Hagelin,7
+DYER,President,,I,Randall Venson,2
+DYER,President,,I,Write-Ins,0
+DYER,President,,I,Ralph Nader,88
+FAYETTE,President,,D,Al Gore,5037
+FAYETTE,President,,R,George W. Bush,6402
+FAYETTE,President,,I,Cathy Gordon Brown,6
+FAYETTE,President,,I,Harry Browne,15
+FAYETTE,President,,I,Patrick J. Buchanan,19
+FAYETTE,President,,I,Howard Phillips,2
+FAYETTE,President,,I,John Hagelin,4
+FAYETTE,President,,I,Randall Venson,0
+FAYETTE,President,,I,Write-Ins,0
+FAYETTE,President,,I,Ralph Nader,44
+FENTRESS,President,,D,Al Gore,2529
+FENTRESS,President,,R,George W. Bush,3417
+FENTRESS,President,,I,Cathy Gordon Brown,17
+FENTRESS,President,,I,Harry Browne,5
+FENTRESS,President,,I,Patrick J. Buchanan,27
+FENTRESS,President,,I,Howard Phillips,1
+FENTRESS,President,,I,John Hagelin,4
+FENTRESS,President,,I,Randall Venson,1
+FENTRESS,President,,I,Write-Ins,0
+FENTRESS,President,,I,Ralph Nader,28
+FRANKLIN,President,,D,Al Gore,7828
+FRANKLIN,President,,R,George W. Bush,6560
+FRANKLIN,President,,I,Cathy Gordon Brown,21
+FRANKLIN,President,,I,Harry Browne,27
+FRANKLIN,President,,I,Patrick J. Buchanan,29
+FRANKLIN,President,,I,Howard Phillips,9
+FRANKLIN,President,,I,John Hagelin,25
+FRANKLIN,President,,I,Randall Venson,2
+FRANKLIN,President,,I,Write-Ins,0
+FRANKLIN,President,,I,Ralph Nader,190
+GIBSON,President,,D,Al Gore,8663
+GIBSON,President,,R,George W. Bush,8286
+GIBSON,President,,I,Cathy Gordon Brown,12
+GIBSON,President,,I,Harry Browne,13
+GIBSON,President,,I,Patrick J. Buchanan,56
+GIBSON,President,,I,Howard Phillips,4
+GIBSON,President,,I,John Hagelin,2
+GIBSON,President,,I,Randall Venson,0
+GIBSON,President,,I,Write-Ins,0
+GIBSON,President,,I,Ralph Nader,101
+GILES,President,,D,Al Gore,5527
+GILES,President,,R,George W. Bush,4377
+GILES,President,,I,Cathy Gordon Brown,15
+GILES,President,,I,Harry Browne,22
+GILES,President,,I,Patrick J. Buchanan,37
+GILES,President,,I,Howard Phillips,3
+GILES,President,,I,John Hagelin,5
+GILES,President,,I,Randall Venson,1
+GILES,President,,I,Write-Ins,0
+GILES,President,,I,Ralph Nader,79
+GRAINGER,President,,D,Al Gore,2361
+GRAINGER,President,,R,George W. Bush,3746
+GRAINGER,President,,I,Cathy Gordon Brown,11
+GRAINGER,President,,I,Harry Browne,8
+GRAINGER,President,,I,Patrick J. Buchanan,15
+GRAINGER,President,,I,Howard Phillips,2
+GRAINGER,President,,I,John Hagelin,4
+GRAINGER,President,,I,Randall Venson,1
+GRAINGER,President,,I,Write-Ins,0
+GRAINGER,President,,I,Ralph Nader,46
+GREENE,President,,D,Al Gore,7909
+GREENE,President,,R,George W. Bush,12540
+GREENE,President,,I,Cathy Gordon Brown,33
+GREENE,President,,I,Harry Browne,49
+GREENE,President,,I,Patrick J. Buchanan,52
+GREENE,President,,I,Howard Phillips,16
+GREENE,President,,I,John Hagelin,24
+GREENE,President,,I,Randall Venson,8
+GREENE,President,,I,Write-Ins,0
+GREENE,President,,I,Ralph Nader,185
+GRUNDY,President,,D,Al Gore,2970
+GRUNDY,President,,R,George W. Bush,1553
+GRUNDY,President,,I,Cathy Gordon Brown,3
+GRUNDY,President,,I,Harry Browne,5
+GRUNDY,President,,I,Patrick J. Buchanan,15
+GRUNDY,President,,I,Howard Phillips,2
+GRUNDY,President,,I,John Hagelin,3
+GRUNDY,President,,I,Randall Venson,1
+GRUNDY,President,,I,Write-Ins,7
+GRUNDY,President,,I,Ralph Nader,37
+HAMBLEN,President,,D,Al Gore,7564
+HAMBLEN,President,,R,George W. Bush,11824
+HAMBLEN,President,,I,Cathy Gordon Brown,14
+HAMBLEN,President,,I,Harry Browne,48
+HAMBLEN,President,,I,Patrick J. Buchanan,53
+HAMBLEN,President,,I,Howard Phillips,3
+HAMBLEN,President,,I,John Hagelin,6
+HAMBLEN,President,,I,Randall Venson,6
+HAMBLEN,President,,I,Write-Ins,0
+HAMBLEN,President,,I,Ralph Nader,181
+HAMILTON,President,,D,Al Gore,51708
+HAMILTON,President,,R,George W. Bush,66605
+HAMILTON,President,,I,Cathy Gordon Brown,57
+HAMILTON,President,,I,Harry Browne,306
+HAMILTON,President,,I,Patrick J. Buchanan,265
+HAMILTON,President,,I,Howard Phillips,34
+HAMILTON,President,,I,John Hagelin,44
+HAMILTON,President,,I,Randall Venson,12
+HAMILTON,President,,I,Write-Ins,58
+HAMILTON,President,,I,Ralph Nader,1290
+HANCOCK,President,,D,Al Gore,690
+HANCOCK,President,,R,George W. Bush,1343
+HANCOCK,President,,I,Cathy Gordon Brown,0
+HANCOCK,President,,I,Harry Browne,12
+HANCOCK,President,,I,Patrick J. Buchanan,11
+HANCOCK,President,,I,Howard Phillips,1
+HANCOCK,President,,I,John Hagelin,1
+HANCOCK,President,,I,Randall Venson,0
+HANCOCK,President,,I,Write-Ins,0
+HANCOCK,President,,I,Ralph Nader,17
+HARDEMAN,President,,D,Al Gore,4953
+HARDEMAN,President,,R,George W. Bush,3729
+HARDEMAN,President,,I,Cathy Gordon Brown,18
+HARDEMAN,President,,I,Harry Browne,14
+HARDEMAN,President,,I,Patrick J. Buchanan,30
+HARDEMAN,President,,I,Howard Phillips,7
+HARDEMAN,President,,I,John Hagelin,9
+HARDEMAN,President,,I,Randall Venson,4
+HARDEMAN,President,,I,Write-Ins,1
+HARDEMAN,President,,I,Ralph Nader,38
+HARDIN,President,,D,Al Gore,3735
+HARDIN,President,,R,George W. Bush,4951
+HARDIN,President,,I,Cathy Gordon Brown,8
+HARDIN,President,,I,Harry Browne,4
+HARDIN,President,,I,Patrick J. Buchanan,14
+HARDIN,President,,I,Howard Phillips,2
+HARDIN,President,,I,John Hagelin,0
+HARDIN,President,,I,Randall Venson,3
+HARDIN,President,,I,Write-Ins,16
+HARDIN,President,,I,Ralph Nader,49
+HAWKINS,President,,D,Al Gore,6753
+HAWKINS,President,,R,George W. Bush,10071
+HAWKINS,President,,I,Cathy Gordon Brown,18
+HAWKINS,President,,I,Harry Browne,40
+HAWKINS,President,,I,Patrick J. Buchanan,47
+HAWKINS,President,,I,Howard Phillips,2
+HAWKINS,President,,I,John Hagelin,9
+HAWKINS,President,,I,Randall Venson,7
+HAWKINS,President,,I,Write-Ins,4
+HAWKINS,President,,I,Ralph Nader,147
+HAYWOOD,President,,D,Al Gore,3887
+HAYWOOD,President,,R,George W. Bush,2554
+HAYWOOD,President,,I,Cathy Gordon Brown,3
+HAYWOOD,President,,I,Harry Browne,2
+HAYWOOD,President,,I,Patrick J. Buchanan,7
+HAYWOOD,President,,I,Howard Phillips,2
+HAYWOOD,President,,I,John Hagelin,2
+HAYWOOD,President,,I,Randall Venson,1
+HAYWOOD,President,,I,Write-Ins,0
+HAYWOOD,President,,I,Ralph Nader,20
+HENDERSON,President,,D,Al Gore,3166
+HENDERSON,President,,R,George W. Bush,5153
+HENDERSON,President,,I,Cathy Gordon Brown,6
+HENDERSON,President,,I,Harry Browne,6
+HENDERSON,President,,I,Patrick J. Buchanan,20
+HENDERSON,President,,I,Howard Phillips,2
+HENDERSON,President,,I,John Hagelin,0
+HENDERSON,President,,I,Randall Venson,0
+HENDERSON,President,,I,Write-Ins,0
+HENDERSON,President,,I,Ralph Nader,46
+HENRY,President,,D,Al Gore,6093
+HENRY,President,,R,George W. Bush,5944
+HENRY,President,,I,Cathy Gordon Brown,14
+HENRY,President,,I,Harry Browne,22
+HENRY,President,,I,Patrick J. Buchanan,55
+HENRY,President,,I,Howard Phillips,3
+HENRY,President,,I,John Hagelin,11
+HENRY,President,,I,Randall Venson,1
+HENRY,President,,I,Write-Ins,41
+HENRY,President,,I,Ralph Nader,125
+HICKMAN,President,,D,Al Gore,4239
+HICKMAN,President,,R,George W. Bush,2914
+HICKMAN,President,,I,Cathy Gordon Brown,3
+HICKMAN,President,,I,Harry Browne,11
+HICKMAN,President,,I,Patrick J. Buchanan,20
+HICKMAN,President,,I,Howard Phillips,1
+HICKMAN,President,,I,John Hagelin,3
+HICKMAN,President,,I,Randall Venson,4
+HICKMAN,President,,I,Write-Ins,11
+HICKMAN,President,,I,Ralph Nader,58
+HOUSTON,President,,D,Al Gore,2081
+HOUSTON,President,,R,George W. Bush,993
+HOUSTON,President,,I,Cathy Gordon Brown,12
+HOUSTON,President,,I,Harry Browne,9
+HOUSTON,President,,I,Patrick J. Buchanan,11
+HOUSTON,President,,I,Howard Phillips,2
+HOUSTON,President,,I,John Hagelin,2
+HOUSTON,President,,I,Randall Venson,1
+HOUSTON,President,,I,Write-Ins,0
+HOUSTON,President,,I,Ralph Nader,16
+HUMPHREYS,President,,D,Al Gore,4205
+HUMPHREYS,President,,R,George W. Bush,2387
+HUMPHREYS,President,,I,Cathy Gordon Brown,1
+HUMPHREYS,President,,I,Harry Browne,10
+HUMPHREYS,President,,I,Patrick J. Buchanan,10
+HUMPHREYS,President,,I,Howard Phillips,1
+HUMPHREYS,President,,I,John Hagelin,1
+HUMPHREYS,President,,I,Randall Venson,0
+HUMPHREYS,President,,I,Write-Ins,1
+HUMPHREYS,President,,I,Ralph Nader,65
+JACKSON,President,,D,Al Gore,3304
+JACKSON,President,,R,George W. Bush,1384
+JACKSON,President,,I,Cathy Gordon Brown,5
+JACKSON,President,,I,Harry Browne,10
+JACKSON,President,,I,Patrick J. Buchanan,10
+JACKSON,President,,I,Howard Phillips,2
+JACKSON,President,,I,John Hagelin,2
+JACKSON,President,,I,Randall Venson,1
+JACKSON,President,,I,Write-Ins,0
+JACKSON,President,,I,Ralph Nader,36
+JEFFERSON,President,,D,Al Gore,5226
+JEFFERSON,President,,R,George W. Bush,8657
+JEFFERSON,President,,I,Cathy Gordon Brown,8
+JEFFERSON,President,,I,Harry Browne,22
+JEFFERSON,President,,I,Patrick J. Buchanan,38
+JEFFERSON,President,,I,Howard Phillips,2
+JEFFERSON,President,,I,John Hagelin,10
+JEFFERSON,President,,I,Randall Venson,2
+JEFFERSON,President,,I,Write-Ins,1
+JEFFERSON,President,,I,Ralph Nader,121
+JOHNSON,President,,D,Al Gore,1813
+JOHNSON,President,,R,George W. Bush,3740
+JOHNSON,President,,I,Cathy Gordon Brown,12
+JOHNSON,President,,I,Harry Browne,13
+JOHNSON,President,,I,Patrick J. Buchanan,12
+JOHNSON,President,,I,Howard Phillips,6
+JOHNSON,President,,I,John Hagelin,7
+JOHNSON,President,,I,Randall Venson,0
+JOHNSON,President,,I,Write-Ins,0
+JOHNSON,President,,I,Ralph Nader,54
+KNOX,President,,D,Al Gore,60969
+KNOX,President,,R,George W. Bush,86851
+KNOX,President,,I,Cathy Gordon Brown,79
+KNOX,President,,I,Harry Browne,501
+KNOX,President,,I,Patrick J. Buchanan,306
+KNOX,President,,I,Howard Phillips,46
+KNOX,President,,I,John Hagelin,43
+KNOX,President,,I,Randall Venson,11
+KNOX,President,,I,Write-Ins,8
+KNOX,President,,I,Ralph Nader,1772
+LAKE,President,,D,Al Gore,1419
+LAKE,President,,R,George W. Bush,781
+LAKE,President,,I,Cathy Gordon Brown,0
+LAKE,President,,I,Harry Browne,4
+LAKE,President,,I,Patrick J. Buchanan,6
+LAKE,President,,I,Howard Phillips,0
+LAKE,President,,I,John Hagelin,1
+LAKE,President,,I,Randall Venson,2
+LAKE,President,,I,Write-Ins,0
+LAKE,President,,I,Ralph Nader,11
+LAUDERDALE,President,,D,Al Gore,4224
+LAUDERDALE,President,,R,George W. Bush,3329
+LAUDERDALE,President,,I,Cathy Gordon Brown,7
+LAUDERDALE,President,,I,Harry Browne,3
+LAUDERDALE,President,,I,Patrick J. Buchanan,21
+LAUDERDALE,President,,I,Howard Phillips,2
+LAUDERDALE,President,,I,John Hagelin,3
+LAUDERDALE,President,,I,Randall Venson,2
+LAUDERDALE,President,,I,Write-Ins,0
+LAUDERDALE,President,,I,Ralph Nader,27
+LAWRENCE,President,,D,Al Gore,6643
+LAWRENCE,President,,R,George W. Bush,7613
+LAWRENCE,President,,I,Cathy Gordon Brown,21
+LAWRENCE,President,,I,Harry Browne,19
+LAWRENCE,President,,I,Patrick J. Buchanan,48
+LAWRENCE,President,,I,Howard Phillips,14
+LAWRENCE,President,,I,John Hagelin,14
+LAWRENCE,President,,I,Randall Venson,0
+LAWRENCE,President,,I,Write-Ins,0
+LAWRENCE,President,,I,Ralph Nader,98
+LEWIS,President,,D,Al Gore,2281
+LEWIS,President,,R,George W. Bush,2037
+LEWIS,President,,I,Cathy Gordon Brown,7
+LEWIS,President,,I,Harry Browne,4
+LEWIS,President,,I,Patrick J. Buchanan,18
+LEWIS,President,,I,Howard Phillips,1
+LEWIS,President,,I,John Hagelin,7
+LEWIS,President,,I,Randall Venson,2
+LEWIS,President,,I,Write-Ins,0
+LEWIS,President,,I,Ralph Nader,63
+LINCOLN,President,,D,Al Gore,5060
+LINCOLN,President,,R,George W. Bush,5435
+LINCOLN,President,,I,Cathy Gordon Brown,9
+LINCOLN,President,,I,Harry Browne,21
+LINCOLN,President,,I,Patrick J. Buchanan,36
+LINCOLN,President,,I,Howard Phillips,2
+LINCOLN,President,,I,John Hagelin,6
+LINCOLN,President,,I,Randall Venson,0
+LINCOLN,President,,I,Write-Ins,18
+LINCOLN,President,,I,Ralph Nader,72
+LOUDON,President,,D,Al Gore,5905
+LOUDON,President,,R,George W. Bush,10266
+LOUDON,President,,I,Cathy Gordon Brown,13
+LOUDON,President,,I,Harry Browne,44
+LOUDON,President,,I,Patrick J. Buchanan,38
+LOUDON,President,,I,Howard Phillips,3
+LOUDON,President,,I,John Hagelin,5
+LOUDON,President,,I,Randall Venson,0
+LOUDON,President,,I,Write-Ins,0
+LOUDON,President,,I,Ralph Nader,132
+MACON,President,,D,Al Gore,3059
+MACON,President,,R,George W. Bush,3366
+MACON,President,,I,Cathy Gordon Brown,7
+MACON,President,,I,Harry Browne,10
+MACON,President,,I,Patrick J. Buchanan,10
+MACON,President,,I,Howard Phillips,4
+MACON,President,,I,John Hagelin,1
+MACON,President,,I,Randall Venson,4
+MACON,President,,I,Write-Ins,0
+MACON,President,,I,Ralph Nader,30
+MADISON,President,,D,Al Gore,15781
+MADISON,President,,R,George W. Bush,17862
+MADISON,President,,I,Cathy Gordon Brown,17
+MADISON,President,,I,Harry Browne,31
+MADISON,President,,I,Patrick J. Buchanan,48
+MADISON,President,,I,Howard Phillips,4
+MADISON,President,,I,John Hagelin,12
+MADISON,President,,I,Randall Venson,2
+MADISON,President,,I,Write-Ins,0
+MADISON,President,,I,Ralph Nader,173
+MARION,President,,D,Al Gore,5441
+MARION,President,,R,George W. Bush,4651
+MARION,President,,I,Cathy Gordon Brown,7
+MARION,President,,I,Harry Browne,17
+MARION,President,,I,Patrick J. Buchanan,50
+MARION,President,,I,Howard Phillips,1
+MARION,President,,I,John Hagelin,4
+MARION,President,,I,Randall Venson,5
+MARION,President,,I,Write-Ins,0
+MARION,President,,I,Ralph Nader,74
+MARSHALL,President,,D,Al Gore,5107
+MARSHALL,President,,R,George W. Bush,4105
+MARSHALL,President,,I,Cathy Gordon Brown,5
+MARSHALL,President,,I,Harry Browne,19
+MARSHALL,President,,I,Patrick J. Buchanan,22
+MARSHALL,President,,I,Howard Phillips,2
+MARSHALL,President,,I,John Hagelin,3
+MARSHALL,President,,I,Randall Venson,0
+MARSHALL,President,,I,Write-Ins,2
+MARSHALL,President,,I,Ralph Nader,94
+MAURY,President,,D,Al Gore,11127
+MAURY,President,,R,George W. Bush,11930
+MAURY,President,,I,Cathy Gordon Brown,16
+MAURY,President,,I,Harry Browne,49
+MAURY,President,,I,Patrick J. Buchanan,37
+MAURY,President,,I,Howard Phillips,4
+MAURY,President,,I,John Hagelin,8
+MAURY,President,,I,Randall Venson,5
+MAURY,President,,I,Write-Ins,17
+MAURY,President,,I,Ralph Nader,207
+MCMINN,President,,D,Al Gore,6142
+MCMINN,President,,R,George W. Bush,10155
+MCMINN,President,,I,Cathy Gordon Brown,22
+MCMINN,President,,I,Harry Browne,57
+MCMINN,President,,I,Patrick J. Buchanan,67
+MCMINN,President,,I,Howard Phillips,8
+MCMINN,President,,I,John Hagelin,7
+MCMINN,President,,I,Randall Venson,0
+MCMINN,President,,I,Write-Ins,0
+MCMINN,President,,I,Ralph Nader,142
+MCNAIRY,President,,D,Al Gore,4003
+MCNAIRY,President,,R,George W. Bush,4897
+MCNAIRY,President,,I,Cathy Gordon Brown,6
+MCNAIRY,President,,I,Harry Browne,9
+MCNAIRY,President,,I,Patrick J. Buchanan,23
+MCNAIRY,President,,I,Howard Phillips,0
+MCNAIRY,President,,I,John Hagelin,2
+MCNAIRY,President,,I,Randall Venson,2
+MCNAIRY,President,,I,Write-Ins,0
+MCNAIRY,President,,I,Ralph Nader,47
+MEIGS,President,,D,Al Gore,1555
+MEIGS,President,,R,George W. Bush,1797
+MEIGS,President,,I,Cathy Gordon Brown,2
+MEIGS,President,,I,Harry Browne,6
+MEIGS,President,,I,Patrick J. Buchanan,12
+MEIGS,President,,I,Howard Phillips,3
+MEIGS,President,,I,John Hagelin,1
+MEIGS,President,,I,Randall Venson,0
+MEIGS,President,,I,Write-Ins,2
+MEIGS,President,,I,Ralph Nader,12
+MONROE,President,,D,Al Gore,5327
+MONROE,President,,R,George W. Bush,7514
+MONROE,President,,I,Cathy Gordon Brown,12
+MONROE,President,,I,Harry Browne,18
+MONROE,President,,I,Patrick J. Buchanan,40
+MONROE,President,,I,Howard Phillips,3
+MONROE,President,,I,John Hagelin,10
+MONROE,President,,I,Randall Venson,0
+MONROE,President,,I,Write-Ins,1
+MONROE,President,,I,Ralph Nader,78
+MONTGOMERY,President,,D,Al Gore,18818
+MONTGOMERY,President,,R,George W. Bush,19644
+MONTGOMERY,President,,I,Cathy Gordon Brown,35
+MONTGOMERY,President,,I,Harry Browne,72
+MONTGOMERY,President,,I,Patrick J. Buchanan,81
+MONTGOMERY,President,,I,Howard Phillips,11
+MONTGOMERY,President,,I,John Hagelin,15
+MONTGOMERY,President,,I,Randall Venson,4
+MONTGOMERY,President,,I,Write-Ins,5
+MONTGOMERY,President,,I,Ralph Nader,359
+MOORE,President,,D,Al Gore,1107
+MOORE,President,,R,George W. Bush,1145
+MOORE,President,,I,Cathy Gordon Brown,3
+MOORE,President,,I,Harry Browne,6
+MOORE,President,,I,Patrick J. Buchanan,7
+MOORE,President,,I,Howard Phillips,2
+MOORE,President,,I,John Hagelin,2
+MOORE,President,,I,Randall Venson,2
+MOORE,President,,I,Write-Ins,0
+MOORE,President,,I,Ralph Nader,27
+MORGAN,President,,D,Al Gore,2921
+MORGAN,President,,R,George W. Bush,3144
+MORGAN,President,,I,Cathy Gordon Brown,4
+MORGAN,President,,I,Harry Browne,6
+MORGAN,President,,I,Patrick J. Buchanan,27
+MORGAN,President,,I,Howard Phillips,2
+MORGAN,President,,I,John Hagelin,7
+MORGAN,President,,I,Randall Venson,0
+MORGAN,President,,I,Write-Ins,12
+MORGAN,President,,I,Ralph Nader,39
+OBION,President,,D,Al Gore,6056
+OBION,President,,R,George W. Bush,6168
+OBION,President,,I,Cathy Gordon Brown,13
+OBION,President,,I,Harry Browne,19
+OBION,President,,I,Patrick J. Buchanan,62
+OBION,President,,I,Howard Phillips,7
+OBION,President,,I,John Hagelin,10
+OBION,President,,I,Randall Venson,6
+OBION,President,,I,Write-Ins,0
+OBION,President,,I,Ralph Nader,99
+OVERTON,President,,D,Al Gore,4507
+OVERTON,President,,R,George W. Bush,2875
+OVERTON,President,,I,Cathy Gordon Brown,12
+OVERTON,President,,I,Harry Browne,12
+OVERTON,President,,I,Patrick J. Buchanan,29
+OVERTON,President,,I,Howard Phillips,5
+OVERTON,President,,I,John Hagelin,10
+OVERTON,President,,I,Randall Venson,0
+OVERTON,President,,I,Write-Ins,0
+OVERTON,President,,I,Ralph Nader,46
+PERRY,President,,D,Al Gore,1650
+PERRY,President,,R,George W. Bush,1165
+PERRY,President,,I,Cathy Gordon Brown,3
+PERRY,President,,I,Harry Browne,7
+PERRY,President,,I,Patrick J. Buchanan,8
+PERRY,President,,I,Howard Phillips,0
+PERRY,President,,I,John Hagelin,1
+PERRY,President,,I,Randall Venson,3
+PERRY,President,,I,Write-Ins,1
+PERRY,President,,I,Ralph Nader,28
+PICKETT,President,,D,Al Gore,939
+PICKETT,President,,R,George W. Bush,1281
+PICKETT,President,,I,Cathy Gordon Brown,2
+PICKETT,President,,I,Harry Browne,2
+PICKETT,President,,I,Patrick J. Buchanan,2
+PICKETT,President,,I,Howard Phillips,0
+PICKETT,President,,I,John Hagelin,1
+PICKETT,President,,I,Randall Venson,0
+PICKETT,President,,I,Write-Ins,0
+PICKETT,President,,I,Ralph Nader,12
+POLK,President,,D,Al Gore,2574
+POLK,President,,R,George W. Bush,2907
+POLK,President,,I,Cathy Gordon Brown,6
+POLK,President,,I,Harry Browne,10
+POLK,President,,I,Patrick J. Buchanan,48
+POLK,President,,I,Howard Phillips,0
+POLK,President,,I,John Hagelin,2
+POLK,President,,I,Randall Venson,1
+POLK,President,,I,Write-Ins,0
+POLK,President,,I,Ralph Nader,46
+PUTNAM,President,,D,Al Gore,10785
+PUTNAM,President,,R,George W. Bush,11248
+PUTNAM,President,,I,Cathy Gordon Brown,26
+PUTNAM,President,,I,Harry Browne,61
+PUTNAM,President,,I,Patrick J. Buchanan,57
+PUTNAM,President,,I,Howard Phillips,8
+PUTNAM,President,,I,John Hagelin,15
+PUTNAM,President,,I,Randall Venson,6
+PUTNAM,President,,I,Write-Ins,4
+PUTNAM,President,,I,Ralph Nader,228
+RHEA,President,,D,Al Gore,3722
+RHEA,President,,R,George W. Bush,5900
+RHEA,President,,I,Cathy Gordon Brown,17
+RHEA,President,,I,Harry Browne,16
+RHEA,President,,I,Patrick J. Buchanan,32
+RHEA,President,,I,Howard Phillips,6
+RHEA,President,,I,John Hagelin,0
+RHEA,President,,I,Randall Venson,3
+RHEA,President,,I,Write-Ins,2
+RHEA,President,,I,Ralph Nader,74
+ROANE,President,,D,Al Gore,9575
+ROANE,President,,R,George W. Bush,11345
+ROANE,President,,I,Cathy Gordon Brown,15
+ROANE,President,,I,Harry Browne,60
+ROANE,President,,I,Patrick J. Buchanan,97
+ROANE,President,,I,Howard Phillips,10
+ROANE,President,,I,John Hagelin,9
+ROANE,President,,I,Randall Venson,4
+ROANE,President,,I,Write-Ins,0
+ROANE,President,,I,Ralph Nader,211
+ROBERTSON,President,,D,Al Gore,10249
+ROBERTSON,President,,R,George W. Bush,9675
+ROBERTSON,President,,I,Cathy Gordon Brown,14
+ROBERTSON,President,,I,Harry Browne,28
+ROBERTSON,President,,I,Patrick J. Buchanan,39
+ROBERTSON,President,,I,Howard Phillips,5
+ROBERTSON,President,,I,John Hagelin,4
+ROBERTSON,President,,I,Randall Venson,2
+ROBERTSON,President,,I,Write-Ins,0
+ROBERTSON,President,,I,Ralph Nader,148
+RUTHERFORD,President,,D,Al Gore,27360
+RUTHERFORD,President,,R,George W. Bush,33445
+RUTHERFORD,President,,I,Cathy Gordon Brown,48
+RUTHERFORD,President,,I,Harry Browne,143
+RUTHERFORD,President,,I,Patrick J. Buchanan,110
+RUTHERFORD,President,,I,Howard Phillips,12
+RUTHERFORD,President,,I,John Hagelin,29
+RUTHERFORD,President,,I,Randall Venson,11
+RUTHERFORD,President,,I,Write-Ins,0
+RUTHERFORD,President,,I,Ralph Nader,1024
+SCOTT,President,,D,Al Gore,2967
+SCOTT,President,,R,George W. Bush,3579
+SCOTT,President,,I,Cathy Gordon Brown,5
+SCOTT,President,,I,Harry Browne,7
+SCOTT,President,,I,Patrick J. Buchanan,22
+SCOTT,President,,I,Howard Phillips,0
+SCOTT,President,,I,John Hagelin,3
+SCOTT,President,,I,Randall Venson,0
+SCOTT,President,,I,Write-Ins,1
+SCOTT,President,,I,Ralph Nader,31
+SEQUATCHIE,President,,D,Al Gore,1648
+SEQUATCHIE,President,,R,George W. Bush,2169
+SEQUATCHIE,President,,I,Cathy Gordon Brown,3
+SEQUATCHIE,President,,I,Harry Browne,3
+SEQUATCHIE,President,,I,Patrick J. Buchanan,23
+SEQUATCHIE,President,,I,Howard Phillips,0
+SEQUATCHIE,President,,I,John Hagelin,3
+SEQUATCHIE,President,,I,Randall Venson,1
+SEQUATCHIE,President,,I,Write-Ins,0
+SEQUATCHIE,President,,I,Ralph Nader,37
+SEVIER,President,,D,Al Gore,8208
+SEVIER,President,,R,George W. Bush,16734
+SEVIER,President,,I,Cathy Gordon Brown,24
+SEVIER,President,,I,Harry Browne,65
+SEVIER,President,,I,Patrick J. Buchanan,64
+SEVIER,President,,I,Howard Phillips,4
+SEVIER,President,,I,John Hagelin,4
+SEVIER,President,,I,Randall Venson,3
+SEVIER,President,,I,Write-Ins,0
+SEVIER,President,,I,Ralph Nader,259
+SHELBY,President,,D,Al Gore,190404
+SHELBY,President,,R,George W. Bush,141756
+SHELBY,President,,I,Cathy Gordon Brown,199
+SHELBY,President,,I,Harry Browne,469
+SHELBY,President,,I,Patrick J. Buchanan,299
+SHELBY,President,,I,Howard Phillips,115
+SHELBY,President,,I,John Hagelin,235
+SHELBY,President,,I,Randall Venson,295
+SHELBY,President,,I,Write-Ins,123
+SHELBY,President,,I,Ralph Nader,2860
+SMITH,President,,D,Al Gore,4884
+SMITH,President,,R,George W. Bush,2384
+SMITH,President,,I,Cathy Gordon Brown,5
+SMITH,President,,I,Harry Browne,7
+SMITH,President,,I,Patrick J. Buchanan,21
+SMITH,President,,I,Howard Phillips,1
+SMITH,President,,I,John Hagelin,3
+SMITH,President,,I,Randall Venson,1
+SMITH,President,,I,Write-Ins,0
+SMITH,President,,I,Ralph Nader,42
+STEWART,President,,D,Al Gore,2870
+STEWART,President,,R,George W. Bush,1826
+STEWART,President,,I,Cathy Gordon Brown,10
+STEWART,President,,I,Harry Browne,10
+STEWART,President,,I,Patrick J. Buchanan,15
+STEWART,President,,I,Howard Phillips,0
+STEWART,President,,I,John Hagelin,1
+STEWART,President,,I,Randall Venson,0
+STEWART,President,,I,Write-Ins,0
+STEWART,President,,I,Ralph Nader,50
+SULLIVAN,President,,D,Al Gore,21354
+SULLIVAN,President,,R,George W. Bush,33482
+SULLIVAN,President,,I,Cathy Gordon Brown,55
+SULLIVAN,President,,I,Harry Browne,137
+SULLIVAN,President,,I,Patrick J. Buchanan,80
+SULLIVAN,President,,I,Howard Phillips,21
+SULLIVAN,President,,I,John Hagelin,65
+SULLIVAN,President,,I,Randall Venson,6
+SULLIVAN,President,,I,Write-Ins,7
+SULLIVAN,President,,I,Ralph Nader,520
+SUMNER,President,,D,Al Gore,22118
+SUMNER,President,,R,George W. Bush,27601
+SUMNER,President,,I,Cathy Gordon Brown,36
+SUMNER,President,,I,Harry Browne,109
+SUMNER,President,,I,Patrick J. Buchanan,86
+SUMNER,President,,I,Howard Phillips,13
+SUMNER,President,,I,John Hagelin,23
+SUMNER,President,,I,Randall Venson,4
+SUMNER,President,,I,Write-Ins,5
+SUMNER,President,,I,Ralph Nader,482
+TIPTON,President,,D,Al Gore,6300
+TIPTON,President,,R,George W. Bush,10070
+TIPTON,President,,I,Cathy Gordon Brown,17
+TIPTON,President,,I,Harry Browne,29
+TIPTON,President,,I,Patrick J. Buchanan,25
+TIPTON,President,,I,Howard Phillips,3
+TIPTON,President,,I,John Hagelin,10
+TIPTON,President,,I,Randall Venson,2
+TIPTON,President,,I,Write-Ins,0
+TIPTON,President,,I,Ralph Nader,96
+TROUSDALE,President,,D,Al Gore,1966
+TROUSDALE,President,,R,George W. Bush,950
+TROUSDALE,President,,I,Cathy Gordon Brown,2
+TROUSDALE,President,,I,Harry Browne,1
+TROUSDALE,President,,I,Patrick J. Buchanan,4
+TROUSDALE,President,,I,Howard Phillips,1
+TROUSDALE,President,,I,John Hagelin,5
+TROUSDALE,President,,I,Randall Venson,1
+TROUSDALE,President,,I,Write-Ins,0
+TROUSDALE,President,,I,Ralph Nader,15
+UNICOI,President,,D,Al Gore,2566
+UNICOI,President,,R,George W. Bush,3780
+UNICOI,President,,I,Cathy Gordon Brown,9
+UNICOI,President,,I,Harry Browne,13
+UNICOI,President,,I,Patrick J. Buchanan,12
+UNICOI,President,,I,Howard Phillips,5
+UNICOI,President,,I,John Hagelin,1
+UNICOI,President,,I,Randall Venson,1
+UNICOI,President,,I,Write-Ins,2
+UNICOI,President,,I,Ralph Nader,40
+UNION,President,,D,Al Gore,2564
+UNION,President,,R,George W. Bush,3199
+UNION,President,,I,Cathy Gordon Brown,3
+UNION,President,,I,Harry Browne,8
+UNION,President,,I,Patrick J. Buchanan,14
+UNION,President,,I,Howard Phillips,2
+UNION,President,,I,John Hagelin,0
+UNION,President,,I,Randall Venson,0
+UNION,President,,I,Write-Ins,1
+UNION,President,,I,Ralph Nader,30
+VAN BUREN,President,,D,Al Gore,1255
+VAN BUREN,President,,R,George W. Bush,845
+VAN BUREN,President,,I,Cathy Gordon Brown,6
+VAN BUREN,President,,I,Harry Browne,5
+VAN BUREN,President,,I,Patrick J. Buchanan,10
+VAN BUREN,President,,I,Howard Phillips,1
+VAN BUREN,President,,I,John Hagelin,1
+VAN BUREN,President,,I,Randall Venson,0
+VAN BUREN,President,,I,Write-Ins,0
+VAN BUREN,President,,I,Ralph Nader,8
+WARREN,President,,D,Al Gore,7378
+WARREN,President,,R,George W. Bush,5552
+WARREN,President,,I,Cathy Gordon Brown,25
+WARREN,President,,I,Harry Browne,28
+WARREN,President,,I,Patrick J. Buchanan,31
+WARREN,President,,I,Howard Phillips,4
+WARREN,President,,I,John Hagelin,5
+WARREN,President,,I,Randall Venson,3
+WARREN,President,,I,Write-Ins,0
+WARREN,President,,I,Ralph Nader,105
+WASHINGTON,President,,D,Al Gore,14769
+WASHINGTON,President,,R,George W. Bush,22579
+WASHINGTON,President,,I,Cathy Gordon Brown,14
+WASHINGTON,President,,I,Harry Browne,94
+WASHINGTON,President,,I,Patrick J. Buchanan,64
+WASHINGTON,President,,I,Howard Phillips,12
+WASHINGTON,President,,I,John Hagelin,19
+WASHINGTON,President,,I,Randall Venson,11
+WASHINGTON,President,,I,Write-Ins,5
+WASHINGTON,President,,I,Ralph Nader,375
+WAYNE,President,,D,Al Gore,1859
+WAYNE,President,,R,George W. Bush,3370
+WAYNE,President,,I,Cathy Gordon Brown,3
+WAYNE,President,,I,Harry Browne,7
+WAYNE,President,,I,Patrick J. Buchanan,20
+WAYNE,President,,I,Howard Phillips,0
+WAYNE,President,,I,John Hagelin,2
+WAYNE,President,,I,Randall Venson,0
+WAYNE,President,,I,Write-Ins,2
+WAYNE,President,,I,Ralph Nader,43
+WEAKLEY,President,,D,Al Gore,5570
+WEAKLEY,President,,R,George W. Bush,6106
+WEAKLEY,President,,I,Cathy Gordon Brown,8
+WEAKLEY,President,,I,Harry Browne,12
+WEAKLEY,President,,I,Patrick J. Buchanan,44
+WEAKLEY,President,,I,Howard Phillips,3
+WEAKLEY,President,,I,John Hagelin,9
+WEAKLEY,President,,I,Randall Venson,1
+WEAKLEY,President,,I,Write-Ins,0
+WEAKLEY,President,,I,Ralph Nader,91
+WHITE,President,,D,Al Gore,4135
+WHITE,President,,R,George W. Bush,3525
+WHITE,President,,I,Cathy Gordon Brown,12
+WHITE,President,,I,Harry Browne,14
+WHITE,President,,I,Patrick J. Buchanan,29
+WHITE,President,,I,Howard Phillips,0
+WHITE,President,,I,John Hagelin,1
+WHITE,President,,I,Randall Venson,1
+WHITE,President,,I,Write-Ins,0
+WHITE,President,,I,Ralph Nader,58
+WILLIAMSON,President,,D,Al Gore,18745
+WILLIAMSON,President,,R,George W. Bush,38901
+WILLIAMSON,President,,I,Cathy Gordon Brown,15
+WILLIAMSON,President,,I,Harry Browne,141
+WILLIAMSON,President,,I,Patrick J. Buchanan,50
+WILLIAMSON,President,,I,Howard Phillips,6
+WILLIAMSON,President,,I,John Hagelin,30
+WILLIAMSON,President,,I,Randall Venson,5
+WILLIAMSON,President,,I,Write-Ins,0
+WILLIAMSON,President,,I,Ralph Nader,536
+WILSON,President,,D,Al Gore,16561
+WILSON,President,,R,George W. Bush,18844
+WILSON,President,,I,Cathy Gordon Brown,39
+WILSON,President,,I,Harry Browne,75
+WILSON,President,,I,Patrick J. Buchanan,69
+WILSON,President,,I,Howard Phillips,6
+WILSON,President,,I,John Hagelin,8
+WILSON,President,,I,Randall Venson,4
+WILSON,President,,I,Write-Ins,2
+WILSON,President,,I,Ralph Nader,308
+STATEWIDE TOTALS,President,,D,Al Gore,981720
+STATEWIDE TOTALS,President,,R,George W. Bush,1061949
+STATEWIDE TOTALS,President,,I,Cathy Gordon Brown,1606
+STATEWIDE TOTALS,President,,I,Harry Browne,4284
+STATEWIDE TOTALS,President,,I,Patrick J. Buchanan,4250
+STATEWIDE TOTALS,President,,I,Howard Phillips,613
+STATEWIDE TOTALS,President,,I,John Hagelin,1015
+STATEWIDE TOTALS,President,,I,Randall Venson,535
+STATEWIDE TOTALS,President,,I,Write-Ins,428
+STATEWIDE TOTALS,President,,I,Ralph Nader,19781
