@@ -4,6 +4,61 @@ Interactive Tennessee election map focused on county, district, and precinct ana
 
 This project runs as a single-page app from `index.html` and reads local data assets from `Data/`.
 
+## Recent Historical Data + Labeling Updates
+
+This project was recently extended with older Tennessee statewide datasets and related UI/data-pipeline fixes.
+
+### 1) Uncontested Label / Manifest Filtering Behavior
+
+- Contest dropdown population in manifest mode honors `major_party_contested`.
+- Council-of-state style contests with no valid D/R contest can be filtered from selection lists.
+- Historical imports now set/propagate `major_party_contested` in contest manifests so labels/availability are consistent.
+
+### 2) New Historical Source CSVs Added
+
+- `Data/19981103__tn__general__governor__county.csv` (OCR-derived county file, reconciled to official statewide totals)
+- `Data/20001107__tn__general__president__county.csv`
+- `Data/20001107__tn__general__president__precinct.csv`
+- `Data/20001107__tn__general__senate__precinct.csv`
+- `Data/20021105__tn__general__governor__precinct.csv`
+- `Data/20021105__tn__general__senate__precinct.csv`
+- `Data/20061107__tn__general__governor__precinct.csv`
+
+### 3) New Contest JSON Outputs Added
+
+- `Data/contests/governor_1998.json` (county-scope contest JSON)
+- `Data/contests/president_2000.json`
+- `Data/contests/us_senate_2000.json`
+- `Data/contests/us_senate_2002.json`
+- `Data/contests/governor_2002.json`
+- `Data/contests/governor_2006.json`
+
+Corresponding district contest slices were also generated for newly added years in:
+
+- `Data/district_contests/congressional_*`
+- `Data/district_contests/state_house_*`
+- `Data/district_contests/state_senate_*`
+
+### 4) Manifest Wiring + Naming Standardization
+
+- `Data/contests/manifest.json` and `Data/district_contests/manifest.json` were updated for the new files.
+- 1998 governor contest file was standardized from `governor_1998_county.json` to `governor_1998.json` so it loads like other contest entries.
+
+### 5) Timeline Expansion (US Senate)
+
+US Senate trend-chain logic in `index.html` was updated to include newly added pre-2006 years:
+
+- Seat A chain: `2000, 2006, 2012, 2018, 2024`
+- Seat B chain: `2002, 2008, 2014, 2020`
+
+This ensures timeline/trend views can use the new 2000 and 2002 Senate slices.
+
+### 6) Data Quality Fix: Van Buren (1998 Governor)
+
+- Fixed OCR county-key split (`VAN` -> `VAN BUREN`) so county matching works on map.
+- Corrected Van Buren values in 1998 governor county source and rebuilt `Data/contests/governor_1998.json`.
+- Re-reconciled candidate statewide totals to the official 1998 governor `STATE TOTAL` line after fixing the county key.
+
 ## County Hover (NCMap-style)
 
 County hover tooltips are intentionally modeled after `NCMap.html`:
