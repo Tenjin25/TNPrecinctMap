@@ -12779,6 +12779,13 @@ document.addEventListener('DOMContentLoaded', function() {
       const dPct = getVotehubShare(dVotes, safeTotal);
       const rPct = getVotehubShare(rVotes, safeTotal);
       const oPct = getVotehubShare(oVotes, safeTotal);
+      const pctDisplayMargin = marginPctValue(rVotes, dVotes, safeTotal);
+      const pctFormatter = (value) => {
+        if (typeof formatPctForCloseRace === 'function') {
+          return formatPctForCloseRace(value, pctDisplayMargin);
+        }
+        return formatVotehubPct(value);
+      };
 
       const demLabel = (demName || '').toString().trim() || 'Democratic';
       const repLabel = (repName || '').toString().trim() || 'Republican';
@@ -12786,8 +12793,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
       const winnerPartyNorm = (winnerParty || '').toString().trim().toLowerCase();
       const winnerNameSafe = (winnerName || '').toString().trim();
-      const marginSource = Number(marginPct);
-      const marginAbs = Number.isFinite(marginSource) ? Math.abs(marginSource) : NaN;
+      const marginDisplayAbs = marginPctDisplayValue(rVotes, dVotes, safeTotal);
+      const marginAbs = Number.isFinite(marginDisplayAbs) ? Math.abs(marginDisplayAbs) : NaN;
       const isTie = !Number.isFinite(marginAbs) || marginAbs <= 0.0000001 || winnerPartyNorm === 'tie';
       const winnerNameDisplay = winnerNameSafe || (winnerPartyNorm === 'rep'
         ? shortCandidateLabel(repLabel, 'Republican')
@@ -12798,7 +12805,7 @@ document.addEventListener('DOMContentLoaded', function() {
         ? ''
         : (isTie
           ? '<span style="color:#f8fafc;">Tie</span>'
-          : `<span style="color:${winnerNameTone};">${escapeHtml(winnerNameDisplay)}</span> <span style="color:${winnerLeadTone};">+${escapeHtml(formatVotehubPct(marginAbs))}%</span>`);
+          : `<span style="color:${winnerNameTone};">${escapeHtml(winnerNameDisplay)}</span> <span style="color:${winnerLeadTone};">+${escapeHtml(formatMarginPctForDisplay(marginAbs))}%</span>`);
       const winnerToneClass = winnerPartyNorm === 'rep' ? 'rep' : (winnerPartyNorm === 'dem' ? 'dem' : 'tie');
       const voteLeadStyle = winnerToneClass === 'rep'
         ? 'font-size:12px;font-weight:800;opacity:0.96;color:#fecaca;font-family:\"JetBrains Mono\",\"Consolas\",\"SFMono-Regular\",monospace;'
@@ -12826,7 +12833,7 @@ document.addEventListener('DOMContentLoaded', function() {
             `<span class="vhr-dot"></span>` +
             `<span class="vhr-name">${escapeHtml(item.name)}</span>` +
             `<span class="vhr-votes">${escapeHtml(formatVotehubVotes(item.votes))}</span>` +
-            `<span class="vhr-pct">${escapeHtml(formatVotehubPct(item.pct))}%</span>` +
+            `<span class="vhr-pct">${escapeHtml(pctFormatter(item.pct))}%</span>` +
           `</div>`
         );
       }).join('');
@@ -12836,7 +12843,7 @@ document.addEventListener('DOMContentLoaded', function() {
             `<span class="vhr-dot"></span>` +
             `<span class="vhr-name">${escapeHtml(otherLabel)}</span>` +
             `<span class="vhr-votes">${escapeHtml(formatVotehubVotes(oVotes))}</span>` +
-            `<span class="vhr-pct">${escapeHtml(formatVotehubPct(oPct))}%</span>` +
+            `<span class="vhr-pct">${escapeHtml(pctFormatter(oPct))}%</span>` +
           `</div>`
         )
         : '';
