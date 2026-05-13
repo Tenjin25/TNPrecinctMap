@@ -609,15 +609,15 @@ body.focus-active.hover-preview-active .vote-counter {
 }
 
 #hover-tooltip[data-context="votehub-results"] .vhr-row.rep .vhr-name {
-  color: #fecaca;
+  color: #f8fafc;
 }
 
 #hover-tooltip[data-context="votehub-results"] .vhr-row.dem .vhr-name {
-  color: #bfdbfe;
+  color: #f8fafc;
 }
 
 #hover-tooltip[data-context="votehub-results"] .vhr-row.other .vhr-name {
-  color: #e2e8f0;
+  color: #f8fafc;
 }
 
 body.focus-active #hover-tooltip[data-context="preview"] {
@@ -12780,11 +12780,16 @@ document.addEventListener('DOMContentLoaded', function() {
       const marginSource = Number(marginPct);
       const marginAbs = Number.isFinite(marginSource) ? Math.abs(marginSource) : NaN;
       const isTie = !Number.isFinite(marginAbs) || marginAbs <= 0.0000001 || winnerPartyNorm === 'tie';
+      const winnerNameDisplay = winnerNameSafe || (winnerPartyNorm === 'rep'
+        ? shortCandidateLabel(repLabel, 'Republican')
+        : shortCandidateLabel(demLabel, 'Democratic'));
+      const winnerLeadTone = winnerPartyNorm === 'rep' ? '#fecaca' : (winnerPartyNorm === 'dem' ? '#bfdbfe' : '#e2e8f0');
+      const winnerNameTone = winnerLeadTone;
       const winnerLine = !showWinnerLine
         ? ''
         : (isTie
-          ? 'Tie'
-          : `${escapeHtml(winnerNameSafe || (winnerPartyNorm === 'rep' ? shortCandidateLabel(repLabel, 'Republican') : shortCandidateLabel(demLabel, 'Democratic')))} +${formatVotehubPct(marginAbs)}%`);
+          ? '<span style="color:#f8fafc;">Tie</span>'
+          : `<span style="color:${winnerNameTone};">${escapeHtml(winnerNameDisplay)}</span> <span style="color:${winnerLeadTone};">+${escapeHtml(formatVotehubPct(marginAbs))}%</span>`);
       const winnerToneClass = winnerPartyNorm === 'rep' ? 'rep' : (winnerPartyNorm === 'dem' ? 'dem' : 'tie');
       const voteLeadStyle = winnerToneClass === 'rep'
         ? 'font-size:12px;font-weight:800;opacity:0.96;color:#fecaca;font-family:\"JetBrains Mono\",\"Consolas\",\"SFMono-Regular\",monospace;'
@@ -12794,22 +12799,17 @@ document.addEventListener('DOMContentLoaded', function() {
       const rawLeadVotesText = `${formatVotehubVotes(Math.abs(rVotes - dVotes))} votes`;
 
       const rows = [
-        {
-          key: 'rep',
-          cls: 'rep',
-          name: repLabel,
-          votes: rVotes,
-          pct: rPct
-        },
-        {
-          key: 'dem',
-          cls: 'dem',
-          name: demLabel,
-          votes: dVotes,
-          pct: dPct
-        }
+        { key: 'rep', cls: 'rep', name: repLabel, votes: rVotes, pct: rPct },
+        { key: 'dem', cls: 'dem', name: demLabel, votes: dVotes, pct: dPct }
       ];
-      if (winnerPartyNorm === 'dem') rows.reverse();
+      rows.sort((a, b) => {
+        const voteDiff = Number(b.votes || 0) - Number(a.votes || 0);
+        if (voteDiff !== 0) return voteDiff;
+        const aWinner = a.key === winnerPartyNorm ? 1 : 0;
+        const bWinner = b.key === winnerPartyNorm ? 1 : 0;
+        if (bWinner !== aWinner) return bWinner - aWinner;
+        return a.name.localeCompare(b.name);
+      });
 
       const rowHtml = rows.map(item => (
         `<div class="vhr-row ${item.cls}">` +
