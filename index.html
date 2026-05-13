@@ -13866,7 +13866,8 @@ document.addEventListener('DOMContentLoaded', function() {
         layout: 'full'
       });
       const copyText = `${countyDisplay} County`;
-      const shell = buildVotehubTooltipShell(votehubInner, { pinned: pinnedShell, copyText });
+      const votehubBody = `${votehubInner}${shiftBlock ? `<div style="margin-top:8px;">${shiftBlock}</div>` : ''}`;
+      const shell = buildVotehubTooltipShell(votehubBody, { pinned: pinnedShell, copyText });
       showHoverTooltip(e.point.x, e.point.y, shell, { force: !!forceTooltip, pinned: pinnedShell, context: 'votehub-results', copyText });
       clearDesktopHoverExpandState();
       wireTooltipButtons();
