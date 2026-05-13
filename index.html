@@ -515,9 +515,9 @@ body.focus-active.hover-preview-active .vote-counter {
 
 /* VoteHub-style compact results hover: precinct + district layers only */
 #hover-tooltip[data-context="votehub-results"] {
-  background: rgba(255, 255, 255, 0.96);
-  color: #111827;
-  border: 1px solid rgba(15, 23, 42, 0.10);
+  background: rgba(0, 0, 0, 0.94);
+  color: #f8fafc;
+  border: 1px solid rgba(148, 163, 184, 0.35);
   border-radius: 8px;
   box-shadow: 0 8px 26px rgba(0, 0, 0, 0.22);
   padding: 0;
@@ -535,7 +535,7 @@ body.focus-active.hover-preview-active .vote-counter {
 #hover-tooltip[data-context="votehub-results"] .vhr-title {
   font-size: 13px;
   font-weight: 800;
-  color: #374151;
+  color: #f8fafc;
   margin-bottom: 2px;
   line-height: 1.25;
 }
@@ -545,17 +545,17 @@ body.focus-active.hover-preview-active .vote-counter {
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: #9ca3af;
+  color: #cbd5e1;
   margin-bottom: 8px;
 }
 
 #hover-tooltip[data-context="votehub-results"] .vhr-winner {
   font-size: 12.5px;
   font-weight: 900;
-  color: #111827;
+  color: #f8fafc;
   margin-bottom: 8px;
   padding-bottom: 8px;
-  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.25);
 }
 
 #hover-tooltip[data-context="votehub-results"] .vhr-row {
@@ -565,7 +565,7 @@ body.focus-active.hover-preview-active .vote-counter {
   gap: 8px;
   padding: 5px 0;
   font-size: 12.5px;
-  color: #374151;
+  color: #e5e7eb;
 }
 
 #hover-tooltip[data-context="votehub-results"] .vhr-dot {
@@ -597,27 +597,27 @@ body.focus-active.hover-preview-active .vote-counter {
 #hover-tooltip[data-context="votehub-results"] .vhr-votes,
 #hover-tooltip[data-context="votehub-results"] .vhr-pct {
   font-variant-numeric: tabular-nums;
-  color: #4b5563;
+  color: #cbd5e1;
 }
 
 #hover-tooltip[data-context="votehub-results"] .vhr-total {
   margin-top: 8px;
   padding-top: 8px;
-  border-top: 1px solid rgba(15, 23, 42, 0.08);
+  border-top: 1px solid rgba(148, 163, 184, 0.25);
   font-size: 11.5px;
-  color: #6b7280;
+  color: #cbd5e1;
 }
 
 #hover-tooltip[data-context="votehub-results"] .vhr-row.rep .vhr-name {
-  color: #7f1d1d;
+  color: #fecaca;
 }
 
 #hover-tooltip[data-context="votehub-results"] .vhr-row.dem .vhr-name {
-  color: #1e3a8a;
+  color: #bfdbfe;
 }
 
 #hover-tooltip[data-context="votehub-results"] .vhr-row.other .vhr-name {
-  color: #4b5563;
+  color: #e2e8f0;
 }
 
 body.focus-active #hover-tooltip[data-context="preview"] {
@@ -13820,113 +13820,28 @@ document.addEventListener('DOMContentLoaded', function() {
         if (flipChip) chips.push(flipChip);
       }
 
-      const marginCall = winnerMarginCall(repVotes, demVotes, totalVotes, repCandidate, demCandidate);
-      const tierShort = tierMeta?.shortLabel || tierMeta?.label || '';
-      const tierLong = tierMeta?.label || '';
-      const flipLine = (prevSignedForFlip !== null)
-        ? flipLineHTML(prevSignedForFlip, signedMarginPct, vizPrevCache?.prevYear || null, Number(year))
-        : '';
-      const shiftDelta = (prevSignedForFlip !== null && Number.isFinite(Number(prevSignedForFlip)))
-        ? (signedMarginPct - Number(prevSignedForFlip))
-        : NaN;
-      const tooltipInsight = (() => {
-        if (currentVizMode !== 'shift') return '';
-        // Shift mode uses the shift headline block instead of the legacy insight sentence.
-        const abs = Math.abs(Number(signedMarginPct) || 0);
-        void abs;
-        void shiftDelta;
-        return '';
-      })();
-      const smartInsight = '';
-      const finalInsight = tooltipInsight || smartInsight;
-
-      const classicInner = `
-        ${shiftBlock}
-        <div class="hover-meta">${chips.join('')}</div>
-        ${buildResultCardNoRawVotesHTML('', subtitle, demVotes, repVotes, otherVotes, demCandidate, repCandidate, { precision: 'county' })}
-        ${finalInsight ? `<div class="tooltip-insight">${escapeHtml(finalInsight)}</div>` : ''}
-        ${deltaBlock}
-        ${splitInsightLine}
-        ${demoLine}
-      `.trim();
-
-      const desktopCollapsedInner = (currentVizMode === 'shift')
-        ? `
-          ${shiftBlock}
-          ${flipLine}
-          ${deltaBlock}
-        `.trim()
-        : `
-          <div class="tooltip-quickline">
-            <span class="${escapeHtml(marginCall.party || 'tie')}">${escapeHtml(marginCall.text || '')}</span>
-            ${tierLong ? `<span class="tier">${escapeHtml(tierLong)}</span>` : ''}
-          </div>
-          ${flipLine}
-          ${finalInsight ? `<div class="tooltip-insight">${escapeHtml(finalInsight)}</div>` : ''}
-          ${deltaBlock}
-        `.trim();
-
-      const compactInner = (currentVizMode === 'shift')
-        ? `
-          ${shiftBlock}
-          ${flipLine}
-          <details class="tooltip-more" aria-label="More details">
-            <summary>Details</summary>
-            <div class="tooltip-more-body">
-              <div class="hover-meta">${chips.join('')}</div>
-              ${buildResultCardNoRawVotesHTML('', subtitle, demVotes, repVotes, otherVotes, demCandidate, repCandidate, { precision: 'county' })}
-              ${deltaBlock}
-              ${splitInsightLine}
-              ${demoLine}
-            </div>
-          </details>
-        `.trim()
-        : `
-          <div class="tooltip-quickline">
-            <span class="${escapeHtml(marginCall.party || 'tie')}">${escapeHtml(marginCall.text || '')}</span>
-            ${tierShort ? `<span class="tier">${escapeHtml(tierShort)}</span>` : ''}
-          </div>
-          ${flipLine}
-          ${finalInsight ? `<div class="tooltip-insight">${escapeHtml(finalInsight)}</div>` : ''}
-          ${deltaBlock}
-          <details class="tooltip-more" aria-label="More details">
-            <summary>Details</summary>
-            <div class="tooltip-more-body">
-              <div class="hover-meta">${chips.join('')}</div>
-              ${buildResultCardNoRawVotesHTML('', subtitle, demVotes, repVotes, otherVotes, demCandidate, repCandidate, { precision: 'county' })}
-              ${splitInsightLine}
-              ${demoLine}
-            </div>
-          </details>
-        `.trim();
-
-      const actionHint = useCompact
-        ? (pinnedShell ? 'Pinned • tap Close to dismiss' : (isTouchInteractionMode() ? 'Tap to pin details' : 'Click to pin details'))
-        : '';
-      const inner = isDesktopTooltipMode()
-        ? (desktopCollapsed ? desktopCollapsedInner : classicInner)
-        : `${useCompact ? compactInner : classicInner}${actionHint ? `<div class="tooltip-hint">${escapeHtml(actionHint)}</div>` : ''}`;
-
-      const hoverTitle = buildTooltipTitleWithTier(`${countyDisplay} County`);
+      const winnerName = winner === 'R'
+        ? shortCandidateLabel(repCandidate, 'Republican')
+        : (winner === 'D' ? shortCandidateLabel(demCandidate, 'Democratic') : '');
+      const votehubInner = buildVotehubResultsTooltip({
+        title: `${countyDisplay} County`,
+        subtitle,
+        demName: fullCandidateLabel(demCandidate, 'Democratic'),
+        repName: fullCandidateLabel(repCandidate, 'Republican'),
+        otherName: 'Others',
+        demVotes,
+        repVotes,
+        otherVotes,
+        totalVotes,
+        winnerName,
+        winnerParty: winner === 'R' ? 'rep' : (winner === 'D' ? 'dem' : 'tie'),
+        marginPct: Math.abs(signedMarginPct),
+        showWinnerLine: true
+      });
       const copyText = `${countyDisplay} County`;
-      showHoverTooltip(
-        e.point.x,
-        e.point.y,
-        buildTooltipShell(hoverTitle, inner, { pinned: pinnedShell, showClose: pinnedShell, copyText }),
-        { force: !!forceTooltip, pinned: pinnedShell, context: pinnedShell ? 'pinned' : 'detail', copyText }
-      );
-      if (desktopCollapsed) {
-        desktopHoverExpandState = {
-          kind: 'county',
-          x: e.point.x,
-          y: e.point.y,
-          title: hoverTitle,
-          expandedInner: classicInner,
-          copyText
-        };
-      } else {
-        clearDesktopHoverExpandState();
-      }
+      const shell = buildVotehubTooltipShell(votehubInner, { pinned: pinnedShell, copyText });
+      showHoverTooltip(e.point.x, e.point.y, shell, { force: !!forceTooltip, pinned: pinnedShell, context: 'votehub-results', copyText });
+      clearDesktopHoverExpandState();
       wireTooltipButtons();
     }
 
