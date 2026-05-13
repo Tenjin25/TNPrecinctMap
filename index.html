@@ -597,6 +597,14 @@ body.focus-active.hover-preview-active .vote-counter {
 #hover-tooltip[data-context="votehub-results"] .vhr-votes,
 #hover-tooltip[data-context="votehub-results"] .vhr-pct {
   font-variant-numeric: tabular-nums;
+}
+
+#hover-tooltip[data-context="votehub-results"] .vhr-votes {
+  color: #f8fafc;
+  font-weight: 800;
+}
+
+#hover-tooltip[data-context="votehub-results"] .vhr-pct {
   color: #cbd5e1;
 }
 
@@ -12757,7 +12765,8 @@ document.addEventListener('DOMContentLoaded', function() {
         winnerName,
         winnerParty,
         marginPct,
-        showWinnerLine = true
+        showWinnerLine = true,
+        layout = 'compact'
       } = options || {};
 
       const dVotes = Math.max(0, Number(demVotes || 0));
@@ -12811,14 +12820,16 @@ document.addEventListener('DOMContentLoaded', function() {
         return a.name.localeCompare(b.name);
       });
 
-      const rowHtml = rows.map(item => (
-        `<div class="vhr-row ${item.cls}">` +
-          `<span class="vhr-dot"></span>` +
-          `<span class="vhr-name">${escapeHtml(item.name)}</span>` +
-          `<span class="vhr-votes">${escapeHtml(formatVotehubVotes(item.votes))}</span>` +
-          `<span class="vhr-pct">${escapeHtml(formatVotehubPct(item.pct))}%</span>` +
-        `</div>`
-      )).join('');
+      const rowHtml = rows.map(item => {
+        return (
+          `<div class="vhr-row ${item.cls}">` +
+            `<span class="vhr-dot"></span>` +
+            `<span class="vhr-name">${escapeHtml(item.name)}</span>` +
+            `<span class="vhr-votes">${escapeHtml(formatVotehubVotes(item.votes))}</span>` +
+            `<span class="vhr-pct">${escapeHtml(formatVotehubPct(item.pct))}%</span>` +
+          `</div>`
+        );
+      }).join('');
       const otherRowHtml = oVotes > 0
         ? (
           `<div class="vhr-row other">` +
@@ -13836,7 +13847,8 @@ document.addEventListener('DOMContentLoaded', function() {
         winnerName,
         winnerParty: winner === 'R' ? 'rep' : (winner === 'D' ? 'dem' : 'tie'),
         marginPct: Math.abs(signedMarginPct),
-        showWinnerLine: true
+        showWinnerLine: true,
+        layout: 'full'
       });
       const copyText = `${countyDisplay} County`;
       const shell = buildVotehubTooltipShell(votehubInner, { pinned: pinnedShell, copyText });
@@ -13886,7 +13898,8 @@ document.addEventListener('DOMContentLoaded', function() {
           totalVotes: 0,
           winnerName: '',
           winnerParty: 'tie',
-          marginPct: 0
+          marginPct: 0,
+          layout: 'compact'
         }), { pinned: !!pinSelection, copyText });
         showHoverTooltip(point.x, point.y, shell, { force: !!forceTooltip, pinned: !!pinSelection, context: 'votehub-results', copyText });
         wireTooltipButtons();
@@ -13908,7 +13921,8 @@ document.addEventListener('DOMContentLoaded', function() {
           totalVotes: 0,
           winnerName: '',
           winnerParty: 'tie',
-          marginPct: 0
+          marginPct: 0,
+          layout: 'compact'
         }), { pinned: !!pinSelection, copyText });
         showHoverTooltip(point.x, point.y, shell, { force: !!forceTooltip, pinned: !!pinSelection, context: 'votehub-results', copyText });
         wireTooltipButtons();
@@ -13951,7 +13965,8 @@ document.addEventListener('DOMContentLoaded', function() {
         winnerName,
         winnerParty: winner === 'R' ? 'rep' : (winner === 'D' ? 'dem' : 'tie'),
         marginPct: Number.isFinite(marginSource) ? Math.abs(marginSource) : Math.abs(curSigned),
-        showWinnerLine: true
+        showWinnerLine: true,
+        layout: pinSelection ? 'full' : 'compact'
       });
       const shell = buildVotehubTooltipShell(votehubInner, { pinned: !!pinSelection, copyText });
       showHoverTooltip(point.x, point.y, shell, { force: !!forceTooltip, pinned: !!pinSelection, context: 'votehub-results', copyText });
@@ -14060,7 +14075,8 @@ document.addEventListener('DOMContentLoaded', function() {
           totalVotes: 0,
           winnerName: '',
           winnerParty: 'tie',
-          marginPct: 0
+          marginPct: 0,
+          layout: 'full'
         }));
         showHoverTooltip(e.point.x, e.point.y, shell, { force: !!forceTooltip, context: 'votehub-results' });
         wireTooltipButtons();
@@ -14096,7 +14112,8 @@ document.addEventListener('DOMContentLoaded', function() {
           totalVotes: 0,
           winnerName: '',
           winnerParty: 'tie',
-          marginPct: 0
+          marginPct: 0,
+          layout: 'full'
         }));
         showHoverTooltip(e.point.x, e.point.y, shell, { force: !!forceTooltip, context: 'votehub-results' });
         wireTooltipButtons();
@@ -14120,7 +14137,8 @@ document.addEventListener('DOMContentLoaded', function() {
           totalVotes: 0,
           winnerName: '',
           winnerParty: 'tie',
-          marginPct: 0
+          marginPct: 0,
+          layout: 'full'
         }));
         showHoverTooltip(e.point.x, e.point.y, shell, { force: !!forceTooltip, context: 'votehub-results' });
         wireTooltipButtons();
@@ -14169,7 +14187,8 @@ document.addEventListener('DOMContentLoaded', function() {
         winnerName,
         winnerParty: winner === 'R' ? 'rep' : (winner === 'D' ? 'dem' : 'tie'),
         marginPct: Number.isFinite(marginSource) ? Math.abs(Number(marginSource)) : 0,
-        showWinnerLine: true
+        showWinnerLine: true,
+        layout: 'full'
       });
       showHoverTooltip(e.point.x, e.point.y, buildVotehubTooltipShell(inner), { force: !!forceTooltip, context: 'votehub-results' });
       wireTooltipButtons();
