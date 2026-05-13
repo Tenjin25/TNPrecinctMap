@@ -9718,13 +9718,22 @@ document.addEventListener('DOMContentLoaded', function() {
         .replace(/'/g, '&#39;');
     }
 
+    const TREND_SHIFT_NOISE_PTS = 0.1; // percent points; suppress tiny/noisy per-cycle moves
+
+    function formatShiftLabel(shiftPct) {
+      const s = Number(shiftPct) || 0;
+      const abs = Math.abs(s);
+      if (abs < TREND_SHIFT_NOISE_PTS) return 'No change';
+      return `${s > 0 ? 'R' : 'D'}+${abs.toFixed(2)}%`;
+    }
+
     function describeTrendShift(currentSignedPct, prevSignedPct, prevYear) {
       if (!Number.isFinite(Number(prevSignedPct))) {
         return { cls: 'tie', text: 'First available result' };
       }
       const shift = (Number(currentSignedPct) || 0) - (Number(prevSignedPct) || 0);
-      if (Math.abs(shift) < 0.01) {
-        return { cls: 'tie', text: `Shift: No shift since ${prevYear}` };
+      if (Math.abs(shift) < TREND_SHIFT_NOISE_PTS) {
+        return { cls: 'tie', text: `No shift since ${prevYear}` };
       }
       return {
         cls: shift > 0 ? 'rep' : 'dem',
@@ -13105,9 +13114,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function shiftChipHTML(shiftPct, prevYear, year) {
       const s = Number(shiftPct) || 0;
-      const dir = s > 0 ? 'R' : (s < 0 ? 'D' : 'T');
-      const abs = Math.abs(s);
-      const label = abs < 0.01 ? 'No change' : `${dir} + ${abs.toFixed(2)}%`;
+      const label = formatShiftLabel(s);
       const dotColor = colorForShiftMode(s);
       const years = (prevYear && year) ? `${prevYear}→${year}` : '';
       return `<span class="meta-chip shift"><span class="dot" style="background:${dotColor};"></span>Shift: ${label}${years ? ` <span style="color:#64748b;font-weight:800;">(${years})</span>` : ''}</span>`;
