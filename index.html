@@ -385,13 +385,13 @@
   <script src="https://cdn.jsdelivr.net/npm/@turf/turf@6.5.0/turf.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
     <meta charset='utf-8'>
-    <title>Volunteer State Election Atlas (Tennessee, 2004-2024)</title>
+    <title>Tri-Star Election Atlas (Tennessee, 1998-2024)</title>
     <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover'>
     <meta name="author" content="Shamar Davis">
     <meta name="copyright" content="© 2026 Shamar Does Elections. All Rights Reserved.">
     <!-- Watermark: SDE Creator Attribution | Created by Shamar Davis | Copyright 2026 Shamar Does Elections -->
-    <meta property="og:title" content="Volunteer State Election Atlas (Tennessee, 2004-2024)">
-    <meta property="og:description" content="Interactive visualization of Tennessee election trends from 2004 to 2024, with county, precinct, and district views.">
+    <meta property="og:title" content="Tri-Star Election Atlas (Tennessee, 1998-2024)">
+    <meta property="og:description" content="Interactive visualization of Tennessee election trends from 1998 to 2024, with county, precinct, and district views.">
     <meta property="og:image" content="preview.png">
     <meta name="twitter:card" content="summary_large_image">
     <link href='https://api.mapbox.com/mapbox-gl-js/v3.0.1/mapbox-gl.css' rel='stylesheet'>
@@ -7250,7 +7250,7 @@ document.addEventListener('DOMContentLoaded', function() {
   <div class="desktop-ui-left">
   <div class="map-topbar" id="map-topbar">
     <div class="map-topbar-meta">
-      <div class="map-topbar-badge">Volunteer State Election Atlas</div>
+      <div class="map-topbar-badge">Tri-Star Election Atlas</div>
       <div class="map-topbar-copy">
         <strong>Fly to a county, district, or precinct</strong>
         <span>Try Davidson, CD 5, HD 60, SD 19, or Knox 01.</span>
@@ -7314,11 +7314,11 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="controls-header">
             <div class="controls-heading">
               <span class="controls-kicker">Atlas controls</span>
-              <h3 class="controls-title-pill">Volunteer State Election Atlas</h3>
+              <h3 class="controls-title-pill">Tri-Star Election Atlas</h3>
               <p class="controls-subtitle">Switch layers, jump to major regions, and compare contests without leaving the map.</p>
             </div>
             <div class="controls-actions">
-              <span class="controls-collapsed-label">Volunteer State Election Atlas</span>
+              <span class="controls-collapsed-label">Tri-Star Election Atlas</span>
               <button id="help-btn" title="Help" type="button">?</button>
               <button class="minimize-btn" onclick="toggleMainControls()" id="controls-minimize-btn" title="Minimize controls">-</button>
             </div>
@@ -7657,7 +7657,7 @@ document.addEventListener('DOMContentLoaded', function() {
       creator: 'Shamar Davis',
       studio: 'Shamar Does Elections',
       year: 2026,
-      project: 'Volunteer State Election Atlas',
+      project: 'Tri-Star Election Atlas',
       signature: 'SDE-TSVA-2026-SD'
     });
     try {
@@ -12793,9 +12793,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
       const winnerPartyNorm = (winnerParty || '').toString().trim().toLowerCase();
       const winnerNameSafe = (winnerName || '').toString().trim();
-      const marginDisplayAbs = marginPctDisplayValue(rVotes, dVotes, safeTotal);
-      const marginAbs = Number.isFinite(marginDisplayAbs) ? Math.abs(marginDisplayAbs) : NaN;
-      const isTie = !Number.isFinite(marginAbs) || marginAbs <= 0.0000001 || winnerPartyNorm === 'tie';
+      const selectedPanelMarginLabel = typeof focusLeadMarginLabel === 'function'
+        ? focusLeadMarginLabel(rVotes, dVotes, safeTotal)
+        : `${formatMarginPctForDisplay(marginPctDisplayValue(rVotes, dVotes, safeTotal))}%`;
+      const isTie = selectedPanelMarginLabel === 'Tie' || winnerPartyNorm === 'tie';
       const winnerNameDisplay = winnerNameSafe || (winnerPartyNorm === 'rep'
         ? shortCandidateLabel(repLabel, 'Republican')
         : shortCandidateLabel(demLabel, 'Democratic'));
@@ -12805,7 +12806,7 @@ document.addEventListener('DOMContentLoaded', function() {
         ? ''
         : (isTie
           ? '<span style="color:#f8fafc;">Tie</span>'
-          : `<span style="color:${winnerNameTone};">${escapeHtml(winnerNameDisplay)}</span> <span style="color:${winnerLeadTone};">+${escapeHtml(formatMarginPctForDisplay(marginAbs))}%</span>`);
+          : `<span style="color:${winnerNameTone};">${escapeHtml(winnerNameDisplay)}</span> <span style="color:${winnerLeadTone};">+${escapeHtml(selectedPanelMarginLabel)}</span>`);
       const winnerToneClass = winnerPartyNorm === 'rep' ? 'rep' : (winnerPartyNorm === 'dem' ? 'dem' : 'tie');
       const voteLeadStyle = winnerToneClass === 'rep'
         ? 'font-size:12px;font-weight:800;opacity:0.96;color:#fecaca;font-family:\"JetBrains Mono\",\"Consolas\",\"SFMono-Regular\",monospace;'
