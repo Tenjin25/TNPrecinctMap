@@ -12806,6 +12806,10 @@ document.addEventListener('DOMContentLoaded', function() {
         ? focusLeadMarginLabel(rVotes, dVotes, safeTotal)
         : `${formatMarginPctForDisplay(marginPctDisplayValue(rVotes, dVotes, safeTotal))}%`;
       const isTie = selectedPanelMarginLabel === 'Tie' || winnerPartyNorm === 'tie';
+      const uncontestedSide = (rVotes > 0 && dVotes <= 0)
+        ? 'R'
+        : ((dVotes > 0 && rVotes <= 0) ? 'D' : '');
+      const isUncontested = !!uncontestedSide;
       const winnerNameDisplay = winnerNameSafe || (winnerPartyNorm === 'rep'
         ? shortCandidateLabel(repLabel, 'Republican')
         : shortCandidateLabel(demLabel, 'Democratic'));
@@ -12813,9 +12817,11 @@ document.addEventListener('DOMContentLoaded', function() {
       const winnerNameTone = winnerLeadTone;
       const winnerLine = !showWinnerLine
         ? ''
-        : (isTie
+        : (isUncontested
+          ? `<span style="color:#f8fafc;">Uncontested ${uncontestedSide}</span>`
+          : (isTie
           ? '<span style="color:#f8fafc;">Tie</span>'
-          : `<span style="color:${winnerNameTone};">${escapeHtml(winnerNameDisplay)}</span> <span style="color:${winnerLeadTone};">+${escapeHtml(selectedPanelMarginLabel)}</span>`);
+          : `<span style="color:${winnerNameTone};">${escapeHtml(winnerNameDisplay)}</span> <span style="color:${winnerLeadTone};">+${escapeHtml(selectedPanelMarginLabel)}</span>`));
       const winnerToneClass = winnerPartyNorm === 'rep' ? 'rep' : (winnerPartyNorm === 'dem' ? 'dem' : 'tie');
       const voteLeadStyle = winnerToneClass === 'rep'
         ? 'font-size:12px;font-weight:800;opacity:0.96;color:#fecaca;font-family:\"JetBrains Mono\",\"Consolas\",\"SFMono-Regular\",monospace;'
@@ -12823,6 +12829,7 @@ document.addEventListener('DOMContentLoaded', function() {
           ? 'font-size:12px;font-weight:800;opacity:0.96;color:#bfdbfe;font-family:\"JetBrains Mono\",\"Consolas\",\"SFMono-Regular\",monospace;'
           : 'font-size:12px;font-weight:800;opacity:0.92;color:#e2e8f0;font-family:\"JetBrains Mono\",\"Consolas\",\"SFMono-Regular\",monospace;');
       const rawLeadVotesText = `${formatVotehubVotes(Math.abs(rVotes - dVotes))} votes`;
+      const showRawLeadVotes = !isUncontested;
 
       const rows = [
         { key: 'rep', cls: 'rep', name: repLabel, votes: rVotes, pct: rPct },
@@ -12862,7 +12869,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="votehub-results-card">
           <div class="vhr-title">${escapeHtml((title || '').toString())}</div>
           <div class="vhr-subtitle">${escapeHtml((subtitle || '').toString())}</div>
-          ${showWinnerLine ? `<div class="vhr-winner ${winnerToneClass}" style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;"><span>${winnerLine}</span><span class="vhr-raw-lead ${winnerToneClass}" style="${voteLeadStyle}">${escapeHtml(rawLeadVotesText)}</span></div>` : ''}
+          ${showWinnerLine ? `<div class="vhr-winner ${winnerToneClass}" style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;"><span>${winnerLine}</span>${showRawLeadVotes ? `<span class="vhr-raw-lead ${winnerToneClass}" style="${voteLeadStyle}">${escapeHtml(rawLeadVotesText)}</span>` : ''}</div>` : ''}
           ${rowHtml}
           ${otherRowHtml}
           <div class="vhr-total">Total votes: ${escapeHtml(formatVotehubVotes(safeTotal))}</div>
