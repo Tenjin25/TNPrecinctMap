@@ -136,13 +136,13 @@
     }
   }
   @media (max-width: 768px) {
-    /* Mobile: dock hover tooltip above the dock controls for easier reading/taps. */
+    /* Mobile: dock hover tooltip above the dock controls for easier reading/taps. (NCMap style) */
     #hover-tooltip {
       position: fixed !important;
       left: 8px !important;
       right: 8px !important;
       top: auto !important;
-        bottom: calc(var(--safe-bottom, 0px) + var(--mobile-dock-h, 62px) + 24px + var(--vote-counter-h, 0px) + 8px) !important;
+      bottom: calc(var(--safe-bottom, 0px) + var(--mobile-dock-h, 62px) + 24px + var(--vote-counter-h, 0px) + 8px) !important;
       max-width: none !important;
       width: auto !important;
       max-height: min(58vh, calc(100vh - 12px - var(--safe-top, 0px) - var(--safe-bottom, 0px) - var(--mobile-dock-h, 62px) - var(--vote-counter-h, 0px)));
@@ -515,24 +515,6 @@ body { height: var(--app-height); }
   border: 1px solid rgba(255, 255, 255, 0.1);
   transition: opacity 0.15s ease;
 }
-.hover-tooltip .tooltip-vote-line {
-  margin: 4px 0;
-}
-
-.hover-tooltip .tooltip-vote-pct {
-  display: inline-block;
-  padding: 1px 6px;
-  margin-left: 2px;
-  border-radius: 999px;
-  font-weight: 900;
-  letter-spacing: 0.01em;
-  background: rgba(15, 23, 42, 0.78);
-  border: 1px solid rgba(226, 232, 240, 0.42);
-  color: #ffffff;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16);
-}
-
-
 
 /* UI hierarchy helpers: keep one dominant layer at a time. */
 body.hover-preview-active .main-controls,
@@ -564,11 +546,11 @@ body.focus-active.hover-preview-active .vote-counter {
 
 /* VoteHub-style compact results hover: precinct + district layers only */
 #hover-tooltip[data-context="votehub-results"] {
-  background: rgba(3,7,18,0.96);
-  color: #e5e7eb;
-  border: 1px solid rgba(148,163,184,0.24);
+  background: rgba(0, 0, 0, 0.94);
+  color: #f8fafc;
+  border: 1px solid rgba(148, 163, 184, 0.35);
   border-radius: 8px;
-  box-shadow: 0 8px 26px rgba(0,0,0,0.22);
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.22);
   padding: 0;
   max-width: 310px;
   min-width: 250px;
@@ -581,15 +563,12 @@ body.focus-active.hover-preview-active .vote-counter {
   font-family: inherit;
 }
 
-#hover-tooltip[data-context="votehub-results"][data-pinned="0"] .tooltip-head {
-  display: none;
-}
-
 #hover-tooltip[data-context="votehub-results"] .vhr-title {
   font-size: 13px;
   font-weight: 800;
   color: #f8fafc;
   margin-bottom: 2px;
+  line-height: 1.25;
 }
 
 #hover-tooltip[data-context="votehub-results"] .vhr-subtitle {
@@ -597,29 +576,17 @@ body.focus-active.hover-preview-active .vote-counter {
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: #94a3b8;
+  color: #cbd5e1;
   margin-bottom: 8px;
 }
 
 #hover-tooltip[data-context="votehub-results"] .vhr-winner {
   font-size: 12.5px;
   font-weight: 900;
-  color: #e2e8f0;
+  color: #f8fafc;
   margin-bottom: 8px;
   padding-bottom: 8px;
-  border-bottom: 1px solid rgba(148,163,184,0.22);
-}
-
-#hover-tooltip[data-context="votehub-results"] .vhr-winner.rep {
-  color: #fca5a5;
-}
-
-#hover-tooltip[data-context="votehub-results"] .vhr-winner.dem {
-  color: #93c5fd;
-}
-
-#hover-tooltip[data-context="votehub-results"] .vhr-winner.tie {
-  color: #cbd5e1;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.25);
 }
 
 #hover-tooltip[data-context="votehub-results"] .vhr-row {
@@ -629,7 +596,7 @@ body.focus-active.hover-preview-active .vote-counter {
   gap: 8px;
   padding: 5px 0;
   font-size: 12.5px;
-  color: #e2e8f0;
+  color: #e5e7eb;
 }
 
 #hover-tooltip[data-context="votehub-results"] .vhr-dot {
@@ -664,8 +631,8 @@ body.focus-active.hover-preview-active .vote-counter {
 }
 
 #hover-tooltip[data-context="votehub-results"] .vhr-votes {
+  color: #f8fafc;
   font-weight: 800;
-  color: #f1f5f9;
 }
 
 #hover-tooltip[data-context="votehub-results"] .vhr-pct {
@@ -678,9 +645,9 @@ body.focus-active.hover-preview-active .vote-counter {
 #hover-tooltip[data-context="votehub-results"] .vhr-total {
   margin-top: 8px;
   padding-top: 8px;
-  border-top: 1px solid rgba(148,163,184,0.22);
+  border-top: 1px solid rgba(148, 163, 184, 0.25);
   font-size: 11.5px;
-  color: #94a3b8;
+  color: #cbd5e1;
 }
 
 #hover-tooltip[data-context="votehub-results"] .vhr-flip {
@@ -706,8 +673,8 @@ body.focus-active.hover-preview-active .vote-counter {
   margin: 6px 0 8px;
   padding: 7px 9px;
   border-radius: 8px;
-  border: 1px solid rgba(148,163,184,0.20);
-  background: rgba(15,23,42,0.28);
+  border: 1px solid rgba(148, 163, 184, 0.20);
+  background: rgba(15, 23, 42, 0.28);
   display: flex;
   align-items: baseline;
   justify-content: space-between;
@@ -740,6 +707,18 @@ body.focus-active.hover-preview-active .vote-counter {
 
 #hover-tooltip[data-context="votehub-results"] .vhr-shift-value.tie {
   color: #cbd5e1;
+}
+
+#hover-tooltip[data-context="votehub-results"] .vhr-row.rep .vhr-name {
+  color: #f8fafc;
+}
+
+#hover-tooltip[data-context="votehub-results"] .vhr-row.dem .vhr-name {
+  color: #f8fafc;
+}
+
+#hover-tooltip[data-context="votehub-results"] .vhr-row.other .vhr-name {
+  color: #f8fafc;
 }
 
 body.focus-active #hover-tooltip[data-context="preview"] {
@@ -2566,11 +2545,11 @@ body.focus-active #hover-tooltip[data-context="preview"] {
     }
 
     html.android-mobile .vote-counter {
-      bottom: calc(var(--safe-bottom, 0px) + var(--android-vv-bottom, 0px) + var(--mobile-dock-h, 62px) + 24px) !important;
+      bottom: calc(var(--legend-h, 56px) + var(--safe-bottom, 0px) + var(--android-vv-bottom, 0px) + 58px) !important;
     }
 
     html.android-mobile #hover-tooltip {
-      bottom: calc(var(--safe-bottom, 0px) + var(--android-vv-bottom, 0px) + var(--mobile-dock-h, 62px) + 24px + var(--vote-counter-h, 0px) + 8px) !important;
+      bottom: calc(var(--legend-h, 56px) + var(--safe-bottom, 0px) + var(--android-vv-bottom, 0px) + 8px) !important;
     }
 
     .contest-toolbar {
@@ -7104,11 +7083,11 @@ body.focus-active #hover-tooltip[data-context="preview"] {
     }
 
     .vote-counter {
-      bottom: calc(var(--safe-bottom, 0px) + var(--mobile-dock-h, 62px) + 24px) !important;
+      bottom: calc(var(--safe-bottom, 0px) + var(--mobile-dock-h, 62px) + 8px) !important;
     }
 
     #hover-tooltip {
-      bottom: calc(var(--safe-bottom, 0px) + var(--mobile-dock-h, 62px) + 24px + var(--vote-counter-h, 0px) + 8px) !important;
+      bottom: calc(var(--safe-bottom, 0px) + var(--mobile-dock-h, 62px) + 8px) !important;
     }
 
     body.mobile-sheet-open #hover-tooltip {
@@ -7176,16 +7155,11 @@ body.focus-active #hover-tooltip[data-context="preview"] {
       max-height: calc(100vh - 16px - var(--safe-top, 0px) - var(--safe-bottom, 0px)) !important;
     }
 
-    .vote-counter {
-      left: 142px !important;
-      right: 8px !important;
-      bottom: 8px !important;
-    }
-
+    .vote-counter,
     #hover-tooltip {
       left: 142px !important;
       right: 8px !important;
-      bottom: calc(8px + var(--vote-counter-h, 0px) + 8px) !important;
+      bottom: 8px !important;
     }
   }
 
@@ -7193,71 +7167,6 @@ body.focus-active #hover-tooltip[data-context="preview"] {
     order: -20;
   }
 
-
-  /* VoteHub tooltip rescue after NCMap mobile docking:
-     keep the precinct/district VoteHub card compact; only the generic tooltip uses full-width mobile sheet sizing. */
-  @media (max-width: 768px) {
-    #hover-tooltip[data-context="votehub-results"] {
-      left: 8px !important;
-      right: auto !important;
-      width: min(310px, calc(100vw - 16px)) !important;
-      min-width: min(250px, calc(100vw - 16px)) !important;
-      max-width: calc(100vw - 16px) !important;
-      padding: 0 !important;
-      border-radius: 8px !important;
-      font-size: 12.5px !important;
-      line-height: 1.35 !important;
-      overflow: visible !important;
-    }
-
-    #hover-tooltip[data-context="votehub-results"] .votehub-results-card {
-      padding: 12px 14px !important;
-    }
-
-    #hover-tooltip[data-context="votehub-results"] .tooltip-head {
-      flex-direction: row !important;
-      gap: 8px !important;
-    }
-
-    #hover-tooltip[data-context="votehub-results"][data-pinned="0"] .tooltip-head {
-      display: none !important;
-    }
-
-    #hover-tooltip[data-context="votehub-results"] .vhr-row {
-      grid-template-columns: 10px minmax(0, 1fr) auto auto !important;
-      gap: 8px !important;
-      padding: 5px 0 !important;
-      font-size: 12.5px !important;
-    }
-
-    #hover-tooltip[data-context="votehub-results"] .vhr-title {
-      font-size: 13px !important;
-      line-height: 1.25 !important;
-    }
-
-    #hover-tooltip[data-context="votehub-results"] .vhr-subtitle {
-      font-size: 10.5px !important;
-    }
-
-    #hover-tooltip[data-context="votehub-results"] .vhr-winner {
-      font-size: 12.5px !important;
-    }
-
-    #hover-tooltip[data-context="votehub-results"] .vhr-total,
-    #hover-tooltip[data-context="votehub-results"] .vhr-flip,
-    #hover-tooltip[data-context="votehub-results"] .vhr-shift {
-      font-size: 11.5px !important;
-    }
-  }
-
-  @media (max-width: 768px) and (orientation: landscape) {
-    #hover-tooltip[data-context="votehub-results"] {
-      left: 142px !important;
-      right: auto !important;
-      width: min(310px, calc(100vw - 150px)) !important;
-      max-width: calc(100vw - 150px) !important;
-    }
-  }
   /* Vivaldi compatibility: reduce compositor-heavy effects and avoid clipped scroll gutters. */
   html.browser-vivaldi .main-controls,
   html.browser-vivaldi .legend,
@@ -12322,6 +12231,16 @@ document.addEventListener('DOMContentLoaded', function() {
       const demPctDisplay = Number(formatPctForCloseRace((Number(demVotes || 0) / t) * 100, rawMarginPct));
       if (!Number.isFinite(repPctDisplay) || !Number.isFinite(demPctDisplay)) return rawMarginPct;
       return Math.abs(repPctDisplay - demPctDisplay);
+    }
+
+    // Returns the signed display margin for county tooltips (matches NCMap.html)
+    function signedCountyMarginPctDisplayValue(demVotes, repVotes, totalVotes) {
+      const rawSigned = signedMarginPctFromVotes(demVotes, repVotes, totalVotes);
+      const displayAbs = countyMarginPctDisplayValue(repVotes, demVotes, totalVotes);
+      if (!Number.isFinite(Number(rawSigned))) return 0;
+      if (rawSigned > 0) return Math.abs(displayAbs);
+      if (rawSigned < 0) return -Math.abs(displayAbs);
+      return 0;
     }
 
     function formatVotehubPct(value, digits = 2) {
