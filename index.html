@@ -7194,14 +7194,68 @@ body.focus-active #hover-tooltip[data-context="preview"] {
   }
 
 
-  /* NCMap mobile tooltip port: keep hover cards above the dock + vote counter, not the legend. */
+  /* VoteHub tooltip rescue after NCMap mobile docking:
+     keep the precinct/district VoteHub card compact; only the generic tooltip uses full-width mobile sheet sizing. */
   @media (max-width: 768px) {
     #hover-tooltip[data-context="votehub-results"] {
-      max-width: none !important;
-      width: auto !important;
+      left: 8px !important;
+      right: auto !important;
+      width: min(310px, calc(100vw - 16px)) !important;
+      min-width: min(250px, calc(100vw - 16px)) !important;
+      max-width: calc(100vw - 16px) !important;
+      padding: 0 !important;
+      border-radius: 8px !important;
+      font-size: 12.5px !important;
+      line-height: 1.35 !important;
+      overflow: visible !important;
     }
+
     #hover-tooltip[data-context="votehub-results"] .votehub-results-card {
       padding: 12px 14px !important;
+    }
+
+    #hover-tooltip[data-context="votehub-results"] .tooltip-head {
+      flex-direction: row !important;
+      gap: 8px !important;
+    }
+
+    #hover-tooltip[data-context="votehub-results"][data-pinned="0"] .tooltip-head {
+      display: none !important;
+    }
+
+    #hover-tooltip[data-context="votehub-results"] .vhr-row {
+      grid-template-columns: 10px minmax(0, 1fr) auto auto !important;
+      gap: 8px !important;
+      padding: 5px 0 !important;
+      font-size: 12.5px !important;
+    }
+
+    #hover-tooltip[data-context="votehub-results"] .vhr-title {
+      font-size: 13px !important;
+      line-height: 1.25 !important;
+    }
+
+    #hover-tooltip[data-context="votehub-results"] .vhr-subtitle {
+      font-size: 10.5px !important;
+    }
+
+    #hover-tooltip[data-context="votehub-results"] .vhr-winner {
+      font-size: 12.5px !important;
+    }
+
+    #hover-tooltip[data-context="votehub-results"] .vhr-total,
+    #hover-tooltip[data-context="votehub-results"] .vhr-flip,
+    #hover-tooltip[data-context="votehub-results"] .vhr-shift {
+      font-size: 11.5px !important;
+    }
+  }
+
+  @media (max-width: 768px) and (orientation: landscape) {
+    #hover-tooltip[data-context="votehub-results"] {
+      left: 142px !important;
+      right: auto !important;
+      width: min(310px, calc(100vw - 150px)) !important;
+      max-width: calc(100vw - 150px) !important;
     }
   }
   /* Vivaldi compatibility: reduce compositor-heavy effects and avoid clipped scroll gutters. */
