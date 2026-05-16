@@ -583,10 +583,22 @@ body.focus-active.hover-preview-active .vote-counter {
 #hover-tooltip[data-context="votehub-results"] .vhr-winner {
   font-size: 12.5px;
   font-weight: 900;
-  color: #f8fafc;
+  color: #e2e8f0;
   margin-bottom: 8px;
   padding-bottom: 8px;
-  border-bottom: 1px solid rgba(148, 163, 184, 0.25);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.22);
+}
+
+#hover-tooltip[data-context="votehub-results"] .vhr-winner.rep {
+  color: #fca5a5;
+}
+
+#hover-tooltip[data-context="votehub-results"] .vhr-winner.dem {
+  color: #93c5fd;
+}
+
+#hover-tooltip[data-context="votehub-results"] .vhr-winner.tie {
+  color: #cbd5e1;
 }
 
 #hover-tooltip[data-context="votehub-results"] .vhr-row {
@@ -12923,15 +12935,13 @@ document.addEventListener('DOMContentLoaded', function() {
       const winnerNameDisplay = winnerNameSafe || (winnerPartyNorm === 'rep'
         ? shortCandidateLabel(repLabel, 'Republican')
         : shortCandidateLabel(demLabel, 'Democratic'));
-      const winnerLeadTone = winnerPartyNorm === 'rep' ? '#fecaca' : (winnerPartyNorm === 'dem' ? '#bfdbfe' : '#e2e8f0');
-      const winnerNameTone = winnerLeadTone;
       const winnerLine = !showWinnerLine
         ? ''
         : (isUncontested
-          ? `<span style="color:#f8fafc;">Uncontested ${uncontestedSide}</span>`
+          ? `Uncontested ${escapeHtml(uncontestedSide)}`
           : (isTie
-          ? '<span style="color:#f8fafc;">Tie</span>'
-          : `<span style="color:${winnerNameTone};">${escapeHtml(winnerNameDisplay)}</span> <span style="color:${winnerLeadTone};">+${escapeHtml(selectedPanelMarginLabel)}</span>`));
+          ? 'Tie'
+          : `${escapeHtml(winnerNameDisplay)} +${escapeHtml(selectedPanelMarginLabel)}`));
       const winnerToneClass = winnerPartyNorm === 'rep' ? 'rep' : (winnerPartyNorm === 'dem' ? 'dem' : 'tie');
       const voteLeadStyle = winnerToneClass === 'rep'
         ? 'font-size:12px;font-weight:800;opacity:0.96;color:#fecaca;font-family:\"JetBrains Mono\",\"Consolas\",\"SFMono-Regular\",monospace;'
