@@ -8618,12 +8618,17 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function reinforceMapLabelHalos() {
-      const highCountyFill = currentView === 'counties' && !precinctsEnabled;
-      const textColor = highCountyFill ? 'rgba(248,250,252,0.99)' : 'rgba(241,245,249,0.97)';
-      const textOpacity = highCountyFill ? 1.0 : 0.97;
-      const haloColor = highCountyFill ? 'rgba(15,23,42,0.86)' : 'rgba(15,23,42,0.72)';
-      const haloWidth = highCountyFill ? 1.55 : 1.25;
-      const haloBlur = highCountyFill ? 0.34 : 0.42;
+      const heavyOverlay = hasActiveContestSelection() && ((currentView === 'counties' && !precinctsEnabled) || (currentView !== 'counties'));
+      const settlementTextColor = 'rgba(15, 23, 42, 0.94)';
+      const settlementTextOpacity = heavyOverlay ? 1.0 : 0.96;
+      const settlementHaloColor = heavyOverlay ? 'rgba(255, 255, 255, 0.97)' : 'rgba(255, 255, 255, 0.92)';
+      const settlementHaloWidth = heavyOverlay ? 2.25 : 1.9;
+      const settlementHaloBlur = heavyOverlay ? 0.7 : 0.58;
+      const countyTextColor = 'rgba(15, 23, 42, 0.96)';
+      const countyTextOpacity = 1.0;
+      const countyHaloColor = heavyOverlay ? 'rgba(255, 255, 255, 0.94)' : 'rgba(255, 255, 255, 0.88)';
+      const countyHaloWidth = heavyOverlay ? 2.0 : 1.7;
+      const countyHaloBlur = heavyOverlay ? 0.62 : 0.52;
 
       let layers = [];
       try { layers = map.getStyle()?.layers || []; } catch (_) { layers = []; }
@@ -8634,14 +8639,23 @@ document.addEventListener('DOMContentLoaded', function() {
         const hasTextField = !!(layer.layout && Object.prototype.hasOwnProperty.call(layer.layout, 'text-field'));
         if (!hasTextField) return;
         const id = String(layer.id || '').toLowerCase();
-        const isTownOrPlaceLabel = /(settlement|place|city|town|village|county)/.test(id);
-        if (!isTownOrPlaceLabel) return;
+        const isSettlementLabel = /(settlement|place|city|town|village|locality|hamlet)/.test(id);
+        const isCountyLabel = /(county-label|(^|[-_])county([-_]|$)|(^|[-_])counties([-_]|$))/.test(id);
+        if (!isSettlementLabel && !isCountyLabel) return;
         try {
-          map.setPaintProperty(layer.id, 'text-color', textColor);
-          map.setPaintProperty(layer.id, 'text-opacity', textOpacity);
-          map.setPaintProperty(layer.id, 'text-halo-color', haloColor);
-          map.setPaintProperty(layer.id, 'text-halo-width', haloWidth);
-          map.setPaintProperty(layer.id, 'text-halo-blur', haloBlur);
+          if (isSettlementLabel) {
+            map.setPaintProperty(layer.id, 'text-color', settlementTextColor);
+            map.setPaintProperty(layer.id, 'text-opacity', settlementTextOpacity);
+            map.setPaintProperty(layer.id, 'text-halo-color', settlementHaloColor);
+            map.setPaintProperty(layer.id, 'text-halo-width', settlementHaloWidth);
+            map.setPaintProperty(layer.id, 'text-halo-blur', settlementHaloBlur);
+          } else {
+            map.setPaintProperty(layer.id, 'text-color', countyTextColor);
+            map.setPaintProperty(layer.id, 'text-opacity', countyTextOpacity);
+            map.setPaintProperty(layer.id, 'text-halo-color', countyHaloColor);
+            map.setPaintProperty(layer.id, 'text-halo-width', countyHaloWidth);
+            map.setPaintProperty(layer.id, 'text-halo-blur', countyHaloBlur);
+          }
         } catch (_) {}
       });
     }
@@ -19111,6 +19125,5 @@ document.addEventListener('DOMContentLoaded', function() {
   </script>
 </body>
 </html>
-
 
 
