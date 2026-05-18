@@ -8619,13 +8619,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function reinforceMapLabelHalos() {
       const heavyOverlay = hasActiveContestSelection() && ((currentView === 'counties' && !precinctsEnabled) || (currentView !== 'counties'));
-      const settlementTextColor = 'rgba(15, 23, 42, 0.94)';
-      const settlementTextOpacity = heavyOverlay ? 1.0 : 0.96;
       const settlementHaloColor = heavyOverlay ? 'rgba(255, 255, 255, 0.97)' : 'rgba(255, 255, 255, 0.92)';
       const settlementHaloWidth = heavyOverlay ? 2.25 : 1.9;
       const settlementHaloBlur = heavyOverlay ? 0.7 : 0.58;
-      const countyTextColor = 'rgba(15, 23, 42, 0.96)';
-      const countyTextOpacity = 1.0;
       const countyHaloColor = heavyOverlay ? 'rgba(255, 255, 255, 0.94)' : 'rgba(255, 255, 255, 0.88)';
       const countyHaloWidth = heavyOverlay ? 2.0 : 1.7;
       const countyHaloBlur = heavyOverlay ? 0.62 : 0.52;
@@ -8644,14 +8640,10 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!isSettlementLabel && !isCountyLabel) return;
         try {
           if (isSettlementLabel) {
-            map.setPaintProperty(layer.id, 'text-color', settlementTextColor);
-            map.setPaintProperty(layer.id, 'text-opacity', settlementTextOpacity);
             map.setPaintProperty(layer.id, 'text-halo-color', settlementHaloColor);
             map.setPaintProperty(layer.id, 'text-halo-width', settlementHaloWidth);
             map.setPaintProperty(layer.id, 'text-halo-blur', settlementHaloBlur);
           } else {
-            map.setPaintProperty(layer.id, 'text-color', countyTextColor);
-            map.setPaintProperty(layer.id, 'text-opacity', countyTextOpacity);
             map.setPaintProperty(layer.id, 'text-halo-color', countyHaloColor);
             map.setPaintProperty(layer.id, 'text-halo-width', countyHaloWidth);
             map.setPaintProperty(layer.id, 'text-halo-blur', countyHaloBlur);
@@ -19125,5 +19117,4 @@ document.addEventListener('DOMContentLoaded', function() {
   </script>
 </body>
 </html>
-
 
