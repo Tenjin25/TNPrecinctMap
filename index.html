@@ -18124,10 +18124,18 @@ document.addEventListener('DOMContentLoaded', function() {
       return '#cccccc';
     }
 
+    function marginBucketValue(marginPctAbs) {
+      const n = Number(marginPctAbs);
+      if (!Number.isFinite(n)) return 0;
+      // Keep color buckets aligned with the displayed one-decimal margin label.
+      return Number(n.toFixed(1));
+    }
+
     function colorForMarginMode(marginPctAbs, winner) {
+      const bucketMargin = marginBucketValue(marginPctAbs);
       return isColorblindModeActive()
-        ? accessibilityMarginColor(marginPctAbs, winner)
-        : categoryColorForMargin(marginPctAbs, winner);
+        ? accessibilityMarginColor(bucketMargin, winner)
+        : categoryColorForMargin(bucketMargin, winner);
     }
 
     function colorForWinnerMode(winner) {
