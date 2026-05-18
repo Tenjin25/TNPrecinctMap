@@ -8618,7 +8618,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function reinforceMapLabelHalos() {
-      const heavyOverlay = hasActiveContestSelection() && ((currentView === 'counties' && !precinctsEnabled) || (currentView !== 'counties'));
+      const hasContestSelection = !!String(document.getElementById('contestSelect')?.value || '').trim();
+      const heavyOverlay = hasContestSelection && ((currentView === 'counties' && !precinctsEnabled) || (currentView !== 'counties'));
       const settlementHaloColor = heavyOverlay ? 'rgba(255, 255, 255, 0.97)' : 'rgba(255, 255, 255, 0.92)';
       const settlementHaloWidth = heavyOverlay ? 2.25 : 1.9;
       const settlementHaloBlur = heavyOverlay ? 0.7 : 0.58;
@@ -19117,4 +19118,3 @@ document.addEventListener('DOMContentLoaded', function() {
   </script>
 </body>
 </html>
-
