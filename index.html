@@ -18806,7 +18806,7 @@ document.addEventListener('DOMContentLoaded', function() {
       // Paint counties by default; when precinct overlay is enabled, reduce county opacity
       // so precinct fills/dots remain visually primary.
       if (map.getLayer('county-fill')) {
-        const countyFillOpacity = precinctsEnabled ? 0.10 : 0.82;
+        const countyFillOpacity = precinctsEnabled ? 0.18 : 0.90;
         map.setPaintProperty('county-fill', 'fill-color', expr);
         map.setPaintProperty('county-fill', 'fill-opacity', countyFillOpacity);
         updateCountyLabelHaloForFillOpacity(countyFillOpacity);
