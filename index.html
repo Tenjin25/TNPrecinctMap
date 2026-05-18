@@ -15902,7 +15902,7 @@ document.addEventListener('DOMContentLoaded', function() {
         source: 'precincts',
         minzoom: CONFIG.precincts?.minZoom || 8.5,
         layout: { visibility: 'none' },
-        paint: { 'fill-color': '#d1d5db', 'fill-opacity': 0.72 }
+        paint: { 'fill-color': '#d1d5db', 'fill-opacity': 0.76 }
       }, (baseSymbolLayerId && map.getLayer(baseSymbolLayerId)) ? baseSymbolLayerId : undefined);
       map.addLayer({
         id: 'precinct-stroke',
@@ -16147,7 +16147,7 @@ document.addEventListener('DOMContentLoaded', function() {
               8.4, 2.75
             ],
             'circle-color': '#94a3b8',
-            'circle-opacity': 0.85,
+            'circle-opacity': 0.88,
             'circle-stroke-color': 'rgba(15,23,42,0.35)',
             'circle-stroke-width': 0.5
           }
@@ -16172,7 +16172,7 @@ document.addEventListener('DOMContentLoaded', function() {
               14, 5.6
             ],
             'circle-color': '#94a3b8',
-            'circle-opacity': 0.9,
+            'circle-opacity': 0.91,
             'circle-stroke-color': 'rgba(15,23,42,0.45)',
             'circle-stroke-width': 0.75
           }
@@ -16463,7 +16463,7 @@ document.addEventListener('DOMContentLoaded', function() {
           type: 'fill',
           source: 'districts',
           beforeId: baseSymbolLayerId,
-          paint: { 'fill-color': '#e0e0e0', 'fill-opacity': 0.82 }
+          paint: { 'fill-color': '#e0e0e0', 'fill-opacity': 0.76 }
         });
         addLayerWithOptionalSourceLayer({
           id: 'district-stroke-casing',
@@ -16597,7 +16597,7 @@ document.addEventListener('DOMContentLoaded', function() {
           type: 'fill',
           source: 'state-house',
           beforeId: baseSymbolLayerId,
-          paint: { 'fill-color': '#e0e0e0', 'fill-opacity': 0.82 }
+          paint: { 'fill-color': '#e0e0e0', 'fill-opacity': 0.77 }
         });
         addLayerWithOptionalSourceLayer({
           id: 'state-house-stroke-casing',
@@ -16729,7 +16729,7 @@ document.addEventListener('DOMContentLoaded', function() {
           type: 'fill',
           source: 'state-senate',
           beforeId: baseSymbolLayerId,
-          paint: { 'fill-color': '#e0e0e0', 'fill-opacity': 0.82 }
+          paint: { 'fill-color': '#e0e0e0', 'fill-opacity': 0.77 }
         });
         addLayerWithOptionalSourceLayer({
           id: 'state-senate-stroke-casing',
