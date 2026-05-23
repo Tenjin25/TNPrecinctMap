@@ -1,0 +1,30 @@
+{
+  "source_csv": "20021105__tn__general__senate__precinct.csv",
+  "source_year": 2002,
+  "source_vintage": 2000,
+  "overlap_csv": "tn_vtd00_to_vtd20_overlap.csv",
+  "input_precinct_keys": 2303,
+  "crosswalk_rows": 9496,
+  "strict_crosswalk_rows": 8546,
+  "low_confidence_crosswalk_rows": 682,
+  "unmatched_rows": 0,
+  "method_counts": {
+    "alpha_code_name": 26,
+    "code_token_name": 871,
+    "exact_name": 1053,
+    "forced_best_name": 46,
+    "prefix_name": 52,
+    "shelby_alias_name": 4,
+    "simple_exact_name": 3,
+    "tail_exact_name": 62,
+    "tail_fuzzy_name": 125,
+    "token_vtd": 61
+  },
+  "outputs": {
+    "crosswalk_csv": "tn_precinct_to_vtd20_blockweighted_2002.csv",
+    "strict_crosswalk_csv": "tn_precinct_to_vtd20_blockweighted_2002_strict.csv",
+    "low_confidence_crosswalk_csv": "tn_precinct_to_vtd20_blockweighted_2002_low_confidence.csv",
+    "unmatched_csv": "tn_precinct_to_vtd20_blockweighted_2002_unmatched.csv",
+    "summary_json": "tn_precinct_to_vtd20_blockweighted_2002_summary.json"
+  }
+}

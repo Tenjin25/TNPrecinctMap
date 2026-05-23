@@ -1,0 +1,30 @@
+{
+  "source_csv": "20161108__tn__general__precinct.csv",
+  "source_year": 2016,
+  "source_vintage": 2010,
+  "overlap_csv": "tn_vtd10_to_vtd20_overlap.csv",
+  "input_precinct_keys": 1982,
+  "crosswalk_rows": 4507,
+  "strict_crosswalk_rows": 3998,
+  "low_confidence_crosswalk_rows": 445,
+  "unmatched_rows": 0,
+  "method_counts": {
+    "code_token_name": 235,
+    "compact_exact_name": 1,
+    "exact_name": 1555,
+    "forced_best_name": 32,
+    "prefix_name": 45,
+    "shelby_alias_name": 6,
+    "simple_exact_name": 2,
+    "tail_exact_name": 29,
+    "tail_fuzzy_name": 76,
+    "token_vtd": 1
+  },
+  "outputs": {
+    "crosswalk_csv": "tn_precinct_to_vtd20_blockweighted_2016.csv",
+    "strict_crosswalk_csv": "tn_precinct_to_vtd20_blockweighted_2016_strict.csv",
+    "low_confidence_crosswalk_csv": "tn_precinct_to_vtd20_blockweighted_2016_low_confidence.csv",
+    "unmatched_csv": "tn_precinct_to_vtd20_blockweighted_2016_unmatched.csv",
+    "summary_json": "tn_precinct_to_vtd20_blockweighted_2016_summary.json"
+  }
+}

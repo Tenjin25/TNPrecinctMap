@@ -1,0 +1,30 @@
+{
+  "source_csv": "20201103__tn__general__precinct.csv",
+  "source_year": 2020,
+  "source_vintage": 2020,
+  "overlap_csv": "tn_precinct_to_2024.csv",
+  "input_precinct_keys": 1952,
+  "crosswalk_rows": 2967,
+  "strict_crosswalk_rows": 2725,
+  "low_confidence_crosswalk_rows": 167,
+  "unmatched_rows": 0,
+  "method_counts": {
+    "code_token_name": 299,
+    "compact_exact_name": 1,
+    "exact_name": 1517,
+    "forced_best_name": 26,
+    "prefix_name": 34,
+    "shelby_alias_name": 6,
+    "simple_exact_name": 1,
+    "tail_exact_name": 30,
+    "tail_fuzzy_name": 30,
+    "token_vtd": 8
+  },
+  "outputs": {
+    "crosswalk_csv": "tn_precinct_to_vtd20_blockweighted_2020.csv",
+    "strict_crosswalk_csv": "tn_precinct_to_vtd20_blockweighted_2020_strict.csv",
+    "low_confidence_crosswalk_csv": "tn_precinct_to_vtd20_blockweighted_2020_low_confidence.csv",
+    "unmatched_csv": "tn_precinct_to_vtd20_blockweighted_2020_unmatched.csv",
+    "summary_json": "tn_precinct_to_vtd20_blockweighted_2020_summary.json"
+  }
+}
