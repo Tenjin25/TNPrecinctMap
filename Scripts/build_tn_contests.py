@@ -41,6 +41,7 @@ PRCTSEQ_TO_VTD20_OVERRIDES_CSV = DATA_DIR / "crosswalks" / "tn_prctseq_to_vtd20_
 VTD10_SHAPEFILE_ZIP = DATA_DIR / "tl_2012_47_vtd10.zip"
 VTD00_COUNTY_ZIP_DIR = DATA_DIR / "tiger2008_vtd00_counties"
 VTD20_NAME_ZIP = DATA_DIR / "tl_2020_47_vtd20.zip"
+DRA_VTD20_CATALOG_CSV = DATA_DIR / "crosswalks" / "tn_blockassign_vtd_with_names.csv"
 CONGRESSIONAL_DISTRICT_GEOJSON = DATA_DIR / "tl_2022_47_cd118.geojson"
 STATE_HOUSE_DISTRICT_GEOJSON = DATA_DIR / "tl_2022_47_sldl.geojson"
 STATE_SENATE_DISTRICT_GEOJSON = DATA_DIR / "tl_2022_47_sldu.geojson"
@@ -495,6 +496,35 @@ def load_precinct_to_2024_map() -> Dict[Tuple[int, str, str], str]:
     return out
 
 
+def load_blockweighted_strict_to_vtd20_map() -> Dict[Tuple[int, str, str], str]:
+    """Map (from_year, county_norm, from_precinct_norm) -> VTD20 from strict blockweighted crosswalks.
+
+    Uses the highest-weight row per key from files:
+      Data/crosswalks/tn_precinct_to_vtd20_blockweighted_<year>_strict.csv
+    """
+    out: Dict[Tuple[int, str, str], str] = {}
+    best_w: Dict[Tuple[int, str, str], float] = {}
+    for path in sorted((DATA_DIR / "crosswalks").glob("tn_precinct_to_vtd20_blockweighted_*_strict.csv")):
+        with path.open("r", encoding="utf-8", newline="") as f:
+            reader = csv.DictReader(f)
+            for r in reader:
+                year = int(r.get("from_year", "0") or 0)
+                county_norm = norm_county(r.get("county_norm", ""))
+                precinct_norm = norm_precinct_name(r.get("from_precinct_norm", ""))
+                dst = norm_space(r.get("dst_vtd20", ""))
+                try:
+                    w = float(r.get("weight", "0") or 0.0)
+                except ValueError:
+                    w = 0.0
+                if not (year and county_norm and precinct_norm and dst and dst.isdigit()):
+                    continue
+                key = (year, county_norm, precinct_norm)
+                if key not in out or w > best_w.get(key, -1.0):
+                    out[key] = dst.zfill(6)
+                    best_w[key] = w
+    return out
+
+
 def build_precinct_split_key_maps(
     to2024: Dict[Tuple[int, str, str], str],
 ) -> Tuple[Dict[Tuple[int, str, str], str], Dict[Tuple[str, str], str]]:
@@ -644,12 +674,25 @@ def extract_leading_precinct_code_tokens(raw: str) -> List[str]:
 
 def load_vtd20_leading_code_map() -> Dict[Tuple[str, str], List[str]]:
     """Map (countyfp, leading code like '65-E'/'65') -> VTD20 code(s)."""
-    if not VTD20_NAME_ZIP.exists():
+    out: Dict[Tuple[str, str], set] = defaultdict(set)
+    rows: List[dict] = []
+    if DRA_VTD20_CATALOG_CSV.exists():
+        with DRA_VTD20_CATALOG_CSV.open("r", encoding="utf-8-sig", newline="") as f:
+            reader = csv.DictReader(f)
+            for r in reader:
+                rows.append(
+                    {
+                        "COUNTYFP20": norm_space(str(r.get("county_fips", ""))).zfill(3),
+                        "VTDST20": norm_space(str(r.get("vtd_code", ""))),
+                        "NAME20": norm_space(str(r.get("vtd_name", ""))),
+                    }
+                )
+    elif VTD20_NAME_ZIP.exists():
+        gdf = gpd.read_file(VTD20_NAME_ZIP)
+        rows = gdf.drop(columns="geometry", errors="ignore").to_dict("records")
+    else:
         return {}
 
-    out: Dict[Tuple[str, str], set] = defaultdict(set)
-    gdf = gpd.read_file(VTD20_NAME_ZIP)
-    rows = gdf.drop(columns="geometry", errors="ignore").to_dict("records")
     for r in rows:
         countyfp = norm_space(str(r.get("COUNTYFP20", ""))).zfill(3)
         raw_code = norm_space(str(r.get("VTDST20", "")))
@@ -1498,11 +1541,26 @@ def load_vtd_name_key_map(src_year: int) -> Dict[Tuple[str, str], List[str]]:
 
 def load_vtd20_name_key_map() -> Dict[Tuple[str, str], List[str]]:
     """Map (countyfp, split_key like '01 3') -> VTD20 code(s)."""
-    if not VTD20_NAME_ZIP.exists():
-        return {}
     out: Dict[Tuple[str, str], set] = defaultdict(set)
-    gdf = gpd.read_file(VTD20_NAME_ZIP)
-    rows = gdf.drop(columns="geometry", errors="ignore").to_dict("records")
+    rows: List[dict] = []
+    if DRA_VTD20_CATALOG_CSV.exists():
+        with DRA_VTD20_CATALOG_CSV.open("r", encoding="utf-8-sig", newline="") as f:
+            reader = csv.DictReader(f)
+            for r in reader:
+                rows.append(
+                    {
+                        "COUNTYFP20": norm_space(str(r.get("county_fips", ""))).zfill(3),
+                        "VTDST20": norm_space(str(r.get("vtd_code", ""))),
+                        "NAME20": norm_space(str(r.get("vtd_name", ""))),
+                        "NAMELSAD20": norm_space(str(r.get("vtd_name", ""))),
+                    }
+                )
+    elif VTD20_NAME_ZIP.exists():
+        gdf = gpd.read_file(VTD20_NAME_ZIP)
+        rows = gdf.drop(columns="geometry", errors="ignore").to_dict("records")
+    else:
+        return {}
+
     _add_vtd_name_key_rows(
         rows=rows,
         county_col="COUNTYFP20",
@@ -1877,6 +1935,7 @@ def resolve_precinct_code(
     precinct_raw: str,
     prctseq_raw: str,
     to2024: Dict[Tuple[int, str, str], str],
+    strict_to2020: Dict[Tuple[int, str, str], str],
     to2024_split_by_year: Dict[Tuple[int, str, str], str],
     to2024_split_any_year: Dict[Tuple[str, str], str],
     to2024_fuzzy_candidates: Dict[str, List[Tuple[str, str]]],
@@ -1949,6 +2008,12 @@ def resolve_precinct_code(
     code = to2024.get((year, county_norm, prec_norm), "")
     if code:
         out = to_vtd(code)
+        if out:
+            return out
+
+    strict_code = strict_to2020.get((year, county_norm, prec_norm), "")
+    if strict_code:
+        out = to_vtd(strict_code)
         if out:
             return out
 
@@ -2029,6 +2094,7 @@ def build() -> dict:
         for label in labels
     )
     to2024 = load_precinct_to_2024_map()
+    strict_to2020 = load_blockweighted_strict_to_vtd20_map()
     to2024_split_by_year, to2024_split_any_year = build_precinct_split_key_maps(to2024)
     to2024_fuzzy_candidates = build_precinct_fuzzy_candidates(to2024)
     district_weights, county_district_weights = build_district_weight_maps()
@@ -2134,6 +2200,7 @@ def build() -> dict:
                 precinct_raw=row["precinct"],
                 prctseq_raw=row["prctseq"],
                 to2024=to2024,
+                strict_to2020=strict_to2020,
                 to2024_split_by_year=to2024_split_by_year,
                 to2024_split_any_year=to2024_split_any_year,
                 to2024_fuzzy_candidates=to2024_fuzzy_candidates,

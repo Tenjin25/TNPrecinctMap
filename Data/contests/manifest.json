@@ -1,19 +1,10 @@
 {
   "files": [
     {
-      "year": 1998,
-      "contest_type": "governor",
-      "file": "governor_1998.json",
-      "rows": 95,
-      "dem_total": 287750,
-      "rep_total": 669973,
-      "major_party_contested": true
-    },
-    {
       "year": 2002,
       "contest_type": "governor",
       "file": "governor_2002.json",
-      "rows": 2148,
+      "rows": 2140,
       "dem_total": 837004,
       "rep_total": 786349,
       "major_party_contested": true
@@ -22,7 +13,7 @@
       "year": 2006,
       "contest_type": "governor",
       "file": "governor_2006.json",
-      "rows": 2019,
+      "rows": 2015,
       "dem_total": 1245787,
       "rep_total": 539990,
       "major_party_contested": true
@@ -31,7 +22,7 @@
       "year": 2010,
       "contest_type": "governor",
       "file": "governor_2010.json",
-      "rows": 1999,
+      "rows": 1998,
       "dem_total": 529851,
       "rep_total": 1041545,
       "major_party_contested": true
@@ -40,7 +31,7 @@
       "year": 2014,
       "contest_type": "governor",
       "file": "governor_2014.json",
-      "rows": 1979,
+      "rows": 1977,
       "dem_total": 309237,
       "rep_total": 951796,
       "major_party_contested": true
@@ -67,7 +58,7 @@
       "year": 2000,
       "contest_type": "president",
       "file": "president_2000.json",
-      "rows": 2147,
+      "rows": 2144,
       "dem_total": 981424,
       "rep_total": 1061380,
       "major_party_contested": true
@@ -76,7 +67,7 @@
       "year": 2004,
       "contest_type": "president",
       "file": "president_2004.json",
-      "rows": 2151,
+      "rows": 2147,
       "dem_total": 1036477,
       "rep_total": 1384375,
       "major_party_contested": true
@@ -85,7 +76,7 @@
       "year": 2008,
       "contest_type": "president",
       "file": "president_2008.json",
-      "rows": 2017,
+      "rows": 2009,
       "dem_total": 1087437,
       "rep_total": 1479178,
       "major_party_contested": true
@@ -94,7 +85,7 @@
       "year": 2012,
       "contest_type": "president",
       "file": "president_2012.json",
-      "rows": 2001,
+      "rows": 2000,
       "dem_total": 960709,
       "rep_total": 1462330,
       "major_party_contested": true
@@ -103,7 +94,7 @@
       "year": 2016,
       "contest_type": "president",
       "file": "president_2016.json",
-      "rows": 2003,
+      "rows": 2002,
       "dem_total": 870695,
       "rep_total": 1522925,
       "major_party_contested": true
@@ -130,7 +121,7 @@
       "year": 2000,
       "contest_type": "us_senate",
       "file": "us_senate_2000.json",
-      "rows": 2147,
+      "rows": 2144,
       "dem_total": 621018,
       "rep_total": 1254881,
       "major_party_contested": true
@@ -139,7 +130,7 @@
       "year": 2002,
       "contest_type": "us_senate",
       "file": "us_senate_2002.json",
-      "rows": 2148,
+      "rows": 2140,
       "dem_total": 728118,
       "rep_total": 890901,
       "major_party_contested": true
@@ -148,7 +139,7 @@
       "year": 2006,
       "contest_type": "us_senate",
       "file": "us_senate_2006.json",
-      "rows": 2019,
+      "rows": 2015,
       "dem_total": 836827,
       "rep_total": 867405,
       "major_party_contested": true
@@ -157,7 +148,7 @@
       "year": 2008,
       "contest_type": "us_senate",
       "file": "us_senate_2008.json",
-      "rows": 2017,
+      "rows": 2009,
       "dem_total": 767236,
       "rep_total": 1579477,
       "major_party_contested": true
@@ -166,7 +157,7 @@
       "year": 2012,
       "contest_type": "us_senate",
       "file": "us_senate_2012.json",
-      "rows": 2002,
+      "rows": 2001,
       "dem_total": 705882,
       "rep_total": 1506443,
       "major_party_contested": true
@@ -175,7 +166,7 @@
       "year": 2014,
       "contest_type": "us_senate",
       "file": "us_senate_2014.json",
-      "rows": 1977,
+      "rows": 1975,
       "dem_total": 437848,
       "rep_total": 850087,
       "major_party_contested": true
@@ -209,4 +200,3 @@
     }
   ]
 }
-

@@ -1,5 +1,54 @@
 {
   "generated_by": "build_tn_contests.py",
-  "rows": [],
-  "count": 0
+  "rows": [
+    {
+      "scope": "congressional",
+      "contest_type": "president",
+      "year": 2000,
+      "county_norm": "DAVIDSON",
+      "code": "UNM-AIS",
+      "dropped_votes": 4769.0
+    },
+    {
+      "scope": "state_house",
+      "contest_type": "president",
+      "year": 2000,
+      "county_norm": "DAVIDSON",
+      "code": "UNM-AIS",
+      "dropped_votes": 4769.0
+    },
+    {
+      "scope": "state_senate",
+      "contest_type": "president",
+      "year": 2000,
+      "county_norm": "DAVIDSON",
+      "code": "UNM-AIS",
+      "dropped_votes": 4769.0
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "us_senate",
+      "year": 2000,
+      "county_norm": "DAVIDSON",
+      "code": "UNM-AIS",
+      "dropped_votes": 4537.0
+    },
+    {
+      "scope": "state_house",
+      "contest_type": "us_senate",
+      "year": 2000,
+      "county_norm": "DAVIDSON",
+      "code": "UNM-AIS",
+      "dropped_votes": 4537.0
+    },
+    {
+      "scope": "state_senate",
+      "contest_type": "us_senate",
+      "year": 2000,
+      "county_norm": "DAVIDSON",
+      "code": "UNM-AIS",
+      "dropped_votes": 4537.0
+    }
+  ],
+  "count": 6
 }
