@@ -2716,6 +2716,17 @@ body.focus-active #hover-tooltip[data-context="preview"] {
     font-weight: 800;
     letter-spacing: 0.08em;
     text-transform: uppercase;
+    box-shadow: 0 1px 0 rgba(15, 23, 42, 0.5), inset 0 0 0 1px rgba(255, 255, 255, 0.16);
+  }
+
+  .map-topbar-badge .badge-state-name {
+    color: #ffb15a;
+    text-shadow: 0 1px 0 rgba(15, 23, 42, 0.55);
+  }
+
+  .map-topbar-badge .badge-atlas-name {
+    color: #d1d5db;
+    text-shadow: 0 1px 0 rgba(15, 23, 42, 0.55);
   }
 
   .map-topbar-copy {
@@ -7355,7 +7366,7 @@ document.addEventListener('DOMContentLoaded', function() {
   <div class="desktop-ui-left">
   <div class="map-topbar" id="map-topbar">
     <div class="map-topbar-meta">
-      <div class="map-topbar-badge">Tri-Star Election Atlas</div>
+      <div class="map-topbar-badge"><span class="badge-state-name">Tri-Star</span> <span class="badge-atlas-name">Election Atlas</span></div>
       <div class="map-topbar-copy">
         <strong>Fly to a county, district, or precinct</strong>
         <span>Try Davidson, CD 5, HD 60, SD 19, or Knox 01.</span>
