@@ -67,6 +67,7 @@
     "outputs": [
       "tn_voting_precincts.geojson",
       "tn_precinct_centroids.geojson"
-    ]
+    ],
+    "source": "tn_dra_vtd20_boundaries_v07.geojson"
   }
 }

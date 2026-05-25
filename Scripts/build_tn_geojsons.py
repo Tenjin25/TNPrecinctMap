@@ -24,6 +24,7 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = ROOT / "Data"
+DRA_TN_VTD20_GEOJSON = DATA_DIR / "crosswalks" / "tn_dra_vtd20_boundaries_v07.geojson"
 
 
 def norm_text(value: str) -> str:
@@ -163,6 +164,70 @@ def load_county_name_map() -> dict:
 
 
 def build_precinct_layers(tabblocks: gpd.GeoDataFrame, summary: dict) -> None:
+    # Prefer DRA precinct geometry when available.
+    if DRA_TN_VTD20_GEOJSON.exists():
+        county_name_map = load_county_name_map()
+        dra = gpd.read_file(DRA_TN_VTD20_GEOJSON).to_crs(4326)
+        if "id" not in dra.columns:
+            raise RuntimeError("DRA precinct GeoJSON missing 'id' field")
+        dra["id_raw"] = dra["id"].astype(str).str.strip()
+        # DRA id is GEOID20: 47 + county_fips(3) + vtd_code(6)
+        dra = dra[dra["id_raw"].str.match(r"^47\d{9}$", na=False)].copy()
+        if dra.empty:
+            raise RuntimeError("No valid GEOID-like ids found in DRA precinct GeoJSON")
+        dra["countyfp"] = dra["id_raw"].str.slice(2, 5)
+        dra["prec_id"] = dra["id_raw"].str.slice(5, 11)
+        dra["county_nam"] = dra["countyfp"].map(
+            lambda fp: county_name_map.get(str(fp).zfill(3), str(fp).zfill(3))
+        )
+        precinct = dra[["county_nam", "prec_id", "geometry"]].copy()
+        precinct["county_norm"] = precinct["county_nam"].map(norm_text)
+        precinct["precinct_name"] = precinct["county_nam"] + " - " + precinct["prec_id"]
+        precinct["precinct_norm"] = precinct["precinct_name"].map(norm_text)
+        precinct["id"] = range(1, len(precinct) + 1)
+
+        precinct_out = DATA_DIR / "tn_voting_precincts.geojson"
+        write_geojson(
+            precinct[
+                [
+                    "county_nam",
+                    "county_norm",
+                    "prec_id",
+                    "precinct_name",
+                    "precinct_norm",
+                    "id",
+                    "geometry",
+                ]
+            ],
+            precinct_out,
+        )
+
+        centroid = precinct.copy()
+        centroid["geometry"] = centroid.representative_point()
+        centroid_out = DATA_DIR / "tn_precinct_centroids.geojson"
+        write_geojson(
+            centroid[
+                [
+                    "county_nam",
+                    "county_norm",
+                    "prec_id",
+                    "precinct_name",
+                    "precinct_norm",
+                    "id",
+                    "geometry",
+                ]
+            ],
+            centroid_out,
+        )
+
+        summary["precinct_layer"] = {
+            "ok": True,
+            "rows": int(len(precinct)),
+            "outputs": [precinct_out.name, centroid_out.name],
+            "source": DRA_TN_VTD20_GEOJSON.name,
+        }
+        return
+
     vtd = read_blockassign_vtd()
     county_name_map = load_county_name_map()
     blocks = tabblocks[["GEOID20", "COUNTYFP20", "geometry"]].copy()
