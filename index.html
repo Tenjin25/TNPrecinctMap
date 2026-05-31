@@ -13989,7 +13989,7 @@ document.addEventListener('DOMContentLoaded', function() {
       } catch (_) {
         demoLine = '';
       }
-      const showDemoLine = tooltipPinned || (forceTooltip && isTouchInteractionMode());
+      const showDemoLine = isMobileTooltipMode() || tooltipPinned || (forceTooltip && isTouchInteractionMode());
       if (!showDemoLine) demoLine = '';
       const splitInsightLine = '';
       const voteDelta = (() => {
@@ -14070,7 +14070,20 @@ document.addEventListener('DOMContentLoaded', function() {
         showShiftLine: currentVizMode === 'shift' && Number.isFinite(shiftDeltaForTooltip) && !!vizShiftCache?.prevYear
       });
       const copyText = `${countyDisplay} County`;
-      const votehubBody = votehubInner;
+      const detailParts = [];
+      if (deltaBlock && String(deltaBlock).trim()) detailParts.push(deltaBlock);
+      if (demoLine && String(demoLine).trim()) detailParts.push(demoLine);
+      const mobileDetails = (isMobileTooltipMode() && detailParts.length)
+        ? `
+          <details class="tooltip-more">
+            <summary>More details</summary>
+            <div class="tooltip-more-body">
+              ${detailParts.join('')}
+            </div>
+          </details>
+        `
+        : '';
+      const votehubBody = `${votehubInner}${mobileDetails}`;
       const shell = buildVotehubTooltipShell(votehubBody, { pinned: pinnedShell, copyText });
       showHoverTooltip(e.point.x, e.point.y, shell, { force: !!forceTooltip, pinned: pinnedShell, context: 'votehub-results', copyText });
       clearDesktopHoverExpandState();
