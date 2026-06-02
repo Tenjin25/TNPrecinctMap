@@ -5896,6 +5896,28 @@ body.focus-active #hover-tooltip[data-context="preview"] {
     text-transform: uppercase;
   }
 
+  .legend-context-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 0 16px 14px;
+  }
+
+  .legend-context-chip {
+    display: inline-flex;
+    align-items: center;
+    min-height: 28px;
+    padding: 0 10px;
+    border-radius: 999px;
+    background: rgba(37, 99, 235, 0.10);
+    border: 1px solid rgba(37, 99, 235, 0.18);
+    color: #1e3a8a;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+  }
+
   .legend-swatch-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
@@ -7426,6 +7448,46 @@ document.addEventListener('DOMContentLoaded', function() {
     };
   }
 
+  const popChangeMetricSelect = document.getElementById('pop-change-metric');
+    if (popChangeMetricSelect) {
+      popChangeMetricSelect.value = String(populationChangeMetric || 'pct') === 'abs' ? 'abs' : 'pct';
+      popChangeMetricSelect.addEventListener('change', function() {
+        populationChangeMetric = String(this.value || 'pct') === 'abs' ? 'abs' : 'pct';
+        const contestKey = document.getElementById('contestSelect')?.value || '';
+      if (contestKey && typeof applyContest === 'function' && currentVizMode === 'population_change') {
+        applyContest(contestKey).catch(() => {});
+      } else if (typeof renderLegendForVizMode === 'function') {
+        renderLegendForVizMode(currentVizMode || 'margins');
+      }
+      try { updatePopulationMetricLegendChip(); } catch (_) {}
+      try { saveUIState(); } catch (_) {}
+    });
+  }
+
+  const copyLinkBtn = document.getElementById('copy-link-btn');
+  if (copyLinkBtn) {
+    copyLinkBtn.addEventListener('click', async function() {
+      const url = writeURLStateFromUI();
+      try {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          await navigator.clipboard.writeText(url);
+        } else {
+          const ta = document.createElement('textarea');
+          ta.value = url;
+          ta.style.position = 'fixed';
+          ta.style.left = '-9999px';
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          ta.remove();
+        }
+        setStatus('Shareable link copied to clipboard.');
+      } catch (_) {
+        setStatus('Copy failed. Your browser may block clipboard access.');
+      }
+    });
+  }
+
   // Contest search (filters dropdown without changing the dataset).
   const contestSearch = document.getElementById('contestSearch');
   if (contestSearch && !contestSearch.dataset.wired) {
@@ -7598,6 +7660,19 @@ document.addEventListener('DOMContentLoaded', function() {
                 <button class="viz-mode-btn" data-mode="winners" type="button"><span>Winners</span></button>
                 <button class="viz-mode-btn" data-mode="shift" type="button"><span>Shift</span></button>
                 <button class="viz-mode-btn" data-mode="flips" type="button"><span>Flips</span></button>
+                <button class="viz-mode-btn" data-mode="population_change" type="button"><span>Pop Change</span></button>
+              </div>
+            </div>
+            <div class="control-group" style="margin-bottom:10px;">
+              <span class="section-kicker">Population Change</span>
+              <div class="contest-select-wrap">
+                <select id="pop-change-metric" aria-label="Population change metric">
+                  <option value="pct">Percent (2020→2025)</option>
+                  <option value="abs">Absolute count (2020→2025)</option>
+                </select>
+              </div>
+              <div style="margin-top:4px;font-size:11px;color:#6b7280;">
+                Used by Pop Change mode in county view.
               </div>
             </div>
             <div class="control-group control-group-contest">
@@ -7685,6 +7760,9 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
         </div>
         <div class="legend-footer" id="legend-footer">Darker shades indicate larger two-party leads in the current contest.</div>
+        <div class="legend-context-chips" id="legend-context-chips">
+          <span class="legend-context-chip" id="legend-popmetric-chip" title="Active population metric for Pop Change mode." style="display:none;"></span>
+        </div>
     </div>
   </div>
 
@@ -7702,6 +7780,9 @@ document.addEventListener('DOMContentLoaded', function() {
     </button>
     <button class="viz-mode-btn" data-mode="flips" id="mode-flips">
       <span>Flips</span>
+    </button>
+    <button class="viz-mode-btn" data-mode="population_change" id="mode-population-change">
+      <span>Pop Change</span>
     </button>
   </div>
 
@@ -8578,7 +8659,8 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentPrecinctResults = null; // Current contest results keyed by precinct
     let currentPrecinctMissingNorms = null; // Set<string precinct_norm> present in geometry but absent from selected contest rows.
     let precinctMatchDiagnostics = null; // Debug-only (precinct overlay): matching summary for current contest.
-    let currentVizMode = 'margins'; // 'margins', 'winners', 'shift', 'flips'
+    let currentVizMode = 'margins'; // 'margins', 'winners', 'shift', 'flips', 'population_change'
+    let populationChangeMetric = 'pct'; // 'pct' | 'abs'
     let previousElectionData = null; // For shift mode
     let precinctsEnabled = false;
     let precinctSourceLoaded = false;
@@ -8610,11 +8692,76 @@ document.addEventListener('DOMContentLoaded', function() {
     let vizPrevCache = null; // { contestType, year, prevYear, prevPrecinctMarginByNorm: Map, prevCountyTotals: Object }
     const vizPrevDistrictCache = new Map(); // key: `${scope}_${contestType}_${year}` -> { prevYear, prevNode }
     let lastContestSliceMeta = null; // { contestType, year:number, rows:Array } for sidebar helpers
+    let urlStateRestoreInFlight = false;
     // Session persistence was removed to avoid surprises on shared/low-memory machines.
     let contestSearchQuery = '';
 
+    function collectURLStateFromUI() {
+      const params = new URLSearchParams();
+      const contestValue = String(document.getElementById('contestSelect')?.value || '').trim();
+      if (contestValue) params.set('contest', contestValue);
+      if (currentView && currentView !== 'counties') params.set('view', currentView);
+      if (currentVizMode && currentVizMode !== 'margins') params.set('mode', currentVizMode);
+      if (String(populationChangeMetric || 'pct') === 'abs') params.set('popmetric', 'abs');
+      return params;
+    }
+
+    function writeURLStateFromUI() {
+      const params = collectURLStateFromUI();
+      const query = params.toString();
+      const hash = window.location.hash || '';
+      const nextUrl = `${window.location.pathname}${query ? `?${query}` : ''}${hash}`;
+      return `${window.location.origin}${nextUrl}`;
+    }
+
+    function clearURLStateFromAddressBar() {
+      try {
+        const clean = `${window.location.pathname}${window.location.hash || ''}`;
+        const current = `${window.location.pathname}${window.location.search || ''}${window.location.hash || ''}`;
+        if (clean !== current) window.history.replaceState(null, '', clean);
+      } catch (_) {}
+    }
+
     function saveUIState() {}
-    async function restoreUIState() {}
+    async function restoreUIState() {
+      if (urlStateRestoreInFlight) return;
+      urlStateRestoreInFlight = true;
+      try {
+        const params = new URLSearchParams(window.location.search || '');
+        const view = String(params.get('view') || '').trim().toLowerCase();
+        const contestValue = String(params.get('contest') || '').trim();
+        const mode = String(params.get('mode') || '').trim().toLowerCase();
+        const popMetric = String(params.get('popmetric') || '').trim().toLowerCase();
+        populationChangeMetric = popMetric === 'abs' ? 'abs' : 'pct';
+        const popMetricSelect = document.getElementById('pop-change-metric');
+        if (popMetricSelect) popMetricSelect.value = populationChangeMetric;
+
+        if (mode === 'population_change') {
+          currentVizMode = 'population_change';
+          try { updatePopulationMetricLegendChip(); } catch (_) {}
+          try { setVizModeUI(currentVizMode); } catch (_) {}
+          try { renderLegendForVizMode(currentVizMode); } catch (_) {}
+        } else if (mode && ['margins', 'winners', 'shift', 'flips'].includes(mode)) {
+          currentVizMode = mode;
+          try { setVizModeUI(currentVizMode); } catch (_) {}
+          try { renderLegendForVizMode(currentVizMode); } catch (_) {}
+        }
+
+        if (view && ['counties', 'districts', 'state_house', 'state_senate'].includes(view) && view !== currentView) {
+          try { await setMapView(view); } catch (_) {}
+        }
+
+        if (contestValue) {
+          const sel = document.getElementById('contestSelect');
+          if (sel) sel.value = contestValue;
+          if (typeof applyContest === 'function') {
+            await applyContest(contestValue).catch(() => {});
+          }
+        }
+      } finally {
+        urlStateRestoreInFlight = false;
+      }
+    }
 
     function getPreferredDistrictSlicePaths(scope, contestType, year) {
       const y = Number(year);
@@ -9648,11 +9795,22 @@ document.addEventListener('DOMContentLoaded', function() {
           <div class="legend-item"><div class="legend-color" style="background: ${colorForShiftMode(10)};"></div>R +10%</div>
           <div class="legend-item"><div class="legend-color" style="background: ${colorForShiftMode(15)};"></div>R +15%</div>
         `;
+      } else if (mode === 'population_change') {
+        const useAbs = String(populationChangeMetric || 'pct') === 'abs';
+        if (header) header.textContent = 'Population Change (2020-2025)';
+        if (subtitle) subtitle.textContent = useAbs
+          ? 'County resident population count change from April 1, 2020 to July 1, 2025 (Census Vintage 2025 estimates).'
+          : 'County resident population percent change from April 1, 2020 to July 1, 2025 (Census Vintage 2025 estimates).';
+        if (badge) badge.textContent = useAbs ? 'Pop Change (Abs)' : 'Pop Change (%)';
+        if (footer) footer.textContent = '';
+        content.innerHTML = buildPopulationChangeLegendHTML();
       } else {
         // margins (default)
         if (header) header.textContent = 'Political Categories';
         content.innerHTML = content.dataset.marginsHtml;
       }
+
+      try { updatePopulationMetricLegendChip(); } catch (_) {}
 
       // If legend recoloring is available (colorblind toggle), re-apply it.
       if (typeof window.updateLegendColors === 'function') {
@@ -12162,6 +12320,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
 
       reinforceMapLabelHalos();
+      try { updatePopulationMetricLegendChip(); } catch (_) {}
       saveUIState();
     }
 
@@ -12692,6 +12851,56 @@ document.addEventListener('DOMContentLoaded', function() {
           </div>
         </div>
       `;
+    }
+
+    function buildPopulationChangeLegendHTML() {
+      const useAbs = String(populationChangeMetric || 'pct') === 'abs';
+      const colors = useAbs
+        ? [
+            colorForPopulationChangeAbsMode(-30000),
+            colorForPopulationChangeAbsMode(-15000),
+            colorForPopulationChangeAbsMode(-4000),
+            colorForPopulationChangeAbsMode(0),
+            colorForPopulationChangeAbsMode(4000),
+            colorForPopulationChangeAbsMode(15000),
+            colorForPopulationChangeAbsMode(30000)
+          ]
+        : [
+            colorForPopulationChangeMode(-7),
+            colorForPopulationChangeMode(-3),
+            colorForPopulationChangeMode(-1),
+            colorForPopulationChangeMode(0),
+            colorForPopulationChangeMode(1),
+            colorForPopulationChangeMode(3),
+            colorForPopulationChangeMode(7)
+          ];
+      return `
+        <div class="legend-scale-shell">
+          ${buildLegendSpectrum(colors, 'shift')}
+          <div class="legend-scale-caption">
+            <span class="dem">Decline</span>
+            <span>Near flat</span>
+            <span class="rep">Growth</span>
+          </div>
+          <div class="legend-axis shift">
+            ${useAbs
+              ? '<span class="dem">-25k+</span><span class="dem">-10k</span><span class="dem">-2.5k</span><span>0</span><span>+2.5k</span><span class="rep">+10k</span><span class="rep">+25k+</span>'
+              : '<span class="dem">-5%+</span><span class="dem">-2%</span><span class="dem">-1%</span><span>0</span><span>+1%</span><span class="rep">+3%</span><span class="rep">+5%+</span>'
+            }
+          </div>
+        </div>
+      `;
+    }
+
+    function updatePopulationMetricLegendChip() {
+      const chip = document.getElementById('legend-popmetric-chip');
+      if (!chip) return;
+      const visible = currentView === 'counties' && currentVizMode === 'population_change';
+      chip.style.display = visible ? 'inline-flex' : 'none';
+      if (!visible) return;
+      const metric = String(populationChangeMetric || 'pct') === 'abs' ? 'Absolute count' : 'Percent';
+      chip.textContent = `Metric: ${metric}`;
+      chip.title = `Pop Change metric: ${metric} (2020→2025).`;
     }
 
     function renderLegendForVizMode(mode, meta = {}) {
@@ -13568,7 +13777,8 @@ document.addEventListener('DOMContentLoaded', function() {
         margins: 'Margins',
         winners: 'Winners',
         shift: 'Shift',
-        flips: 'Flips'
+        flips: 'Flips',
+        population_change: 'Pop Change'
       };
       return labels[mode] || 'Margins';
     }
@@ -18338,6 +18548,36 @@ document.addEventListener('DOMContentLoaded', function() {
       return ['#dbeafe', '#93c5fd', '#3b82f6', '#1e3a8a'][bin - 1];
     }
 
+    function colorForPopulationChangeMode(changePct) {
+      const p = Number(changePct);
+      if (!Number.isFinite(p)) return '#e5e7eb';
+      const a = Math.abs(p);
+      if (a < 0.5) return '#f8fafc';
+      const cb = isColorblindModeActive();
+      const bin = a >= 7 ? 4 : a >= 3 ? 3 : a >= 1 ? 2 : 1;
+      if (cb) {
+        if (p >= 0) return ['#dbeafe', '#93c5fd', '#3b82f6', '#1d4ed8'][bin - 1];
+        return ['#ffedd5', '#fdba74', '#f97316', '#c2410c'][bin - 1];
+      }
+      if (p >= 0) return ['#dbeafe', '#93c5fd', '#3b82f6', '#1e3a8a'][bin - 1];
+      return ['#fee2e2', '#fca5a5', '#ef4444', '#991b1b'][bin - 1];
+    }
+
+    function colorForPopulationChangeAbsMode(change) {
+      const d = Number(change);
+      if (!Number.isFinite(d)) return '#e5e7eb';
+      const a = Math.abs(d);
+      if (a < 500) return '#f8fafc';
+      const cb = isColorblindModeActive();
+      const bin = a >= 25000 ? 4 : a >= 10000 ? 3 : a >= 2500 ? 2 : 1;
+      if (cb) {
+        if (d >= 0) return ['#dbeafe', '#93c5fd', '#3b82f6', '#1d4ed8'][bin - 1];
+        return ['#ffedd5', '#fdba74', '#f97316', '#c2410c'][bin - 1];
+      }
+      if (d >= 0) return ['#dbeafe', '#93c5fd', '#3b82f6', '#1e3a8a'][bin - 1];
+      return ['#fee2e2', '#fca5a5', '#ef4444', '#991b1b'][bin - 1];
+    }
+
 	    async function tryLoadContestSliceStrict(contestType, year) {
 	      const key = `${contestType}_${year}`;
 	      try {
@@ -18867,6 +19107,55 @@ document.addEventListener('DOMContentLoaded', function() {
       let mode = (currentVizMode || 'margins');
       let prevPrecinctMarginByNorm = null; // Map<string, number>
       let prevCountyTotals = null; // Map countyNorm -> {dem, rep, total}
+
+      if (mode === 'population_change' && currentView !== 'counties') {
+        mode = 'margins';
+        currentVizMode = 'margins';
+        setVizModeUI('margins');
+        renderLegendForVizMode('margins');
+      }
+
+      if (mode === 'population_change' && currentView === 'counties') {
+        renderLegendForVizMode('population_change');
+        vizShiftCache = null;
+        const useAbs = String(populationChangeMetric || 'pct') === 'abs';
+        const countyExpr = ['case'];
+        Object.keys(countyAgg).forEach(countyName => {
+          const countyNorm = normalizeCountyName(countyName);
+          if (!countyNorm) return;
+          const est = tnCountyPopEstimates?.[countyNorm] || null;
+          if (!est) return;
+          const pop2020 = Number(est.pop_2020 || 0);
+          const pop2025 = Number(est.pop_2025 || 0);
+          const delta = pop2025 - pop2020;
+          const pct = pop2020 > 0 ? (delta / pop2020) * 100 : NaN;
+          const color = useAbs ? colorForPopulationChangeAbsMode(delta) : colorForPopulationChangeMode(pct);
+          countyExpr.push([
+            '==',
+            ['upcase', ['coalesce', ['get', 'NAME20'], ['get', 'CountyName'], ['get', 'COUNTYNAME'], ['get', 'county_nam'], ['get', 'NAME']]],
+            countyNorm
+          ]);
+          countyExpr.push(color);
+        });
+        countyExpr.push('#e2e8f0');
+
+        if (map.getLayer('county-fill')) {
+          map.setPaintProperty('county-fill', 'fill-color', countyExpr);
+        }
+        if (map.getLayer('county-stroke')) {
+          try {
+            map.setPaintProperty('county-stroke', 'line-color', '#334155');
+            map.setPaintProperty('county-stroke', 'line-width', 1);
+          } catch (_) {}
+        }
+        if (typeof applyLayerOpacityTuning === 'function') applyLayerOpacityTuning();
+        if (staleCheck()) return;
+        setStatewideContestTitle(useAbs
+          ? 'County Population Change (2020-2025, absolute)'
+          : 'County Population Change (2020-2025, percent)');
+        setStatus(`Applied county population-change mode (2020-2025, ${useAbs ? 'absolute' : 'percent'}).`);
+        return;
+      }
 
       // Keep previous-cycle county totals loaded for hover flip chips across modes.
       // Precinct-level prior margins remain opt-in for shift/flip mode to keep non-shift
