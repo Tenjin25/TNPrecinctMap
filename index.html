@@ -1580,6 +1580,67 @@ body.focus-active #hover-tooltip[data-context="preview"] {
   margin: 0;
   padding-left: 18px;
 }
+.pop-change-card {
+  margin-top: 6px;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  border-radius: 10px;
+  padding: 10px;
+  background: #f8fafc;
+}
+.pop-change-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.pop-change-title {
+  color: #0f172a;
+  font-size: 12px;
+  font-weight: 800;
+}
+.pop-change-delta {
+  color: #0f172a;
+  font-size: 12px;
+  font-weight: 800;
+}
+.pop-change-delta.positive { color: #065f46; }
+.pop-change-delta.negative { color: #991b1b; }
+.pop-change-row {
+  display: grid;
+  grid-template-columns: 44px 1fr auto;
+  align-items: center;
+  gap: 8px;
+  margin: 6px 0;
+  font-size: 12px;
+}
+.pop-change-row-year {
+  color: #475569;
+  font-weight: 700;
+}
+.pop-change-row-value {
+  color: #0f172a;
+  font-weight: 700;
+}
+.pop-change-bar {
+  width: 100%;
+  height: 8px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: #e2e8f0;
+}
+.pop-change-bar span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: #0ea5e9;
+}
+.pop-change-note {
+  margin-top: 6px;
+  color: #64748b;
+  font-size: 11.5px;
+  line-height: 1.4;
+}
 .county-cycle-list {
   display: grid;
   gap: 6px;
@@ -13659,14 +13720,14 @@ document.addEventListener('DOMContentLoaded', function() {
       return out;
     }
 
-    function buildCountyCensusTooltipHTML(countyNorm, { compact = false } = {}) {
+    function buildCountyCensusTooltipHTML(countyNorm, { compact = false, includeGrowthLine = true } = {}) {
       const snap = getCountyCensusSnapshot(countyNorm);
       if (!snap) return '';
       const lines = [];
       if (snap.p25) {
         lines.push(`<div class="meta-subtle" style="color:#94a3b8;"><strong>Census pop est (2025):</strong> ${Math.round(snap.p25).toLocaleString()}${snap.share ? ` • ${snap.share.toFixed(2)}% of Tennessee` : ''}</div>`);
       }
-      if (snap.d20_25 !== null && snap.p20_25 !== null) {
+      if (includeGrowthLine && snap.d20_25 !== null && snap.p20_25 !== null) {
         const delta = `${snap.d20_25 >= 0 ? '+' : ''}${Math.round(snap.d20_25).toLocaleString()}`;
         const pct = `${snap.p20_25 >= 0 ? '+' : ''}${snap.p20_25.toFixed(1)}%`;
         lines.push(`<div class="meta-subtle" style="color:#94a3b8;"><strong>Growth (2020→2025):</strong> ${delta} (${pct})</div>`);
@@ -13984,8 +14045,17 @@ document.addEventListener('DOMContentLoaded', function() {
       const useCompact = isMobileTooltipMode();
 
       let demoLine = '';
+      let popGrowthTopLine = '';
       try {
-        demoLine = buildCountyCensusTooltipHTML(norm);
+        const snap = getCountyCensusSnapshot(norm);
+        demoLine = buildCountyCensusTooltipHTML(norm, { compact: useCompact, includeGrowthLine: currentVizMode !== 'popgrowth' });
+        if (currentVizMode === 'popgrowth' && snap && snap.d20_25 !== null && snap.p20_25 !== null) {
+          const delta = `${snap.d20_25 >= 0 ? '+' : ''}${Math.round(snap.d20_25).toLocaleString()}`;
+          const pct = `${snap.p20_25 >= 0 ? '+' : ''}${snap.p20_25.toFixed(1)}%`;
+          const toneColor = snap.d20_25 > 0 ? '#166534' : (snap.d20_25 < 0 ? '#7c2d12' : '#334155');
+          const toneLabel = snap.d20_25 > 0 ? 'Growth' : (snap.d20_25 < 0 ? 'Decline' : 'Flat');
+          popGrowthTopLine = `<div style="margin:8px 0 10px;padding:8px 10px;border-radius:12px;background:rgba(148,163,184,0.12);border:1px solid rgba(148,163,184,0.22);font-size:14px;line-height:1.2;"><span style="font-weight:700;color:${toneColor};">${toneLabel}</span> <span style="color:${toneColor};">${delta}</span> (${pct})</div>`;
+        }
       } catch (_) {
         demoLine = '';
       }
@@ -14084,7 +14154,8 @@ document.addEventListener('DOMContentLoaded', function() {
         `
         : '';
       const votehubBody = `${votehubInner}${mobileDetails}`;
-      const shell = buildVotehubTooltipShell(votehubBody, { pinned: pinnedShell, copyText });
+      const votehubBodyWithPopGrowth = `${votehubInner}${popGrowthTopLine}${mobileDetails}`;
+      const shell = buildVotehubTooltipShell(currentVizMode === 'popgrowth' ? votehubBodyWithPopGrowth : votehubBody, { pinned: pinnedShell, copyText });
       showHoverTooltip(e.point.x, e.point.y, shell, { force: !!forceTooltip, pinned: pinnedShell, context: 'votehub-results', copyText });
       clearDesktopHoverExpandState();
       wireTooltipButtons();
@@ -15557,6 +15628,8 @@ document.addEventListener('DOMContentLoaded', function() {
       const series = Array.isArray(options?.series) ? options.series : [];
       const pendingTrend = !!options?.pendingTrend;
       const specialBuckets = Array.isArray(options?.specialBuckets) ? options.specialBuckets : [];
+      const countyNorm = normalizeRegionCountyName(countyDisplay);
+      const popEst = tnCountyPopEstimates?.[countyNorm] || null;
 
       const signedPct = signedMarginPct(repVotes, demVotes, totalVotes);
       const winnerLabel = signedPct > 0 ? 'Republican' : (signedPct < 0 ? 'Democratic' : 'Tie');
@@ -15631,6 +15704,33 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
           `);
 
+      const pop2020 = Number(popEst?.pop_2020 || 0) || 0;
+      const pop2025 = Number(popEst?.pop_2025 || 0) || 0;
+      const popDelta = (pop2020 > 0 && pop2025 > 0) ? (pop2025 - pop2020) : null;
+      const popDeltaPct = (popDelta !== null && pop2020 > 0) ? ((popDelta / pop2020) * 100.0) : null;
+      const popMax = Math.max(pop2020, pop2025, 1);
+      const popChangeHtml = (pop2020 > 0 && pop2025 > 0)
+        ? `
+          <div class="pop-change-card" aria-label="Population change 2020 to 2025">
+            <div class="pop-change-head">
+              <span class="pop-change-title">Population change (2020 to 2025)</span>
+              <span class="pop-change-delta ${popDelta >= 0 ? 'positive' : 'negative'}">${popDelta >= 0 ? '+' : '-'}${Math.abs(popDeltaPct).toFixed(1)}%</span>
+            </div>
+            <div class="pop-change-row">
+              <span class="pop-change-row-year">2020</span>
+              <div class="pop-change-bar" aria-hidden="true"><span style="width:${((pop2020 / popMax) * 100).toFixed(2)}%;"></span></div>
+              <span class="pop-change-row-value">${pop2020.toLocaleString()}</span>
+            </div>
+            <div class="pop-change-row">
+              <span class="pop-change-row-year">2025</span>
+              <div class="pop-change-bar" aria-hidden="true"><span style="width:${((pop2025 / popMax) * 100).toFixed(2)}%;"></span></div>
+              <span class="pop-change-row-value">${pop2025.toLocaleString()}</span>
+            </div>
+            <div class="pop-change-note">Net change: ${popDelta >= 0 ? '+' : '-'}${Math.abs(popDelta).toLocaleString()} people (Census CO-EST).</div>
+          </div>
+        `
+        : '';
+
       const demographicsHtml = demo
         ? `
           <div class="county-deep-dive-section">
@@ -15638,9 +15738,17 @@ document.addEventListener('DOMContentLoaded', function() {
             <p>Voting-age population (18+): ${Number(demo.vap_18plus || 0).toLocaleString()}</p>
             <p>Race/ethnicity is shown as share of total population from DP1.</p>
             <p>White ${Number(demo.white_pop_pct || 0).toFixed(1)}% • Black ${Number(demo.black_pop_pct || 0).toFixed(1)}% • Hispanic ${Number(demo.hispanic_pop_pct || 0).toFixed(1)}%</p>
+            ${popChangeHtml}
           </div>
         `
-        : '';
+        : (popChangeHtml
+          ? `
+            <div class="county-deep-dive-section">
+              <h6>Population</h6>
+              ${popChangeHtml}
+            </div>
+          `
+          : '');
 
       const bucketHtml = specialBuckets.length
         ? `
