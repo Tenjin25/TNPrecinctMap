@@ -1581,27 +1581,27 @@ body.focus-active #hover-tooltip[data-context="preview"] {
   padding-left: 18px;
 }
 .pop-change-card {
-  margin-top: 6px;
-  border: 1px solid rgba(148, 163, 184, 0.35);
-  border-radius: 10px;
-  padding: 10px;
-  background: #f8fafc;
+  margin-top: 4px;
+  border: 1px solid rgba(148, 163, 184, 0.24);
+  border-radius: 8px;
+  padding: 8px 9px;
+  background: rgba(248, 250, 252, 0.92);
 }
 .pop-change-head {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
   gap: 8px;
-  margin-bottom: 8px;
+  margin-bottom: 5px;
 }
 .pop-change-title {
   color: #0f172a;
-  font-size: 12px;
+  font-size: 11.5px;
   font-weight: 800;
 }
 .pop-change-delta {
   color: #0f172a;
-  font-size: 12px;
+  font-size: 11.5px;
   font-weight: 800;
 }
 .pop-change-delta.positive { color: #065f46; }
@@ -1611,8 +1611,8 @@ body.focus-active #hover-tooltip[data-context="preview"] {
   grid-template-columns: 44px 1fr auto;
   align-items: center;
   gap: 8px;
-  margin: 6px 0;
-  font-size: 12px;
+  margin: 4px 0;
+  font-size: 11.5px;
 }
 .pop-change-row-year {
   color: #475569;
@@ -1624,7 +1624,7 @@ body.focus-active #hover-tooltip[data-context="preview"] {
 }
 .pop-change-bar {
   width: 100%;
-  height: 8px;
+  height: 7px;
   border-radius: 999px;
   overflow: hidden;
   background: #e2e8f0;
@@ -1636,10 +1636,10 @@ body.focus-active #hover-tooltip[data-context="preview"] {
   background: #0ea5e9;
 }
 .pop-change-note {
-  margin-top: 6px;
+  margin-top: 5px;
   color: #64748b;
-  font-size: 11.5px;
-  line-height: 1.4;
+  font-size: 11px;
+  line-height: 1.3;
 }
 .county-cycle-list {
   display: grid;
@@ -5768,6 +5768,10 @@ body.focus-active #hover-tooltip[data-context="preview"] {
     gap: 10px;
   }
 
+  .legend-scale-shell.pop-change-legend {
+    gap: 8px;
+  }
+
   .legend-spectrum {
     display: grid;
     gap: 2px;
@@ -5840,6 +5844,16 @@ body.focus-active #hover-tooltip[data-context="preview"] {
 
   .legend-axis .dem {
     color: #1d4ed8;
+  }
+
+  .legend-scale-shell.pop-change-legend .legend-axis {
+    gap: 6px;
+    font-size: 9.5px;
+    letter-spacing: 0.07em;
+  }
+
+  .legend-scale-shell.pop-change-legend .legend-scale-caption span {
+    font-size: 10.5px;
   }
 
   .legend-scale-caption {
@@ -7664,15 +7678,14 @@ document.addEventListener('DOMContentLoaded', function() {
               </div>
             </div>
             <div class="control-group" style="margin-bottom:10px;">
-              <span class="section-kicker">Population Change</span>
-              <div class="contest-select-wrap">
-                <select id="pop-change-metric" aria-label="Population change metric">
+              <div class="scenario-row">
+                <label for="pop-change-metric">Pop change metric</label>
+                <select id="pop-change-metric" data-testid="pop-change-metric" aria-label="Population change metric">
                   <option value="pct">Percent (2020→2025)</option>
                   <option value="abs">Absolute count (2020→2025)</option>
                 </select>
-              </div>
-              <div style="margin-top:4px;font-size:11px;color:#6b7280;">
-                Used by Pop Change mode in county view.
+                <span class="scenario-value" aria-hidden="true"></span>
+                <div class="scenario-help">Used by Pop Change mode in county view.</div>
               </div>
             </div>
             <div class="control-group control-group-contest">
@@ -7761,7 +7774,7 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
         <div class="legend-footer" id="legend-footer">Darker shades indicate larger two-party leads in the current contest.</div>
         <div class="legend-context-chips" id="legend-context-chips">
-          <span class="legend-context-chip" id="legend-popmetric-chip" title="Active population metric for Pop Change mode." style="display:none;"></span>
+          <span class="legend-context-chip" id="legend-popmetric-chip" data-testid="legend-popmetric-chip" title="Active population metric for Pop Change mode." style="display:none;"></span>
         </div>
     </div>
   </div>
@@ -12875,7 +12888,7 @@ document.addEventListener('DOMContentLoaded', function() {
             colorForPopulationChangeMode(7)
           ];
       return `
-        <div class="legend-scale-shell">
+        <div class="legend-scale-shell pop-change-legend">
           ${buildLegendSpectrum(colors, 'shift')}
           <div class="legend-scale-caption">
             <span class="dem">Decline</span>
@@ -18625,8 +18638,8 @@ document.addEventListener('DOMContentLoaded', function() {
         if (p >= 0) return ['#dbeafe', '#93c5fd', '#3b82f6', '#1d4ed8'][bin - 1];
         return ['#ffedd5', '#fdba74', '#f97316', '#c2410c'][bin - 1];
       }
-      if (p >= 0) return ['#dbeafe', '#93c5fd', '#3b82f6', '#1e3a8a'][bin - 1];
-      return ['#fee2e2', '#fca5a5', '#ef4444', '#991b1b'][bin - 1];
+      if (p >= 0) return ['#a9d6a5', '#52b788', '#2d6a4f', '#1b7f4a'][bin - 1];
+      return ['#b08968', '#8c613c', '#6f4e37', '#5a3b1f'][bin - 1];
     }
 
     function colorForPopulationChangeAbsMode(change) {
@@ -18640,8 +18653,8 @@ document.addEventListener('DOMContentLoaded', function() {
         if (d >= 0) return ['#dbeafe', '#93c5fd', '#3b82f6', '#1d4ed8'][bin - 1];
         return ['#ffedd5', '#fdba74', '#f97316', '#c2410c'][bin - 1];
       }
-      if (d >= 0) return ['#dbeafe', '#93c5fd', '#3b82f6', '#1e3a8a'][bin - 1];
-      return ['#fee2e2', '#fca5a5', '#ef4444', '#991b1b'][bin - 1];
+      if (d >= 0) return ['#a9d6a5', '#52b788', '#2d6a4f', '#1b7f4a'][bin - 1];
+      return ['#b08968', '#8c613c', '#6f4e37', '#5a3b1f'][bin - 1];
     }
 
 	    async function tryLoadContestSliceStrict(contestType, year) {
@@ -19203,7 +19216,7 @@ document.addEventListener('DOMContentLoaded', function() {
           ]);
           countyExpr.push(color);
         });
-        countyExpr.push('#e2e8f0');
+        countyExpr.push('#e0e0e0');
 
         if (map.getLayer('county-fill')) {
           map.setPaintProperty('county-fill', 'fill-color', countyExpr);
@@ -19214,7 +19227,6 @@ document.addEventListener('DOMContentLoaded', function() {
             map.setPaintProperty('county-stroke', 'line-width', 1);
           } catch (_) {}
         }
-        if (typeof applyLayerOpacityTuning === 'function') applyLayerOpacityTuning();
         if (staleCheck()) return;
         setStatewideContestTitle(useAbs
           ? 'County Population Change (2020-2025, absolute)'
