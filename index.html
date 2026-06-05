@@ -31326,7 +31326,8 @@ document.addEventListener('DOMContentLoaded', function() {
       const dom = classifyDemographicDominance(whitePct, blackPct, hispanicPct, nativePct, asianPct, pacificPct, multiracialPct);
       if (!dom || dom.key === 'unknown') return { key: 'unknown', label: 'No dominant group', relation: 'none', pct: null };
       if (dom.key === 'mixed') return { key: 'mixed', label: 'Mixed / near tie', relation: 'mixed', pct: dom.pct };
-      const relation = Number(dom.pct) >= 50 ? 'majority' : 'plurality';
+      const pct = Number(dom.pct);
+      const relation = pct >= 50 ? 'majority' : (pct >= 40 ? 'plurality' : 'leading');
       const labelBase = `${dom.key.charAt(0).toUpperCase()}${dom.key.slice(1)}`;
       return { key: dom.key, pct: dom.pct, relation, label: `${labelBase} ${relation}` };
     }
