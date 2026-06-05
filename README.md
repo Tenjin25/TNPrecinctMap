@@ -83,6 +83,12 @@ When available, the county delta block includes:
 - **Population change (2020→2025)** plus optional **2020→2024** and **2024→2025** lines (U.S. Census County Population Estimates / CO-EST).
 - **Vote deltas vs the previous available cycle → current** for the active contest (R delta, D delta, total vote gain).
 
+### Tooltip + Demographics Polish
+
+- The desktop county population-change hover now uses a more card-like, NCMap-style treatment so the headline change and the 2020→2025 context read more cleanly at a glance.
+- Demographics labels now distinguish between **majority** and **plurality** when a group is over or under 50 percent, with a separate mixed / near-tie label for close splits.
+- County demographics hover cards now surface the dominant group label directly, which makes the map easier to scan without opening the deeper details panel.
+
 ## What Was Upgraded
 
 The county-detail experience was upgraded to a story-first, election-desk standard with stronger hierarchy, clearer context, and better scanability.

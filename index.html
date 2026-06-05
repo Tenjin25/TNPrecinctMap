@@ -3235,6 +3235,16 @@ body.focus-active #hover-tooltip[data-context="preview"] {
     color: #cbd5e1;
   }
 
+  .hover-tooltip .demo-hover-dominance {
+    margin-top: 6px;
+    margin-bottom: 2px;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #e2e8f0;
+  }
+
   .hover-tooltip .demo-race-label {
     color: #e2e8f0;
   }
@@ -3283,6 +3293,67 @@ body.focus-active #hover-tooltip[data-context="preview"] {
   .hover-tooltip .demo-race-chip.unknown {
     background: rgba(71, 85, 105, 0.56);
     color: #e2e8f0;
+  }
+
+  .hover-tooltip .tooltip-popchange-card {
+    margin: 0 0 8px 0;
+    padding: 10px 12px;
+    border-radius: 12px;
+    border: 1px solid rgba(148, 163, 184, 0.34);
+    background:
+      linear-gradient(180deg, rgba(255,255,255,0.08), rgba(15,23,42,0.03)),
+      rgba(15, 23, 42, 0.06);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.12);
+  }
+
+  .hover-tooltip .tooltip-popchange-card[data-tone="gain"] {
+    border-left: 3px solid #16a34a;
+  }
+
+  .hover-tooltip .tooltip-popchange-card[data-tone="loss"] {
+    border-left: 3px solid #b45309;
+  }
+
+  .hover-tooltip .tooltip-popchange-card[data-tone="flat"] {
+    border-left: 3px solid #475569;
+  }
+
+  .hover-tooltip .tooltip-popchange-kicker {
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #94a3b8;
+    margin-bottom: 4px;
+  }
+
+  .hover-tooltip .tooltip-popchange-metric {
+    font-size: 12.5px;
+    font-weight: 900;
+    color: #e2e8f0;
+    line-height: 1.25;
+  }
+
+  .hover-tooltip .tooltip-popchange-raw {
+    margin-top: 4px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #cbd5e1;
+    line-height: 1.3;
+  }
+
+  .hover-tooltip .tooltip-popchange-tag {
+    margin-top: 6px;
+    display: inline-flex;
+    align-items: center;
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #0f172a;
+    background: rgba(226, 232, 240, 0.9);
   }
 
   .result-card .rc-top {
@@ -19812,6 +19883,15 @@ document.addEventListener('DOMContentLoaded', function() {
       const cvap = countyNorm ? getCvapCountyTotal(countyNorm) : null;
       const metricValue = Number.isFinite(Number(cvap)) ? Number(cvap) : vap;
       const metricLabel = Number.isFinite(Number(cvap)) ? 'CVAP (18+):' : 'VAP (18+):';
+      const dominant = describeDemographicDominance(
+        demo.white_pop_pct,
+        demo.black_pop_pct,
+        demo.hispanic_pop_pct,
+        demo.native_pop_pct,
+        demo.asian_pop_pct,
+        demo.pacific_pop_pct,
+        demo.multiracial_pop_pct
+      );
       const races = buildRaceChipRowHTML(
         demo.white_pop_pct,
         demo.black_pop_pct,
@@ -19826,6 +19906,7 @@ document.addEventListener('DOMContentLoaded', function() {
       return `
         <div class="demo-hover-card">
           <div class="demo-hover-metric">${metricLabel} ${Math.round(metricValue).toLocaleString()}</div>
+          <div class="demo-hover-dominance">${escapeHtml(dominant.label)}</div>
           ${races}
           <div class="demo-hover-note">${Number.isFinite(Number(cvap)) ? 'CVAP totals from ACS special tabulation (2020–2024). ' : ''}Race/ethnicity reflects total population (DP1), not VAP-by-race.</div>
         </div>
@@ -20591,15 +20672,20 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function buildDemographicsLegendHTML() {
+      const legendLabel = (name, sampleArgs) => {
+        const dom = describeDemographicDominance(...sampleArgs);
+        if (dom.key === 'mixed') return 'Mixed / near tie';
+        return `${name} ${dom.relation}`;
+      };
       return `
         <div class="legend-swatch-grid">
-          <div class="legend-swatch-card"><span class="legend-color" style="background: ${colorForDemographicsMode(60, 20, 20)};"></span><span>White plurality</span></div>
-          <div class="legend-swatch-card"><span class="legend-color" style="background: ${colorForDemographicsMode(20, 60, 20)};"></span><span>Black plurality</span></div>
-          <div class="legend-swatch-card"><span class="legend-color" style="background: ${colorForDemographicsMode(20, 20, 60)};"></span><span>Hispanic plurality</span></div>
-          <div class="legend-swatch-card"><span class="legend-color" style="background: ${colorForDemographicsMode(20, 20, 20, 60)};"></span><span>Native plurality</span></div>
-          <div class="legend-swatch-card"><span class="legend-color" style="background: ${colorForDemographicsMode(20, 20, 20, 20, 60)};"></span><span>Asian plurality</span></div>
-          <div class="legend-swatch-card"><span class="legend-color" style="background: ${colorForDemographicsMode(20, 20, 20, 20, 20, 60, 20)};"></span><span>Pacific plurality</span></div>
-          <div class="legend-swatch-card"><span class="legend-color" style="background: ${colorForDemographicsMode(20, 20, 20, 20, 20, 20, 60)};"></span><span>Multiracial plurality</span></div>
+          <div class="legend-swatch-card"><span class="legend-color" style="background: ${colorForDemographicsMode(60, 20, 20)};"></span><span>${legendLabel('White', [60, 20, 20])}</span></div>
+          <div class="legend-swatch-card"><span class="legend-color" style="background: ${colorForDemographicsMode(20, 60, 20)};"></span><span>${legendLabel('Black', [20, 60, 20])}</span></div>
+          <div class="legend-swatch-card"><span class="legend-color" style="background: ${colorForDemographicsMode(20, 20, 60)};"></span><span>${legendLabel('Hispanic', [20, 20, 60])}</span></div>
+          <div class="legend-swatch-card"><span class="legend-color" style="background: ${colorForDemographicsMode(20, 20, 20, 60)};"></span><span>${legendLabel('Native', [20, 20, 20, 60])}</span></div>
+          <div class="legend-swatch-card"><span class="legend-color" style="background: ${colorForDemographicsMode(20, 20, 20, 20, 60)};"></span><span>${legendLabel('Asian', [20, 20, 20, 20, 60])}</span></div>
+          <div class="legend-swatch-card"><span class="legend-color" style="background: ${colorForDemographicsMode(20, 20, 20, 20, 20, 60, 20)};"></span><span>${legendLabel('Pacific', [20, 20, 20, 20, 20, 60, 20])}</span></div>
+          <div class="legend-swatch-card"><span class="legend-color" style="background: ${colorForDemographicsMode(20, 20, 20, 20, 20, 20, 60)};"></span><span>${legendLabel('Multiracial', [20, 20, 20, 20, 20, 20, 60])}</span></div>
           <div class="legend-swatch-card"><span class="legend-color" style="background: ${colorForDemographicsMode(35, 35, 30)};"></span><span>Near tie / mixed</span></div>
           <div class="legend-swatch-card"><span class="legend-color" style="background: ${colorForDemographicsMode(null, null, null, null, null, null, null)};"></span><span>No demographic data</span></div>
         </div>
@@ -25368,15 +25454,19 @@ document.addEventListener('DOMContentLoaded', function() {
         };
       })();
       const popChangeToneColor = popChangeHeaderMeta?.tone === 'gain'
-        ? '#166534'
-        : (popChangeHeaderMeta?.tone === 'loss' ? '#7c2d12' : '#334155');
+        ? '#15803d'
+        : (popChangeHeaderMeta?.tone === 'loss' ? '#b45309' : '#475569');
       const popChangeTopLine = (() => {
         if (!popChangeHeaderMeta) return '';
+        const metricLine = String(populationChangeMetric || 'pct') === 'abs'
+          ? `Population change: ${popChangeHeaderMeta.raw}`
+          : popChangeHeaderMeta.line;
         return `
-          <div class="tooltip-insight" style="margin:0 0 8px 0;padding:8px 10px;border-radius:10px;background:rgba(15,23,42,0.06);border:1px solid rgba(148,163,184,0.35);">
-            <strong style="color:${popChangeToneColor};">${escapeHtml(popChangeHeaderMeta.line)}</strong><br>
-            <span style="color:${popChangeToneColor};">${escapeHtml(popChangeHeaderMeta.raw)}</span><br>
-            <span style="color:${popChangeToneColor};font-size:11px;font-weight:700;">${escapeHtml(popChangeHeaderMeta.label)}</span>
+          <div class="tooltip-popchange-card" data-tone="${escapeHtml(popChangeHeaderMeta.tone)}">
+            <div class="tooltip-popchange-kicker">Population change</div>
+            <div class="tooltip-popchange-metric" style="color:${popChangeToneColor};">${escapeHtml(metricLine)}</div>
+            <div class="tooltip-popchange-raw" style="color:${popChangeToneColor};">${escapeHtml(popChangeHeaderMeta.raw)}</div>
+            <div class="tooltip-popchange-tag">${escapeHtml(popChangeHeaderMeta.label)}</div>
           </div>
         `.trim();
       })();
@@ -31230,6 +31320,15 @@ document.addEventListener('DOMContentLoaded', function() {
         return { key: 'mixed', pct: Number(top.value) };
       }
       return { key: top.key, pct: Number(top.value) };
+    }
+
+    function describeDemographicDominance(whitePct, blackPct, hispanicPct, nativePct = null, asianPct = null, pacificPct = null, multiracialPct = null) {
+      const dom = classifyDemographicDominance(whitePct, blackPct, hispanicPct, nativePct, asianPct, pacificPct, multiracialPct);
+      if (!dom || dom.key === 'unknown') return { key: 'unknown', label: 'No dominant group', relation: 'none', pct: null };
+      if (dom.key === 'mixed') return { key: 'mixed', label: 'Mixed / near tie', relation: 'mixed', pct: dom.pct };
+      const relation = Number(dom.pct) >= 50 ? 'majority' : 'plurality';
+      const labelBase = `${dom.key.charAt(0).toUpperCase()}${dom.key.slice(1)}`;
+      return { key: dom.key, pct: dom.pct, relation, label: `${labelBase} ${relation}` };
     }
 
     function colorForDemographicsMode(whitePct, blackPct, hispanicPct, nativePct = null, asianPct = null, pacificPct = null, multiracialPct = null) {
