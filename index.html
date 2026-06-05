@@ -10081,8 +10081,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Cache destroyer token for static data requests.
     // Bump this value when you want browsers/CDNs to fetch fresh files immediately.
-    const DATA_CACHE_BUSTER = '2026-06-05-3';
-    const APP_BUILD_ID = '2026-06-05-3';
+    const DATA_CACHE_BUSTER = '2026-06-05-4';
+    const APP_BUILD_ID = '2026-06-05-4';
 
     function withCacheBuster(path) {
       const p = (path || '').toString().trim();
@@ -20019,7 +20019,9 @@ document.addEventListener('DOMContentLoaded', function() {
         ? 'near tie'
         : dominant.relation === 'none'
           ? 'unavailable'
-          : dominant.relation;
+          : dominant.relation === 'majority'
+            ? '50%+'
+            : '<50%';
       const races = buildRaceChipRowHTML(
         demo.white_pop_pct,
         demo.black_pop_pct,
@@ -20809,7 +20811,8 @@ document.addEventListener('DOMContentLoaded', function() {
           return '<span class="legend-demo-label"><span class="legend-demo-name">Mixed / near tie</span><span class="legend-demo-relation mixed">Mixed</span></span>';
         }
         const relationClass = dom.relation === 'majority' ? 'majority' : 'plurality';
-        return `<span class="legend-demo-label"><span class="legend-demo-name">${escapeHtml(name)}</span><span class="legend-demo-relation ${relationClass}">${escapeHtml(dom.relation)}</span></span>`;
+        const relationText = dom.relation === 'majority' ? '50%+' : '<50%';
+        return `<span class="legend-demo-label"><span class="legend-demo-name">${escapeHtml(name)}</span><span class="legend-demo-relation ${relationClass}">${escapeHtml(relationText)}</span></span>`;
       };
       return `
         <div class="legend-swatch-grid">
