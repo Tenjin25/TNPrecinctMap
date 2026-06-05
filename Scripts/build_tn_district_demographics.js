@@ -10,6 +10,23 @@ function readJson(relPath) {
   return JSON.parse(fs.readFileSync(path.join(root, relPath), 'utf8'));
 }
 
+function readCsv(relPath) {
+  const text = fs.readFileSync(path.join(root, relPath), 'utf8').trim();
+  if (!text) return [];
+  const lines = text.split(/\r?\n/);
+  const headers = lines.shift().split(',').map((h) => h.trim());
+  return lines
+    .filter((line) => line.trim().length > 0)
+    .map((line) => {
+      const cols = line.split(',');
+      const row = {};
+      headers.forEach((header, idx) => {
+        row[header] = (cols[idx] || '').trim();
+      });
+      return row;
+    });
+}
+
 function ensureDir(dirPath) {
   fs.mkdirSync(dirPath, { recursive: true });
 }
@@ -110,6 +127,70 @@ function buildPrecinctCvapMap() {
   return out;
 }
 
+function buildCountyDemographics(countyPopulationRows, precinctCvapMap) {
+  const countyPopByName = new Map();
+  for (const row of countyPopulationRows || []) {
+    const county = normalizeCountyName(row.county_name);
+    if (!county) continue;
+    countyPopByName.set(county, numeric(row.pop_2025));
+  }
+
+  const totalsByCounty = new Map();
+  for (const [precinctKey, cvap] of precinctCvapMap.entries()) {
+    const county = normalizeCountyName(String(precinctKey || '').split(' - ', 1)[0]);
+    if (!county) continue;
+    if (!totalsByCounty.has(county)) {
+      totalsByCounty.set(county, {
+        county,
+        total_population: 0,
+        vap_18plus: 0,
+        white_vap: 0,
+        black_vap: 0,
+        hispanic_vap: 0,
+        native_vap: 0,
+        asian_vap: 0,
+        pacific_vap: 0,
+        multiracial_vap: 0,
+      });
+    }
+    const row = totalsByCounty.get(county);
+    row.total_population += numeric(cvap.cvap_tot);
+    row.vap_18plus += numeric(cvap.cvap_tot);
+    row.white_vap += numeric(cvap.cvap_wht);
+    row.black_vap += numeric(cvap.cvap_bla);
+    row.hispanic_vap += numeric(cvap.cvap_hsp);
+    row.native_vap += numeric(cvap.cvap_ami);
+    row.asian_vap += numeric(cvap.cvap_asi);
+    row.multiracial_vap += numeric(cvap.cvap_2om);
+    row.pacific_vap += numeric(cvap.cvap_pac);
+  }
+
+  const counties = {};
+  Array.from(totalsByCounty.values())
+    .sort((a, b) => a.county.localeCompare(b.county))
+    .forEach((row) => {
+      const popEstimate = countyPopByName.get(row.county) || row.total_population;
+      const vap = numeric(row.vap_18plus);
+      counties[row.county] = {
+        county: row.county,
+        total_population: Math.round(popEstimate),
+        vap_18plus: Math.round(vap),
+        white_pop_pct: vap > 0 ? round((row.white_vap / vap) * 100) : 0,
+        black_pop_pct: vap > 0 ? round((row.black_vap / vap) * 100) : 0,
+        hispanic_pop_pct: vap > 0 ? round((row.hispanic_vap / vap) * 100) : 0,
+        native_pop_pct: vap > 0 ? round((row.native_vap / vap) * 100) : 0,
+        asian_pop_pct: vap > 0 ? round((row.asian_vap / vap) * 100) : 0,
+        pacific_pop_pct: vap > 0 ? round((row.pacific_vap / vap) * 100) : 0,
+        multiracial_pop_pct: vap > 0 ? round((row.multiracial_vap / vap) * 100) : 0,
+      };
+    });
+
+  return {
+    source: 'precinct_cvap_aggregation_with_2025_county_population_estimates',
+    counties,
+  };
+}
+
 function buildPrecinctCentroids() {
   const centroids = readJson('Data/tn_precinct_centroids_dra_v07.geojson');
   return (centroids.features || []).map((feature) => ({
@@ -194,6 +275,7 @@ function main() {
   ensureDir(cvapDir);
   const precinctCvapMap = buildPrecinctCvapMap();
   const precinctCentroids = buildPrecinctCentroids();
+  const countyPopulationRows = readCsv('Data/CO-EST2025-POP-47.cleaned.csv');
 
   const specs = [
     {
@@ -258,6 +340,13 @@ function main() {
       writeCsv(outPath, cvapRows, ['district', 'CVAP_TOT24']);
     }
   }
+
+  const countyDemographics = buildCountyDemographics(countyPopulationRows, precinctCvapMap);
+  fs.writeFileSync(
+    path.join(dataDir, 'county_demographics_2020_dp1.json'),
+    `${JSON.stringify(countyDemographics, null, 2)}\n`,
+    'utf8'
+  );
 
   console.log('Built Tennessee district demographic tables and CVAP aggregates.');
 }
