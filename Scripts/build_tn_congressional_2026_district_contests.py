@@ -326,6 +326,40 @@ def build_congressional_2026():
       results = {}
       dem_total = 0
       rep_total = 0
+      alloc = statewide_alloc_stats.get(("congressional", contest_type, year))
+      coverage_pct = 100.0
+      direct_row_pct = 0.0
+      overlap_row_pct = 0.0
+      non_geo_row_pct = 0.0
+      county_fallback_row_pct = 0.0
+      dropped_row_pct = 0.0
+      direct_vote_pct = 0.0
+      overlap_vote_pct = 0.0
+      non_geo_vote_pct = 0.0
+      county_fallback_vote_pct = 0.0
+      dropped_vote_pct = 0.0
+      if alloc:
+        rows_total = float(alloc["rows"])
+        votes_total = float(alloc["votes_total"])
+        votes_alloc = float(
+          alloc["votes_direct"]
+          + alloc["votes_overlap"]
+          + alloc["votes_non_geo"]
+          + alloc["votes_fallback"]
+        )
+        if rows_total > 0:
+          direct_row_pct = (float(alloc["direct_rows"]) / rows_total) * 100.0
+          overlap_row_pct = (float(alloc["overlap_rows"]) / rows_total) * 100.0
+          non_geo_row_pct = (float(alloc["non_geo_rows"]) / rows_total) * 100.0
+          county_fallback_row_pct = (float(alloc["county_fallback_rows"]) / rows_total) * 100.0
+          dropped_row_pct = (float(alloc["dropped_rows"]) / rows_total) * 100.0
+        if votes_total > 0:
+          coverage_pct = (votes_alloc / votes_total) * 100.0
+          direct_vote_pct = (float(alloc["votes_direct"]) / votes_total) * 100.0
+          overlap_vote_pct = (float(alloc["votes_overlap"]) / votes_total) * 100.0
+          non_geo_vote_pct = (float(alloc["votes_non_geo"]) / votes_total) * 100.0
+          county_fallback_vote_pct = (float(alloc["votes_fallback"]) / votes_total) * 100.0
+          dropped_vote_pct = (float(alloc["votes_dropped"]) / votes_total) * 100.0
       for district in sorted(dmap.keys(), key=lambda d: int(d)):
         row = dmap[district].as_district_result()
         results[str(int(district))] = row
@@ -339,6 +373,17 @@ def build_congressional_2026():
         "year": year,
         "meta": {
           "source": "tn_precinct_csv_district_aggregation_2026_lines",
+          "match_coverage_pct": round(coverage_pct, 4),
+          "direct_precinct_row_pct": round(direct_row_pct, 4),
+          "overlap_precinct_row_pct": round(overlap_row_pct, 4),
+          "non_geo_row_pct": round(non_geo_row_pct, 4),
+          "county_fallback_row_pct": round(county_fallback_row_pct, 4),
+          "dropped_row_pct": round(dropped_row_pct, 4),
+          "direct_precinct_vote_pct": round(direct_vote_pct, 4),
+          "overlap_precinct_vote_pct": round(overlap_vote_pct, 4),
+          "non_geo_vote_pct": round(non_geo_vote_pct, 4),
+          "county_fallback_vote_pct": round(county_fallback_vote_pct, 4),
+          "dropped_vote_pct": round(dropped_vote_pct, 4),
           "districts": len(results),
         },
         "general": {"results": results},

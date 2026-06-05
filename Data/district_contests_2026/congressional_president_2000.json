@@ -4,6 +4,17 @@
   "year": 2000,
   "meta": {
     "source": "tn_precinct_csv_district_aggregation_2026_lines",
+    "match_coverage_pct": 99.0934,
+    "direct_precinct_row_pct": 88.4332,
+    "overlap_precinct_row_pct": 0.8938,
+    "non_geo_row_pct": 9.1483,
+    "county_fallback_row_pct": 0.0,
+    "dropped_row_pct": 1.5247,
+    "direct_precinct_vote_pct": 83.2062,
+    "overlap_precinct_vote_pct": 0.5236,
+    "non_geo_vote_pct": 15.3636,
+    "county_fallback_vote_pct": 0.0,
+    "dropped_vote_pct": 0.9066,
     "districts": 9
   },
   "general": {
