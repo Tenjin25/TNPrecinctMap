@@ -11429,6 +11429,9 @@ document.addEventListener('DOMContentLoaded', function() {
         out.push(`${calibrated2020Dir}/${key}.json`);
       }
       if (baseDir) out.push(`${baseDir}/${key}.json`);
+      if (ly === 2026 && scope === 'congressional' && contestType === 'us_house' && CONFIG.paths?.district_contests_dir) {
+        out.push(`${CONFIG.paths.district_contests_dir}/${key}.json`);
+      }
 
       return Array.from(new Set(out));
     }
@@ -11451,6 +11454,11 @@ document.addEventListener('DOMContentLoaded', function() {
           merged.push(entry);
         };
         m2026.filter(e => (e?.scope || '').toString().trim() === 'congressional').forEach(add);
+        m2024.filter(e => {
+          const s = (e?.scope || '').toString().trim();
+          const contest = (e?.contest_type || '').toString().trim();
+          return s === 'congressional' && contest === 'us_house';
+        }).forEach(add);
         m2024.filter(e => {
           const s = (e?.scope || '').toString().trim();
           return s === 'state_house' || s === 'state_senate';

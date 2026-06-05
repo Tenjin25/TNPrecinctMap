@@ -3,6 +3,7 @@
 
 Outputs (under Data/):
   - tl_2022_47_cd118.geojson
+  - tl_2026_47_cd2026.geojson
   - tl_2022_47_sldl.geojson
   - tl_2022_47_sldu.geojson
   - tl_2020_47_county20.geojson
@@ -46,6 +47,7 @@ def write_geojson(gdf: gpd.GeoDataFrame, out_path: Path) -> None:
 def convert_district_layers(summary: dict) -> None:
     jobs = [
         ("tl_2022_47_cd118.zip", "tl_2022_47_cd118.geojson"),
+        ("NewCongressional26.zip", "tl_2026_47_cd2026.geojson"),
         ("tl_2022_47_sldl.zip", "tl_2022_47_sldl.geojson"),
         ("tl_2022_47_sldu.zip", "tl_2022_47_sldu.geojson"),
     ]

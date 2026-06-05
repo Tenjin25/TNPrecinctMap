@@ -1,0 +1,112 @@
+{
+  "scope": "congressional",
+  "contest_type": "us_senate",
+  "year": 2008,
+  "meta": {
+    "source": "tn_precinct_csv_district_aggregation_2026_lines",
+    "districts": 9
+  },
+  "general": {
+    "results": {
+      "1": {
+        "dem_votes": 53586,
+        "rep_votes": 207528,
+        "other_votes": 7572,
+        "total_votes": 268686,
+        "dem_candidate": "Robert DTuke",
+        "rep_candidate": "Lamar Alexander",
+        "margin": 153942,
+        "margin_pct": 57.2944,
+        "winner": "REP"
+      },
+      "2": {
+        "dem_votes": 63039,
+        "rep_votes": 196387,
+        "other_votes": 8290,
+        "total_votes": 267716,
+        "dem_candidate": "Robert DTuke",
+        "rep_candidate": "Lamar Alexander",
+        "margin": 133348,
+        "margin_pct": 49.8095,
+        "winner": "REP"
+      },
+      "3": {
+        "dem_votes": 78909,
+        "rep_votes": 198408,
+        "other_votes": 7149,
+        "total_votes": 284466,
+        "dem_candidate": "Robert DTuke",
+        "rep_candidate": "Lamar Alexander",
+        "margin": 119499,
+        "margin_pct": 42.0082,
+        "winner": "REP"
+      },
+      "4": {
+        "dem_votes": 83051,
+        "rep_votes": 141394,
+        "other_votes": 9273,
+        "total_votes": 233718,
+        "dem_candidate": "Robert DTuke",
+        "rep_candidate": "Lamar Alexander",
+        "margin": 58343,
+        "margin_pct": 24.963,
+        "winner": "REP"
+      },
+      "5": {
+        "dem_votes": 112835,
+        "rep_votes": 151861,
+        "other_votes": 9590,
+        "total_votes": 274286,
+        "dem_candidate": "Robert DTuke",
+        "rep_candidate": "Lamar Alexander",
+        "margin": 39026,
+        "margin_pct": 14.2282,
+        "winner": "REP"
+      },
+      "6": {
+        "dem_votes": 86757,
+        "rep_votes": 152421,
+        "other_votes": 10302,
+        "total_votes": 249480,
+        "dem_candidate": "Robert DTuke",
+        "rep_candidate": "Lamar Alexander",
+        "margin": 65664,
+        "margin_pct": 26.3203,
+        "winner": "REP"
+      },
+      "7": {
+        "dem_votes": 84271,
+        "rep_votes": 157601,
+        "other_votes": 9283,
+        "total_votes": 251155,
+        "dem_candidate": "Robert DTuke",
+        "rep_candidate": "Lamar Alexander",
+        "margin": 73330,
+        "margin_pct": 29.1971,
+        "winner": "REP"
+      },
+      "8": {
+        "dem_votes": 85026,
+        "rep_votes": 201709,
+        "other_votes": 7167,
+        "total_votes": 293902,
+        "dem_candidate": "Robert DTuke",
+        "rep_candidate": "Lamar Alexander",
+        "margin": 116683,
+        "margin_pct": 39.7013,
+        "winner": "REP"
+      },
+      "9": {
+        "dem_votes": 115000,
+        "rep_votes": 156861,
+        "other_votes": 8558,
+        "total_votes": 280419,
+        "dem_candidate": "Robert DTuke",
+        "rep_candidate": "Lamar Alexander",
+        "margin": 41861,
+        "margin_pct": 14.928,
+        "winner": "REP"
+      }
+    }
+  }
+}

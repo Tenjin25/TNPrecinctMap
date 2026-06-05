@@ -1,0 +1,112 @@
+{
+  "scope": "congressional",
+  "contest_type": "governor",
+  "year": 2002,
+  "meta": {
+    "source": "tn_precinct_csv_district_aggregation_2026_lines",
+    "districts": 9
+  },
+  "general": {
+    "results": {
+      "1": {
+        "dem_votes": 76854,
+        "rep_votes": 106292,
+        "other_votes": 1887,
+        "total_votes": 185033,
+        "dem_candidate": "Phil Bredesen",
+        "rep_candidate": "Van Hilleary",
+        "margin": 29438,
+        "margin_pct": 15.9096,
+        "winner": "REP"
+      },
+      "2": {
+        "dem_votes": 88123,
+        "rep_votes": 94149,
+        "other_votes": 1287,
+        "total_votes": 183559,
+        "dem_candidate": "Phil Bredesen",
+        "rep_candidate": "Van Hilleary",
+        "margin": 6026,
+        "margin_pct": 3.2829,
+        "winner": "REP"
+      },
+      "3": {
+        "dem_votes": 89885,
+        "rep_votes": 99716,
+        "other_votes": 1606,
+        "total_votes": 191207,
+        "dem_candidate": "Phil Bredesen",
+        "rep_candidate": "Van Hilleary",
+        "margin": 9831,
+        "margin_pct": 5.1415,
+        "winner": "REP"
+      },
+      "4": {
+        "dem_votes": 74923,
+        "rep_votes": 62758,
+        "other_votes": 1736,
+        "total_votes": 139417,
+        "dem_candidate": "Phil Bredesen",
+        "rep_candidate": "Van Hilleary",
+        "margin": -12165,
+        "margin_pct": -8.7256,
+        "winner": "DEM"
+      },
+      "5": {
+        "dem_votes": 107418,
+        "rep_votes": 69739,
+        "other_votes": 2516,
+        "total_votes": 179673,
+        "dem_candidate": "Phil Bredesen",
+        "rep_candidate": "Van Hilleary",
+        "margin": -37679,
+        "margin_pct": -20.9709,
+        "winner": "DEM"
+      },
+      "6": {
+        "dem_votes": 121702,
+        "rep_votes": 93948,
+        "other_votes": 4493,
+        "total_votes": 220143,
+        "dem_candidate": "Phil Bredesen",
+        "rep_candidate": "Van Hilleary",
+        "margin": -27754,
+        "margin_pct": -12.6073,
+        "winner": "DEM"
+      },
+      "7": {
+        "dem_votes": 81301,
+        "rep_votes": 65831,
+        "other_votes": 2558,
+        "total_votes": 149690,
+        "dem_candidate": "Phil Bredesen",
+        "rep_candidate": "Van Hilleary",
+        "margin": -15470,
+        "margin_pct": -10.3347,
+        "winner": "DEM"
+      },
+      "8": {
+        "dem_votes": 87343,
+        "rep_votes": 104384,
+        "other_votes": 2157,
+        "total_votes": 193884,
+        "dem_candidate": "Phil Bredesen",
+        "rep_candidate": "Van Hilleary",
+        "margin": 17041,
+        "margin_pct": 8.7893,
+        "winner": "REP"
+      },
+      "9": {
+        "dem_votes": 107976,
+        "rep_votes": 87898,
+        "other_votes": 2369,
+        "total_votes": 198243,
+        "dem_candidate": "Phil Bredesen",
+        "rep_candidate": "Van Hilleary",
+        "margin": -20078,
+        "margin_pct": -10.128,
+        "winner": "DEM"
+      }
+    }
+  }
+}

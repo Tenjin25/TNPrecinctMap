@@ -1,0 +1,112 @@
+{
+  "scope": "congressional",
+  "contest_type": "governor",
+  "year": 2022,
+  "meta": {
+    "source": "tn_precinct_csv_district_aggregation_2026_lines",
+    "districts": 9
+  },
+  "general": {
+    "results": {
+      "1": {
+        "dem_votes": 36469,
+        "rep_votes": 144871,
+        "other_votes": 3882,
+        "total_votes": 185222,
+        "dem_candidate": "Jason Brantley Martin",
+        "rep_candidate": "Bill Lee",
+        "margin": 108402,
+        "margin_pct": 58.5254,
+        "winner": "REP"
+      },
+      "2": {
+        "dem_votes": 61302,
+        "rep_votes": 126299,
+        "other_votes": 3589,
+        "total_votes": 191190,
+        "dem_candidate": "Jason Brantley Martin",
+        "rep_candidate": "Bill Lee",
+        "margin": 64997,
+        "margin_pct": 33.996,
+        "winner": "REP"
+      },
+      "3": {
+        "dem_votes": 58648,
+        "rep_votes": 139400,
+        "other_votes": 4211,
+        "total_votes": 202259,
+        "dem_candidate": "Jason Brantley Martin",
+        "rep_candidate": "Bill Lee",
+        "margin": 80752,
+        "margin_pct": 39.925,
+        "winner": "REP"
+      },
+      "4": {
+        "dem_votes": 54019,
+        "rep_votes": 96109,
+        "other_votes": 3564,
+        "total_votes": 153692,
+        "dem_candidate": "Jason Brantley Martin",
+        "rep_candidate": "Bill Lee",
+        "margin": 42090,
+        "margin_pct": 27.3859,
+        "winner": "REP"
+      },
+      "5": {
+        "dem_votes": 33629,
+        "rep_votes": 97899,
+        "other_votes": 2927,
+        "total_votes": 134455,
+        "dem_candidate": "Jason Brantley Martin",
+        "rep_candidate": "Bill Lee",
+        "margin": 64270,
+        "margin_pct": 47.8004,
+        "winner": "REP"
+      },
+      "6": {
+        "dem_votes": 72265,
+        "rep_votes": 121062,
+        "other_votes": 4507,
+        "total_votes": 197834,
+        "dem_candidate": "Jason Brantley Martin",
+        "rep_candidate": "Bill Lee",
+        "margin": 48797,
+        "margin_pct": 24.6656,
+        "winner": "REP"
+      },
+      "7": {
+        "dem_votes": 74796,
+        "rep_votes": 116091,
+        "other_votes": 4715,
+        "total_votes": 195602,
+        "dem_candidate": "Jason Brantley Martin",
+        "rep_candidate": "Bill Lee",
+        "margin": 41295,
+        "margin_pct": 21.1117,
+        "winner": "REP"
+      },
+      "8": {
+        "dem_votes": 83840,
+        "rep_votes": 93506,
+        "other_votes": 4437,
+        "total_votes": 181783,
+        "dem_candidate": "Jason Brantley Martin",
+        "rep_candidate": "Bill Lee",
+        "margin": 9666,
+        "margin_pct": 5.3173,
+        "winner": "REP"
+      },
+      "9": {
+        "dem_votes": 42578,
+        "rep_votes": 108617,
+        "other_votes": 3149,
+        "total_votes": 154344,
+        "dem_candidate": "Jason Brantley Martin",
+        "rep_candidate": "Bill Lee",
+        "margin": 66039,
+        "margin_pct": 42.7869,
+        "winner": "REP"
+      }
+    }
+  }
+}

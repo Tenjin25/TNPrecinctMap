@@ -1,0 +1,112 @@
+{
+  "scope": "congressional",
+  "contest_type": "president",
+  "year": 2016,
+  "meta": {
+    "source": "tn_precinct_csv_district_aggregation_2026_lines",
+    "districts": 9
+  },
+  "general": {
+    "results": {
+      "1": {
+        "dem_votes": 53249,
+        "rep_votes": 208983,
+        "other_votes": 10743,
+        "total_votes": 272975,
+        "dem_candidate": "Hillary Clinton",
+        "rep_candidate": "Donald J. Trump",
+        "margin": 155734,
+        "margin_pct": 57.0506,
+        "winner": "REP"
+      },
+      "2": {
+        "dem_votes": 81126,
+        "rep_votes": 175333,
+        "other_votes": 15714,
+        "total_votes": 272173,
+        "dem_candidate": "Hillary Clinton",
+        "rep_candidate": "Donald J. Trump",
+        "margin": 94207,
+        "margin_pct": 34.6129,
+        "winner": "REP"
+      },
+      "3": {
+        "dem_votes": 86274,
+        "rep_votes": 186801,
+        "other_votes": 14543,
+        "total_votes": 287618,
+        "dem_candidate": "Hillary Clinton",
+        "rep_candidate": "Donald J. Trump",
+        "margin": 100527,
+        "margin_pct": 34.9516,
+        "winner": "REP"
+      },
+      "4": {
+        "dem_votes": 90847,
+        "rep_votes": 139370,
+        "other_votes": 12343,
+        "total_votes": 242560,
+        "dem_candidate": "Hillary Clinton",
+        "rep_candidate": "Donald J. Trump",
+        "margin": 48523,
+        "margin_pct": 20.0045,
+        "winner": "REP"
+      },
+      "5": {
+        "dem_votes": 115599,
+        "rep_votes": 140827,
+        "other_votes": 10883,
+        "total_votes": 267309,
+        "dem_candidate": "Hillary Clinton",
+        "rep_candidate": "Donald J. Trump",
+        "margin": 25228,
+        "margin_pct": 9.4378,
+        "winner": "REP"
+      },
+      "6": {
+        "dem_votes": 98374,
+        "rep_votes": 162013,
+        "other_votes": 13673,
+        "total_votes": 274060,
+        "dem_candidate": "Hillary Clinton",
+        "rep_candidate": "Donald J. Trump",
+        "margin": 63639,
+        "margin_pct": 23.2208,
+        "winner": "REP"
+      },
+      "7": {
+        "dem_votes": 101065,
+        "rep_votes": 157397,
+        "other_votes": 13630,
+        "total_votes": 272092,
+        "dem_candidate": "Hillary Clinton",
+        "rep_candidate": "Donald J. Trump",
+        "margin": 56332,
+        "margin_pct": 20.7033,
+        "winner": "REP"
+      },
+      "8": {
+        "dem_votes": 111509,
+        "rep_votes": 174900,
+        "other_votes": 11636,
+        "total_votes": 298045,
+        "dem_candidate": "Hillary Clinton",
+        "rep_candidate": "Donald J. Trump",
+        "margin": 63391,
+        "margin_pct": 21.2689,
+        "winner": "REP"
+      },
+      "9": {
+        "dem_votes": 119912,
+        "rep_votes": 144256,
+        "other_votes": 9048,
+        "total_votes": 273216,
+        "dem_candidate": "Hillary Clinton",
+        "rep_candidate": "Donald J. Trump",
+        "margin": 24344,
+        "margin_pct": 8.9102,
+        "winner": "REP"
+      }
+    }
+  }
+}
