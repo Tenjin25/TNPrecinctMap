@@ -25217,8 +25217,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const demo = countyDemographics?.counties?.[norm] || null;
         demoLine = buildCountyDemographicsHoverHTML(demo, norm);
       } catch (_) {}
-      const showDemoLine = (currentVizMode === 'demographics') || tooltipPinned || (forceTooltip && isTouchInteractionMode());
-      if (!showDemoLine) demoLine = '';
 
       const chips = [];
       let prevSignedForFlip = null;
@@ -25408,11 +25406,11 @@ document.addEventListener('DOMContentLoaded', function() {
         ${flipLine}
         ${deltaBlock}
         ${splitInsightLine}
-        ${demoLine}
       `.trim();
       const inner = `
         ${popChangeTopLine}
         ${votehubCore}
+        ${demoLine ? `<div class="tooltip-insight" style="font-weight:800;letter-spacing:0.01em;">County demographics</div>${demoLine}` : ''}
         <details class="tooltip-more" aria-label="More details">
           <summary>More details</summary>
           <div class="tooltip-more-body">${detailLines}</div>
