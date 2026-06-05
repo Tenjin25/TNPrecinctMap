@@ -11417,6 +11417,12 @@ document.addEventListener('DOMContentLoaded', function() {
       return null;
     }
 
+    function isModelLikeContestType(contestType) {
+      const ct = String(contestType || '').trim().toLowerCase();
+      if (!ct) return false;
+      return ct.includes('modeled') || /(^|_)model($|_)/.test(ct);
+    }
+
     // --- Modeled contest signature + derived slice helpers ---
     // Signature is used to cache modeled results across contest switches and tuning changes.
     function modeledStableStringify(value) {
@@ -18396,6 +18402,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	        const year = Number(entry.year);
 	        const rows = Number(entry.rows || entry.districts || 0) || 0;
 	        if (!contestType || rows <= 0) return;
+          if (isModelLikeContestType(contestType)) return;
 
           // Hide older judicial contests until we have reliable D/R-alignment (endorsement) data.
           // Older appellate judicial races can read as nonpartisan "OTHER" without endorsement mapping.
@@ -18483,6 +18490,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	        og.label = label;
 
 	        items.forEach(item => {
+            if (isModelLikeContestType(item.contestType)) return;
 	          const opt = document.createElement('option');
 	          opt.value = `${item.contestType}_${item.year}`;
             const modeledDef = getModeledContestDefinition(item.contestType, item.year);
@@ -18582,7 +18590,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	        'insurance_commissioner',
 	        'agriculture_commissioner',
 	        'superintendent'
-	      ];
+	      ].filter(contestType => !isModelLikeContestType(contestType));
       // Precompute contest/year pairs in a single pass
       const contestYearPairs = {};
       csvData.forEach(row => {
