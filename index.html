@@ -3236,13 +3236,69 @@ body.focus-active #hover-tooltip[data-context="preview"] {
   }
 
   .hover-tooltip .demo-hover-dominance {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
     margin-top: 6px;
     margin-bottom: 2px;
-    font-size: 11px;
+    padding: 4px 8px;
+    border-radius: 999px;
+    font-size: 10px;
     font-weight: 900;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
     color: #e2e8f0;
+    background: rgba(30, 41, 59, 0.46);
+    border: 1px solid rgba(148, 163, 184, 0.22);
+  }
+
+  .hover-tooltip .demo-hover-dominance.majority {
+    background: rgba(8, 145, 178, 0.30);
+    border-color: rgba(125, 211, 252, 0.34);
+    box-shadow: inset 0 0 0 1px rgba(125, 211, 252, 0.14), 0 6px 14px rgba(8, 145, 178, 0.10);
+  }
+
+  .hover-tooltip .demo-hover-dominance.plurality {
+    background: rgba(255, 247, 237, 0.10);
+    border-color: rgba(251, 146, 60, 0.52);
+  }
+
+  .hover-tooltip .demo-hover-dominance.mixed {
+    background: rgba(71, 85, 105, 0.34);
+    border-color: rgba(148, 163, 184, 0.28);
+  }
+
+  .demo-hover-dominance-name {
+    white-space: nowrap;
+  }
+
+  .demo-hover-dominance-relation {
+    padding: 2px 7px;
+    border-radius: 999px;
+    font-size: 9px;
+    line-height: 1.2;
+    letter-spacing: 0.08em;
+    color: #0f172a;
+    background: rgba(255, 255, 255, 0.84);
+  }
+
+  .demo-hover-dominance.majority .demo-hover-dominance-relation {
+    background: rgba(236, 253, 245, 0.98);
+    color: #075985;
+    font-weight: 900;
+    box-shadow: 0 0 0 1px rgba(125, 211, 252, 0.12);
+  }
+
+  .demo-hover-dominance.plurality .demo-hover-dominance-relation {
+    background: transparent;
+    color: #fdba74;
+    font-weight: 800;
+    border: 1px solid rgba(251, 146, 60, 0.44);
+  }
+
+  .demo-hover-dominance.mixed .demo-hover-dominance-relation {
+    background: rgba(226, 232, 240, 0.96);
+    color: #334155;
   }
 
   .hover-tooltip .demo-race-label {
@@ -7084,6 +7140,67 @@ body.focus-active #hover-tooltip[data-context="preview"] {
     line-height: 1.3;
   }
 
+  .legend-swatch-card.demo-majority {
+    border-color: rgba(8, 145, 178, 0.26);
+    background: linear-gradient(180deg, rgba(240, 249, 255, 0.98), rgba(255, 255, 255, 0.88));
+  }
+
+  .legend-swatch-card.demo-plurality {
+    border-color: rgba(251, 146, 60, 0.22);
+    background: linear-gradient(180deg, rgba(255, 247, 237, 0.98), rgba(255, 255, 255, 0.88));
+  }
+
+  .legend-swatch-card.demo-mixed {
+    border-color: rgba(100, 116, 139, 0.24);
+    background: linear-gradient(180deg, rgba(248, 250, 252, 0.98), rgba(255, 255, 255, 0.88));
+  }
+
+  .legend-demo-label {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+    min-width: 0;
+  }
+
+  .legend-demo-name {
+    min-width: 0;
+  }
+
+  .legend-demo-relation {
+    display: inline-flex;
+    align-items: center;
+    padding: 2px 7px;
+    border-radius: 999px;
+    font-size: 9px;
+    line-height: 1.2;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    border: 1px solid transparent;
+  }
+
+  .legend-demo-relation.majority {
+    color: #075985;
+    background: rgba(224, 242, 254, 0.98);
+    border-color: rgba(125, 211, 252, 0.68);
+    font-weight: 900;
+    box-shadow: 0 0 0 1px rgba(125, 211, 252, 0.08);
+  }
+
+  .legend-demo-relation.plurality {
+    color: #c2410c;
+    background: rgba(255, 247, 237, 0.18);
+    border-color: rgba(251, 146, 60, 0.56);
+    font-weight: 800;
+  }
+
+  .legend-demo-relation.mixed {
+    color: #334155;
+    background: rgba(226, 232, 240, 0.96);
+    border-color: rgba(148, 163, 184, 0.58);
+  }
+
   .legend-swatch-card .legend-color {
     width: 16px;
     height: 16px;
@@ -9964,8 +10081,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Cache destroyer token for static data requests.
     // Bump this value when you want browsers/CDNs to fetch fresh files immediately.
-    const DATA_CACHE_BUSTER = '2026-06-05-1';
-    const APP_BUILD_ID = '2026-06-05-1';
+    const DATA_CACHE_BUSTER = '2026-06-05-3';
+    const APP_BUILD_ID = '2026-06-05-3';
 
     function withCacheBuster(path) {
       const p = (path || '').toString().trim();
@@ -19892,6 +20009,17 @@ document.addEventListener('DOMContentLoaded', function() {
         demo.pacific_pop_pct,
         demo.multiracial_pop_pct
       );
+      const dominantRelationClass = dominant.relation === 'majority' ? 'majority' : dominant.relation === 'plurality' ? 'plurality' : 'mixed';
+      const dominantName = dominant.key === 'mixed'
+        ? 'Mixed'
+        : dominant.key === 'unknown'
+          ? 'No dominant group'
+          : `${dominant.key.charAt(0).toUpperCase()}${dominant.key.slice(1)}`;
+      const dominantRelationLabel = dominant.relation === 'mixed'
+        ? 'near tie'
+        : dominant.relation === 'none'
+          ? 'unavailable'
+          : dominant.relation;
       const races = buildRaceChipRowHTML(
         demo.white_pop_pct,
         demo.black_pop_pct,
@@ -19906,7 +20034,10 @@ document.addEventListener('DOMContentLoaded', function() {
       return `
         <div class="demo-hover-card">
           <div class="demo-hover-metric">${metricLabel} ${Math.round(metricValue).toLocaleString()}</div>
-          <div class="demo-hover-dominance">${escapeHtml(dominant.label)}</div>
+          <div class="demo-hover-dominance ${dominantRelationClass}">
+            <span class="demo-hover-dominance-name">${escapeHtml(dominantName)}</span>
+            <span class="demo-hover-dominance-relation">${escapeHtml(dominantRelationLabel)}</span>
+          </div>
           ${races}
           <div class="demo-hover-note">${Number.isFinite(Number(cvap)) ? 'CVAP totals from ACS special tabulation (2020–2024). ' : ''}Race/ethnicity reflects county VAP-by-race shares, not total population.</div>
         </div>
@@ -20674,19 +20805,22 @@ document.addEventListener('DOMContentLoaded', function() {
     function buildDemographicsLegendHTML() {
       const legendLabel = (name, sampleArgs) => {
         const dom = describeDemographicDominance(...sampleArgs);
-        if (dom.key === 'mixed') return 'Mixed / near tie';
-        return `${name} ${dom.relation}`;
+        if (dom.key === 'mixed') {
+          return '<span class="legend-demo-label"><span class="legend-demo-name">Mixed / near tie</span><span class="legend-demo-relation mixed">Mixed</span></span>';
+        }
+        const relationClass = dom.relation === 'majority' ? 'majority' : 'plurality';
+        return `<span class="legend-demo-label"><span class="legend-demo-name">${escapeHtml(name)}</span><span class="legend-demo-relation ${relationClass}">${escapeHtml(dom.relation)}</span></span>`;
       };
       return `
         <div class="legend-swatch-grid">
-          <div class="legend-swatch-card"><span class="legend-color" style="background: ${colorForDemographicsMode(60, 20, 20)};"></span><span>${legendLabel('White', [60, 20, 20])}</span></div>
-          <div class="legend-swatch-card"><span class="legend-color" style="background: ${colorForDemographicsMode(20, 60, 20)};"></span><span>${legendLabel('Black', [20, 60, 20])}</span></div>
-          <div class="legend-swatch-card"><span class="legend-color" style="background: ${colorForDemographicsMode(20, 20, 60)};"></span><span>${legendLabel('Hispanic', [20, 20, 60])}</span></div>
-          <div class="legend-swatch-card"><span class="legend-color" style="background: ${colorForDemographicsMode(20, 20, 20, 60)};"></span><span>${legendLabel('Native', [20, 20, 20, 60])}</span></div>
-          <div class="legend-swatch-card"><span class="legend-color" style="background: ${colorForDemographicsMode(20, 20, 20, 20, 60)};"></span><span>${legendLabel('Asian', [20, 20, 20, 20, 60])}</span></div>
-          <div class="legend-swatch-card"><span class="legend-color" style="background: ${colorForDemographicsMode(20, 20, 20, 20, 20, 60, 20)};"></span><span>${legendLabel('Pacific', [20, 20, 20, 20, 20, 60, 20])}</span></div>
-          <div class="legend-swatch-card"><span class="legend-color" style="background: ${colorForDemographicsMode(20, 20, 20, 20, 20, 20, 60)};"></span><span>${legendLabel('Multiracial', [20, 20, 20, 20, 20, 20, 60])}</span></div>
-          <div class="legend-swatch-card"><span class="legend-color" style="background: ${colorForDemographicsMode(35, 35, 30)};"></span><span>Near tie / mixed</span></div>
+          <div class="legend-swatch-card demo-majority"><span class="legend-color" style="background: ${colorForDemographicsMode(60, 20, 20)};"></span><span>${legendLabel('White', [60, 20, 20])}</span></div>
+          <div class="legend-swatch-card demo-plurality"><span class="legend-color" style="background: ${colorForDemographicsMode(20, 60, 20)};"></span><span>${legendLabel('Black', [20, 60, 20])}</span></div>
+          <div class="legend-swatch-card demo-plurality"><span class="legend-color" style="background: ${colorForDemographicsMode(20, 20, 60)};"></span><span>${legendLabel('Hispanic', [20, 20, 60])}</span></div>
+          <div class="legend-swatch-card demo-plurality"><span class="legend-color" style="background: ${colorForDemographicsMode(20, 20, 20, 60)};"></span><span>${legendLabel('Native', [20, 20, 20, 60])}</span></div>
+          <div class="legend-swatch-card demo-plurality"><span class="legend-color" style="background: ${colorForDemographicsMode(20, 20, 20, 20, 60)};"></span><span>${legendLabel('Asian', [20, 20, 20, 20, 60])}</span></div>
+          <div class="legend-swatch-card demo-plurality"><span class="legend-color" style="background: ${colorForDemographicsMode(20, 20, 20, 20, 20, 60, 20)};"></span><span>${legendLabel('Pacific', [20, 20, 20, 20, 20, 60, 20])}</span></div>
+          <div class="legend-swatch-card demo-plurality"><span class="legend-color" style="background: ${colorForDemographicsMode(20, 20, 20, 20, 20, 20, 60)};"></span><span>${legendLabel('Multiracial', [20, 20, 20, 20, 20, 20, 60])}</span></div>
+          <div class="legend-swatch-card demo-mixed"><span class="legend-color" style="background: ${colorForDemographicsMode(35, 35, 30)};"></span><span><span class="legend-demo-label"><span class="legend-demo-name">Near tie / mixed</span><span class="legend-demo-relation mixed">Mixed</span></span></span></div>
           <div class="legend-swatch-card"><span class="legend-color" style="background: ${colorForDemographicsMode(null, null, null, null, null, null, null)};"></span><span>No demographic data</span></div>
         </div>
       `;
@@ -31326,7 +31460,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const pct = Number(dom.pct);
       const relation = pct >= 50 ? 'majority' : 'plurality';
       const labelBase = `${dom.key.charAt(0).toUpperCase()}${dom.key.slice(1)}`;
-      return { key: dom.key, pct: dom.pct, relation, label: `${labelBase} ${relation}` };
+      return { key: dom.key, pct: dom.pct, relation, name: labelBase, label: `${labelBase} ${relation}` };
     }
 
     function colorForDemographicsMode(whitePct, blackPct, hispanicPct, nativePct = null, asianPct = null, pacificPct = null, multiracialPct = null) {
