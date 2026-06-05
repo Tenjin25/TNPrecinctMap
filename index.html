@@ -25461,10 +25461,10 @@ document.addEventListener('DOMContentLoaded', function() {
       const popChangeTopLine = (() => {
         if (!popChangeHeaderMeta) return '';
         return `
-          <div class="tooltip-insight" style="margin:0 0 8px 0;padding:8px 10px;border-radius:10px;background:rgba(15,23,42,0.06);border:1px solid rgba(148,163,184,0.35);">
-            <strong style="color:${popChangeToneColor};">${escapeHtml(popChangeHeaderMeta.line)}</strong><br>
-            <span style="color:${popChangeToneColor};">${escapeHtml(popChangeHeaderMeta.raw)}</span><br>
-            <span style="color:${popChangeToneColor};font-size:11px;font-weight:700;">${escapeHtml(popChangeHeaderMeta.label)}</span>
+          <div class="tooltip-insight" style="margin:0 0 6px 0;padding:6px 8px;border-radius:9px;background:rgba(15,23,42,0.045);border:1px solid rgba(148,163,184,0.28);line-height:1.25;">
+            <strong style="color:${popChangeToneColor};font-size:12px;font-weight:850;">${escapeHtml(popChangeHeaderMeta.line)}</strong><br>
+            <span style="color:${popChangeToneColor};font-size:11px;font-weight:650;">${escapeHtml(popChangeHeaderMeta.raw)}</span><br>
+            <span style="color:${popChangeToneColor};font-size:10.5px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;">${escapeHtml(popChangeHeaderMeta.label)}</span>
           </div>
         `.trim();
       })();
