@@ -10469,7 +10469,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let stateHouseInfo = null;
     let stateSenateInfo = null;
     let districtDescriptions = null; // Optional labels like "Sampson & Bladen Counties" or "Concord–Harrisburg"
-    let countyDemographics = null; // County-level VAP (18+) + total-pop race/ethnicity from DP1 (includes AIAN/native)
+    let countyDemographics = null; // County-level VAP (18+) + county VAP race shares aggregated from precinct CVAP
     let countyPopulationEstimatesByNorm = null; // Map<string countyNorm, growth/estimate summary from Vintage 2025 county estimates>
     let countyPopulationEstimateStatewide = null; // Statewide NC summary from the same file
 
@@ -19908,7 +19908,7 @@ document.addEventListener('DOMContentLoaded', function() {
           <div class="demo-hover-metric">${metricLabel} ${Math.round(metricValue).toLocaleString()}</div>
           <div class="demo-hover-dominance">${escapeHtml(dominant.label)}</div>
           ${races}
-          <div class="demo-hover-note">${Number.isFinite(Number(cvap)) ? 'CVAP totals from ACS special tabulation (2020–2024). ' : ''}Race/ethnicity reflects total population (DP1), not VAP-by-race.</div>
+          <div class="demo-hover-note">${Number.isFinite(Number(cvap)) ? 'CVAP totals from ACS special tabulation (2020–2024). ' : ''}Race/ethnicity reflects county VAP-by-race shares, not total population.</div>
         </div>
       `;
     }
@@ -20774,8 +20774,8 @@ document.addEventListener('DOMContentLoaded', function() {
         if (badge) badge.textContent = demographicsHighContrastEnabled ? 'Demographics HC' : 'Demographics';
         if (footer) {
           footer.textContent = demographicsHighContrastEnabled
-            ? 'High-contrast colors enabled. County shares use DP1 total population; district/precinct shares use available VAP race fields.'
-            : 'County shares use DP1 total population; district/precinct shares use available VAP race fields.';
+            ? 'High-contrast colors enabled. County shares use county VAP race shares; district/precinct shares use available VAP race fields.'
+            : 'County shares use county VAP race shares; district/precinct shares use available VAP race fields.';
         }
         content.innerHTML = buildDemographicsLegendHTML();
       } else if (mode === 'population_change') {
@@ -27164,7 +27164,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   } catch (_) {}
 
-  // County demographics (DP1-derived: VAP 18+ + total-pop race/ethnicity shares).
+  // County demographics (county VAP 18+ + county VAP race shares aggregated from precinct CVAP).
   let demoHtml = '';
   try {
     const demo = countyDemographics?.counties?.[norm] || null;
@@ -27182,7 +27182,7 @@ document.addEventListener('DOMContentLoaded', function() {
         { extraClass: 'sidebar-demo-race-row' }
       );
       demoHtml += `<p class="sidebar-breakdown"><b>VAP (18+):</b> ${escapeHtml(Number(demo.vap_18plus || 0).toLocaleString())}</p>`;
-      demoHtml += `<p class="sidebar-margin-details" style="margin-top:6px;">Race/ethnicity shown is total population (DP1), not VAP-by-race.</p>`;
+      demoHtml += `<p class="sidebar-margin-details" style="margin-top:6px;">Race/ethnicity shown is county VAP-by-race shares, not total population.</p>`;
       if (demoRaceChips) demoHtml += demoRaceChips;
     }
   } catch (_) {}
@@ -30897,7 +30897,7 @@ document.addEventListener('DOMContentLoaded', function() {
         districtDescriptions = null;
       }
 
-      // Optional county demographics (DP1-derived) for sidebar/tooltips.
+      // Optional county demographics (county VAP shares) for sidebar/tooltips.
       try {
         countyDemographics = await loadJSON(CONFIG.paths.county_demographics);
       } catch (err) {

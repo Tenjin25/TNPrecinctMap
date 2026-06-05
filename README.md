@@ -86,8 +86,8 @@ When available, the county delta block includes:
 ### Tooltip + Demographics Polish
 
 - The desktop county population-change hover now uses a more card-like, NCMap-style treatment so the headline change and the 2020→2025 context read more cleanly at a glance.
-- Demographics labels now distinguish between **majority** and **plurality** when a group is over or under 50 percent, with a separate mixed / near-tie label for close splits.
-- County demographics hover cards now surface the dominant group label directly, which makes the map easier to scan without opening the deeper details panel.
+- Demographics labels now distinguish between **majority**, **plurality**, and **leading** based on the top share, with a separate mixed / near-tie label for close splits.
+- County demographics hover cards now surface the dominant group label directly, and the county share copy now correctly describes the data as county VAP race shares rather than total population.
 
 ## What Was Upgraded
 
