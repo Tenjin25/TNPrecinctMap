@@ -9264,6 +9264,34 @@ document.addEventListener('DOMContentLoaded', function() {
       try { saveUIState(); } catch (_) {}
     });
   }
+  const scenarioScopeSelect = document.getElementById('scenario-scope');
+  if (scenarioScopeSelect) {
+    scenarioScopeSelect.value = String(scenarioScope || 'statewide') === 'davidson' ? 'davidson' : 'statewide';
+    scenarioScopeSelect.addEventListener('change', function() {
+      if (typeof setScenarioScopeFromControl === 'function') {
+        setScenarioScopeFromControl(this.value);
+      }
+    });
+  }
+  const scenarioSwingInput = document.getElementById('scenario-swing');
+  if (scenarioSwingInput) {
+    scenarioSwingInput.value = String(Number(scenarioSwingPct || 0));
+    const syncSwing = function() {
+      if (typeof setScenarioSwingFromControl === 'function') {
+        setScenarioSwingFromControl(this.value);
+      }
+    };
+    scenarioSwingInput.addEventListener('input', syncSwing);
+    scenarioSwingInput.addEventListener('change', syncSwing);
+  }
+  const scenarioResetBtn = document.getElementById('scenario-reset-btn');
+  if (scenarioResetBtn) {
+    scenarioResetBtn.addEventListener('click', function() {
+      if (typeof resetScenarioControls === 'function') {
+        resetScenarioControls();
+      }
+    });
+  }
 
 
   // Contest search (filters dropdown without changing the dataset).
@@ -9522,6 +9550,28 @@ document.addEventListener('DOMContentLoaded', function() {
                 <button class="viz-mode-btn" data-mode="flips" type="button"><span>Flips</span></button>
                 <button class="viz-mode-btn" data-mode="demographics" type="button"><span>Demographics</span></button>
                 <button class="viz-mode-btn" data-mode="population_change" type="button"><span>Pop Change</span></button>
+              </div>
+            </div>
+            <div class="control-group control-group-scenario" style="margin-bottom:10px;">
+              <span class="section-kicker">Swing-O-Meter</span>
+              <div class="scenario-row">
+                <label for="scenario-scope">Scope</label>
+                <select id="scenario-scope" aria-label="Swing scope">
+                  <option value="statewide">Statewide</option>
+                  <option value="davidson">Davidson only</option>
+                </select>
+                <span class="scenario-value" id="scenario-scope-value">All</span>
+              </div>
+              <div class="scenario-row">
+                <label for="scenario-swing">Swing</label>
+                <input id="scenario-swing" type="range" min="-20" max="20" step="0.5" value="0" aria-label="Uniform swing in points">
+                <span class="scenario-value" id="scenario-swing-value">EVEN</span>
+              </div>
+              <div class="scenario-help" id="scenario-help">Applies a uniform Democratic-Republican swing to the selected scope without bringing back the old model panel.</div>
+              <div class="scenario-row scenario-row-actions">
+                <span></span>
+                <button class="tool-chip-btn" id="scenario-reset-btn" type="button">Reset Swing</button>
+                <span></span>
               </div>
             </div>
             <details class="control-group control-group-analytics controls-disclosure" id="analytics-disclosure">
@@ -9908,7 +9958,7 @@ document.addEventListener('DOMContentLoaded', function() {
         district_contests_dirs: {
           '2022': withBase('./Data/district_contests'),
           '2024': withBase('./Data/district_contests'),
-          '2026': withBase('./Data/district_contests')
+          '2026': withBase('./Data/district_contests_2026')
         },
         districts_info: withBase('./Data/tn_congressional_districts.csv'),
         districts_info_2026: withBase('./Data/tn_congressional_districts_2026.csv'),
@@ -11171,6 +11221,8 @@ document.addEventListener('DOMContentLoaded', function() {
       if (barometerOverlayEnabled) params.set('barometer', '1');
       if (demographicsHighContrastEnabled) params.set('democontrast', 'high');
       if (String(populationChangeMetric || 'pct') === 'abs') params.set('popmetric', 'abs');
+      if (Math.abs(Number(scenarioSwingPct || 0)) > 0.0001) params.set('swing', String(Number(scenarioSwingPct || 0)));
+      if (String(scenarioScope || 'statewide') === 'davidson') params.set('sscope', 'davidson');
 
       const focusToken = getFocusURLTokenFromState();
       if (focusToken) params.set('focus', focusToken);
@@ -11281,6 +11333,9 @@ document.addEventListener('DOMContentLoaded', function() {
           const popMetricSelect = document.getElementById('pop-change-metric');
           if (popMetricSelect) popMetricSelect.value = populationChangeMetric;
         }
+        scenarioSwingPct = Number.isFinite(Number(state.swing)) ? Math.max(-20, Math.min(20, Number(state.swing))) : 0;
+        scenarioScope = state.sscope === 'davidson' ? 'davidson' : 'statewide';
+        try { syncScenarioControlsUI(); } catch (_) {}
 
         if (state.barometerEnabled !== null) {
           barometerOverlayEnabled = !!state.barometerEnabled;
@@ -12433,10 +12488,76 @@ document.addEventListener('DOMContentLoaded', function() {
       reinforceMapLabelHalos();
     }
 
-    function setScenarioSwingFromControl(rawValue) {
-      scenarioSwingPct = 0;
-      return;
+    function formatScenarioSwingLabel(value) {
+      const n = Number(value || 0);
+      if (!Number.isFinite(n) || Math.abs(n) < 0.001) return 'EVEN';
+      const abs = Math.abs(n);
+      const whole = Math.abs(abs - Math.round(abs)) < 0.001;
+      const pts = whole ? String(Math.round(abs)) : abs.toFixed(1);
+      return `${n > 0 ? 'D' : 'R'}+${pts}`;
     }
+
+    function syncScenarioControlsUI() {
+      const swingInput = document.getElementById('scenario-swing');
+      const swingValue = document.getElementById('scenario-swing-value');
+      const scopeSelect = document.getElementById('scenario-scope');
+      const scopeValue = document.getElementById('scenario-scope-value');
+      const help = document.getElementById('scenario-help');
+      if (swingInput) swingInput.value = String(Number(scenarioSwingPct || 0));
+      if (swingValue) swingValue.textContent = formatScenarioSwingLabel(scenarioSwingPct);
+      if (scopeSelect) scopeSelect.value = String(scenarioScope || 'statewide') === 'davidson' ? 'davidson' : 'statewide';
+      if (scopeValue) scopeValue.textContent = String(scenarioScope || 'statewide') === 'davidson' ? 'Davidson' : 'All';
+      if (help) {
+        help.textContent = String(scenarioScope || 'statewide') === 'davidson'
+          ? 'Applies the selected swing only inside Davidson County.'
+          : 'Applies a uniform Democratic-Republican swing statewide.';
+      }
+    }
+
+    async function refreshScenarioContest() {
+      if (urlStateRestoreInFlight) return;
+      const key = String(document.getElementById('contestSelect')?.value || '').trim();
+      if (!key || typeof applyContest !== 'function') {
+        try { saveUIState(); } catch (_) {}
+        return;
+      }
+      try {
+        await applyContest(key);
+      } catch (_) {}
+      try { saveUIState(); } catch (_) {}
+    }
+
+    function setScenarioScopeFromControl(rawValue) {
+      const next = String(rawValue || '').trim().toLowerCase() === 'davidson' ? 'davidson' : 'statewide';
+      if (scenarioScope === next) {
+        syncScenarioControlsUI();
+        return;
+      }
+      scenarioScope = next;
+      syncScenarioControlsUI();
+      refreshScenarioContest().catch(() => {});
+    }
+
+    function setScenarioSwingFromControl(rawValue) {
+      const parsed = Number(rawValue);
+      const clamped = Number.isFinite(parsed) ? Math.max(-20, Math.min(20, parsed)) : 0;
+      if (Math.abs(clamped - Number(scenarioSwingPct || 0)) < 0.0001) {
+        syncScenarioControlsUI();
+        return;
+      }
+      scenarioSwingPct = clamped;
+      syncScenarioControlsUI();
+      refreshScenarioContest().catch(() => {});
+    }
+
+    function resetScenarioControls() {
+      scenarioSwingPct = 0;
+      scenarioScope = 'statewide';
+      syncScenarioControlsUI();
+      refreshScenarioContest().catch(() => {});
+    }
+
+    try { syncScenarioControlsUI(); } catch (_) {}
 
     // (saveUIState/restoreUIState defined above as no-ops)
 
@@ -18181,7 +18302,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const contestSelectNavKeys = new Set(['ArrowUp', 'ArrowDown', 'Home', 'End', 'PageUp', 'PageDown']);
 
     function scenarioSignature() {
-      return '';
+      const swing = Number(scenarioSwingPct || 0);
+      const scope = String(scenarioScope || 'statewide').trim().toLowerCase();
+      if (Math.abs(swing) < 0.0001 && scope === 'statewide') return 'base';
+      return `swing:${swing.toFixed(3)}|scope:${scope}|county:${String(getScenarioCountyNorm() || '')}`;
     }
 
     function buildContestApplySignature(contestKey, contestType, year) {
