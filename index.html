@@ -9106,6 +9106,14 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     };
   }
+  const districtLines2026Btn = document.getElementById('district-lines-2026');
+  if (districtLines2026Btn) {
+    districtLines2026Btn.onclick = function() {
+      if (typeof setDistrictLinesMode === 'function') {
+        setDistrictLinesMode(2026).catch(() => {});
+      }
+    };
+  }
 
   const splitTicketBtn = document.getElementById('split-ticket-toggle');
   if (splitTicketBtn) {
@@ -9535,6 +9543,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <span class="section-kicker">District Lines</span>
                 <div class="view-toggle-row" style="display:flex;gap:6px;flex-wrap:wrap;">
                   <button id="district-lines-2022" class="view-toggle-btn active" type="button" data-testid="lines-2022" aria-label="Use 2022 district lines" aria-pressed="true">2022 Lines</button>
+                  <button id="district-lines-2026" class="view-toggle-btn" type="button" data-testid="lines-2026" aria-label="Use 2026 district lines" aria-pressed="false">2026 Lines</button>
                 </div>
                 <div style="margin-top:4px;font-size:11px;color:#6b7280;">
                   Tennessee congressional lines only.
@@ -11686,9 +11695,14 @@ document.addEventListener('DOMContentLoaded', function() {
       const group = document.getElementById('district-lines-group');
       if (group) group.style.display = currentView === 'districts' ? '' : 'none';
       const btn2022 = document.getElementById('district-lines-2022');
+      const btn2026 = document.getElementById('district-lines-2026');
       if (btn2022) {
         btn2022.classList.toggle('active', y === 2022);
         btn2022.setAttribute('aria-pressed', y === 2022 ? 'true' : 'false');
+      }
+      if (btn2026) {
+        btn2026.classList.toggle('active', y === 2026);
+        btn2026.setAttribute('aria-pressed', y === 2026 ? 'true' : 'false');
       }
     }
 
