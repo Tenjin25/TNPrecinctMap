@@ -25458,9 +25458,8 @@ document.addEventListener('DOMContentLoaded', function() {
       const popChangeToneColor = popChangeHeaderMeta?.tone === 'gain'
         ? '#15803d'
         : (popChangeHeaderMeta?.tone === 'loss' ? '#b45309' : '#475569');
-      const popChangeTopLineMobile = (() => {
+      const popChangeTopLine = (() => {
         if (!popChangeHeaderMeta) return '';
-        if (isDesktopTooltipMode()) return '';
         return `
           <div class="tooltip-insight" style="margin:0 0 8px 0;padding:8px 10px;border-radius:10px;background:rgba(15,23,42,0.06);border:1px solid rgba(148,163,184,0.35);">
             <strong style="color:${popChangeToneColor};">${escapeHtml(popChangeHeaderMeta.line)}</strong><br>
@@ -25514,7 +25513,7 @@ document.addEventListener('DOMContentLoaded', function() {
         ${demoLine}
       `.trim();
       const inner = `
-        ${popChangeTopLineMobile}
+        ${popChangeTopLine}
         ${votehubCore}
         <details class="tooltip-more" aria-label="More details">
           <summary>More details</summary>
