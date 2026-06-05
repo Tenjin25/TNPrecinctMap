@@ -9853,77 +9853,77 @@ document.addEventListener('DOMContentLoaded', function() {
         sources: {
           counties: {
             url: '',
-            sourceLayer: 'tl_2020_37_county20-9o371f'
+            sourceLayer: 'tl_2020_47_county20'
           },
           districts: {
             url: '',
-            sourceLayer: 'nc_cd118_tileset-30qeef'
+            sourceLayer: 'tl_2022_47_cd118'
           },
           state_house: {
             url: '',
-            sourceLayer: 'nc_state_house_2022_lines_til-d2n5a7'
+            sourceLayer: 'tl_2022_47_sldl'
           },
           state_senate: {
             url: '',
-            sourceLayer: 'nc_state_senate_2022_lines_ti-1co9e6'
+            sourceLayer: 'tl_2022_47_sldu'
           }
         }
       },
       paths: {
-        counties: withBase('./data/census/tl_2020_37_county20.geojson'),
-        precincts: withBase('./data/Voting_Precincts.geojson'),
-        precincts_fallback_vtd20: withBase('./data/census/tl_2020_37_vtd20/tl_2020_37_vtd20.geojson'),
-        precinct_centroids: withBase('./data/precinct_centroids.geojson'),
-        precinct_aliases: withBase('./data/precinct_alias_index.json'),
-        precinct_friendly_names: withBase('./data/precinct_friendly_names.json'),
-        precinct_variant_overrides: withBase('./data/mappings/precinct_variant_overrides.json'),
-        districts: withBase('./data/tileset/nc_cd118_tileset.geojson'),
-        districts_2022: withBase('./data/tileset/nc_cd118_tileset.geojson'),
-        districts_2024: withBase('./data/tileset/nc_cd119_tileset.geojson'),
-        districts_2026: withBase('./data/tileset/nc_cd2026_sl2025_95_tileset.geojson'),
-        state_house: withBase('./data/tileset/nc_state_house_2022_lines_tileset.geojson'),
-        state_house_2022: withBase('./data/tileset/nc_state_house_2022_lines_tileset.geojson'),
-        state_house_2024: withBase('./data/tileset/nc_state_house_2024_lines_tileset.geojson'),
-        state_senate: withBase('./data/tileset/nc_state_senate_2022_lines_tileset.geojson'),
-        state_senate_2022: withBase('./data/tileset/nc_state_senate_2022_lines_tileset.geojson'),
-        state_senate_2024: withBase('./data/tileset/nc_state_senate_2024_lines_tileset.geojson'),
-        county_demographics: withBase('./data/county_demographics_2020_dp1.json'),
-        county_population_estimates: withBase('./data/CO-EST2025-POP-37-clean.csv'),
-        precinct_demographics: withBase('./data/precinct_demographics_2020_vap.csv'),
+        counties: withBase('./Data/tl_2020_47_county20.geojson'),
+        precincts: withBase('./Data/tn_voting_precincts_dra_v07.geojson'),
+        precincts_fallback_vtd20: withBase('./Data/tn_voting_precincts_dra_v07.geojson'),
+        precinct_centroids: withBase('./Data/tn_precinct_centroids_dra_v07.geojson'),
+        precinct_aliases: withBase('./Data/crosswalks/tn_precinct_aliases.csv'),
+        precinct_friendly_names: '',
+        precinct_variant_overrides: '',
+        districts: withBase('./Data/tl_2022_47_cd118.geojson'),
+        districts_2022: withBase('./Data/tl_2022_47_cd118.geojson'),
+        districts_2024: withBase('./Data/tl_2022_47_cd118.geojson'),
+        districts_2026: withBase('./Data/tl_2022_47_cd118.geojson'),
+        state_house: withBase('./Data/tl_2022_47_sldl.geojson'),
+        state_house_2022: withBase('./Data/tl_2022_47_sldl.geojson'),
+        state_house_2024: withBase('./Data/tl_2022_47_sldl.geojson'),
+        state_senate: withBase('./Data/tl_2022_47_sldu.geojson'),
+        state_senate_2022: withBase('./Data/tl_2022_47_sldu.geojson'),
+        state_senate_2024: withBase('./Data/tl_2022_47_sldu.geojson'),
+        county_demographics: withBase('./Data/county_demographics_2020_dp1.json'),
+        county_population_estimates: withBase('./Data/CO-EST2025-POP-47.cleaned.csv'),
+        precinct_demographics: '',
         cvap_aggregates: {
-          county_2020: withBase('./data/cvap_aggregates/county_2020__cvap24.csv'),
-          precinct_2020: withBase('./data/cvap_aggregates/precinct_2020__cvap24.csv'),
-          cd118_2022: withBase('./data/cvap_aggregates/cd118_2022_lines__cvap24.csv'),
-          cd119_2024: withBase('./data/cvap_aggregates/cd119_2024_lines__cvap24.csv'),
-          state_house_2022: withBase('./data/cvap_aggregates/state_house_2022_lines__cvap24.csv'),
-          state_house_2024: withBase('./data/cvap_aggregates/state_house_2024_lines__cvap24.csv'),
-          state_senate_2022: withBase('./data/cvap_aggregates/state_senate_2022_lines__cvap24.csv'),
-          state_senate_2024: withBase('./data/cvap_aggregates/state_senate_2024_lines__cvap24.csv')
+          county_2020: '',
+          precinct_2020: '',
+          cd118_2022: '',
+          cd119_2024: '',
+          state_house_2022: '',
+          state_house_2024: '',
+          state_senate_2022: '',
+          state_senate_2024: ''
         },
-        election: withBase('./data/nc_elections_aggregated.json'),
-        district_election: withBase('./data/nc_district_results_2022_lines.json'),
-        district_contests_dir: withBase('./data/district_contests'),
-        district_contests_2020_2024_dir: withBase('./data/district_contests_2020_2024'),
+        election: '',
+        district_election: '',
+        district_contests_dir: withBase('./Data/district_contests'),
+        district_contests_2020_2024_dir: '',
         district_contests_dirs: {
-          '2022': withBase('./data/district_contests'),
-          '2024': withBase('./data/district_contests_2024_lines'),
-          '2026': withBase('./data/district_contests_2026_lines')
+          '2022': withBase('./Data/district_contests'),
+          '2024': withBase('./Data/district_contests'),
+          '2026': withBase('./Data/district_contests')
         },
-        districts_info: withBase('./data/nc_congressional_districts.csv'),
-        state_house_info: withBase('./data/nc_state_house_districts.csv'),
-        state_senate_info: withBase('./data/nc_state_senate_districts.csv'),
-        district_descriptions: withBase('./data/district_descriptions.json'),
-        contests_dir: withBase('./data/contests'),
-        reports_match_year_summary: withBase('./data/reports/precinct_match_year_summary_fresh_2026-03-19.csv'),
-        reports_top_unmatched: withBase('./data/reports/precinct_match_top_unmatched_file_county.csv'),
+        districts_info: '',
+        state_house_info: '',
+        state_senate_info: '',
+        district_descriptions: '',
+        contests_dir: withBase('./Data/contests'),
+        reports_match_year_summary: '',
+        reports_top_unmatched: '',
         crosswalks: {
-          congressional: withBase('./data/crosswalks/precinct_to_cd118.csv'),
-          congressional_2022: withBase('./data/crosswalks/precinct_to_cd118.csv'),
-          congressional_2026: withBase('./data/crosswalks/precinct_to_cd2026_sl2025_95.csv'),
-          state_house_2022: withBase('./data/crosswalks/precinct_to_2022_state_house.csv'),
-          state_house_2024: withBase('./data/crosswalks/precinct_to_2024_state_house.csv'),
-          state_senate_2022: withBase('./data/crosswalks/precinct_to_2022_state_senate.csv'),
-          state_senate_2024: withBase('./data/crosswalks/precinct_to_2024_state_senate.csv')
+          congressional: '',
+          congressional_2022: '',
+          congressional_2026: '',
+          state_house_2022: '',
+          state_house_2024: '',
+          state_senate_2022: '',
+          state_senate_2024: ''
         }
       },
       center: [-86.1, 35.9],
@@ -10311,7 +10311,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const debugLog = (...args) => { if (DEBUG) console.log(...args); };
     window.SENATE_MODEL_DEBUG = window.SENATE_MODEL_DEBUG || { enabled: false, county: '' };
 
-    let electionDataJSON = null; // New JSON structure from nc_elections_aggregated.json
+    let electionDataJSON = null; // New JSON structure from tn_elections_aggregated.json
     let districtElectionDataJSON = null; // Legacy district-results fallback when slices are unavailable
     let districtElectionDataLoadInflight = null;
     let districtElectionDataLoadFailed = false;
@@ -14427,6 +14427,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     async function loadJSON(path) {
+      if (!(path || '').toString().trim()) throw new Error('JSON path not configured');
       const requestPath = withCacheBuster(path);
       if (jsonInflightByPath.has(requestPath)) return jsonInflightByPath.get(requestPath);
       const p = atlasPerf(`json:${requestPath}`, async () => {
@@ -14443,6 +14444,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
 	    async function loadCSV(path) {
+	      if (!(path || '').toString().trim()) throw new Error('CSV path not configured');
 	      const requestPath = withCacheBuster(path);
 	      if (csvInflightByPath.has(requestPath)) return csvInflightByPath.get(requestPath);
 	      const p = atlasPerf(`csv:${requestPath}`, async () => {
@@ -14458,12 +14460,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	      }
 	    }
 
-	    const PRESIDENT_OPEN_ELECTIONS_CSV = {
-	      2000: withBase('./data/2000/20001107__nc__general__precinct.csv'),
-	      2004: withBase('./data/2004/20041102__nc__general__precinct.csv'),
-	      2012: withBase('./data/2012/20121106__nc__general__precinct.csv'),
-	      2008: withBase('./data/2008/20081104__nc__general__precinct.csv')
-	    };
+	    const PRESIDENT_OPEN_ELECTIONS_CSV = {};
 
 	    async function loadPresidentSliceFromOpenElectionsCSV(year) {
 	      const y = Number(year);
@@ -27396,7 +27393,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function getDesiredPrecinctGeometryMode() {
       const year = Number(currentContestMeta?.year);
       // VTD20 is only useful for truly legacy cycles; modern precinct-level contest keys (2014+)
-      // are aligned to `data/Voting_Precincts.geojson` precinct IDs (including split precinct suffixes).
+      // are aligned to the current Tennessee precinct geometry IDs (including split precinct suffixes).
       if (Number.isFinite(year) && year <= 2012) return 'vtd20';
       return 'precinct';
     }
@@ -27880,7 +27877,7 @@ document.addEventListener('DOMContentLoaded', function() {
           if (!alias || !code) return '';
           if (alias === code) return '';
 
-          // Common patterns in `precinct_alias_index.json`:
+          // Common alias patterns carried over from earlier atlas imports:
           // - "CRDM CREEDMOOR" -> code "CRDM", name "CREEDMOOR"
           // - "01 PATTERSON" -> code "01", name "PATTERSON"
           // - "CRDMCREEDMOOR" -> code "CRDM", name "CREEDMOOR"
@@ -29120,7 +29117,7 @@ document.addEventListener('DOMContentLoaded', function() {
           countiesGeoJSON = await loadJSON(CONFIG.paths.counties);
         } catch (_) {
           try {
-            countiesGeoJSON = await loadJSON(withBase('./data/tl_2020_37_county20.geojson'));
+            countiesGeoJSON = await loadJSON(withBase('./Data/tl_2020_47_county20.geojson'));
           } catch (_) {
             countiesGeoJSON = null;
           }
@@ -30727,7 +30724,7 @@ document.addEventListener('DOMContentLoaded', function() {
             counties = await loadJSON(CONFIG.paths.counties);
           } catch (_) {
             // Fallback for alternate local layouts.
-            counties = await loadJSON(withBase('./data/tl_2020_37_county20.geojson'));
+            counties = await loadJSON(withBase('./Data/tl_2020_47_county20.geojson'));
           }
           map.addSource('counties', { type: 'geojson', data: counties });
           window.countiesData = counties;
