@@ -9889,10 +9889,10 @@ document.addEventListener('DOMContentLoaded', function() {
         state_senate_2024: withBase('./Data/tl_2022_47_sldu.geojson'),
         county_demographics: withBase('./Data/county_demographics_2020_dp1.json'),
         county_population_estimates: withBase('./Data/CO-EST2025-POP-47.cleaned.csv'),
-        precinct_demographics: '',
+        precinct_demographics: withBase('./Data/tn_cvap_by_precinct_2020.json'),
         cvap_aggregates: {
-          county_2020: '',
-          precinct_2020: '',
+          county_2020: withBase('./Data/tn_cvap_by_precinct_2020.json'),
+          precinct_2020: withBase('./Data/tn_cvap_by_precinct_2020.json'),
           cd118_2022: '',
           cd119_2024: '',
           state_house_2022: '',
@@ -19460,6 +19460,10 @@ document.addEventListener('DOMContentLoaded', function() {
       return CONFIG?.paths?.cvap_aggregates || {};
     }
 
+    function isJsonDataPath(path) {
+      return /\.json(?:[?#].*)?$/i.test(String(path || '').trim());
+    }
+
     function cvapTotalFromAggRow(r) {
       // Backward/forward compatibility: older aggregates use CVAP_TOT24; renamed outputs may use cvap_total_24.
       const raw = r?.CVAP_TOT24 ?? r?.cvap_total_24;
@@ -19480,16 +19484,28 @@ document.addEventListener('DOMContentLoaded', function() {
       if (!path) return;
       cvapCountyTotalsLoadPromise = (async () => {
         try {
-          const txt = await loadCSV(path);
-          const rows = parseCSV(txt);
           const byNorm = new Map();
-          (rows || []).forEach(r => {
-            const name = (r?.county_name || r?.county || '').toString().trim();
-            const norm = normalizeCountyToken(name);
-            const cvap = cvapTotalFromAggRow(r);
-            if (!norm || !Number.isFinite(cvap)) return;
-            byNorm.set(norm, cvap);
-          });
+          if (isJsonDataPath(path)) {
+            const payload = await loadJSON(path);
+            const countyNameByFips = await ensureCountyNameByFipsMap().catch(() => new Map());
+            Object.entries(payload?.counties || {}).forEach(([rawFips, row]) => {
+              const fips = String(rawFips || '').replace(/[^0-9]/g, '').slice(-3).padStart(3, '0');
+              const norm = normalizeCountyToken(countyNameByFips.get(fips) || '');
+              const cvap = Number(row?.cvap_tot);
+              if (!norm || !Number.isFinite(cvap)) return;
+              byNorm.set(norm, cvap);
+            });
+          } else {
+            const txt = await loadCSV(path);
+            const rows = parseCSV(txt);
+            (rows || []).forEach(r => {
+              const name = (r?.county_name || r?.county || '').toString().trim();
+              const norm = normalizeCountyToken(name);
+              const cvap = cvapTotalFromAggRow(r);
+              if (!norm || !Number.isFinite(cvap)) return;
+              byNorm.set(norm, cvap);
+            });
+          }
           cvapCountyTotalsByNorm = byNorm;
           try { if (lastPointerPoint) queueHoverRefresh(); } catch (_) {}
         } catch (err) {
@@ -19508,16 +19524,33 @@ document.addEventListener('DOMContentLoaded', function() {
       if (!path) return;
       cvapPrecinctTotalsLoadPromise = (async () => {
         try {
-          const txt = await loadCSV(path);
-          const rows = parseCSV(txt);
           const byNorm = new Map();
-          (rows || []).forEach(r => {
-            const precId = (r?.precinct_id || '').toString().trim();
-            const norm = normalizeContestPrecinctNorm(precId);
-            const cvap = cvapTotalFromAggRow(r);
-            if (!norm || !Number.isFinite(cvap)) return;
-            byNorm.set(norm, cvap);
-          });
+          if (isJsonDataPath(path)) {
+            const payload = await loadJSON(path);
+            const countyNameByFips = await ensureCountyNameByFipsMap().catch(() => new Map());
+            Object.entries(payload?.precincts || {}).forEach(([rawKey, row]) => {
+              const key = String(rawKey || '').trim();
+              if (!key.includes('-')) return;
+              const [countyFipsRaw, precIdRaw] = key.split('-', 2);
+              const countyFips = countyFipsRaw.replace(/[^0-9]/g, '').slice(-3).padStart(3, '0');
+              const countyNorm = normalizeCountyToken(countyNameByFips.get(countyFips) || '');
+              const precId = String(precIdRaw || '').trim().toUpperCase();
+              const norm = normalizeContestPrecinctNorm(`${countyNorm} - ${precId}`);
+              const cvap = Number(row?.cvap_tot);
+              if (!norm || !Number.isFinite(cvap)) return;
+              byNorm.set(norm, cvap);
+            });
+          } else {
+            const txt = await loadCSV(path);
+            const rows = parseCSV(txt);
+            (rows || []).forEach(r => {
+              const precId = (r?.precinct_id || '').toString().trim();
+              const norm = normalizeContestPrecinctNorm(precId);
+              const cvap = cvapTotalFromAggRow(r);
+              if (!norm || !Number.isFinite(cvap)) return;
+              byNorm.set(norm, cvap);
+            });
+          }
           cvapPrecinctTotalsByNorm = byNorm;
           try { if (lastPointerPoint) queueHoverRefresh(); } catch (_) {}
         } catch (err) {
@@ -19730,6 +19763,66 @@ document.addEventListener('DOMContentLoaded', function() {
           native_vap_pct: nativePct === null ? null : (Math.round((nativePct + Number.EPSILON) * 100) / 100),
           asian_vap_pct: asianPct === null ? null : (Math.round((asianPct + Number.EPSILON) * 100) / 100),
           pacific_vap_pct: pacificPct === null ? null : (Math.round((pacificPct + Number.EPSILON) * 100) / 100),
+          multiracial_vap_pct: multiracialPct === null ? null : (Math.round((multiracialPct + Number.EPSILON) * 100) / 100),
+          hispanic_vap_pct: hispanicPct === null ? null : (Math.round((hispanicPct + Number.EPSILON) * 100) / 100)
+        };
+
+        const norm = normalizeCountyToken(`${countyNorm} - ${codeNorm}`);
+        if (norm && !byNorm.has(norm)) byNorm.set(norm, row);
+        if (!byCountyCode.has(countyNorm)) byCountyCode.set(countyNorm, new Map());
+        const codeMap = byCountyCode.get(countyNorm);
+        if (!codeMap.has(codeNorm)) codeMap.set(codeNorm, row);
+      });
+      return { byNorm, byCountyCode };
+    }
+
+    function buildPrecinctDemographicsIndexesFromCvapPayload(payload, countyNameByFips = null) {
+      const byNorm = new Map();
+      const byCountyCode = new Map();
+      const precincts = payload?.precincts || {};
+      const fipsLookup = countyNameByFips instanceof Map ? countyNameByFips : new Map();
+      Object.entries(precincts).forEach(([rawKey, rawRow]) => {
+        const key = String(rawKey || '').trim();
+        if (!key.includes('-')) return;
+        const [countyFipsRaw, precIdRaw] = key.split('-', 2);
+        const countyFips = countyFipsRaw.replace(/[^0-9]/g, '').slice(-3).padStart(3, '0');
+        const countyNorm = (fipsLookup.get(countyFips) || '').toString().trim().toUpperCase();
+        const codeNorm = (precIdRaw || '').toString().trim().toUpperCase();
+        if (!countyNorm || !codeNorm) return;
+
+        const vap = numericOrZero(rawRow?.cvap_tot);
+        const whiteVotes = numericOrZero(rawRow?.cvap_wht);
+        const blackVotes = numericOrZero(rawRow?.cvap_bla);
+        const hispanicVotes = numericOrNull(rawRow?.cvap_hsp);
+        const asianVotes = numericOrNull(rawRow?.cvap_asi);
+        const nativeVotes = numericOrNull(rawRow?.cvap_ami);
+        const pacificVotes = null;
+        const multiracialVotes = numericOrNull(rawRow?.cvap_2om);
+
+        const whitePct = vap > 0 ? (whiteVotes / vap) * 100 : 0;
+        const blackPct = vap > 0 ? (blackVotes / vap) * 100 : 0;
+        const hispanicPct = (hispanicVotes !== null && vap > 0) ? (hispanicVotes / vap) * 100 : null;
+        const asianPct = (asianVotes !== null && vap > 0) ? (asianVotes / vap) * 100 : null;
+        const nativePct = (nativeVotes !== null && vap > 0) ? (nativeVotes / vap) * 100 : null;
+        const multiracialPct = (multiracialVotes !== null && vap > 0) ? (multiracialVotes / vap) * 100 : null;
+
+        const row = {
+          precinct_id: `${countyNorm} - ${codeNorm}`,
+          county_norm: countyNorm,
+          precinct_code: codeNorm,
+          vap_18plus: vap,
+          white_vap: whiteVotes,
+          black_vap: blackVotes,
+          native_vap: nativeVotes,
+          asian_vap: asianVotes,
+          pacific_vap: pacificVotes,
+          multiracial_vap: multiracialVotes,
+          hispanic_vap: hispanicVotes,
+          white_vap_pct: Math.round((whitePct + Number.EPSILON) * 100) / 100,
+          black_vap_pct: Math.round((blackPct + Number.EPSILON) * 100) / 100,
+          native_vap_pct: nativePct === null ? null : (Math.round((nativePct + Number.EPSILON) * 100) / 100),
+          asian_vap_pct: asianPct === null ? null : (Math.round((asianPct + Number.EPSILON) * 100) / 100),
+          pacific_vap_pct: null,
           multiracial_vap_pct: multiracialPct === null ? null : (Math.round((multiracialPct + Number.EPSILON) * 100) / 100),
           hispanic_vap_pct: hispanicPct === null ? null : (Math.round((hispanicPct + Number.EPSILON) * 100) / 100)
         };
@@ -21171,14 +21264,24 @@ document.addEventListener('DOMContentLoaded', function() {
         const countyNorm = normalizeCountyToken(row?.county_norm || countyName);
         if (!countyName || !countyNorm) return;
 
-        const population2020 = Number(row?.population_2020 || 0);
-        const population2021 = Number(row?.population_2021 || 0);
-        const population2022 = Number(row?.population_2022 || 0);
-        const population2023 = Number(row?.population_2023 || 0);
-        const population2024 = Number(row?.population_2024 || 0);
-        const population2025 = Number(row?.population_2025 || 0);
-        const changePct2020To2025 = Number(row?.change_2020_2025_pct);
-        const changePct2024To2025 = Number(row?.change_2024_2025_pct);
+        const population2020 = Number(row?.population_2020 ?? row?.pop_2020 ?? 0);
+        const population2021 = Number(row?.population_2021 ?? row?.pop_2021 ?? 0);
+        const population2022 = Number(row?.population_2022 ?? row?.pop_2022 ?? 0);
+        const population2023 = Number(row?.population_2023 ?? row?.pop_2023 ?? 0);
+        const population2024 = Number(row?.population_2024 ?? row?.pop_2024 ?? 0);
+        const population2025 = Number(row?.population_2025 ?? row?.pop_2025 ?? 0);
+        const change2020To2025Raw = Number(row?.change_2020_2025 ?? (population2025 - population2020));
+        const change2024To2025Raw = Number(row?.change_2024_2025 ?? (population2025 - population2024));
+        const changePct2020To2025 = Number(
+          row?.change_2020_2025_pct
+          ?? row?.pct_change_2020_2025
+          ?? ((population2020 > 0 && population2025 > 0) ? (((population2025 - population2020) / population2020) * 100) : NaN)
+        );
+        const changePct2024To2025 = Number(
+          row?.change_2024_2025_pct
+          ?? row?.pct_change_2024_2025
+          ?? ((population2024 > 0 && population2025 > 0) ? (((population2025 - population2024) / population2024) * 100) : NaN)
+        );
         const changePct2023To2024 = population2023 > 0 && population2024 > 0
           ? ((population2024 - population2023) / population2023) * 100
           : NaN;
@@ -21207,14 +21310,14 @@ document.addEventListener('DOMContentLoaded', function() {
           monotoneUp,
           monotoneDown,
           volatile,
-          change2020To2025: Number(row?.change_2020_2025 || 0),
-          change2024To2025: Number(row?.change_2024_2025 || 0),
+          change2020To2025: Number.isFinite(change2020To2025Raw) ? change2020To2025Raw : 0,
+          change2024To2025: Number.isFinite(change2024To2025Raw) ? change2024To2025Raw : 0,
           changePct2020To2025: Number.isFinite(changePct2020To2025) ? changePct2020To2025 : NaN,
           changePct2024To2025: Number.isFinite(changePct2024To2025) ? changePct2024To2025 : NaN,
           changePct2023To2024: Number.isFinite(changePct2023To2024) ? changePct2023To2024 : NaN
         };
 
-        if (countyNorm === 'NORTH CAROLINA') statewide = entry;
+        if (countyNorm === 'TENNESSEE') statewide = entry;
         else byNorm.set(countyNorm, entry);
       });
       return { byNorm, statewide };
@@ -30556,9 +30659,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
       // Optional precinct demographics (VAP by race from block aggregation).
       try {
-        const precinctDemographicsCSV = await loadCSV(CONFIG.paths.precinct_demographics);
-        const rows = parseCSV(precinctDemographicsCSV);
-        const idx = buildPrecinctDemographicsIndexes(rows);
+        let idx = null;
+        if (isJsonDataPath(CONFIG.paths.precinct_demographics)) {
+          const payload = await loadJSON(CONFIG.paths.precinct_demographics);
+          const countyNameByFips = await ensureCountyNameByFipsMap().catch(() => new Map());
+          idx = buildPrecinctDemographicsIndexesFromCvapPayload(payload, countyNameByFips);
+        } else {
+          const precinctDemographicsCSV = await loadCSV(CONFIG.paths.precinct_demographics);
+          const rows = parseCSV(precinctDemographicsCSV);
+          idx = buildPrecinctDemographicsIndexes(rows);
+        }
         precinctDemographicsByNorm = idx.byNorm;
         precinctDemographicsByCountyCode = idx.byCountyCode;
       } catch (err) {
