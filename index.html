@@ -25450,7 +25450,9 @@ document.addEventListener('DOMContentLoaded', function() {
           line: `Population change: ${signAbs}${Math.round(abs).toLocaleString()} (${pctLine})`,
           raw: `${p2020.toLocaleString()} → ${p2025.toLocaleString()}`,
           tone,
-          label: toneLabel
+          label: toneLabel,
+          abs,
+          pct
         };
       })();
       const popChangeToneColor = popChangeHeaderMeta?.tone === 'gain'
@@ -25459,13 +25461,13 @@ document.addEventListener('DOMContentLoaded', function() {
       const popChangeTopLine = (() => {
         if (!popChangeHeaderMeta) return '';
         const metricLine = String(populationChangeMetric || 'pct') === 'abs'
-          ? `Population change: ${popChangeHeaderMeta.raw}`
-          : popChangeHeaderMeta.line;
+          ? `${(popChangeHeaderMeta.abs > 0 ? '+' : '')}${Math.round(popChangeHeaderMeta.abs).toLocaleString()}`
+          : `${(popChangeHeaderMeta.pct > 0 ? '+' : '')}${Number(popChangeHeaderMeta.pct).toFixed(1)}%`;
         return `
           <div class="tooltip-popchange-card" data-tone="${escapeHtml(popChangeHeaderMeta.tone)}">
             <div class="tooltip-popchange-kicker">Population change</div>
             <div class="tooltip-popchange-metric" style="color:${popChangeToneColor};">${escapeHtml(metricLine)}</div>
-            <div class="tooltip-popchange-raw" style="color:${popChangeToneColor};">${escapeHtml(popChangeHeaderMeta.raw)}</div>
+            <div class="tooltip-popchange-raw">${escapeHtml(popChangeHeaderMeta.raw)}</div>
             <div class="tooltip-popchange-tag">${escapeHtml(popChangeHeaderMeta.label)}</div>
           </div>
         `.trim();
