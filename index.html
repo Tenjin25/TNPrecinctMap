@@ -25458,17 +25458,14 @@ document.addEventListener('DOMContentLoaded', function() {
       const popChangeToneColor = popChangeHeaderMeta?.tone === 'gain'
         ? '#15803d'
         : (popChangeHeaderMeta?.tone === 'loss' ? '#b45309' : '#475569');
-      const popChangeTopLine = (() => {
+      const popChangeTopLineMobile = (() => {
         if (!popChangeHeaderMeta) return '';
-        const metricLine = String(populationChangeMetric || 'pct') === 'abs'
-          ? `${(popChangeHeaderMeta.abs > 0 ? '+' : '')}${Math.round(popChangeHeaderMeta.abs).toLocaleString()}`
-          : `${(popChangeHeaderMeta.pct > 0 ? '+' : '')}${Number(popChangeHeaderMeta.pct).toFixed(1)}%`;
+        if (isDesktopTooltipMode()) return '';
         return `
-          <div class="tooltip-popchange-card" data-tone="${escapeHtml(popChangeHeaderMeta.tone)}">
-            <div class="tooltip-popchange-kicker">Population change</div>
-            <div class="tooltip-popchange-metric" style="color:${popChangeToneColor};">${escapeHtml(metricLine)}</div>
-            <div class="tooltip-popchange-raw">${escapeHtml(popChangeHeaderMeta.raw)}</div>
-            <div class="tooltip-popchange-tag">${escapeHtml(popChangeHeaderMeta.label)}</div>
+          <div class="tooltip-insight" style="margin:0 0 8px 0;padding:8px 10px;border-radius:10px;background:rgba(15,23,42,0.06);border:1px solid rgba(148,163,184,0.35);">
+            <strong style="color:${popChangeToneColor};">${escapeHtml(popChangeHeaderMeta.line)}</strong><br>
+            <span style="color:${popChangeToneColor};">${escapeHtml(popChangeHeaderMeta.raw)}</span><br>
+            <span style="color:${popChangeToneColor};font-size:11px;font-weight:700;">${escapeHtml(popChangeHeaderMeta.label)}</span>
           </div>
         `.trim();
       })();
@@ -25517,7 +25514,7 @@ document.addEventListener('DOMContentLoaded', function() {
         ${demoLine}
       `.trim();
       const inner = `
-        ${popChangeTopLine}
+        ${popChangeTopLineMobile}
         ${votehubCore}
         <details class="tooltip-more" aria-label="More details">
           <summary>More details</summary>
