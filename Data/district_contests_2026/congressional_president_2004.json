@@ -3,7 +3,7 @@
   "contest_type": "president",
   "year": 2004,
   "meta": {
-    "source": "tn_precinct_csv_district_aggregation_2026_lines",
+    "source": "tn_precinct_csv_district_aggregation_2026_lines_with_2022_line_transfer_for_districts_1_2",
     "match_coverage_pct": 99.8314,
     "direct_precinct_row_pct": 88.4793,
     "overlap_precinct_row_pct": 1.8433,
@@ -20,25 +20,25 @@
   "general": {
     "results": {
       "1": {
-        "dem_votes": 85490,
-        "rep_votes": 185672,
+        "dem_votes": 85472,
+        "rep_votes": 185636,
         "other_votes": 1858,
-        "total_votes": 273020,
+        "total_votes": 272966,
         "dem_candidate": "John F. Kerry",
         "rep_candidate": "George W. Bush",
-        "margin": 100182,
-        "margin_pct": 36.694,
+        "margin": 100164,
+        "margin_pct": 36.6947,
         "winner": "REP"
       },
       "2": {
-        "dem_votes": 99160,
-        "rep_votes": 177610,
-        "other_votes": 2345,
-        "total_votes": 279115,
+        "dem_votes": 99616,
+        "rep_votes": 178476,
+        "other_votes": 2355,
+        "total_votes": 280447,
         "dem_candidate": "John F. Kerry",
         "rep_candidate": "George W. Bush",
-        "margin": 78450,
-        "margin_pct": 28.1067,
+        "margin": 78860,
+        "margin_pct": 28.1194,
         "winner": "REP"
       },
       "3": {

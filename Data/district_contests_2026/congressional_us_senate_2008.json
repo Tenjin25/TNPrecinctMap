@@ -3,7 +3,7 @@
   "contest_type": "us_senate",
   "year": 2008,
   "meta": {
-    "source": "tn_precinct_csv_district_aggregation_2026_lines",
+    "source": "tn_precinct_csv_district_aggregation_2026_lines_with_2022_line_transfer_for_districts_1_2",
     "match_coverage_pct": 99.1439,
     "direct_precinct_row_pct": 95.671,
     "overlap_precinct_row_pct": 1.2446,
@@ -20,25 +20,25 @@
   "general": {
     "results": {
       "1": {
-        "dem_votes": 53586,
-        "rep_votes": 207528,
-        "other_votes": 7572,
-        "total_votes": 268686,
+        "dem_votes": 53609,
+        "rep_votes": 207671,
+        "other_votes": 7575,
+        "total_votes": 268855,
         "dem_candidate": "Robert DTuke",
         "rep_candidate": "Lamar Alexander",
-        "margin": 153942,
-        "margin_pct": 57.2944,
+        "margin": 154062,
+        "margin_pct": 57.303,
         "winner": "REP"
       },
       "2": {
-        "dem_votes": 63039,
-        "rep_votes": 196387,
-        "other_votes": 8290,
-        "total_votes": 267716,
+        "dem_votes": 64440,
+        "rep_votes": 203497,
+        "other_votes": 8546,
+        "total_votes": 276483,
         "dem_candidate": "Robert DTuke",
         "rep_candidate": "Lamar Alexander",
-        "margin": 133348,
-        "margin_pct": 49.8095,
+        "margin": 139057,
+        "margin_pct": 50.295,
         "winner": "REP"
       },
       "3": {

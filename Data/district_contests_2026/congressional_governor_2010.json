@@ -3,7 +3,7 @@
   "contest_type": "governor",
   "year": 2010,
   "meta": {
-    "source": "tn_precinct_csv_district_aggregation_2026_lines",
+    "source": "tn_precinct_csv_district_aggregation_2026_lines_with_2022_line_transfer_for_districts_1_2",
     "match_coverage_pct": 98.9017,
     "direct_precinct_row_pct": 96.1787,
     "overlap_precinct_row_pct": 1.1302,
@@ -20,25 +20,25 @@
   "general": {
     "results": {
       "1": {
-        "dem_votes": 34867,
-        "rep_votes": 132686,
-        "other_votes": 2923,
-        "total_votes": 170476,
+        "dem_votes": 35263,
+        "rep_votes": 135228,
+        "other_votes": 3007,
+        "total_votes": 173498,
         "dem_candidate": "Mike McWherter",
         "rep_candidate": "Bill Haslam",
-        "margin": 97819,
-        "margin_pct": 57.3799,
+        "margin": 99965,
+        "margin_pct": 57.6174,
         "winner": "REP"
       },
       "2": {
-        "dem_votes": 29190,
-        "rep_votes": 130864,
-        "other_votes": 3362,
-        "total_votes": 163416,
+        "dem_votes": 30172,
+        "rep_votes": 135563,
+        "other_votes": 3498,
+        "total_votes": 169233,
         "dem_candidate": "Mike McWherter",
         "rep_candidate": "Bill Haslam",
-        "margin": 101674,
-        "margin_pct": 62.2179,
+        "margin": 105391,
+        "margin_pct": 62.2757,
         "winner": "REP"
       },
       "3": {

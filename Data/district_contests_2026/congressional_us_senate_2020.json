@@ -3,7 +3,7 @@
   "contest_type": "us_senate",
   "year": 2020,
   "meta": {
-    "source": "tn_precinct_csv_district_aggregation_2026_lines",
+    "source": "tn_precinct_csv_district_aggregation_2026_lines_with_2022_line_transfer_for_districts_1_2",
     "match_coverage_pct": 97.8534,
     "direct_precinct_row_pct": 94.9479,
     "overlap_precinct_row_pct": 3.2812,
@@ -20,25 +20,25 @@
   "general": {
     "results": {
       "1": {
-        "dem_votes": 64752,
-        "rep_votes": 240891,
-        "other_votes": 6409,
-        "total_votes": 312052,
+        "dem_votes": 67059,
+        "rep_votes": 249588,
+        "other_votes": 6649,
+        "total_votes": 323296,
         "dem_candidate": "Marquita Bradshaw",
         "rep_candidate": "Bill Hagerty",
-        "margin": 176139,
-        "margin_pct": 56.4454,
+        "margin": 182529,
+        "margin_pct": 56.4588,
         "winner": "REP"
       },
       "2": {
-        "dem_votes": 107202,
-        "rep_votes": 214514,
-        "other_votes": 5281,
-        "total_votes": 326997,
+        "dem_votes": 112418,
+        "rep_votes": 229045,
+        "other_votes": 5647,
+        "total_votes": 347110,
         "dem_candidate": "Marquita Bradshaw",
         "rep_candidate": "Bill Hagerty",
-        "margin": 107312,
-        "margin_pct": 32.8174,
+        "margin": 116627,
+        "margin_pct": 33.5994,
         "winner": "REP"
       },
       "3": {

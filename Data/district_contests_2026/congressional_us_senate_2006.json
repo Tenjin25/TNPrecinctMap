@@ -3,7 +3,7 @@
   "contest_type": "us_senate",
   "year": 2006,
   "meta": {
-    "source": "tn_precinct_csv_district_aggregation_2026_lines",
+    "source": "tn_precinct_csv_district_aggregation_2026_lines_with_2022_line_transfer_for_districts_1_2",
     "match_coverage_pct": 99.2075,
     "direct_precinct_row_pct": 95.4267,
     "overlap_precinct_row_pct": 1.1154,
@@ -20,25 +20,25 @@
   "general": {
     "results": {
       "1": {
-        "dem_votes": 74052,
-        "rep_votes": 127235,
-        "other_votes": 3155,
-        "total_votes": 204442,
+        "dem_votes": 74090,
+        "rep_votes": 127337,
+        "other_votes": 3156,
+        "total_votes": 204583,
         "dem_candidate": "Harold Ford, Jr.",
         "rep_candidate": "Bob Corker",
-        "margin": 53183,
-        "margin_pct": 26.0137,
+        "margin": 53247,
+        "margin_pct": 26.0271,
         "winner": "REP"
       },
       "2": {
-        "dem_votes": 80455,
-        "rep_votes": 111258,
-        "other_votes": 2633,
-        "total_votes": 194346,
+        "dem_votes": 82173,
+        "rep_votes": 114234,
+        "other_votes": 2692,
+        "total_votes": 199099,
         "dem_candidate": "Harold Ford, Jr.",
         "rep_candidate": "Bob Corker",
-        "margin": 30803,
-        "margin_pct": 15.8496,
+        "margin": 32061,
+        "margin_pct": 16.103,
         "winner": "REP"
       },
       "3": {

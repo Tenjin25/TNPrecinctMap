@@ -3,7 +3,7 @@
   "contest_type": "us_senate",
   "year": 2000,
   "meta": {
-    "source": "tn_precinct_csv_district_aggregation_2026_lines",
+    "source": "tn_precinct_csv_district_aggregation_2026_lines_with_2022_line_transfer_for_districts_1_2",
     "match_coverage_pct": 99.2035,
     "direct_precinct_row_pct": 89.0526,
     "overlap_precinct_row_pct": 0.5263,
@@ -20,25 +20,25 @@
   "general": {
     "results": {
       "1": {
-        "dem_votes": 50970,
-        "rep_votes": 158409,
-        "other_votes": 5695,
-        "total_votes": 215074,
+        "dem_votes": 51197,
+        "rep_votes": 159221,
+        "other_votes": 5720,
+        "total_votes": 216138,
         "dem_candidate": "Jeff Clark",
         "rep_candidate": "Bill Frist",
-        "margin": 107439,
-        "margin_pct": 49.9544,
+        "margin": 108024,
+        "margin_pct": 49.9792,
         "winner": "REP"
       },
       "2": {
-        "dem_votes": 53669,
-        "rep_votes": 155625,
-        "other_votes": 6482,
-        "total_votes": 215776,
+        "dem_votes": 54434,
+        "rep_votes": 157702,
+        "other_votes": 6604,
+        "total_votes": 218740,
         "dem_candidate": "Jeff Clark",
         "rep_candidate": "Bill Frist",
-        "margin": 101956,
-        "margin_pct": 47.2509,
+        "margin": 103268,
+        "margin_pct": 47.2104,
         "winner": "REP"
       },
       "3": {

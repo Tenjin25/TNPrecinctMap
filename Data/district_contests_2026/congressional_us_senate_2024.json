@@ -3,7 +3,7 @@
   "contest_type": "us_senate",
   "year": 2024,
   "meta": {
-    "source": "tn_precinct_csv_district_aggregation_2026_lines",
+    "source": "tn_precinct_csv_district_aggregation_2026_lines_with_2022_line_transfer_for_districts_1_2",
     "match_coverage_pct": 87.9166,
     "direct_precinct_row_pct": 69.7751,
     "overlap_precinct_row_pct": 18.8151,
@@ -20,25 +20,25 @@
   "general": {
     "results": {
       "1": {
-        "dem_votes": 61427,
-        "rep_votes": 240844,
-        "other_votes": 5457,
-        "total_votes": 307728,
+        "dem_votes": 68574,
+        "rep_votes": 267495,
+        "other_votes": 6100,
+        "total_votes": 342169,
         "dem_candidate": "Gloria Johnson",
         "rep_candidate": "Marsha Blackburn",
-        "margin": 179417,
-        "margin_pct": 58.3038,
+        "margin": 198921,
+        "margin_pct": 58.1353,
         "winner": "REP"
       },
       "2": {
-        "dem_votes": 108881,
-        "rep_votes": 206789,
-        "other_votes": 5059,
-        "total_votes": 320729,
+        "dem_votes": 120505,
+        "rep_votes": 238269,
+        "other_votes": 5811,
+        "total_votes": 364585,
         "dem_candidate": "Gloria Johnson",
         "rep_candidate": "Marsha Blackburn",
-        "margin": 97908,
-        "margin_pct": 30.5267,
+        "margin": 117764,
+        "margin_pct": 32.3008,
         "winner": "REP"
       },
       "3": {

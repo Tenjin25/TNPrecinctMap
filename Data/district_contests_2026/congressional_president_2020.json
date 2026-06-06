@@ -3,7 +3,7 @@
   "contest_type": "president",
   "year": 2020,
   "meta": {
-    "source": "tn_precinct_csv_district_aggregation_2026_lines",
+    "source": "tn_precinct_csv_district_aggregation_2026_lines_with_2022_line_transfer_for_districts_1_2",
     "match_coverage_pct": 97.8624,
     "direct_precinct_row_pct": 94.7998,
     "overlap_precinct_row_pct": 3.2761,
@@ -20,25 +20,25 @@
   "general": {
     "results": {
       "1": {
-        "dem_votes": 71638,
-        "rep_votes": 248004,
-        "other_votes": 5489,
-        "total_votes": 325131,
+        "dem_votes": 74207,
+        "rep_votes": 256824,
+        "other_votes": 5694,
+        "total_votes": 336725,
         "dem_candidate": "Joseph R. Biden",
         "rep_candidate": "Donald J. Trump",
-        "margin": 176366,
-        "margin_pct": 54.2446,
+        "margin": 182617,
+        "margin_pct": 54.2333,
         "winner": "REP"
       },
       "2": {
-        "dem_votes": 116615,
-        "rep_votes": 212358,
-        "other_votes": 6510,
-        "total_votes": 335483,
+        "dem_votes": 122626,
+        "rep_votes": 226522,
+        "other_votes": 6958,
+        "total_votes": 356106,
         "dem_candidate": "Joseph R. Biden",
         "rep_candidate": "Donald J. Trump",
-        "margin": 95743,
-        "margin_pct": 28.5389,
+        "margin": 103896,
+        "margin_pct": 29.1756,
         "winner": "REP"
       },
       "3": {

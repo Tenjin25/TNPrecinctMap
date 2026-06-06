@@ -3,7 +3,7 @@
   "contest_type": "president",
   "year": 2024,
   "meta": {
-    "source": "tn_precinct_csv_district_aggregation_2026_lines",
+    "source": "tn_precinct_csv_district_aggregation_2026_lines_with_2022_line_transfer_for_districts_1_2",
     "match_coverage_pct": 87.8873,
     "direct_precinct_row_pct": 69.7751,
     "overlap_precinct_row_pct": 18.8151,
@@ -20,25 +20,25 @@
   "general": {
     "results": {
       "1": {
-        "dem_votes": 64422,
-        "rep_votes": 245882,
-        "other_votes": 3180,
-        "total_votes": 313484,
+        "dem_votes": 71688,
+        "rep_votes": 273347,
+        "other_votes": 3572,
+        "total_votes": 348607,
         "dem_candidate": "Kamala D. Harris",
         "rep_candidate": "Donald J. Trump",
-        "margin": 181460,
-        "margin_pct": 57.8849,
+        "margin": 201659,
+        "margin_pct": 57.8471,
         "winner": "REP"
       },
       "2": {
-        "dem_votes": 106968,
-        "rep_votes": 211416,
-        "other_votes": 4499,
-        "total_votes": 322883,
+        "dem_votes": 118880,
+        "rep_votes": 243382,
+        "other_votes": 5051,
+        "total_votes": 367313,
         "dem_candidate": "Kamala D. Harris",
         "rep_candidate": "Donald J. Trump",
-        "margin": 104448,
-        "margin_pct": 32.3486,
+        "margin": 124502,
+        "margin_pct": 33.8953,
         "winner": "REP"
       },
       "3": {

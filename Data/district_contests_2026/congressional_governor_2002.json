@@ -3,7 +3,7 @@
   "contest_type": "governor",
   "year": 2002,
   "meta": {
-    "source": "tn_precinct_csv_district_aggregation_2026_lines",
+    "source": "tn_precinct_csv_district_aggregation_2026_lines_with_2022_line_transfer_for_districts_1_2",
     "match_coverage_pct": 99.8085,
     "direct_precinct_row_pct": 89.9339,
     "overlap_precinct_row_pct": 0.7626,
@@ -20,25 +20,25 @@
   "general": {
     "results": {
       "1": {
-        "dem_votes": 76854,
-        "rep_votes": 106292,
+        "dem_votes": 76847,
+        "rep_votes": 106284,
         "other_votes": 1887,
-        "total_votes": 185033,
+        "total_votes": 185018,
         "dem_candidate": "Phil Bredesen",
         "rep_candidate": "Van Hilleary",
-        "margin": 29438,
-        "margin_pct": 15.9096,
+        "margin": 29437,
+        "margin_pct": 15.9103,
         "winner": "REP"
       },
       "2": {
-        "dem_votes": 88123,
-        "rep_votes": 94149,
-        "other_votes": 1287,
-        "total_votes": 183559,
+        "dem_votes": 88757,
+        "rep_votes": 95028,
+        "other_votes": 1301,
+        "total_votes": 185086,
         "dem_candidate": "Phil Bredesen",
         "rep_candidate": "Van Hilleary",
-        "margin": 6026,
-        "margin_pct": 3.2829,
+        "margin": 6271,
+        "margin_pct": 3.3882,
         "winner": "REP"
       },
       "3": {

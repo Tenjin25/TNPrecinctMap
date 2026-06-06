@@ -3,7 +3,7 @@
   "contest_type": "governor",
   "year": 2022,
   "meta": {
-    "source": "tn_precinct_csv_district_aggregation_2026_lines",
+    "source": "tn_precinct_csv_district_aggregation_2026_lines_with_2022_line_transfer_for_districts_1_2",
     "match_coverage_pct": 91.7523,
     "direct_precinct_row_pct": 84.4654,
     "overlap_precinct_row_pct": 9.2144,
@@ -20,25 +20,25 @@
   "general": {
     "results": {
       "1": {
-        "dem_votes": 36469,
-        "rep_votes": 144871,
-        "other_votes": 3882,
-        "total_votes": 185222,
+        "dem_votes": 38057,
+        "rep_votes": 149566,
+        "other_votes": 4046,
+        "total_votes": 191669,
         "dem_candidate": "Jason Brantley Martin",
         "rep_candidate": "Bill Lee",
-        "margin": 108402,
-        "margin_pct": 58.5254,
+        "margin": 111509,
+        "margin_pct": 58.1779,
         "winner": "REP"
       },
       "2": {
-        "dem_votes": 61302,
-        "rep_votes": 126299,
-        "other_votes": 3589,
-        "total_votes": 191190,
+        "dem_votes": 65244,
+        "rep_votes": 139041,
+        "other_votes": 3920,
+        "total_votes": 208205,
         "dem_candidate": "Jason Brantley Martin",
         "rep_candidate": "Bill Lee",
-        "margin": 64997,
-        "margin_pct": 33.996,
+        "margin": 73797,
+        "margin_pct": 35.4444,
         "winner": "REP"
       },
       "3": {

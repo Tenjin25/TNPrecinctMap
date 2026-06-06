@@ -3,7 +3,7 @@
   "contest_type": "president",
   "year": 2008,
   "meta": {
-    "source": "tn_precinct_csv_district_aggregation_2026_lines",
+    "source": "tn_precinct_csv_district_aggregation_2026_lines_with_2022_line_transfer_for_districts_1_2",
     "match_coverage_pct": 99.1525,
     "direct_precinct_row_pct": 95.671,
     "overlap_precinct_row_pct": 1.2446,
@@ -20,25 +20,25 @@
   "general": {
     "results": {
       "1": {
-        "dem_votes": 81188,
-        "rep_votes": 198072,
-        "other_votes": 4132,
-        "total_votes": 283392,
+        "dem_votes": 81222,
+        "rep_votes": 198208,
+        "other_votes": 4134,
+        "total_votes": 283564,
         "dem_candidate": "Barack Obama",
         "rep_candidate": "John McCain",
-        "margin": 116884,
-        "margin_pct": 41.2446,
+        "margin": 116986,
+        "margin_pct": 41.2556,
         "winner": "REP"
       },
       "2": {
-        "dem_votes": 97878,
-        "rep_votes": 179108,
-        "other_votes": 4357,
-        "total_votes": 281343,
+        "dem_votes": 100471,
+        "rep_votes": 185530,
+        "other_votes": 4505,
+        "total_votes": 290506,
         "dem_candidate": "Barack Obama",
         "rep_candidate": "John McCain",
-        "margin": 81230,
-        "margin_pct": 28.8722,
+        "margin": 85059,
+        "margin_pct": 29.2796,
         "winner": "REP"
       },
       "3": {

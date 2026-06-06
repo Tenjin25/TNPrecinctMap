@@ -3,7 +3,7 @@
   "contest_type": "president",
   "year": 2012,
   "meta": {
-    "source": "tn_precinct_csv_district_aggregation_2026_lines",
+    "source": "tn_precinct_csv_district_aggregation_2026_lines_with_2022_line_transfer_for_districts_1_2",
     "match_coverage_pct": 98.5708,
     "direct_precinct_row_pct": 95.1521,
     "overlap_precinct_row_pct": 1.9598,
@@ -20,25 +20,25 @@
   "general": {
     "results": {
       "1": {
-        "dem_votes": 67087,
-        "rep_votes": 190759,
-        "other_votes": 4349,
-        "total_votes": 262195,
+        "dem_votes": 69158,
+        "rep_votes": 196281,
+        "other_votes": 4464,
+        "total_votes": 269903,
         "dem_candidate": "Barack Obama",
         "rep_candidate": "Mitt Romney",
-        "margin": 123672,
-        "margin_pct": 47.1679,
+        "margin": 127123,
+        "margin_pct": 47.0995,
         "winner": "REP"
       },
       "2": {
-        "dem_votes": 81538,
-        "rep_votes": 173769,
-        "other_votes": 4810,
-        "total_votes": 260117,
+        "dem_votes": 84727,
+        "rep_votes": 183976,
+        "other_votes": 4963,
+        "total_votes": 273666,
         "dem_candidate": "Barack Obama",
         "rep_candidate": "Mitt Romney",
-        "margin": 92231,
-        "margin_pct": 35.4575,
+        "margin": 99249,
+        "margin_pct": 36.2665,
         "winner": "REP"
       },
       "3": {

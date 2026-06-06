@@ -3,7 +3,7 @@
   "contest_type": "us_senate",
   "year": 2018,
   "meta": {
-    "source": "tn_precinct_csv_district_aggregation_2026_lines",
+    "source": "tn_precinct_csv_district_aggregation_2026_lines_with_2022_line_transfer_for_districts_1_2",
     "match_coverage_pct": 98.0645,
     "direct_precinct_row_pct": 95.41,
     "overlap_precinct_row_pct": 2.8365,
@@ -20,25 +20,25 @@
   "general": {
     "results": {
       "1": {
-        "dem_votes": 66790,
-        "rep_votes": 167706,
-        "other_votes": 3322,
-        "total_votes": 237818,
+        "dem_votes": 68448,
+        "rep_votes": 171924,
+        "other_votes": 3441,
+        "total_votes": 243813,
         "dem_candidate": "Phil Bredesen",
         "rep_candidate": "Marsha Blackburn",
-        "margin": 100916,
-        "margin_pct": 42.4341,
+        "margin": 103476,
+        "margin_pct": 42.4407,
         "winner": "REP"
       },
       "2": {
-        "dem_votes": 103102,
-        "rep_votes": 138528,
-        "other_votes": 3987,
-        "total_votes": 245617,
+        "dem_votes": 108474,
+        "rep_votes": 148200,
+        "other_votes": 4201,
+        "total_votes": 260875,
         "dem_candidate": "Phil Bredesen",
         "rep_candidate": "Marsha Blackburn",
-        "margin": 35426,
-        "margin_pct": 14.4233,
+        "margin": 39726,
+        "margin_pct": 15.228,
         "winner": "REP"
       },
       "3": {

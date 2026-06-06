@@ -3,7 +3,7 @@
   "contest_type": "us_senate",
   "year": 2002,
   "meta": {
-    "source": "tn_precinct_csv_district_aggregation_2026_lines",
+    "source": "tn_precinct_csv_district_aggregation_2026_lines_with_2022_line_transfer_for_districts_1_2",
     "match_coverage_pct": 99.8075,
     "direct_precinct_row_pct": 89.9339,
     "overlap_precinct_row_pct": 0.7626,
@@ -20,25 +20,25 @@
   "general": {
     "results": {
       "1": {
-        "dem_votes": 59153,
-        "rep_votes": 121472,
-        "other_votes": 3418,
-        "total_votes": 184043,
+        "dem_votes": 59147,
+        "rep_votes": 121463,
+        "other_votes": 3417,
+        "total_votes": 184027,
         "dem_candidate": "Bob Clement",
         "rep_candidate": "Lamar Alexander",
-        "margin": 62319,
-        "margin_pct": 33.8611,
+        "margin": 62316,
+        "margin_pct": 33.8624,
         "winner": "REP"
       },
       "2": {
-        "dem_votes": 67558,
-        "rep_votes": 111980,
-        "other_votes": 2520,
-        "total_votes": 182058,
+        "dem_votes": 68025,
+        "rep_votes": 113056,
+        "other_votes": 2536,
+        "total_votes": 183617,
         "dem_candidate": "Bob Clement",
         "rep_candidate": "Lamar Alexander",
-        "margin": 44422,
-        "margin_pct": 24.3999,
+        "margin": 45031,
+        "margin_pct": 24.5244,
         "winner": "REP"
       },
       "3": {

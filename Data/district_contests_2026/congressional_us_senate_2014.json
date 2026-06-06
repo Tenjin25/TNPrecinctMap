@@ -3,7 +3,7 @@
   "contest_type": "us_senate",
   "year": 2014,
   "meta": {
-    "source": "tn_precinct_csv_district_aggregation_2026_lines",
+    "source": "tn_precinct_csv_district_aggregation_2026_lines_with_2022_line_transfer_for_districts_1_2",
     "match_coverage_pct": 97.9882,
     "direct_precinct_row_pct": 96.1618,
     "overlap_precinct_row_pct": 1.971,
@@ -20,25 +20,25 @@
   "general": {
     "results": {
       "1": {
-        "dem_votes": 31105,
-        "rep_votes": 104802,
-        "other_votes": 10273,
-        "total_votes": 146180,
+        "dem_votes": 32209,
+        "rep_votes": 108161,
+        "other_votes": 10595,
+        "total_votes": 150965,
         "dem_candidate": "Gordon Ball",
         "rep_candidate": "Lamar Alexander",
-        "margin": 73697,
-        "margin_pct": 50.4152,
+        "margin": 75952,
+        "margin_pct": 50.311,
         "winner": "REP"
       },
       "2": {
-        "dem_votes": 42700,
-        "rep_votes": 100866,
-        "other_votes": 9886,
-        "total_votes": 153452,
+        "dem_votes": 44916,
+        "rep_votes": 108638,
+        "other_votes": 10463,
+        "total_votes": 164017,
         "dem_candidate": "Gordon Ball",
         "rep_candidate": "Lamar Alexander",
-        "margin": 58166,
-        "margin_pct": 37.905,
+        "margin": 63722,
+        "margin_pct": 38.8509,
         "winner": "REP"
       },
       "3": {

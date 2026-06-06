@@ -3,7 +3,7 @@
   "contest_type": "president",
   "year": 2016,
   "meta": {
-    "source": "tn_precinct_csv_district_aggregation_2026_lines",
+    "source": "tn_precinct_csv_district_aggregation_2026_lines_with_2022_line_transfer_for_districts_1_2",
     "match_coverage_pct": 98.087,
     "direct_precinct_row_pct": 93.861,
     "overlap_precinct_row_pct": 2.8919,
@@ -20,25 +20,25 @@
   "general": {
     "results": {
       "1": {
-        "dem_votes": 53249,
-        "rep_votes": 208983,
-        "other_votes": 10743,
-        "total_votes": 272975,
+        "dem_votes": 55089,
+        "rep_votes": 214864,
+        "other_votes": 11137,
+        "total_votes": 281090,
         "dem_candidate": "Hillary Clinton",
         "rep_candidate": "Donald J. Trump",
-        "margin": 155734,
-        "margin_pct": 57.0506,
+        "margin": 159775,
+        "margin_pct": 56.8412,
         "winner": "REP"
       },
       "2": {
-        "dem_votes": 81126,
-        "rep_votes": 175333,
-        "other_votes": 15714,
-        "total_votes": 272173,
+        "dem_votes": 85198,
+        "rep_votes": 186694,
+        "other_votes": 16522,
+        "total_votes": 288414,
         "dem_candidate": "Hillary Clinton",
         "rep_candidate": "Donald J. Trump",
-        "margin": 94207,
-        "margin_pct": 34.6129,
+        "margin": 101496,
+        "margin_pct": 35.1911,
         "winner": "REP"
       },
       "3": {

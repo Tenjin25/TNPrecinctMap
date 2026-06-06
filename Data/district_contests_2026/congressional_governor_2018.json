@@ -3,7 +3,7 @@
   "contest_type": "governor",
   "year": 2018,
   "meta": {
-    "source": "tn_precinct_csv_district_aggregation_2026_lines",
+    "source": "tn_precinct_csv_district_aggregation_2026_lines_with_2022_line_transfer_for_districts_1_2",
     "match_coverage_pct": 98.0642,
     "direct_precinct_row_pct": 95.41,
     "overlap_precinct_row_pct": 2.8365,
@@ -20,25 +20,25 @@
   "general": {
     "results": {
       "1": {
-        "dem_votes": 54115,
-        "rep_votes": 180977,
-        "other_votes": 2326,
-        "total_votes": 237418,
+        "dem_votes": 55479,
+        "rep_votes": 185508,
+        "other_votes": 2412,
+        "total_votes": 243399,
         "dem_candidate": "Karl Dean",
         "rep_candidate": "Bill Lee",
-        "margin": 126862,
-        "margin_pct": 53.434,
+        "margin": 130029,
+        "margin_pct": 53.4222,
         "winner": "REP"
       },
       "2": {
-        "dem_votes": 88184,
-        "rep_votes": 154891,
-        "other_votes": 2785,
-        "total_votes": 245860,
+        "dem_votes": 92506,
+        "rep_votes": 165707,
+        "other_votes": 2893,
+        "total_votes": 261106,
         "dem_candidate": "Karl Dean",
         "rep_candidate": "Bill Lee",
-        "margin": 66707,
-        "margin_pct": 27.1321,
+        "margin": 73201,
+        "margin_pct": 28.035,
         "winner": "REP"
       },
       "3": {

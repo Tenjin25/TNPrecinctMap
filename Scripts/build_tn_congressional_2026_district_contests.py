@@ -21,6 +21,7 @@ import geopandas as gpd
 ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = ROOT / "Data"
 OUTPUT_DIR = DATA_DIR / "district_contests_2026"
+LEGACY_DISTRICT_CONTEST_DIR = DATA_DIR / "district_contests"
 CONTESTS_DIR = DATA_DIR / "contests"
 BUILD_SCRIPT = ROOT / "Scripts" / "build_tn_contests.py"
 
@@ -38,6 +39,24 @@ def load_build_module():
 def write_json(path: Path, payload: dict) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+
+
+def load_legacy_unaffected_district_results(contest_type: str, year: int) -> dict[str, dict]:
+    """Reuse 2022-line district results for districts that did not change."""
+    legacy_path = LEGACY_DISTRICT_CONTEST_DIR / f"congressional_{contest_type}_{year}.json"
+    if not legacy_path.exists():
+        return {}
+    try:
+        payload = json.loads(legacy_path.read_text(encoding="utf-8"))
+    except Exception:
+        return {}
+    results = payload.get("general", {}).get("results", {}) or {}
+    out = {}
+    for district in ("1", "2"):
+        row = results.get(district)
+        if isinstance(row, dict):
+            out[district] = row
+    return out
 
 
 def build_congressional_weight_maps_2026(tn):
@@ -324,8 +343,6 @@ def build_congressional_2026():
 
     for (_scope, contest_type, year), dmap in sorted(grouped.items()):
       results = {}
-      dem_total = 0
-      rep_total = 0
       alloc = statewide_alloc_stats.get(("congressional", contest_type, year))
       coverage_pct = 100.0
       direct_row_pct = 0.0
@@ -363,8 +380,16 @@ def build_congressional_2026():
       for district in sorted(dmap.keys(), key=lambda d: int(d)):
         row = dmap[district].as_district_result()
         results[str(int(district))] = row
-        dem_total += row["dem_votes"]
-        rep_total += row["rep_votes"]
+
+      legacy_overrides = load_legacy_unaffected_district_results(contest_type, year)
+      if legacy_overrides:
+        results.update({k: v for k, v in legacy_overrides.items() if k in {"1", "2"}})
+
+      dem_total = 0
+      rep_total = 0
+      for row in results.values():
+        dem_total += int(row.get("dem_votes", 0) or 0)
+        rep_total += int(row.get("rep_votes", 0) or 0)
 
       file_name = f"congressional_{contest_type}_{year}.json"
       payload = {
@@ -372,7 +397,7 @@ def build_congressional_2026():
         "contest_type": contest_type,
         "year": year,
         "meta": {
-          "source": "tn_precinct_csv_district_aggregation_2026_lines",
+          "source": "tn_precinct_csv_district_aggregation_2026_lines_with_2022_line_transfer_for_districts_1_2",
           "match_coverage_pct": round(coverage_pct, 4),
           "direct_precinct_row_pct": round(direct_row_pct, 4),
           "overlap_precinct_row_pct": round(overlap_row_pct, 4),
@@ -399,6 +424,7 @@ def build_congressional_2026():
           "dem_total": int(dem_total),
           "rep_total": int(rep_total),
           "major_party_contested": bool(dem_total > 0 and rep_total > 0),
+          "legacy_line_transfer": [1, 2],
         }
       )
 

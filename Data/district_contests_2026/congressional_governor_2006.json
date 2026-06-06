@@ -3,7 +3,7 @@
   "contest_type": "governor",
   "year": 2006,
   "meta": {
-    "source": "tn_precinct_csv_district_aggregation_2026_lines",
+    "source": "tn_precinct_csv_district_aggregation_2026_lines_with_2022_line_transfer_for_districts_1_2",
     "match_coverage_pct": 99.2501,
     "direct_precinct_row_pct": 95.5338,
     "overlap_precinct_row_pct": 1.0893,
@@ -20,25 +20,25 @@
   "general": {
     "results": {
       "1": {
-        "dem_votes": 120311,
-        "rep_votes": 77560,
-        "other_votes": 3742,
-        "total_votes": 201613,
+        "dem_votes": 120376,
+        "rep_votes": 77632,
+        "other_votes": 3744,
+        "total_votes": 201752,
         "dem_candidate": "Phil Bredesen",
         "rep_candidate": "Jim Bryson",
-        "margin": -42751,
-        "margin_pct": -21.2045,
+        "margin": -42744,
+        "margin_pct": -21.1864,
         "winner": "DEM"
       },
       "2": {
-        "dem_votes": 131744,
-        "rep_votes": 56511,
-        "other_votes": 2931,
-        "total_votes": 191186,
+        "dem_votes": 134901,
+        "rep_votes": 58012,
+        "other_votes": 2993,
+        "total_votes": 195906,
         "dem_candidate": "Phil Bredesen",
         "rep_candidate": "Jim Bryson",
-        "margin": -75233,
-        "margin_pct": -39.3507,
+        "margin": -76889,
+        "margin_pct": -39.2479,
         "winner": "DEM"
       },
       "3": {

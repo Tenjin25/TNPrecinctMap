@@ -3,7 +3,7 @@
   "contest_type": "governor",
   "year": 2014,
   "meta": {
-    "source": "tn_precinct_csv_district_aggregation_2026_lines",
+    "source": "tn_precinct_csv_district_aggregation_2026_lines_with_2022_line_transfer_for_districts_1_2",
     "match_coverage_pct": 97.9797,
     "direct_precinct_row_pct": 96.0622,
     "overlap_precinct_row_pct": 1.9689,
@@ -20,25 +20,25 @@
   "general": {
     "results": {
       "1": {
-        "dem_votes": 20740,
-        "rep_votes": 114477,
-        "other_votes": 9671,
-        "total_votes": 144888,
+        "dem_votes": 21429,
+        "rep_votes": 118190,
+        "other_votes": 9994,
+        "total_votes": 149613,
         "dem_candidate": "Charles V. \"Charlie\" Brown",
         "rep_candidate": "Bill Haslam",
-        "margin": 93737,
-        "margin_pct": 64.6962,
+        "margin": 96761,
+        "margin_pct": 64.6742,
         "winner": "REP"
       },
       "2": {
-        "dem_votes": 23369,
-        "rep_votes": 117856,
-        "other_votes": 10321,
-        "total_votes": 151546,
+        "dem_votes": 24474,
+        "rep_votes": 126665,
+        "other_votes": 10863,
+        "total_votes": 162002,
         "dem_candidate": "Charles V. \"Charlie\" Brown",
         "rep_candidate": "Bill Haslam",
-        "margin": 94487,
-        "margin_pct": 62.3487,
+        "margin": 102191,
+        "margin_pct": 63.0801,
         "winner": "REP"
       },
       "3": {

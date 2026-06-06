@@ -3,7 +3,7 @@
   "contest_type": "us_senate",
   "year": 2012,
   "meta": {
-    "source": "tn_precinct_csv_district_aggregation_2026_lines",
+    "source": "tn_precinct_csv_district_aggregation_2026_lines_with_2022_line_transfer_for_districts_1_2",
     "match_coverage_pct": 98.5604,
     "direct_precinct_row_pct": 95.1031,
     "overlap_precinct_row_pct": 1.9588,
@@ -20,25 +20,25 @@
   "general": {
     "results": {
       "1": {
-        "dem_votes": 47527,
-        "rep_votes": 189705,
-        "other_votes": 10394,
-        "total_votes": 247626,
+        "dem_votes": 48975,
+        "rep_votes": 195282,
+        "other_votes": 10712,
+        "total_votes": 254969,
         "dem_candidate": "Mark E. Clayton",
         "rep_candidate": "Bob Corker",
-        "margin": 142178,
-        "margin_pct": 57.4164,
+        "margin": 146307,
+        "margin_pct": 57.3823,
         "winner": "REP"
       },
       "2": {
-        "dem_votes": 53369,
-        "rep_votes": 178553,
-        "other_votes": 15122,
-        "total_votes": 247044,
+        "dem_votes": 55322,
+        "rep_votes": 188958,
+        "other_votes": 15725,
+        "total_votes": 260005,
         "dem_candidate": "Mark E. Clayton",
         "rep_candidate": "Bob Corker",
-        "margin": 125184,
-        "margin_pct": 50.6728,
+        "margin": 133636,
+        "margin_pct": 51.3975,
         "winner": "REP"
       },
       "3": {
