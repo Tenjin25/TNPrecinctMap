@@ -10081,8 +10081,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Cache destroyer token for static data requests.
     // Bump this value when you want browsers/CDNs to fetch fresh files immediately.
-    const DATA_CACHE_BUSTER = '2026-06-05-4';
-    const APP_BUILD_ID = '2026-06-05-4';
+    const DATA_CACHE_BUSTER = '2026-06-06-3';
+    const APP_BUILD_ID = '2026-06-06-3';
 
     function withCacheBuster(path) {
       const p = (path || '').toString().trim();
@@ -19995,6 +19995,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function buildCountyDemographicsHoverHTML(demo, countyNormRaw = '') {
       if (!demo) return '';
+      const touchMode = (typeof isTouchInteractionMode === 'function') ? isTouchInteractionMode() : false;
       const vap = numericOrZero(demo.vap_18plus);
       const countyNorm = normalizeCountyToken(countyNormRaw || demo.county || '');
       const cvap = countyNorm ? getCvapCountyTotal(countyNorm) : null;
@@ -20009,19 +20010,6 @@ document.addEventListener('DOMContentLoaded', function() {
         demo.pacific_pop_pct,
         demo.multiracial_pop_pct
       );
-      const dominantRelationClass = dominant.relation === 'majority' ? 'majority' : dominant.relation === 'plurality' ? 'plurality' : 'mixed';
-      const dominantName = dominant.key === 'mixed'
-        ? 'Mixed'
-        : dominant.key === 'unknown'
-          ? 'No dominant group'
-          : `${dominant.key.charAt(0).toUpperCase()}${dominant.key.slice(1)}`;
-      const dominantRelationLabel = dominant.relation === 'mixed'
-        ? 'near tie'
-        : dominant.relation === 'none'
-          ? 'unavailable'
-          : dominant.relation === 'majority'
-            ? '50%+'
-            : '<50%';
       const races = buildRaceChipRowHTML(
         demo.white_pop_pct,
         demo.black_pop_pct,
@@ -20036,10 +20024,11 @@ document.addEventListener('DOMContentLoaded', function() {
       return `
         <div class="demo-hover-card">
           <div class="demo-hover-metric">${metricLabel} ${Math.round(metricValue).toLocaleString()}</div>
-          <div class="demo-hover-dominance ${dominantRelationClass}">
-            <span class="demo-hover-dominance-name">${escapeHtml(dominantName)}</span>
-            <span class="demo-hover-dominance-relation">${escapeHtml(dominantRelationLabel)}</span>
-          </div>
+          ${touchMode ? '' : `
+          <div class="demo-hover-dominance ${dominant.relation === 'majority' ? 'majority' : dominant.relation === 'plurality' ? 'plurality' : 'mixed'}">
+            <span class="demo-hover-dominance-name">${escapeHtml(dominant.key === 'mixed' ? 'Mixed' : dominant.key === 'unknown' ? 'No dominant group' : `${dominant.key.charAt(0).toUpperCase()}${dominant.key.slice(1)}`)}</span>
+            <span class="demo-hover-dominance-relation">${escapeHtml(dominant.relation === 'mixed' ? 'near tie' : dominant.relation === 'none' ? 'unavailable' : dominant.relation === 'majority' ? 'majority 50%+' : 'plurality <50%')}</span>
+          </div>`}
           ${races}
           <div class="demo-hover-note">${Number.isFinite(Number(cvap)) ? 'CVAP totals from ACS special tabulation (2020–2024). ' : ''}Race/ethnicity reflects county VAP-by-race shares, not total population.</div>
         </div>
@@ -20805,13 +20794,29 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function buildDemographicsLegendHTML() {
+      const touchMode = (typeof isTouchInteractionMode === 'function') ? isTouchInteractionMode() : false;
+      if (touchMode) {
+        return `
+          <div class="legend-swatch-grid">
+            <div class="legend-swatch-card"><span class="legend-color" style="background: ${colorForDemographicsMode(60, 20, 20)};"></span><span>White plurality</span></div>
+            <div class="legend-swatch-card"><span class="legend-color" style="background: ${colorForDemographicsMode(20, 60, 20)};"></span><span>Black plurality</span></div>
+            <div class="legend-swatch-card"><span class="legend-color" style="background: ${colorForDemographicsMode(20, 20, 60)};"></span><span>Hispanic plurality</span></div>
+            <div class="legend-swatch-card"><span class="legend-color" style="background: ${colorForDemographicsMode(20, 20, 20, 60)};"></span><span>Native plurality</span></div>
+            <div class="legend-swatch-card"><span class="legend-color" style="background: ${colorForDemographicsMode(20, 20, 20, 20, 60)};"></span><span>Asian plurality</span></div>
+            <div class="legend-swatch-card"><span class="legend-color" style="background: ${colorForDemographicsMode(20, 20, 20, 20, 20, 60, 20)};"></span><span>Pacific plurality</span></div>
+            <div class="legend-swatch-card"><span class="legend-color" style="background: ${colorForDemographicsMode(20, 20, 20, 20, 20, 20, 60)};"></span><span>Multiracial plurality</span></div>
+            <div class="legend-swatch-card"><span class="legend-color" style="background: ${colorForDemographicsMode(35, 35, 30)};"></span><span>Near tie / mixed</span></div>
+            <div class="legend-swatch-card"><span class="legend-color" style="background: ${colorForDemographicsMode(null, null, null, null, null, null, null)};"></span><span>No demographic data</span></div>
+          </div>
+        `;
+      }
       const legendLabel = (name, sampleArgs) => {
         const dom = describeDemographicDominance(...sampleArgs);
         if (dom.key === 'mixed') {
           return '<span class="legend-demo-label"><span class="legend-demo-name">Mixed / near tie</span><span class="legend-demo-relation mixed">Mixed</span></span>';
         }
         const relationClass = dom.relation === 'majority' ? 'majority' : 'plurality';
-        const relationText = dom.relation === 'majority' ? '50%+' : '<50%';
+        const relationText = dom.relation === 'majority' ? 'majority 50%+' : 'plurality <50%';
         return `<span class="legend-demo-label"><span class="legend-demo-name">${escapeHtml(name)}</span><span class="legend-demo-relation ${relationClass}">${escapeHtml(relationText)}</span></span>`;
       };
       return `
