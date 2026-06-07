@@ -10869,9 +10869,11 @@ document.addEventListener('DOMContentLoaded', function() {
       }
 
       // Fallback: assume 4-year cycles (presidential / many statewide) and let strict loaders decide availability.
+      // Tennessee Governor includes 1998, so Governor 2002 should pair with 1998.
+      const earliestComparableYear = ct === 'governor' ? 1998 : 2000;
       const fy = y - 4;
-      if (fy >= 2000) pairs.push({ from: fy, to: y });
-      if (pairs.length < (Number(maxPairs) || 0) && fy - 4 >= 2000) pairs.push({ from: fy - 4, to: fy });
+      if (fy >= earliestComparableYear) pairs.push({ from: fy, to: y });
+      if (pairs.length < (Number(maxPairs) || 0) && fy - 4 >= earliestComparableYear) pairs.push({ from: fy - 4, to: fy });
       return pairs.slice(0, Math.max(0, Number(maxPairs) || 0));
     }
 
@@ -31535,11 +31537,19 @@ document.addEventListener('DOMContentLoaded', function() {
         return null;
       }
       const candidates = (() => {
-        const base = [y - 4, y - 6, y - 2, y - 8, y - 12].filter(v => v >= 2000);
+        const ct = String(contestType || '').trim();
+        // Tennessee Governor starts in 1998 in this atlas, so Governor 2002 must be
+        // allowed to compare against Governor 1998. Keep the 2000 floor for other
+        // contests so we do not accidentally probe older slices that are not part of
+        // their timeline.
+        const earliestComparableYear = ct === 'governor' ? 1998 : 2000;
+        const base = [y - 4, y - 6, y - 2, y - 8, y - 12]
+          .filter(v => v >= earliestComparableYear && v < y);
         // US Senate: prefer the last time the *same seat* was up (typically y-6) when available.
         // If that slice doesn't exist, fall back to the nearest earlier available year.
-        if (String(contestType || '').trim() !== 'us_senate') return base;
-        const preferred = [y - 6, y - 12].filter(v => v >= 2000);
+        if (ct !== 'us_senate') return base;
+        const preferred = [y - 6, y - 12]
+          .filter(v => v >= earliestComparableYear && v < y);
         const rest = base.filter(v => !preferred.includes(v));
         return [...preferred, ...rest];
       })();
@@ -31771,9 +31781,17 @@ document.addEventListener('DOMContentLoaded', function() {
         return null;
       }
       const candidates = (() => {
-        const base = [y - 4, y - 6, y - 2, y - 8, y - 12].filter(v => v >= 2000);
-        if (String(contestType || '').trim() !== 'us_senate') return base;
-        const preferred = [y - 6, y - 12].filter(v => v >= 2000);
+        const ct = String(contestType || '').trim();
+        // Tennessee Governor starts in 1998 in this atlas, so Governor 2002 must be
+        // allowed to compare against Governor 1998. Keep the 2000 floor for other
+        // contests so we do not accidentally probe older slices that are not part of
+        // their timeline.
+        const earliestComparableYear = ct === 'governor' ? 1998 : 2000;
+        const base = [y - 4, y - 6, y - 2, y - 8, y - 12]
+          .filter(v => v >= earliestComparableYear && v < y);
+        if (ct !== 'us_senate') return base;
+        const preferred = [y - 6, y - 12]
+          .filter(v => v >= earliestComparableYear && v < y);
         const rest = base.filter(v => !preferred.includes(v));
         return [...preferred, ...rest];
       })();
@@ -32644,16 +32662,26 @@ document.addEventListener('DOMContentLoaded', function() {
 
           if (mode === 'flips') {
             const prev = vizPrevCache?.prevCountyTotals?.[countyName] || null;
-            const prevSigned = prev ? signedMarginPctFromVotes(prev.dem, prev.rep, prev.total) : 0;
-            const f = flipInfo(prevSigned, signedMarginPct);
-            color = f.flipped ? colorForFlipMode(f.to) : colorForFlipMode('T');
+            // Missing prior rows are not ties. Treat them as no comparison so older
+            // governor contests do not create fake flip context from a zero margin.
+            if (prev && Number(prev.total || 0) > 0) {
+              const prevSigned = signedMarginPctFromVotes(prev.dem, prev.rep, prev.total);
+              const f = flipInfo(prevSigned, signedMarginPct);
+              color = f.flipped ? colorForFlipMode(f.to) : colorForFlipMode('T');
+            } else {
+              color = colorForFlipMode('T');
+            }
           } else if (mode === 'winners') {
             color = colorForWinnerMode(winner);
           } else if (mode === 'shift' && prevCountyTotals) {
             const prev = prevCountyTotals[countyName];
-            const prevSigned = prev ? signedMarginPctFromVotes(prev.dem, prev.rep, prev.total) : 0;
-            const shift = signedMarginPct - prevSigned;
-            color = colorForShiftMode(shift);
+            if (prev && Number(prev.total || 0) > 0) {
+              const prevSigned = signedMarginPctFromVotes(prev.dem, prev.rep, prev.total);
+              const shift = signedMarginPct - prevSigned;
+              color = colorForShiftMode(shift);
+            } else {
+              color = colorForShiftMode(0);
+            }
           } else {
             color = colorForMarginMode(marginPctAbs, winner === 'T' ? 'R' : winner);
           }
@@ -33301,6 +33329,3 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 </body>
 </html>
-
-
-
