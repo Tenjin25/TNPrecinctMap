@@ -19358,9 +19358,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function getDistrictTitleForScope(scope, districtNum) {
-      if (scope === 'state_house') return `State House District ${districtNum}`;
-      if (scope === 'state_senate') return `State Senate District ${districtNum}`;
-      return `Congressional District ${districtNum}`;
+      return formatDistrictTitleForScope(scope, districtNum);
     }
 
     function getDistrictChamberForScope(scope) {
@@ -19567,6 +19565,42 @@ document.addEventListener('DOMContentLoaded', function() {
       if (!m) return s;
       const n = Number(m[0]);
       return Number.isFinite(n) ? String(n) : m[0];
+    }
+
+    function formatDistrictNumberForScope(scope, districtNum) {
+      const raw = normalizeDistrictNumber(districtNum);
+      if (!raw) return '';
+      if (scope === 'state_house' || scope === 'state_senate') {
+        return String(raw).padStart(2, '0');
+      }
+      return String(raw);
+    }
+
+    function formatDistrictTitleForScope(scope, districtNum) {
+      const displayNum = formatDistrictNumberForScope(scope, districtNum);
+      if (scope === 'state_house') return `State House District ${displayNum}`;
+      if (scope === 'state_senate') return `State Senate District ${displayNum}`;
+      return `Congressional District ${displayNum}`;
+    }
+
+    function formatDistrictTooltipTitle(scope, districtNum) {
+      const raw = normalizeDistrictNumber(districtNum);
+      const padded = String(raw || '').padStart(2, '0');
+      if (scope === 'state_house') return `HD-${padded}`;
+      if (scope === 'state_senate') return `SD-${padded}`;
+      return `TN-${padded}`;
+    }
+
+    function getDistrictSignedMarginFromRow(row, contestType = '') {
+      if (!row) return NaN;
+      const direct = Number(row.margin_pct);
+      if (Number.isFinite(direct)) return direct;
+      const prefix = (contestType || '').toString().trim();
+      const demVotes = Number(row.dem_votes ?? (prefix ? row[`${prefix}_dem`] : undefined) ?? row.dem ?? row.Democratic ?? 0);
+      const repVotes = Number(row.rep_votes ?? (prefix ? row[`${prefix}_rep`] : undefined) ?? row.rep ?? row.Republican ?? 0);
+      const totalVotes = Number(row.total_votes ?? (prefix ? row[`${prefix}_total`] : undefined) ?? (demVotes + repVotes));
+      if (!Number.isFinite(totalVotes) || totalVotes <= 0) return NaN;
+      return signedMarginPctFromVotes(demVotes, repVotes, totalVotes);
     }
 
     function getDistrictNumberFromPropsCandidates(props, candidates) {
@@ -25937,6 +25971,9 @@ document.addEventListener('DOMContentLoaded', function() {
       const props = e.features[0].properties || {};
       const districtNum = getDistrictNumberFromPropsCandidates(props, districtFieldCandidates);
       if (!districtNum) return;
+      const districtDisplayNum = formatDistrictNumberForScope(scope, districtNum);
+      const panelDistrictTitle = formatDistrictTitleForScope(scope, districtNum);
+      const tooltipDistrictTitle = formatDistrictTooltipTitle(scope, districtNum);
       const requestId = ++districtHoverRequestId;
       setDistrictHoverOutline(scope, districtNum);
 
@@ -25945,13 +25982,13 @@ document.addEventListener('DOMContentLoaded', function() {
       const _demoHTML = buildDemoHTML(_demoRow, scope, districtNum);
       if (!contestValue) {
         const pinnedShell = !!(tooltipPinned || (forceTooltip && isTouchInteractionMode()));
-        const copyText = `${districtLabel} ${districtNum} (Lines ${currentDistrictLinesYear})`;
+        const copyText = `${panelDistrictTitle} (Lines ${currentDistrictLinesYear})`;
         if (isDesktopTooltipMode()) {
           showHoverTooltip(
             e.point.x,
             e.point.y,
             buildTooltipShell(
-              `${districtLabel} ${districtNum}`,
+              tooltipDistrictTitle,
               _demoHTML + '<div style="color:#94a3b8;margin-top:6px;">Select a contest to see results</div>',
               { pinned: pinnedShell, copyText }
             ),
@@ -25966,7 +26003,7 @@ document.addEventListener('DOMContentLoaded', function() {
           e.point.x,
           e.point.y,
           buildTooltipShell(
-            `${districtLabel} ${districtNum}`,
+            tooltipDistrictTitle,
             `${_demoHTML}<div class="tooltip-kicker">Start</div><div style="color:rgba(226,232,240,0.92);font-weight:650;margin-top:6px;">${escapeHtml(startText)}</div>`,
             { pinned: pinnedShell, copyText }
           ),
@@ -25994,13 +26031,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
       if (!row) {
         const pinnedShell = !!(tooltipPinned || (forceTooltip && isTouchInteractionMode()));
-        const copyText = `${districtLabel} ${districtNum} (Lines ${currentDistrictLinesYear})`;
+        const copyText = `${panelDistrictTitle} (Lines ${currentDistrictLinesYear})`;
         if (isDesktopTooltipMode()) {
           showHoverTooltip(
             e.point.x,
             e.point.y,
             buildTooltipShell(
-              `${districtLabel} ${districtNum}`,
+              tooltipDistrictTitle,
               _demoHTML + '<div style="color:#94a3b8;margin-top:6px;">No data for this contest</div>',
               { pinned: pinnedShell, copyText }
             ),
@@ -26013,7 +26050,7 @@ document.addEventListener('DOMContentLoaded', function() {
           e.point.x,
           e.point.y,
           buildTooltipShell(
-            `${districtLabel} ${districtNum}`,
+            tooltipDistrictTitle,
             _demoHTML + '<div class="tooltip-kicker" style="margin-top:6px;">No data</div><div style="color:rgba(226,232,240,0.92);margin-top:6px;">No results for this contest.</div>',
             { pinned: pinnedShell, copyText }
           ),
@@ -26032,13 +26069,13 @@ document.addEventListener('DOMContentLoaded', function() {
         : (demVotes + repVotes + otherVotes);
       if (totalVotes <= 0) {
         const pinnedShell = !!(tooltipPinned || (forceTooltip && isTouchInteractionMode()));
-        const copyText = `${districtLabel} ${districtNum} (Lines ${currentDistrictLinesYear})`;
+        const copyText = `${panelDistrictTitle} (Lines ${currentDistrictLinesYear})`;
         if (isDesktopTooltipMode()) {
           showHoverTooltip(
             e.point.x,
             e.point.y,
             buildTooltipShell(
-              `${districtLabel} ${districtNum}`,
+              tooltipDistrictTitle,
               _demoHTML + '<div style="color:#94a3b8;margin-top:6px;">No data for this contest</div>',
               { pinned: pinnedShell, copyText }
             ),
@@ -26051,7 +26088,7 @@ document.addEventListener('DOMContentLoaded', function() {
           e.point.x,
           e.point.y,
           buildTooltipShell(
-            `${districtLabel} ${districtNum}`,
+            tooltipDistrictTitle,
             _demoHTML + '<div class="tooltip-kicker" style="margin-top:6px;">No data</div><div style="color:rgba(226,232,240,0.92);margin-top:6px;">No results for this contest.</div>',
             { pinned: pinnedShell, copyText }
           ),
@@ -26073,7 +26110,7 @@ document.addEventListener('DOMContentLoaded', function() {
       if (!demCandidate) demCandidate = getCandidateName(year, formatContestName(contestType, year), 'Democrat');
       if (!repCandidate) repCandidate = getCandidateName(year, formatContestName(contestType, year), 'Republican');
       setVoteCounterHoverState(
-        `Hover: ${districtLabel} ${districtNum}`,
+        `Hover: ${panelDistrictTitle}`,
         `${formatContestLabel(contestType, year)}`,
         demVotes,
         repVotes,
@@ -26092,7 +26129,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (prevResults) {
           const prevRow = prevResults[String(districtNum)] || prevResults[String(Number(districtNum))] || null;
           if (prevRow) {
-            const prevSignedRaw = Number(prevRow.margin_pct);
+            const prevSignedRaw = getDistrictSignedMarginFromRow(prevRow, contestType);
             if (Number.isFinite(prevSignedRaw)) prevSignedForFlip = prevSignedRaw;
           }
         }
@@ -26101,9 +26138,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const subtitleByScope = scope === 'congressional'
         ? 'Congressional District'
         : (scope === 'state_senate' ? 'State Senate' : 'State House');
-      const districtTitle = scope === 'congressional'
-        ? `TN-${String(districtNum).padStart(2, '0')}`
-        : `${districtLabel} ${districtNum}`;
+      const districtTitle = tooltipDistrictTitle;
       const winnerName = signedMarginPct > 0
         ? shortCandidateLabel(repCandidate, 'Republican')
         : (signedMarginPct < 0 ? shortCandidateLabel(demCandidate, 'Democratic') : 'Tie');
@@ -26139,7 +26174,7 @@ document.addEventListener('DOMContentLoaded', function() {
         shiftYearLabel: (prevYearForFlip && year) ? `${prevYearForFlip}→${year}` : '',
         showShiftLine: currentVizMode === 'shift' && Number.isFinite(shiftDelta) && !!prevYearForFlip
       });
-      const copyText = `${districtLabel} ${districtNum} (Lines ${currentDistrictLinesYear})`;
+      const copyText = `${panelDistrictTitle} (Lines ${currentDistrictLinesYear})`;
       showHoverTooltip(
         e.point.x,
         e.point.y,
@@ -29038,7 +29073,7 @@ document.addEventListener('DOMContentLoaded', function() {
               zoomToClickedDistrictFeature(e.features[0], { padding: 40, duration: 850, maxZoom: 10.5 });
               // Show detailed sidebar (results + trends).
               showDistrictDetails(districtNum);
-              lastSelectedCounty = `District ${districtNum}`;
+              lastSelectedCounty = formatDistrictTitleForScope('congressional', districtNum);
 
               // Pin vote counter to this district for current contest (if any).
               const contestValue = document.getElementById('contestSelect')?.value || '';
@@ -29053,7 +29088,7 @@ document.addEventListener('DOMContentLoaded', function() {
                   const repVotes = Number(row.rep_votes || 0);
                   const otherVotes = Number(row.other_votes || 0);
                   pinVoteCounterState(
-                    `Selected: Congressional District ${districtNum}`,
+                    `Selected: ${formatDistrictTitleForScope('congressional', districtNum)}`,
                     `${formatContestLabel(contestType, year)}`,
                     demVotes,
                     repVotes,
@@ -29157,7 +29192,7 @@ document.addEventListener('DOMContentLoaded', function() {
               zoomToClickedDistrictFeature(e.features[0], { padding: 40, duration: 850, maxZoom: 11.2 });
               // Show detailed sidebar (results + trends).
               showStateDistrictDetails(districtNum, 'house');
-              lastSelectedCounty = `State House District ${districtNum}`;
+              lastSelectedCounty = formatDistrictTitleForScope('state_house', districtNum);
 
               const contestValue = document.getElementById('contestSelect')?.value || '';
               if (contestValue) {
@@ -29171,7 +29206,7 @@ document.addEventListener('DOMContentLoaded', function() {
                   const repVotes = Number(row.rep_votes || 0);
                   const otherVotes = Number(row.other_votes || 0);
                   pinVoteCounterState(
-                    `Selected: State House District ${districtNum}`,
+                    `Selected: ${formatDistrictTitleForScope('state_house', districtNum)}`,
                     `${formatContestLabel(contestType, year)}`,
                     demVotes,
                     repVotes,
@@ -29274,7 +29309,7 @@ document.addEventListener('DOMContentLoaded', function() {
               zoomToClickedDistrictFeature(e.features[0], { padding: 40, duration: 850, maxZoom: 11.0 });
               // Show detailed sidebar (results + trends).
               showStateDistrictDetails(districtNum, 'senate');
-              lastSelectedCounty = `State Senate District ${districtNum}`;
+              lastSelectedCounty = formatDistrictTitleForScope('state_senate', districtNum);
 
               const contestValue = document.getElementById('contestSelect')?.value || '';
               if (contestValue) {
@@ -29288,7 +29323,7 @@ document.addEventListener('DOMContentLoaded', function() {
                   const repVotes = Number(row.rep_votes || 0);
                   const otherVotes = Number(row.other_votes || 0);
                   pinVoteCounterState(
-                    `Selected: State Senate District ${districtNum}`,
+                    `Selected: ${formatDistrictTitleForScope('state_senate', districtNum)}`,
                     `${formatContestLabel(contestType, year)}`,
                     demVotes,
                     repVotes,
@@ -29397,9 +29432,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function getSearchSuggestionLabel(parsed, fallbackRaw) {
       if (!parsed) return fallbackRaw;
-      if (parsed.kind === 'cd') return `Congressional District ${parsed.num}`;
-      if (parsed.kind === 'hd') return `State House District ${parsed.num}`;
-      if (parsed.kind === 'sd') return `State Senate District ${parsed.num}`;
+      if (parsed.kind === 'cd') return formatDistrictTitleForScope('congressional', parsed.num);
+      if (parsed.kind === 'hd') return formatDistrictTitleForScope('state_house', parsed.num);
+      if (parsed.kind === 'sd') return formatDistrictTitleForScope('state_senate', parsed.num);
       if (parsed.kind === 'precinct') {
         const countyDisplay = displayCountyName(parsed.county || '');
         const precinctLabel = formatPrecinctDisplayLabel(countyDisplay || parsed.county || '', parsed.code || '');
@@ -30273,7 +30308,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const subEl = document.getElementById('county-subhead');
       const contentEl = document.getElementById('county-info-content');
       
-      nameEl.textContent = `Congressional District ${districtNum}`;
+      nameEl.textContent = formatDistrictTitleForScope('congressional', districtNum);
       if (subEl) subEl.textContent = '';
       // Get district info from the current congressional lines CSV.
       const districtInfo = getDistrictDemographics('congressional', districtNum, currentDistrictLinesYear);
@@ -30385,7 +30420,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const subEl = document.getElementById('county-subhead');
       const contentEl = document.getElementById('county-info-content');
       
-      const title = chamber === 'house' ? `State House District ${districtNum}` : `State Senate District ${districtNum}`;
+      const title = chamber === 'house' ? formatDistrictTitleForScope('state_house', districtNum) : formatDistrictTitleForScope('state_senate', districtNum);
       nameEl.textContent = title;
       if (subEl) subEl.textContent = '';
       // Get district info from appropriate CSV
@@ -30625,9 +30660,9 @@ document.addEventListener('DOMContentLoaded', function() {
       const contentEl = document.getElementById('county-info-content');
       if (!detailsDiv || !nameEl || !contentEl) return;
 
-      window.lastSelectedCounty = `Congressional District ${districtNum}`;
+      window.lastSelectedCounty = formatDistrictTitleForScope('congressional', districtNum);
       updateContextBanner();
-      nameEl.textContent = `Congressional District ${districtNum}`;
+      nameEl.textContent = formatDistrictTitleForScope('congressional', districtNum);
 
       const districtInfo = getDistrictDemographics('congressional', districtNum, currentDistrictLinesYear);
       const cvapTotal = getCvapDistrictTotal('congressional', districtNum, currentDistrictLinesYear);
@@ -30708,7 +30743,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const contentEl = document.getElementById('county-info-content');
       if (!detailsDiv || !nameEl || !contentEl) return;
 
-      const title = chamber === 'house' ? `State House District ${districtNum}` : `State Senate District ${districtNum}`;
+      const title = chamber === 'house' ? formatDistrictTitleForScope('state_house', districtNum) : formatDistrictTitleForScope('state_senate', districtNum);
       window.lastSelectedCounty = title;
       updateContextBanner();
       nameEl.textContent = title;
@@ -30884,7 +30919,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const desc = getDistrictDescription(scope, districtNum);
       
       if (type === 'congressional') {
-        displayName = `Congressional District ${districtNum}`;
+        displayName = formatDistrictTooltipTitle('congressional', districtNum);
         recent = congressionalData
           .filter(row => row.district == districtNum && row.us_house_total > 0)
           .sort((a, b) => b.year - a.year)[0];
@@ -30905,9 +30940,9 @@ document.addEventListener('DOMContentLoaded', function() {
           </div>`;
         }
       } else if (type === 'house') {
-        displayName = `State House District ${districtNum}`;
+        displayName = formatDistrictTooltipTitle('state_house', districtNum);
       } else if (type === 'senate') {
-        displayName = `State Senate District ${districtNum}`;
+        displayName = formatDistrictTooltipTitle('state_senate', districtNum);
       }
       
       return `<div class="quick-tooltip">
@@ -33102,14 +33137,16 @@ document.addEventListener('DOMContentLoaded', function() {
               );
             } else if (mode === 'flips') {
               const prevRow = prevResults ? (prevResults[String(districtId)] || prevResults[String(Number(districtId))] || null) : null;
-              const prevSigned = prevRow ? Number(prevRow.margin_pct || 0) : 0;
+              const prevSignedRaw = prevRow ? getDistrictSignedMarginFromRow(prevRow, contestType) : NaN;
+              const prevSigned = Number.isFinite(prevSignedRaw) ? prevSignedRaw : 0;
               const f = flipInfo(prevSigned, signed);
               color = f.flipped ? colorForFlipMode(f.to) : colorForFlipMode('T');
             } else if (mode === 'winners') {
               color = colorForWinnerMode(winner);
             } else if (mode === 'shift' && prevResults && prevYear) {
               const prevRow = prevResults[String(districtId)] || prevResults[String(Number(districtId))] || null;
-              const prevSigned = prevRow ? Number(prevRow.margin_pct || 0) : 0;
+              const prevSignedRaw = prevRow ? getDistrictSignedMarginFromRow(prevRow, contestType) : NaN;
+              const prevSigned = Number.isFinite(prevSignedRaw) ? prevSignedRaw : 0;
               color = colorForShiftMode(signed - prevSigned);
             } else {
               color = colorForMarginMode(Math.abs(signed), winner === 'T' ? 'R' : winner);
