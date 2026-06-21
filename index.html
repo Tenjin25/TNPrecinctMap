@@ -18871,7 +18871,12 @@ document.addEventListener('DOMContentLoaded', function() {
         if (scope && Array.isArray(activeDistrictManifest) && activeDistrictManifest.length) {
           entries = activeDistrictManifest.filter(e => e && e.scope === scope);
           if (scope === 'state_house' || scope === 'state_senate') {
-            entries = entries.filter(e => Number(e?.year) >= 2022);
+            entries = entries.filter(e => {
+              const year = Number(e?.year);
+              const contestType = String(e?.contest_type || '').trim();
+              if (!Number.isFinite(year) || year >= 2022) return true;
+              return !((scope === 'state_house' && contestType === 'state_house') || (scope === 'state_senate' && contestType === 'state_senate'));
+            });
           }
         } else {
           entries = [];
