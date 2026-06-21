@@ -43,13 +43,13 @@
       },
       "3": {
         "dem_votes": 67921,
-        "rep_votes": 194114,
+        "rep_votes": 194113,
         "other_votes": 10180,
-        "total_votes": 272215,
+        "total_votes": 272214,
         "dem_candidate": "Mark E. Clayton",
         "rep_candidate": "Bob Corker",
-        "margin": 126193,
-        "margin_pct": 46.3578,
+        "margin": 126192,
+        "margin_pct": 46.3576,
         "winner": "REP"
       },
       "4": {
@@ -64,25 +64,25 @@
         "winner": "REP"
       },
       "5": {
-        "dem_votes": 108395,
-        "rep_votes": 140620,
-        "other_votes": 13757,
-        "total_votes": 262772,
+        "dem_votes": 108792,
+        "rep_votes": 141553,
+        "other_votes": 13851,
+        "total_votes": 264196,
         "dem_candidate": "Mark E. Clayton",
         "rep_candidate": "Bob Corker",
-        "margin": 32225,
-        "margin_pct": 12.2635,
+        "margin": 32761,
+        "margin_pct": 12.4003,
         "winner": "REP"
       },
       "6": {
-        "dem_votes": 75756,
-        "rep_votes": 155066,
-        "other_votes": 14739,
-        "total_votes": 245561,
+        "dem_votes": 75625,
+        "rep_votes": 154557,
+        "other_votes": 14706,
+        "total_votes": 244888,
         "dem_candidate": "Mark E. Clayton",
         "rep_candidate": "Bob Corker",
-        "margin": 79310,
-        "margin_pct": 32.2975,
+        "margin": 78932,
+        "margin_pct": 32.2319,
         "winner": "REP"
       },
       "7": {
@@ -108,14 +108,14 @@
         "winner": "REP"
       },
       "9": {
-        "dem_votes": 110849,
-        "rep_votes": 144652,
-        "other_votes": 10804,
-        "total_votes": 266305,
+        "dem_votes": 110452,
+        "rep_votes": 143719,
+        "other_votes": 10710,
+        "total_votes": 264881,
         "dem_candidate": "Mark E. Clayton",
         "rep_candidate": "Bob Corker",
-        "margin": 33803,
-        "margin_pct": 12.6933,
+        "margin": 33267,
+        "margin_pct": 12.5592,
         "winner": "REP"
       }
     }

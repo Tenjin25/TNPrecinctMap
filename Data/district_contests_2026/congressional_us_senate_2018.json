@@ -43,13 +43,13 @@
       },
       "3": {
         "dem_votes": 103935,
-        "rep_votes": 154046,
+        "rep_votes": 154045,
         "other_votes": 3705,
-        "total_votes": 261686,
+        "total_votes": 261685,
         "dem_candidate": "Phil Bredesen",
         "rep_candidate": "Marsha Blackburn",
-        "margin": 50111,
-        "margin_pct": 19.1493,
+        "margin": 50110,
+        "margin_pct": 19.149,
         "winner": "REP"
       },
       "4": {
@@ -64,25 +64,25 @@
         "winner": "REP"
       },
       "5": {
-        "dem_votes": 117266,
-        "rep_votes": 116540,
-        "other_votes": 3244,
-        "total_votes": 237050,
+        "dem_votes": 118013,
+        "rep_votes": 117708,
+        "other_votes": 3267,
+        "total_votes": 238988,
         "dem_candidate": "Phil Bredesen",
         "rep_candidate": "Marsha Blackburn",
-        "margin": -726,
-        "margin_pct": -0.3063,
+        "margin": -305,
+        "margin_pct": -0.1276,
         "winner": "DEM"
       },
       "6": {
-        "dem_votes": 123736,
-        "rep_votes": 136264,
-        "other_votes": 3605,
-        "total_votes": 263605,
+        "dem_votes": 123564,
+        "rep_votes": 135807,
+        "other_votes": 3595,
+        "total_votes": 262966,
         "dem_candidate": "Phil Bredesen",
         "rep_candidate": "Marsha Blackburn",
-        "margin": 12528,
-        "margin_pct": 4.7526,
+        "margin": 12243,
+        "margin_pct": 4.6557,
         "winner": "REP"
       },
       "7": {
@@ -108,14 +108,14 @@
         "winner": "REP"
       },
       "9": {
-        "dem_votes": 118438,
-        "rep_votes": 120524,
-        "other_votes": 2822,
-        "total_votes": 241784,
+        "dem_votes": 117691,
+        "rep_votes": 119356,
+        "other_votes": 2799,
+        "total_votes": 239846,
         "dem_candidate": "Phil Bredesen",
         "rep_candidate": "Marsha Blackburn",
-        "margin": 2086,
-        "margin_pct": 0.8628,
+        "margin": 1665,
+        "margin_pct": 0.6942,
         "winner": "REP"
       }
     }

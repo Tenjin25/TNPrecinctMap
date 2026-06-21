@@ -43,13 +43,13 @@
       },
       "3": {
         "dem_votes": 108817,
-        "rep_votes": 184412,
+        "rep_votes": 184411,
         "other_votes": 3788,
-        "total_votes": 297017,
+        "total_votes": 297016,
         "dem_candidate": "Barack Obama",
         "rep_candidate": "John McCain",
-        "margin": 75595,
-        "margin_pct": 25.4514,
+        "margin": 75594,
+        "margin_pct": 25.4512,
         "winner": "REP"
       },
       "4": {
@@ -64,25 +64,25 @@
         "winner": "REP"
       },
       "5": {
-        "dem_votes": 164270,
-        "rep_votes": 139819,
-        "other_votes": 3365,
-        "total_votes": 307454,
+        "dem_votes": 164817,
+        "rep_votes": 140938,
+        "other_votes": 3385,
+        "total_votes": 309140,
         "dem_candidate": "Barack Obama",
         "rep_candidate": "John McCain",
-        "margin": -24451,
-        "margin_pct": -7.9527,
+        "margin": -23879,
+        "margin_pct": -7.7243,
         "winner": "DEM"
       },
       "6": {
-        "dem_votes": 120318,
-        "rep_votes": 149035,
-        "other_votes": 4256,
-        "total_votes": 273609,
+        "dem_votes": 120109,
+        "rep_votes": 148499,
+        "other_votes": 4247,
+        "total_votes": 272855,
         "dem_candidate": "Barack Obama",
         "rep_candidate": "John McCain",
-        "margin": 28717,
-        "margin_pct": 10.4956,
+        "margin": 28390,
+        "margin_pct": 10.4048,
         "winner": "REP"
       },
       "7": {
@@ -108,14 +108,14 @@
         "winner": "REP"
       },
       "9": {
-        "dem_votes": 160149,
-        "rep_votes": 143442,
-        "other_votes": 2984,
-        "total_votes": 306575,
+        "dem_votes": 159601,
+        "rep_votes": 142323,
+        "other_votes": 2964,
+        "total_votes": 304888,
         "dem_candidate": "Barack Obama",
         "rep_candidate": "John McCain",
-        "margin": -16707,
-        "margin_pct": -5.4496,
+        "margin": -17278,
+        "margin_pct": -5.667,
         "winner": "DEM"
       }
     }

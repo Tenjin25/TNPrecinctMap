@@ -43,13 +43,13 @@
       },
       "3": {
         "dem_votes": 90329,
-        "rep_votes": 168358,
+        "rep_votes": 168357,
         "other_votes": 2436,
-        "total_votes": 261123,
+        "total_votes": 261122,
         "dem_candidate": "Karl Dean",
         "rep_candidate": "Bill Lee",
-        "margin": 78029,
-        "margin_pct": 29.8821,
+        "margin": 78028,
+        "margin_pct": 29.8818,
         "winner": "REP"
       },
       "4": {
@@ -64,25 +64,25 @@
         "winner": "REP"
       },
       "5": {
-        "dem_votes": 104340,
-        "rep_votes": 126225,
-        "other_votes": 5941,
-        "total_votes": 236506,
+        "dem_votes": 104997,
+        "rep_votes": 127494,
+        "other_votes": 5955,
+        "total_votes": 238446,
         "dem_candidate": "Karl Dean",
         "rep_candidate": "Bill Lee",
-        "margin": 21885,
-        "margin_pct": 9.2535,
+        "margin": 22497,
+        "margin_pct": 9.4348,
         "winner": "REP"
       },
       "6": {
-        "dem_votes": 109399,
-        "rep_votes": 148014,
-        "other_votes": 6614,
-        "total_votes": 264027,
+        "dem_votes": 109270,
+        "rep_votes": 147511,
+        "other_votes": 6606,
+        "total_votes": 263387,
         "dem_candidate": "Karl Dean",
         "rep_candidate": "Bill Lee",
-        "margin": 38615,
-        "margin_pct": 14.6254,
+        "margin": 38241,
+        "margin_pct": 14.5189,
         "winner": "REP"
       },
       "7": {
@@ -108,14 +108,14 @@
         "winner": "REP"
       },
       "9": {
-        "dem_votes": 107175,
-        "rep_votes": 128874,
-        "other_votes": 5118,
-        "total_votes": 241167,
+        "dem_votes": 106518,
+        "rep_votes": 127606,
+        "other_votes": 5104,
+        "total_votes": 239228,
         "dem_candidate": "Karl Dean",
         "rep_candidate": "Bill Lee",
-        "margin": 21699,
-        "margin_pct": 8.9975,
+        "margin": 21088,
+        "margin_pct": 8.815,
         "winner": "REP"
       }
     }

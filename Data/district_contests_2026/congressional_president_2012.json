@@ -43,13 +43,13 @@
       },
       "3": {
         "dem_votes": 97319,
-        "rep_votes": 179970,
+        "rep_votes": 179969,
         "other_votes": 4642,
-        "total_votes": 281931,
+        "total_votes": 281930,
         "dem_candidate": "Barack Obama",
         "rep_candidate": "Mitt Romney",
-        "margin": 82651,
-        "margin_pct": 29.316,
+        "margin": 82650,
+        "margin_pct": 29.3158,
         "winner": "REP"
       },
       "4": {
@@ -64,25 +64,25 @@
         "winner": "REP"
       },
       "5": {
-        "dem_votes": 141056,
-        "rep_votes": 136967,
-        "other_votes": 3493,
-        "total_votes": 281516,
+        "dem_votes": 141525,
+        "rep_votes": 137937,
+        "other_votes": 3515,
+        "total_votes": 282977,
         "dem_candidate": "Barack Obama",
         "rep_candidate": "Mitt Romney",
-        "margin": -4089,
-        "margin_pct": -1.4525,
+        "margin": -3588,
+        "margin_pct": -1.2679,
         "winner": "DEM"
       },
       "6": {
-        "dem_votes": 105866,
-        "rep_votes": 152284,
-        "other_votes": 4370,
-        "total_votes": 262520,
+        "dem_votes": 105675,
+        "rep_votes": 151770,
+        "other_votes": 4359,
+        "total_votes": 261804,
         "dem_candidate": "Barack Obama",
         "rep_candidate": "Mitt Romney",
-        "margin": 46418,
-        "margin_pct": 17.6817,
+        "margin": 46095,
+        "margin_pct": 17.6067,
         "winner": "REP"
       },
       "7": {
@@ -108,14 +108,14 @@
         "winner": "REP"
       },
       "9": {
-        "dem_votes": 140825,
-        "rep_votes": 141348,
-        "other_votes": 2838,
-        "total_votes": 285011,
+        "dem_votes": 140356,
+        "rep_votes": 140377,
+        "other_votes": 2816,
+        "total_votes": 283549,
         "dem_candidate": "Barack Obama",
         "rep_candidate": "Mitt Romney",
-        "margin": 523,
-        "margin_pct": 0.1835,
+        "margin": 21,
+        "margin_pct": 0.0074,
         "winner": "REP"
       }
     }

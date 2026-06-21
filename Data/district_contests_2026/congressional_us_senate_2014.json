@@ -43,13 +43,13 @@
       },
       "3": {
         "dem_votes": 44558,
-        "rep_votes": 111186,
+        "rep_votes": 111185,
         "other_votes": 8034,
-        "total_votes": 163778,
+        "total_votes": 163777,
         "dem_candidate": "Gordon Ball",
         "rep_candidate": "Lamar Alexander",
-        "margin": 66628,
-        "margin_pct": 40.6819,
+        "margin": 66627,
+        "margin_pct": 40.6815,
         "winner": "REP"
       },
       "4": {
@@ -64,25 +64,25 @@
         "winner": "REP"
       },
       "5": {
-        "dem_votes": 57400,
-        "rep_votes": 80032,
-        "other_votes": 9938,
-        "total_votes": 147370,
+        "dem_votes": 57633,
+        "rep_votes": 80571,
+        "other_votes": 10022,
+        "total_votes": 148226,
         "dem_candidate": "Gordon Ball",
         "rep_candidate": "Lamar Alexander",
-        "margin": 22632,
-        "margin_pct": 15.3573,
+        "margin": 22938,
+        "margin_pct": 15.475,
         "winner": "REP"
       },
       "6": {
-        "dem_votes": 53958,
-        "rep_votes": 86483,
-        "other_votes": 11475,
-        "total_votes": 151916,
+        "dem_votes": 53873,
+        "rep_votes": 86218,
+        "other_votes": 11459,
+        "total_votes": 151550,
         "dem_candidate": "Gordon Ball",
         "rep_candidate": "Lamar Alexander",
-        "margin": 32525,
-        "margin_pct": 21.4099,
+        "margin": 32345,
+        "margin_pct": 21.3428,
         "winner": "REP"
       },
       "7": {
@@ -108,14 +108,14 @@
         "winner": "REP"
       },
       "9": {
-        "dem_votes": 57066,
-        "rep_votes": 80213,
-        "other_votes": 7651,
-        "total_votes": 144930,
+        "dem_votes": 56833,
+        "rep_votes": 79674,
+        "other_votes": 7567,
+        "total_votes": 144074,
         "dem_candidate": "Gordon Ball",
         "rep_candidate": "Lamar Alexander",
-        "margin": 23147,
-        "margin_pct": 15.9712,
+        "margin": 22841,
+        "margin_pct": 15.8537,
         "winner": "REP"
       }
     }

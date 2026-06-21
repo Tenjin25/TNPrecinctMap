@@ -42,14 +42,14 @@
         "winner": "DEM"
       },
       "3": {
-        "dem_votes": 144694,
+        "dem_votes": 144693,
         "rep_votes": 68811,
         "other_votes": 3206,
-        "total_votes": 216711,
+        "total_votes": 216710,
         "dem_candidate": "Phil Bredesen",
         "rep_candidate": "Jim Bryson",
-        "margin": -75883,
-        "margin_pct": -35.0158,
+        "margin": -75882,
+        "margin_pct": -35.0155,
         "winner": "DEM"
       },
       "4": {
@@ -64,25 +64,25 @@
         "winner": "DEM"
       },
       "5": {
-        "dem_votes": 165157,
-        "rep_votes": 51659,
-        "other_votes": 4531,
-        "total_votes": 221347,
+        "dem_votes": 165705,
+        "rep_votes": 51992,
+        "other_votes": 4539,
+        "total_votes": 222236,
         "dem_candidate": "Phil Bredesen",
         "rep_candidate": "Jim Bryson",
-        "margin": -113498,
-        "margin_pct": -51.2761,
+        "margin": -113713,
+        "margin_pct": -51.1677,
         "winner": "DEM"
       },
       "6": {
-        "dem_votes": 137160,
-        "rep_votes": 55156,
-        "other_votes": 3599,
-        "total_votes": 195915,
+        "dem_votes": 136741,
+        "rep_votes": 54986,
+        "other_votes": 3593,
+        "total_votes": 195320,
         "dem_candidate": "Phil Bredesen",
         "rep_candidate": "Jim Bryson",
-        "margin": -82004,
-        "margin_pct": -41.8569,
+        "margin": -81755,
+        "margin_pct": -41.857,
         "winner": "DEM"
       },
       "7": {
@@ -108,14 +108,14 @@
         "winner": "DEM"
       },
       "9": {
-        "dem_votes": 152191,
-        "rep_votes": 54840,
-        "other_votes": 3268,
-        "total_votes": 210299,
+        "dem_votes": 151642,
+        "rep_votes": 54507,
+        "other_votes": 3260,
+        "total_votes": 209409,
         "dem_candidate": "Phil Bredesen",
         "rep_candidate": "Jim Bryson",
-        "margin": -97351,
-        "margin_pct": -46.2917,
+        "margin": -97135,
+        "margin_pct": -46.3853,
         "winner": "DEM"
       }
     }

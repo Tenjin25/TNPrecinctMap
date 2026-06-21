@@ -43,13 +43,13 @@
       },
       "3": {
         "dem_votes": 115857,
-        "rep_votes": 226331,
+        "rep_votes": 226330,
         "other_votes": 6456,
-        "total_votes": 348644,
+        "total_votes": 348643,
         "dem_candidate": "Joseph R. Biden",
         "rep_candidate": "Donald J. Trump",
-        "margin": 110474,
-        "margin_pct": 31.6868,
+        "margin": 110473,
+        "margin_pct": 31.6866,
         "winner": "REP"
       },
       "4": {
@@ -64,25 +64,25 @@
         "winner": "REP"
       },
       "5": {
-        "dem_votes": 138062,
-        "rep_votes": 176477,
-        "other_votes": 5444,
-        "total_votes": 319983,
+        "dem_votes": 138839,
+        "rep_votes": 177960,
+        "other_votes": 5480,
+        "total_votes": 322279,
         "dem_candidate": "Joseph R. Biden",
         "rep_candidate": "Donald J. Trump",
-        "margin": 38415,
-        "margin_pct": 12.0053,
+        "margin": 39121,
+        "margin_pct": 12.1389,
         "winner": "REP"
       },
       "6": {
-        "dem_votes": 137218,
-        "rep_votes": 209957,
-        "other_votes": 7631,
-        "total_votes": 354806,
+        "dem_votes": 137076,
+        "rep_votes": 209150,
+        "other_votes": 7611,
+        "total_votes": 353837,
         "dem_candidate": "Joseph R. Biden",
         "rep_candidate": "Donald J. Trump",
-        "margin": 72739,
-        "margin_pct": 20.5011,
+        "margin": 72074,
+        "margin_pct": 20.3693,
         "winner": "REP"
       },
       "7": {
@@ -108,14 +108,14 @@
         "winner": "REP"
       },
       "9": {
-        "dem_votes": 144656,
-        "rep_votes": 180783,
-        "other_votes": 5065,
-        "total_votes": 330504,
+        "dem_votes": 143879,
+        "rep_votes": 179300,
+        "other_votes": 5030,
+        "total_votes": 328209,
         "dem_candidate": "Joseph R. Biden",
         "rep_candidate": "Donald J. Trump",
-        "margin": 36127,
-        "margin_pct": 10.9309,
+        "margin": 35421,
+        "margin_pct": 10.7922,
         "winner": "REP"
       }
     }

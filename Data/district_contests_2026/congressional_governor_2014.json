@@ -42,14 +42,14 @@
         "winner": "REP"
       },
       "3": {
-        "dem_votes": 32831,
-        "rep_votes": 121531,
+        "dem_votes": 32830,
+        "rep_votes": 121530,
         "other_votes": 7924,
-        "total_votes": 162286,
+        "total_votes": 162284,
         "dem_candidate": "Charles V. \"Charlie\" Brown",
         "rep_candidate": "Bill Haslam",
         "margin": 88700,
-        "margin_pct": 54.6566,
+        "margin_pct": 54.6573,
         "winner": "REP"
       },
       "4": {
@@ -64,25 +64,25 @@
         "winner": "REP"
       },
       "5": {
-        "dem_votes": 43791,
-        "rep_votes": 90266,
-        "other_votes": 11472,
-        "total_votes": 145529,
+        "dem_votes": 43947,
+        "rep_votes": 90856,
+        "other_votes": 11558,
+        "total_votes": 146361,
         "dem_candidate": "Charles V. \"Charlie\" Brown",
         "rep_candidate": "Bill Haslam",
-        "margin": 46475,
-        "margin_pct": 31.9352,
+        "margin": 46909,
+        "margin_pct": 32.0502,
         "winner": "REP"
       },
       "6": {
-        "dem_votes": 37332,
-        "rep_votes": 98183,
-        "other_votes": 13462,
-        "total_votes": 148977,
+        "dem_votes": 37265,
+        "rep_votes": 97902,
+        "other_votes": 13445,
+        "total_votes": 148612,
         "dem_candidate": "Charles V. \"Charlie\" Brown",
         "rep_candidate": "Bill Haslam",
-        "margin": 60851,
-        "margin_pct": 40.8459,
+        "margin": 60637,
+        "margin_pct": 40.8022,
         "winner": "REP"
       },
       "7": {
@@ -108,14 +108,14 @@
         "winner": "REP"
       },
       "9": {
-        "dem_votes": 43750,
-        "rep_votes": 91077,
-        "other_votes": 8034,
-        "total_votes": 142861,
+        "dem_votes": 43594,
+        "rep_votes": 90487,
+        "other_votes": 7948,
+        "total_votes": 142029,
         "dem_candidate": "Charles V. \"Charlie\" Brown",
         "rep_candidate": "Bill Haslam",
-        "margin": 47327,
-        "margin_pct": 33.128,
+        "margin": 46893,
+        "margin_pct": 33.0165,
         "winner": "REP"
       }
     }
