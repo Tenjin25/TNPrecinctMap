@@ -295,7 +295,11 @@ def build_congressional_2026():
         if not allocs and (is_non_geo_bucket or is_unmapped_non_geo):
           allocs = county_allocs
           source = "non_geo_fallback" if allocs else "dropped"
-        allow_county_fallback = not (is_non_geo_bucket or is_unmapped_label_bucket or is_low_seq_numeric)
+        # Some legacy 2024 precinct rows resolve to low numeric codes that are
+        # valid precinct identifiers but are not present in the 2026 district
+        # overlay. For congressional 2026 aggregation, county fallback is
+        # better than dropping those votes entirely.
+        allow_county_fallback = not (is_non_geo_bucket or is_unmapped_label_bucket)
         if not allocs and allow_county_fallback:
           allocs = county_allocs
           source = "county_fallback" if allocs else "dropped"
