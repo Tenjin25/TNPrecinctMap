@@ -18870,7 +18870,7 @@ document.addEventListener('DOMContentLoaded', function() {
           : (currentView === 'state_house' ? 'state_house' : (currentView === 'state_senate' ? 'state_senate' : null));
         if (scope && Array.isArray(activeDistrictManifest) && activeDistrictManifest.length) {
           entries = activeDistrictManifest.filter(e => e && e.scope === scope);
-          if (scope === 'state_house') {
+          if (scope === 'state_house' || scope === 'state_senate') {
             entries = entries.filter(e => Number(e?.year) >= 2022);
           }
         } else {
