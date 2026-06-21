@@ -18870,6 +18870,9 @@ document.addEventListener('DOMContentLoaded', function() {
           : (currentView === 'state_house' ? 'state_house' : (currentView === 'state_senate' ? 'state_senate' : null));
         if (scope && Array.isArray(activeDistrictManifest) && activeDistrictManifest.length) {
           entries = activeDistrictManifest.filter(e => e && e.scope === scope);
+          if (scope === 'state_house' || scope === 'state_senate') {
+            entries = entries.filter(e => Number(e?.year) >= 2022);
+          }
         } else {
           entries = [];
         }
@@ -32973,11 +32976,10 @@ document.addEventListener('DOMContentLoaded', function() {
         const key = String(ct || '').trim().toLowerCase();
         const yearNum = Number(y);
         if (key === 'state_house') {
-          if (yearNum === 2022) return { repCandidate: 'Speaker Tim Moore', demCandidate: 'House Democrats' };
-          if (yearNum === 2024) return { repCandidate: 'Speaker Destin Hall', demCandidate: 'House Democrats' };
+          if (yearNum === 2022 || yearNum === 2024) return { repCandidate: 'Speaker Cameron Sexton', demCandidate: 'House Democrats' };
         }
         if (key === 'state_senate') {
-          if (yearNum === 2022 || yearNum === 2024) return { repCandidate: 'Phil Berger', demCandidate: 'Senate Democrats' };
+          if (yearNum === 2022 || yearNum === 2024) return { repCandidate: 'Speaker Randy McNally', demCandidate: 'Senate Democrats' };
         }
         return null;
       }
