@@ -156,8 +156,9 @@ def build_congressional_2026():
         vtd20_leading_code_map=vtd20_leading_code_map,
     )
     prctseq_exact_to_vtd.update(tn.load_prctseq_to_vtd20_overrides())
+    # Reuse the shared PRCTSEQ helper, which expects scope-keyed district maps.
     prctseq_offsets_by_county, vtd_ints_by_county, prctseq_offset_candidates_by_county = tn.build_prctseq_offsets(
-        county_norm_to_fp, district_weights, prctseq_exact_to_vtd
+        county_norm_to_fp, {"congressional": district_weights}, prctseq_exact_to_vtd
     )
     prctseq_unique_to_vtd = tn.build_prctseq_unique_to_vtd_map(
         county_norm_to_fp=county_norm_to_fp,
