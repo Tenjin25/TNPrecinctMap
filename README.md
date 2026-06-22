@@ -105,6 +105,16 @@ That writes:
 
 - `Data/reports/tn08_shelby_review_2024_president.csv`
 
+For a geometry-focused follow-up that tags each Shelby precinct as `core_tn08`, `boundary_split`, or `sliver_only`, run:
+
+```powershell
+py Scripts/export_tn08_shelby_geometry_review.py
+```
+
+That writes:
+
+- `Data/reports/tn08_shelby_geometry_review_2024_president.csv`
+
 ## What Was Upgraded
 
 The county-detail experience was upgraded to a story-first, election-desk standard with stronger hierarchy, clearer context, and better scanability.
