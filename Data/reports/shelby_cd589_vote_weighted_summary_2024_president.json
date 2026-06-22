@@ -1,0 +1,31 @@
+{
+  "scope": "shelby_only",
+  "contest_type": "president",
+  "year": 2024,
+  "districts": {
+    "5": {
+      "dem_votes": 53604.548,
+      "rep_votes": 19864.796,
+      "other_votes": 1481.573,
+      "total_votes": 74950.916,
+      "margin_r_minus_d": -33739.752,
+      "margin_pct": -45.0158
+    },
+    "8": {
+      "dem_votes": 81905.708,
+      "rep_votes": 69777.326,
+      "other_votes": 2587.9,
+      "total_votes": 154270.934,
+      "margin_r_minus_d": -12128.382,
+      "margin_pct": -7.8617
+    },
+    "9": {
+      "dem_votes": 66248.744,
+      "rep_votes": 29274.878,
+      "other_votes": 1751.527,
+      "total_votes": 97275.15,
+      "margin_r_minus_d": -36973.866,
+      "margin_pct": -38.0096
+    }
+  }
+}
