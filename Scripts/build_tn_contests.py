@@ -1973,8 +1973,6 @@ def resolve_precinct_code(
             prctseq_candidate = to_vtd(p)
         if is_non_geographic_precinct_name(precinct_raw):
             return f"NG-{norm_precinct_name(precinct_raw)[:20]}".replace(" ", "_")
-        if prctseq_candidate:
-            return prctseq_candidate
     prec_norm = norm_precinct_name(precinct_raw)
     if not prec_norm:
         return ""
@@ -2004,6 +2002,9 @@ def resolve_precinct_code(
                 out = to_vtd(candidates[0])
                 if out:
                     return out
+
+    if year == 2024 and prctseq_candidate:
+        return prctseq_candidate
 
     code = to2024.get((year, county_norm, prec_norm), "")
     if code:

@@ -86,8 +86,34 @@ When available, the county delta block includes:
 ### Tooltip + Demographics Polish
 
 - The desktop county population-change hover now uses a more card-like, NCMap-style treatment so the headline change and the 2020→2025 context read more cleanly at a glance.
-- Demographics labels now distinguish between **majority** and **plurality** based on the top share, with a separate mixed / near-tie label for close splits.
+- Demographics labels now distinguish between **majority** and **plurality** based on the top share, with a separate mixed / near-tie label for close splits. The legend and hover badges now use different color accents so the distinction is visible at a glance.
 - County demographics hover cards now surface the dominant group label directly, and the county share copy now correctly describes the data as county VAP race shares rather than total population.
+
+## 2026 Congressional Notes
+
+- 2026 congressional statewide slices live in `Data/district_contests_2026/`.
+- Districts `1` and `2` intentionally keep their transferred unaffected legacy U.S. House line data, while other 2026 congressional statewide contests are rebuilt against `Data/tl_2026_47_cd2026.geojson`.
+- The 2026 congressional builder is `Scripts/build_tn_congressional_2026_district_contests.py`.
+- A Shelby-specific `PRCTSEQ` wiring fix now ensures 2024 rows resolve against the real 2026 congressional precinct overlay instead of falling into county fallback buckets.
+- For targeted review work on the remaining TN-08 gap, export a Shelby-only audit CSV with:
+
+```powershell
+py Scripts/export_tn08_shelby_review.py
+```
+
+That writes:
+
+- `Data/reports/tn08_shelby_review_2024_president.csv`
+
+For a geometry-focused follow-up that tags each Shelby precinct as `core_tn08`, `boundary_split`, or `sliver_only`, run:
+
+```powershell
+py Scripts/export_tn08_shelby_geometry_review.py
+```
+
+That writes:
+
+- `Data/reports/tn08_shelby_geometry_review_2024_president.csv`
 
 ## What Was Upgraded
 
@@ -264,3 +290,10 @@ Then open:
 `http://127.0.0.1:8000/index.html`
 
 If you update and don’t see changes, hard refresh (`Ctrl+F5`) to bypass cached `index.html` / CSV loads.
+
+The app also includes a manual static-data cache buster in `index.html`:
+
+- `DATA_CACHE_BUSTER`
+- `APP_BUILD_ID`
+
+Bump those when you want phones or stubborn browsers to fetch fresh JSON / CSV / GeoJSON files immediately after a push.

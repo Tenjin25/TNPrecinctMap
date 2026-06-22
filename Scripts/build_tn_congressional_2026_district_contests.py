@@ -156,8 +156,9 @@ def build_congressional_2026():
         vtd20_leading_code_map=vtd20_leading_code_map,
     )
     prctseq_exact_to_vtd.update(tn.load_prctseq_to_vtd20_overrides())
+    # Reuse the shared PRCTSEQ helper, which expects scope-keyed district maps.
     prctseq_offsets_by_county, vtd_ints_by_county, prctseq_offset_candidates_by_county = tn.build_prctseq_offsets(
-        county_norm_to_fp, district_weights, prctseq_exact_to_vtd
+        county_norm_to_fp, {"congressional": district_weights}, prctseq_exact_to_vtd
     )
     prctseq_unique_to_vtd = tn.build_prctseq_unique_to_vtd_map(
         county_norm_to_fp=county_norm_to_fp,
@@ -301,8 +302,17 @@ def build_congressional_2026():
         # better than dropping those votes entirely.
         allow_county_fallback = not (is_non_geo_bucket or is_unmapped_label_bucket)
         if not allocs and allow_county_fallback:
-          allocs = county_allocs
-          source = "county_fallback" if allocs else "dropped"
+          if is_low_seq_numeric and county_allocs:
+            top_district, top_share = county_allocs[0]
+            if float(top_share) >= 0.40:
+              allocs = [(str(top_district), 1.0)]
+              source = "county_dominant_fallback"
+            else:
+              allocs = county_allocs
+              source = "county_fallback" if allocs else "dropped"
+          else:
+            allocs = county_allocs
+            source = "county_fallback" if allocs else "dropped"
         if not allocs:
           stat["dropped_rows"] += 1
           stat["votes_dropped"] += votes_total
