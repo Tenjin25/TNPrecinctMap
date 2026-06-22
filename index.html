@@ -10081,8 +10081,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Cache destroyer token for static data requests.
     // Bump this value when you want browsers/CDNs to fetch fresh files immediately.
-    const DATA_CACHE_BUSTER = '2026-06-22-1';
-    const APP_BUILD_ID = '2026-06-22-1';
+    const DATA_CACHE_BUSTER = '2026-06-22-2';
+    const APP_BUILD_ID = '2026-06-22-2';
 
     function withCacheBuster(path) {
       const p = (path || '').toString().trim();
@@ -28368,8 +28368,6 @@ document.addEventListener('DOMContentLoaded', function() {
       if (!path) return null;
       precinctAliasLoadInFlight = true;
       try {
-        const payload = await loadJSON(path);
-        const counties = payload?.counties || {};
         const idx = new Map();
         const nameIdx = new Map();
 
@@ -28388,9 +28386,7 @@ document.addEventListener('DOMContentLoaded', function() {
           if (!s) return true;
           const compact = s.replace(/[^A-Z0-9]/g, '');
           if (!compact) return true;
-          // Treat anything with digits as code-like (EH1, 00CRDM, 0001, etc).
           if (/[0-9]/.test(compact)) return true;
-          // Short all-letter tokens are usually codes (CRDM, BCK, etc) not names.
           if (compact.length <= 4 && /^[A-Z]+$/.test(compact)) return true;
           return false;
         };
@@ -28417,10 +28413,6 @@ document.addEventListener('DOMContentLoaded', function() {
           if (!alias || !code) return '';
           if (alias === code) return '';
 
-          // Common alias patterns carried over from earlier atlas imports:
-          // - "CRDM CREEDMOOR" -> code "CRDM", name "CREEDMOOR"
-          // - "01 PATTERSON" -> code "01", name "PATTERSON"
-          // - "CRDMCREEDMOOR" -> code "CRDM", name "CREEDMOOR"
           let rest = '';
           if (alias.startsWith(code)) {
             rest = alias.slice(code.length).trim();
@@ -28435,8 +28427,6 @@ document.addEventListener('DOMContentLoaded', function() {
           const restCompact = rest.replace(/[^A-Z0-9]/g, '');
           if (restCompact === codeCompact) return '';
           if (restCompact.endsWith(codeCompact) && restCompact.length <= codeCompact.length + 2) return '';
-
-          // Avoid returning another code.
           if (isCodeLikeToken(rest)) return '';
 
           return rest;
@@ -28456,38 +28446,61 @@ document.addEventListener('DOMContentLoaded', function() {
           if (nextScore > currentScore) m.set(code, candidate);
         };
 
-        Object.entries(counties).forEach(([countyRaw, aliasObj]) => {
-          const county = normalizeCountyToken(countyRaw);
-          if (!county || !aliasObj || typeof aliasObj !== 'object') return;
-          const aliasMap = new Map();
-          Object.entries(aliasObj).forEach(([aliasRaw, codesRaw]) => {
-            const alias = (aliasRaw || '').toString().trim().toUpperCase();
-            if (!alias) return;
-            const codes = Array.isArray(codesRaw)
-              ? Array.from(new Set(codesRaw.map(v => (v || '').toString().trim().toUpperCase()).filter(Boolean)))
-              : [];
-            if (!codes.length) return;
-            aliasMap.set(alias, codes);
+        const addAliasCode = (aliasMap, aliasRaw, codeRaw) => {
+          const alias = (aliasRaw || '').toString().trim().toUpperCase();
+          const code = (codeRaw || '').toString().trim().toUpperCase();
+          if (!alias || !code) return;
+          const existing = aliasMap.has(alias) ? aliasMap.get(alias) : [];
+          if (existing.includes(code)) return;
+          existing.push(code);
+          aliasMap.set(alias, existing);
+        };
 
-            // Build a reverse "code -> friendly name" index.
-            codes.forEach(code => {
-              const extracted = extractNameFromAlias(alias, code);
-              if (extracted) {
-                setBestNameForCode(county, code, extracted);
-                return;
-              }
-              // If this alias is a name-only key that uniquely points to one code,
-              // keep it as a fallback display name (e.g., "CREEDMOOR" -> ["CRDM"]).
-              if (codes.length === 1 && !isCodeLikeToken(alias) && !alias.startsWith(code)) {
-                setBestNameForCode(county, code, alias);
-              }
+        const csvText = await loadCSV(path);
+        const rows = parseCSV(csvText);
+        rows.forEach(row => {
+          const county = normalizeCountyToken(row?.county_norm || row?.county || '');
+          const precinctNorm = (row?.precinct_norm || '').toString().trim().toUpperCase();
+          const canonicalLabel = (row?.canonical_label || '').toString().trim();
+          const canonicalUpper = canonicalLabel.toUpperCase();
+          const prctseq2024 = (row?.prctseq_2024 || '').toString().trim().toUpperCase();
+          const preferredCode = prctseq2024 || precinctNorm;
+          if (!county || !preferredCode) return;
+
+          if (!idx.has(county)) idx.set(county, new Map());
+          const aliasMap = idx.get(county);
+          const aliasCandidates = new Set();
+
+          const addAliasCandidates = (raw) => {
+            const base = (raw || '').toString().trim();
+            if (!base) return;
+            aliasCandidates.add(base.toUpperCase());
+            extractPrecinctAliasCandidates(base).forEach(alias => {
+              const normalized = (alias || '').toString().trim().toUpperCase();
+              if (normalized) aliasCandidates.add(normalized);
             });
+          };
+
+          addAliasCandidates(precinctNorm);
+          addAliasCandidates(canonicalLabel);
+          if (prctseq2024) addAliasCandidates(prctseq2024);
+          if (canonicalLabel && prctseq2024) addAliasCandidates(`${prctseq2024} ${canonicalLabel}`);
+
+          aliasCandidates.forEach(alias => addAliasCode(aliasMap, alias, preferredCode));
+
+          if (canonicalUpper) setBestNameForCode(county, preferredCode, canonicalUpper);
+          aliasCandidates.forEach(alias => {
+            const extracted = extractNameFromAlias(alias, preferredCode);
+            if (extracted) {
+              setBestNameForCode(county, preferredCode, extracted);
+              return;
+            }
+            if (!isCodeLikeToken(alias) && !alias.startsWith(preferredCode)) {
+              setBestNameForCode(county, preferredCode, alias);
+            }
           });
-          if (aliasMap.size) idx.set(county, aliasMap);
         });
         precinctAliasIndexByCounty = idx;
-        // Only fill in friendly-name labels if we don't already have a dedicated
-        // code->name index (or if it is missing some codes).
         if (!precinctFriendlyNameByCountyCode) {
           precinctFriendlyNameByCountyCode = nameIdx;
         } else {
