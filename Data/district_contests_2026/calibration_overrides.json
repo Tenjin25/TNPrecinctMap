@@ -1,0 +1,61 @@
+{
+  "enabled": true,
+  "generated_by": "manual calibration overrides for 2026 congressional district outputs",
+  "overrides": [
+    {
+      "scope": "congressional",
+      "contest_type": "governor",
+      "year": 2022,
+      "district": "8",
+      "dem_votes": 108850,
+      "rep_votes": 146072,
+      "other_votes": 5721,
+      "dem_candidate": "Jason Brantley Martin",
+      "rep_candidate": "Bill Lee"
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "president",
+      "year": 2020,
+      "district": "8",
+      "dem_votes": 136628,
+      "rep_votes": 204154,
+      "other_votes": 5356,
+      "dem_candidate": "Joseph R. Biden",
+      "rep_candidate": "Donald J. Trump"
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "president",
+      "year": 2024,
+      "district": "8",
+      "dem_votes": 116253,
+      "rep_votes": 175365,
+      "other_votes": 3939,
+      "dem_candidate": "Kamala D. Harris",
+      "rep_candidate": "Donald J. Trump"
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "us_senate",
+      "year": 2020,
+      "district": "8",
+      "dem_votes": 122953,
+      "rep_votes": 206436,
+      "other_votes": 6846,
+      "dem_candidate": "Marquita Bradshaw",
+      "rep_candidate": "Bill Hagerty"
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "us_senate",
+      "year": 2024,
+      "district": "8",
+      "dem_votes": 108521,
+      "rep_votes": 174309,
+      "other_votes": 6274,
+      "dem_candidate": "Gloria Johnson",
+      "rep_candidate": "Marsha Blackburn"
+    }
+  ]
+}
