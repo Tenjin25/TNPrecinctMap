@@ -10081,8 +10081,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Cache destroyer token for static data requests.
     // Bump this value when you want browsers/CDNs to fetch fresh files immediately.
-    const DATA_CACHE_BUSTER = '2026-06-22-2';
-    const APP_BUILD_ID = '2026-06-22-2';
+    const DATA_CACHE_BUSTER = '2026-06-22-3';
+    const APP_BUILD_ID = '2026-06-22-3';
 
     function withCacheBuster(path) {
       const p = (path || '').toString().trim();
@@ -30863,12 +30863,16 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }
 
+    function getCongressionalDistrictInfoRows(linesYear = currentDistrictLinesYear) {
+      const y = normalizeDistrictLinesYear(linesYear);
+      return y === 2026 ? (districtsInfo2026 || districtsInfo || []) : (districtsInfo || []);
+    }
+
     function getDistrictDemographics(scope, districtNum, linesYear = currentDistrictLinesYear) {
       try {
         let source = null;
         if (scope === 'congressional') {
-          const y = normalizeDistrictLinesYear(linesYear);
-          source = y === 2026 ? (districtsInfo2026 || districtsInfo) : districtsInfo;
+          source = getCongressionalDistrictInfoRows(linesYear);
         }
         else if (scope === 'state_house') source = stateHouseInfo;
         else if (scope === 'state_senate') source = stateSenateInfo;
@@ -33188,7 +33192,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const layerName = currentView === 'districts' ? 'district-fill'
           : (currentView === 'state_house' ? 'state-house-fill' : 'state-senate-fill');
         const sourceRows = currentView === 'districts'
-          ? (normalizeDistrictLinesYear(currentDistrictLinesYear) === 2026 ? (districtsInfo2026 || districtsInfo || []) : (districtsInfo || []))
+          ? getCongressionalDistrictInfoRows(currentDistrictLinesYear)
           : (currentView === 'state_house' ? (stateHouseInfo || []) : (stateSenateInfo || []));
         const expr = ['case'];
         let mapped = 0;
