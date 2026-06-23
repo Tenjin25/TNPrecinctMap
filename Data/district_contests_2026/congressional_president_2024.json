@@ -97,14 +97,14 @@
         "winner": "REP"
       },
       "8": {
-        "dem_votes": 122022,
-        "rep_votes": 169596,
+        "dem_votes": 116253,
+        "rep_votes": 175365,
         "other_votes": 3939,
         "total_votes": 295557,
         "dem_candidate": "Kamala D. Harris",
         "rep_candidate": "Donald J. Trump",
-        "margin": 47574,
-        "margin_pct": 16.0964,
+        "margin": 59112,
+        "margin_pct": 20.0002,
         "winner": "REP"
       },
       "9": {

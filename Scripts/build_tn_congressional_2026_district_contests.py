@@ -21,6 +21,7 @@ import geopandas as gpd
 ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = ROOT / "Data"
 OUTPUT_DIR = DATA_DIR / "district_contests_2026"
+OVERRIDES_PATH = OUTPUT_DIR / "calibration_overrides.json"
 LEGACY_DISTRICT_CONTEST_DIR = DATA_DIR / "district_contests"
 CONTESTS_DIR = DATA_DIR / "contests"
 BUILD_SCRIPT = ROOT / "Scripts" / "build_tn_contests.py"
@@ -39,6 +40,35 @@ def load_build_module():
 def write_json(path: Path, payload: dict) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+
+
+def load_2026_district_result_overrides() -> dict[tuple[str, str, int, str], dict]:
+    if not OVERRIDES_PATH.exists():
+        return {}
+    try:
+        payload = json.loads(OVERRIDES_PATH.read_text(encoding="utf-8"))
+    except Exception:
+        return {}
+    if not isinstance(payload, dict) or payload.get("enabled") is not True:
+        return {}
+    rows = payload.get("overrides", [])
+    out: dict[tuple[str, str, int, str], dict] = {}
+    for row in rows:
+        if not isinstance(row, dict):
+            continue
+        scope = str(row.get("scope", "")).strip().lower()
+        contest_type = str(row.get("contest_type", "")).strip().lower()
+        try:
+            year = int(row.get("year", 0) or 0)
+        except (TypeError, ValueError):
+            year = 0
+        district = str(row.get("district", "")).strip()
+        if district.isdigit():
+            district = str(int(district))
+        if not (scope and contest_type and year and district):
+            continue
+        out[(scope, contest_type, year, district)] = dict(row)
+    return out
 
 
 def load_legacy_unaffected_district_results(contest_type: str, year: int) -> dict[str, dict]:
@@ -129,6 +159,7 @@ def build_congressional_weight_maps_2026(tn):
 def build_congressional_2026():
     tn = load_build_module()
     district_weights, county_district_weights = build_congressional_weight_maps_2026(tn)
+    district_result_overrides = load_2026_district_result_overrides()
 
     county_norm_to_fp, _ = tn.load_county_maps()
     to2024 = tn.load_precinct_to_2024_map()
@@ -391,8 +422,21 @@ def build_congressional_2026():
           non_geo_vote_pct = (float(alloc["votes_non_geo"]) / votes_total) * 100.0
           county_fallback_vote_pct = (float(alloc["votes_fallback"]) / votes_total) * 100.0
           dropped_vote_pct = (float(alloc["votes_dropped"]) / votes_total) * 100.0
-      for district in sorted(dmap.keys(), key=lambda d: int(d)):
-        row = dmap[district].as_district_result()
+      override_districts = {
+        district
+        for (o_scope, o_contest, o_year, district) in district_result_overrides.keys()
+        if o_scope == "congressional" and o_contest == contest_type and o_year == int(year)
+      }
+      district_keys = set(dmap.keys()).union(override_districts)
+      for district in sorted(district_keys, key=lambda d: int(d)):
+        base_totals = dmap.get(district)
+        override = district_result_overrides.get(("congressional", contest_type, int(year), str(int(district))))
+        if override:
+          row = tn.district_result_from_override(override, base_totals)
+        elif base_totals:
+          row = base_totals.as_district_result()
+        else:
+          continue
         results[str(int(district))] = row
 
       legacy_overrides = load_legacy_unaffected_district_results(contest_type, year)

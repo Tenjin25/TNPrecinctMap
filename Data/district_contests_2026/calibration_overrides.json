@@ -1,0 +1,17 @@
+{
+  "enabled": true,
+  "generated_by": "manual calibration overrides for 2026 congressional district outputs",
+  "overrides": [
+    {
+      "scope": "congressional",
+      "contest_type": "president",
+      "year": 2024,
+      "district": "8",
+      "dem_votes": 116253,
+      "rep_votes": 175365,
+      "other_votes": 3939,
+      "dem_candidate": "Kamala D. Harris",
+      "rep_candidate": "Donald J. Trump"
+    }
+  ]
+}
