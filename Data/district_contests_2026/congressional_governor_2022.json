@@ -64,14 +64,14 @@
         "winner": "REP"
       },
       "5": {
-        "dem_votes": 38474,
-        "rep_votes": 105246,
-        "other_votes": 3153,
-        "total_votes": 146873,
+        "dem_votes": 83269,
+        "rep_votes": 131436,
+        "other_votes": 5052,
+        "total_votes": 219757,
         "dem_candidate": "Jason Brantley Martin",
         "rep_candidate": "Bill Lee",
-        "margin": 66772,
-        "margin_pct": 45.4624,
+        "margin": 48167,
+        "margin_pct": 21.9183,
         "winner": "REP"
       },
       "6": {
