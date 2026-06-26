@@ -64,14 +64,14 @@
         "winner": "REP"
       },
       "5": {
-        "dem_votes": 43948,
-        "rep_votes": 90878,
-        "other_votes": 11560,
-        "total_votes": 146386,
+        "dem_votes": 37452,
+        "rep_votes": 108333,
+        "other_votes": 10797,
+        "total_votes": 156582,
         "dem_candidate": "Charles V. \"Charlie\" Brown",
         "rep_candidate": "Bill Haslam",
-        "margin": 46930,
-        "margin_pct": 32.0591,
+        "margin": 70881,
+        "margin_pct": 45.2677,
         "winner": "REP"
       },
       "6": {
@@ -97,25 +97,25 @@
         "winner": "REP"
       },
       "8": {
-        "dem_votes": 37793,
-        "rep_votes": 124316,
-        "other_votes": 8681,
-        "total_votes": 170790,
+        "dem_votes": 36448,
+        "rep_votes": 124782,
+        "other_votes": 10238,
+        "total_votes": 171468,
         "dem_candidate": "Charles V. \"Charlie\" Brown",
         "rep_candidate": "Bill Haslam",
-        "margin": 86523,
-        "margin_pct": 50.6605,
+        "margin": 88334,
+        "margin_pct": 51.5163,
         "winner": "REP"
       },
       "9": {
-        "dem_votes": 43594,
-        "rep_votes": 90487,
-        "other_votes": 7948,
-        "total_votes": 142029,
+        "dem_votes": 32607,
+        "rep_votes": 109124,
+        "other_votes": 10408,
+        "total_votes": 152139,
         "dem_candidate": "Charles V. \"Charlie\" Brown",
         "rep_candidate": "Bill Haslam",
-        "margin": 46893,
-        "margin_pct": 33.0165,
+        "margin": 76517,
+        "margin_pct": 50.2941,
         "winner": "REP"
       }
     }

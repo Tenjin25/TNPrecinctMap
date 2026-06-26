@@ -64,14 +64,14 @@
         "winner": "REP"
       },
       "5": {
-        "dem_votes": 105002,
-        "rep_votes": 127538,
-        "other_votes": 5955,
-        "total_votes": 238495,
+        "dem_votes": 98100,
+        "rep_votes": 148822,
+        "other_votes": 5438,
+        "total_votes": 252360,
         "dem_candidate": "Karl Dean",
         "rep_candidate": "Bill Lee",
-        "margin": 22536,
-        "margin_pct": 9.4493,
+        "margin": 50722,
+        "margin_pct": 20.0991,
         "winner": "REP"
       },
       "6": {
@@ -97,25 +97,25 @@
         "winner": "REP"
       },
       "8": {
-        "dem_votes": 102599,
-        "rep_votes": 154317,
-        "other_votes": 3836,
-        "total_votes": 260752,
+        "dem_votes": 88094,
+        "rep_votes": 170179,
+        "other_votes": 4029,
+        "total_votes": 262302,
         "dem_candidate": "Karl Dean",
         "rep_candidate": "Bill Lee",
-        "margin": 51718,
-        "margin_pct": 19.8342,
+        "margin": 82085,
+        "margin_pct": 31.2941,
         "winner": "REP"
       },
       "9": {
-        "dem_votes": 106518,
-        "rep_votes": 127606,
-        "other_votes": 5104,
-        "total_votes": 239228,
+        "dem_votes": 87012,
+        "rep_votes": 156440,
+        "other_votes": 3975,
+        "total_votes": 247427,
         "dem_candidate": "Karl Dean",
         "rep_candidate": "Bill Lee",
-        "margin": 21088,
-        "margin_pct": 8.815,
+        "margin": 69428,
+        "margin_pct": 28.06,
         "winner": "REP"
       }
     }
