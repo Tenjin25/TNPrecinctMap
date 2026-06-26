@@ -108,15 +108,15 @@
         "winner": "REP"
       },
       "9": {
-        "dem_votes": 140992,
-        "rep_votes": 122644,
-        "other_votes": 3362,
-        "total_votes": 266998,
+        "dem_votes": 125856,
+        "rep_votes": 132385,
+        "other_votes": 3808,
+        "total_votes": 262049,
         "dem_candidate": "Al Gore",
         "rep_candidate": "George W. Bush",
-        "margin": -18348,
-        "margin_pct": -6.872,
-        "winner": "DEM"
+        "margin": 6529,
+        "margin_pct": 2.4915,
+        "winner": "REP"
       }
     }
   }

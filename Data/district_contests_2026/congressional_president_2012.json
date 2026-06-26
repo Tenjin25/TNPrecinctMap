@@ -108,14 +108,14 @@
         "winner": "REP"
       },
       "9": {
-        "dem_votes": 140356,
-        "rep_votes": 140377,
-        "other_votes": 2816,
-        "total_votes": 283549,
+        "dem_votes": 98485,
+        "rep_votes": 175003,
+        "other_votes": 3728,
+        "total_votes": 277216,
         "dem_candidate": "Barack Obama",
         "rep_candidate": "Mitt Romney",
-        "margin": 21,
-        "margin_pct": 0.0074,
+        "margin": 76518,
+        "margin_pct": 27.6023,
         "winner": "REP"
       }
     }

@@ -108,14 +108,14 @@
         "winner": "REP"
       },
       "9": {
-        "dem_votes": 77870,
-        "rep_votes": 98974,
-        "other_votes": 3198,
-        "total_votes": 180042,
+        "dem_votes": 63116,
+        "rep_votes": 122494,
+        "other_votes": 3446,
+        "total_votes": 189056,
         "dem_candidate": "Mike McWherter",
         "rep_candidate": "Bill Haslam",
-        "margin": 21104,
-        "margin_pct": 11.7217,
+        "margin": 59378,
+        "margin_pct": 31.4076,
         "winner": "REP"
       }
     }

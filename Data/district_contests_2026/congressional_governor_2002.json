@@ -108,14 +108,14 @@
         "winner": "DEM"
       },
       "9": {
-        "dem_votes": 108244,
-        "rep_votes": 88119,
-        "other_votes": 2373,
-        "total_votes": 198736,
+        "dem_votes": 103377,
+        "rep_votes": 98366,
+        "other_votes": 2662,
+        "total_votes": 204405,
         "dem_candidate": "Phil Bredesen",
         "rep_candidate": "Van Hilleary",
-        "margin": -20125,
-        "margin_pct": -10.1265,
+        "margin": -5011,
+        "margin_pct": -2.4515,
         "winner": "DEM"
       }
     }

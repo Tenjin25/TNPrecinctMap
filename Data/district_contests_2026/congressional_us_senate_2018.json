@@ -108,14 +108,14 @@
         "winner": "REP"
       },
       "9": {
-        "dem_votes": 117691,
-        "rep_votes": 119356,
-        "other_votes": 2799,
-        "total_votes": 239846,
+        "dem_votes": 99098,
+        "rep_votes": 145211,
+        "other_votes": 3362,
+        "total_votes": 247671,
         "dem_candidate": "Phil Bredesen",
         "rep_candidate": "Marsha Blackburn",
-        "margin": 1665,
-        "margin_pct": 0.6942,
+        "margin": 46113,
+        "margin_pct": 18.6187,
         "winner": "REP"
       }
     }

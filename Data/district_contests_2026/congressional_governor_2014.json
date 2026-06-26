@@ -108,14 +108,14 @@
         "winner": "REP"
       },
       "9": {
-        "dem_votes": 43594,
-        "rep_votes": 90487,
-        "other_votes": 7948,
-        "total_votes": 142029,
+        "dem_votes": 32607,
+        "rep_votes": 109124,
+        "other_votes": 10408,
+        "total_votes": 152139,
         "dem_candidate": "Charles V. \"Charlie\" Brown",
         "rep_candidate": "Bill Haslam",
-        "margin": 46893,
-        "margin_pct": 33.0165,
+        "margin": 76517,
+        "margin_pct": 50.2941,
         "winner": "REP"
       }
     }

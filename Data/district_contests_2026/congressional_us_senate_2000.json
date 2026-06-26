@@ -108,14 +108,14 @@
         "winner": "REP"
       },
       "9": {
-        "dem_votes": 94658,
-        "rep_votes": 142762,
-        "other_votes": 6342,
-        "total_votes": 243762,
+        "dem_votes": 83342,
+        "rep_votes": 154014,
+        "other_votes": 5435,
+        "total_votes": 242791,
         "dem_candidate": "Jeff Clark",
         "rep_candidate": "Bill Frist",
-        "margin": 48104,
-        "margin_pct": 19.734,
+        "margin": 70672,
+        "margin_pct": 29.1082,
         "winner": "REP"
       }
     }

@@ -485,6 +485,248 @@
       "other_votes": 6759,
       "dem_candidate": "Gloria Johnson",
       "rep_candidate": "Marsha Blackburn"
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "governor",
+      "year": 2002,
+      "district": "9",
+      "dem_votes": 103377,
+      "rep_votes": 98366,
+      "other_votes": 2662,
+      "dem_candidate": "Phil Bredesen",
+      "rep_candidate": "Van Hilleary"
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "governor",
+      "year": 2006,
+      "district": "9",
+      "dem_votes": 136302,
+      "rep_votes": 62649,
+      "other_votes": 3259,
+      "dem_candidate": "Phil Bredesen",
+      "rep_candidate": "Jim Bryson"
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "governor",
+      "year": 2010,
+      "district": "9",
+      "dem_votes": 63116,
+      "rep_votes": 122494,
+      "other_votes": 3446,
+      "dem_candidate": "Mike McWherter",
+      "rep_candidate": "Bill Haslam"
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "governor",
+      "year": 2014,
+      "district": "9",
+      "dem_votes": 32607,
+      "rep_votes": 109124,
+      "other_votes": 10408,
+      "dem_candidate": "Charles V. \"Charlie\" Brown",
+      "rep_candidate": "Bill Haslam"
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "governor",
+      "year": 2018,
+      "district": "9",
+      "dem_votes": 87012,
+      "rep_votes": 156440,
+      "other_votes": 3975,
+      "dem_candidate": "Karl Dean",
+      "rep_candidate": "Bill Lee"
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "governor",
+      "year": 2022,
+      "district": "9",
+      "dem_votes": 71943,
+      "rep_votes": 137794,
+      "other_votes": 4795,
+      "dem_candidate": "Jason Brantley Martin",
+      "rep_candidate": "Bill Lee"
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "president",
+      "year": 2000,
+      "district": "9",
+      "dem_votes": 125856,
+      "rep_votes": 132385,
+      "other_votes": 3808,
+      "dem_candidate": "Al Gore",
+      "rep_candidate": "George W. Bush"
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "president",
+      "year": 2004,
+      "district": "9",
+      "dem_votes": 137252,
+      "rep_votes": 171717,
+      "other_votes": 1934,
+      "dem_candidate": "John F. Kerry",
+      "rep_candidate": "George W. Bush"
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "president",
+      "year": 2008,
+      "district": "9",
+      "dem_votes": 111079,
+      "rep_votes": 174888,
+      "other_votes": 3708,
+      "dem_candidate": "Barack Obama",
+      "rep_candidate": "John McCain"
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "president",
+      "year": 2012,
+      "district": "9",
+      "dem_votes": 98485,
+      "rep_votes": 175003,
+      "other_votes": 3728,
+      "dem_candidate": "Barack Obama",
+      "rep_candidate": "Mitt Romney"
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "president",
+      "year": 2016,
+      "district": "9",
+      "dem_votes": 87879,
+      "rep_votes": 181071,
+      "other_votes": 11854,
+      "dem_candidate": "Hillary Clinton",
+      "rep_candidate": "Donald J. Trump"
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "president",
+      "year": 2020,
+      "district": "9",
+      "dem_votes": 116268,
+      "rep_votes": 219441,
+      "other_votes": 6198,
+      "dem_candidate": "Joseph R. Biden",
+      "rep_candidate": "Donald J. Trump"
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "president",
+      "year": 2024,
+      "district": "9",
+      "dem_votes": 111362,
+      "rep_votes": 225266,
+      "other_votes": 4303,
+      "dem_candidate": "Kamala D. Harris",
+      "rep_candidate": "Donald J. Trump"
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "us_senate",
+      "year": 2000,
+      "district": "9",
+      "dem_votes": 83342,
+      "rep_votes": 154014,
+      "other_votes": 5435,
+      "dem_candidate": "Jeff Clark",
+      "rep_candidate": "Bill Frist"
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "us_senate",
+      "year": 2002,
+      "district": "9",
+      "dem_votes": 93108,
+      "rep_votes": 108692,
+      "other_votes": 2780,
+      "dem_candidate": "Bob Clement",
+      "rep_candidate": "Lamar Alexander"
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "us_senate",
+      "year": 2006,
+      "district": "9",
+      "dem_votes": 86611,
+      "rep_votes": 92666,
+      "other_votes": 2592,
+      "dem_candidate": "Harold Ford, Jr.",
+      "rep_candidate": "Bob Corker"
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "us_senate",
+      "year": 2008,
+      "district": "9",
+      "dem_votes": 80991,
+      "rep_votes": 178881,
+      "other_votes": 8873,
+      "dem_candidate": "Robert DTuke",
+      "rep_candidate": "Lamar Alexander"
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "us_senate",
+      "year": 2012,
+      "district": "9",
+      "dem_votes": 73807,
+      "rep_votes": 176482,
+      "other_votes": 11034,
+      "dem_candidate": "Mark E. Clayton",
+      "rep_candidate": "Bob Corker"
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "us_senate",
+      "year": 2014,
+      "district": "9",
+      "dem_votes": 44731,
+      "rep_votes": 100102,
+      "other_votes": 10115,
+      "dem_candidate": "Gordon Ball",
+      "rep_candidate": "Lamar Alexander"
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "us_senate",
+      "year": 2018,
+      "district": "9",
+      "dem_votes": 99098,
+      "rep_votes": 145211,
+      "other_votes": 3362,
+      "dem_candidate": "Phil Bredesen",
+      "rep_candidate": "Marsha Blackburn"
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "us_senate",
+      "year": 2020,
+      "district": "9",
+      "dem_votes": 103727,
+      "rep_votes": 217084,
+      "other_votes": 7973,
+      "dem_candidate": "Marquita Bradshaw",
+      "rep_candidate": "Bill Hagerty"
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "us_senate",
+      "year": 2024,
+      "district": "9",
+      "dem_votes": 107203,
+      "rep_votes": 219245,
+      "other_votes": 7109,
+      "dem_candidate": "Gloria Johnson",
+      "rep_candidate": "Marsha Blackburn"
     }
   ]
 }
