@@ -64,15 +64,15 @@
         "winner": "REP"
       },
       "5": {
-        "dem_votes": 141533,
-        "rep_votes": 137992,
-        "other_votes": 3516,
-        "total_votes": 283041,
+        "dem_votes": 115076,
+        "rep_votes": 168780,
+        "other_votes": 3613,
+        "total_votes": 287469,
         "dem_candidate": "Barack Obama",
         "rep_candidate": "Mitt Romney",
-        "margin": -3541,
-        "margin_pct": -1.2511,
-        "winner": "DEM"
+        "margin": 53704,
+        "margin_pct": 18.6817,
+        "winner": "REP"
       },
       "6": {
         "dem_votes": 105307,
@@ -97,14 +97,14 @@
         "winner": "REP"
       },
       "8": {
-        "dem_votes": 116544,
-        "rep_votes": 185836,
-        "other_votes": 3155,
-        "total_votes": 305535,
+        "dem_votes": 110903,
+        "rep_votes": 198609,
+        "other_votes": 3537,
+        "total_votes": 313049,
         "dem_candidate": "Barack Obama",
         "rep_candidate": "Mitt Romney",
-        "margin": 69292,
-        "margin_pct": 22.6789,
+        "margin": 87706,
+        "margin_pct": 28.0167,
         "winner": "REP"
       },
       "9": {

@@ -64,14 +64,14 @@
         "winner": "REP"
       },
       "5": {
-        "dem_votes": 117621,
-        "rep_votes": 146226,
-        "other_votes": 11302,
-        "total_votes": 275149,
+        "dem_votes": 102921,
+        "rep_votes": 169537,
+        "other_votes": 12168,
+        "total_votes": 284626,
         "dem_candidate": "Hillary Clinton",
         "rep_candidate": "Donald J. Trump",
-        "margin": 28605,
-        "margin_pct": 10.3962,
+        "margin": 66616,
+        "margin_pct": 23.4047,
         "winner": "REP"
       },
       "6": {
@@ -97,14 +97,14 @@
         "winner": "REP"
       },
       "8": {
-        "dem_votes": 111608,
-        "rep_votes": 175150,
-        "other_votes": 11651,
-        "total_votes": 298409,
+        "dem_votes": 95690,
+        "rep_votes": 195917,
+        "other_votes": 10954,
+        "total_votes": 302561,
         "dem_candidate": "Hillary Clinton",
         "rep_candidate": "Donald J. Trump",
-        "margin": 63542,
-        "margin_pct": 21.2936,
+        "margin": 100227,
+        "margin_pct": 33.1262,
         "winner": "REP"
       },
       "9": {

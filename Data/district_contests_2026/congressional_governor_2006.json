@@ -64,14 +64,14 @@
         "winner": "DEM"
       },
       "5": {
-        "dem_votes": 165061,
-        "rep_votes": 51808,
-        "other_votes": 4496,
-        "total_votes": 221365,
+        "dem_votes": 145450,
+        "rep_votes": 60802,
+        "other_votes": 3547,
+        "total_votes": 209799,
         "dem_candidate": "Phil Bredesen",
         "rep_candidate": "Jim Bryson",
-        "margin": -113253,
-        "margin_pct": -51.1612,
+        "margin": -84648,
+        "margin_pct": -40.3472,
         "winner": "DEM"
       },
       "6": {
@@ -97,14 +97,14 @@
         "winner": "DEM"
       },
       "8": {
-        "dem_votes": 141499,
-        "rep_votes": 71595,
-        "other_votes": 2872,
-        "total_votes": 215966,
+        "dem_votes": 157005,
+        "rep_votes": 71450,
+        "other_votes": 3712,
+        "total_votes": 232167,
         "dem_candidate": "Phil Bredesen",
         "rep_candidate": "Jim Bryson",
-        "margin": -69904,
-        "margin_pct": -32.3681,
+        "margin": -85555,
+        "margin_pct": -36.8506,
         "winner": "DEM"
       },
       "9": {

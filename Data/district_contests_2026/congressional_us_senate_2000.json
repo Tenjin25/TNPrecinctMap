@@ -64,14 +64,14 @@
         "winner": "REP"
       },
       "5": {
-        "dem_votes": 80183,
-        "rep_votes": 110706,
-        "other_votes": 5971,
-        "total_votes": 196860,
+        "dem_votes": 93481,
+        "rep_votes": 166258,
+        "other_votes": 6312,
+        "total_votes": 266051,
         "dem_candidate": "Jeff Clark",
         "rep_candidate": "Bill Frist",
-        "margin": 30523,
-        "margin_pct": 15.5049,
+        "margin": 72777,
+        "margin_pct": 27.3545,
         "winner": "REP"
       },
       "6": {
@@ -97,14 +97,14 @@
         "winner": "REP"
       },
       "8": {
-        "dem_votes": 72542,
-        "rep_votes": 156394,
-        "other_votes": 4840,
-        "total_votes": 233776,
+        "dem_votes": 112806,
+        "rep_votes": 203685,
+        "other_votes": 6476,
+        "total_votes": 322967,
         "dem_candidate": "Jeff Clark",
         "rep_candidate": "Bill Frist",
-        "margin": 83852,
-        "margin_pct": 35.8685,
+        "margin": 90879,
+        "margin_pct": 28.1388,
         "winner": "REP"
       },
       "9": {

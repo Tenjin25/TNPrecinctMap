@@ -64,14 +64,14 @@
         "winner": "REP"
       },
       "5": {
-        "dem_votes": 57635,
-        "rep_votes": 80593,
-        "other_votes": 10024,
-        "total_votes": 148252,
+        "dem_votes": 50576,
+        "rep_votes": 97957,
+        "other_votes": 10016,
+        "total_votes": 158549,
         "dem_candidate": "Gordon Ball",
         "rep_candidate": "Lamar Alexander",
-        "margin": 22958,
-        "margin_pct": 15.4858,
+        "margin": 47381,
+        "margin_pct": 29.8841,
         "winner": "REP"
       },
       "6": {
@@ -97,14 +97,14 @@
         "winner": "REP"
       },
       "8": {
-        "dem_votes": 49603,
-        "rep_votes": 112947,
-        "other_votes": 9919,
-        "total_votes": 172469,
+        "dem_votes": 47225,
+        "rep_votes": 114885,
+        "other_votes": 10918,
+        "total_votes": 173028,
         "dem_candidate": "Gordon Ball",
         "rep_candidate": "Lamar Alexander",
-        "margin": 63344,
-        "margin_pct": 36.7278,
+        "margin": 67660,
+        "margin_pct": 39.1035,
         "winner": "REP"
       },
       "9": {

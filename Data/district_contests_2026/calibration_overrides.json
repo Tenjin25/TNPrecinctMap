@@ -5,6 +5,61 @@
     {
       "scope": "congressional",
       "contest_type": "governor",
+      "year": 2002,
+      "district": "5",
+      "dem_votes": 117701,
+      "rep_votes": 102768,
+      "other_votes": 3584,
+      "dem_candidate": "Phil Bredesen",
+      "rep_candidate": "Van Hilleary"
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "governor",
+      "year": 2006,
+      "district": "5",
+      "dem_votes": 145450,
+      "rep_votes": 60802,
+      "other_votes": 3547,
+      "dem_candidate": "Phil Bredesen",
+      "rep_candidate": "Jim Bryson"
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "governor",
+      "year": 2010,
+      "district": "5",
+      "dem_votes": 71558,
+      "rep_votes": 116535,
+      "other_votes": 3356,
+      "dem_candidate": "Mike McWherter",
+      "rep_candidate": "Bill Haslam"
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "governor",
+      "year": 2014,
+      "district": "5",
+      "dem_votes": 37452,
+      "rep_votes": 108333,
+      "other_votes": 10797,
+      "dem_candidate": "Charles V. \"Charlie\" Brown",
+      "rep_candidate": "Bill Haslam"
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "governor",
+      "year": 2018,
+      "district": "5",
+      "dem_votes": 98100,
+      "rep_votes": 148822,
+      "other_votes": 5438,
+      "dem_candidate": "Karl Dean",
+      "rep_candidate": "Bill Lee"
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "governor",
       "year": 2022,
       "district": "5",
       "dem_votes": 83269,
@@ -12,6 +67,61 @@
       "other_votes": 5052,
       "dem_candidate": "Jason Brantley Martin",
       "rep_candidate": "Bill Lee"
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "president",
+      "year": 2000,
+      "district": "5",
+      "dem_votes": 142980,
+      "rep_votes": 140035,
+      "other_votes": 3846,
+      "dem_candidate": "Al Gore",
+      "rep_candidate": "George W. Bush"
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "president",
+      "year": 2004,
+      "district": "5",
+      "dem_votes": 165097,
+      "rep_votes": 184205,
+      "other_votes": 2099,
+      "dem_candidate": "John F. Kerry",
+      "rep_candidate": "George W. Bush"
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "president",
+      "year": 2008,
+      "district": "5",
+      "dem_votes": 129016,
+      "rep_votes": 168809,
+      "other_votes": 3423,
+      "dem_candidate": "Barack Obama",
+      "rep_candidate": "John McCain"
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "president",
+      "year": 2012,
+      "district": "5",
+      "dem_votes": 115076,
+      "rep_votes": 168780,
+      "other_votes": 3613,
+      "dem_candidate": "Barack Obama",
+      "rep_candidate": "Mitt Romney"
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "president",
+      "year": 2016,
+      "district": "5",
+      "dem_votes": 102921,
+      "rep_votes": 169537,
+      "other_votes": 12168,
+      "dem_candidate": "Hillary Clinton",
+      "rep_candidate": "Donald J. Trump"
     },
     {
       "scope": "congressional",
@@ -38,6 +148,83 @@
     {
       "scope": "congressional",
       "contest_type": "us_senate",
+      "year": 2000,
+      "district": "5",
+      "dem_votes": 93481,
+      "rep_votes": 166258,
+      "other_votes": 6312,
+      "dem_candidate": "Jeff Clark",
+      "rep_candidate": "Bill Frist"
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "us_senate",
+      "year": 2002,
+      "district": "5",
+      "dem_votes": 106605,
+      "rep_votes": 115285,
+      "other_votes": 2901,
+      "dem_candidate": "Bob Clement",
+      "rep_candidate": "Lamar Alexander"
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "us_senate",
+      "year": 2006,
+      "district": "5",
+      "dem_votes": 93873,
+      "rep_votes": 86009,
+      "other_votes": 2437,
+      "dem_candidate": "Harold Ford, Jr.",
+      "rep_candidate": "Bob Corker"
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "us_senate",
+      "year": 2008,
+      "district": "5",
+      "dem_votes": 92378,
+      "rep_votes": 176792,
+      "other_votes": 8660,
+      "dem_candidate": "Robert DTuke",
+      "rep_candidate": "Lamar Alexander"
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "us_senate",
+      "year": 2012,
+      "district": "5",
+      "dem_votes": 86375,
+      "rep_votes": 172236,
+      "other_votes": 11920,
+      "dem_candidate": "Mark E. Clayton",
+      "rep_candidate": "Bob Corker"
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "us_senate",
+      "year": 2014,
+      "district": "5",
+      "dem_votes": 50576,
+      "rep_votes": 97957,
+      "other_votes": 10016,
+      "dem_candidate": "Gordon Ball",
+      "rep_candidate": "Lamar Alexander"
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "us_senate",
+      "year": 2018,
+      "district": "5",
+      "dem_votes": 111662,
+      "rep_votes": 137512,
+      "other_votes": 3433,
+      "dem_candidate": "Phil Bredesen",
+      "rep_candidate": "Marsha Blackburn"
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "us_senate",
       "year": 2020,
       "district": "5",
       "dem_votes": 118415,
@@ -60,6 +247,61 @@
     {
       "scope": "congressional",
       "contest_type": "governor",
+      "year": 2002,
+      "district": "8",
+      "dem_votes": 130936,
+      "rep_votes": 126524,
+      "other_votes": 3658,
+      "dem_candidate": "Phil Bredesen",
+      "rep_candidate": "Van Hilleary"
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "governor",
+      "year": 2006,
+      "district": "8",
+      "dem_votes": 157005,
+      "rep_votes": 71450,
+      "other_votes": 3712,
+      "dem_candidate": "Phil Bredesen",
+      "rep_candidate": "Jim Bryson"
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "governor",
+      "year": 2010,
+      "district": "8",
+      "dem_votes": 75819,
+      "rep_votes": 136885,
+      "other_votes": 3425,
+      "dem_candidate": "Mike McWherter",
+      "rep_candidate": "Bill Haslam"
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "governor",
+      "year": 2014,
+      "district": "8",
+      "dem_votes": 36448,
+      "rep_votes": 124782,
+      "other_votes": 10238,
+      "dem_candidate": "Charles V. \"Charlie\" Brown",
+      "rep_candidate": "Bill Haslam"
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "governor",
+      "year": 2018,
+      "district": "8",
+      "dem_votes": 88094,
+      "rep_votes": 170179,
+      "other_votes": 4029,
+      "dem_candidate": "Karl Dean",
+      "rep_candidate": "Bill Lee"
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "governor",
       "year": 2022,
       "district": "8",
       "dem_votes": 90373,
@@ -67,6 +309,61 @@
       "other_votes": 5704,
       "dem_candidate": "Jason Brantley Martin",
       "rep_candidate": "Bill Lee"
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "president",
+      "year": 2000,
+      "district": "8",
+      "dem_votes": 167391,
+      "rep_votes": 177467,
+      "other_votes": 4358,
+      "dem_candidate": "Al Gore",
+      "rep_candidate": "George W. Bush"
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "president",
+      "year": 2004,
+      "district": "8",
+      "dem_votes": 191096,
+      "rep_votes": 218302,
+      "other_votes": 2369,
+      "dem_candidate": "John F. Kerry",
+      "rep_candidate": "George W. Bush"
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "president",
+      "year": 2008,
+      "district": "8",
+      "dem_votes": 124224,
+      "rep_votes": 198818,
+      "other_votes": 3558,
+      "dem_candidate": "Barack Obama",
+      "rep_candidate": "John McCain"
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "president",
+      "year": 2012,
+      "district": "8",
+      "dem_votes": 110903,
+      "rep_votes": 198609,
+      "other_votes": 3537,
+      "dem_candidate": "Barack Obama",
+      "rep_candidate": "Mitt Romney"
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "president",
+      "year": 2016,
+      "district": "8",
+      "dem_votes": 95690,
+      "rep_votes": 195917,
+      "other_votes": 10954,
+      "dem_candidate": "Hillary Clinton",
+      "rep_candidate": "Donald J. Trump"
     },
     {
       "scope": "congressional",
@@ -89,6 +386,83 @@
       "other_votes": 3989,
       "dem_candidate": "Kamala D. Harris",
       "rep_candidate": "Donald J. Trump"
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "us_senate",
+      "year": 2000,
+      "district": "8",
+      "dem_votes": 112806,
+      "rep_votes": 203685,
+      "other_votes": 6476,
+      "dem_candidate": "Jeff Clark",
+      "rep_candidate": "Bill Frist"
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "us_senate",
+      "year": 2002,
+      "district": "8",
+      "dem_votes": 117123,
+      "rep_votes": 141667,
+      "other_votes": 3700,
+      "dem_candidate": "Bob Clement",
+      "rep_candidate": "Lamar Alexander"
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "us_senate",
+      "year": 2006,
+      "district": "8",
+      "dem_votes": 90296,
+      "rep_votes": 92676,
+      "other_votes": 2307,
+      "dem_candidate": "Harold Ford, Jr.",
+      "rep_candidate": "Bob Corker"
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "us_senate",
+      "year": 2008,
+      "district": "8",
+      "dem_votes": 88711,
+      "rep_votes": 204531,
+      "other_votes": 8413,
+      "dem_candidate": "Robert DTuke",
+      "rep_candidate": "Lamar Alexander"
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "us_senate",
+      "year": 2012,
+      "district": "8",
+      "dem_votes": 84081,
+      "rep_votes": 199273,
+      "other_votes": 10908,
+      "dem_candidate": "Mark E. Clayton",
+      "rep_candidate": "Bob Corker"
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "us_senate",
+      "year": 2014,
+      "district": "8",
+      "dem_votes": 47225,
+      "rep_votes": 114885,
+      "other_votes": 10918,
+      "dem_candidate": "Gordon Ball",
+      "rep_candidate": "Lamar Alexander"
+    },
+    {
+      "scope": "congressional",
+      "contest_type": "us_senate",
+      "year": 2018,
+      "district": "8",
+      "dem_votes": 100841,
+      "rep_votes": 158218,
+      "other_votes": 3781,
+      "dem_candidate": "Phil Bredesen",
+      "rep_candidate": "Marsha Blackburn"
     },
     {
       "scope": "congressional",
