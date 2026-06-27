@@ -97,14 +97,14 @@
         "winner": "REP"
       },
       "8": {
-        "dem_votes": 95690,
-        "rep_votes": 195917,
-        "other_votes": 10954,
-        "total_votes": 302561,
+        "dem_votes": 111608,
+        "rep_votes": 175150,
+        "other_votes": 11651,
+        "total_votes": 298409,
         "dem_candidate": "Hillary Clinton",
         "rep_candidate": "Donald J. Trump",
-        "margin": 100227,
-        "margin_pct": 33.1262,
+        "margin": 63542,
+        "margin_pct": 21.2936,
         "winner": "REP"
       },
       "9": {

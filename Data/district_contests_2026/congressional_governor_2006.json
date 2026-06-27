@@ -97,14 +97,14 @@
         "winner": "DEM"
       },
       "8": {
-        "dem_votes": 157005,
-        "rep_votes": 71450,
-        "other_votes": 3712,
-        "total_votes": 232167,
+        "dem_votes": 141499,
+        "rep_votes": 71595,
+        "other_votes": 2872,
+        "total_votes": 215966,
         "dem_candidate": "Phil Bredesen",
         "rep_candidate": "Jim Bryson",
-        "margin": -85555,
-        "margin_pct": -36.8506,
+        "margin": -69904,
+        "margin_pct": -32.3681,
         "winner": "DEM"
       },
       "9": {

@@ -97,14 +97,14 @@
         "winner": "REP"
       },
       "8": {
-        "dem_votes": 191096,
-        "rep_votes": 218302,
-        "other_votes": 2369,
-        "total_votes": 411767,
+        "dem_votes": 125072,
+        "rep_votes": 164246,
+        "other_votes": 1736,
+        "total_votes": 291054,
         "dem_candidate": "John F. Kerry",
         "rep_candidate": "George W. Bush",
-        "margin": 27206,
-        "margin_pct": 6.6071,
+        "margin": 39174,
+        "margin_pct": 13.4594,
         "winner": "REP"
       },
       "9": {

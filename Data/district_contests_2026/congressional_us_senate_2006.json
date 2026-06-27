@@ -97,14 +97,14 @@
         "winner": "DEM"
       },
       "8": {
-        "dem_votes": 90296,
-        "rep_votes": 92676,
-        "other_votes": 2307,
-        "total_votes": 185279,
+        "dem_votes": 71659,
+        "rep_votes": 77898,
+        "other_votes": 1534,
+        "total_votes": 151091,
         "dem_candidate": "Harold Ford, Jr.",
         "rep_candidate": "Bob Corker",
-        "margin": 2380,
-        "margin_pct": 1.2845,
+        "margin": 6239,
+        "margin_pct": 4.1293,
         "winner": "REP"
       },
       "9": {
