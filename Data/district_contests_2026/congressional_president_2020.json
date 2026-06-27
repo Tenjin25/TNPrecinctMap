@@ -64,14 +64,14 @@
         "winner": "REP"
       },
       "5": {
-        "dem_votes": 132286,
-        "rep_votes": 204232,
-        "other_votes": 6449,
-        "total_votes": 342967,
+        "dem_votes": 121918,
+        "rep_votes": 217171,
+        "other_votes": 6347,
+        "total_votes": 345436,
         "dem_candidate": "Joseph R. Biden",
         "rep_candidate": "Donald J. Trump",
-        "margin": 71946,
-        "margin_pct": 20.9775,
+        "margin": 95253,
+        "margin_pct": 27.5747,
         "winner": "REP"
       },
       "6": {

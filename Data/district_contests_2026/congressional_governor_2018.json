@@ -64,14 +64,14 @@
         "winner": "REP"
       },
       "5": {
-        "dem_votes": 98100,
-        "rep_votes": 148822,
-        "other_votes": 5438,
-        "total_votes": 252360,
+        "dem_votes": 90905,
+        "rep_votes": 157735,
+        "other_votes": 4955,
+        "total_votes": 253595,
         "dem_candidate": "Karl Dean",
         "rep_candidate": "Bill Lee",
-        "margin": 50722,
-        "margin_pct": 20.0991,
+        "margin": 66830,
+        "margin_pct": 26.353,
         "winner": "REP"
       },
       "6": {

@@ -64,14 +64,14 @@
         "winner": "REP"
       },
       "5": {
-        "dem_votes": 118415,
-        "rep_votes": 204058,
-        "other_votes": 8372,
-        "total_votes": 330845,
+        "dem_votes": 108164,
+        "rep_votes": 215836,
+        "other_votes": 8287,
+        "total_votes": 332287,
         "dem_candidate": "Marquita Bradshaw",
         "rep_candidate": "Bill Hagerty",
-        "margin": 85643,
-        "margin_pct": 25.8861,
+        "margin": 107672,
+        "margin_pct": 32.4033,
         "winner": "REP"
       },
       "6": {

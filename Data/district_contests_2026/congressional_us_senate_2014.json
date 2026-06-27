@@ -64,14 +64,14 @@
         "winner": "REP"
       },
       "5": {
-        "dem_votes": 50576,
-        "rep_votes": 97957,
-        "other_votes": 10016,
-        "total_votes": 158549,
+        "dem_votes": 47753,
+        "rep_votes": 102532,
+        "other_votes": 10477,
+        "total_votes": 160762,
         "dem_candidate": "Gordon Ball",
         "rep_candidate": "Lamar Alexander",
-        "margin": 47381,
-        "margin_pct": 29.8841,
+        "margin": 54779,
+        "margin_pct": 34.0746,
         "winner": "REP"
       },
       "6": {

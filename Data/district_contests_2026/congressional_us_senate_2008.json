@@ -64,14 +64,14 @@
         "winner": "REP"
       },
       "5": {
-        "dem_votes": 92378,
-        "rep_votes": 176792,
-        "other_votes": 8660,
-        "total_votes": 277830,
+        "dem_votes": 87488,
+        "rep_votes": 182732,
+        "other_votes": 8702,
+        "total_votes": 278922,
         "dem_candidate": "Robert DTuke",
         "rep_candidate": "Lamar Alexander",
-        "margin": 84414,
-        "margin_pct": 30.3833,
+        "margin": 95244,
+        "margin_pct": 34.1472,
         "winner": "REP"
       },
       "6": {

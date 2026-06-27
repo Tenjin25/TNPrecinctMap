@@ -64,14 +64,14 @@
         "winner": "REP"
       },
       "5": {
-        "dem_votes": 86375,
-        "rep_votes": 172236,
-        "other_votes": 11920,
-        "total_votes": 270531,
+        "dem_votes": 80944,
+        "rep_votes": 180289,
+        "other_votes": 11704,
+        "total_votes": 272937,
         "dem_candidate": "Mark E. Clayton",
         "rep_candidate": "Bob Corker",
-        "margin": 85861,
-        "margin_pct": 31.738,
+        "margin": 99345,
+        "margin_pct": 36.3985,
         "winner": "REP"
       },
       "6": {

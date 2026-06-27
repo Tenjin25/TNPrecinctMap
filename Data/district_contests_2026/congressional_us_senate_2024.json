@@ -64,14 +64,14 @@
         "winner": "REP"
       },
       "5": {
-        "dem_votes": 117984,
-        "rep_votes": 202897,
-        "other_votes": 6955,
-        "total_votes": 327836,
+        "dem_votes": 110505,
+        "rep_votes": 213272,
+        "other_votes": 6967,
+        "total_votes": 330744,
         "dem_candidate": "Gloria Johnson",
         "rep_candidate": "Marsha Blackburn",
-        "margin": 84913,
-        "margin_pct": 25.9011,
+        "margin": 102767,
+        "margin_pct": 31.0715,
         "winner": "REP"
       },
       "6": {

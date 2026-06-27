@@ -64,14 +64,14 @@
         "winner": "DEM"
       },
       "5": {
-        "dem_votes": 106605,
-        "rep_votes": 115285,
-        "other_votes": 2901,
-        "total_votes": 224791,
+        "dem_votes": 116149,
+        "rep_votes": 126382,
+        "other_votes": 3213,
+        "total_votes": 245744,
         "dem_candidate": "Bob Clement",
         "rep_candidate": "Lamar Alexander",
-        "margin": 8680,
-        "margin_pct": 3.8614,
+        "margin": 10233,
+        "margin_pct": 4.1641,
         "winner": "REP"
       },
       "6": {
