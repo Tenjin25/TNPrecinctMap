@@ -64,14 +64,14 @@
         "winner": "REP"
       },
       "5": {
-        "dem_votes": 86375,
-        "rep_votes": 172236,
-        "other_votes": 11920,
-        "total_votes": 270531,
+        "dem_votes": 80944,
+        "rep_votes": 180289,
+        "other_votes": 11704,
+        "total_votes": 272937,
         "dem_candidate": "Mark E. Clayton",
         "rep_candidate": "Bob Corker",
-        "margin": 85861,
-        "margin_pct": 31.738,
+        "margin": 99345,
+        "margin_pct": 36.3985,
         "winner": "REP"
       },
       "6": {
@@ -97,14 +97,14 @@
         "winner": "REP"
       },
       "8": {
-        "dem_votes": 84081,
-        "rep_votes": 199273,
-        "other_votes": 10908,
-        "total_votes": 294262,
+        "dem_votes": 88779,
+        "rep_votes": 191112,
+        "other_votes": 9370,
+        "total_votes": 289261,
         "dem_candidate": "Mark E. Clayton",
         "rep_candidate": "Bob Corker",
-        "margin": 115192,
-        "margin_pct": 39.1461,
+        "margin": 102333,
+        "margin_pct": 35.3774,
         "winner": "REP"
       },
       "9": {

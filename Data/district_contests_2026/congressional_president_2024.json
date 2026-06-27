@@ -64,14 +64,14 @@
         "winner": "REP"
       },
       "5": {
-        "dem_votes": 123535,
-        "rep_votes": 207008,
-        "other_votes": 4482,
-        "total_votes": 335025,
+        "dem_votes": 116220,
+        "rep_votes": 217991,
+        "other_votes": 4272,
+        "total_votes": 338483,
         "dem_candidate": "Kamala D. Harris",
         "rep_candidate": "Donald J. Trump",
-        "margin": 83473,
-        "margin_pct": 24.9155,
+        "margin": 101771,
+        "margin_pct": 30.0668,
         "winner": "REP"
       },
       "6": {
@@ -97,14 +97,14 @@
         "winner": "REP"
       },
       "8": {
-        "dem_votes": 113836,
-        "rep_votes": 219299,
-        "other_votes": 3989,
-        "total_votes": 337124,
+        "dem_votes": 116253,
+        "rep_votes": 175365,
+        "other_votes": 3939,
+        "total_votes": 295557,
         "dem_candidate": "Kamala D. Harris",
         "rep_candidate": "Donald J. Trump",
-        "margin": 105463,
-        "margin_pct": 31.2831,
+        "margin": 59112,
+        "margin_pct": 20.0002,
         "winner": "REP"
       },
       "9": {

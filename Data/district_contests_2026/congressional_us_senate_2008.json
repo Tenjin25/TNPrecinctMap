@@ -64,14 +64,14 @@
         "winner": "REP"
       },
       "5": {
-        "dem_votes": 92378,
-        "rep_votes": 176792,
-        "other_votes": 8660,
-        "total_votes": 277830,
+        "dem_votes": 87488,
+        "rep_votes": 182732,
+        "other_votes": 8702,
+        "total_votes": 278922,
         "dem_candidate": "Robert DTuke",
         "rep_candidate": "Lamar Alexander",
-        "margin": 84414,
-        "margin_pct": 30.3833,
+        "margin": 95244,
+        "margin_pct": 34.1472,
         "winner": "REP"
       },
       "6": {
@@ -97,14 +97,14 @@
         "winner": "REP"
       },
       "8": {
-        "dem_votes": 88711,
-        "rep_votes": 204531,
-        "other_votes": 8413,
-        "total_votes": 301655,
+        "dem_votes": 85204,
+        "rep_votes": 201912,
+        "other_votes": 7185,
+        "total_votes": 294301,
         "dem_candidate": "Robert DTuke",
         "rep_candidate": "Lamar Alexander",
-        "margin": 115820,
-        "margin_pct": 38.3949,
+        "margin": 116708,
+        "margin_pct": 39.656,
         "winner": "REP"
       },
       "9": {

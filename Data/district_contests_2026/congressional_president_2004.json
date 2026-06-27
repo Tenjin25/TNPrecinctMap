@@ -64,14 +64,14 @@
         "winner": "REP"
       },
       "5": {
-        "dem_votes": 165097,
-        "rep_votes": 184205,
-        "other_votes": 2099,
-        "total_votes": 351401,
+        "dem_votes": 183090,
+        "rep_votes": 205864,
+        "other_votes": 2317,
+        "total_votes": 391271,
         "dem_candidate": "John F. Kerry",
         "rep_candidate": "George W. Bush",
-        "margin": 19108,
-        "margin_pct": 5.4377,
+        "margin": 22774,
+        "margin_pct": 5.8205,
         "winner": "REP"
       },
       "6": {
@@ -97,14 +97,14 @@
         "winner": "REP"
       },
       "8": {
-        "dem_votes": 191096,
-        "rep_votes": 218302,
-        "other_votes": 2369,
-        "total_votes": 411767,
+        "dem_votes": 125072,
+        "rep_votes": 164246,
+        "other_votes": 1736,
+        "total_votes": 291054,
         "dem_candidate": "John F. Kerry",
         "rep_candidate": "George W. Bush",
-        "margin": 27206,
-        "margin_pct": 6.6071,
+        "margin": 39174,
+        "margin_pct": 13.4594,
         "winner": "REP"
       },
       "9": {

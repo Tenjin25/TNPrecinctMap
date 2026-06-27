@@ -64,14 +64,14 @@
         "winner": "REP"
       },
       "5": {
-        "dem_votes": 37452,
-        "rep_votes": 108333,
-        "other_votes": 10797,
-        "total_votes": 156582,
+        "dem_votes": 35695,
+        "rep_votes": 112466,
+        "other_votes": 10838,
+        "total_votes": 158999,
         "dem_candidate": "Charles V. \"Charlie\" Brown",
         "rep_candidate": "Bill Haslam",
-        "margin": 70881,
-        "margin_pct": 45.2677,
+        "margin": 76771,
+        "margin_pct": 48.284,
         "winner": "REP"
       },
       "6": {
@@ -97,14 +97,14 @@
         "winner": "REP"
       },
       "8": {
-        "dem_votes": 36448,
-        "rep_votes": 124782,
-        "other_votes": 10238,
-        "total_votes": 171468,
+        "dem_votes": 37793,
+        "rep_votes": 124316,
+        "other_votes": 8681,
+        "total_votes": 170790,
         "dem_candidate": "Charles V. \"Charlie\" Brown",
         "rep_candidate": "Bill Haslam",
-        "margin": 88334,
-        "margin_pct": 51.5163,
+        "margin": 86523,
+        "margin_pct": 50.6605,
         "winner": "REP"
       },
       "9": {

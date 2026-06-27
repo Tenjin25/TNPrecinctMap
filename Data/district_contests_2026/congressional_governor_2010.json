@@ -64,14 +64,14 @@
         "winner": "REP"
       },
       "5": {
-        "dem_votes": 71558,
-        "rep_votes": 116535,
-        "other_votes": 3356,
-        "total_votes": 191449,
+        "dem_votes": 70439,
+        "rep_votes": 121146,
+        "other_votes": 3393,
+        "total_votes": 194978,
         "dem_candidate": "Mike McWherter",
         "rep_candidate": "Bill Haslam",
-        "margin": 44977,
-        "margin_pct": 23.4929,
+        "margin": 50707,
+        "margin_pct": 26.0065,
         "winner": "REP"
       },
       "6": {
@@ -97,14 +97,14 @@
         "winner": "REP"
       },
       "8": {
-        "dem_votes": 75819,
-        "rep_votes": 136885,
-        "other_votes": 3425,
-        "total_votes": 216129,
+        "dem_votes": 71541,
+        "rep_votes": 135524,
+        "other_votes": 2529,
+        "total_votes": 209594,
         "dem_candidate": "Mike McWherter",
         "rep_candidate": "Bill Haslam",
-        "margin": 61066,
-        "margin_pct": 28.2544,
+        "margin": 63983,
+        "margin_pct": 30.5271,
         "winner": "REP"
       },
       "9": {
