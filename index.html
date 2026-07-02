@@ -10081,8 +10081,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Cache destroyer token for static data requests.
     // Bump this value when you want browsers/CDNs to fetch fresh files immediately.
-    const DATA_CACHE_BUSTER = '2026-07-01-1';
-    const APP_BUILD_ID = '2026-07-01-1';
+    const DATA_CACHE_BUSTER = '2026-07-02-2';
+    const APP_BUILD_ID = '2026-07-02-2';
 
     function withCacheBuster(path) {
       const p = (path || '').toString().trim();
@@ -25642,15 +25642,16 @@ document.addEventListener('DOMContentLoaded', function() {
         };
       })();
       const popChangeToneColor = popChangeHeaderMeta?.tone === 'gain'
-        ? '#15803d'
-        : (popChangeHeaderMeta?.tone === 'loss' ? '#b45309' : '#475569');
-      const popChangeTopLine = (() => {
+        ? '#166534'
+        : (popChangeHeaderMeta?.tone === 'loss' ? '#7c2d12' : '#334155');
+      const popChangeTopLineMobile = (() => {
         if (!popChangeHeaderMeta) return '';
+        if (isDesktopTooltipMode()) return '';
         return `
-          <div class="tooltip-insight" style="margin:0 0 6px 0;padding:6px 8px;border-radius:9px;background:rgba(15,23,42,0.045);border:1px solid rgba(148,163,184,0.28);line-height:1.25;">
-            <strong style="color:${popChangeToneColor};font-size:12px;font-weight:850;">${escapeHtml(popChangeHeaderMeta.line)}</strong><br>
-            <span style="color:${popChangeToneColor};font-size:11px;font-weight:650;">${escapeHtml(popChangeHeaderMeta.raw)}</span><br>
-            <span style="color:${popChangeToneColor};font-size:10.5px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;">${escapeHtml(popChangeHeaderMeta.label)}</span>
+          <div class="tooltip-insight" style="margin:0 0 8px 0;padding:8px 10px;border-radius:10px;background:rgba(15,23,42,0.06);border:1px solid rgba(148,163,184,0.35);">
+            <strong style="color:${popChangeToneColor};">${escapeHtml(popChangeHeaderMeta.line)}</strong><br>
+            <span style="color:${popChangeToneColor};">${escapeHtml(popChangeHeaderMeta.raw)}</span><br>
+            <span style="color:${popChangeToneColor};font-size:11px;font-weight:700;">${escapeHtml(popChangeHeaderMeta.label)}</span>
           </div>
         `.trim();
       })();
@@ -25673,10 +25674,10 @@ document.addEventListener('DOMContentLoaded', function() {
         winnerName,
         winnerParty,
         marginPct: Math.abs(signedMarginPct),
-        winnerLineText: (marginCall?.text || ''),
-        winnerRawLeadText: '',
-        winnerLineToneClass: '',
-        winnerRawLeadToneClass: '',
+        winnerLineText: (popChangeHeaderMeta && isDesktopTooltipMode()) ? popChangeHeaderMeta.line : (marginCall?.text || ''),
+        winnerRawLeadText: (popChangeHeaderMeta && isDesktopTooltipMode()) ? `${popChangeHeaderMeta.raw} • ${popChangeHeaderMeta.label}` : '',
+        winnerLineToneClass: (popChangeHeaderMeta && isDesktopTooltipMode()) ? popChangeHeaderMeta.tone : '',
+        winnerRawLeadToneClass: (popChangeHeaderMeta && isDesktopTooltipMode()) ? popChangeHeaderMeta.tone : '',
         prevSignedMarginPct: prevSignedForFlip,
         currentSignedMarginPct: signedMarginPct,
         flipYearLabel: vizPrevCache?.prevYear || null,
@@ -25691,15 +25692,16 @@ document.addEventListener('DOMContentLoaded', function() {
         ${finalInsight ? `<div class="tooltip-insight">${escapeHtml(finalInsight)}</div>` : ''}
         ${censusDetailLine}
         ${popChangeDetailLine}
+        ${(currentVizMode === 'population_change' && popChangeHeaderMeta?.label) ? `<div class="tooltip-insight" style="color:${popChangeToneColor};font-weight:700;">${escapeHtml(popChangeHeaderMeta.label)}</div>` : ''}
         ${(currentVizMode === 'shift' && Number.isFinite(shiftDelta) && vizShiftCache?.prevYear) ? '' : shiftLine}
-        ${flipLine}
+        ${isDesktopTooltipMode() ? flipLine : ''}
         ${deltaBlock}
         ${splitInsightLine}
         ${demoLine}
       `.trim();
       const inner = `
-        ${popChangeTopLine}
         ${votehubCore}
+        ${popChangeTopLineMobile}
         <details class="tooltip-more" aria-label="More details">
           <summary>More details</summary>
           <div class="tooltip-more-body">${detailLines}</div>
@@ -28129,14 +28131,26 @@ document.addEventListener('DOMContentLoaded', function() {
       const winnerText = normalizeCandidateLabel(winnerName || winnerShort, winnerShort || 'Tie');
       const winnerToneClass = winnerPartyKey === 'rep' ? 'rep' : (winnerPartyKey === 'dem' ? 'dem' : 'tie');
       const winnerDisplayText = (winnerLineText || '').toString().trim() || `${winnerText} +${marginFormatter(marginAbs)}%`;
+      const customTopTone = String(winnerLineToneClass || '').trim().toLowerCase();
+      const customRawTopTone = String(winnerRawLeadToneClass || '').trim().toLowerCase();
+      const topToneStyle = customTopTone === 'gain'
+        ? 'font-size:12px;font-weight:800;opacity:0.96;color:#166534;font-family:"JetBrains Mono","Consolas","SFMono-Regular",monospace;'
+        : (customTopTone === 'loss'
+          ? 'font-size:12px;font-weight:800;opacity:0.96;color:#7c2d12;font-family:"JetBrains Mono","Consolas","SFMono-Regular",monospace;'
+          : '');
       const voteLeadStyle = winnerToneClass === 'rep'
         ? 'font-size:12px;font-weight:800;opacity:0.96;color:#fecaca;font-family:"JetBrains Mono","Consolas","SFMono-Regular",monospace;'
         : (winnerToneClass === 'dem'
           ? 'font-size:12px;font-weight:800;opacity:0.96;color:#bfdbfe;font-family:"JetBrains Mono","Consolas","SFMono-Regular",monospace;'
           : 'font-size:12px;font-weight:800;opacity:0.92;color:#e2e8f0;font-family:"JetBrains Mono","Consolas","SFMono-Regular",monospace;');
       const winnerRawLeadDisplay = (winnerRawLeadText || '').toString().trim() || `${formatVotehubVotes(Math.abs(rVotes - dVotes))} votes`;
+      const rawLeadStyle = customRawTopTone === 'gain'
+        ? 'font-size:12px;font-weight:800;opacity:0.96;color:#166534;font-family:"JetBrains Mono","Consolas","SFMono-Regular",monospace;'
+        : (customRawTopTone === 'loss'
+          ? 'font-size:12px;font-weight:800;opacity:0.96;color:#7c2d12;font-family:"JetBrains Mono","Consolas","SFMono-Regular",monospace;'
+          : voteLeadStyle);
       const winnerLine = showWinnerLine
-        ? `<div class="vhr-winner ${winnerToneClass}" style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;"><span>${escapeHtml(winnerDisplayText)}</span><span class="vhr-raw-lead ${winnerToneClass}" style="${voteLeadStyle}">${escapeHtml(winnerRawLeadDisplay)}</span></div>`
+        ? `<div class="vhr-winner ${winnerToneClass}" style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;"><span${topToneStyle ? ` style="${topToneStyle}"` : ''}>${escapeHtml(winnerDisplayText)}</span><span class="vhr-raw-lead ${winnerToneClass}" style="${rawLeadStyle}">${escapeHtml(winnerRawLeadDisplay)}</span></div>`
         : '';
       const prevSigned = Number(prevSignedMarginPct);
       const curSigned = Number(currentSignedMarginPct);
