@@ -10081,8 +10081,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Cache destroyer token for static data requests.
     // Bump this value when you want browsers/CDNs to fetch fresh files immediately.
-    const DATA_CACHE_BUSTER = '2026-07-02-2';
-    const APP_BUILD_ID = '2026-07-02-2';
+    const DATA_CACHE_BUSTER = '2026-07-04-1';
+    const APP_BUILD_ID = '2026-07-04-1';
 
     function withCacheBuster(path) {
       const p = (path || '').toString().trim();
@@ -10412,7 +10412,6 @@ document.addEventListener('DOMContentLoaded', function() {
         tooltip.style.display = 'none';
         try { tooltip.dataset.context = ''; } catch (_) {}
       }
-      clearDesktopHoverExpandState();
       try { document.body.classList.remove('hover-preview-active'); } catch (_) {}
       clearHoverOutline();
       clearPrecinctHoverFeature();
@@ -23554,40 +23553,6 @@ document.addEventListener('DOMContentLoaded', function() {
     let lastCountyHoverRenderedAt = 0;
     const COUNTY_HOVER_THROTTLE_MS = 55;
 
-    // Desktop: allow click-to-expand (pin) for collapsed hover cards without changing map click behavior.
-    let desktopHoverExpandState = null; // { kind, x, y, title, expandedInner, copyText }
-
-    function clearDesktopHoverExpandState() {
-      desktopHoverExpandState = null;
-    }
-
-    function wireDesktopTooltipExpandOnClick() {
-      const tooltip = document.getElementById('hover-tooltip');
-      if (!tooltip) return;
-      if (tooltip.dataset && tooltip.dataset.expandWired === '1') return;
-      try { tooltip.dataset.expandWired = '1'; } catch (_) {}
-      tooltip.addEventListener('click', (ev) => {
-        try {
-          if (!isDesktopTooltipMode()) return;
-          if (tooltipPinned) return;
-          if (!desktopHoverExpandState || desktopHoverExpandState.kind !== 'county') return;
-          const targetId = String(ev?.target?.id || '');
-          if (targetId === 'tooltip-close-btn' || targetId === 'tooltip-copy-btn') return;
-
-          const state = desktopHoverExpandState;
-          clearDesktopHoverExpandState();
-          setTooltipPinned(true);
-          showHoverTooltip(
-            state.x,
-            state.y,
-            buildTooltipShell(state.title, state.expandedInner, { pinned: true, showClose: true, copyText: state.copyText }),
-            { force: true, pinned: true, context: 'pinned', copyText: state.copyText }
-          );
-          wireTooltipButtons();
-        } catch (_) {}
-      });
-    }
-
     function setLayerVisibilityIfExists(layerId, visibility) {
       if (!layerId || !map.getLayer(layerId)) return;
       try { map.setLayoutProperty(layerId, 'visibility', visibility); } catch (_) {}
@@ -25699,14 +25664,16 @@ document.addEventListener('DOMContentLoaded', function() {
         ${splitInsightLine}
         ${demoLine}
       `.trim();
-      const inner = `
-        ${votehubCore}
-        ${popChangeTopLineMobile}
-        <details class="tooltip-more" aria-label="More details">
-          <summary>More details</summary>
-          <div class="tooltip-more-body">${detailLines}</div>
-        </details>
-      `.trim();
+      const inner = isDesktopTooltipMode()
+        ? `${votehubCore}`.trim()
+        : `
+          ${votehubCore}
+          ${popChangeTopLineMobile}
+          <details class="tooltip-more" aria-label="More details">
+            <summary>More details</summary>
+            <div class="tooltip-more-body">${detailLines}</div>
+          </details>
+        `.trim();
 
       const copyText = `${countyDisplay} County`;
       showHoverTooltip(
@@ -25715,7 +25682,6 @@ document.addEventListener('DOMContentLoaded', function() {
         buildTooltipShell('', inner, { pinned: pinnedShell, showClose: pinnedShell, copyText }),
         { force: !!forceTooltip, pinned: pinnedShell, context: 'votehub-results', copyText }
       );
-      clearDesktopHoverExpandState();
       wireTooltipButtons();
       try { markOnboardingSeen(); } catch (_) {}
     }
@@ -30175,7 +30141,6 @@ document.addEventListener('DOMContentLoaded', function() {
       tooltip.dataset.context = String(context || '');
       tooltip.dataset.copyText = (copyText || '').toString();
       try { document.body.classList.toggle('hover-preview-active', !pinned); } catch (_) {}
-      try { wireDesktopTooltipExpandOnClick(); } catch (_) {}
        
       // Position tooltip near mouse but avoid edges
       const tooltipRect = tooltip.getBoundingClientRect();
@@ -30201,7 +30166,6 @@ document.addEventListener('DOMContentLoaded', function() {
       if (!tooltip) return;
       if (tooltipPinned) return;
       tooltip.style.display = 'none';
-      clearDesktopHoverExpandState();
       try { tooltip.dataset.context = ''; } catch (_) {}
       try { tooltip.dataset.copyText = ''; } catch (_) {}
       try { document.body.classList.remove('hover-preview-active'); } catch (_) {}
