@@ -13669,19 +13669,10 @@ document.addEventListener('DOMContentLoaded', function() {
     function renderVoteContextTierBadge(meta, signedMarginPct) {
       const b = document.getElementById('vote-context-badges');
       if (!b) return;
-      const kind = String(meta?.kind || '').toLowerCase();
       const tag = String(b.dataset.contextTag || '').trim();
-      if (!kind || kind === 'statewide') {
-        b.innerHTML = tag ? `<span class="context-tag">${escapeHtml(tag)}</span>` : '';
-        return;
-      }
-      const tierMeta = competitivenessTierMetaFromSignedMarginPct(Number(signedMarginPct));
-      if (!tierMeta || !tierMeta.label) {
-        b.innerHTML = tag ? `<span class="context-tag">${escapeHtml(tag)}</span>` : '';
-        return;
-      }
-      const partyClass = tierMeta.party === 'rep' ? 'rep' : (tierMeta.party === 'dem' ? 'dem' : 'tie');
-      b.innerHTML = `${tag ? `<span class="context-tag">${escapeHtml(tag)}</span>` : ''}<span class="focus-name-tier-badge ${escapeHtml(partyClass)}">${escapeHtml(tierMeta.label)}</span>`;
+      void meta;
+      void signedMarginPct;
+      b.innerHTML = tag ? `<span class="context-tag">${escapeHtml(tag)}</span>` : '';
     }
 
     function setVoteCounterMinimizedState(minimized) {
@@ -25496,8 +25487,6 @@ document.addEventListener('DOMContentLoaded', function() {
       } else {
         chips.push(winnerChipHTML(winner));
       }
-      chips.push(tierChipHTML(tierMeta));
-
       if (prevSignedForFlip !== null) {
         const flipChip = flipChipHTML(prevSignedForFlip, signedMarginPct);
         if (flipChip) chips.push(flipChip);
@@ -27000,7 +26989,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const modeledCountyCandidateEffectDemPts = Number.isFinite(modeledCountyCandidateEffectDemPtsRaw)
         ? modeledCountyCandidateEffectDemPtsRaw
         : (Number.isFinite(modeledCountyBaselineSigned) ? (modeledCountyBaselineSigned - modeledCountyWithCandidatesSigned) : NaN);
-      if (countyNameElement) setFocusNameWithTierBadge(countyNameElement, `${countyDisplay} County`, tierMeta);
+      if (countyNameElement) setFocusNameWithTierBadge(countyNameElement, `${countyDisplay} County`);
       // Accessibility palette for winner color
       function cbColorForMargin(marginPct, winner) {
         if (marginPct >= 40) {
@@ -27083,7 +27072,6 @@ document.addEventListener('DOMContentLoaded', function() {
         countySubhead.innerHTML = `
           <span class="pill ${escapeHtml(strengthPillClass)}"><strong>${escapeHtml(winner === 'Tie' ? 'Even' : shortCandidateLabel(winnerCandidate, winner === 'Republican' ? 'R' : 'D'))}</strong> ${escapeHtml(marginShort)}</span>
           <span class="pill muted">${escapeHtml(splitShort)}</span>
-          <span class="pill ${escapeHtml(strengthPillClass)}">${escapeHtml(tierMeta?.shortLabel || tierMeta?.label || 'Tossup')}</span>
           <span class="pill"><strong>${escapeHtml(contestLabel)}</strong></span>
           ${bellwetherPill}
         `;
@@ -27139,7 +27127,6 @@ document.addEventListener('DOMContentLoaded', function() {
           <div class="focus-glance-head">
             <span class="focus-glance-kicker">At a glance</span>
             <span class="focus-glance-meta">
-              ${tierMeta?.shortLabel ? `<span class="focus-glance-badge ${escapeHtml(partyTone === 'rep' ? 'rep' : (partyTone === 'dem' ? 'dem' : ''))}">${escapeHtml(tierMeta.shortLabel)}</span>` : ''}
               <button class="focus-glance-copy" type="button" data-action="copy-glance" aria-label="Copy at-a-glance summary" title="Copy summary">Copy</button>
             </span>
           </div>
