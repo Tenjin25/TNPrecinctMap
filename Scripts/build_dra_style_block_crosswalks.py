@@ -33,6 +33,7 @@ XWALK_DIR = DATA_DIR / "crosswalks"
 
 HIGH_CONFIDENCE_METHODS = {
     "exact_name",
+    "manual_override",
     "prefix_name",
     "code_token_name",
     "token_vtd",
@@ -43,6 +44,7 @@ MEDIUM_CONFIDENCE_METHODS = {
     "simple_exact_name",
     "compact_exact_name",
     "tail_exact_name",
+    "core_exact_name",
 }
 LOW_CONFIDENCE_METHODS = {
     "tail_fuzzy_name",
@@ -70,6 +72,12 @@ def parse_year_from_path(path: Path) -> int:
     if not m:
         raise ValueError(f"Could not parse year from filename: {path.name}")
     return int(m.group(1))
+
+
+def source_tag_from_path(path: Path) -> str:
+    stem = path.stem
+    stem = re.sub(r"[^A-Za-z0-9]+", "_", stem).strip("_").lower()
+    return stem
 
 
 def pick_source_vintage(year: int) -> int:
@@ -224,7 +232,83 @@ def load_2024_precinct_catalog(path: Path) -> Tuple[Dict[Tuple[str, str], List[d
         )
         transfers[(county_norm, src_vtd)][src_vtd] += 1.0
 
+    for row in load_numeric_precinct_2022_bootstrap_rows():
+        county_norm = norm_county(str(row.get("county_norm", "")).strip())
+        src_name_norm = norm_text(str(row.get("from_precinct_norm", "")).strip())
+        src_vtd = str(row.get("to_prctseq_2024", "")).strip()
+        if not county_norm or not src_name_norm or not src_vtd:
+            continue
+        source_catalog[(county_norm, src_vtd)].append(
+            {
+                "src_name": src_name_norm,
+                "src_name_norm": src_name_norm,
+            }
+        )
+        transfers[(county_norm, src_vtd)][src_vtd] += 1.0
+
+    for row in load_precinct_alias_rows():
+        county_norm = norm_county(str(row.get("county_norm", "")).strip())
+        src_name_norm = norm_text(str(row.get("from_precinct_norm", "")).strip())
+        src_vtd = str(row.get("to_prctseq_2024", "")).strip()
+        if not county_norm or not src_name_norm or not src_vtd:
+            continue
+        source_catalog[(county_norm, src_vtd)].append(
+            {
+                "src_name": src_name_norm,
+                "src_name_norm": src_name_norm,
+            }
+        )
+        transfers[(county_norm, src_vtd)][src_vtd] += 1.0
+
     return source_catalog, transfers
+
+
+def load_numeric_precinct_2022_bootstrap_rows() -> List[dict]:
+    """Reuse stable numeric 2022 labels from the current low-confidence report.
+
+    The 2022 Tennessee source contains many county-local numeric labels. When the
+    existing low-confidence output already collapses one label to a single 2024
+    PRCTSEQ within a county, treat that as a bootstrap override so future crosswalk
+    rebuilds can resolve it as an exact catalog match instead of a fuzzy fallback.
+    """
+    path = XWALK_DIR / "tn_precinct_to_vtd20_blockweighted_2022_low_confidence.csv"
+    grouped_codes: Dict[Tuple[str, str], set] = defaultdict(set)
+    if not path.exists():
+        return []
+
+    for row in read_rows(path):
+        county_norm = norm_county(str(row.get("county_norm", "")).strip())
+        precinct_norm = norm_text(str(row.get("from_precinct_norm", "")).strip())
+        src_vtd = str(row.get("src_vtdst", "")).strip()
+        if not (county_norm and precinct_norm and precinct_norm.isdigit() and src_vtd and src_vtd.isdigit()):
+            continue
+        grouped_codes[(county_norm, precinct_norm)].add(src_vtd.zfill(6))
+
+    out: List[dict] = []
+    for (county_norm, precinct_norm), codes in sorted(grouped_codes.items()):
+        if len(codes) != 1:
+            continue
+        out.append(
+            {
+                "from_year": "2022",
+                "county_norm": county_norm,
+                "from_precinct_norm": precinct_norm,
+                "to_prctseq_2024": next(iter(codes)),
+            }
+        )
+    return out
+
+
+def load_numeric_precinct_2022_src_overrides() -> Dict[Tuple[str, str], str]:
+    """Promote stable county-local numeric 2022 labels into exact source matches."""
+    out: Dict[Tuple[str, str], str] = {}
+    for row in load_numeric_precinct_2022_bootstrap_rows():
+        county_norm = norm_county(str(row.get("county_norm", "")).strip())
+        precinct_norm = norm_text(str(row.get("from_precinct_norm", "")).strip())
+        src_vtd = str(row.get("to_prctseq_2024", "")).strip()
+        if county_norm and precinct_norm and src_vtd:
+            out[(county_norm, precinct_norm)] = src_vtd
+    return out
 
 
 def merge_catalogs(
@@ -256,13 +340,21 @@ def simplify_precinct_name(value: str) -> str:
     s = norm_text(value)
     if not s:
         return ""
+    s = re.sub(r"\bST\b", "STREET", s)
     s = re.sub(r"\bSCH\b", "SCHOOL", s)
+    s = re.sub(r"\bSCHL\b", "SCHOOL", s)
     s = re.sub(r"\bHGHTS\b", "HEIGHTS", s)
     s = re.sub(r"\bCTR\b", "CENTER", s)
     s = re.sub(r"\bAUD\b", "AUDITORIUM", s)
     s = re.sub(r"\bMID\b", "MIDDLE", s)
     s = re.sub(r"\bPRIM\b", "PRIMARY", s)
     s = re.sub(r"\bELEM\b", "ELEMENTARY", s)
+    s = re.sub(r"\bINTER\b", "INTERMEDIATE", s)
+    s = re.sub(r"\bINT\b", "INTERMEDIATE", s)
+    s = re.sub(r"\bMS\b", "MIDDLE SCHOOL", s)
+    s = re.sub(r"\bFD\b", "FIRE DEPARTMENT", s)
+    s = re.sub(r"\bFIREDEPT\b", "FIRE DEPARTMENT", s)
+    s = re.sub(r"\bDEPT\b", "DEPARTMENT", s)
     s = re.sub(r"\b(\d{1,3})([A-Z]{1,4})\b", r"\1 \2", s)
     s = re.sub(
         r"\b(PRECINCT|PCT|DISTRICT|DIST|WARD|VTD|BOX|VOTING|CENTER|CENTRE|CITY|COUNTY)\b",
@@ -288,12 +380,113 @@ def strip_leading_locator_tokens(value: str) -> str:
         if n == s:
             break
         s = n
+    # Historical files sometimes encode sub-precinct letters as "10A Foo",
+    # which becomes "A Foo" after the numeric split above.
+    s = re.sub(r"^\s*[A-Z]\s+", "", s, count=1)
     return simplify_precinct_name(s)
+
+
+def load_precinct_alias_rows() -> List[dict]:
+    """Load exact alias->current precinct mappings when a 2024 PRCTSEQ exists."""
+    path = XWALK_DIR / "tn_precinct_aliases.csv"
+    if not path.exists():
+        return []
+
+    out: List[dict] = []
+    seen = set()
+    for row in read_rows(path):
+        county_norm = norm_county(str(row.get("county_norm", "")).strip())
+        precinct_norm = norm_text(str(row.get("precinct_norm", "")).strip())
+        prctseq = str(row.get("prctseq_2024", "")).strip()
+        has_2024 = str(row.get("has_2024", "")).strip()
+        if not (county_norm and precinct_norm and prctseq):
+            continue
+        if has_2024 not in {"1", "TRUE", "True", "true"}:
+            continue
+        key = (county_norm, precinct_norm, prctseq)
+        if key in seen:
+            continue
+        seen.add(key)
+        out.append(
+            {
+                "county_norm": county_norm,
+                "from_precinct_norm": precinct_norm,
+                "to_prctseq_2024": prctseq,
+            }
+        )
+    return out
+
+
+def load_manual_src_overrides() -> Dict[Tuple[int, str, str], str]:
+    """Load reviewed source-VTD overrides for hard historical labels."""
+    path = XWALK_DIR / "tn_crosswalk_manual_overrides.csv"
+    out: Dict[Tuple[int, str, str], str] = {}
+    if not path.exists():
+        return out
+
+    for row in read_rows(path):
+        enabled = str(row.get("enabled", "")).strip()
+        if enabled not in {"1", "TRUE", "True", "true"}:
+            continue
+        review_status = norm_text(str(row.get("review_status", "")).strip())
+        if review_status and review_status not in {"APPROVED", "CONFIRMED", "DONE"}:
+            continue
+        try:
+            year = int(str(row.get("year", "")).strip())
+        except ValueError:
+            continue
+        county_norm = norm_county(str(row.get("county_norm", "")).strip())
+        precinct_norm = norm_text(str(row.get("from_precinct_norm", "")).strip())
+        src_vtd = str(row.get("override_src_vtdst", "")).strip()
+        if not (year and county_norm and precinct_norm and src_vtd):
+            continue
+        out[(year, county_norm, precinct_norm)] = src_vtd
+    return out
+
+
+def load_manual_dst_overrides() -> Dict[Tuple[int, str, str], str]:
+    """Load reviewed direct destination overrides for no-transfer cases."""
+    path = XWALK_DIR / "tn_crosswalk_manual_overrides.csv"
+    out: Dict[Tuple[int, str, str], str] = {}
+    if not path.exists():
+        return out
+
+    for row in read_rows(path):
+        enabled = str(row.get("enabled", "")).strip()
+        if enabled not in {"1", "TRUE", "True", "true"}:
+            continue
+        review_status = norm_text(str(row.get("review_status", "")).strip())
+        if review_status and review_status not in {"APPROVED", "CONFIRMED", "DONE"}:
+            continue
+        try:
+            year = int(str(row.get("year", "")).strip())
+        except ValueError:
+            continue
+        county_norm = norm_county(str(row.get("county_norm", "")).strip())
+        precinct_norm = norm_text(str(row.get("from_precinct_norm", "")).strip())
+        dst_vtd20 = str(row.get("override_dst_vtd20", "")).strip()
+        if not (year and county_norm and precinct_norm and dst_vtd20):
+            continue
+        out[(year, county_norm, precinct_norm)] = dst_vtd20
+    return out
 
 
 def compact_match_key(value: str) -> str:
     s = simplify_precinct_name(value)
     return re.sub(r"[^A-Z0-9]", "", s)
+
+
+def core_place_name(value: str) -> str:
+    s = strip_leading_locator_tokens(value)
+    if not s:
+        return ""
+    s = re.sub(
+        r"\b(SCHOOL|ELEMENTARY|MIDDLE|HIGH|PRIMARY|INTERMEDIATE|COMMUNITY|CENTER|HALL|CHURCH|FIRE|DEPARTMENT|OFFICE|BUILDING)\b",
+        " ",
+        s,
+    )
+    s = re.sub(r"\s+", " ", s).strip()
+    return s
 
 
 def leading_alpha_code(value: str) -> str:
@@ -492,7 +685,22 @@ def match_source_vtd(
                 if q_tail and q_tail == strip_leading_locator_tokens(cand):
                     return src_vtd, "tail_exact_name", 0.985
 
-    # 2d) Tail-name fuzzy match. Helps labels like "167 COLLEGEDALE 3" where
+    # 2d) Core place-name exact match after dropping facility words. This helps
+    # cases like "BROAD ST" vs "BROAD STREET SCHOOL" or "RURAL VALE" vs
+    # "RURAL VALE FIRE DEPARTMENT" without collapsing unrelated place names.
+    q_core = core_place_name(precinct_norm)
+    if q_core:
+        core_hits: List[str] = []
+        for src_vtd, names in by_vtd_name_norms.items():
+            for cand in names:
+                if q_core == core_place_name(cand):
+                    core_hits.append(src_vtd)
+                    break
+        core_hits = list(dict.fromkeys(core_hits))
+        if len(core_hits) == 1:
+            return core_hits[0], "core_exact_name", 0.982
+
+    # 2e) Tail-name fuzzy match. Helps labels like "167 COLLEGEDALE 3" where
     # code prefixes vary but the precinct name body still matches strongly.
     if q_tail and len(q_tail) >= 6:
         tail_best_vtd = ""
@@ -531,6 +739,9 @@ def match_source_vtd(
 def build_crosswalk(source_csv: Path, year: int) -> dict:
     vintage = pick_source_vintage(year)
     overlap_csv = source_overlap_path(vintage)
+    manual_src_overrides = load_manual_src_overrides()
+    manual_dst_overrides = load_manual_dst_overrides()
+    numeric_2022_overrides = load_numeric_precinct_2022_src_overrides() if year == 2022 else {}
     cat_2024 = load_2024_precinct_catalog(XWALK_DIR / "tn_precinct_to_2024.csv")
     if vintage == 2020:
         source_catalog, transfers = merge_catalogs(
@@ -554,7 +765,17 @@ def build_crosswalk(source_csv: Path, year: int) -> dict:
     method_counts: Dict[str, int] = defaultdict(int)
 
     for key, meta in sorted(src_precincts.items(), key=lambda kv: (kv[0].county_norm, kv[0].precinct_norm)):
-        src_vtd, method, score = match_source_vtd(key.county_norm, key.precinct_norm, source_catalog)
+        override_key = (year, key.county_norm, key.precinct_norm)
+        if override_key in manual_src_overrides:
+            src_vtd = manual_src_overrides[override_key]
+            method = "manual_override"
+            score = 1.0
+        elif year == 2022 and (key.county_norm, key.precinct_norm) in numeric_2022_overrides:
+            src_vtd = numeric_2022_overrides[(key.county_norm, key.precinct_norm)]
+            method = "manual_override"
+            score = 1.0
+        else:
+            src_vtd, method, score = match_source_vtd(key.county_norm, key.precinct_norm, source_catalog)
         method_counts[method] += 1
         if method in HIGH_CONFIDENCE_METHODS:
             confidence_tier = "high"
@@ -583,6 +804,23 @@ def build_crosswalk(source_csv: Path, year: int) -> dict:
         dst_map = transfers.get((key.county_norm, src_vtd), {})
         total = sum(dst_map.values())
         if total <= 0:
+            manual_dst = manual_dst_overrides.get(override_key)
+            if manual_dst:
+                out_rows.append(
+                    {
+                        "from_year": year,
+                        "source_vintage": vintage,
+                        "county_norm": key.county_norm,
+                        "from_precinct_norm": key.precinct_norm,
+                        "src_vtdst": src_vtd,
+                        "dst_vtd20": manual_dst,
+                        "weight": 1.0,
+                        "match_method": "manual_override",
+                        "confidence_tier": "high",
+                        "match_score": 1.0,
+                    }
+                )
+                continue
             unmatched_rows.append(
                 {
                     "year": year,
@@ -660,6 +898,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--source-csv", required=True, help="Path to source precinct CSV")
     parser.add_argument("--year", type=int, help="Election year (defaults from source filename)")
+    parser.add_argument("--source-tag", help="Optional tag to make output filenames source-specific")
     args = parser.parse_args()
 
     source_csv = Path(args.source_csv)
@@ -670,9 +909,12 @@ def main() -> None:
 
     year = int(args.year) if args.year else parse_year_from_path(source_csv)
     payload = build_crosswalk(source_csv, year)
+    source_tag = (args.source_tag or "").strip() or source_tag_from_path(source_csv)
 
     XWALK_DIR.mkdir(parents=True, exist_ok=True)
     stem = f"tn_precinct_to_vtd20_blockweighted_{year}"
+    if source_tag:
+        stem = f"{stem}__{source_tag}"
     out_csv = XWALK_DIR / f"{stem}.csv"
     out_strict_csv = XWALK_DIR / f"{stem}_strict.csv"
     out_low_confidence_csv = XWALK_DIR / f"{stem}_low_confidence.csv"

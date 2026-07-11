@@ -1,0 +1,31 @@
+{
+  "source_csv": "20001107__tn__general__president__precinct.csv",
+  "source_year": 2000,
+  "source_vintage": 2000,
+  "overlap_csv": "tn_vtd00_to_vtd20_overlap.csv",
+  "input_precinct_keys": 2366,
+  "crosswalk_rows": 8899,
+  "strict_crosswalk_rows": 8224,
+  "low_confidence_crosswalk_rows": 240,
+  "unmatched_rows": 0,
+  "method_counts": {
+    "alpha_code_name": 30,
+    "code_token_name": 1022,
+    "core_exact_name": 1,
+    "exact_name": 397,
+    "forced_best_name": 35,
+    "prefix_name": 112,
+    "shelby_alias_name": 222,
+    "simple_exact_name": 4,
+    "tail_exact_name": 104,
+    "tail_fuzzy_name": 49,
+    "token_vtd": 390
+  },
+  "outputs": {
+    "crosswalk_csv": "tn_precinct_to_vtd20_blockweighted_2000__20001107_tn_general_president_precinct.csv",
+    "strict_crosswalk_csv": "tn_precinct_to_vtd20_blockweighted_2000__20001107_tn_general_president_precinct_strict.csv",
+    "low_confidence_crosswalk_csv": "tn_precinct_to_vtd20_blockweighted_2000__20001107_tn_general_president_precinct_low_confidence.csv",
+    "unmatched_csv": "tn_precinct_to_vtd20_blockweighted_2000__20001107_tn_general_president_precinct_unmatched.csv",
+    "summary_json": "tn_precinct_to_vtd20_blockweighted_2000__20001107_tn_general_president_precinct_summary.json"
+  }
+}

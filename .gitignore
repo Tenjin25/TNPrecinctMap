@@ -1,4 +1,6 @@
 .venv/
+.vendor/
+vendor_geo/
 __pycache__/
 _upstream_TNPrecinctMap/
 node_modules/
@@ -14,11 +16,13 @@ Data/tl_2020_47_tabblock20.zip
 # Local data inputs / scratch outputs (keep derived small JSONs checked in instead)
 Data/20221108AllbyPrecinct.xlsx
 Data/CO-EST2025-POP-47.csv
+Data/raw/
 Data/_sample_tl_2008_47001_vtd00.zip
 Data/tiger2008_vtd00_counties/
 Data/tl_2012_47_vtd10.zip
 Data/tl_2020_47_vtd20.zip
 Data/tn_vtd_2000.geojson
+Data/tn_vtd_2010_census_county_merged.geojson
 Data/tn_vtd_2000_build_summary.json
 Data/tn_cvap_2024_2020_b_csv/
 Data/tn_cvap_2024_2020_b_csv.zip

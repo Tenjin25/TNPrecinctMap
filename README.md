@@ -4,60 +4,124 @@ Interactive Tennessee election map focused on county, district, and precinct ana
 
 This project runs as a single-page app from `index.html` and reads local data assets from `Data/`.
 
-## Recent Historical Data + Labeling Updates
+## Recent Development Timeline
 
-This project was recently extended with older Tennessee statewide datasets and related UI/data-pipeline fixes.
+This project has been moving on two tracks at once: frontend/panel polish for the atlas UI, and deeper historical/data-pipeline work for Tennessee precinct and district results. The dated notes below pull together the recent repo history, including work that was previously undocumented in this README.
 
-### 1) Uncontested Label / Manifest Filtering Behavior
+### 2026-06-05
 
-- Contest dropdown population in manifest mode honors `major_party_contested`.
-- Council-of-state style contests with no valid D/R contest can be filtered from selection lists.
-- Historical imports now set/propagate `major_party_contested` in contest manifests so labels/availability are consistent.
+- Polished the desktop population-change tooltip and aligned it with the NC map interaction style.
+- Surfaced a clearer population-change summary in the desktop county experience.
+- Fixed county demographics wording and simplified the dominance-label hierarchy.
+- Made majority vs plurality distinctions explicit in county demographics labels and badges.
 
-### 2) New Historical Source CSVs Added
+### 2026-06-06 to 2026-06-19
 
-- `Data/19981103__tn__general__governor__county.csv` (OCR-derived county file, reconciled to official statewide totals)
-- `Data/20001107__tn__general__president__county.csv`
-- `Data/20001107__tn__general__president__precinct.csv`
-- `Data/20001107__tn__general__senate__precinct.csv`
-- `Data/20021105__tn__general__governor__precinct.csv`
-- `Data/20021105__tn__general__senate__precinct.csv`
-- `Data/20061107__tn__general__governor__precinct.csv`
+- Added logic to transfer unchanged districts to the 2026 district lines where appropriate.
+- Updated search placeholders and example buttons.
+- Corrected miscalculations to match Secretary of State PDF references.
+- Refactored year-comparison logic for candidate trends.
+- Refactored district title/number formatting helpers.
 
-### 3) New Contest JSON Outputs Added
+### 2026-06-21
 
-- `Data/contests/governor_1998.json` (county-scope contest JSON)
-- `Data/contests/president_2000.json`
-- `Data/contests/us_senate_2000.json`
-- `Data/contests/us_senate_2002.json`
-- `Data/contests/governor_2002.json`
-- `Data/contests/governor_2006.json`
+- Fixed Tennessee legislative winner labels.
+- Refined contest filtering behavior for legislative views:
+  - limited the contest filter to the intended state-house context
+  - restored Tennessee senate filtering behavior
+  - tightened the legislative contest filter logic
 
-Corresponding district contest slices were also generated for newly added years in:
+### 2026-06-22
 
-- `Data/district_contests/congressional_*`
-- `Data/district_contests/state_house_*`
-- `Data/district_contests/state_senate_*`
+- Fixed 2026 congressional demographics asset selection.
+- Extended TN-08 2026 calibration beyond the presidential line to other statewide contests.
+- Updated focus values for district, state house, and state senate views.
+- Fixed the precinct alias loader and added district CSV assets needed by the expanded district pipeline.
+- Added Shelby/TN-08 review tooling:
+  - `Scripts/export_tn08_shelby_review.py`
+  - `Scripts/export_tn08_shelby_geometry_review.py`
+  - `Scripts/export_shelby_cd589_transition_review.py`
+  - supporting Shelby congressional transition reports
+- Fixed Shelby `PRCTSEQ` mapping for the 2026 congressional line builder.
+- Refined 2026 congressional fallback mapping and line aggregation.
 
-### 4) Manifest Wiring + Naming Standardization
+### 2026-06-24 to 2026-06-25
 
-- `Data/contests/manifest.json` and `Data/district_contests/manifest.json` were updated for the new files.
-- 1998 governor contest file was standardized from `governor_1998_county.json` to `governor_1998.json` so it loads like other contest entries.
+- Extended 2026 congressional calibration across the statewide contest set:
+  - TN-05 calibration
+  - TN-08 calibration and follow-up revisions
+  - TN-09 calibration across the 2026 set
+- Improved district demographics hover-card presentation.
 
-### 5) Timeline Expansion (US Senate)
+### 2026-06-27
 
-US Senate trend-chain logic in `index.html` was updated to include newly added pre-2006 years:
+- Revisited 2026 congressional calibration assumptions:
+  - restored TN-08 benchmark calibration
+  - restored TN-05 strength in the 2026 set
+  - reverted an older over-expansion of TN-08 calibration
 
-- Seat A chain: `2000, 2006, 2012, 2018, 2024`
-- Seat B chain: `2002, 2008, 2014, 2020`
+### 2026-07-01
 
-This ensures timeline/trend views can use the new 2000 and 2002 Senate slices.
+- Moved Sequatchie County from the Middle Tennessee bucket to East Tennessee in the county archetype/regional logic.
+- Fixed mojibake cleanup issues and refreshed cache-buster values.
 
-### 6) Data Quality Fix: Van Buren (1998 Governor)
+### 2026-07-02
 
-- Fixed OCR county-key split (`VAN` -> `VAN BUREN`) so county matching works on map.
-- Corrected Van Buren values in 1998 governor county source and rebuilt `Data/contests/governor_1998.json`.
-- Re-reconciled candidate statewide totals to the official 1998 governor `STATE TOTAL` line after fixing the county key.
+- Refreshed app build/cache IDs again for a new deploy cycle.
+- Added uploaded data/assets that were later wired into the atlas build pipeline.
+
+### 2026-07-04
+
+- Cleaned up tooltip logic and bumped the frontend cache-buster/build IDs so UI changes load more reliably after deploys.
+
+### 2026-07-10
+
+- Added an official Census rebuild path for Tennessee `vtd00` and `vtd10` precinct geography:
+  - `Scripts/fetch_tn_census_2000_vtds.py`
+  - `Scripts/fetch_tn_census_2010_vtds.py`
+  - rebuilt `tn_vtd00_to_vtd10_overlap.csv`, `tn_vtd10_to_vtd20_overlap.csv`, and `tn_vtd00_to_vtd20_overlap.csv`
+- Expanded the precinct crosswalk override workflow:
+  - source-side overrides via `override_src_vtdst`
+  - direct destination fallbacks via `override_dst_vtd20` for reviewed `matched_no_transfer` cases
+- Added source-tagged historical precinct crosswalk output support so multiple same-year source files can coexist.
+- Improved `2020` precinct matching coverage with reviewed overrides for counties including Hamilton, Shelby, Weakley, Maury, Washington, Dyer, Blount, Loudon, and Montgomery.
+- Updated confidence reporting so the report prefers the strongest available match for each `(year, county, precinct)` key when both generic and source-tagged crosswalk files exist.
+
+### Historical Contest / Manifest Work
+
+Recent historical-data expansion also added or rebuilt the following:
+
+- New historical source CSVs:
+  - `Data/19981103__tn__general__governor__county.csv`
+  - `Data/20001107__tn__general__president__county.csv`
+  - `Data/20001107__tn__general__president__precinct.csv`
+  - `Data/20001107__tn__general__senate__precinct.csv`
+  - `Data/20021105__tn__general__governor__precinct.csv`
+  - `Data/20021105__tn__general__senate__precinct.csv`
+  - `Data/20061107__tn__general__governor__precinct.csv`
+- New or rebuilt contest JSON outputs:
+  - `Data/contests/governor_1998.json`
+  - `Data/contests/president_2000.json`
+  - `Data/contests/us_senate_2000.json`
+  - `Data/contests/us_senate_2002.json`
+  - `Data/contests/governor_2002.json`
+  - `Data/contests/governor_2006.json`
+- District contest slices for the newly added years in:
+  - `Data/district_contests/congressional_*`
+  - `Data/district_contests/state_house_*`
+  - `Data/district_contests/state_senate_*`
+- Manifest and labeling fixes:
+  - contest dropdown population now honors `major_party_contested`
+  - noncompetitive council-of-state style contests can be filtered from selection lists
+  - `Data/contests/manifest.json` and `Data/district_contests/manifest.json` were updated for the added historical files
+  - `governor_1998_county.json` was standardized to `governor_1998.json`
+- US Senate timeline expansion:
+  - Seat A chain: `2000, 2006, 2012, 2018, 2024`
+  - Seat B chain: `2002, 2008, 2014, 2020`
+- 1998 Van Buren cleanup:
+  - fixed the OCR county-key split
+  - corrected county values
+  - re-reconciled statewide totals to the official `STATE TOTAL` line
 
 ## County Hover (NCMap-style)
 
@@ -276,6 +340,39 @@ Statewide precinct-level results are keyed to the 2020 precinct geometry IDs (6-
 - If a specific precinct label won’t resolve cleanly, add a one-off mapping in `LEGACY_PRECINCT_VTD20_OVERRIDES` in `Scripts/build_tn_contests.py`.
 - If a specific **2024 PRCTSEQ** value won’t map to a valid `VTDST20` (which can break older-year precinct joins too), add a manual mapping row in `Data/crosswalks/tn_prctseq_to_vtd20_overrides.csv` and rebuild.
 - If the issue is a recurring name variant across years, update the crosswalk inputs in `Data/crosswalks/` (notably `tn_precinct_to_2024.csv` and `tn_precinct_aliases.csv`) and rebuild.
+
+### Official Census VTD rebuild path
+
+The repo now supports rebuilding Tennessee's historical VTD overlap chain from official Census county-level VTD files.
+
+- `Scripts/fetch_tn_census_2000_vtds.py` downloads and merges Tennessee county `vtd00` ZIPs into a statewide working GeoJSON.
+- `Scripts/fetch_tn_census_2010_vtds.py` downloads and merges Tennessee county `vtd10` ZIPs into a statewide working GeoJSON.
+- `Scripts/build_tn_vtd_overlap_crosswalks.py` rebuilds:
+  - `Data/crosswalks/tn_vtd00_to_vtd10_overlap.csv`
+  - `Data/crosswalks/tn_vtd10_to_vtd20_overlap.csv`
+  - `Data/crosswalks/tn_vtd00_to_vtd20_overlap.csv`
+
+The merged statewide GeoJSONs are treated as local rebuild artifacts; the tracked overlap CSV outputs are the durable checked-in products.
+
+### Source-tagged historical precinct crosswalks
+
+Historical Tennessee precinct source files can now coexist for the same election year without clobbering each other.
+
+- `Scripts/build_dra_style_block_crosswalks.py` supports `--source-tag`.
+- `Scripts/batch_build_dra_style_crosswalks.py` derives that tag from the source filename.
+- Output files can therefore coexist for years like `2000` and `2002`, for example:
+  - `tn_precinct_to_vtd20_blockweighted_2000__20001107_tn_general_president_precinct.csv`
+  - `tn_precinct_to_vtd20_blockweighted_2000__20001107_tn_general_senate_precinct.csv`
+
+### Manual override and confidence-report flow
+
+Reviewed hard cases now live in `Data/crosswalks/tn_crosswalk_manual_overrides.csv`.
+
+- `override_src_vtdst` is used when a precinct label should resolve to a specific source-side VTD.
+- `override_dst_vtd20` can now be used as a direct fallback for reviewed `matched_no_transfer` cases where the source-side match is known but the transfer row is missing.
+- `Scripts/export_crosswalk_confidence_reports.py` now prefers the strongest available match per `(year, county, precinct)` key when both generic and source-tagged outputs exist.
+
+This is the workflow behind the current `2020` improvement pass, including the Hamilton, Shelby, Weakley, Maury, Washington, and Dyer cleanup work.
 
 ## Local Run
 

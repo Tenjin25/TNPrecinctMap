@@ -36,7 +36,15 @@ def candidate_csvs() -> List[Path]:
 
 
 def run_one(py_exe: Path, source_csv: Path) -> Dict:
-    cmd = [str(py_exe), str(BUILDER), "--source-csv", str(source_csv)]
+    source_tag = re.sub(r"[^A-Za-z0-9]+", "_", source_csv.stem).strip("_").lower()
+    cmd = [
+        str(py_exe),
+        str(BUILDER),
+        "--source-csv",
+        str(source_csv),
+        "--source-tag",
+        source_tag,
+    ]
     proc = subprocess.run(cmd, cwd=str(ROOT), capture_output=True, text=True)
     if proc.returncode != 0:
         return {

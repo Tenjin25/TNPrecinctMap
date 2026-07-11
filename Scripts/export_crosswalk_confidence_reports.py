@@ -25,6 +25,7 @@ OUT_COUNTY_YEAR = XWALK_DIR / "tn_crosswalk_confidence_by_county_year.csv"
 
 HIGH_METHODS = {
     "exact_name",
+    "manual_override",
     "prefix_name",
     "code_token_name",
     "token_vtd",
@@ -39,7 +40,7 @@ MEDIUM_METHODS = {
 
 
 def parse_year(path: Path) -> int:
-    m = re.search(r"blockweighted_(\d{4})\.csv$", path.name)
+    m = re.search(r"blockweighted_(\d{4})(?:__[^.]+)?\.csv$", path.name)
     if not m:
         return 0
     return int(m.group(1))
@@ -57,6 +58,14 @@ def pct(numer: int, denom: int) -> float:
     return round((numer / denom) * 100.0, 4)
 
 
+def method_rank(method: str) -> int:
+    if method in HIGH_METHODS:
+        return 2
+    if method in MEDIUM_METHODS:
+        return 1
+    return 0
+
+
 def main() -> None:
     files = sorted(
         p for p in XWALK_DIR.glob("tn_precinct_to_vtd20_blockweighted_*.csv")
@@ -67,11 +76,13 @@ def main() -> None:
 
     # (year, county, precinct) -> method
     key_method: Dict[Tuple[int, str, str], str] = {}
+    key_priority: Dict[Tuple[int, str, str], Tuple[int, int]] = {}
 
     for p in files:
         year = parse_year(p)
         if year <= 0:
             continue
+        file_priority = 1 if "__" in p.name else 0
         for row in iter_rows(p):
             county = (row.get("county_norm") or "").strip().upper()
             precinct = (row.get("from_precinct_norm") or "").strip().upper()
@@ -79,8 +90,10 @@ def main() -> None:
             if not county or not precinct or not method:
                 continue
             key = (year, county, precinct)
-            if key not in key_method:
+            priority = (method_rank(method), file_priority)
+            if priority > key_priority.get(key, (-1, -1)):
                 key_method[key] = method
+                key_priority[key] = priority
 
     by_year = defaultdict(lambda: {"total": 0, "high": 0, "high_medium": 0})
     by_county_year = defaultdict(lambda: {"total": 0, "high": 0, "high_medium": 0})

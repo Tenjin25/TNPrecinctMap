@@ -493,6 +493,46 @@ def load_precinct_to_2024_map() -> Dict[Tuple[int, str, str], str]:
             if not (from_year and county_norm and from_precinct_norm and prct):
                 continue
             out[(from_year, county_norm, from_precinct_norm)] = prct.zfill(6)
+    for key, prct in load_numeric_precinct_to_2024_bootstrap_overrides().items():
+        out.setdefault(key, prct)
+    return out
+
+
+def load_numeric_precinct_to_2024_bootstrap_overrides() -> Dict[Tuple[int, str, str], str]:
+    """Promote stable numeric-label matches from the existing low-confidence report.
+
+    Tennessee's 2022 file includes many opaque numeric precinct labels that are
+    county-local rather than human-readable names. The crosswalk builder already
+    resolves many of those rows to a single 2024 PRCTSEQ, but because the text
+    similarity is poor they remain marked low-confidence. Reuse those county-local
+    one-to-one mappings as explicit downstream overrides so contest rebuilding no
+    longer depends on fuzzy name recovery for those rows.
+    """
+    path = DATA_DIR / "crosswalks" / "tn_precinct_to_vtd20_blockweighted_2022_low_confidence.csv"
+    out: Dict[Tuple[int, str, str], str] = {}
+    grouped_codes: Dict[Tuple[int, str, str], set] = defaultdict(set)
+    if not path.exists():
+        return out
+
+    with path.open("r", encoding="utf-8-sig", newline="") as f:
+        reader = csv.DictReader(f)
+        for r in reader:
+            try:
+                from_year = int(r.get("from_year", "0") or 0)
+            except ValueError:
+                continue
+            county_norm = norm_county(r.get("county_norm", ""))
+            precinct_norm = norm_precinct_name(r.get("from_precinct_norm", ""))
+            src_vtdst = norm_space(r.get("src_vtdst", ""))
+            if from_year != 2022:
+                continue
+            if not (county_norm and precinct_norm and precinct_norm.isdigit() and src_vtdst and src_vtdst.isdigit()):
+                continue
+            grouped_codes[(from_year, county_norm, precinct_norm)].add(src_vtdst.zfill(6))
+
+    for key, codes in grouped_codes.items():
+        if len(codes) == 1:
+            out[key] = next(iter(codes))
     return out
 
 

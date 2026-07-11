@@ -18,6 +18,86 @@ enabled,year,county_norm,from_precinct_norm,current_match_method,current_top_sug
 0,2008,GREENE,HARDINS 11,forced_best_name,003052,,,,pending,
 0,2008,SULLIVAN,2VP VALLEY PIKE SCH,forced_best_name,008504,,,,pending,
 0,2022,HAYWOOD,44806,forced_best_name,003906,,,,pending,
+1,2010,SUMNER,2A PORTLAND HIGH,tail_fuzzy_name,0003,8992,,historical source VTD name is Portland,approved,reviewed against 2010 source VTD catalog
+1,2010,SUMNER,3C CASTALIAN SPGS,tail_fuzzy_name,0000,8908,,historical source VTD name is Castalian Springs,approved,reviewed against 2010 source VTD catalog
+1,2010,SUMNER,3E BUSH S CHAPEL,tail_fuzzy_name,0000,9024,,historical source VTD name is Bushes Chapel,approved,reviewed against 2010 source VTD catalog
+1,2010,MONROE,MADISONVILLE PRIMARY,tail_fuzzy_name,0000,6132,,historical source VTD name is Madisonville Primary School,approved,reviewed against 2010 source VTD catalog
+1,2010,MONROE,NOTCHEY CREEK,forced_best_name,0000,6140,,historical source VTD name is Old Notchey Creek School,approved,reviewed against 2010 source VTD catalog
+1,2010,MONROE,VONORE,forced_best_name,0000,6129,,historical source VTD name is Vonore Elementary School,approved,reviewed against 2010 source VTD catalog
+1,2010,MONROE,VONORE CC,forced_best_name,0000,6136,,historical source VTD name is Vonore Community Center,approved,reviewed against 2010 source VTD catalog
+1,2010,MAURY,BAKER 4 1,forced_best_name,0000,5768,,historical source VTD name is Baker,approved,reviewed against 2010 source VTD catalog
+1,2010,MAURY,TRADEWINDS 4 2,tail_fuzzy_name,0000,5769,,historical source VTD name is Tradewinds,approved,reviewed against 2010 source VTD catalog
+1,2010,MAURY,ARMORY 6 1,tail_fuzzy_name,0000,5770,,historical source VTD name is Armory,approved,reviewed against 2010 source VTD catalog
+1,2010,MAURY,CP CHURCH 5 1,tail_fuzzy_name,0000,5840,,historical source VTD name is CP Church,approved,reviewed against 2010 source VTD catalog
+1,2010,MAURY,CULLEOKA 8 2,tail_fuzzy_name,0000,5792,,historical source VTD name is Culleoka,approved,reviewed against 2010 source VTD catalog
+1,2010,MAURY,PORTERS CHAPEL 9 3,tail_fuzzy_name,0000,5844,,historical source VTD name is Porters Chapel,approved,reviewed against 2010 source VTD catalog
+1,2010,MAURY,RALLY HILL 11 1,tail_fuzzy_name,0000,5848,,historical source VTD name is Rally Hill,approved,reviewed against 2010 source VTD catalog
+1,2010,MAURY,SANTA FE 6 2,tail_fuzzy_name,0000,5864,,historical source VTD name is Santa Fe,approved,reviewed against 2010 source VTD catalog
+1,2010,MAURY,ST CATHERINE 7 2,tail_fuzzy_name,0000,5796,,historical source VTD name is St. Catherine,approved,reviewed against 2010 source VTD catalog
+1,2012,MONROE,MADISONVILLE PRIMARY,tail_fuzzy_name,0000,6132,,historical source VTD name is Madisonville Primary School,approved,reviewed against 2010 source VTD catalog
+1,2012,MONROE,NOTCHEY CREEK,forced_best_name,0000,6140,,historical source VTD name is Old Notchey Creek School,approved,reviewed against 2010 source VTD catalog
+1,2012,MONROE,VONORE,forced_best_name,0000,6129,,historical source VTD name is Vonore Elementary School,approved,reviewed against 2010 source VTD catalog
+1,2012,MONROE,VONORE CC,forced_best_name,0000,6136,,historical source VTD name is Vonore Community Center,approved,reviewed against 2010 source VTD catalog
+1,2012,HAMILTON,167 COLLEGEDALE 3,tail_fuzzy_name,003368,3488,,historical source VTD name is 052 Collegedale 1,approved,reviewed against 2010 source VTD catalog
+1,2012,HAMILTON,168 OOLTEWAH 6,tail_fuzzy_name,003443,3520,,historical source VTD name is 060 Ooltewah 1,approved,reviewed against 2010 source VTD catalog
+1,2012,HAMILTON,169 OOLTEWAH 5,tail_fuzzy_name,003443,3520,,historical source VTD name is 060 Ooltewah 1,approved,reviewed against 2010 source VTD catalog
+1,2012,HAMILTON,170 SNOWHILL 1,tail_fuzzy_name,003458,3528,,historical source VTD name is 062 Snowhill,approved,reviewed against 2010 source VTD catalog
+1,2012,HAMILTON,179 SNOWHILL 2,tail_fuzzy_name,003458,3528,,historical source VTD name is 062 Snowhill,approved,reviewed against 2010 source VTD catalog
+1,2012,HAMILTON,180 HARRISON 5,tail_fuzzy_name,003407,3512,,historical source VTD name is 058 Harrison 1,approved,reviewed against 2010 source VTD catalog
+1,2012,HAMILTON,201 SUMMIT 4,tail_fuzzy_name,003441,3533,,historical source VTD name is 166 Summit 2,approved,reviewed against 2010 source VTD catalog
+1,2012,HAMILTON,203 SUMMIT 3,tail_fuzzy_name,003441,3533,,historical source VTD name is 166 Summit 2,approved,reviewed against 2010 source VTD catalog
+1,2012,HAMILTON,204 COLLEGEDALE 4,tail_fuzzy_name,003368,3488,,historical source VTD name is 052 Collegedale 1,approved,reviewed against 2010 source VTD catalog
+1,2012,HAMILTON,205 OOLTEWAH 4,tail_fuzzy_name,003443,3520,,historical source VTD name is 060 Ooltewah 1,approved,reviewed against 2010 source VTD catalog
+1,2020,HAMILTON,114 SUMMIT 3,tail_fuzzy_name,003441,3533,,historical source VTD name is 166 Summit 2,approved,reviewed against 2010 source VTD catalog
+1,2020,HAMILTON,120 SNOWHILL 2,tail_fuzzy_name,003458,3528,,historical source VTD name is 062 Snowhill,approved,reviewed against 2010 source VTD catalog
+1,2020,HAMILTON,123 COLLEGEDALE 4,tail_fuzzy_name,003368,3488,,historical source VTD name is 052 Collegedale 1,approved,reviewed against 2010 source VTD catalog
+1,2020,HAMILTON,124 OOLTEWAH 5,tail_fuzzy_name,003443,3520,,historical source VTD name is 060 Ooltewah 1,approved,reviewed against 2010 source VTD catalog
+1,2020,HAMILTON,126 HARRISON 6,tail_fuzzy_name,003407,3512,,historical source VTD name is 058 Harrison 1,approved,reviewed against 2010 source VTD catalog
+1,2020,HAMILTON,128 MURRAY HILLS 2,tail_fuzzy_name,003433,3532,,historical source VTD name is 063 Summit,approved,reviewed against dominant overlap
+1,2020,HAMILTON,129 DOWNTOWN 3,tail_fuzzy_name,003332,3332,,historical source VTD name is 015 Downtown,approved,reviewed against 2010 source VTD catalog
+1,2020,HAMILTON,134 HARRISON 7,tail_fuzzy_name,003407,3512,,historical source VTD name is 058 Harrison 1,approved,reviewed against 2010 source VTD catalog
+1,2020,MAURY,CULLEOKA 8 2,tail_fuzzy_name,0018,5312,0018,current code aligns with CULLEOKA 9 2,approved,reviewed against current low-confidence src_vtdst
+1,2020,MAURY,NORTHFIELD 11 3,forced_best_name,0020,5900,0020,current code resolves uniquely,approved,reviewed against current low-confidence src_vtdst
+1,2020,MAURY,RALLY HILL 11 1,tail_fuzzy_name,0015,5908,0015,current code aligns with RALLY HILL 8 1,approved,reviewed against current low-confidence src_vtdst
+1,2020,MAURY,WEST END 1 2,tail_fuzzy_name,0004,5924,0004,current code aligns with WEST END 2 2,approved,reviewed against current low-confidence src_vtdst
+1,2020,WASHINGTON,24 GRACE CITY,forced_best_name,0002,9320,0002,current code resolves uniquely,approved,reviewed against current low-confidence src_vtdst
+1,2020,WASHINGTON,25 GRACE WEST,tail_fuzzy_name,0007,9324,0007,current code resolves uniquely,approved,reviewed against current low-confidence src_vtdst
+1,2020,WASHINGTON,26 FAIRHAVEN,forced_best_name,0015,9328,0015,current code resolves uniquely,approved,reviewed against current low-confidence src_vtdst
+1,2020,WASHINGTON,27 COURTHOUSE,forced_best_name,0017,9332,0017,current code resolves uniquely,approved,reviewed against current low-confidence src_vtdst
+1,2020,WASHINGTON,30 NEW VICTORY,forced_best_name,0004,9344,0004,current code resolves uniquely,approved,reviewed against current low-confidence src_vtdst
+1,2020,WASHINGTON,32 NEW SALEM,forced_best_name,0012,9352,0012,current code resolves uniquely,approved,reviewed against current low-confidence src_vtdst
+1,2020,MCMINN,TCAT,forced_best_name,0007,6072,0007,current code resolves uniquely,approved,reviewed against current low-confidence src_vtdst
+1,2020,CARROLL,HUNT POLICE STATION,forced_best_name,0012,1244,0012,current code resolves uniquely,approved,reviewed against current low-confidence src_vtdst
+1,2020,HAMILTON,105 CONCORD 6,tail_fuzzy_name,0014,0014,,current code resolves uniquely after overlap,approved,reviewed against current low-confidence src_vtdst
+1,2020,MAURY,CP CHURCH 5 1,tail_fuzzy_name,005957,5840,,top overlap aligns with CP CHURCH cluster,approved,reviewed against current low-confidence output
+1,2020,MAURY,HIGHLAND 2 2,tail_fuzzy_name,005960,5812,,top overlap aligns with HIGHLAND current unit,approved,reviewed against current low-confidence output
+1,2020,WASHINGTON,33 SOUTH CENTRAL 7,tail_fuzzy_name,009330,9392,,shared source VTD resolves to SOUTH CENTRAL current unit,approved,reviewed against current low-confidence output
+1,2020,WASHINGTON,34 SOUTH CENTRAL 6,tail_fuzzy_name,009330,9392,,shared source VTD resolves to SOUTH CENTRAL current unit,approved,reviewed against current low-confidence output
+1,2020,DYER,C3 ROELLEN,tail_fuzzy_name,002355,2508,,dominant overlap aligns with ROELLEN current unit,approved,reviewed against current low-confidence output
+1,2020,DYER,F DYER CO CENTRAL,tail_fuzzy_name,002361,2460,,dominant overlap aligns with DYER CO CENTRAL current unit,approved,reviewed against current low-confidence output
+1,2020,BLOUNT,OAK STREET,forced_best_name,000402,0480,000402,dominant overlap is effectively one-to-one to OAK STREET current unit,approved,reviewed against current low-confidence output
+1,2020,LOUDON,LOUDON MT ZION,forced_best_name,0003,0003,0003,current code resolves one-to-one after transfer,approved,reviewed against current low-confidence output
+1,2020,MONTGOMERY,5A SMITH,forced_best_name,0014,0014,0014,current code resolves one-to-one after transfer,approved,reviewed against current low-confidence output
+1,2020,MONTGOMERY,5B MADISON,forced_best_name,0026,0026,0026,current code resolves one-to-one after transfer,approved,reviewed against current low-confidence output
+1,2020,SHELBY,ARLINGTON 01,tail_fuzzy_name,008260,8512,,dominant overlap aligns with ARLINGTON 01 current unit,approved,reviewed against current low-confidence output
+1,2020,SHELBY,ARLINGTON 02,tail_fuzzy_name,008261,8516,,dominant overlap aligns with ARLINGTON 02 current unit,approved,reviewed against current low-confidence output
+1,2020,SHELBY,COLLIERVILLE 08,tail_fuzzy_name,008271,7433,,dominant overlap aligns with COLLIERVILLE 08 current unit,approved,reviewed against current low-confidence output
+1,2020,SHELBY,FOREST HILLS 01,tail_fuzzy_name,008082,7465,,dominant overlap aligns with FOREST HILLS 01 current unit,approved,reviewed against current low-confidence output
+1,2020,SHELBY,FOREST HILLS 02,tail_fuzzy_name,008083,7464,,dominant overlap aligns with FOREST HILLS 02 current unit,approved,reviewed against current low-confidence output
+1,2020,SHELBY,FOREST HILLS 03,tail_fuzzy_name,008083,7464,,best available overlap aligns with FOREST HILLS current cluster,approved,reviewed against current low-confidence output
+1,2020,SHELBY,ROSS 15,forced_best_name,008266,8532,,best-name match is stable against current catalog,approved,reviewed against current low-confidence output
+1,2020,WEAKLEY,2A GLEASON,forced_best_name,009502,9608,,best-name match is stable against current catalog,approved,reviewed against current low-confidence output
+1,2020,WEAKLEY,3A GREENFIELD,forced_best_name,009507,9628,,best-name match is stable against current catalog,approved,reviewed against current low-confidence output
+1,2020,WEAKLEY,4A SHARON,forced_best_name,009506,9636,,best-name match is stable against current catalog,approved,reviewed against current low-confidence output
+1,2020,WEAKLEY,5A MARTIN COC,forced_best_name,009508,9640,,best-name match is stable against current catalog,approved,reviewed against current low-confidence output
+1,2020,WEAKLEY,6A TRINITY,forced_best_name,009510,9656,,best-name match is stable against current catalog,approved,reviewed against current low-confidence output
+1,2020,WEAKLEY,7A MARTIN SHEPHERD S,forced_best_name,009510,9656,,best-name match is stable against current catalog,approved,reviewed against current low-confidence output
+1,2020,WEAKLEY,8A MARTIN FUMC,forced_best_name,009505,9664,,best-name match is stable against current catalog,approved,reviewed against current low-confidence output
+1,2020,WEAKLEY,9A DRESDEN,forced_best_name,009504,9668,,best-name match is stable against current catalog,approved,reviewed against current low-confidence output
+1,2024,HAMILTON,FALLING WATER A,tail_fuzzy_name,0032,0032,,current alias row exists for Falling Water A,approved,reviewed against current alias catalog
+1,2024,HAMILTON,FALLING WATER B,tail_fuzzy_name,0033,0033,,current alias row exists for Falling Water B,approved,reviewed against current alias catalog
+1,2024,HAMILTON,MOWBRAY A,tail_fuzzy_name,0054,0054,,current alias row exists for Mowbray A,approved,reviewed against current alias catalog
+1,2024,HAMILTON,MOWBRAY B,tail_fuzzy_name,0055,0055,,current alias row exists for Mowbray B,approved,reviewed against current alias catalog
 0,2002,WASHINGTON,11I BOONES CHRISTIAN,forced_best_name,009322,,,,pending,
 0,2004,WASHINGTON,11I BOONES CHRISTIAN,forced_best_name,009322,,,,pending,
 0,2002,MAURY,CITY HALL,forced_best_name,005952,,,,pending,
