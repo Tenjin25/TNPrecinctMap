@@ -10081,8 +10081,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Cache destroyer token for static data requests.
     // Bump this value when you want browsers/CDNs to fetch fresh files immediately.
-    const DATA_CACHE_BUSTER = '2026-07-11-3';
-    const APP_BUILD_ID = '2026-07-11-3';
+    const DATA_CACHE_BUSTER = '2026-07-11-4';
+    const APP_BUILD_ID = '2026-07-11-4';
 
     function withCacheBuster(path) {
       const p = (path || '').toString().trim();
@@ -13472,7 +13472,7 @@ document.addEventListener('DOMContentLoaded', function() {
       if (total <= 0) {
         winnerEl.textContent = 'No data';
         winnerEl.className = 'focus-pill-value tie';
-        marginEl.textContent = 'Tie';
+        marginEl.textContent = 'No data';
         marginEl.className = 'focus-pill-value tie';
         totalEl.textContent = '0';
         renderVoteContextTierBadge(meta, NaN);
@@ -25773,6 +25773,29 @@ document.addEventListener('DOMContentLoaded', function() {
       const totalVotes = Number.isFinite(rowTotalVotes) && rowTotalVotes > 0
         ? rowTotalVotes
         : (demVotes + repVotes + otherVotes);
+      if (totalVotes <= 0) {
+        const hoverTitle = buildTooltipTitleWithTier(title);
+        const pinnedShell = !!tooltipPinned;
+        const copyText = (precinctNorm || title || '').toString().trim();
+        if (isDesktopTooltipMode()) {
+          showHoverTooltip(
+            point.x,
+            point.y,
+            buildTooltipShell(hoverTitle, '<div style="color:#64748b;">No data available</div>', { pinned: pinnedShell, copyText }),
+            { force: !!forceTooltip, pinned: pinnedShell, context: pinnedShell ? 'pinned' : 'detail', copyText }
+          );
+          wireTooltipButtons();
+          return;
+        }
+        showHoverTooltip(
+          point.x,
+          point.y,
+          buildTooltipShell(hoverTitle, '<div class="tooltip-kicker">No data</div><div style="color:rgba(226,232,240,0.92);">No results reported for this precinct in this contest.</div>', { pinned: pinnedShell, copyText }),
+          { force: !!forceTooltip, pinned: pinnedShell, context: pinnedShell ? 'pinned' : 'detail', copyText }
+        );
+        wireTooltipButtons();
+        return;
+      }
       const contestOffice = formatContestName(contestType, year);
       const subtitle = `${formatContestLabel(contestType, year)}`;
       const demCandidate = (row[`${contestType}_dem_candidate`] || getCandidateName(year, contestOffice, 'Democrat') || 'Democratic').toString().trim();
@@ -28611,6 +28634,22 @@ document.addEventListener('DOMContentLoaded', function() {
       return formatPrecinctCodeLabel(countyNameOrNorm, precinctCodeRaw);
     }
 
+    function stripCountyPrefixFromPrecinctName(countyNameOrNorm, valueRaw) {
+      const value = String(valueRaw || '').replace(/\s+/g, ' ').trim();
+      if (!value) return '';
+      const countyDisplay = displayCountyName(countyNameOrNorm);
+      const countyNorm = normalizeCountyToken(countyNameOrNorm);
+      const candidates = [countyDisplay, countyNorm]
+        .map(v => String(v || '').replace(/\s+/g, ' ').trim())
+        .filter(Boolean);
+      for (const candidate of candidates) {
+        const escaped = candidate.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        const prefixPattern = new RegExp(`^${escaped}\\s*-\\s*`, 'i');
+        if (prefixPattern.test(value)) return value.replace(prefixPattern, '').trim();
+      }
+      return value;
+    }
+
     function isNoisyPrecinctFullName(fullRaw, codeRaw = '') {
       const full = String(fullRaw || '').replace(/\s+/g, ' ').trim();
       const code = String(codeRaw || '').trim().toUpperCase();
@@ -28631,8 +28670,8 @@ document.addEventListener('DOMContentLoaded', function() {
       const canonicalCode = rawCode ? resolvePrecinctCanonicalCode(countyName, rawCode) : '';
       const codeLabel = canonicalCode ? formatPrecinctCodeLabel(countyName, canonicalCode) : (rawCode ? formatPrecinctCodeLabel(countyName, rawCode) : '');
 
-      const full = String(fullName || '').replace(/\s+/g, ' ').trim();
-      const fallbackFull = String(fallbackFullName || '').replace(/\s+/g, ' ').trim();
+      const full = stripCountyPrefixFromPrecinctName(countyName, fullName);
+      const fallbackFull = stripCountyPrefixFromPrecinctName(countyName, fallbackFullName);
 
       if (full && !isNoisyPrecinctFullName(full, rawCode)) return full;
       if (fallbackFull && !isNoisyPrecinctFullName(fallbackFull, rawCode)) return fallbackFull;
