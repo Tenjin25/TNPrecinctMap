@@ -8,6 +8,108 @@ This project runs as a single-page app from `index.html` and reads local data as
 
 This project has been moving on two tracks at once: frontend/panel polish for the atlas UI, and deeper historical/data-pipeline work for Tennessee precinct and district results. The dated notes below pull together the recent repo history, including work that was previously undocumented in this README.
 
+### 2026-03-04
+
+- Established the initial Tennessee atlas data/build foundation:
+  - precinct map data and build scripts
+  - statewide contest manifests
+  - district contest slices
+  - centroid-ready precinct contest mapping
+- Added county-fallback district allocation for statewide contest layers.
+- Added the first statewide district slices and precinct-to-district mapping pipeline.
+- Updated the Mapbox token configuration in `index.html`.
+
+### 2026-03-20 to 2026-03-23
+
+- Adopted the NC-style UI shell for the Tennessee atlas and applied Tennessee branding.
+- Simplified district sourcing by removing older district-line toggles.
+- Switched district allocation to shapefile-overlay joins and rebuilt district contests.
+- Improved historical precinct code resolution and crosswalk split matching for legislative overlays.
+- Reduced urban precinct smearing and improved unresolved-precinct recovery in district aggregation.
+- Added creator credit/watermark metadata.
+- Added the first shift-mode work to make trend movement easier to interpret.
+- Simplified lead labels by removing explicit D/R plus-prefix styling in the index UI.
+
+### 2026-03-28 to 2026-04-03
+
+- Fixed 2024 state-senate allocations in Shelby County.
+- Added Tennessee county trajectory and census-analysis sections.
+- Brought the county analysis/editorial blocks closer to the NCMap structure and layout.
+- Guarded trend rendering to avoid map-init failures.
+- Added Tri-Cities CSA context to the county census insight flow.
+- Elevated the county editorial panel and documented the broader panel update.
+- Corrected Hamblen County archetype classification.
+
+### 2026-04-08 to 2026-04-10
+
+- Matched hover tier/flip chips and county-hover behavior more closely to NCMap.
+- Added 2024 state-house results and increased district opacity for better readability.
+- Added the Tennessee governor 2022 precinct CSV and results pipeline.
+- Removed the old `VTD 2000` map view and added CVAP estimates.
+- Added county vote-delta comparisons versus the previous cycle.
+- Added the NCMap-style county population delta block.
+- Fixed HD-41 `2022` (Windle vs Butler) handling and corrected district flip baselines.
+- Refined county hover layout, click behavior, wording, and no-raw-vote presentation.
+- Renamed the atlas and shifted UI accents to the Tennessee / UT palette.
+- Updated README coverage for the NCMap-style county-hover/local-run workflow.
+
+### 2026-04-13 to 2026-04-24
+
+- Fixed Senate flip comparison-cycle logic.
+- Improved precinct-to-`VTD20` matching and rebuilt slices.
+- Reduced historical district leakage and hid older pre-2022 state-house contests where needed.
+- Fixed `2024 PRCTSEQ -> VTD20` mapping and the precinct overlay join path.
+- Preferred `2024 PRCTSEQ` mapping to reduce precinct collisions.
+- Filled missing precinct rows across contests and improved the precinct no-row UI messaging.
+- Fixed popup-title wrapping and a CSS parse error caused by a stray brace.
+- Ported and completed a more polished NC-style mobile sheet/layout experience.
+- Styled district boundaries more like DRA / SC map treatments.
+- Added several district calibration adjustments, including HD-37, HD-50, HD-59, HD-74, HD-75, and HD-90.
+- Improved shift-mode hover tooltips and added percent-sign formatting in shift hover copy.
+
+### 2026-05-05 to 2026-05-18
+
+- Improved precinct-matching accuracy and wired the Tennessee precinct-alias crosswalk.
+- Fixed U.S. Senate flip-chip comparison-year chains and applied seat-year chains to trend timelines.
+- Improved uncontested-race display so they can appear without misleading margins.
+- Adjusted the HD-41 `2022` read so the Windle independent result lands in the intended lean-R bucket.
+- Added and wired older historical source imports:
+  - `1998` governor county data
+  - `2000`, `2002`, and `2006` election source CSVs
+  - derived contest JSONs and manifest updates
+- Extended the Senate timeline years and standardized the `1998` governor contest naming.
+- Fixed Van Buren County key/value issues in the `1998` governor import.
+- Documented the historical import / manifest / timeline changes.
+- Refined VoteHub / hover formatting:
+  - raw-vote styling
+  - winner-line tone
+  - shift-block formatting
+  - uncontested labeling
+  - flip/shift placement
+- Aligned mobile tooltip behavior with the NC map.
+- Matched town/county label halos and focus-opacity behavior more closely to NC styling.
+- Fixed margin-bucket rounding drift near the `1%` threshold.
+
+### 2026-05-23 to 2026-05-31
+
+- Added confidence-tiered precinct crosswalk outputs and the manual-fix workflow.
+- Switched precinct-resolution work over to DRA-derived Tennessee VTD/precinct geometry inputs.
+- Updated the map sources to the DRA `v07` precinct geometry filenames.
+- Refined the title badge, mobile layers sheet density, and tooltip button styling to better match other state-map treatments.
+- Restored fuller mobile county-tooltip detail, including vote and population deltas.
+
+### 2026-06-02 to 2026-06-04
+
+- Added the population-change mode to the Tennessee precinct map and polished its hover colors/visuals.
+- Promoted the population-growth hover line and removed redundant pop-change tooltip header copy.
+- Added `1998` governor to the manifest where needed.
+- Refined the broader Tennessee atlas theme and controls.
+- Wired Tennessee data manifests, population loaders, and CVAP loaders into the atlas.
+- Hid modeled contests from the selector and restored swing-o-meter controls.
+- Added the first `2026` congressional aggregation path.
+- Restored `2026` congressional district metadata.
+- Updated `MAPBOX_TOKEN` handling with fallback/default behavior in `index.html`.
+
 ### 2026-06-05
 
 - Polished the desktop population-change tooltip and aligned it with the NC map interaction style.
