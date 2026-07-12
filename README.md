@@ -189,6 +189,18 @@ This project has been moving on two tracks at once: frontend/panel polish for th
 - Improved `2020` precinct matching coverage with reviewed overrides for counties including Hamilton, Shelby, Weakley, Maury, Washington, Dyer, Blount, Loudon, and Montgomery.
 - Updated confidence reporting so the report prefers the strongest available match for each `(year, county, precinct)` key when both generic and source-tagged crosswalk files exist.
 
+### 2026-07-12
+
+- Rebuilt the tracked `2014`, `2016`, and `2018` precinct-to-`VTD20` crosswalks with a larger reviewed override set covering urban and repeated low-confidence counties including Hamilton, Shelby, Washington, Hardin, Lauderdale, Loudon, Carroll, Blount, Monroe, Maury, Weakley, and Montgomery.
+- Reduced tracked decade crosswalk low-confidence rows to:
+  - `2014`: `8`
+  - `2016`: `6`
+  - `2018`: `2`
+- Eliminated unmatched rows in those tracked decade crosswalk files while leaving non-geographic `PAPER BALLOTS` buckets as the remaining low-confidence cases instead of forcing fake geography.
+- Added `Scripts/build_tn_precinct_friendly_names.js` and the generated `Data/crosswalks/tn_precinct_friendly_names_2020.json` lookup so the frontend can map official `VTD20` codes to cleaner display names.
+- Updated the precinct hover/selected-panel labeling logic so precinct mode now prefers the friendly `NAME20` labels statewide, including Davidson and Shelby, instead of falling back to old code-style labels in those counties.
+- Refreshed the frontend cache-buster/build IDs again so the new precinct-name behavior and crosswalk-backed map updates load immediately after deploy.
+
 ### Historical Contest / Manifest Work
 
 Recent historical-data expansion also added or rebuilt the following:
