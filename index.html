@@ -10081,8 +10081,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Cache destroyer token for static data requests.
     // Bump this value when you want browsers/CDNs to fetch fresh files immediately.
-    const DATA_CACHE_BUSTER = '2026-07-12-4';
-    const APP_BUILD_ID = '2026-07-12-4';
+    const DATA_CACHE_BUSTER = '2026-07-12-5';
+    const APP_BUILD_ID = '2026-07-12-5';
 
     function withCacheBuster(path) {
       const p = (path || '').toString().trim();
@@ -14447,10 +14447,22 @@ document.addEventListener('DOMContentLoaded', function() {
       const repVotes = Number(row[`${contestType}_rep`] || 0);
       const otherVotes = Number(row[`${contestType}_other`] || 0);
       const county = (meta.county || norm.split(' - ')[0] || '').toString().trim().toUpperCase();
-      const precinctDisplay = (meta.precinct || norm).toString().trim();
+      const precinctCode = (meta.precinctCode || (norm.includes(' - ') ? norm.split(' - ')[1] : '') || '').toString().trim().toUpperCase();
+      const storedPrecinct = (meta.precinct || '').toString().trim();
+      const precinctLabel = (
+        meta.precinctLabel ||
+        formatPrecinctDisplayLabel(county, precinctCode) ||
+        stripCountyPrefixFromPrecinctName(county, storedPrecinct) ||
+        precinctCode ||
+        norm
+      ).toString().trim();
+      const precinctTitle = (
+        meta.precinctTitle ||
+        `${displayCountyName(county)} - ${precinctLabel}`
+      ).toString().trim();
 
       pinVoteCounterState(
-        `Selected: ${precinctDisplay}`,
+        `Selected: ${precinctTitle}`,
         `${formatContestLabel(contestType, year)}`,
         demVotes,
         repVotes,
@@ -14459,7 +14471,10 @@ document.addEventListener('DOMContentLoaded', function() {
           ...meta,
           kind: 'precinct',
           county,
-          precinct: precinctDisplay,
+          precinct: precinctLabel,
+          precinctLabel,
+          precinctTitle,
+          precinctCode,
           precinctNorm: norm,
           contestType,
           year: Number(year)
@@ -25865,7 +25880,17 @@ document.addEventListener('DOMContentLoaded', function() {
         { force: !!forceTooltip, pinned: pinnedShell, context: 'votehub-results', copyText }
       );
       wireTooltipButtons();
-      const precinctMeta = { kind: 'precinct', county: countyName, precinct: title, precinctNorm, contestType, year: Number(year) };
+      const precinctMeta = {
+        kind: 'precinct',
+        county: countyName,
+        precinct: displayPrecinct,
+        precinctLabel: displayPrecinct,
+        precinctTitle: title,
+        precinctCode: displayCode,
+        precinctNorm,
+        contestType,
+        year: Number(year)
+      };
       const precinctCandidates = { demCandidate, repCandidate };
       setVoteCounterHoverState(
         `Hover: ${title}`,
@@ -29887,7 +29912,17 @@ document.addEventListener('DOMContentLoaded', function() {
           demVotes,
           repVotes,
           otherVotes,
-          { kind: 'precinct', county, precinct: displayTitle, precinctNorm: matchedTarget, contestType, year: Number(year) },
+          {
+            kind: 'precinct',
+            county,
+            precinct: formatPrecinctDisplayLabel(county, resolvedCode),
+            precinctLabel: formatPrecinctDisplayLabel(county, resolvedCode),
+            precinctTitle: displayTitle,
+            precinctCode: resolvedCode,
+            precinctNorm: matchedTarget,
+            contestType,
+            year: Number(year)
+          },
           { demCandidate: row[`${contestType}_dem_candidate`] || '', repCandidate: row[`${contestType}_rep_candidate`] || '' }
         );
       }
