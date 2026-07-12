@@ -205,6 +205,13 @@ This project has been moving on two tracks at once: frontend/panel polish for th
 - Rebuilt `president_2020`, `us_senate_2020`, `governor_2022`, `president_2024`, and `us_senate_2024` precinct contest JSONs with Hamilton weighted allocation coverage while preserving prior statewide and county vote totals.
 - Rebuilt historical statewide precinct contests from `2000` through `2018` through the same `VTD20` weighted-allocation path, reducing zero rows while preserving exact statewide vote totals for every rebuilt layer.
 - Improved Hamilton rendered coverage from `33` zero precinct rows to `8` in the 2024 president and U.S. Senate layers, from `37` to `8` in the 2022 governor layer, and from `2` to `0` in the 2020 president and U.S. Senate layers.
+- Added `Scripts/fill_tn_vtd20_gap_rows_from_prior.js` as a second-stage current-decade precinct coverage pass:
+  - first fills zero `VTD20` rows from the same `VTD20` polygon's prior complete statewide result
+  - then fills remaining mapped zero rows from adjacent `VTD20` neighbors using the DRA adjacency graph
+  - rescales each affected county back to the exact original DEM/REP/OTHER totals so statewide and county totals remain unchanged
+  - records prior-fill and neighbor-fill counts in contest metadata so inferred rows are distinguishable from direct crosswalk allocations
+- Applied that two-stage fill to `governor_2022`, `president_2024`, and `us_senate_2024` only, leaving district contest JSONs untouched.
+- After the two-stage fill, Hamilton, Washington, Marion, Rutherford, Shelby, Davidson, and Knox have full mapped precinct coverage in `governor_2022`; Hamilton, Washington, Marion, Rutherford, Shelby, and Knox have full mapped precinct coverage in both 2024 statewide layers, with only Davidson's non-geographic `NG-ALL_COUNTY_PRECINCT` bucket remaining as a zero row.
 - Refreshed the frontend cache-buster/build IDs again so the new precinct-name behavior and crosswalk-backed map updates load immediately after deploy.
 
 ### Historical Contest / Manifest Work
