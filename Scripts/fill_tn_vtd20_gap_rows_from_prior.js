@@ -13,6 +13,101 @@ const GRAPH_JSON = path.join(DATA_DIR, "crosswalks", "dra_tn_vtd20_geojson_v07",
 
 const TARGETS = [
   {
+    target: "president_2000.json",
+    prior: "",
+    note: "2000 presidential zero VTD20 rows filled from adjacent VTD20 neighbor proxy",
+  },
+  {
+    target: "us_senate_2000.json",
+    prior: "",
+    note: "2000 U.S. Senate zero VTD20 rows filled from adjacent VTD20 neighbor proxy",
+  },
+  {
+    target: "governor_2002.json",
+    prior: "president_2000.json",
+    note: "2002 governor zero VTD20 rows filled from 2000 presidential same-VTD size/share proxy, then adjacent VTD20 neighbors",
+  },
+  {
+    target: "us_senate_2002.json",
+    prior: "president_2000.json",
+    note: "2002 U.S. Senate zero VTD20 rows filled from 2000 presidential same-VTD size/share proxy, then adjacent VTD20 neighbors",
+  },
+  {
+    target: "president_2004.json",
+    prior: "president_2000.json",
+    note: "2004 presidential zero VTD20 rows filled from 2000 presidential same-VTD size/share proxy, then adjacent VTD20 neighbors",
+  },
+  {
+    target: "governor_2006.json",
+    prior: "governor_2002.json",
+    note: "2006 governor zero VTD20 rows filled from 2002 governor same-VTD size/share proxy, then adjacent VTD20 neighbors",
+  },
+  {
+    target: "us_senate_2006.json",
+    prior: "us_senate_2000.json",
+    note: "2006 U.S. Senate zero VTD20 rows filled from 2000 U.S. Senate same-VTD size/share proxy, then adjacent VTD20 neighbors",
+  },
+  {
+    target: "president_2008.json",
+    prior: "president_2004.json",
+    note: "2008 presidential zero VTD20 rows filled from 2004 presidential same-VTD size/share proxy, then adjacent VTD20 neighbors",
+  },
+  {
+    target: "us_senate_2008.json",
+    prior: "us_senate_2002.json",
+    note: "2008 U.S. Senate zero VTD20 rows filled from 2002 U.S. Senate same-VTD size/share proxy, then adjacent VTD20 neighbors",
+  },
+  {
+    target: "governor_2010.json",
+    prior: "governor_2006.json",
+    note: "2010 governor zero VTD20 rows filled from 2006 governor same-VTD size/share proxy, then adjacent VTD20 neighbors",
+  },
+  {
+    target: "president_2012.json",
+    prior: "president_2008.json",
+    note: "2012 presidential zero VTD20 rows filled from 2008 presidential same-VTD size/share proxy, then adjacent VTD20 neighbors",
+  },
+  {
+    target: "us_senate_2012.json",
+    prior: "us_senate_2006.json",
+    note: "2012 U.S. Senate zero VTD20 rows filled from 2006 U.S. Senate same-VTD size/share proxy, then adjacent VTD20 neighbors",
+  },
+  {
+    target: "governor_2014.json",
+    prior: "governor_2010.json",
+    note: "2014 governor zero VTD20 rows filled from 2010 governor same-VTD size/share proxy, then adjacent VTD20 neighbors",
+  },
+  {
+    target: "us_senate_2014.json",
+    prior: "us_senate_2008.json",
+    note: "2014 U.S. Senate zero VTD20 rows filled from 2008 U.S. Senate same-VTD size/share proxy, then adjacent VTD20 neighbors",
+  },
+  {
+    target: "president_2016.json",
+    prior: "president_2012.json",
+    note: "2016 presidential zero VTD20 rows filled from 2012 presidential same-VTD size/share proxy, then adjacent VTD20 neighbors",
+  },
+  {
+    target: "governor_2018.json",
+    prior: "governor_2014.json",
+    note: "2018 governor zero VTD20 rows filled from 2014 governor same-VTD size/share proxy, then adjacent VTD20 neighbors",
+  },
+  {
+    target: "us_senate_2018.json",
+    prior: "us_senate_2012.json",
+    note: "2018 U.S. Senate zero VTD20 rows filled from 2012 U.S. Senate same-VTD size/share proxy, then adjacent VTD20 neighbors",
+  },
+  {
+    target: "president_2020.json",
+    prior: "president_2016.json",
+    note: "2020 presidential zero VTD20 rows filled from 2016 presidential same-VTD size/share proxy, then adjacent VTD20 neighbors",
+  },
+  {
+    target: "us_senate_2020.json",
+    prior: "us_senate_2014.json",
+    note: "2020 U.S. Senate zero VTD20 rows filled from 2014 U.S. Senate same-VTD size/share proxy, then adjacent VTD20 neighbors",
+  },
+  {
     target: "governor_2022.json",
     prior: "president_2020.json",
     note: "2022 governor zero VTD20 rows filled from 2020 presidential VTD20 size/share proxy",
@@ -39,6 +134,26 @@ function normCounty(value) {
 
 function countyFromLabel(label) {
   return normCounty(String(label || "").split(" - ")[0] || "");
+}
+
+function precinctCodeFromLabel(label) {
+  const text = String(label || "");
+  if (!text.includes(" - ")) return "";
+  return normSpace(text.split(" - ").slice(1).join(" - ")).toUpperCase();
+}
+
+function isNonGeographicPrecinctCode(code) {
+  const c = normSpace(code).toUpperCase();
+  if (!c) return true;
+  if (/^(ABSEN|PROVI|TRANS)(\b|\s|-|_)/.test(c)) return true;
+  if (/^(ABSENTEE|PROVISIONAL|CURBSIDE|EV)$/.test(c)) return true;
+  if (/^(EV|OS)(\b|-|_)/.test(c) || /^OS[A-Z0-9]/.test(c)) return true;
+  if (c.includes("ABSENTEE") || c.includes("PROVISIONAL") || c.includes("TRANSFER") || c.includes("CURBSIDE")) return true;
+  if (c.includes("ONE STOP") || c.includes("ONE-STOP") || c.includes("ONESTOP")) return true;
+  if (c.includes("EARLY VOT") || c.includes("MAIL ABSENTEE") || c.includes("VOTE CENTER") || c.includes("VOTECENTER")) return true;
+  if (c.includes("ALL_COUNTY") || c.startsWith("NG-") || c.startsWith("NG ")) return true;
+  if (c.startsWith("UNM-") || c.startsWith("UNM ")) return true;
+  return false;
 }
 
 function loadContest(fileName) {
@@ -202,8 +317,10 @@ function averageNeighborBuckets(neighbors) {
 
 function fillTarget({ target, prior, note }) {
   const targetNode = loadContest(target);
-  const priorNode = loadContest(prior);
-  const priorByLabel = mapRowsByLabel(priorNode.rows || []);
+  const priorPath = prior ? path.join(CONTESTS_DIR, prior) : "";
+  const priorNode = priorPath && fs.existsSync(priorPath) ? loadContest(prior) : null;
+  const originalRowCount = (targetNode.rows || []).length;
+  const priorByLabel = mapRowsByLabel(priorNode?.rows || []);
   const targetByLabel = mapRowsByLabel(targetNode.rows || []);
   const targetByCounty = groupRowsByCounty(targetNode.rows || []);
   const graph = fs.existsSync(GRAPH_JSON) ? loadJson(GRAPH_JSON) : {};
@@ -221,11 +338,13 @@ function fillTarget({ target, prior, note }) {
     const nonzeroRows = rows.filter((row) => rowTotal(row, "total_votes") > 0);
     if (!nonzeroRows.length) continue;
 
-    const zeroRows = rows.filter((row) => {
-      if (rowTotal(row, "total_votes") > 0) return false;
-      const priorRow = priorByLabel.get(normSpace(row.county));
-      return priorRow && rowTotal(priorRow, "total_votes") > 0;
-    });
+    const zeroRows = priorNode
+      ? rows.filter((row) => {
+        if (rowTotal(row, "total_votes") > 0) return false;
+        const priorRow = priorByLabel.get(normSpace(row.county));
+        return priorRow && rowTotal(priorRow, "total_votes") > 0;
+      })
+      : [];
     const demCandidate = topCandidate(nonzeroRows, "dem_votes", "dem_candidate");
     const repCandidate = topCandidate(nonzeroRows, "rep_votes", "rep_candidate");
 
@@ -259,7 +378,7 @@ function fillTarget({ target, prior, note }) {
       priorFillStats.push({
         county,
         rows_filled: zeroRows.length,
-        prior_source: `Data/contests/${prior}`,
+        prior_source: prior ? `Data/contests/${prior}` : "",
         total_votes_preserved: true,
         labels: zeroRows.map((row) => row.county),
       });
@@ -299,8 +418,17 @@ function fillTarget({ target, prior, note }) {
     scaleCountyBackToOriginal(rows, originalTotals);
   }
 
-  if (!filledRows) {
-    console.log(`${target}: no prior-backed zero VTD20 rows to fill`);
+  const prunedNonGeographicRows = [];
+  targetNode.rows = (targetNode.rows || []).filter((row) => {
+    if (rowTotal(row, "total_votes") > 0) return true;
+    const code = precinctCodeFromLabel(row.county);
+    if (!isNonGeographicPrecinctCode(code)) return true;
+    prunedNonGeographicRows.push(row.county);
+    return false;
+  });
+
+  if (!filledRows && !prunedNonGeographicRows.length) {
+    console.log(`${target}: no prior/neighbor zero VTD20 rows or zero-vote non-geographic rows to fill`);
     return;
   }
 
@@ -309,7 +437,7 @@ function fillTarget({ target, prior, note }) {
     rows: (targetNode.rows || []).length,
     prior_vtd20_gap_fill: true,
     prior_vtd20_gap_fill_applied_at: new Date().toISOString(),
-    prior_vtd20_gap_fill_source: `Data/contests/${prior}`,
+    prior_vtd20_gap_fill_source: prior ? `Data/contests/${prior}` : "",
     prior_vtd20_gap_fill_note: note,
     prior_vtd20_gap_fill_rows: filledRows,
     prior_vtd20_gap_fill_prior_rows: priorFilledRows,
@@ -318,9 +446,11 @@ function fillTarget({ target, prior, note }) {
     neighbor_vtd20_gap_fill: neighborFilledRows > 0,
     neighbor_vtd20_gap_fill_source: "Data/crosswalks/dra_tn_vtd20_geojson_v07/TN_2020_graph.json",
     neighbor_vtd20_gap_fill_counties: neighborFillStats,
+    zero_vote_non_geographic_rows_pruned: prunedNonGeographicRows.length,
+    zero_vote_non_geographic_pruned_labels: prunedNonGeographicRows,
   };
   fs.writeFileSync(path.join(CONTESTS_DIR, target), `${JSON.stringify(targetNode, null, 2)}\n`);
-  console.log(`${target}: filled ${filledRows} zero VTD20 rows (${priorFilledRows} prior, ${neighborFilledRows} neighbor)`);
+  console.log(`${target}: filled ${filledRows} zero VTD20 rows (${priorFilledRows} prior, ${neighborFilledRows} neighbor), pruned ${prunedNonGeographicRows.length} zero non-geographic rows, rows ${originalRowCount}->${targetNode.rows.length}`);
 }
 
 function main() {

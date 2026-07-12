@@ -10081,8 +10081,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Cache destroyer token for static data requests.
     // Bump this value when you want browsers/CDNs to fetch fresh files immediately.
-    const DATA_CACHE_BUSTER = '2026-07-12-9';
-    const APP_BUILD_ID = '2026-07-12-9';
+    const DATA_CACHE_BUSTER = '2026-07-12-10';
+    const APP_BUILD_ID = '2026-07-12-10';
 
     function withCacheBuster(path) {
       const p = (path || '').toString().trim();
@@ -13234,6 +13234,8 @@ document.addEventListener('DOMContentLoaded', function() {
       if (/(^|[\s\-_])OS($|[\s\-_])/.test(c)) return true;
       // Some Tennessee counties also use compact one-stop bucket codes like "OSAB 1-40" or "OSNB81-91".
       if (/^OS[A-Z0-9]/.test(c)) return true;
+      // Explicit generated placeholders for unmatched/non-geographic rows are not precinct shapes.
+      if (c.includes('ALL_COUNTY') || c.startsWith('NG-') || c.startsWith('NG ') || c.startsWith('UNM-') || c.startsWith('UNM ')) return true;
       // Buncombe legacy exports sometimes use 4-letter early-vote site abbreviations.
       if (countyNorm === 'BUNCOMBE' && /^[A-Z]{4}$/.test(c)) return true;
       // Bladen 2020 exports include vote-center style site labels that are not precinct IDs.
