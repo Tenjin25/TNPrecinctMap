@@ -1,6 +1,9 @@
 {
+  "version": 1,
+  "generated_at": "2026-07-12T20:05:19.743Z",
   "source": "tn_vtd_2020_census_statewide.geojson",
-  "label_field": "NAME20",
+  "label_field": "NAMELSAD20",
+  "fallback_label_field": "NAME20",
   "counties": {
     "Hardeman": {
       "003604": "West Bolivar",
@@ -841,7 +844,7 @@
       "003452": "Ridgedale 2",
       "003354": "Amnicola",
       "003419": "Lookout Mountain",
-      "003464": "St Elmo 2",
+      "003464": "St. Elmo 2",
       "003421": "Lookout Valley 2",
       "003448": "Red Bank 1",
       "003413": "Hixson 3",
@@ -862,7 +865,7 @@
       "003386": "DuPont",
       "003436": "Northgate 1",
       "003412": "Hixson 2",
-      "003463": "St Elmo 1",
+      "003463": "St. Elmo 1",
       "003474": "Westview 2",
       "003367": "Collegedale 1",
       "003380": "Courthouse 2",
@@ -1477,7 +1480,7 @@
     },
     "Loudon": {
       "005452": "Loudon Outside",
-      "005459": "Loudon Mt Zion",
+      "005459": "Loudon Mt. Zion",
       "005453": "Loudon",
       "005460": "Lenoir City",
       "005461": "Lenoir City Outside",

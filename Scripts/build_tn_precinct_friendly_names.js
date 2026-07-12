@@ -19,6 +19,21 @@ function normalizeCountyName(value) {
   return String(value || '').replace(/\s+/g, ' ').trim();
 }
 
+function formatDisplayName(raw) {
+  let s = String(raw || '').replace(/[_]+/g, ' ').replace(/\s+/g, ' ').trim();
+  if (!s) return '';
+  s = s.replace(/'S\b/g, "'s");
+  s = s.replace(/\bSt (?=[A-Z])/g, 'St. ');
+  s = s.replace(/\bMt (?=[A-Z])/g, 'Mt. ');
+  return s;
+}
+
+function pickVtdLabel(props) {
+  const namelsad = normalizeCountyName(props.NAMELSAD20 || '');
+  const name = normalizeCountyName(props.NAME20 || '');
+  return formatDisplayName(namelsad || name);
+}
+
 function main() {
   if (!fs.existsSync(vtdPath)) {
     throw new Error(`Missing VTD source: ${vtdPath}`);
@@ -41,8 +56,11 @@ function main() {
   }
 
   const out = {
+    version: 1,
+    generated_at: new Date().toISOString(),
     source: path.basename(vtdPath),
-    label_field: 'NAME20',
+    label_field: 'NAMELSAD20',
+    fallback_label_field: 'NAME20',
     counties: {}
   };
 
@@ -52,7 +70,7 @@ function main() {
     const countyFp = String(props.COUNTYFP20 || '').padStart(3, '0');
     const countyName = countyByFp.get(countyFp) || '';
     const code = String(props.VTDST20 || '').trim().toUpperCase();
-    const label = normalizeCountyName(props.NAME20 || props.NAMELSAD20 || '');
+    const label = pickVtdLabel(props);
     if (!countyName || !code || !label) continue;
     if (!out.counties[countyName]) out.counties[countyName] = {};
     out.counties[countyName][code] = label;

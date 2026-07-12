@@ -198,7 +198,12 @@ This project has been moving on two tracks at once: frontend/panel polish for th
   - `2018`: `2`
 - Eliminated unmatched rows in those tracked decade crosswalk files while leaving non-geographic `PAPER BALLOTS` buckets as the remaining low-confidence cases instead of forcing fake geography.
 - Added `Scripts/build_tn_precinct_friendly_names.js` and the generated `Data/crosswalks/tn_precinct_friendly_names_2020.json` lookup so the frontend can map official `VTD20` codes to cleaner display names.
-- Updated the precinct hover/selected-panel labeling logic so precinct mode now prefers the friendly `NAME20` labels statewide, including Davidson and Shelby, instead of falling back to old code-style labels in those counties.
+- Updated the precinct hover/selected-panel labeling logic so precinct mode now prefers the friendly `NAMELSAD20` labels statewide, including Davidson and Shelby, instead of falling back to old code-style labels in those counties.
+- Added `Scripts/apply_tn_weighted_vtd20_to_current_contests.js` to apply drawable, county-scaled `VTD20` weighted allocations to current-decade statewide precinct contests without touching district result JSONs.
+- Added `Scripts/rebuild_tn_statewide_precinct_contests_vtd20.js` as a precinct-only rebuild entrypoint for statewide `Data/contests/*.json` layers; it preserves county and statewide vote totals, skips district JSONs, and only accepts county replacements that reduce zero-precinct coverage gaps.
+- Rebuilt `president_2020`, `us_senate_2020`, `governor_2022`, `president_2024`, and `us_senate_2024` precinct contest JSONs with Hamilton weighted allocation coverage while preserving prior statewide and county vote totals.
+- Rebuilt historical statewide precinct contests from `2000` through `2018` through the same `VTD20` weighted-allocation path, reducing zero rows while preserving exact statewide vote totals for every rebuilt layer.
+- Improved Hamilton rendered coverage from `33` zero precinct rows to `8` in the 2024 president and U.S. Senate layers, from `37` to `8` in the 2022 governor layer, and from `2` to `0` in the 2020 president and U.S. Senate layers.
 - Refreshed the frontend cache-buster/build IDs again so the new precinct-name behavior and crosswalk-backed map updates load immediately after deploy.
 
 ### Historical Contest / Manifest Work

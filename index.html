@@ -10081,8 +10081,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Cache destroyer token for static data requests.
     // Bump this value when you want browsers/CDNs to fetch fresh files immediately.
-    const DATA_CACHE_BUSTER = '2026-07-12-5';
-    const APP_BUILD_ID = '2026-07-12-5';
+    const DATA_CACHE_BUSTER = '2026-07-12-8';
+    const APP_BUILD_ID = '2026-07-12-8';
 
     function withCacheBuster(path) {
       const p = (path || '').toString().trim();
@@ -28639,6 +28639,103 @@ document.addEventListener('DOMContentLoaded', function() {
       return stripped || raw;
     }
 
+    function normalizeFriendlyPrecinctName(rawName) {
+      const cleaned = toTitleCaseName(String(rawName || '').replace(/[_]+/g, ' ').replace(/\s+/g, ' ').trim());
+      if (!cleaned) return '';
+      const splitNameSegments = (value) => String(value || '')
+        .split(/[\s\/-]+/)
+        .map(part => String(part || '').replace(/[^A-Z0-9]/gi, '').toUpperCase())
+        .filter(Boolean);
+      const isOrderedAbbreviation = (abbrRaw, wordRaw) => {
+        const abbr = String(abbrRaw || '').replace(/[^A-Z]/gi, '').toUpperCase();
+        const word = String(wordRaw || '').replace(/[^A-Z]/gi, '').toUpperCase();
+        if (abbr.length < 3 || word.length <= abbr.length) return false;
+        let idx = 0;
+        for (const ch of word) {
+          if (ch === abbr[idx]) idx += 1;
+          if (idx >= abbr.length) return true;
+        }
+        return false;
+      };
+      const parts = cleaned.split(/\s+/).filter(Boolean);
+      if (parts.length >= 2) {
+        const first = parts[0];
+        const second = parts[1];
+        const remainder = parts.slice(1).join(' ');
+        const firstUpper = first.toUpperCase();
+        const secondUpper = second.toUpperCase();
+        if (first.includes('/')) {
+          const slashParts = first.split('/').map(part => String(part || '').trim()).filter(Boolean);
+          const lastSlashPart = (slashParts[slashParts.length - 1] || '').toUpperCase();
+          if (
+            slashParts.length >= 2 &&
+            lastSlashPart.length >= 3 &&
+            secondUpper.length > lastSlashPart.length &&
+            secondUpper.startsWith(lastSlashPart)
+          ) {
+            const prefix = slashParts.slice(0, -1).join('/');
+            const suffix = parts.slice(1).join(' ');
+            if (prefix && suffix) return `${prefix}/${suffix}`;
+          }
+        }
+        if (firstUpper === 'ST' && secondUpper === 'ELMO') return cleaned;
+
+        const remainderUpper = remainder.toUpperCase();
+        const remainderInitials = parts.slice(1)
+          .map(part => String(part || '').replace(/[^A-Z0-9]/gi, '').toUpperCase())
+          .filter(Boolean)
+          .map(part => part[0])
+          .join('');
+        const remainderWordCount = parts.slice(1).length;
+        const trailingInitials = parts.slice(2)
+          .map(part => String(part || '').replace(/[^A-Z0-9]/gi, '').toUpperCase())
+          .filter(Boolean)
+          .map(part => part[0])
+          .join('');
+        const postSecond = parts.slice(2).join(' ');
+        const remainderSegments = splitNameSegments(remainder);
+        const postSecondSegments = splitNameSegments(postSecond);
+        const postSecondLeadingSegment = postSecondSegments[0] || '';
+        const postSecondTrailingInitials = postSecondSegments.slice(1).map(part => part[0]).join('');
+        const compoundFirstWordPrefixLen = Math.max(0, firstUpper.length - trailingInitials.length);
+        const matchesCompoundFirstWord = (
+          trailingInitials &&
+          compoundFirstWordPrefixLen >= 2 &&
+          secondUpper.length > compoundFirstWordPrefixLen &&
+          firstUpper.endsWith(trailingInitials) &&
+          secondUpper.startsWith(firstUpper.slice(0, compoundFirstWordPrefixLen))
+        );
+        const matchesSplitRemainderAbbreviation = (
+          parts.length >= 3 &&
+          firstUpper.length >= 2 &&
+          firstUpper.length <= 4 &&
+          secondUpper.length >= 1 &&
+          secondUpper.length <= 3 &&
+          postSecondLeadingSegment.length > firstUpper.length &&
+          (postSecondLeadingSegment.startsWith(firstUpper) || isOrderedAbbreviation(firstUpper, postSecondLeadingSegment)) &&
+          postSecondTrailingInitials &&
+          postSecondTrailingInitials === secondUpper
+        );
+        if (
+          firstUpper.length >= 2 &&
+          firstUpper.length <= 4 &&
+          remainderUpper.replace(/[^A-Z0-9]/g, '').length > firstUpper.length &&
+          (
+            secondUpper.startsWith(firstUpper) ||
+            remainderUpper.startsWith(`${firstUpper} `) ||
+            (firstUpper.length >= 3 && isOrderedAbbreviation(firstUpper, secondUpper)) ||
+            (remainderWordCount >= 2 && remainderInitials === firstUpper) ||
+            matchesCompoundFirstWord ||
+            matchesSplitRemainderAbbreviation
+          )
+        ) {
+          if (matchesSplitRemainderAbbreviation && postSecond) return postSecond;
+          if (remainderSegments.length) return remainder;
+        }
+      }
+      return cleaned;
+    }
+
     function getPrecinctFriendlyName(countyNameOrNorm, precinctCodeRaw) {
       const countyNorm = normalizeCountyToken(countyNameOrNorm);
       const code = resolvePrecinctCanonicalCode(countyNorm, precinctCodeRaw);
@@ -28646,7 +28743,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const perCounty = precinctFriendlyNameByCountyCode ? precinctFriendlyNameByCountyCode.get(countyNorm) : null;
       const rawName = perCounty ? (perCounty.get(code) || '') : '';
       if (!rawName) return '';
-      return toTitleCaseName(String(rawName).replace(/[_]+/g, ' ').replace(/\s+/g, ' ').trim());
+      return normalizeFriendlyPrecinctName(rawName);
     }
 
     function shouldPreferPrecinctFriendlyName(countyNameOrNorm) {
@@ -28707,10 +28804,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
       const full = stripCountyPrefixFromPrecinctName(countyName, fullName);
       const fallbackFull = stripCountyPrefixFromPrecinctName(countyName, fallbackFullName);
+      const normalizedFull = normalizeFriendlyPrecinctName(full);
+      const normalizedFallbackFull = normalizeFriendlyPrecinctName(fallbackFull);
 
       if (friendlyLabel && shouldPreferPrecinctFriendlyName(countyName)) return friendlyLabel;
-      if (full && !isNoisyPrecinctFullName(full, rawCode)) return full;
-      if (fallbackFull && !isNoisyPrecinctFullName(fallbackFull, rawCode)) return fallbackFull;
+      if (normalizedFull && !isNoisyPrecinctFullName(normalizedFull, rawCode)) return normalizedFull;
+      if (normalizedFallbackFull && !isNoisyPrecinctFullName(normalizedFallbackFull, rawCode)) return normalizedFallbackFull;
       return codeLabel || full || fallbackFull || '';
     }
 
@@ -29837,6 +29936,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const code = (precinctCodeRaw || '').toString().trim().toUpperCase();
       try { await ensurePrecinctCodeIndex(); } catch (_) {}
       try { await ensurePrecinctAliasIndex(); } catch (_) {}
+      try { await ensurePrecinctFriendlyNamesIndex(); } catch (_) {}
       if (isNonGeographicPrecinctToken(code, county)) {
         setStatus(`${county} - ${code} is a non-geographic vote bucket (e.g., Early Vote/Absentee) and isn't mapped to a precinct shape.`);
         try { showCountyDetails(county); } catch (_) {}
@@ -29860,11 +29960,25 @@ document.addEventListener('DOMContentLoaded', function() {
         addNumericBaseVariantsFromAlphaSuffix(code, addTargetVariant);
         addEmbeddedPrecinctCodeVariants(code, addTargetVariant);
         const countyNorm = normalizeCountyToken(county);
+        const canonicalCode = resolvePrecinctCanonicalCode(countyNorm, code);
+        if (canonicalCode) addTargetVariant(canonicalCode);
         addKnownLegacyCentroidBridges(countyNorm, code, addTargetVariant);
         const codes = precinctCodeIndexByCounty && countyNorm ? precinctCodeIndexByCounty.get(countyNorm) : null;
+        const friendlyNames = precinctFriendlyNameByCountyCode && countyNorm ? precinctFriendlyNameByCountyCode.get(countyNorm) : null;
+        const normalizeFriendlyLookup = (value) => normalizeFriendlyPrecinctName(value)
+          .replace(/[^A-Z0-9]/gi, '')
+          .toUpperCase();
+        const lookupFriendly = normalizeFriendlyLookup(code);
+        if (lookupFriendly && friendlyNames && typeof friendlyNames.forEach === 'function') {
+          friendlyNames.forEach((label, candidateCode) => {
+            if (normalizeFriendlyLookup(label) === lookupFriendly) {
+              addTargetVariant(candidateCode);
+            }
+          });
+        }
         if (codes) {
-          addCompactCodeVariants(code, codes, addTargetVariant);
-          addPrefixStrippedNumericVariants(code, codes, addTargetVariant);
+          addCompactCodeVariants(canonicalCode || code, codes, addTargetVariant);
+          addPrefixStrippedNumericVariants(canonicalCode || code, codes, addTargetVariant);
           if (countyNorm === 'DAVIDSON') addClosestHyphenCodeVariants(code, codes, addTargetVariant);
         }
       } catch (_) {}
