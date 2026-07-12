@@ -10081,8 +10081,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Cache destroyer token for static data requests.
     // Bump this value when you want browsers/CDNs to fetch fresh files immediately.
-    const DATA_CACHE_BUSTER = '2026-07-11-4';
-    const APP_BUILD_ID = '2026-07-11-4';
+    const DATA_CACHE_BUSTER = '2026-07-12-1';
+    const APP_BUILD_ID = '2026-07-12-1';
 
     function withCacheBuster(path) {
       const p = (path || '').toString().trim();
@@ -10122,7 +10122,7 @@ document.addEventListener('DOMContentLoaded', function() {
         precincts_fallback_vtd20: withBase('./Data/tn_voting_precincts_dra_v07.geojson'),
         precinct_centroids: withBase('./Data/tn_precinct_centroids_dra_v07.geojson'),
         precinct_aliases: withBase('./Data/crosswalks/tn_precinct_aliases.csv'),
-        precinct_friendly_names: '',
+        precinct_friendly_names: withBase('./Data/crosswalks/tn_precinct_friendly_names_2020.json'),
         precinct_variant_overrides: '',
         districts: withBase('./Data/tl_2022_47_cd118.geojson'),
         districts_2022: withBase('./Data/tl_2022_47_cd118.geojson'),
@@ -28624,6 +28624,12 @@ document.addEventListener('DOMContentLoaded', function() {
       return toTitleCaseName(String(rawName).replace(/[_]+/g, ' ').replace(/\s+/g, ' ').trim());
     }
 
+    function shouldPreferPrecinctFriendlyName(countyNameOrNorm) {
+      const countyNorm = normalizeCountyToken(countyNameOrNorm);
+      if (!countyNorm) return false;
+      return countyNorm !== 'DAVIDSON' && countyNorm !== 'SHELBY';
+    }
+
     function formatPrecinctCodeLabel(countyNameOrNorm, precinctCodeRaw) {
       const code = resolvePrecinctCanonicalCode(countyNameOrNorm, precinctCodeRaw);
       if (!code) return '';
@@ -28631,6 +28637,10 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function formatPrecinctDisplayLabel(countyNameOrNorm, precinctCodeRaw) {
+      const friendly = getPrecinctFriendlyName(countyNameOrNorm, precinctCodeRaw);
+      if (friendly && shouldPreferPrecinctFriendlyName(countyNameOrNorm)) {
+        return friendly;
+      }
       return formatPrecinctCodeLabel(countyNameOrNorm, precinctCodeRaw);
     }
 
@@ -28669,10 +28679,12 @@ document.addEventListener('DOMContentLoaded', function() {
       const rawCode = String(code || '').trim().toUpperCase();
       const canonicalCode = rawCode ? resolvePrecinctCanonicalCode(countyName, rawCode) : '';
       const codeLabel = canonicalCode ? formatPrecinctCodeLabel(countyName, canonicalCode) : (rawCode ? formatPrecinctCodeLabel(countyName, rawCode) : '');
+      const friendlyLabel = getPrecinctFriendlyName(countyName, canonicalCode || rawCode);
 
       const full = stripCountyPrefixFromPrecinctName(countyName, fullName);
       const fallbackFull = stripCountyPrefixFromPrecinctName(countyName, fallbackFullName);
 
+      if (friendlyLabel && shouldPreferPrecinctFriendlyName(countyName)) return friendlyLabel;
       if (full && !isNoisyPrecinctFullName(full, rawCode)) return full;
       if (fallbackFull && !isNoisyPrecinctFullName(fallbackFull, rawCode)) return fallbackFull;
       return codeLabel || full || fallbackFull || '';
