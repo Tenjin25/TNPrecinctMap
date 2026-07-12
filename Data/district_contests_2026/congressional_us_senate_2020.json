@@ -4,17 +4,17 @@
   "year": 2020,
   "meta": {
     "source": "tn_precinct_csv_district_aggregation_2026_lines_with_2022_line_transfer_for_districts_1_2",
-    "match_coverage_pct": 99.8569,
-    "direct_precinct_row_pct": 99.8426,
+    "match_coverage_pct": 100.0,
+    "direct_precinct_row_pct": 99.9475,
     "overlap_precinct_row_pct": 0.0,
     "non_geo_row_pct": 0.0525,
     "county_fallback_row_pct": 0.0,
-    "dropped_row_pct": 0.1049,
-    "direct_precinct_vote_pct": 98.7142,
+    "dropped_row_pct": 0.0,
+    "direct_precinct_vote_pct": 98.8573,
     "overlap_precinct_vote_pct": 0.0,
     "non_geo_vote_pct": 1.1427,
     "county_fallback_vote_pct": 0.0,
-    "dropped_vote_pct": 0.1431,
+    "dropped_vote_pct": 0.0,
     "districts": 9
   },
   "general": {
@@ -42,14 +42,14 @@
         "winner": "REP"
       },
       "3": {
-        "dem_votes": 107077,
-        "rep_votes": 226286,
-        "other_votes": 6566,
-        "total_votes": 339929,
+        "dem_votes": 107323,
+        "rep_votes": 226847,
+        "other_votes": 6594,
+        "total_votes": 340764,
         "dem_candidate": "Marquita Bradshaw",
         "rep_candidate": "Bill Hagerty",
-        "margin": 119209,
-        "margin_pct": 35.0688,
+        "margin": 119524,
+        "margin_pct": 35.0753,
         "winner": "REP"
       },
       "4": {
@@ -75,25 +75,25 @@
         "winner": "REP"
       },
       "6": {
-        "dem_votes": 124788,
-        "rep_votes": 207187,
-        "other_votes": 8335,
-        "total_votes": 340310,
+        "dem_votes": 124983,
+        "rep_votes": 207652,
+        "other_votes": 8350,
+        "total_votes": 340985,
         "dem_candidate": "Marquita Bradshaw",
         "rep_candidate": "Bill Hagerty",
-        "margin": 82399,
-        "margin_pct": 24.2129,
+        "margin": 82669,
+        "margin_pct": 24.2442,
         "winner": "REP"
       },
       "7": {
-        "dem_votes": 125141,
-        "rep_votes": 201292,
-        "other_votes": 8975,
-        "total_votes": 335408,
+        "dem_votes": 124946,
+        "rep_votes": 200827,
+        "other_votes": 8961,
+        "total_votes": 334734,
         "dem_candidate": "Marquita Bradshaw",
         "rep_candidate": "Bill Hagerty",
-        "margin": 76151,
-        "margin_pct": 22.704,
+        "margin": 75881,
+        "margin_pct": 22.669,
         "winner": "REP"
       },
       "8": {

@@ -1,1 +1,229 @@
-county_fp,prctseq,vtd20
+county_fp,county_norm,prctseq,vtd20,vtd_name,weight,source,confidence
+037,DAVIDSON,1,001801,1-1,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,2,001802,1-2,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,3,001803,1-3,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,4,001804,1-4,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,5,001805,1-5,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,8,001806,2-1,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,9,001807,2-2,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,10,001808,2-3,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,11,001809,2-4,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,12,001810,2-5,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,13,001811,3-1,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,14,001812,3-2,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,15,001813,3-3,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,16,001814,3-4,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,17,001815,3-5,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,18,001816,3-6,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,21,001817,4-1,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,22,001818,4-2,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,23,001819,4-3,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,24,001821,5-1,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,25,001822,5-2,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,26,001823,5-3,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,27,001824,5-4,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,28,001825,5-5,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,32,001826,6-1,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,33,001827,6-2,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,34,001828,6-3,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,35,001829,6-4,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,36,001830,6-5,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,40,001831,7-1,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,41,001832,7-2,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,42,001833,7-3,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,43,001834,7-4,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,44,001835,7-5,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,45,001836,7-6,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,47,001837,8-1,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,48,001838,8-2,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,49,001839,8-3,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,50,001841,9-1,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,51,001842,9-2,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,52,001843,9-3,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,53,001844,10-1,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,54,001845,10-2,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,55,001846,10-3,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,56,001847,10-4,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,57,001848,10-5,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,58,001849,10-6,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,62,001850,11-1,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,63,001851,11-2,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,64,001852,11-3,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,65,001853,11-4,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,66,001854,12-1,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,67,001855,12-2,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,68,001856,12-3,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,69,001857,12-4,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,70,001859,13-1,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,71,001860,13-2,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,72,001861,13-3,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,73,001862,13-4,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,75,001863,14-1,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,76,001864,14-2,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,77,001865,14-3,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,78,001866,14-4,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,79,001867,14-5,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,80,001868,15-1,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,81,001869,15-2,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,82,001870,15-3,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,83,001871,15-4,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,84,001872,15-5,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,86,001873,16-1,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,87,001874,16-2,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,88,001875,16-3,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,89,001876,16-4,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,90,001878,17-1,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,91,001879,17-2,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,92,001880,17-3,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,93,001881,17-4,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,94,001882,17-5,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,95,001883,17-6,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,96,001884,17-7,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,98,001885,18-1,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,99,001886,18-2,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,100,001887,18-3,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,101,001890,19-1,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,102,001891,19-2,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,103,001892,19-3,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,104,001893,19-4,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,105,001894,19-5,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,106,001896,20-1,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,107,001897,20-2,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,108,001898,20-3,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,111,001899,21-1,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,112,001900,21-2,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,113,001901,21-3,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,114,001902,21-4,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,115,001903,22-1,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,117,001905,22-3,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,118,001906,22-4,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,119,001907,23-1,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,120,001908,23-2,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,121,001909,23-3,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,122,001910,23-4,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,123,001911,23-5,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,124,001912,24-1,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,125,001913,24-2,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,126,001914,24-3,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,127,001915,24-4,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,128,001916,24-5,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,129,001917,24-6,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,130,001918,25-1,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,131,001919,25-2,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,132,001920,25-3,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,133,001921,25-4,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,135,001922,26-1,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,136,001923,26-2,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,137,001924,26-3,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,138,001925,26-4,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,139,001926,27-1,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,140,001928,27-3,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,142,001929,28-1,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,143,001930,28-2,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,144,001931,28-3,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,147,001932,29-1,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,148,001933,29-2,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,149,001934,29-3,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,150,001935,29-4,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,151,001936,30-1,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,152,001937,30-2,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,153,001938,30-3,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,154,001940,31-1,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,155,001941,31-2,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,156,001942,31-3,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,157,001943,31-4,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,158,001944,32-1,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,159,001945,32-2,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,160,001946,32-3,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,161,001947,32-4,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,162,001948,33-1,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,163,001949,33-2,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,164,001950,33-3,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,165,001951,33-4,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,168,001953,34-1,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,169,001954,34-2,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,170,001955,34-3,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,171,001956,34-4,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,172,001957,34-5,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,174,001958,35-1,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,175,001959,35-2,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,176,001960,35-3,1.0,davidson_current_label_exact,exact_name
+037,DAVIDSON,177,001961,35-4,1.0,davidson_current_label_exact,exact_name
+157,SHELBY,1,008051,ARL-01,1.0,shelby_geometry_review,core_tn08
+157,SHELBY,2,008052,ARL-02,1.0,shelby_geometry_review,core_tn08
+157,SHELBY,3,008054,Bartlett 03,1.0,shelby_geometry_review,core_tn08
+157,SHELBY,4,008055,Bartlett 04,1.0,shelby_geometry_review,core_tn08
+157,SHELBY,5,008056,Bartlett 05,1.0,shelby_geometry_review,core_tn08
+157,SHELBY,6,008057,Bartlett 06,1.0,shelby_geometry_review,core_tn08
+157,SHELBY,7,008065,Brunswick 1,1.0,shelby_geometry_review,core_tn08
+157,SHELBY,8,008058,Bartlett 08,1.0,shelby_geometry_review,core_tn08
+157,SHELBY,9,008053,Bartlett 09,1.0,shelby_geometry_review,core_tn08
+157,SHELBY,10,008068,Collierville 1,1.0,shelby_geometry_review,sliver_only
+157,SHELBY,11,008060,Bartlett 11,1.0,shelby_geometry_review,core_tn08
+157,SHELBY,12,008061,Memphis 87-2,1.0,shelby_geometry_review,boundary_split
+157,SHELBY,13,008066,Brunswick 2,1.0,shelby_geometry_review,core_tn08
+157,SHELBY,14,008069,Collierville 2,1.0,shelby_geometry_review,sliver_only
+157,SHELBY,15,008064,Memphis 87-4,1.0,shelby_geometry_review,core_tn08
+157,SHELBY,16,008072,Collierville 5,1.0,shelby_geometry_review,boundary_split
+157,SHELBY,17,008073,Collierville 6,1.0,shelby_geometry_review,core_tn08
+157,SHELBY,19,008075,Collierville 8,1.0,shelby_geometry_review,core_tn08
+157,SHELBY,20,008079,Memphis 96-2,1.0,shelby_geometry_review,core_tn08
+157,SHELBY,22,008086,Germantown 02,1.0,shelby_geometry_review,core_tn08
+157,SHELBY,23,008095,Germantown 12,1.0,shelby_geometry_review,core_tn08
+157,SHELBY,24,008063,Bartlett 13,1.0,shelby_geometry_review,core_tn08
+157,SHELBY,25,008097,Lakeland 2,1.0,shelby_geometry_review,core_tn08
+157,SHELBY,27,008070,Collierville 3,1.0,shelby_geometry_review,core_tn08
+157,SHELBY,28,008076,Cordova 3,1.0,shelby_geometry_review,core_tn08
+157,SHELBY,30,008071,Collierville 4,1.0,shelby_geometry_review,core_tn08
+157,SHELBY,31,008078,Cordova 5,1.0,shelby_geometry_review,core_tn08
+157,SHELBY,32,008087,Germantown 03,1.0,shelby_geometry_review,core_tn08
+157,SHELBY,33,008099,Lucy 3,1.0,shelby_geometry_review,core_tn08
+157,SHELBY,34,008091,Germantown 08,1.0,shelby_geometry_review,core_tn08
+157,SHELBY,36,008093,Germantown 10,1.0,shelby_geometry_review,core_tn08
+157,SHELBY,37,008094,Germantown 11,1.0,shelby_geometry_review,core_tn08
+157,SHELBY,38,008077,Cordova 4,1.0,shelby_geometry_review,core_tn08
+157,SHELBY,39,008080,Memphis 91-4,1.0,shelby_geometry_review,core_tn08
+157,SHELBY,40,008088,Germantown 04,1.0,shelby_geometry_review,core_tn08
+157,SHELBY,42,008089,Germantown 05,1.0,shelby_geometry_review,core_tn08
+157,SHELBY,43,008090,Germantown 06,1.0,shelby_geometry_review,core_tn08
+157,SHELBY,44,008139,Memphis 45-4,1.0,shelby_geometry_review,sliver_only
+157,SHELBY,45,008159,Memphis 58-4,1.0,shelby_geometry_review,boundary_split
+157,SHELBY,47,008187,Memphis 71-4,1.0,shelby_geometry_review,sliver_only
+157,SHELBY,50,008082,Forest Hills 1,1.0,shelby_geometry_review,boundary_split
+157,SHELBY,53,008136,Memphis 44-5,1.0,shelby_geometry_review,core_tn08
+157,SHELBY,60,008221,Memphis 81-5,1.0,shelby_geometry_review,boundary_split
+157,SHELBY,61,008096,Lakeland 1,1.0,shelby_geometry_review,core_tn08
+157,SHELBY,69,008256,Memphis 95-6,1.0,shelby_geometry_review,core_tn08
+157,SHELBY,70,008098,Lucy 1,1.0,shelby_geometry_review,boundary_split
+157,SHELBY,75,008222,Memphis 81-7,1.0,shelby_geometry_review,boundary_split
+157,SHELBY,78,008257,Memphis 95-7,1.0,shelby_geometry_review,core_tn08
+157,SHELBY,79,008146,Memphis 52-1,1.0,shelby_geometry_review,sliver_only
+157,SHELBY,82,008178,Memphis 67-3,1.0,shelby_geometry_review,core_tn08
+157,SHELBY,84,008255,Memphis 95-5,1.0,shelby_geometry_review,core_tn08
+157,SHELBY,85,008258,Memphis 95-8,1.0,shelby_geometry_review,core_tn08
+157,SHELBY,86,008154,Memphis 55-2,1.0,shelby_geometry_review,core_tn08
+157,SHELBY,87,008157,Memphis 57,1.0,shelby_geometry_review,core_tn08
+157,SHELBY,88,008271,Collierville 9,1.0,shelby_geometry_review,boundary_split
+157,SHELBY,89,008158,Memphis 58-1,1.0,shelby_geometry_review,sliver_only
+157,SHELBY,91,008141,Memphis 46-2,1.0,shelby_geometry_review,boundary_split
+157,SHELBY,94,008180,Memphis 68-3,1.0,shelby_geometry_review,core_tn08
+157,SHELBY,95,008234,Memphis 88-4,1.0,shelby_geometry_review,sliver_only
+157,SHELBY,97,008149,Memphis 53-1,1.0,shelby_geometry_review,boundary_split
+157,SHELBY,99,008152,Memphis 54,1.0,shelby_geometry_review,core_tn08
+157,SHELBY,100,008172,Memphis 62-0,1.0,shelby_geometry_review,sliver_only
+157,SHELBY,101,008174,Memphis 64,1.0,shelby_geometry_review,core_tn08
+157,SHELBY,102,008176,Memphis 66,1.0,shelby_geometry_review,core_tn08
+157,SHELBY,106,008177,Memphis 67-1,1.0,shelby_geometry_review,core_tn08
+157,SHELBY,107,008179,Memphis 68-1,1.0,shelby_geometry_review,core_tn08
+157,SHELBY,111,008192,Memphis 73-3,1.0,shelby_geometry_review,sliver_only
+157,SHELBY,112,008194,Memphis 74-1,1.0,shelby_geometry_review,sliver_only
+157,SHELBY,116,008245,Memphis 93-1,1.0,shelby_geometry_review,sliver_only
+157,SHELBY,122,008216,Memphis 80-2,1.0,shelby_geometry_review,core_tn08
+157,SHELBY,127,008219,Memphis 81-3,1.0,shelby_geometry_review,core_tn08
+157,SHELBY,128,008217,Memphis 81-1,1.0,shelby_geometry_review,core_tn08
+157,SHELBY,129,008259,Memphis 96-1,1.0,shelby_geometry_review,core_tn08
+157,SHELBY,130,008260,Millington 1,1.0,shelby_geometry_review,sliver_only
+157,SHELBY,133,008231,Memphis 87-3,1.0,shelby_geometry_review,core_tn08
+157,SHELBY,135,008263,Morning Sun 02,1.0,shelby_geometry_review,boundary_split
+157,SHELBY,137,008229,Memphis 86,1.0,shelby_geometry_review,sliver_only
+157,SHELBY,141,008270,Stewartville,1.0,shelby_geometry_review,core_tn08

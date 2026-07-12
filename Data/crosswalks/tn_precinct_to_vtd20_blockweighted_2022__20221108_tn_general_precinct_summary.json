@@ -1,0 +1,28 @@
+{
+  "source_csv": "20221108__tn__general__precinct.csv",
+  "source_year": 2022,
+  "source_vintage": 2020,
+  "overlap_csv": "tn_precinct_to_2024.csv",
+  "input_precinct_keys": 1841,
+  "crosswalk_rows": 2128,
+  "strict_crosswalk_rows": 2078,
+  "low_confidence_crosswalk_rows": 32,
+  "unmatched_rows": 0,
+  "method_counts": {
+    "alpha_code_name": 4,
+    "code_token_name": 52,
+    "core_exact_name": 4,
+    "exact_name": 1433,
+    "forced_best_name": 32,
+    "manual_override": 174,
+    "prefix_name": 12,
+    "shelby_alias_name": 130
+  },
+  "outputs": {
+    "crosswalk_csv": "tn_precinct_to_vtd20_blockweighted_2022__20221108_tn_general_precinct.csv",
+    "strict_crosswalk_csv": "tn_precinct_to_vtd20_blockweighted_2022__20221108_tn_general_precinct_strict.csv",
+    "low_confidence_crosswalk_csv": "tn_precinct_to_vtd20_blockweighted_2022__20221108_tn_general_precinct_low_confidence.csv",
+    "unmatched_csv": "tn_precinct_to_vtd20_blockweighted_2022__20221108_tn_general_precinct_unmatched.csv",
+    "summary_json": "tn_precinct_to_vtd20_blockweighted_2022__20221108_tn_general_precinct_summary.json"
+  }
+}

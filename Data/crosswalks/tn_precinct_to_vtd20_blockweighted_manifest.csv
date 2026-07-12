@@ -1,5 +1,11 @@
 source_csv,source_year,source_vintage,overlap_csv,input_precinct_keys,crosswalk_rows,strict_crosswalk_rows,unmatched_rows,method_counts_exact_name,method_counts_token_vtd,method_counts_fuzzy_name,method_counts_unmatched,ok
-20001107__tn__general__president__precinct.csv,2000,2000,tn_vtd00_to_vtd20_overlap.csv,2366,8899,8224,0,397,390,0,0,1
-20001107__tn__general__senate__precinct.csv,2000,2000,tn_vtd00_to_vtd20_overlap.csv,2366,8900,8235,0,417,390,0,0,1
-20021105__tn__general__governor__precinct.csv,2002,2000,tn_vtd00_to_vtd20_overlap.csv,2303,9598,8633,0,1053,61,0,0,1
-20021105__tn__general__senate__precinct.csv,2002,2000,tn_vtd00_to_vtd20_overlap.csv,2303,9598,8633,0,1053,61,0,0,1
+20081104__tn__general__precinct.csv,2008,2000,tn_vtd00_to_vtd20_overlap.csv,2238,8610,7606,0,1046,17,0,0,1
+20101102__tn__general__precinct.csv,2010,2010,tn_vtd10_to_vtd20_overlap.csv,2166,9276,8706,0,1274,5,0,0,1
+20121106__tn__general__precinct.csv,2012,2010,tn_vtd10_to_vtd20_overlap.csv,2065,7167,6440,0,1518,1,0,0,1
+20141104__tn__general__precinct.csv,2014,2010,tn_vtd10_to_vtd20_overlap.csv,2061,7031,6303,0,1565,1,0,0,1
+20161108__tn__general__precinct.csv,2016,2010,tn_vtd10_to_vtd20_overlap.csv,1982,6451,5816,0,1555,1,0,0,1
+20181106__tn__general__precinct.csv,2018,2010,tn_vtd10_to_vtd20_overlap.csv,1976,6432,5798,0,1578,1,0,0,1
+20201103__tn__general__precinct.csv,2020,2020,tn_precinct_to_2024.csv,1952,3841,3717,0,1517,8,0,0,1
+20221108__tn__general__governor__precinct.csv,2022,2020,tn_precinct_to_2024.csv,1838,1954,1936,0,1772,0,0,0,1
+20221108__tn__general__precinct.csv,2022,2020,tn_precinct_to_2024.csv,1841,2000,1771,0,1433,0,0,0,1
+20241105__tn__general__precinct.csv,2024,2020,tn_precinct_to_2024.csv,1855,1883,1883,0,1851,0,0,0,1

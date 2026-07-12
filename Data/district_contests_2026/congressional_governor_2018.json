@@ -4,17 +4,17 @@
   "year": 2018,
   "meta": {
     "source": "tn_precinct_csv_district_aggregation_2026_lines_with_2022_line_transfer_for_districts_1_2",
-    "match_coverage_pct": 99.9753,
-    "direct_precinct_row_pct": 99.6883,
+    "match_coverage_pct": 99.9688,
+    "direct_precinct_row_pct": 99.1731,
     "overlap_precinct_row_pct": 0.0,
-    "non_geo_row_pct": 0.2597,
+    "non_geo_row_pct": 0.2584,
     "county_fallback_row_pct": 0.0,
-    "dropped_row_pct": 0.0519,
-    "direct_precinct_vote_pct": 97.7989,
+    "dropped_row_pct": 0.5685,
+    "direct_precinct_vote_pct": 97.7924,
     "overlap_precinct_vote_pct": 0.0,
     "non_geo_vote_pct": 2.1764,
     "county_fallback_vote_pct": 0.0,
-    "dropped_vote_pct": 0.0247,
+    "dropped_vote_pct": 0.0312,
     "districts": 9
   },
   "general": {
@@ -42,14 +42,14 @@
         "winner": "REP"
       },
       "3": {
-        "dem_votes": 90329,
-        "rep_votes": 168357,
-        "other_votes": 2436,
-        "total_votes": 261122,
+        "dem_votes": 90268,
+        "rep_votes": 168276,
+        "other_votes": 2433,
+        "total_votes": 260977,
         "dem_candidate": "Karl Dean",
         "rep_candidate": "Bill Lee",
-        "margin": 78028,
-        "margin_pct": 29.8818,
+        "margin": 78008,
+        "margin_pct": 29.8908,
         "winner": "REP"
       },
       "4": {

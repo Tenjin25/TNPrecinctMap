@@ -4,17 +4,17 @@
   "year": 2016,
   "meta": {
     "source": "tn_precinct_csv_district_aggregation_2026_lines_with_2022_line_transfer_for_districts_1_2",
-    "match_coverage_pct": 99.9724,
-    "direct_precinct_row_pct": 98.1084,
+    "match_coverage_pct": 99.8399,
+    "direct_precinct_row_pct": 97.6566,
     "overlap_precinct_row_pct": 0.0,
-    "non_geo_row_pct": 1.8405,
+    "non_geo_row_pct": 1.8849,
     "county_fallback_row_pct": 0.0,
-    "dropped_row_pct": 0.0511,
-    "direct_precinct_vote_pct": 99.5258,
+    "dropped_row_pct": 0.4585,
+    "direct_precinct_vote_pct": 99.3839,
     "overlap_precinct_vote_pct": 0.0,
-    "non_geo_vote_pct": 0.4465,
+    "non_geo_vote_pct": 0.4559,
     "county_fallback_vote_pct": 0.0,
-    "dropped_vote_pct": 0.0276,
+    "dropped_vote_pct": 0.1601,
     "districts": 9
   },
   "general": {
@@ -42,14 +42,14 @@
         "winner": "REP"
       },
       "3": {
-        "dem_votes": 86738,
-        "rep_votes": 188237,
-        "other_votes": 14615,
-        "total_votes": 289590,
+        "dem_votes": 86684,
+        "rep_votes": 188203,
+        "other_votes": 14609,
+        "total_votes": 289496,
         "dem_candidate": "Hillary Clinton",
         "rep_candidate": "Donald J. Trump",
-        "margin": 101499,
-        "margin_pct": 35.0492,
+        "margin": 101519,
+        "margin_pct": 35.0675,
         "winner": "REP"
       },
       "4": {

@@ -1,0 +1,32 @@
+{
+  "output_csv": "C:\\Users\\Shama\\Documents\\Codex\\2026-07-10\\p\\work\\TNPrecinctMap\\Data\\crosswalks\\shelby_prctseq_review.csv",
+  "row_count": 142,
+  "resolved_rows": 78,
+  "needs_review_rows": 64,
+  "weighted_override_rows": 0,
+  "official_shelby_vtd20_total": 166,
+  "official_shelby_vtd20_assigned_in_overrides": 78,
+  "official_shelby_vtd20_unassigned": 88,
+  "sample_unresolved_display_codes": [
+    "02-07",
+    "02-10",
+    "02-15",
+    "03-03",
+    "03-09",
+    "04-04",
+    "04-09",
+    "04-11",
+    "04-12",
+    "05-02",
+    "05-03",
+    "05-05",
+    "05-06",
+    "05-07",
+    "05-08",
+    "05-09",
+    "05-10",
+    "06-02",
+    "06-03",
+    "06-04"
+  ]
+}

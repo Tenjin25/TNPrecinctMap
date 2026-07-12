@@ -75,25 +75,25 @@
         "winner": "REP"
       },
       "6": {
-        "dem_votes": 134822,
-        "rep_votes": 222297,
-        "other_votes": 7205,
-        "total_votes": 364324,
+        "dem_votes": 133063,
+        "rep_votes": 220657,
+        "other_votes": 7131,
+        "total_votes": 360851,
         "dem_candidate": "Gloria Johnson",
         "rep_candidate": "Marsha Blackburn",
-        "margin": 87475,
-        "margin_pct": 24.0102,
+        "margin": 87594,
+        "margin_pct": 24.2743,
         "winner": "REP"
       },
       "7": {
-        "dem_votes": 130769,
-        "rep_votes": 207018,
-        "other_votes": 7641,
-        "total_votes": 345428,
+        "dem_votes": 132528,
+        "rep_votes": 208658,
+        "other_votes": 7715,
+        "total_votes": 348901,
         "dem_candidate": "Gloria Johnson",
         "rep_candidate": "Marsha Blackburn",
-        "margin": 76249,
-        "margin_pct": 22.0738,
+        "margin": 76130,
+        "margin_pct": 21.8199,
         "winner": "REP"
       },
       "8": {

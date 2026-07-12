@@ -1,0 +1,8 @@
+{
+  "output_csv": "C:\\Users\\Shama\\Documents\\Codex\\2026-07-10\\p\\work\\TNPrecinctMap\\Data\\crosswalks\\tn_prctseq_to_vtd20_overrides.csv",
+  "row_count": 228,
+  "county_counts": {
+    "SHELBY": 78,
+    "DAVIDSON": 150
+  }
+}

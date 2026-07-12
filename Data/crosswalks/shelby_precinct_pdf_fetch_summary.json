@@ -1,0 +1,11 @@
+{
+  "source_page": "https://www.electionsshelbytn.gov/precinct-polling-locations/",
+  "pdf_links_found": 143,
+  "downloaded_this_run": 0,
+  "already_present": 0,
+  "skip_download": true,
+  "missing_code_count": 0,
+  "raw_dir": "C:\\Users\\Shama\\Documents\\Codex\\2026-07-10\\p\\work\\TNPrecinctMap\\Data\\raw\\shelby_precinct_pdfs",
+  "manifest_csv": "C:\\Users\\Shama\\Documents\\Codex\\2026-07-10\\p\\work\\TNPrecinctMap\\Data\\crosswalks\\shelby_precinct_pdf_manifest.csv",
+  "manifest_json": "C:\\Users\\Shama\\Documents\\Codex\\2026-07-10\\p\\work\\TNPrecinctMap\\Data\\crosswalks\\shelby_precinct_pdf_manifest.json"
+}

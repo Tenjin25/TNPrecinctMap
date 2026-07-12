@@ -29,6 +29,9 @@ from typing import Dict, Iterable, List, Tuple
 ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = ROOT / "Data"
 XWALK_DIR = DATA_DIR / "crosswalks"
+CENSUS_VTD20_GEOJSON = DATA_DIR / "tn_vtd_2020_census_statewide.geojson"
+DRA_VTD20_CATALOG_CSV = XWALK_DIR / "tn_dra2020_vtd20_catalog.csv"
+PRCTSEQ_TO_VTD20_OVERRIDES_CSV = XWALK_DIR / "tn_prctseq_to_vtd20_overrides.csv"
 
 
 HIGH_CONFIDENCE_METHODS = {
@@ -207,30 +210,56 @@ def load_overlap_catalog(path: Path) -> Tuple[Dict[Tuple[str, str], List[dict]],
 
 
 def load_2024_precinct_catalog(path: Path) -> Tuple[Dict[Tuple[str, str], List[dict]], Dict[Tuple[str, str], Dict[str, float]]]:
-    """Build an identity transfer catalog from curated precinct->2024 mappings.
-
-    The `to_prctseq_2024` code aligns with the 2020-era precinct code used by
-    downstream district joins, so we treat it as both src and dst VTD key.
-    """
+    """Build a modern-name catalog retargeted into official Census/current VTD20 codes."""
     if not path.exists():
         raise FileNotFoundError(f"Missing 2024 precinct catalog file: {path}")
 
     source_catalog: Dict[Tuple[str, str], List[dict]] = defaultdict(list)
     transfers: Dict[Tuple[str, str], Dict[str, float]] = defaultdict(lambda: defaultdict(float))
+    exact_lookup, grouped_lookup = load_census_vtd20_name_lookup()
+    dra_code_lookup = load_dra_vtd20_code_lookup()
+    prctseq_override_lookup = load_prctseq_to_vtd20_override_lookup()
+
+    def resolved_dst_map(county_norm: str, precinct_norm: str, fallback_code: str) -> Dict[str, float]:
+        exact = exact_lookup.get((county_norm, precinct_norm), {})
+        if exact:
+            return dict(exact)
+        grouped = grouped_lookup.get((county_norm, modern_group_key(precinct_norm)), {})
+        if grouped:
+            return dict(grouped)
+        explicit = prctseq_override_lookup.get((county_norm, fallback_code.zfill(4)), {})
+        if explicit:
+            return dict(explicit)
+        explicit = prctseq_override_lookup.get((county_norm, fallback_code.zfill(6)), {})
+        if explicit:
+            return dict(explicit)
+        dra_match = dra_code_lookup.get((county_norm, fallback_code.zfill(4)), {})
+        if dra_match:
+            return dict(dra_match)
+        if fallback_code:
+            return {fallback_code.zfill(6): 1.0}
+        return {}
 
     for row in read_rows(path):
         county_norm = norm_county(str(row.get("county_norm", "")).strip())
         src_name_norm = norm_text(str(row.get("from_precinct_norm", "")).strip())
+        dst_name_norm = norm_text(str(row.get("to_precinct_norm", "")).strip())
         src_vtd = str(row.get("to_prctseq_2024", "")).strip()
         if not county_norm or not src_name_norm or not src_vtd:
             continue
-        source_catalog[(county_norm, src_vtd)].append(
-            {
-                "src_name": src_name_norm,
-                "src_name_norm": src_name_norm,
-            }
-        )
-        transfers[(county_norm, src_vtd)][src_vtd] += 1.0
+        names = [src_name_norm]
+        if dst_name_norm and dst_name_norm not in names:
+            names.append(dst_name_norm)
+        for name_norm in names:
+            source_catalog[(county_norm, src_vtd)].append(
+                {
+                    "src_name": name_norm,
+                    "src_name_norm": name_norm,
+                }
+            )
+        target_name_norm = dst_name_norm or src_name_norm
+        for dst_vtd, weight in resolved_dst_map(county_norm, target_name_norm, src_vtd).items():
+            transfers[(county_norm, src_vtd)][dst_vtd] += float(weight)
 
     for row in load_numeric_precinct_2022_bootstrap_rows():
         county_norm = norm_county(str(row.get("county_norm", "")).strip())
@@ -244,23 +273,202 @@ def load_2024_precinct_catalog(path: Path) -> Tuple[Dict[Tuple[str, str], List[d
                 "src_name_norm": src_name_norm,
             }
         )
-        transfers[(county_norm, src_vtd)][src_vtd] += 1.0
+        for dst_vtd, weight in resolved_dst_map(county_norm, src_name_norm, src_vtd).items():
+            transfers[(county_norm, src_vtd)][dst_vtd] += float(weight)
 
     for row in load_precinct_alias_rows():
         county_norm = norm_county(str(row.get("county_norm", "")).strip())
         src_name_norm = norm_text(str(row.get("from_precinct_norm", "")).strip())
+        dst_name_norm = norm_text(str(row.get("to_precinct_norm", "")).strip())
         src_vtd = str(row.get("to_prctseq_2024", "")).strip()
         if not county_norm or not src_name_norm or not src_vtd:
             continue
-        source_catalog[(county_norm, src_vtd)].append(
-            {
-                "src_name": src_name_norm,
-                "src_name_norm": src_name_norm,
-            }
-        )
-        transfers[(county_norm, src_vtd)][src_vtd] += 1.0
+        names = [src_name_norm]
+        if dst_name_norm and dst_name_norm not in names:
+            names.append(dst_name_norm)
+        for name_norm in names:
+            source_catalog[(county_norm, src_vtd)].append(
+                {
+                    "src_name": name_norm,
+                    "src_name_norm": name_norm,
+                }
+            )
+        target_name_norm = dst_name_norm or src_name_norm
+        for dst_vtd, weight in resolved_dst_map(county_norm, target_name_norm, src_vtd).items():
+            transfers[(county_norm, src_vtd)][dst_vtd] += float(weight)
 
     return source_catalog, transfers
+
+
+def modern_group_key(value: str) -> str:
+    """Collapse numbered VTD20 names into a coarser modern precinct family name."""
+    s = norm_text(value)
+    if not s:
+        return ""
+    s = re.sub(r"\bST\b", "ST", s)
+    s = re.sub(r"\b0+(\d)", r"\1", s)
+    s = re.sub(r"\b(\d+)\s+0+(\d+)\b", r"\1 \2", s)
+    # Drop trailing numeric pieces such as "1", "2", "3" to recover merged
+    # modern precinct labels like "ALTON PARK" from Census VTD20 names like
+    # "ALTON PARK 1" / "ALTON PARK 2".
+    s = re.sub(r"\s+\d{1,2}$", "", s).strip()
+    # Drop single-letter split suffixes like "AIRPORT A" / "COLLEGEDALE B".
+    s = re.sub(r"\s+[A-Z]$", "", s).strip()
+    return s
+
+
+def load_census_vtd20_group_catalog() -> Tuple[
+    Dict[Tuple[str, str], List[dict]],
+    Dict[Tuple[str, str], Dict[str, float]],
+]:
+    """Build coarse modern-name -> weighted official VTD20 group transfers.
+
+    This uses the official 2020 Census VTD statewide layer and groups numbered
+    VTDs into coarser family names. The goal is not perfect historical truth,
+    but better current-decade coverage when a modern reporting precinct name
+    corresponds to several official VTD20 polygons.
+    """
+    source_catalog: Dict[Tuple[str, str], List[dict]] = defaultdict(list)
+    transfers: Dict[Tuple[str, str], Dict[str, float]] = defaultdict(lambda: defaultdict(float))
+    if not CENSUS_VTD20_GEOJSON.exists():
+        return source_catalog, transfers
+
+    county_norm_from_fips = county_name_by_fips()
+    payload = json.loads(CENSUS_VTD20_GEOJSON.read_text(encoding="utf-8"))
+    grouped: Dict[Tuple[str, str], List[dict]] = defaultdict(list)
+    for feat in payload.get("features", []):
+        props = feat.get("properties", {}) or {}
+        county_fp = str(props.get("COUNTYFP20", "")).zfill(3)
+        county_norm = county_norm_from_fips.get(county_fp, "")
+        vtd_code = str(props.get("VTDST20", "")).strip()
+        name20 = str(props.get("NAME20", "")).strip()
+        if not (county_norm and vtd_code and name20):
+            continue
+        key = modern_group_key(name20)
+        if not key:
+            continue
+        try:
+            area = float(props.get("ALAND20") or 0.0) + float(props.get("AWATER20") or 0.0)
+        except (TypeError, ValueError):
+            area = 0.0
+        grouped[(county_norm, key)].append(
+            {
+                "vtd_code": vtd_code.zfill(6),
+                "name20": norm_text(name20),
+                "area": area if area > 0 else 1.0,
+            }
+        )
+
+    for (county_norm, key), rows in grouped.items():
+        if len(rows) < 2:
+            continue
+        synthetic_src = f"GRP::{county_norm}::{key}"
+        source_catalog[(county_norm, synthetic_src)].append(
+            {
+                "src_name": key,
+                "src_name_norm": key,
+            }
+        )
+        for row in rows:
+            transfers[(county_norm, synthetic_src)][row["vtd_code"]] += float(row["area"])
+
+    return source_catalog, transfers
+
+
+def load_census_vtd20_name_lookup() -> Tuple[
+    Dict[Tuple[str, str], Dict[str, float]],
+    Dict[Tuple[str, str], Dict[str, float]],
+]:
+    """Build exact-name and grouped-name lookups into official Census VTD20 codes."""
+    exact_lookup: Dict[Tuple[str, str], Dict[str, float]] = defaultdict(lambda: defaultdict(float))
+    grouped_lookup: Dict[Tuple[str, str], Dict[str, float]] = defaultdict(lambda: defaultdict(float))
+    if not CENSUS_VTD20_GEOJSON.exists():
+        return exact_lookup, grouped_lookup
+
+    county_norm_from_fips = county_name_by_fips()
+    payload = json.loads(CENSUS_VTD20_GEOJSON.read_text(encoding="utf-8"))
+    for feat in payload.get("features", []):
+        props = feat.get("properties", {}) or {}
+        county_fp = str(props.get("COUNTYFP20", "")).zfill(3)
+        county_norm = county_norm_from_fips.get(county_fp, "")
+        vtd_code = str(props.get("VTDST20", "")).strip().zfill(6)
+        name20 = norm_text(str(props.get("NAME20", "")).strip())
+        if not (county_norm and vtd_code and name20):
+            continue
+        try:
+            area = float(props.get("ALAND20") or 0.0) + float(props.get("AWATER20") or 0.0)
+        except (TypeError, ValueError):
+            area = 0.0
+        weight = area if area > 0 else 1.0
+        exact_lookup[(county_norm, name20)][vtd_code] += weight
+        grouped_lookup[(county_norm, modern_group_key(name20))][vtd_code] += weight
+    return exact_lookup, grouped_lookup
+
+
+def load_dra_vtd20_code_lookup() -> Dict[Tuple[str, str], Dict[str, float]]:
+    """Translate legacy DRA/current-decade PRCTSEQ-style codes into official Census VTD20 codes."""
+    out: Dict[Tuple[str, str], Dict[str, float]] = defaultdict(lambda: defaultdict(float))
+    if not DRA_VTD20_CATALOG_CSV.exists():
+        return out
+
+    exact_lookup, grouped_lookup = load_census_vtd20_name_lookup()
+    county_norm_from_fips = county_name_by_fips()
+
+    for row in read_rows(DRA_VTD20_CATALOG_CSV):
+        geoid20 = str(row.get("GEOID20", "")).strip()
+        name20 = norm_text(str(row.get("Name", "")).strip())
+        if len(geoid20) < 11 or not name20:
+            continue
+        county_fp = geoid20[2:5]
+        county_norm = county_norm_from_fips.get(county_fp, "")
+        legacy_code = geoid20[5:].zfill(6)
+        legacy_key = legacy_code[-4:]
+        if not county_norm:
+            continue
+
+        exact = exact_lookup.get((county_norm, name20), {})
+        if exact:
+            for dst_vtd, weight in exact.items():
+                out[(county_norm, legacy_key)][dst_vtd] += float(weight)
+            continue
+
+        grouped = grouped_lookup.get((county_norm, modern_group_key(name20)), {})
+        if grouped:
+            for dst_vtd, weight in grouped.items():
+                out[(county_norm, legacy_key)][dst_vtd] += float(weight)
+
+    return out
+
+
+def load_prctseq_to_vtd20_override_lookup() -> Dict[Tuple[str, str], Dict[str, float]]:
+    """Load explicit county-local PRCTSEQ -> official VTD20 bridges."""
+    out: Dict[Tuple[str, str], Dict[str, float]] = defaultdict(lambda: defaultdict(float))
+    if not PRCTSEQ_TO_VTD20_OVERRIDES_CSV.exists():
+        return out
+
+    county_norm_from_fips = county_name_by_fips()
+    for row in read_rows(PRCTSEQ_TO_VTD20_OVERRIDES_CSV):
+        county_fp = str(row.get("county_fp", "")).zfill(3)
+        county_norm = county_norm_from_fips.get(county_fp, "")
+        prctseq = str(row.get("prctseq", "")).strip()
+        vtd20 = str(row.get("vtd20", "")).strip().zfill(6)
+        try:
+            weight = float(row.get("weight") or 1.0)
+        except ValueError:
+            weight = 1.0
+        if not (county_norm and prctseq.isdigit() and vtd20.isdigit()):
+            continue
+        if weight <= 0:
+            continue
+        out[(county_norm, prctseq.zfill(4))][vtd20] += weight
+        out[(county_norm, prctseq.zfill(6))][vtd20] += weight
+
+    for key, mapping in list(out.items()):
+        total = sum(mapping.values())
+        if total > 0:
+            for vtd20 in list(mapping.keys()):
+                mapping[vtd20] = mapping[vtd20] / total
+    return out
 
 
 def load_numeric_precinct_2022_bootstrap_rows() -> List[dict]:
@@ -743,9 +951,11 @@ def build_crosswalk(source_csv: Path, year: int) -> dict:
     manual_dst_overrides = load_manual_dst_overrides()
     numeric_2022_overrides = load_numeric_precinct_2022_src_overrides() if year == 2022 else {}
     cat_2024 = load_2024_precinct_catalog(XWALK_DIR / "tn_precinct_to_2024.csv")
+    census_group_catalog = load_census_vtd20_group_catalog()
     if vintage == 2020:
         source_catalog, transfers = merge_catalogs(
             [
+                census_group_catalog,
                 cat_2024,
                 load_overlap_catalog(XWALK_DIR / "tn_vtd10_to_vtd20_overlap.csv"),
             ]
