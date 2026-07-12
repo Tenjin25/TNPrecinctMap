@@ -13,7 +13,7 @@ enabled,year,county_norm,from_precinct_norm,current_match_method,current_top_sug
 0,2006,WASHINGTON,11W BOONES CR CC OUT,forced_best_name,009305,,,,pending,
 0,2008,WASHINGTON,11W BOONES CR CH OUT,forced_best_name,009305,,,,pending,
 0,2000,SHELBY,104 2 COL 2,forced_best_name,008074,,,,pending,
-0,2006,HAMILTON,ELECTION COMMISSION,forced_best_name,003399,,,,pending,
+1,2006,HAMILTON,ELECTION COMMISSION,forced_best_name,003399,3324,003399,current low-confidence source VTD resolves to Election Commission cluster,approved,reviewed against current low-confidence output
 0,2006,SULLIVAN,2VP VALLEY PIKE SCH,forced_best_name,008504,,,,pending,
 0,2008,GREENE,HARDINS 11,forced_best_name,003052,,,,pending,
 0,2008,SULLIVAN,2VP VALLEY PIKE SCH,forced_best_name,008504,,,,pending,
@@ -76,6 +76,8 @@ enabled,year,county_norm,from_precinct_norm,current_match_method,current_top_sug
 1,2020,DYER,C3 ROELLEN,tail_fuzzy_name,002355,2508,,dominant overlap aligns with ROELLEN current unit,approved,reviewed against current low-confidence output
 1,2020,DYER,F DYER CO CENTRAL,tail_fuzzy_name,002361,2460,,dominant overlap aligns with DYER CO CENTRAL current unit,approved,reviewed against current low-confidence output
 1,2020,BLOUNT,OAK STREET,forced_best_name,000402,0480,000402,dominant overlap is effectively one-to-one to OAK STREET current unit,approved,reviewed against current low-confidence output
+1,2022,DYER,F DYER CO CENTRAL,tail_fuzzy_name,002361,2460,,dominant overlap aligns with DYER CO CENTRAL current unit,approved,reviewed against current low-confidence output
+1,2022,MCMINN,TCAT,forced_best_name,0007,0007,0007,current code resolves uniquely,approved,reviewed against current low-confidence output
 1,2020,LOUDON,LOUDON MT ZION,forced_best_name,0003,0003,0003,current code resolves one-to-one after transfer,approved,reviewed against current low-confidence output
 1,2020,MONTGOMERY,5A SMITH,forced_best_name,0014,0014,0014,current code resolves one-to-one after transfer,approved,reviewed against current low-confidence output
 1,2020,MONTGOMERY,5B MADISON,forced_best_name,0026,0026,0026,current code resolves one-to-one after transfer,approved,reviewed against current low-confidence output
@@ -98,15 +100,15 @@ enabled,year,county_norm,from_precinct_norm,current_match_method,current_top_sug
 1,2024,HAMILTON,FALLING WATER B,tail_fuzzy_name,0033,0033,,current alias row exists for Falling Water B,approved,reviewed against current alias catalog
 1,2024,HAMILTON,MOWBRAY A,tail_fuzzy_name,0054,0054,,current alias row exists for Mowbray A,approved,reviewed against current alias catalog
 1,2024,HAMILTON,MOWBRAY B,tail_fuzzy_name,0055,0055,,current alias row exists for Mowbray B,approved,reviewed against current alias catalog
-0,2002,WASHINGTON,11I BOONES CHRISTIAN,forced_best_name,009322,,,,pending,
-0,2004,WASHINGTON,11I BOONES CHRISTIAN,forced_best_name,009322,,,,pending,
+1,2002,WASHINGTON,11I BOONES CHRISTIAN,forced_best_name,009322,9512,,current low-confidence source VTD resolves to Boones Creek in,approved,reviewed against current low-confidence output
+1,2004,WASHINGTON,11I BOONES CHRISTIAN,forced_best_name,009322,9512,,current low-confidence source VTD resolves to Boones Creek in,approved,reviewed against current low-confidence output
 0,2002,MAURY,CITY HALL,forced_best_name,005952,,,,pending,
 0,2004,MAURY,CITY HALL,forced_best_name,005952,,,,pending,
-0,2004,HAMILTON,X SUMMIT 2,tail_fuzzy_name,003466,,,,pending,
-0,2002,HAMILTON,120 TENNESSEE RIVER,forced_best_name,003454,,,,pending,
+1,2004,HAMILTON,X SUMMIT 2,tail_fuzzy_name,003466,3532,,historical source VTD name aligns with Summit current unit,approved,reviewed against current low-confidence output
+1,2002,HAMILTON,120 TENNESSEE RIVER,forced_best_name,003454,3448,,current low-confidence source VTD resolves to Tennessee River,approved,reviewed against current low-confidence output
 0,2008,BEDFORD,402 LIBERTY,forced_best_name,000103,,,,pending,
 0,2008,CUMBERLAND,PROPERTY OWNER,forced_best_name,001707,,,,pending,
-0,2004,WASHINGTON,11W BOONES CRK WEST,forced_best_name,009322,,,,pending,
+1,2004,WASHINGTON,11W BOONES CRK WEST,forced_best_name,009322,0022,,current low-confidence source VTD resolves to Boones Creek west cluster,approved,reviewed against current low-confidence output
 0,2000,SHELBY,105 04 COR 4,forced_best_name,008256,,,,pending,
 0,2016,WEAKLEY,8A MARTIN FUMC,forced_best_name,009505,,,,pending,
 0,2018,WEAKLEY,8A MARTIN FUMC,forced_best_name,009505,,,,pending,
@@ -116,20 +118,20 @@ enabled,year,county_norm,from_precinct_norm,current_match_method,current_top_sug
 0,2002,HENDERSON,ZEARLY,forced_best_name,004002,,,,pending,
 0,2004,HENDERSON,ZEARLY,forced_best_name,004002,,,,pending,
 0,2004,SULLIVAN,10OB OREBANK MISSION,forced_best_name,008521,,,,pending,
-0,2004,BLOUNT,40 WILL BLOUNT CNTY,forced_best_name,000436,,,,pending,
+1,2004,BLOUNT,40 WILL BLOUNT CNTY,forced_best_name,000436,0520,,current low-confidence source VTD resolves to William Blount county-side unit,approved,reviewed against current low-confidence output
 0,2002,PUTNAM,10B SYCAMORE,forced_best_name,007258,,,,pending,
 0,2004,PUTNAM,10B SYCAMORE,forced_best_name,007258,,,,pending,
 0,2006,PUTNAM,10B SYCAMORE,forced_best_name,007258,,,,pending,
 0,2008,PUTNAM,10B SYCAMORE,forced_best_name,007258,,,,pending,
 0,2000,SHELBY,104 5 COL 5,forced_best_name,008072,,,,pending,
-0,2002,BLOUNT,BEECH GROVE,forced_best_name,000425,,,,pending,
-0,2006,BLOUNT,BEECH GROVE,forced_best_name,000425,,,,pending,
-0,2008,BLOUNT,BEECH GROVE,forced_best_name,000425,,,,pending,
+1,2002,BLOUNT,BEECH GROVE,forced_best_name,000425,0400,,current low-confidence source VTD resolves to Beech Grove,approved,reviewed against current low-confidence output
+1,2006,BLOUNT,BEECH GROVE,forced_best_name,000425,0400,000425,current low-confidence source VTD resolves to Beech Grove,approved,reviewed against current low-confidence output
+1,2008,BLOUNT,BEECH GROVE,forced_best_name,000425,0400,,current low-confidence source VTD resolves to Beech Grove,approved,reviewed against current low-confidence output
 0,2000,DAVIDSON,PAPER VOTES,forced_best_name,001890,,,,pending,
-0,2002,DAVIDSON,PAPER VOTES,forced_best_name,001890,,,,pending,
-0,2004,DAVIDSON,PAPER VOTES,forced_best_name,001890,,,,pending,
-0,2006,WASHINGTON,11I BOONES CRK CC IN,forced_best_name,009322,,,,pending,
-0,2008,WASHINGTON,11I BOONES CRK CH IN,forced_best_name,009322,,,,pending,
+1,2002,DAVIDSON,PAPER VOTES,forced_best_name,001890,1728,,current low-confidence source VTD resolves to Paper Votes admin bucket,approved,reviewed against current low-confidence output
+1,2004,DAVIDSON,PAPER VOTES,forced_best_name,001890,1728,,current low-confidence source VTD resolves to Paper Votes admin bucket,approved,reviewed against current low-confidence output
+1,2006,WASHINGTON,11I BOONES CRK CC IN,forced_best_name,009322,9512,009322,current low-confidence source VTD resolves to Boones Creek in,approved,reviewed against current low-confidence output
+1,2008,WASHINGTON,11I BOONES CRK CH IN,forced_best_name,009322,9512,,current low-confidence source VTD resolves to Boones Creek in,approved,reviewed against current low-confidence output
 0,2002,SULLIVAN,10OB OREBANK MISSI,forced_best_name,008521,,,,pending,
 0,2006,BEDFORD,THOMAS SCHOOL,forced_best_name,000101,,,,pending,
 0,2006,CARROLL,BETHEL COLLEGE,forced_best_name,000809,,,,pending,
@@ -139,7 +141,7 @@ enabled,year,county_norm,from_precinct_norm,current_match_method,current_top_sug
 0,2006,SULLIVAN,17Y YWCA OF BRISTOL,forced_best_name,008501,,,,pending,
 0,2008,SULLIVAN,11T TRADERS VILLAGE,forced_best_name,008522,,,,pending,
 0,2008,SULLIVAN,17Y YWCA OF BRISTOL,forced_best_name,008501,,,,pending,
-0,2004,HAMILTON,Z6POSTAL,forced_best_name,003386,,,,pending,
+1,2004,HAMILTON,Z6POSTAL,forced_best_name,003386,3344,003386,current low-confidence source VTD resolves to Postal cluster,approved,reviewed against current low-confidence output
 0,2000,GRUNDY,13 SWISS MEMORIA,forced_best_name,003163,,,,pending,
 0,2000,SHELBY,105 05 COR 5,forced_best_name,008078,,,,pending,
 0,2000,SHELBY,105 07 COR 7,forced_best_name,008252,,,,pending,
@@ -167,29 +169,29 @@ enabled,year,county_norm,from_precinct_norm,current_match_method,current_top_sug
 0,2008,MACON,RNR CAR LOT,forced_best_name,005557,,,,pending,
 0,2008,OBION,FAIL SAFE,forced_best_name,006756,,,,pending,
 0,2000,BRADLEY,304 SR CTR,forced_best_name,000506,,,,pending,
-0,2004,SUMNER,11A HUNTER MIDDLE,forced_best_name,008622,,,,pending,
-0,2006,SUMNER,11A HUNTER MIDDLE,forced_best_name,008622,,,,pending,
-0,2008,SUMNER,11A HUNTER MIDDLE,forced_best_name,008622,,,,pending,
-0,2002,HAMILTON,158 SATELLITE 2 NG,forced_best_name,003401,,,,pending,
+1,2004,SUMNER,11A HUNTER MIDDLE,forced_best_name,008622,9042,,current low-confidence source VTD resolves to Hunter Middle,approved,reviewed against current low-confidence output
+1,2006,SUMNER,11A HUNTER MIDDLE,forced_best_name,008622,9042,008622,current low-confidence source VTD resolves to Hunter Middle,approved,reviewed against current low-confidence output
+1,2008,SUMNER,11A HUNTER MIDDLE,forced_best_name,008622,9042,,current low-confidence source VTD resolves to Hunter Middle,approved,reviewed against current low-confidence output
+1,2002,HAMILTON,158 SATELLITE 2 NG,forced_best_name,003401,3549,,current low-confidence source VTD resolves to Northgate satellite target,approved,reviewed against current low-confidence output
 0,2008,MONROE,ELECTION COMM OFFICE,forced_best_name,006363,,,,pending,
 0,2000,SHELBY,105 10 COR 10,tail_fuzzy_name,008258,,,,pending,
 0,2006,MACON,MACON CO JR HS,forced_best_name,005558,,,,pending,
 0,2000,SHELBY,106 EAD,forced_best_name,008081,,,,pending,
 0,2008,HOUSTON,NAT GUARD ARMORY,forced_best_name,004301,,,,pending,
-0,2006,BLOUNT,EAGLETON MIDDLE 8TH,forced_best_name,000411,,,,pending,
+1,2006,BLOUNT,EAGLETON MIDDLE 8TH,forced_best_name,000411,0005,0005,current low-confidence source VTD resolves to Eagleton 8th cluster,approved,reviewed against current low-confidence output
 0,2000,SHELBY,114 2 MIL 2,forced_best_name,008261,,,,pending,
 0,2010,MONROE,TOQUA,forced_best_name,006363,,,,pending,
 0,2012,MONROE,TOQUA,forced_best_name,006363,,,,pending,
 0,2014,MONROE,TOQUA,forced_best_name,006363,,,,pending,
-0,2004,BLOUNT,50 EAGLETON ALCOA,forced_best_name,000406,,,,pending,
-0,2002,HAMILTON,155 EAST CHATT 3,forced_best_name,003390,,,,pending,
+1,2004,BLOUNT,50 EAGLETON ALCOA,forced_best_name,000406,0408,,current low-confidence source VTD resolves to Eagleton Alcoa,approved,reviewed against current low-confidence output
+1,2002,HAMILTON,155 EAST CHATT 3,forced_best_name,003390,3352,,current low-confidence source VTD resolves to East Chattanooga 3 cluster,approved,reviewed against current low-confidence output
 0,2010,MCMINN,CITY PARK,forced_best_name,006060,,,,pending,
 0,2012,MCMINN,CITY PARK,forced_best_name,006060,,,,pending,
-0,2012,WASHINGTON,25 MILLENNIUM,forced_best_name,009310,,,,pending,
+1,2012,WASHINGTON,25 MILLENNIUM,forced_best_name,009310,9412,,current low-confidence source VTD resolves to Millennium,approved,reviewed against current low-confidence output
 0,2014,MCMINN,CITY PARK,forced_best_name,006060,,,,pending,
-0,2014,WASHINGTON,25 MILLENNIUM,forced_best_name,009310,,,,pending,
+1,2014,WASHINGTON,25 MILLENNIUM,forced_best_name,009310,9412,,current low-confidence source VTD resolves to Millennium,approved,reviewed against current low-confidence output
 0,2016,MCMINN,CITY PARK,forced_best_name,006060,,,,pending,
-0,2016,WASHINGTON,25 MILLENNIUM,forced_best_name,009310,,,,pending,
+1,2016,WASHINGTON,25 MILLENNIUM,forced_best_name,009310,9412,,current low-confidence source VTD resolves to Millennium,approved,reviewed against current low-confidence output
 0,2018,MCMINN,CITY PARK,forced_best_name,006060,,,,pending,
 0,2020,MCMINN,CITY PARK,forced_best_name,006060,,,,pending,
 0,2022,MCMINN,CITY PARK,forced_best_name,006060,,,,pending,
@@ -201,19 +203,19 @@ enabled,year,county_norm,from_precinct_norm,current_match_method,current_top_sug
 0,2016,LOUDON,LOUDON MT ZION,forced_best_name,005452,,,,pending,
 0,2018,LOUDON,LOUDON MT ZION,forced_best_name,005452,,,,pending,
 0,2008,SULLIVAN,2HV HOLSTON VIEW SCH,forced_best_name,008517,,,,pending,
-0,2004,BLOUNT,46 MENTOR ALCOA,forced_best_name,000409,,,,pending,
+1,2004,BLOUNT,46 MENTOR ALCOA,forced_best_name,000409,0464,,current low-confidence source VTD resolves to Mentor Alcoa,approved,reviewed against current low-confidence output
 0,2010,MONROE,SWEETWATER,forced_best_name,006351,,,,pending,
 0,2012,MONROE,SWEETWATER,forced_best_name,006351,,,,pending,
 0,2014,MONROE,SWEETWATER,forced_best_name,006351,,,,pending,
-0,2002,SUMNER,04A CNTY ADMIN BLDG,tail_fuzzy_name,008611,,,,pending,
-0,2004,SUMNER,04A CNTY ADMIN BLDG,tail_fuzzy_name,008611,,,,pending,
+1,2002,SUMNER,04A CNTY ADMIN BLDG,tail_fuzzy_name,008611,9020,,current low-confidence source VTD resolves to county admin building,approved,reviewed against current low-confidence output
+1,2004,SUMNER,04A CNTY ADMIN BLDG,tail_fuzzy_name,008611,9020,,current low-confidence source VTD resolves to county admin building,approved,reviewed against current low-confidence output
 0,2010,HAYWOOD,ARMORY,forced_best_name,003915,,,,pending,
 0,2000,SHELBY,105 01 COR 1,forced_best_name,008252,,,,pending,
 0,2000,SHELBY,105 08 COR 8,forced_best_name,008257,,,,pending,
 0,2000,SHELBY,116 1 ROS 01,forced_best_name,008266,,,,pending,
 0,2000,SHELBY,116 5 ROS 13,forced_best_name,008266,,,,pending,
-0,2002,HAMILTON,159 SATELLITE 3 TB,forced_best_name,003392,,,,pending,
-0,2002,HAMILTON,157 SATELLITE 1 EC,forced_best_name,003420,,,,pending,
+1,2002,HAMILTON,159 SATELLITE 3 TB,forced_best_name,003392,3500,,current low-confidence source VTD resolves to satellite target,approved,reviewed against current low-confidence output
+1,2002,HAMILTON,157 SATELLITE 1 EC,forced_best_name,003420,3468,,current low-confidence source VTD resolves to satellite target,approved,reviewed against current low-confidence output
 0,2002,LINCOLN,9TH GRADE ACADEMY,forced_best_name,000005,,,,pending,
 0,2006,MCMINN,MT VIEW SCHOOL,forced_best_name,006057,,,,pending,
 0,2008,MCMINN,MT VIEW SCHOOL,forced_best_name,006057,,,,pending,
@@ -224,16 +226,16 @@ enabled,year,county_norm,from_precinct_norm,current_match_method,current_top_sug
 0,2008,CARROLL,MCKENZIE CITY,forced_best_name,000802,,,,pending,
 0,2010,MONROE,ELECTION COMM OFFICE,forced_best_name,006361,,,,pending,
 0,2012,MONROE,ELECTION COMM OFFICE,forced_best_name,006361,,,,pending,
-0,2012,SUMNER,10B,forced_best_name,008633,,,,pending,
-0,2012,WASHINGTON,29 MIDWAY CITY,forced_best_name,009316,,,,pending,
-0,2014,WASHINGTON,29 MIDWAY CITY,forced_best_name,009316,,,,pending,
-0,2016,WASHINGTON,29 FAIRHAVEN INSIDE,forced_best_name,009314,,,,pending,
+1,2012,SUMNER,10B,forced_best_name,008633,9037,,current low-confidence source VTD resolves to Good Shepherd area unit,approved,reviewed against current low-confidence output
+1,2012,WASHINGTON,29 MIDWAY CITY,forced_best_name,009316,9420,,current low-confidence source VTD resolves to Midway City,approved,reviewed against current low-confidence output
+1,2014,WASHINGTON,29 MIDWAY CITY,forced_best_name,009316,9420,,current low-confidence source VTD resolves to Midway City,approved,reviewed against current low-confidence output
+1,2016,WASHINGTON,29 FAIRHAVEN INSIDE,forced_best_name,009314,9432,,current low-confidence source VTD resolves to Fairhaven Inside,approved,reviewed against current low-confidence output
 0,2014,STEWART,PAPER BALLOTS,forced_best_name,008402,,,,pending,
 0,2016,STEWART,PAPER BALLOTS,forced_best_name,008402,,,,pending,
 0,2014,MONROE,ELECTION COMMISSION,forced_best_name,006361,,,,pending,
-0,2004,HAMILTON,SUMMIT 1,tail_fuzzy_name,003466,,,,pending,
-0,2006,HAMILTON,166 SUMMIT 2,tail_fuzzy_name,003466,,,,pending,
-0,2008,HAMILTON,166 SUMMIT 2,tail_fuzzy_name,003466,,,,pending,
+1,2004,HAMILTON,SUMMIT 1,tail_fuzzy_name,003466,3532,,historical source VTD aligns with Summit current unit,approved,reviewed against current low-confidence output
+1,2006,HAMILTON,166 SUMMIT 2,tail_fuzzy_name,003466,3532,,historical source VTD aligns with Summit current unit,approved,reviewed against current low-confidence output
+1,2008,HAMILTON,166 SUMMIT 2,tail_fuzzy_name,003466,3532,,historical source VTD aligns with Summit current unit,approved,reviewed against current low-confidence output
 0,2024,MCMINN,MCMINN HIGH,forced_best_name,006052,,,,pending,
 0,2014,WEAKLEY,7A MARTIN SHEPHERD S,forced_best_name,009510,,,,pending,
 0,2016,WEAKLEY,7A MARTIN SHEPHERD S,forced_best_name,009510,,,,pending,
@@ -247,25 +249,25 @@ enabled,year,county_norm,from_precinct_norm,current_match_method,current_top_sug
 0,2006,SULLIVAN,2HV HOLSTON VIEW,forced_best_name,008517,,,,pending,
 0,2006,MACON,SALLY WELLS BLDG,forced_best_name,005555,,,,pending,
 0,2008,MACON,SALLY WELLS BLDG,forced_best_name,005555,,,,pending,
-0,2002,HAMILTON,160 POSTAL,forced_best_name,003386,,,,pending,
+1,2002,HAMILTON,160 POSTAL,forced_best_name,003386,3344,003386,current low-confidence source VTD resolves to Postal cluster,approved,reviewed against current low-confidence output
 0,2002,BLOUNT,WILLIAM BLOUNT MID,tail_fuzzy_name,000436,,,,pending,
 0,2006,MONROE,TOQUA CC,forced_best_name,006363,,,,pending,
 0,2008,MONROE,TOQUA CC,forced_best_name,006363,,,,pending,
 0,2000,BEDFORD,103 VOC SCHOOL,tail_fuzzy_name,000101,,,,pending,
-0,2002,BLOUNT,ALCOA HIGH SCHOOL,tail_fuzzy_name,000408,,,,pending,
+1,2002,BLOUNT,ALCOA HIGH SCHOOL,tail_fuzzy_name,000408,0376,,historical source VTD aligns with Alcoa High School area unit,approved,reviewed against current low-confidence output
 0,2000,KNOX,104 087,forced_best_name,004862,,,,pending,
 0,2000,KNOX,105 091,forced_best_name,004862,,,,pending,
-0,2002,WASHINGTON,ZEARLY,forced_best_name,009318,,,,pending,
+1,2002,WASHINGTON,ZEARLY,forced_best_name,009318,9516,,current low-confidence source VTD resolves to Zearley,approved,reviewed against current low-confidence output
 0,2024,KNOX,66NE E FARRAGUT MIDDLE,tail_fuzzy_name,004805,,,,pending,
 0,2024,KNOX,66NW W FARRAGUT MIDDLE,tail_fuzzy_name,004805,,,,pending,
-0,2006,HAMILTON,NORTHGATE MALL,tail_fuzzy_name,003437,,,,pending,
+1,2006,HAMILTON,NORTHGATE MALL,tail_fuzzy_name,003437,3424,003437,current low-confidence source VTD resolves to Northgate cluster,approved,reviewed against current low-confidence output
 0,2002,ROANE,CHEROKEE,forced_best_name,007451,,,,pending,
 0,2006,ROANE,CHEROKEE,forced_best_name,007451,,,,pending,
 0,2008,ROANE,CHEROKEE,forced_best_name,007451,,,,pending,
 0,2002,LINCOLN,BOONSHILL CC,forced_best_name,000004,,,,pending,
 0,2008,MONROE,NOTCHEY CREEK FD,forced_best_name,006359,,,,pending,
-0,2002,HAMILTON,142 MISSION RDGE SO,tail_fuzzy_name,003426,,,,pending,
-0,2002,HAMILTON,156 MISSION RDGE SO,tail_fuzzy_name,003426,,,,pending,
+1,2002,HAMILTON,142 MISSION RDGE SO,tail_fuzzy_name,003426,3404,003426,current low-confidence source VTD resolves to Mission Ridge South cluster,approved,reviewed against current low-confidence output
+1,2002,HAMILTON,156 MISSION RDGE SO,tail_fuzzy_name,003426,3404,003426,current low-confidence source VTD resolves to Mission Ridge South cluster,approved,reviewed against current low-confidence output
 0,2014,WEAKLEY,9A DRESDEN,forced_best_name,009504,,,,pending,
 0,2016,WEAKLEY,9A DRESDEN,forced_best_name,009504,,,,pending,
 0,2018,WEAKLEY,9A DRESDEN,forced_best_name,009504,,,,pending,
@@ -273,15 +275,15 @@ enabled,year,county_norm,from_precinct_norm,current_match_method,current_top_sug
 0,2010,MONROE,BROWN,forced_best_name,006353,,,,pending,
 0,2012,MONROE,BROWN,forced_best_name,006353,,,,pending,
 0,2014,MONROE,BROWN,forced_best_name,006353,,,,pending,
-0,2012,WASHINGTON,33 TELFORD,forced_best_name,009327,,,,pending,
-0,2014,WASHINGTON,33 TELFORD,forced_best_name,009327,,,,pending,
-0,2016,WASHINGTON,33 TELFORD,forced_best_name,009327,,,,pending,
-0,2006,BLOUNT,EAGLETON CAF ALCOA,forced_best_name,000406,,,,pending,
-0,2008,BLOUNT,EAGLETON CAF ALCOA,forced_best_name,000406,,,,pending,
+1,2012,WASHINGTON,33 TELFORD,forced_best_name,009327,9408,,current low-confidence source VTD resolves to Telford,approved,reviewed against current low-confidence output
+1,2014,WASHINGTON,33 TELFORD,forced_best_name,009327,9408,,current low-confidence source VTD resolves to Telford,approved,reviewed against current low-confidence output
+1,2016,WASHINGTON,33 TELFORD,forced_best_name,009327,9408,,current low-confidence source VTD resolves to Telford,approved,reviewed against current low-confidence output
+1,2006,BLOUNT,EAGLETON CAF ALCOA,forced_best_name,000406,0408,,current low-confidence source VTD resolves to Eagleton Alcoa,approved,reviewed against current low-confidence output
+1,2008,BLOUNT,EAGLETON CAF ALCOA,forced_best_name,000406,0408,,current low-confidence source VTD resolves to Eagleton Alcoa,approved,reviewed against current low-confidence output
 0,2000,SHELBY,114 1 MIL 1,forced_best_name,008260,,,,pending,
-0,2016,WASHINGTON,39 NEW SALEM,forced_best_name,009323,,,,pending,
-0,2006,BLOUNT,MENTOR ALCOA,forced_best_name,000409,,,,pending,
-0,2008,BLOUNT,MENTOR ALCOA,forced_best_name,000409,,,,pending,
+1,2016,WASHINGTON,39 NEW SALEM,forced_best_name,009323,9448,,current low-confidence source VTD resolves to New Salem,approved,reviewed against current low-confidence output
+1,2006,BLOUNT,MENTOR ALCOA,forced_best_name,000409,0464,,current low-confidence source VTD resolves to Mentor Alcoa,approved,reviewed against current low-confidence output
+1,2008,BLOUNT,MENTOR ALCOA,forced_best_name,000409,0464,,current low-confidence source VTD resolves to Mentor Alcoa,approved,reviewed against current low-confidence output
 0,2014,WEAKLEY,6A TRINITY,forced_best_name,009510,,,,pending,
 0,2016,WEAKLEY,6A TRINITY,forced_best_name,009510,,,,pending,
 0,2018,WEAKLEY,6A TRINITY,forced_best_name,009510,,,,pending,
@@ -295,29 +297,53 @@ enabled,year,county_norm,from_precinct_norm,current_match_method,current_top_sug
 0,2020,WEAKLEY,2A GLEASON,forced_best_name,009502,,,,pending,
 0,2000,ROANE,21 JOHNSON,forced_best_name,007474,,,,pending,
 0,2002,LINCOLN,KELSO CC,forced_best_name,000011,,,,pending,
-0,2010,WASHINGTON,10I INDIAN TRAIL,tail_fuzzy_name,009324,,,,pending,
-0,2002,WASHINGTON,10I INDIAN TRAIL,forced_best_name,009330,,,,pending,
-0,2004,WASHINGTON,10I INDIAN TRAIL,forced_best_name,009330,,,,pending,
-0,2006,WASHINGTON,10I INDIAN TRAIL,forced_best_name,009330,,,,pending,
-0,2008,WASHINGTON,10I INDIAN TRAIL,forced_best_name,009330,,,,pending,
+1,2010,WASHINGTON,10I INDIAN TRAIL,tail_fuzzy_name,009324,0013,0013,historical source VTD aligns with Indian Trail current unit,approved,reviewed against current low-confidence output
+1,2002,WASHINGTON,10I INDIAN TRAIL,forced_best_name,009330,0013,,historical source VTD aligns with Indian Trail current unit,approved,reviewed against current low-confidence output
+1,2004,WASHINGTON,10I INDIAN TRAIL,forced_best_name,009330,0013,,historical source VTD aligns with Indian Trail current unit,approved,reviewed against current low-confidence output
+1,2006,WASHINGTON,10I INDIAN TRAIL,forced_best_name,009330,0013,,historical source VTD aligns with Indian Trail current unit,approved,reviewed against current low-confidence output
+1,2008,WASHINGTON,10I INDIAN TRAIL,forced_best_name,009330,0013,,historical source VTD aligns with Indian Trail current unit,approved,reviewed against current low-confidence output
 0,2006,MACON,CENTRAL ELEM SCH,forced_best_name,005559,,,,pending,
 0,2008,MACON,CENTRAL ELEM SCHOOL,forced_best_name,005559,,,,pending,
 0,2006,HARDIN,RHODES 6 2,tail_fuzzy_name,003712,,,,pending,
 0,2008,HARDIN,RHODES 6 2,tail_fuzzy_name,003712,,,,pending,
 0,2006,BEDFORD,EAST SIDE SCHOOL,forced_best_name,000108,,,,pending,
-0,2012,HAMILTON,168 OOLTEWAH 6,tail_fuzzy_name,003443,,,,pending,
-0,2012,HAMILTON,169 OOLTEWAH 5,tail_fuzzy_name,003443,,,,pending,
-0,2012,HAMILTON,205 OOLTEWAH 4,tail_fuzzy_name,003443,,,,pending,
-0,2014,HAMILTON,168 OOLTEWAH 6,tail_fuzzy_name,003443,,,,pending,
-0,2014,HAMILTON,169 OOLTEWAH 5,tail_fuzzy_name,003443,,,,pending,
-0,2014,HAMILTON,205 OOLTEWAH 4,tail_fuzzy_name,003443,,,,pending,
-0,2016,HAMILTON,168 OOLTEWAH 6,tail_fuzzy_name,003443,,,,pending,
-0,2016,HAMILTON,169 OOLTEWAH 5,tail_fuzzy_name,003443,,,,pending,
-0,2016,HAMILTON,205 OOLTEWAH 4,tail_fuzzy_name,003443,,,,pending,
-0,2018,HAMILTON,168 OOLTEWAH 6,tail_fuzzy_name,003443,,,,pending,
-0,2018,HAMILTON,169 OOLTEWAH 5,tail_fuzzy_name,003443,,,,pending,
-0,2018,HAMILTON,205 OOLTEWAH 4,tail_fuzzy_name,003443,,,,pending,
+1,2012,HAMILTON,168 OOLTEWAH 6,tail_fuzzy_name,003443,3520,,historical source VTD name aligns with Ooltewah current unit,approved,reviewed against 2014-2018 source VTD catalog
+1,2012,HAMILTON,169 OOLTEWAH 5,tail_fuzzy_name,003443,3520,,historical source VTD name aligns with Ooltewah current unit,approved,reviewed against 2014-2018 source VTD catalog
+1,2012,HAMILTON,205 OOLTEWAH 4,tail_fuzzy_name,003443,3520,,historical source VTD name aligns with Ooltewah current unit,approved,reviewed against 2014-2018 source VTD catalog
+1,2014,HAMILTON,168 OOLTEWAH 6,tail_fuzzy_name,003443,3520,,historical source VTD name aligns with Ooltewah current unit,approved,reviewed against current low-confidence output
+1,2014,HAMILTON,169 OOLTEWAH 5,tail_fuzzy_name,003443,3520,,historical source VTD name aligns with Ooltewah current unit,approved,reviewed against current low-confidence output
+1,2014,HAMILTON,205 OOLTEWAH 4,tail_fuzzy_name,003443,3520,,historical source VTD name aligns with Ooltewah current unit,approved,reviewed against current low-confidence output
+1,2016,HAMILTON,168 OOLTEWAH 6,tail_fuzzy_name,003443,3520,,historical source VTD name aligns with Ooltewah current unit,approved,reviewed against current low-confidence output
+1,2016,HAMILTON,169 OOLTEWAH 5,tail_fuzzy_name,003443,3520,,historical source VTD name aligns with Ooltewah current unit,approved,reviewed against current low-confidence output
+1,2016,HAMILTON,205 OOLTEWAH 4,tail_fuzzy_name,003443,3520,,historical source VTD name aligns with Ooltewah current unit,approved,reviewed against current low-confidence output
+1,2018,HAMILTON,168 OOLTEWAH 6,tail_fuzzy_name,003443,3520,,historical source VTD name aligns with Ooltewah current unit,approved,reviewed against current low-confidence output
+1,2018,HAMILTON,169 OOLTEWAH 5,tail_fuzzy_name,003443,3520,,historical source VTD name aligns with Ooltewah current unit,approved,reviewed against current low-confidence output
+1,2018,HAMILTON,205 OOLTEWAH 4,tail_fuzzy_name,003443,3520,,historical source VTD name aligns with Ooltewah current unit,approved,reviewed against current low-confidence output
 0,2020,HAMILTON,124 OOLTEWAH 5,tail_fuzzy_name,003443,,,,pending,
+1,2018,HAMILTON,173 WOODMORE 1,tail_fuzzy_name,003476,3476,,historical source VTD resolves cleanly to Woodmore cluster,approved,reviewed against current low-confidence output
+1,2018,HAMILTON,174 WOODMORE 2,tail_fuzzy_name,003476,3476,,historical source VTD resolves cleanly to Woodmore cluster,approved,reviewed against current low-confidence output
+1,2018,HAMILTON,180 HARRISON 5,tail_fuzzy_name,003407,3512,,historical source VTD resolves cleanly to Harrison cluster,approved,reviewed against current low-confidence output
+1,2018,HAMILTON,186 MIDDLE VALLEY 2,tail_fuzzy_name,003424,3572,,historical source VTD resolves cleanly to Middle Valley cluster,approved,reviewed against current low-confidence output
+1,2018,HAMILTON,188 MIDDLE VALLEY 1,tail_fuzzy_name,003424,3572,,historical source VTD resolves cleanly to Middle Valley cluster,approved,reviewed against current low-confidence output
+1,2018,HAMILTON,195 EASTDALE,tail_fuzzy_name,003396,3364,,historical source VTD resolves cleanly to Eastdale cluster,approved,reviewed against current low-confidence output
+1,2018,HAMILTON,209 EASTSIDE 1,tail_fuzzy_name,003399,3360,,historical source VTD resolves cleanly to Eastside cluster,approved,reviewed against current low-confidence output
+1,2018,HAMILTON,212 ALTON PARK 1,tail_fuzzy_name,003352,3288,,historical source VTD resolves cleanly to Alton Park cluster,approved,reviewed against current low-confidence output
+1,2018,HAMILTON,214 ALTON PARK 2,tail_fuzzy_name,003352,3288,,historical source VTD resolves cleanly to Alton Park cluster,approved,reviewed against current low-confidence output
+1,2018,HAMILTON,215 MOUNTAIN CREEK 3,tail_fuzzy_name,003427,3409,,historical source VTD resolves cleanly to Mountain Creek cluster,approved,reviewed against current low-confidence output
+1,2018,HAMILTON,218 HARRISON 6,tail_fuzzy_name,003407,3512,,historical source VTD resolves cleanly to Harrison cluster,approved,reviewed against current low-confidence output
+1,2018,HAMILTON,225 RED BANK 5,tail_fuzzy_name,003448,3584,,historical source VTD resolves cleanly to Red Bank cluster,approved,reviewed against current low-confidence output
+1,2018,HAMILTON,227 RED BANK 7,tail_fuzzy_name,003448,3584,,historical source VTD resolves cleanly to Red Bank cluster,approved,reviewed against current low-confidence output
+1,2018,HAMILTON,228 RED BANK 8,tail_fuzzy_name,003448,3584,,historical source VTD resolves cleanly to Red Bank cluster,approved,reviewed against current low-confidence output
+1,2018,HAMILTON,231 SODDY DAISY 6,tail_fuzzy_name,003460,3612,,historical source VTD resolves cleanly to Soddy Daisy cluster,approved,reviewed against current low-confidence output
+1,2018,HAMILTON,234 ALTON PARK 3,tail_fuzzy_name,003352,3288,,historical source VTD resolves cleanly to Alton Park cluster,approved,reviewed against current low-confidence output
+1,2018,HAMILTON,235 LUPTON CITY 2,tail_fuzzy_name,003422,3396,,historical source VTD resolves cleanly to Lupton City cluster,approved,reviewed against current low-confidence output
+1,2008,WASHINGTON,10P PRINCETON ARTS,tail_fuzzy_name,009328,9492,,historical source VTD resolves cleanly to Princeton Arts cluster,approved,reviewed against current low-confidence output
+1,2008,WASHINGTON,11E BOONES CRK MS,forced_best_name,009322,9512,,historical source VTD resolves cleanly to Boones Creek cluster,approved,reviewed against current low-confidence output
+1,2008,SUMNER,12B WHITE HOUSE CH,tail_fuzzy_name,008626,9052,,historical source VTD resolves cleanly to White House cluster,approved,reviewed against current low-confidence output
+1,2008,SUMNER,12C WHITE HOUSE MS,forced_best_name,008626,9052,,historical source VTD resolves cleanly to White House cluster,approved,reviewed against current low-confidence output
+1,2008,BLOUNT,EAGLE GYM 20TH ALCOA,forced_best_name,000431,0406,,historical source VTD resolves cleanly to Eagleton gym cluster,approved,reviewed against current low-confidence output
+1,2008,BLOUNT,LOUISVILLE 8TH,tail_fuzzy_name,000423,0446,,historical source VTD resolves cleanly to Louisville cluster,approved,reviewed against current low-confidence output
+1,2008,BLOUNT,MARYVILLE MUN CITY,tail_fuzzy_name,000414,0460,,historical source VTD resolves cleanly to Maryville municipal cluster,approved,reviewed against current low-confidence output
 0,2006,MONROE,RURAL VALE FIREDEPT,forced_best_name,006360,,,,pending,
 0,2008,MONROE,RURAL VALE FIREDEPT,forced_best_name,006360,,,,pending,
 0,2012,UNICOI,INTERMEDIATE SCHOOL,forced_best_name,008902,,,,pending,
@@ -329,3 +355,270 @@ enabled,year,county_norm,from_precinct_norm,current_match_method,current_top_sug
 0,2018,MAURY,CP CHURCH 5 1,tail_fuzzy_name,005957,,,,pending,
 0,2020,MAURY,CP CHURCH 5 1,tail_fuzzy_name,005957,,,,pending,
 0,2000,SHELBY,111 LOC,forced_best_name,008260,,,,pending,
+1,2014,SHELBY,ARLINGTON 01,tail_fuzzy_name,008260,8512,,historical source VTD resolves cleanly to Arlington 01 cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2016,SHELBY,ARLINGTON 01,tail_fuzzy_name,008260,8512,,historical source VTD resolves cleanly to Arlington 01 cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2018,SHELBY,ARLINGTON 01,tail_fuzzy_name,008260,8512,,historical source VTD resolves cleanly to Arlington 01 cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2014,SHELBY,ARLINGTON 02,tail_fuzzy_name,008261,8516,,historical source VTD resolves cleanly to Arlington 02 cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2016,SHELBY,ARLINGTON 02,tail_fuzzy_name,008261,8516,,historical source VTD resolves cleanly to Arlington 02 cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2018,SHELBY,ARLINGTON 02,tail_fuzzy_name,008261,8516,,historical source VTD resolves cleanly to Arlington 02 cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2014,SHELBY,COLLIERVILLE 08,tail_fuzzy_name,008271,7433,,historical source VTD resolves cleanly to Collierville 08 cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2016,SHELBY,COLLIERVILLE 08,tail_fuzzy_name,008271,7433,,historical source VTD resolves cleanly to Collierville 08 cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2018,SHELBY,COLLIERVILLE 08,tail_fuzzy_name,008271,7433,,historical source VTD resolves cleanly to Collierville 08 cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2014,SHELBY,FOREST HILLS 01,tail_fuzzy_name,008082,7465,,historical source VTD resolves cleanly to Forest Hills 01 cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2016,SHELBY,FOREST HILLS 01,tail_fuzzy_name,008082,7465,,historical source VTD resolves cleanly to Forest Hills 01 cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2018,SHELBY,FOREST HILLS 01,tail_fuzzy_name,008082,7465,,historical source VTD resolves cleanly to Forest Hills 01 cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2014,SHELBY,FOREST HILLS 02,tail_fuzzy_name,008082,7465,,historical source VTD resolves cleanly to Forest Hills cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2016,SHELBY,FOREST HILLS 02,tail_fuzzy_name,008082,7465,,historical source VTD resolves cleanly to Forest Hills cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2018,SHELBY,FOREST HILLS 02,tail_fuzzy_name,008082,7465,,historical source VTD resolves cleanly to Forest Hills cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2014,SHELBY,FOREST HILLS 03,tail_fuzzy_name,008082,7465,,historical source VTD resolves cleanly to Forest Hills cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2016,SHELBY,FOREST HILLS 03,tail_fuzzy_name,008082,7465,,historical source VTD resolves cleanly to Forest Hills cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2018,SHELBY,FOREST HILLS 03,tail_fuzzy_name,008082,7465,,historical source VTD resolves cleanly to Forest Hills cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2014,SHELBY,ROSS 15,tail_fuzzy_name,008271,7433,,historical source VTD resolves cleanly to Ross/Collierville cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2016,SHELBY,ROSS 15,tail_fuzzy_name,008271,7433,,historical source VTD resolves cleanly to Ross/Collierville cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2018,SHELBY,ROSS 15,tail_fuzzy_name,008271,7433,,historical source VTD resolves cleanly to Ross/Collierville cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2014,WEAKLEY,3A GREENFIELD,forced_best_name,009507,9628,,historical source VTD resolves cleanly to Greenfield cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2016,WEAKLEY,3A GREENFIELD,forced_best_name,009507,9628,,historical source VTD resolves cleanly to Greenfield cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2018,WEAKLEY,3A GREENFIELD,forced_best_name,009507,9628,,historical source VTD resolves cleanly to Greenfield cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2014,WEAKLEY,4A SHARON,forced_best_name,009506,9636,,historical source VTD resolves cleanly to Sharon cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2016,WEAKLEY,4A SHARON,forced_best_name,009506,9636,,historical source VTD resolves cleanly to Sharon cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2018,WEAKLEY,4A SHARON,forced_best_name,009506,9636,,historical source VTD resolves cleanly to Sharon cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2014,WEAKLEY,5A MARTIN COC,forced_best_name,009508,9640,,historical source VTD resolves cleanly to Martin COC cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2016,WEAKLEY,5A MARTIN COC,forced_best_name,009508,9640,,historical source VTD resolves cleanly to Martin COC cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2018,WEAKLEY,5A MARTIN COC,forced_best_name,009508,9640,,historical source VTD resolves cleanly to Martin COC cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2014,WEAKLEY,6A TRINITY,forced_best_name,009510,9656,,historical source VTD resolves cleanly to Trinity cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2016,WEAKLEY,6A TRINITY,forced_best_name,009510,9656,,historical source VTD resolves cleanly to Trinity cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2018,WEAKLEY,6A TRINITY,forced_best_name,009510,9656,,historical source VTD resolves cleanly to Trinity cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2014,WEAKLEY,7A MARTIN SHEPHERD S,forced_best_name,009510,9656,,historical source VTD resolves cleanly to Martin Shepherd/Trinity cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2016,WEAKLEY,7A MARTIN SHEPHERD S,forced_best_name,009510,9656,,historical source VTD resolves cleanly to Martin Shepherd/Trinity cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2018,WEAKLEY,7A MARTIN SHEPHERD S,forced_best_name,009510,9656,,historical source VTD resolves cleanly to Martin Shepherd/Trinity cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2014,WEAKLEY,8A MARTIN FM,forced_best_name,009509,9664,,historical source VTD resolves cleanly to Martin FM cluster,approved,reviewed against repeated 2014 low-confidence output
+1,2016,WEAKLEY,8A MARTIN FUMC,forced_best_name,009509,9664,,historical source VTD resolves cleanly to Martin FUMC cluster,approved,reviewed against repeated 2016-2018 low-confidence output
+1,2018,WEAKLEY,8A MARTIN FUMC,forced_best_name,009509,9664,,historical source VTD resolves cleanly to Martin FUMC cluster,approved,reviewed against repeated 2016-2018 low-confidence output
+1,2014,WEAKLEY,9A DRESDEN,forced_best_name,009504,9668,,historical source VTD resolves cleanly to Dresden cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2016,WEAKLEY,9A DRESDEN,forced_best_name,009504,9668,,historical source VTD resolves cleanly to Dresden cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2018,WEAKLEY,9A DRESDEN,forced_best_name,009504,9668,,historical source VTD resolves cleanly to Dresden cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2014,DYER,C3 ROELLEN,tail_fuzzy_name,002355,2508,,historical source VTD resolves to Roellen cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2016,DYER,C3 ROELLEN,tail_fuzzy_name,002355,2508,,historical source VTD resolves to Roellen cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2018,DYER,C3 ROELLEN,tail_fuzzy_name,002355,2508,,historical source VTD resolves to Roellen cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2014,DYER,F DYER CO CENTRAL,tail_fuzzy_name,002361,2460,,historical source VTD resolves to Dyer Co Central cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2016,DYER,F DYER CO CENTRAL,tail_fuzzy_name,002361,2460,,historical source VTD resolves to Dyer Co Central cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2018,DYER,F DYER CO CENTRAL,tail_fuzzy_name,002361,2460,,historical source VTD resolves to Dyer Co Central cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2014,MAURY,CP CHURCH 5 1,tail_fuzzy_name,005957,5840,,historical source VTD resolves to CP Church cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2016,MAURY,CP CHURCH 5 1,tail_fuzzy_name,005957,5840,,historical source VTD resolves to CP Church cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2018,MAURY,CP CHURCH 5 1,tail_fuzzy_name,005957,5840,,historical source VTD resolves to CP Church cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2014,MAURY,HIGHLAND 2 2,tail_fuzzy_name,005960,5812,,historical source VTD resolves to Highland cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2016,MAURY,HIGHLAND 2 2,tail_fuzzy_name,005960,5812,,historical source VTD resolves to Highland cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2018,MAURY,HIGHLAND 2 2,tail_fuzzy_name,005960,5812,,historical source VTD resolves to Highland cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2014,MAURY,CULLEOKA 8 2,tail_fuzzy_name,000018,0018,,historical source VTD resolves cleanly to Culleoka cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2016,MAURY,CULLEOKA 8 2,tail_fuzzy_name,000018,0018,,historical source VTD resolves cleanly to Culleoka cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2018,MAURY,CULLEOKA 8 2,tail_fuzzy_name,000018,0018,,historical source VTD resolves cleanly to Culleoka cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2014,MAURY,RALLY HILL 11 1,tail_fuzzy_name,005965,5848,,historical source VTD resolves cleanly to Rally Hill cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2016,MAURY,RALLY HILL 11 1,tail_fuzzy_name,005965,5848,,historical source VTD resolves cleanly to Rally Hill cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2018,MAURY,RALLY HILL 11 1,tail_fuzzy_name,005965,5848,,historical source VTD resolves cleanly to Rally Hill cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2014,MAURY,WEST END 1 2,tail_fuzzy_name,005958,5824,,historical source VTD resolves cleanly to West End cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2016,MAURY,WEST END 1 2,tail_fuzzy_name,005958,5824,,historical source VTD resolves cleanly to West End cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2018,MAURY,WEST END 1 2,tail_fuzzy_name,005958,5824,,historical source VTD resolves cleanly to West End cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2014,HARDIN,ARMORY 1 1,tail_fuzzy_name,,3736,,historical source VTD name is 1 Armory,approved,reviewed against repeated 2014 low-confidence output
+1,2014,HARDIN,COURTHOUSE 9 1,tail_fuzzy_name,,3752,,historical source VTD name is 9 Courthouse,approved,reviewed against repeated 2014 low-confidence output
+1,2014,HARDIN,SHILOH 4 1,tail_fuzzy_name,,3812,,historical source VTD name is 4 Shiloh,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2016,HARDIN,SHILOH 4 1,tail_fuzzy_name,,3812,,historical source VTD name is 4 Shiloh,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2018,HARDIN,SHILOH 4 1,tail_fuzzy_name,,3812,,historical source VTD name is 4 Shiloh,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2014,HARDIN,SOUTHSIDE 3 2,tail_fuzzy_name,,3816,,historical source VTD name is 3 Southside,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2016,HARDIN,SOUTHSIDE 3 2,tail_fuzzy_name,,3816,,historical source VTD name is 3 Southside,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2018,HARDIN,SOUTHSIDE 3 2,tail_fuzzy_name,,3816,,historical source VTD name is 3 Southside,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2014,HARDIN,WALKERS 2 2,tail_fuzzy_name,,3820,,historical source VTD name is 2 Walkers,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2016,HARDIN,WALKERS 2 2,tail_fuzzy_name,,3820,,historical source VTD name is 2 Walkers,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2018,HARDIN,WALKERS 2 2,tail_fuzzy_name,,3820,,historical source VTD name is 2 Walkers,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2016,HARDIN,AIRPORT 1 1,forced_best_name,,0014,,current source code resolves consistently to Airport precinct,approved,reviewed against repeated 2016-2018 low-confidence output
+1,2018,HARDIN,AIRPORT 1 1,forced_best_name,,0014,,current source code resolves consistently to Airport precinct,approved,reviewed against repeated 2016-2018 low-confidence output
+1,2014,LAUDERDALE,ARP 6,forced_best_name,,4944,,historical source VTD name is Arp,approved,reviewed against repeated 2014-2016 low-confidence output
+1,2016,LAUDERDALE,ARP 6,forced_best_name,,4944,,historical source VTD name is Arp,approved,reviewed against repeated 2014-2016 low-confidence output
+1,2014,LAUDERDALE,CONNER 2,tail_fuzzy_name,,5004,,historical source VTD name is Conner,approved,reviewed against repeated 2014-2016 low-confidence output
+1,2016,LAUDERDALE,CONNER 2,tail_fuzzy_name,,5004,,historical source VTD name is Conner,approved,reviewed against repeated 2014-2016 low-confidence output
+1,2014,LAUDERDALE,NANKIPOO 7,tail_fuzzy_name,,4948,,historical source VTD name is Nankipoo,approved,reviewed against repeated 2014-2016 low-confidence output
+1,2016,LAUDERDALE,NANKIPOO 7,tail_fuzzy_name,,4948,,historical source VTD name is Nankipoo,approved,reviewed against repeated 2014-2016 low-confidence output
+1,2014,LAUDERDALE,PRICE 5,tail_fuzzy_name,,4936,,historical source VTD name is Price,approved,reviewed against repeated 2014 low-confidence output
+1,2014,LOUDON,LOUDON MT ZION,forced_best_name,,5324,,historical source VTD resolves to Loudon Outside cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2016,LOUDON,LOUDON MT ZION,forced_best_name,,5324,,historical source VTD resolves to Loudon Outside cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2018,LOUDON,LOUDON MT ZION,forced_best_name,,5324,,historical source VTD resolves to Loudon Outside cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2016,CARROLL,BETHEL COLLEGE,forced_best_name,,0868,,historical source VTD name is 21 Bethel College-Waddle Hall,approved,reviewed against repeated 2016-2018 low-confidence output
+1,2018,CARROLL,BETHEL COLLEGE,forced_best_name,,0868,,historical source VTD name is 21 Bethel College-Waddle Hall,approved,reviewed against repeated 2016-2018 low-confidence output
+1,2014,BLOUNT,EAGLETON MS CAF,tail_fuzzy_name,,0005,,current source code resolves consistently to Eagleton precinct family,approved,reviewed against repeated 2014 low-confidence output
+1,2014,BLOUNT,EAGLETON MS GYM,tail_fuzzy_name,,0005,,current source code resolves consistently to Eagleton precinct family,approved,reviewed against repeated 2014 low-confidence output
+1,2014,BLOUNT,OAK STREET,forced_best_name,,0480,,historical source VTD name is Oak View,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2016,BLOUNT,OAK STREET,forced_best_name,,0480,,historical source VTD name is Oak View,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2018,BLOUNT,OAK STREET,forced_best_name,,0480,,historical source VTD name is Oak View,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2014,MONROE,MADISONVILLE PRIMARY,tail_fuzzy_name,,6132,,historical source VTD name is 07 Madisonville Primary School,approved,reviewed against repeated 2014 low-confidence output
+1,2014,MONROE,NOTCHEY CREEK,forced_best_name,,6140,,historical source VTD name is 09 Old Notchey Creek School,approved,reviewed against repeated 2014 low-confidence output
+1,2014,MONROE,VONORE,forced_best_name,,6136,,historical source VTD name is 08 Vonore Community Center,approved,reviewed against repeated 2014 low-confidence output
+1,2014,MONROE,VONORE CC,forced_best_name,,6136,,historical source VTD name is 08 Vonore Community Center,approved,reviewed against repeated 2014 low-confidence output
+1,2014,ANDERSON,LAKE CITY CC,forced_best_name,,0064,,historical source code resolves consistently to Lake City precinct,approved,reviewed against repeated 2014 low-confidence output
+1,2014,CARROLL,BETHEL COLLEGE,forced_best_name,,0868,,historical source VTD name is 21 Bethel College-Waddle Hall,approved,reviewed against repeated 2014 low-confidence output
+1,2014,MACON,JR HIGH,tail_fuzzy_name,,0004,,current source code resolves consistently to JR HIGH precinct,approved,reviewed against repeated 2014 low-confidence output
+1,2014,MAURY,ST CATHERINE 4 2,tail_fuzzy_name,,0006,,current source code resolves consistently to St Catherine precinct,approved,reviewed against repeated 2014 low-confidence output
+1,2014,MAURY,YMCA 4 1,forced_best_name,,0013,,current source code resolves consistently to YMCA precinct,approved,reviewed against repeated 2014 low-confidence output
+1,2014,MCMINN,TCAT,forced_best_name,,0007,,current source code resolves consistently to TCAT precinct,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2016,MCMINN,TCAT,forced_best_name,,0007,,current source code resolves consistently to TCAT precinct,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2018,MCMINN,TCAT,forced_best_name,,0007,,current source code resolves consistently to TCAT precinct,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2014,MCNAIRY,CYPRESS 5 1,tail_fuzzy_name,,5984,,historical source VTD name is Cypress,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2016,MCNAIRY,CYPRESS 5 1,tail_fuzzy_name,,5984,,historical source VTD name is Cypress,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2018,MCNAIRY,CYPRESS 5 1,tail_fuzzy_name,,5984,,historical source VTD name is Cypress,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2014,MONROE,ELECTION COMMISSION,forced_best_name,,6096,,historical source code resolves consistently to Tellico Community Center cluster,approved,reviewed against repeated 2014 low-confidence output
+1,2014,MONTGOMERY,5A SMITH,forced_best_name,,0014,,current source code resolves consistently to 5A Smith precinct,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2016,MONTGOMERY,5A SMITH,forced_best_name,,0014,,current source code resolves consistently to 5A Smith precinct,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2018,MONTGOMERY,5A SMITH,forced_best_name,,0014,,current source code resolves consistently to 5A Smith precinct,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2014,MONTGOMERY,5B MADISON,forced_best_name,,0026,,current source code resolves consistently to 5B Madison precinct,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2016,MONTGOMERY,5B MADISON,forced_best_name,,0026,,current source code resolves consistently to 5B Madison precinct,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2018,MONTGOMERY,5B MADISON,forced_best_name,,0026,,current source code resolves consistently to 5B Madison precinct,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2014,UNICOI,INTERMEDIATE SCHOOL,forced_best_name,,9188,,historical source code resolves consistently to Intermediate School precinct,approved,reviewed against repeated 2014 low-confidence output
+1,2014,WASHINGTON,39 CONKLIN,forced_best_name,,9396,,historical source code resolves consistently to Conklin precinct,approved,reviewed against repeated 2014 low-confidence output
+1,2014,WASHINGTON,30 GRACE,forced_best_name,000007,0007,,historical source VTD resolves cleanly to Grace cluster,approved,reviewed against repeated 2014-2016 low-confidence output
+1,2016,WASHINGTON,30 GRACE,forced_best_name,000007,0007,,historical source VTD resolves cleanly to Grace cluster,approved,reviewed against repeated 2014-2016 low-confidence output
+1,2014,WASHINGTON,32 CHEROKEE OUT,tail_fuzzy_name,009325,9424,,historical source VTD resolves to Cherokee cluster,approved,reviewed against repeated 2014-2016 low-confidence output
+1,2016,WASHINGTON,32 CHEROKEE OUT,tail_fuzzy_name,009325,9424,,historical source VTD resolves to Cherokee cluster,approved,reviewed against repeated 2014-2016 low-confidence output
+1,2014,WASHINGTON,34 NEW VICTORY,forced_best_name,000004,0004,,historical source VTD resolves cleanly to New Victory cluster,approved,reviewed against repeated 2014-2016 low-confidence output
+1,2016,WASHINGTON,34 NEW VICTORY,forced_best_name,000004,0004,,historical source VTD resolves cleanly to New Victory cluster,approved,reviewed against repeated 2014-2016 low-confidence output
+1,2014,WASHINGTON,35 LIMESTONE,forced_best_name,009329,9544,,historical source VTD resolves cleanly to Limestone cluster,approved,reviewed against repeated 2014-2016 low-confidence output
+1,2016,WASHINGTON,35 LIMESTONE,forced_best_name,009329,9544,,historical source VTD resolves cleanly to Limestone cluster,approved,reviewed against repeated 2014-2016 low-confidence output
+1,2018,WASHINGTON,24 GRACE CITY,forced_best_name,000002,0002,,historical source VTD resolves cleanly to Grace City cluster,approved,reviewed against 2018 low-confidence output
+1,2018,WASHINGTON,25 GRACE WEST,tail_fuzzy_name,000007,0007,,historical source VTD resolves cleanly to Grace West cluster,approved,reviewed against 2018 low-confidence output
+1,2018,WASHINGTON,26 FAIRHAVEN,forced_best_name,000015,0015,,historical source VTD resolves cleanly to Fairhaven cluster,approved,reviewed against 2018 low-confidence output
+1,2018,WASHINGTON,27 COURTHOUSE,forced_best_name,000017,0017,,historical source VTD resolves cleanly to Courthouse cluster,approved,reviewed against 2018 low-confidence output
+1,2018,WASHINGTON,30 NEW VICTORY,forced_best_name,000004,0004,,historical source VTD resolves cleanly to New Victory cluster,approved,reviewed against 2018 low-confidence output
+1,2018,WASHINGTON,32 NEW SALEM,forced_best_name,000012,0012,,historical source VTD resolves cleanly to New Salem cluster,approved,reviewed against 2018 low-confidence output
+1,2018,WASHINGTON,33 SOUTH CENTRAL 7,tail_fuzzy_name,009330,9392,,historical source VTD resolves to South Central cluster,approved,reviewed against 2018 low-confidence output
+1,2018,WASHINGTON,34 SOUTH CENTRAL 6,tail_fuzzy_name,009330,9392,,historical source VTD resolves to South Central cluster,approved,reviewed against 2018 low-confidence output
+1,2014,HAMILTON,167 COLLEGEDALE 3,tail_fuzzy_name,003368,3488,,historical source VTD name aligns with Collegedale cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2016,HAMILTON,167 COLLEGEDALE 3,tail_fuzzy_name,003368,3488,,historical source VTD name aligns with Collegedale cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2018,HAMILTON,167 COLLEGEDALE 3,tail_fuzzy_name,003368,3488,,historical source VTD name aligns with Collegedale cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2014,HAMILTON,171 MURRAY HILLS 1,tail_fuzzy_name,003432,3416,,historical source VTD name aligns with Murray Hills cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2016,HAMILTON,171 MURRAY HILLS 1,tail_fuzzy_name,003432,3416,,historical source VTD name aligns with Murray Hills cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2018,HAMILTON,171 MURRAY HILLS 1,tail_fuzzy_name,003432,3416,,historical source VTD name aligns with Murray Hills cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2014,HAMILTON,176 KINGSPOINT 3,tail_fuzzy_name,003414,0042,,historical source VTD resolves to Kingspoint cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2016,HAMILTON,176 KINGSPOINT 3,tail_fuzzy_name,003414,0042,,historical source VTD resolves to Kingspoint cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2018,HAMILTON,176 KINGSPOINT 3,tail_fuzzy_name,003414,0042,,historical source VTD resolves to Kingspoint cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2014,HAMILTON,180 HARRISON 5,tail_fuzzy_name,003407,3512,,historical source VTD resolves cleanly to Harrison cluster,approved,reviewed against repeated 2014-2016 low-confidence output
+1,2016,HAMILTON,180 HARRISON 5,tail_fuzzy_name,003407,3512,,historical source VTD resolves cleanly to Harrison cluster,approved,reviewed against repeated 2014-2016 low-confidence output
+1,2014,HAMILTON,182 MURRAY HILLS 2,tail_fuzzy_name,003432,3416,,historical source VTD name aligns with Murray Hills cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2016,HAMILTON,182 MURRAY HILLS 2,tail_fuzzy_name,003432,3416,,historical source VTD name aligns with Murray Hills cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2018,HAMILTON,182 MURRAY HILLS 2,tail_fuzzy_name,003432,3416,,historical source VTD name aligns with Murray Hills cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2014,HAMILTON,186 MIDDLE VALLEY 2,tail_fuzzy_name,003424,3572,,historical source VTD resolves cleanly to Middle Valley cluster,approved,reviewed against repeated 2014-2016 low-confidence output
+1,2016,HAMILTON,186 MIDDLE VALLEY 2,tail_fuzzy_name,003424,3572,,historical source VTD resolves cleanly to Middle Valley cluster,approved,reviewed against repeated 2014-2016 low-confidence output
+1,2014,HAMILTON,188 MIDDLE VALLEY 1,tail_fuzzy_name,003424,3572,,historical source VTD resolves cleanly to Middle Valley cluster,approved,reviewed against repeated 2014-2016 low-confidence output
+1,2016,HAMILTON,188 MIDDLE VALLEY 1,tail_fuzzy_name,003424,3572,,historical source VTD resolves cleanly to Middle Valley cluster,approved,reviewed against repeated 2014-2016 low-confidence output
+1,2014,HAMILTON,190 KINGSPOINT 1,tail_fuzzy_name,003414,0042,,historical source VTD resolves to Kingspoint cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2016,HAMILTON,190 KINGSPOINT 1,tail_fuzzy_name,003414,0042,,historical source VTD resolves to Kingspoint cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2018,HAMILTON,190 KINGSPOINT 1,tail_fuzzy_name,003414,0042,,historical source VTD resolves to Kingspoint cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2014,HAMILTON,191 KINGSPOINT 2,tail_fuzzy_name,003414,0042,,historical source VTD resolves to Kingspoint cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2016,HAMILTON,191 KINGSPOINT 2,tail_fuzzy_name,003414,0042,,historical source VTD resolves to Kingspoint cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2018,HAMILTON,191 KINGSPOINT 2,tail_fuzzy_name,003414,0042,,historical source VTD resolves to Kingspoint cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2014,HAMILTON,192 EAST CHATTANOOGA 2,tail_fuzzy_name,003390,3352,,historical source VTD resolves to East Chattanooga cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2016,HAMILTON,192 EAST CHATTANOOGA 2,tail_fuzzy_name,003390,3352,,historical source VTD resolves to East Chattanooga cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2018,HAMILTON,192 EAST CHATTANOOGA 2,tail_fuzzy_name,003390,3352,,historical source VTD resolves to East Chattanooga cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2014,HAMILTON,193 NORTHGATE 2,tail_fuzzy_name,003437,3424,,historical source VTD resolves to Northgate cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2016,HAMILTON,193 NORTHGATE 2,tail_fuzzy_name,003437,3424,,historical source VTD resolves to Northgate cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2018,HAMILTON,193 NORTHGATE 2,tail_fuzzy_name,003437,3424,,historical source VTD resolves to Northgate cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2014,HAMILTON,194 NORTHGATE 1,tail_fuzzy_name,003437,3424,,historical source VTD resolves to Northgate cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2016,HAMILTON,194 NORTHGATE 1,tail_fuzzy_name,003437,3424,,historical source VTD resolves to Northgate cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2018,HAMILTON,194 NORTHGATE 1,tail_fuzzy_name,003437,3424,,historical source VTD resolves to Northgate cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2014,HAMILTON,196 COURTHOUSE 2,tail_fuzzy_name,003379,3340,,historical source VTD resolves to Courthouse cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2016,HAMILTON,196 COURTHOUSE 2,tail_fuzzy_name,003379,3340,,historical source VTD resolves to Courthouse cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2018,HAMILTON,196 COURTHOUSE 2,tail_fuzzy_name,003379,3340,,historical source VTD resolves to Courthouse cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2014,HAMILTON,200 SIGNAL MOUNTAIN 2,tail_fuzzy_name,003456,0077,,historical source VTD resolves to Signal Mountain cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2016,HAMILTON,200 SIGNAL MOUNTAIN 2,tail_fuzzy_name,003456,0077,,historical source VTD resolves to Signal Mountain cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2018,HAMILTON,200 SIGNAL MOUNTAIN 2,tail_fuzzy_name,003456,0077,,historical source VTD resolves to Signal Mountain cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2014,HAMILTON,204 COLLEGEDALE 4,tail_fuzzy_name,003368,3488,,historical source VTD name aligns with Collegedale cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2016,HAMILTON,204 COLLEGEDALE 4,tail_fuzzy_name,003368,3488,,historical source VTD name aligns with Collegedale cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2018,HAMILTON,204 COLLEGEDALE 4,tail_fuzzy_name,003368,3488,,historical source VTD name aligns with Collegedale cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2014,HAMILTON,207 SIGNAL MOUNTAIN 1,tail_fuzzy_name,003456,0077,,historical source VTD resolves to Signal Mountain cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2016,HAMILTON,207 SIGNAL MOUNTAIN 1,tail_fuzzy_name,003456,0077,,historical source VTD resolves to Signal Mountain cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2018,HAMILTON,207 SIGNAL MOUNTAIN 1,tail_fuzzy_name,003456,0077,,historical source VTD resolves to Signal Mountain cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2014,HAMILTON,208 COURTHOUSE 1,tail_fuzzy_name,003379,3340,,historical source VTD resolves to Courthouse cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2016,HAMILTON,208 COURTHOUSE 1,tail_fuzzy_name,003379,3340,,historical source VTD resolves to Courthouse cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2018,HAMILTON,208 COURTHOUSE 1,tail_fuzzy_name,003379,3340,,historical source VTD resolves to Courthouse cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2014,HAMILTON,209 EASTSIDE 1,tail_fuzzy_name,003399,3360,,historical source VTD resolves cleanly to Eastside cluster,approved,reviewed against repeated 2014-2016 low-confidence output
+1,2016,HAMILTON,209 EASTSIDE 1,tail_fuzzy_name,003399,3360,,historical source VTD resolves cleanly to Eastside cluster,approved,reviewed against repeated 2014-2016 low-confidence output
+1,2014,HAMILTON,210 RIDGEDALE 1,tail_fuzzy_name,003451,3444,,historical source VTD resolves to Ridgedale cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2016,HAMILTON,210 RIDGEDALE 1,tail_fuzzy_name,003451,3444,,historical source VTD resolves to Ridgedale cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2018,HAMILTON,210 RIDGEDALE 1,tail_fuzzy_name,003451,3444,,historical source VTD resolves to Ridgedale cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2014,HAMILTON,211 RIDGEDALE 2,tail_fuzzy_name,003451,3444,,historical source VTD resolves to Ridgedale cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2016,HAMILTON,211 RIDGEDALE 2,tail_fuzzy_name,003451,3444,,historical source VTD resolves to Ridgedale cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2018,HAMILTON,211 RIDGEDALE 2,tail_fuzzy_name,003451,3444,,historical source VTD resolves to Ridgedale cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2014,HAMILTON,212 ALTON PARK 1,tail_fuzzy_name,003352,3288,,historical source VTD resolves cleanly to Alton Park cluster,approved,reviewed against repeated 2014-2016 low-confidence output
+1,2016,HAMILTON,212 ALTON PARK 1,tail_fuzzy_name,003352,3288,,historical source VTD resolves cleanly to Alton Park cluster,approved,reviewed against repeated 2014-2016 low-confidence output
+1,2014,HAMILTON,214 ALTON PARK 2,tail_fuzzy_name,003352,3288,,historical source VTD resolves cleanly to Alton Park cluster,approved,reviewed against repeated 2014-2016 low-confidence output
+1,2016,HAMILTON,214 ALTON PARK 2,tail_fuzzy_name,003352,3288,,historical source VTD resolves cleanly to Alton Park cluster,approved,reviewed against repeated 2014-2016 low-confidence output
+1,2014,HAMILTON,215 MOUNTAIN CREEK 3,tail_fuzzy_name,003427,3409,,historical source VTD resolves cleanly to Mountain Creek cluster,approved,reviewed against repeated 2014-2016 low-confidence output
+1,2016,HAMILTON,215 MOUNTAIN CREEK 3,tail_fuzzy_name,003427,3409,,historical source VTD resolves cleanly to Mountain Creek cluster,approved,reviewed against repeated 2014-2016 low-confidence output
+1,2014,HAMILTON,217 COLLEGEDALE 5,tail_fuzzy_name,003368,3488,,historical source VTD name aligns with Collegedale cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2016,HAMILTON,217 COLLEGEDALE 5,tail_fuzzy_name,003368,3488,,historical source VTD name aligns with Collegedale cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2018,HAMILTON,217 COLLEGEDALE 5,tail_fuzzy_name,003368,3488,,historical source VTD name aligns with Collegedale cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2014,HAMILTON,218 HARRISON 6,tail_fuzzy_name,003407,3512,,historical source VTD resolves cleanly to Harrison cluster,approved,reviewed against repeated 2014-2016 low-confidence output
+1,2016,HAMILTON,218 HARRISON 6,tail_fuzzy_name,003407,3512,,historical source VTD resolves cleanly to Harrison cluster,approved,reviewed against repeated 2014-2016 low-confidence output
+1,2014,HAMILTON,220 COLLEGEDALE 6,tail_fuzzy_name,003368,3488,,historical source VTD name aligns with Collegedale cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2016,HAMILTON,220 COLLEGEDALE 6,tail_fuzzy_name,003368,3488,,historical source VTD name aligns with Collegedale cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2018,HAMILTON,220 COLLEGEDALE 6,tail_fuzzy_name,003368,3488,,historical source VTD name aligns with Collegedale cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2014,HAMILTON,170 SNOWHILL 1,tail_fuzzy_name,003458,3528,,historical source VTD name aligns with Snowhill cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2016,HAMILTON,170 SNOWHILL 1,tail_fuzzy_name,003458,3528,,historical source VTD name aligns with Snowhill cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2018,HAMILTON,170 SNOWHILL 1,tail_fuzzy_name,003458,3528,,historical source VTD name aligns with Snowhill cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2014,HAMILTON,172 DALLAS 2,tail_fuzzy_name,003382,3544,,historical source VTD name aligns with Dallas cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2016,HAMILTON,172 DALLAS 2,tail_fuzzy_name,003382,3544,,historical source VTD name aligns with Dallas cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2018,HAMILTON,172 DALLAS 2,tail_fuzzy_name,003382,3544,,historical source VTD name aligns with Dallas cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2014,HAMILTON,173 WOODMORE 1,tail_fuzzy_name,003476,3476,,historical source VTD resolves cleanly to Woodmore cluster,approved,reviewed against repeated 2014-2016 low-confidence output
+1,2016,HAMILTON,173 WOODMORE 1,tail_fuzzy_name,003476,3476,,historical source VTD resolves cleanly to Woodmore cluster,approved,reviewed against repeated 2014-2016 low-confidence output
+1,2014,HAMILTON,174 WOODMORE 2,tail_fuzzy_name,003476,3476,,historical source VTD resolves cleanly to Woodmore cluster,approved,reviewed against repeated 2014-2016 low-confidence output
+1,2016,HAMILTON,174 WOODMORE 2,tail_fuzzy_name,003476,3476,,historical source VTD resolves cleanly to Woodmore cluster,approved,reviewed against repeated 2014-2016 low-confidence output
+1,2014,HAMILTON,175 AIRPORT,tail_fuzzy_name,003477,3344,,historical source VTD aligns with Airport cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2016,HAMILTON,175 AIRPORT,tail_fuzzy_name,003477,3344,,historical source VTD aligns with Airport cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2018,HAMILTON,175 AIRPORT,tail_fuzzy_name,003477,3344,,historical source VTD aligns with Airport cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2014,HAMILTON,177 CONCORD 5,tail_fuzzy_name,003372,3332,,historical source VTD aligns with Concord cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2016,HAMILTON,177 CONCORD 5,tail_fuzzy_name,003372,3332,,historical source VTD aligns with Concord cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2018,HAMILTON,177 CONCORD 5,tail_fuzzy_name,003372,3332,,historical source VTD aligns with Concord cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2014,HAMILTON,178 CONCORD 6,tail_fuzzy_name,003372,3332,,historical source VTD aligns with Concord cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2016,HAMILTON,178 CONCORD 6,tail_fuzzy_name,003372,3332,,historical source VTD aligns with Concord cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2018,HAMILTON,178 CONCORD 6,tail_fuzzy_name,003372,3332,,historical source VTD aligns with Concord cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2014,HAMILTON,179 SNOWHILL 2,tail_fuzzy_name,003458,3528,,historical source VTD name aligns with Snowhill cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2016,HAMILTON,179 SNOWHILL 2,tail_fuzzy_name,003458,3528,,historical source VTD name aligns with Snowhill cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2018,HAMILTON,179 SNOWHILL 2,tail_fuzzy_name,003458,3528,,historical source VTD name aligns with Snowhill cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2014,HAMILTON,181 CONCORD 4,tail_fuzzy_name,003372,3332,,historical source VTD aligns with Concord cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2016,HAMILTON,181 CONCORD 4,tail_fuzzy_name,003372,3332,,historical source VTD aligns with Concord cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2018,HAMILTON,181 CONCORD 4,tail_fuzzy_name,003372,3332,,historical source VTD aligns with Concord cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2014,HAMILTON,183 BAKEWELL 2,tail_fuzzy_name,003359,3308,,historical source VTD aligns with Bakewell cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2016,HAMILTON,183 BAKEWELL 2,tail_fuzzy_name,003359,3308,,historical source VTD aligns with Bakewell cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2018,HAMILTON,183 BAKEWELL 2,tail_fuzzy_name,003359,3308,,historical source VTD aligns with Bakewell cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2014,HAMILTON,184 BAKEWELL 1,tail_fuzzy_name,003359,3308,,historical source VTD aligns with Bakewell cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2016,HAMILTON,184 BAKEWELL 1,tail_fuzzy_name,003359,3308,,historical source VTD aligns with Bakewell cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2018,HAMILTON,184 BAKEWELL 1,tail_fuzzy_name,003359,3308,,historical source VTD aligns with Bakewell cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2014,HAMILTON,185 DALLAS 1,tail_fuzzy_name,003382,3544,,historical source VTD name aligns with Dallas cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2016,HAMILTON,185 DALLAS 1,tail_fuzzy_name,003382,3544,,historical source VTD name aligns with Dallas cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2018,HAMILTON,185 DALLAS 1,tail_fuzzy_name,003382,3544,,historical source VTD name aligns with Dallas cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2014,HAMILTON,195 EASTDALE,tail_fuzzy_name,003396,3364,,historical source VTD resolves cleanly to Eastdale cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2016,HAMILTON,195 EASTDALE,tail_fuzzy_name,003396,3364,,historical source VTD resolves cleanly to Eastdale cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2018,HAMILTON,195 EASTDALE,tail_fuzzy_name,003396,3364,,historical source VTD resolves cleanly to Eastdale cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2014,HAMILTON,197 DOWNTOWN 2,tail_fuzzy_name,003385,3332,,historical source VTD aligns with Downtown cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2016,HAMILTON,197 DOWNTOWN 2,tail_fuzzy_name,003385,3332,,historical source VTD aligns with Downtown cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2018,HAMILTON,197 DOWNTOWN 2,tail_fuzzy_name,003385,3332,,historical source VTD aligns with Downtown cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2014,HAMILTON,199 DOWNTOWN 1,tail_fuzzy_name,003385,3332,,historical source VTD aligns with Downtown cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2016,HAMILTON,199 DOWNTOWN 1,tail_fuzzy_name,003385,3332,,historical source VTD aligns with Downtown cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2018,HAMILTON,199 DOWNTOWN 1,tail_fuzzy_name,003385,3332,,historical source VTD aligns with Downtown cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2014,HAMILTON,201 SUMMIT 4,tail_fuzzy_name,003441,3533,,historical source VTD aligns with Summit cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2016,HAMILTON,201 SUMMIT 4,tail_fuzzy_name,003441,3533,,historical source VTD aligns with Summit cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2018,HAMILTON,201 SUMMIT 4,tail_fuzzy_name,003441,3533,,historical source VTD aligns with Summit cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2014,HAMILTON,203 SUMMIT 3,tail_fuzzy_name,003441,3533,,historical source VTD aligns with Summit cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2016,HAMILTON,203 SUMMIT 3,tail_fuzzy_name,003441,3533,,historical source VTD aligns with Summit cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2018,HAMILTON,203 SUMMIT 3,tail_fuzzy_name,003441,3533,,historical source VTD aligns with Summit cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2014,HAMILTON,206 CONCORD 7,tail_fuzzy_name,003372,3332,,historical source VTD aligns with Concord cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2016,HAMILTON,206 CONCORD 7,tail_fuzzy_name,003372,3332,,historical source VTD aligns with Concord cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2018,HAMILTON,206 CONCORD 7,tail_fuzzy_name,003372,3332,,historical source VTD aligns with Concord cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2014,HAMILTON,216 APISON 3,tail_fuzzy_name,003355,3272,003355,historical source VTD aligns with Apison cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2016,HAMILTON,216 APISON 3,tail_fuzzy_name,003355,3272,003355,historical source VTD aligns with Apison cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2018,HAMILTON,216 APISON 3,tail_fuzzy_name,003355,3272,003355,historical source VTD aligns with Apison cluster,approved,reviewed against repeated 2014-2018 low-confidence output
+1,2018,HAMILTON,221 COLLEGEDALE 7,tail_fuzzy_name,003368,3488,,historical source VTD name aligns with Collegedale cluster,approved,reviewed against 2018 low-confidence output
+1,2018,HAMILTON,222 COLLEGEDALE 8,tail_fuzzy_name,003368,3488,,historical source VTD name aligns with Collegedale cluster,approved,reviewed against 2018 low-confidence output
+1,2018,HAMILTON,223 COLLEGEDALE 9,tail_fuzzy_name,003368,3488,,historical source VTD name aligns with Collegedale cluster,approved,reviewed against 2018 low-confidence output
+1,2018,HAMILTON,233 DOWNTOWN 3,tail_fuzzy_name,003385,3332,,historical source VTD aligns with Downtown cluster,approved,reviewed against 2018 low-confidence output
+1,2018,HAMILTON,236 CONCORD 8,tail_fuzzy_name,003372,3328,,historical source VTD aligns with Concord cluster,approved,reviewed against 2018 low-confidence output
+1,2018,HAMILTON,237 CONCORD 9,tail_fuzzy_name,003372,3328,,historical source VTD aligns with Concord cluster,approved,reviewed against 2018 low-confidence output
+1,2018,HAMILTON,238 STUART HEIGHTS 3,tail_fuzzy_name,003465,3456,,historical source VTD resolves cleanly to Stuart Heights cluster,approved,reviewed against 2018 low-confidence output
+1,2018,HAMILTON,239 SUMMIT 5,tail_fuzzy_name,003441,3533,,historical source VTD aligns with Summit cluster,approved,reviewed against 2018 low-confidence output
+1,2018,HAMILTON,240 APISON 4,tail_fuzzy_name,003355,3480,,historical source VTD aligns with Apison cluster,approved,reviewed against 2018 low-confidence output

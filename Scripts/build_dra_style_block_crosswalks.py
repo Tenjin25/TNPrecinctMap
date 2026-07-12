@@ -478,6 +478,9 @@ def load_numeric_precinct_2022_bootstrap_rows() -> List[dict]:
     existing low-confidence output already collapses one label to a single 2024
     PRCTSEQ within a county, treat that as a bootstrap override so future crosswalk
     rebuilds can resolve it as an exact catalog match instead of a fuzzy fallback.
+
+    Keep this conservative: do not bootstrap pure forced-best fallbacks, which can
+    otherwise snowball weak placeholder matches into self-reinforcing overrides.
     """
     path = XWALK_DIR / "tn_precinct_to_vtd20_blockweighted_2022_low_confidence.csv"
     grouped_codes: Dict[Tuple[str, str], set] = defaultdict(set)
@@ -488,6 +491,13 @@ def load_numeric_precinct_2022_bootstrap_rows() -> List[dict]:
         county_norm = norm_county(str(row.get("county_norm", "")).strip())
         precinct_norm = norm_text(str(row.get("from_precinct_norm", "")).strip())
         src_vtd = str(row.get("src_vtdst", "")).strip()
+        method = str(row.get("match_method", "")).strip()
+        try:
+            score = float(str(row.get("match_score", "")).strip() or 0.0)
+        except ValueError:
+            score = 0.0
+        if method not in {"tail_fuzzy_name", "fuzzy_name"} or score < 0.9:
+            continue
         if not (county_norm and precinct_norm and precinct_norm.isdigit() and src_vtd and src_vtd.isdigit()):
             continue
         grouped_codes[(county_norm, precinct_norm)].add(src_vtd.zfill(6))
@@ -710,9 +720,36 @@ def leading_alpha_code(value: str) -> str:
     return ""
 
 
+def excel_serial_aliases(precinct_norm: str) -> List[str]:
+    """Decode Excel date-serial artifacts like 44562 -> 1-1 / 01-01."""
+    out: List[str] = []
+    s = norm_text(precinct_norm)
+    if not s:
+        return out
+    m = re.match(r"^(\d{5})$", s)
+    if m:
+        serial = int(m.group(1))
+        if 43000 <= serial <= 50000:
+            dt = datetime(1899, 12, 30) + timedelta(days=serial)
+            mm = f"{dt.month:02d}"
+            dd = f"{dt.day:02d}"
+            out.append(f"{mm}-{dd}")
+            out.append(f"{dd}-{mm}")
+            out.append(f"{int(mm)}-{int(dd)}")
+            out.append(f"{int(dd)}-{int(mm)}")
+    dedup: List[str] = []
+    seen = set()
+    for v in out:
+        n = norm_text(v)
+        if n and n not in seen:
+            seen.add(n)
+            dedup.append(n)
+    return dedup
+
+
 def shelby_aliases(precinct_norm: str) -> List[str]:
     """Generate deterministic Shelby-specific label aliases."""
-    out: List[str] = []
+    out: List[str] = excel_serial_aliases(precinct_norm)
     s = norm_text(precinct_norm)
     if not s:
         return out
@@ -734,18 +771,6 @@ def shelby_aliases(precinct_norm: str) -> List[str]:
     m = re.match(r"^LUCY\s+(\d{1,2})$", s)
     if m:
         out.append(f"LUCY {int(m.group(1))}")
-    # Excel date-serial artifact seen in 2022 Shelby source.
-    m = re.match(r"^(\d{5})$", s)
-    if m:
-        serial = int(m.group(1))
-        if 43000 <= serial <= 50000:
-            dt = datetime(1899, 12, 30) + timedelta(days=serial)
-            mm = f"{dt.month:02d}"
-            dd = f"{dt.day:02d}"
-            out.append(f"{mm}-{dd}")
-            out.append(f"{dd}-{mm}")
-            out.append(f"{int(mm)}-{int(dd)}")
-            out.append(f"{int(dd)}-{int(mm)}")
 
     dedup: List[str] = []
     seen = set()
@@ -817,22 +842,27 @@ def match_source_vtd(
         if precinct_norm in names:
             return src_vtd, "exact_name", 1.0
 
-    # 1a) Shelby-specific deterministic aliases for legacy coded labels.
+    # 1a) Generic Excel date-serial aliases used by several 2022 county exports.
+    for alias in excel_serial_aliases(precinct_norm):
+        for src_vtd, names in by_vtd_name_norms.items():
+            if alias in names:
+                return src_vtd, "prefix_name", 0.996
+
+    # 1b) Shelby-specific deterministic aliases for legacy coded labels.
     if county_norm == "SHELBY":
-        aliases = shelby_aliases(precinct_norm)
-        for alias in aliases:
+        for alias in shelby_aliases(precinct_norm):
             for src_vtd, names in by_vtd_name_norms.items():
                 if alias in names:
                     return src_vtd, "shelby_alias_name", 0.997
 
-    # 1b) Prefix name match: source labels often look like "10-6 Gateway School"
+    # 1c) Prefix name match: source labels often look like "10-6 Gateway School"
     # while election CSVs can carry only "10-6".
     for src_vtd, names in by_vtd_name_norms.items():
         for cand in names:
             if cand == precinct_norm or cand.startswith(f"{precinct_norm} "):
                 return src_vtd, "prefix_name", 0.995
 
-    # 1c) Leading code-token match (robust to zero-padding and minor formatting).
+    # 1d) Leading code-token match (robust to zero-padding and minor formatting).
     q_codes = leading_code_tokens(precinct_norm)
     if q_codes:
         for src_vtd, names in by_vtd_name_norms.items():
@@ -1109,6 +1139,11 @@ def main() -> None:
     parser.add_argument("--source-csv", required=True, help="Path to source precinct CSV")
     parser.add_argument("--year", type=int, help="Election year (defaults from source filename)")
     parser.add_argument("--source-tag", help="Optional tag to make output filenames source-specific")
+    parser.add_argument(
+        "--no-source-tag",
+        action="store_true",
+        help="Write generic year-level output filenames without a source tag",
+    )
     args = parser.parse_args()
 
     source_csv = Path(args.source_csv)
@@ -1119,7 +1154,10 @@ def main() -> None:
 
     year = int(args.year) if args.year else parse_year_from_path(source_csv)
     payload = build_crosswalk(source_csv, year)
-    source_tag = (args.source_tag or "").strip() or source_tag_from_path(source_csv)
+    if args.no_source_tag:
+        source_tag = ""
+    else:
+        source_tag = (args.source_tag or "").strip() or source_tag_from_path(source_csv)
 
     XWALK_DIR.mkdir(parents=True, exist_ok=True)
     stem = f"tn_precinct_to_vtd20_blockweighted_{year}"
