@@ -98,16 +98,6 @@ const TARGETS = [
     note: "2018 U.S. Senate zero VTD20 rows filled from 2012 U.S. Senate same-VTD size/share proxy, then adjacent VTD20 neighbors",
   },
   {
-    target: "president_2020.json",
-    prior: "president_2016.json",
-    note: "2020 presidential zero VTD20 rows filled from 2016 presidential same-VTD size/share proxy, then adjacent VTD20 neighbors",
-  },
-  {
-    target: "us_senate_2020.json",
-    prior: "us_senate_2014.json",
-    note: "2020 U.S. Senate zero VTD20 rows filled from 2014 U.S. Senate same-VTD size/share proxy, then adjacent VTD20 neighbors",
-  },
-  {
     target: "governor_2022.json",
     prior: "president_2020.json",
     note: "2022 governor zero VTD20 rows filled from 2020 presidential VTD20 size/share proxy",

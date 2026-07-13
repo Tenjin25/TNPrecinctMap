@@ -213,8 +213,10 @@ This project has been moving on two tracks at once: frontend/panel polish for th
 - Extended that two-stage fill across statewide precinct contests from `2000` through `2024`, leaving district contest JSONs untouched.
 - Added `Scripts/report_tn_precinct_coverage.js` plus generated `Data/reports/tn_precinct_coverage_report.json` and `.csv` so mapped zero rows, non-geographic zero buckets, inferred rows, and total-integrity checks are reproducible.
 - Pruned zero-vote non-geographic placeholder rows such as `NG-ALL_COUNTY_PRECINCT` and `UNM-*` labels from precinct contest JSONs while preserving all nonzero vote buckets and exact statewide totals.
-- After the historical fill, every statewide precinct contest report has `0` mapped zero rows; `governor_2022`, `president_2024`, and `us_senate_2024` also have full mapped coverage in Hamilton, Washington, Marion, Rutherford, Shelby, Davidson, and Knox.
-- Refreshed the frontend cache-buster/build IDs again so the new precinct-name behavior and crosswalk-backed map updates load immediately after deploy.
+- Added `Scripts/patch_hamilton_2020_exact_vtd_names.js` after visual QA showed downtown Chattanooga and north Hamilton 2020 rows were spatially swapped by the weighted `VTD20` allocation. The patch uses exact Hamilton source precinct names against the official `NAMELSAD20` friendly-name lookup, updates `president_2020` and `us_senate_2020`, and preserves Hamilton DEM/REP/OTHER county totals.
+- Removed the too-aggressive 2020 prior-year gap-fill targets from `Scripts/fill_tn_vtd20_gap_rows_from_prior.js`; the refreshed report leaves `60` mapped zero rows in each 2020 statewide contest rather than filling them with older-year proxies that can distort visible precinct geography.
+- After the historical fill and Hamilton 2020 repair, `governor_2022`, `president_2024`, and `us_senate_2024` have full mapped coverage in Hamilton, Washington, Marion, Rutherford, Shelby, Davidson, and Knox; 2020 remains more conservative until safer county-level evidence is added.
+- Refreshed the frontend cache-buster/build IDs again so the corrected Hamilton 2020 precinct identities and crosswalk-backed map updates load immediately after deploy.
 
 ### Historical Contest / Manifest Work
 
