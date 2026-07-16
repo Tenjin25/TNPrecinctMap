@@ -4,8 +4,8 @@
   "source_vintage": 2020,
   "overlap_csv": "tn_precinct_to_2024.csv",
   "input_precinct_keys": 1855,
-  "crosswalk_rows": 2380,
-  "strict_crosswalk_rows": 2380,
+  "crosswalk_rows": 2387,
+  "strict_crosswalk_rows": 2387,
   "low_confidence_crosswalk_rows": 0,
   "unmatched_rows": 0,
   "method_counts": {

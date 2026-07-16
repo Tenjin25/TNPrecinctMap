@@ -346,6 +346,13 @@ def resolve_name_to_official_vtd(
     if grouped:
         return grouped
 
+    # Rural dual-numeric labels ("2-1", "9 2"): bind via primary number, not subunit.
+    dual_hits = resolve_dual_numeric_leading_hits(
+        county_norm, precinct_norm, leading_lookup, filter_official
+    )
+    if dual_hits:
+        return dual_hits
+
     # Leading code tokens from the election label (e.g. "101 WARTRACE", "10W HOWARD").
     # Prefer the most specific token with a unique official hit.
     for tok in leading_code_tokens(precinct_norm):
@@ -551,6 +558,13 @@ def load_2024_precinct_catalog(path: Path) -> Tuple[Dict[Tuple[str, str], List[d
         exact = filter_official(exact_lookup.get((county_norm, precinct_norm), {}))
         if exact:
             return exact
+
+        # 3b) Rural dual-numeric labels ("2-1", "9 2"): primary number, not subunit.
+        dual_hits = resolve_dual_numeric_leading_hits(
+            county_norm, precinct_norm, leading_lookup, filter_official
+        )
+        if dual_hits:
+            return dual_hits
 
         # 4) Prefer the most specific leading-code token with a unique official hit
         # (so 10W -> 10-W wins over bare 10 -> {10-N,10-S,10-W}).
@@ -1239,6 +1253,51 @@ def normalize_numeric_token(token: str) -> str:
     return t
 
 
+def parse_dual_numeric_label(value: str) -> Optional[Tuple[int, int]]:
+    """Parse rural-style precinct labels like '2-1' / '9 2' into (primary, subunit)."""
+    s = norm_text(value)
+    if not s:
+        return None
+    m = re.fullmatch(r"(\d{1,3})[- ](\d{1,3})", s)
+    if not m:
+        return None
+    return int(m.group(1)), int(m.group(2))
+
+
+def resolve_dual_numeric_leading_hits(
+    county_norm: str,
+    precinct_norm: str,
+    leading_lookup: Dict[Tuple[str, str], Dict[str, float]],
+    filter_official,
+) -> Dict[str, float]:
+    """Resolve 'N-1' / 'N 2' labels via the primary number, not the subunit.
+
+    Election exports often use district/precinct + subunit ('2-1', '10-1'). The
+    trailing '1' is not a Census VTD code, but a naive token scan can bind every
+    such label to whatever VTD owns leading token '1' (Haywood collapse bug).
+
+    When the primary number alone is ambiguous (09A/09B), use subunit 1/2 as A/B.
+    Leaves Knox-style dual codes (second token > 2) to the generic path.
+    """
+    parsed = parse_dual_numeric_label(precinct_norm)
+    if not parsed:
+        return {}
+    primary, subunit = parsed
+    if subunit > 2:
+        return {}
+    primary_tok = str(primary)
+    hits = filter_official(leading_lookup.get((county_norm, primary_tok), {}))
+    if len(hits) == 1:
+        return hits
+    if len(hits) > 1 and 1 <= subunit <= 2:
+        letter = chr(ord("A") + subunit - 1)
+        for tok in (f"{primary_tok}{letter}", f"{primary_tok}-{letter}", f"{primary_tok} {letter}"):
+            letter_hits = filter_official(leading_lookup.get((county_norm, tok), {}))
+            if len(letter_hits) == 1:
+                return letter_hits
+    return {}
+
+
 def leading_code_tokens(value: str) -> List[str]:
     s = (value or "").strip().upper()
     if not s:
@@ -1251,11 +1310,20 @@ def leading_code_tokens(value: str) -> List[str]:
     m = re.match(r"^\s*([0-9]{1,3}[A-Z]?)\s*[- ]\s*([0-9]{1,3}[A-Z]?)\b", s)
     if m:
         out.append(f"{normalize_numeric_token(m.group(1))}-{normalize_numeric_token(m.group(2))}")
-        # Knox 2000 dual codes "001-006" / "001 006": second token is the VTD00 name.
-        out.append(normalize_numeric_token(m.group(2)))
         digits2 = re.sub(r"\D", "", m.group(2))
-        if digits2:
-            out.append(str(int(digits2)))
+        second_n = int(digits2) if digits2 else None
+        # Rural labels like "2-1" / "9-2": first number is the precinct id and the
+        # second is only a subunit. Emitting bare "1" here collapses whole counties
+        # onto whatever VTD owns leading token 1 (see Haywood).
+        # Knox-style dual codes ("001-006") keep the meaningful second token.
+        if second_n is not None and second_n > 2:
+            out.append(normalize_numeric_token(m.group(2)))
+            out.append(str(second_n))
+        else:
+            out.append(normalize_numeric_token(m.group(1)))
+            digits1 = re.sub(r"\D", "", m.group(1))
+            if digits1:
+                out.append(str(int(digits1)))
     # Compact or spaced directional: 10W / 10 W / 65SW
     m2 = re.match(r"^\s*([0-9]{1,3})([A-Z]{1,2})\b", s)
     m2_space = re.match(r"^\s*([0-9]{1,3})\s+([A-Z]{1,2})\b", s)
@@ -1457,9 +1525,13 @@ def match_source_vtd(
     for src_vtd, meta in candidates:
         if meta["src_name_norm"]:
             by_vtd_name_norms[src_vtd].add(meta["src_name_norm"])
-    for src_vtd, names in by_vtd_name_norms.items():
-        if precinct_norm in names:
-            return src_vtd, "exact_name", 1.0
+    # Prefer concrete PRCTSEQ/catalog codes over synthetic GRP:: family splits so
+    # boom/NYT PRCTSEQ overlays are not stolen by equal-weight Census group splits
+    # (Hamilton Alton Park 50/50 vs geometry ~85/15).
+    exact_name_hits = [src_vtd for src_vtd, names in by_vtd_name_norms.items() if precinct_norm in names]
+    if exact_name_hits:
+        exact_name_hits.sort(key=lambda src: (str(src).startswith("GRP::"), str(src)))
+        return exact_name_hits[0], "exact_name", 1.0
 
     # 1a) Generic Excel date-serial aliases used by several 2022 county exports.
     for alias in excel_serial_aliases(precinct_norm):

@@ -10,14 +10,30 @@
       "source_precincts": 1841,
       "mapped_precincts": 1841,
       "unmatched_precincts": 0,
-      "output_rows": 2641,
+      "output_rows": 2662,
       "transfer_method_counts": {
         "existing_blockweighted_drawable": 1841
       },
-      "drawable_labels_touched": 1607,
+      "drawable_labels_touched": 1662,
       "drawable_labels_total": 1965,
       "output_csv": "crosswalks\\tn_precinct_to_vtd20_blockchain_2022.csv",
       "unmatched_csv": "crosswalks\\tn_precinct_to_vtd20_blockchain_2022_unmatched.csv"
+    },
+    {
+      "year": 2024,
+      "source_vintage": 2020,
+      "status": "ok",
+      "source_precincts": 1855,
+      "mapped_precincts": 1855,
+      "unmatched_precincts": 0,
+      "output_rows": 2387,
+      "transfer_method_counts": {
+        "existing_blockweighted_drawable": 1855
+      },
+      "drawable_labels_touched": 1805,
+      "drawable_labels_total": 1965,
+      "output_csv": "crosswalks\\tn_precinct_to_vtd20_blockchain_2024.csv",
+      "unmatched_csv": "crosswalks\\tn_precinct_to_vtd20_blockchain_2024_unmatched.csv"
     }
   ]
 }

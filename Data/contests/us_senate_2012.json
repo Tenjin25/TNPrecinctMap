@@ -7,7 +7,7 @@
     "synthetic_zero_rows_added": 235,
     "weighted_vtd20_allocation": true,
     "weighted_vtd20_source": "Data/crosswalks/tn_precinct_to_vtd20_blockchain_2012.csv",
-    "weighted_vtd20_applied_at": "2026-07-16T19:42:56.956Z",
+    "weighted_vtd20_applied_at": "2026-07-16T20:10:49.656Z",
     "weighted_vtd20_matched_source_rows": 16931,
     "weighted_vtd20_split_source_rows": 10402,
     "weighted_vtd20_unmatched_source_rows": 600,
@@ -779,7 +779,7 @@
       }
     ],
     "prior_vtd20_gap_fill": true,
-    "prior_vtd20_gap_fill_applied_at": "2026-07-16T19:43:05.272Z",
+    "prior_vtd20_gap_fill_applied_at": "2026-07-16T20:11:01.093Z",
     "prior_vtd20_gap_fill_source": "Data/contests/us_senate_2006.json",
     "prior_vtd20_gap_fill_note": "2012 U.S. Senate zero VTD20 rows filled from 2006 U.S. Senate same-VTD size/share proxy, then neighbor / county-share",
     "prior_vtd20_gap_fill_rows": 261,

@@ -154,25 +154,25 @@ from_year,source_vintage,county_norm,from_precinct_norm,src_vtdst,dst_vtd20,name
 2024,2020,CANNON,2 2 GASSAWAY,0003,000708,2 Short Mountain,1.0,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,CANNON,2 3 PLEASANT RIDGE,0004,000708,2 Short Mountain,1.0,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,CANNON,2 4 SHORT MOUNTAIN,0005,000709,4 Short Mountain,1.0,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,CANNON,3 2 WOODLAND,0006,000708,2 Short Mountain,1.0,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,CANNON,3 2 WOODLAND,0006,000703,Woodland,1.0,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,CANNON,4 1 EASTSIDE,0007,000709,4 Short Mountain,1.0,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,CANNON,4 2 SHORT MOUNTAIN,0008,000708,2 Short Mountain,1.0,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,CANNON,4 2 SHORT MOUNTAIN,0008,000709,4 Short Mountain,1.0,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,CANNON,5 1 WOODBURY,0009,000705,Woodbury,1.0,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,CARROLL,1 1 LAVINIA,0001,000816,1 Lavinia,1.0,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,CARROLL,1 2 CEDAR GROVE,0002,000801,2 Trezevant,1.0,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,CARROLL,1 2 CEDAR GROVE,0002,000816,1 Lavinia,1.0,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,CARROLL,1 3 ATWOOD,0003,000816,1 Lavinia,1.0,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,CARROLL,2 1 MCLEMORESVILLE,0004,000816,1 Lavinia,1.0,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,CARROLL,2 1 MCLEMORESVILLE,0004,000801,2 Trezevant,1.0,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,CARROLL,2 2 TREZEVANT,0005,000801,2 Trezevant,1.0,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,CARROLL,3 1 BRUCETON,0006,000816,1 Lavinia,1.0,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,CARROLL,4 1 RECYCLING CENTER,0007,000816,1 Lavinia,1.0,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,CARROLL,4 2 HOLLOW ROCK,0008,000801,2 Trezevant,1.0,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,CARROLL,5 1 CIVIC CENTER,0009,000816,1 Lavinia,1.0,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,CARROLL,6 1 CLARKSBURG,0010,000816,1 Lavinia,1.0,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,CARROLL,6 2 CONCORD WESTPORT,0011,000801,2 Trezevant,1.0,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,CARROLL,7 1 POLICE STATION HUNT,0012,000816,1 Lavinia,1.0,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,CARROLL,8 1 SENIOR CITIZENS,0013,000816,1 Lavinia,1.0,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,CARROLL,9 1 CHURCH OF CHRIST,0014,000816,1 Lavinia,1.0,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,CARROLL,9 2 CITY HALL MK,0015,000801,2 Trezevant,1.0,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,CARROLL,3 1 BRUCETON,0006,000803,12 Bruceton,1.0,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,CARROLL,4 1 RECYCLING CENTER,0007,000810,4 McLemoresville,1.0,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,CARROLL,4 2 HOLLOW ROCK,0008,000810,4 McLemoresville,1.0,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,CARROLL,5 1 CIVIC CENTER,0009,000804,5 Cedar Grove,1.0,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,CARROLL,6 1 CLARKSBURG,0010,000812,6 Clarksburg,1.0,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,CARROLL,6 2 CONCORD WESTPORT,0011,000812,6 Clarksburg,1.0,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,CARROLL,7 1 POLICE STATION HUNT,0012,000802,7 Macedonia,1.0,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,CARROLL,8 1 SENIOR CITIZENS,0013,000805,8 Civic Center,1.0,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,CARROLL,9 1 CHURCH OF CHRIST,0014,000807,9 Huntingdon Police Station,1.0,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,CARROLL,9 2 CITY HALL MK,0015,000807,9 Huntingdon Police Station,1.0,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,CARTER,CENTRAL,0006,000902,Central,1.0,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,CARTER,COURTHOUSE,0010,000906,Court House,1.0,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,CARTER,EASTSIDE,0011,000910,Eastside,1.0,exact_name,existing_blockweighted_drawable,high,1.0
@@ -254,7 +254,7 @@ from_year,source_vintage,county_norm,from_precinct_norm,src_vtdst,dst_vtd20,name
 2024,2020,COCKE,SMOKY MOUNTAIN,0014,001405,Smoky Mountain,1.0,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,COCKE,WEST END,0018,001415,West End,1.0,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,COFFEE,1 1 FIRST BAPTIST,0001,001501,01 Ada Right Center,1.0,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,COFFEE,2 1 TRINITY BAPTIST,0002,001509,10 Mt. Ararat Baptist Church,1.0,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,COFFEE,2 1 TRINITY BAPTIST,0002,001502,02 Saint Paul United Methodist Church,1.0,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,COFFEE,3 1 RESCUE SQUAD,0003,001503,03 Trinity Baptist Church,1.0,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,COFFEE,3 2 LAKEWOOD,0004,001503,03 Trinity Baptist Church,1.0,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,COFFEE,4 1 NEW UNION,0005,001504,04 First Baptist Church,1.0,exact_name,existing_blockweighted_drawable,high,1.0
@@ -649,15 +649,15 @@ from_year,source_vintage,county_norm,from_precinct_norm,src_vtdst,dst_vtd20,name
 2024,2020,DAVIDSON,35 4,0177,001958,35-1,0.749387,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,DAVIDSON,35 4,0177,001908,23-2,0.250613,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,DAVIDSON,35 5,0178,001958,35-1,1.0,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,DECATUR,1 1 DUNBAR,0001,002057,7-1 Jeanette,1.0,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,DECATUR,2 1 SCOTTS HILL,0002,002057,7-1 Jeanette,1.0,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,DECATUR,3 1 DECATURVILLE,0003,002057,7-1 Jeanette,1.0,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,DECATUR,4 1 DECATURVILLE,0004,002057,7-1 Jeanette,1.0,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,DECATUR,5 1 PARSONS,0005,002057,7-1 Jeanette,1.0,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,DECATUR,6 1 PARSONS,0006,002057,7-1 Jeanette,1.0,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,DECATUR,1 1 DUNBAR,0001,002054,Dunbar,1.0,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,DECATUR,2 1 SCOTTS HILL,0002,002051,Scotts Hill,1.0,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,DECATUR,3 1 DECATURVILLE,0003,002053,3rd Decaturville,1.0,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,DECATUR,4 1 DECATURVILLE,0004,002052,4th Decaturville,1.0,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,DECATUR,5 1 PARSONS,0005,002055,5th Parsons,1.0,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,DECATUR,6 1 PARSONS,0006,002056,6th Parsons,1.0,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,DECATUR,7 1 CROSSROADS,0007,002057,7-1 Jeanette,1.0,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,DECATUR,8 1 PARSONS,0008,002057,7-1 Jeanette,1.0,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,DECATUR,9 1 BEACON,0009,002057,7-1 Jeanette,1.0,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,DECATUR,8 1 PARSONS,0008,002058,8th Parsons,1.0,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,DECATUR,9 1 BEACON,0009,002059,9-2 Hydro,1.0,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,DEKALB,1 1 ALEXANDRIA,0001,002158,1-1 Alexandria,1.0,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,DEKALB,1 2 TEMPERENCE HALL,0002,002159,1-2 Temperence Hall,1.0,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,DEKALB,2 1 LIBERTY,0003,002152,2-1 Liberty,1.0,exact_name,existing_blockweighted_drawable,high,1.0
@@ -762,7 +762,7 @@ from_year,source_vintage,county_norm,from_precinct_norm,src_vtdst,dst_vtd20,name
 2024,2020,GIBSON,3 7 BAILEY PARK,0003,002755,07 Humboldt Park,1.0,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,GIBSON,4 8 STIGALL CENTER,0004,002756,08 St. James Baptist Church,1.0,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,GIBSON,5 9 LANE CHAPEL,0005,002757,09 Humboldt Lane Chapel,1.0,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,GIBSON,6 2 SITKA,0006,002752,02 Sitka Community Center,1.0,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,GIBSON,6 2 SITKA,0006,002754,06 Humboldt Ch of Chr,1.0,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,GIBSON,7 4 GIBSON,0007,002753,04 Gibson,1.0,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,GIBSON,8 14 BRAZIL,0008,002761,14 Brazil,1.0,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,GIBSON,9 13 FRUITLAND,0009,002759,13 Fruitland,1.0,exact_name,existing_blockweighted_drawable,high,1.0
@@ -841,8 +841,7 @@ from_year,source_vintage,county_norm,from_precinct_norm,src_vtdst,dst_vtd20,name
 2024,2020,HAMILTON,AIRPORT B,0002,003351,Airport,0.546396,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HAMILTON,AIRPORT B,0002,003469,Tyner 1,0.435588,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HAMILTON,AIRPORT B,0002,003417,Lake Hills,0.018016,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,HAMILTON,ALTON PARK,GRP::HAMILTON::ALTON PARK,003352,Alton Park 1,0.5,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,HAMILTON,ALTON PARK,GRP::HAMILTON::ALTON PARK,003353,Alton Park 2,0.5,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,HAMILTON,ALTON PARK,0003,003352,Alton Park 1,1.0,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HAMILTON,APISON A,0004,003355,Apison 1,1.0,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HAMILTON,APISON B,0005,003368,Collegedale 2,0.342551,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HAMILTON,APISON B,0005,003367,Collegedale 1,0.223993,exact_name,existing_blockweighted_drawable,high,1.0
@@ -869,22 +868,28 @@ from_year,source_vintage,county_norm,from_precinct_norm,src_vtdst,dst_vtd20,name
 2024,2020,HAMILTON,CONCORD B,0015,003375,Concord 4,0.52936,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HAMILTON,CONCORD B,0015,003372,Concord 2,0.428585,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HAMILTON,CONCORD B,0015,003387,East Brainerd 1,0.042055,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,HAMILTON,COURTHOUSE,GRP::HAMILTON::COURTHOUSE,003379,Courthouse 1,0.5,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,HAMILTON,COURTHOUSE,GRP::HAMILTON::COURTHOUSE,003380,Courthouse 2,0.5,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,HAMILTON,COURTHOUSE,0016,003379,Courthouse 1,0.895029,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,HAMILTON,COURTHOUSE,0016,003399,Eastside 1,0.104971,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HAMILTON,DALEWOOD,0017,003414,Kingspoint 1,0.45718854,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HAMILTON,DALEWOOD,0017,003396,Eastdale,0.2999237,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HAMILTON,DALEWOOD,0017,003381,Dalewood,0.24288776,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,HAMILTON,DALLAS,GRP::HAMILTON::DALLAS,003382,Dallas 1,0.5,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,HAMILTON,DALLAS,GRP::HAMILTON::DALLAS,003383,Dallas 2,0.5,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,HAMILTON,DOWNTOWN,GRP::HAMILTON::DOWNTOWN,003384,Downtown 1,0.5,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,HAMILTON,DOWNTOWN,GRP::HAMILTON::DOWNTOWN,003385,Downtown 2,0.5,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,HAMILTON,DALLAS,0018,003382,Dallas 1,0.832162,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,HAMILTON,DALLAS,0018,003425,Middle Valley 2,0.167838,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,HAMILTON,DOWNTOWN,0019,003385,Downtown 2,0.57138643,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,HAMILTON,DOWNTOWN,0019,003384,Downtown 1,0.30943969,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,HAMILTON,DOWNTOWN,0019,003379,Courthouse 1,0.06468594,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,HAMILTON,DOWNTOWN,0019,003427,Moccasin Bend,0.02816397,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,HAMILTON,DOWNTOWN,0019,003380,Courthouse 2,0.02632397,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HAMILTON,DUPONT,0020,003386,DuPont,0.911835,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HAMILTON,DUPONT,0020,003422,Lupton City,0.088165,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HAMILTON,EAST BRAINERD A,0021,003388,East Brainerd 2,1.0,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HAMILTON,EAST BRAINERD B,0022,003387,East Brainerd 1,0.811629,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HAMILTON,EAST BRAINERD B,0022,003375,Concord 4,0.188371,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,HAMILTON,EAST CHATTANOOGA,GRP::HAMILTON::EAST CHATTANOOGA,003389,East Chattanooga 1,0.5,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,HAMILTON,EAST CHATTANOOGA,GRP::HAMILTON::EAST CHATTANOOGA,003390,East Chattanooga 2,0.5,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,HAMILTON,EAST CHATTANOOGA,0023,003381,Dalewood,0.399354,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,HAMILTON,EAST CHATTANOOGA,0023,003390,East Chattanooga 2,0.39669,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,HAMILTON,EAST CHATTANOOGA,0023,003389,East Chattanooga 1,0.10159,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,HAMILTON,EAST CHATTANOOGA,0023,003358,Avondale,0.093996,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,HAMILTON,EAST CHATTANOOGA,0023,003414,Kingspoint 1,0.00837,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HAMILTON,EAST LAKE,0024,003391,East Lake,1.0,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HAMILTON,EAST RIDGE A,0025,003392,East Ridge 1,0.441533,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HAMILTON,EAST RIDGE A,0025,003393,East Ridge 2,0.312935,exact_name,existing_blockweighted_drawable,high,1.0
@@ -897,10 +902,13 @@ from_year,source_vintage,county_norm,from_precinct_norm,src_vtdst,dst_vtd20,name
 2024,2020,HAMILTON,EAST RIDGE C,0027,003394,East Ridge 3,0.452739,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HAMILTON,EAST RIDGE C,0027,003363,Brainerd,0.060797,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HAMILTON,EAST RIDGE D,0028,003395,East Ridge 4,1.0,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,HAMILTON,EASTGATE,GRP::HAMILTON::EASTGATE,003397,Eastgate 1,0.5,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,HAMILTON,EASTGATE,GRP::HAMILTON::EASTGATE,003398,Eastgate 2,0.5,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,HAMILTON,EASTSIDE,GRP::HAMILTON::EASTSIDE,003399,Eastside 1,0.5,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,HAMILTON,EASTSIDE,GRP::HAMILTON::EASTSIDE,003400,Eastside 2,0.5,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,HAMILTON,EASTGATE,0029,003398,Eastgate 2,0.554203,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,HAMILTON,EASTGATE,0029,003397,Eastgate 1,0.445797,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,HAMILTON,EASTSIDE,0030,003399,Eastside 1,0.57233457,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,HAMILTON,EASTSIDE,0030,003452,Ridgedale 2,0.17223717,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,HAMILTON,EASTSIDE,0030,003352,Alton Park 1,0.13546914,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,HAMILTON,EASTSIDE,0030,003451,Ridgedale 1,0.07949408,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,HAMILTON,EASTSIDE,0030,003379,Courthouse 1,0.04046504,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HAMILTON,FAIRMOUNT,0031,003401,Fairmount,1.0,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HAMILTON,FALLING WATER A,0032,003402,Falling Water,0.319871,manual_override,existing_blockweighted_drawable,high,1.0
 2024,2020,HAMILTON,FALLING WATER A,0032,003439,Northwoods 2,0.301747,manual_override,existing_blockweighted_drawable,high,1.0
@@ -912,18 +920,15 @@ from_year,source_vintage,county_norm,from_precinct_norm,src_vtdst,dst_vtd20,name
 2024,2020,HAMILTON,GANNS,0035,003404,Ganns,1.0,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HAMILTON,GLENWOOD,0036,003396,Eastdale,0.616652,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HAMILTON,GLENWOOD,0036,003405,Glenwood,0.383348,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,HAMILTON,HARRISON,GRP::HAMILTON::HARRISON,003406,Harrison 1,0.2,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,HAMILTON,HARRISON,GRP::HAMILTON::HARRISON,003407,Harrison 2,0.2,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,HAMILTON,HARRISON,GRP::HAMILTON::HARRISON,003408,Harrison 3,0.2,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,HAMILTON,HARRISON,GRP::HAMILTON::HARRISON,003409,Harrison 4,0.2,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,HAMILTON,HARRISON,GRP::HAMILTON::HARRISON,003410,Harrison 5,0.2,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,HAMILTON,HARRISON,0037,003407,Harrison 2,0.771909,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,HAMILTON,HARRISON,0037,003406,Harrison 1,0.228091,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HAMILTON,HARRISON BAY,0038,003409,Harrison 4,0.325557,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HAMILTON,HARRISON BAY,0038,003458,Snowhill 1,0.282262,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HAMILTON,HARRISON BAY,0038,003410,Harrison 5,0.281877,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HAMILTON,HARRISON BAY,0038,003459,Snowhill 2,0.110304,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,HAMILTON,HIXSON,GRP::HAMILTON::HIXSON,003411,Hixson 1,0.3333333333,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,HAMILTON,HIXSON,GRP::HAMILTON::HIXSON,003412,Hixson 2,0.3333333333,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,HAMILTON,HIXSON,GRP::HAMILTON::HIXSON,003413,Hixson 3,0.3333333333,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,HAMILTON,HIXSON,0039,003412,Hixson 2,0.51352849,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,HAMILTON,HIXSON,0039,003411,Hixson 1,0.48059752,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,HAMILTON,HIXSON,0039,003438,Northwoods 1,0.00587399,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HAMILTON,HUNTER,0040,003408,Harrison 3,0.43600144,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HAMILTON,HUNTER,0040,003468,Summit 3,0.31062931,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HAMILTON,HUNTER,0040,003443,Ooltewah 4,0.13258113,exact_name,existing_blockweighted_drawable,high,1.0
@@ -934,14 +939,16 @@ from_year,source_vintage,county_norm,from_precinct_norm,src_vtdst,dst_vtd20,name
 2024,2020,HAMILTON,HURRICANE CREEK,0041,003475,Westview 3,0.0993569,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HAMILTON,HURRICANE CREEK,0041,003388,East Brainerd 2,0.0972149,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HAMILTON,HURRICANE CREEK,0041,003387,East Brainerd 1,0.01308299,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,HAMILTON,KINGSPOINT,GRP::HAMILTON::KINGSPOINT,003414,Kingspoint 1,0.3333333333,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,HAMILTON,KINGSPOINT,GRP::HAMILTON::KINGSPOINT,003415,Kingspoint 2,0.3333333333,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,HAMILTON,KINGSPOINT,GRP::HAMILTON::KINGSPOINT,003416,Kingspoint 3,0.3333333333,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,HAMILTON,KINGSPOINT,0042,003414,Kingspoint 1,0.38537361,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,HAMILTON,KINGSPOINT,0042,003415,Kingspoint 2,0.33314467,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,HAMILTON,KINGSPOINT,0042,003390,East Chattanooga 2,0.14692085,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,HAMILTON,KINGSPOINT,0042,003416,Kingspoint 3,0.07110893,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,HAMILTON,KINGSPOINT,0042,003381,Dalewood,0.06345194,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HAMILTON,LAKE HILLS,0043,003417,Lake Hills,1.0,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HAMILTON,LAKESITE,0044,003418,Lakesite,1.0,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HAMILTON,LOOKOUT MOUNTAIN,0045,003419,Lookout Mountain,1.0,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,HAMILTON,LOOKOUT VALLEY,GRP::HAMILTON::LOOKOUT VALLEY,003420,Lookout Valley 1,0.5,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,HAMILTON,LOOKOUT VALLEY,GRP::HAMILTON::LOOKOUT VALLEY,003421,Lookout Valley 2,0.5,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,HAMILTON,LOOKOUT VALLEY,0046,003421,Lookout Valley 2,0.682002,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,HAMILTON,LOOKOUT VALLEY,0046,003420,Lookout Valley 1,0.317998,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HAMILTON,LUPTON CITY,0047,003422,Lupton City,0.52972047,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HAMILTON,LUPTON CITY,0047,003437,Northgate 2,0.23401877,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HAMILTON,LUPTON CITY,0047,003436,Northgate 1,0.21834978,exact_name,existing_blockweighted_drawable,high,1.0
@@ -950,8 +957,7 @@ from_year,source_vintage,county_norm,from_precinct_norm,src_vtdst,dst_vtd20,name
 2024,2020,HAMILTON,MEADOWVIEW,0048,003423,Meadowview,0.31360369,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HAMILTON,MEADOWVIEW,0048,003458,Snowhill 1,0.26395774,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HAMILTON,MEADOWVIEW,0048,003459,Snowhill 2,0.03739696,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,HAMILTON,MIDDLE VALLEY,GRP::HAMILTON::MIDDLE VALLEY,003424,Middle Valley 1,0.5,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,HAMILTON,MIDDLE VALLEY,GRP::HAMILTON::MIDDLE VALLEY,003425,Middle Valley 2,0.5,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,HAMILTON,MIDDLE VALLEY,0049,003424,Middle Valley 1,1.0,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HAMILTON,MISSIONARY RIDGE,0050,003426,Missionary Ridge,1.0,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HAMILTON,MOUNTAIN CREEK A,0051,003428,Mountain Creek 1,1.0,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HAMILTON,MOUNTAIN CREEK B,0052,003471,Valdeau,0.789762,exact_name,existing_blockweighted_drawable,high,1.0
@@ -960,22 +966,19 @@ from_year,source_vintage,county_norm,from_precinct_norm,src_vtdst,dst_vtd20,name
 2024,2020,HAMILTON,MOUNTAIN CREEK C,0053,003429,Mountain Creek 2,0.149436,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HAMILTON,MOWBRAY A,0054,003431,Mowbray,1.0,manual_override,existing_blockweighted_drawable,high,1.0
 2024,2020,HAMILTON,MOWBRAY B,0055,003431,Mowbray,1.0,manual_override,existing_blockweighted_drawable,high,1.0
-2024,2020,HAMILTON,MURRAY HILLS,GRP::HAMILTON::MURRAY HILLS,003432,Murray Hills 1,0.5,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,HAMILTON,MURRAY HILLS,GRP::HAMILTON::MURRAY HILLS,003433,Murray Hills 2,0.5,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,HAMILTON,MURRAY HILLS,0056,003432,Murray Hills 1,1.0,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HAMILTON,NORTH CHATTANOOGA A,0057,003427,Moccasin Bend,1.0,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HAMILTON,NORTH CHATTANOOGA B,0058,003427,Moccasin Bend,1.0,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,HAMILTON,NORTHGATE,GRP::HAMILTON::NORTHGATE,003436,Northgate 1,0.5,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,HAMILTON,NORTHGATE,GRP::HAMILTON::NORTHGATE,003437,Northgate 2,0.5,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,HAMILTON,NORTHGATE,0059,003413,Hixson 3,0.861961,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,HAMILTON,NORTHGATE,0059,003412,Hixson 2,0.138039,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HAMILTON,NORTHSHORE,0060,003434,North Chattanooga 1,0.716602,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HAMILTON,NORTHSHORE,0060,003435,North Chattanooga 2,0.283398,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,HAMILTON,NORTHWOODS,GRP::HAMILTON::NORTHWOODS,003438,Northwoods 1,0.5,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,HAMILTON,NORTHWOODS,GRP::HAMILTON::NORTHWOODS,003439,Northwoods 2,0.5,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,HAMILTON,OOLTEWAH,GRP::HAMILTON::OOLTEWAH,003440,Ooltewah 1,0.1666666667,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,HAMILTON,OOLTEWAH,GRP::HAMILTON::OOLTEWAH,003441,Ooltewah 2,0.1666666667,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,HAMILTON,OOLTEWAH,GRP::HAMILTON::OOLTEWAH,003442,Ooltewah 3,0.1666666667,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,HAMILTON,OOLTEWAH,GRP::HAMILTON::OOLTEWAH,003443,Ooltewah 4,0.1666666667,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,HAMILTON,OOLTEWAH,GRP::HAMILTON::OOLTEWAH,003444,Ooltewah 5,0.1666666667,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,HAMILTON,OOLTEWAH,GRP::HAMILTON::OOLTEWAH,003445,Ooltewah 6,0.1666666667,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,HAMILTON,NORTHWOODS,0061,003438,Northwoods 1,0.366768,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,HAMILTON,NORTHWOODS,0061,003428,Mountain Creek 1,0.312948,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,HAMILTON,NORTHWOODS,0061,003439,Northwoods 2,0.201537,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,HAMILTON,NORTHWOODS,0061,003436,Northgate 1,0.118747,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,HAMILTON,OOLTEWAH,0062,003443,Ooltewah 4,0.886695,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,HAMILTON,OOLTEWAH,0062,003370,Collegedale 4,0.113305,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HAMILTON,OOLTEWAH GEORGETOWN,0063,003361,Birchwood,0.831206,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HAMILTON,OOLTEWAH GEORGETOWN,0063,003459,Snowhill 2,0.168794,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HAMILTON,OOLTEWAH RINGGOLD,0064,003355,Apison 1,0.514235,exact_name,existing_blockweighted_drawable,high,1.0
@@ -988,8 +991,9 @@ from_year,source_vintage,county_norm,from_precinct_norm,src_vtdst,dst_vtd20,name
 2024,2020,HAMILTON,RED BANK B,0069,003450,Red Bank 3,0.861475,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HAMILTON,RED BANK B,0069,003449,Red Bank 2,0.138525,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HAMILTON,RED BANK C,0070,003450,Red Bank 3,1.0,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,HAMILTON,RIDGEDALE,GRP::HAMILTON::RIDGEDALE,003451,Ridgedale 1,0.5,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,HAMILTON,RIDGEDALE,GRP::HAMILTON::RIDGEDALE,003452,Ridgedale 2,0.5,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,HAMILTON,RIDGEDALE,0071,003399,Eastside 1,0.52395452,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,HAMILTON,RIDGEDALE,0071,003451,Ridgedale 1,0.46770647,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,HAMILTON,RIDGEDALE,0071,003379,Courthouse 1,0.00833901,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HAMILTON,RIDGESIDE,0072,003453,Ridgeside,1.0,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HAMILTON,RIVERVIEW,0073,003454,Riverview,1.0,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HAMILTON,SALE CREEK,0074,003455,Sale Creek,0.636832,exact_name,existing_blockweighted_drawable,high,1.0
@@ -1010,15 +1014,19 @@ from_year,source_vintage,county_norm,from_precinct_norm,src_vtdst,dst_vtd20,name
 2024,2020,HAMILTON,SODDY DAISY A,0080,003462,Soddy Daisy 3,0.152263,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HAMILTON,SODDY DAISY B,0081,003460,Soddy Daisy 1,1.0,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HAMILTON,SODDY DAISY C,0082,003460,Soddy Daisy 1,1.0,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,HAMILTON,ST ELMO,GRP::HAMILTON::ST ELMO,003463,St Elmo 1,0.5,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,HAMILTON,ST ELMO,GRP::HAMILTON::ST ELMO,003464,St Elmo 2,0.5,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,HAMILTON,ST ELMO,0083,003463,St Elmo 1,0.545756,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,HAMILTON,ST ELMO,0083,003385,Downtown 2,0.287711,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,HAMILTON,ST ELMO,0083,003427,Moccasin Bend,0.093919,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,HAMILTON,ST ELMO,0083,003464,St Elmo 2,0.036368,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,HAMILTON,ST ELMO,0083,003352,Alton Park 1,0.036246,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HAMILTON,STUART HEIGHTS,0084,003465,Stuart Heights,0.718744,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HAMILTON,STUART HEIGHTS,0084,003422,Lupton City,0.281256,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,HAMILTON,SUMMIT,GRP::HAMILTON::SUMMIT,003466,Summit 1,0.3333333333,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,HAMILTON,SUMMIT,GRP::HAMILTON::SUMMIT,003467,Summit 2,0.3333333333,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,HAMILTON,SUMMIT,GRP::HAMILTON::SUMMIT,003468,Summit 3,0.3333333333,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,HAMILTON,TYNER,GRP::HAMILTON::TYNER,003469,Tyner 1,0.5,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,HAMILTON,TYNER,GRP::HAMILTON::TYNER,003470,Tyner 2,0.5,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,HAMILTON,SUMMIT,0085,003441,Ooltewah 2,0.462511,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,HAMILTON,SUMMIT,0085,003440,Ooltewah 1,0.201208,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,HAMILTON,SUMMIT,0085,003378,Concord 7,0.177344,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,HAMILTON,SUMMIT,0085,003467,Summit 2,0.083308,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,HAMILTON,SUMMIT,0085,003469,Tyner 1,0.075629,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,HAMILTON,TYNER,0086,003469,Tyner 1,1.0,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HAMILTON,VALLEYBROOK,0087,003413,Hixson 3,0.43292157,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HAMILTON,VALLEYBROOK,0087,003412,Hixson 2,0.35902264,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HAMILTON,VALLEYBROOK,0087,003446,Pleasant Grove 1,0.16052784,exact_name,existing_blockweighted_drawable,high,1.0
@@ -1031,8 +1039,7 @@ from_year,source_vintage,county_norm,from_precinct_norm,src_vtdst,dst_vtd20,name
 2024,2020,HAMILTON,WOLFTEVER,0091,003408,Harrison 3,0.17721282,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HAMILTON,WOLFTEVER,0091,003409,Harrison 4,0.13710586,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HAMILTON,WOLFTEVER,0091,003467,Summit 2,0.01316099,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,HAMILTON,WOODMORE,GRP::HAMILTON::WOODMORE,003476,Woodmore 1,0.5,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,HAMILTON,WOODMORE,GRP::HAMILTON::WOODMORE,003477,Woodmore 2,0.5,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,HAMILTON,WOODMORE,0092,003476,Woodmore 1,1.0,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HANCOCK,1ST,0001,000001,1st,1.0,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HANCOCK,2ND,0002,000002,2nd,1.0,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HANCOCK,3RD,0003,000003,3rd,1.0,exact_name,existing_blockweighted_drawable,high,1.0
@@ -1086,16 +1093,16 @@ from_year,source_vintage,county_norm,from_precinct_norm,src_vtdst,dst_vtd20,name
 2024,2020,HAWKINS,7 CHEROKEE,0005,003801,7 Cherokee,1.0,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HAWKINS,7 ST CLAIR,0015,003816,7 St. Clair,1.0,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HAYWOOD,1 1,0001,003904,01 Christ Temple Apostolic Church,1.0,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,HAYWOOD,10 1,0011,003904,01 Christ Temple Apostolic Church,1.0,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,HAYWOOD,2 1,0002,003904,01 Christ Temple Apostolic Church,1.0,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,HAYWOOD,3 1,0003,003904,01 Christ Temple Apostolic Church,1.0,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,HAYWOOD,4 1,0004,003904,01 Christ Temple Apostolic Church,1.0,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,HAYWOOD,5 1,0005,003904,01 Christ Temple Apostolic Church,1.0,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,HAYWOOD,6 1,0006,003904,01 Christ Temple Apostolic Church,1.0,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,HAYWOOD,7 1,0007,003904,01 Christ Temple Apostolic Church,1.0,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,HAYWOOD,8 1,0008,003904,01 Christ Temple Apostolic Church,1.0,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,HAYWOOD,9 1,0009,003904,01 Christ Temple Apostolic Church,1.0,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,HAYWOOD,9 2,0010,003901,02 Parks & Recreation Dept,1.0,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,HAYWOOD,10 1,0011,003905,10 Haywood Junior High,1.0,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,HAYWOOD,2 1,0002,003901,02 Parks & Recreation Dept,1.0,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,HAYWOOD,3 1,0003,003903,03 Jefferson Court Community Building,1.0,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,HAYWOOD,4 1,0004,003902,04 Chamber Basement,1.0,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,HAYWOOD,5 1,0005,003906,05 Tibbs Fire Station,1.0,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,HAYWOOD,6 1,0006,003915,06 Wyatt-Duke National Guard Armory,1.0,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,HAYWOOD,7 1,0007,003912,07 Delta Heritage Center,1.0,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,HAYWOOD,8 1,0008,003913,08 Douglas Community Center,1.0,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,HAYWOOD,9 1,0009,003910,09A Stanton City Hall,1.0,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,HAYWOOD,9 2,0010,003914,09B West Side Church of Christ,1.0,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HENDERSON,1 BARGERTON,0001,004001,1-1 Bargerton,1.0,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HENDERSON,10 FIRE STATION 10,0007,004006,3-2 Fire Station #10,1.0,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HENDERSON,11 REAGAN,0008,004010,7-2 Reagan,1.0,exact_name,existing_blockweighted_drawable,high,1.0
@@ -1159,9 +1166,9 @@ from_year,source_vintage,county_norm,from_precinct_norm,src_vtdst,dst_vtd20,name
 2024,2020,JACKSON,5 3,0011,004510,3-2,0.5,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,JACKSON,6 1,0012,004501,6-1,1.0,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,JACKSON,6 2,0013,004503,6-2,1.0,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,JEFFERSON,1 DANDRIDGE ES,0001,004601,2nd Piedmont Elementary School,1.0,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,JEFFERSON,1 DANDRIDGE ES,0001,004604,1st Dandridge Elementary School,1.0,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,JEFFERSON,10 JEFF CITY FIRE DP,0011,004605,10th Jefferson City Fire Dept,1.0,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,JEFFERSON,2 PIEDMONT,0002,004604,1st Dandridge Elementary School,1.0,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,JEFFERSON,2 PIEDMONT,0002,004601,2nd Piedmont Elementary School,1.0,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,JEFFERSON,3 WHITE PINE,0003,004603,3rd White Pine School,1.0,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,JEFFERSON,4 JEFFERSON ES,0004,004602,4th Jefferson Elementary School,1.0,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,JEFFERSON,5 JEFFERSON HIGH,0005,004606,5th Jefferson Middle School,1.0,exact_name,existing_blockweighted_drawable,high,1.0
@@ -1338,25 +1345,25 @@ from_year,source_vintage,county_norm,from_precinct_norm,src_vtdst,dst_vtd20,name
 2024,2020,LEWIS,8 1,0008,005258,8-1,1.0,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,LEWIS,9 1,0009,005259,9-1,1.0,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,LINCOLN,1 1 CASH POINT,0001,000001,Armory,1.0,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,LINCOLN,1 2 KIRKLAND,0002,000002,Belleville Community Center,1.0,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,LINCOLN,1 2 KIRKLAND,0002,000001,Armory,1.0,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,LINCOLN,1 3 TAFT,0003,000003,Blanche,1.0,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,LINCOLN,2 1 MCBURG,0004,000001,Armory,1.0,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,LINCOLN,2 1 MCBURG,0004,000002,Belleville Community Center,1.0,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,LINCOLN,2 2 HOWELL,0005,000002,Belleville Community Center,1.0,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,LINCOLN,2 3 PETERSBURG,0006,000003,Blanche,1.0,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,LINCOLN,3 1 RECREATION CENTER,0007,000001,Armory,1.0,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,LINCOLN,3 2 LIBERTY,0008,000002,Belleville Community Center,1.0,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,LINCOLN,4 1 MARANATHA,0009,000001,Armory,1.0,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,LINCOLN,4 2 FNB,0010,000002,Belleville Community Center,1.0,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,LINCOLN,5 1 CALVARY,0011,000001,Armory,1.0,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,LINCOLN,5 2 WEST END,0012,000002,Belleville Community Center,1.0,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,LINCOLN,6 1 FAYETTEVILLE CPC,0013,000001,Armory,1.0,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,LINCOLN,6 2 BELLEVILLE,0014,000002,Belleville Community Center,1.0,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,LINCOLN,3 1 RECREATION CENTER,0007,000003,Blanche,1.0,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,LINCOLN,3 2 LIBERTY,0008,000003,Blanche,1.0,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,LINCOLN,4 1 MARANATHA,0009,000004,Boonshill Community Center,1.0,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,LINCOLN,4 2 FNB,0010,000004,Boonshill Community Center,1.0,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,LINCOLN,5 1 CALVARY,0011,000005,Calvary Baptist Fellowship Hall,1.0,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,LINCOLN,5 2 WEST END,0012,000005,Calvary Baptist Fellowship Hall,1.0,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,LINCOLN,6 1 FAYETTEVILLE CPC,0013,000006,Elora Community Center,1.0,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,LINCOLN,6 2 BELLEVILLE,0014,000006,Elora Community Center,1.0,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,LINCOLN,6 3 MULBERRY,0015,000003,Blanche,1.0,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,LINCOLN,7 1 ELORA,0016,000001,Armory,1.0,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,LINCOLN,7 2 FLINTVILLE,0017,000002,Belleville Community Center,1.0,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,LINCOLN,7 1 ELORA,0016,000007,Fayetteville CPC,1.0,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,LINCOLN,7 2 FLINTVILLE,0017,000007,Fayetteville CPC,1.0,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,LINCOLN,7 3 GUM SPRINGS,0018,000003,Blanche,1.0,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,LINCOLN,8 1 LINCOLN,0019,000001,Armory,1.0,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,LINCOLN,8 2 HOWELL HILL,0020,000002,Belleville Community Center,1.0,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,LINCOLN,8 1 LINCOLN,0019,000008,Flintville Fire Hall,1.0,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,LINCOLN,8 2 HOWELL HILL,0020,000008,Flintville Fire Hall,1.0,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,LOUDON,CHOTA,0001,005459,Loudon Mt Zion,1.0,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,LOUDON,DAVIS,0008,005455,Davis,1.0,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,LOUDON,EATON,0011,005463,Eatons,1.0,exact_name,existing_blockweighted_drawable,high,1.0
@@ -1489,8 +1496,8 @@ from_year,source_vintage,county_norm,from_precinct_norm,src_vtdst,dst_vtd20,name
 2024,2020,MCNAIRY,STANTONVILLE 7 2,0016,006163,7 Stantonville,1.0,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,MEIGS,1 EASTVIEW,0001,006253,1 Eastview,1.0,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,MEIGS,2 MEIGS SOUTH,0002,006251,2 Meigs South,1.0,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,MEIGS,3 1 CITY HALL,0003,006253,1 Eastview,1.0,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,MEIGS,3 2 COURTHOUSE,0004,006251,2 Meigs South,1.0,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,MEIGS,3 1 CITY HALL,0003,006252,3 Courthouse,1.0,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,MEIGS,3 2 COURTHOUSE,0004,006254,3 City Hall,1.0,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,MEIGS,4 MEIGS NORTH,0005,006255,4 Meigs North,1.0,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,MEIGS,5 TEN MILE,0006,006256,5 Ten Mile,1.0,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,MONROE,01,0001,006351,Sweetwater High School,1.0,exact_name,existing_blockweighted_drawable,high,1.0
@@ -1605,13 +1612,13 @@ from_year,source_vintage,county_norm,from_precinct_norm,src_vtdst,dst_vtd20,name
 2024,2020,OBION,6 2 OBION SR CTR,0011,006758,6-2 OBION,1.0,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,OBION,7 2 OBION CO LIBRARY,0012,006752,7-2 OBION CO. LIBRARY,1.0,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,OVERTON,1 LIVINGSTON,0001,006853,1 Livingston,1.0,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,OVERTON,2 1 ALLONS,0002,006853,1 Livingston,1.0,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,OVERTON,2 3 MONROE,0003,006854,2 Monroe,1.0,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,OVERTON,3 2 POTEET,0004,006855,5 Fairgrounds,1.0,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,OVERTON,3 3 WILSON,0005,006856,3 Poteet,1.0,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,OVERTON,2 1 ALLONS,0002,006852,2 Allons,1.0,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,OVERTON,2 3 MONROE,0003,006851,5 Hilham,1.0,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,OVERTON,3 2 POTEET,0004,006854,2 Monroe,1.0,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,OVERTON,3 3 WILSON,0005,006855,5 Fairgrounds,1.0,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,OVERTON,3 4 RUSHING SPRINGS,0006,006857,4 Rickman,1.0,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,OVERTON,4 2 RICKMAN,0007,006857,4 Rickman,1.0,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,OVERTON,5 1 HILHAM,0008,006853,1 Livingston,1.0,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,OVERTON,5 1 HILHAM,0008,006858,3 Wilson,1.0,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,OVERTON,5 2 FAIRGROUNDS,0009,006859,3 Rushing Springs,1.0,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,PERRY,1 1 CEDAR CREEK,0001,006954,101 Cedar Creek,1.0,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,PERRY,1 2 MARSH CREEK,0002,006958,102 Marsh Creek,1.0,exact_name,existing_blockweighted_drawable,high,1.0
@@ -2232,19 +2239,19 @@ from_year,source_vintage,county_norm,from_precinct_norm,src_vtdst,dst_vtd20,name
 2024,2020,WASHINGTON,22 BOONES CREEK,0022,009334,Town Acres County,1.0,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,WASHINGTON,23 SULPHUR SPRINGS,0023,009332,Sulphur Springs,1.0,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,WAYNE,1 1 WAYNESBORO,0001,009404,1 Waynesboro City,1.0,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,WAYNE,2 1 CLIFTON,0002,009404,1 Waynesboro City,1.0,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,WAYNE,3 1 BEECH CREEK,0003,009404,1 Waynesboro City,1.0,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,WAYNE,3 2 CRAZY HORSE,0004,009401,2 Clifton,1.0,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,WAYNE,3 3 EAGLE CREEK,0005,009406,6 Holly Creek Fire Hall,1.0,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,WAYNE,4 1 COLLINWOOD,0006,009404,1 Waynesboro City,1.0,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,WAYNE,4 2 SHAWNETTEE,0007,009401,2 Clifton,1.0,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,WAYNE,5 1 BIG CYPRESS,0008,009404,1 Waynesboro City,1.0,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,WAYNE,5 2 LUTTS,0009,009401,2 Clifton,1.0,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,WAYNE,5 3 WOODMEN,0010,009411,4 Collinwood City,1.0,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,WAYNE,6 1 HOLLY CREEK,0011,009404,1 Waynesboro City,1.0,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,WAYNE,6 2 SOUTH GATE,0012,009401,2 Clifton,1.0,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,WAYNE,7 1 BUFFALO RIVER,0013,009404,1 Waynesboro City,1.0,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,WAYNE,7 2 OVILLA,0014,009401,2 Clifton,1.0,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,WAYNE,2 1 CLIFTON,0002,009401,2 Clifton,1.0,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,WAYNE,3 1 BEECH CREEK,0003,009403,4 Shawnatee,1.0,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,WAYNE,3 2 CRAZY HORSE,0004,009402,3 Beech Creek Fire Hall,1.0,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,WAYNE,3 3 EAGLE CREEK,0005,009405,5 Lutts,1.0,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,WAYNE,4 1 COLLINWOOD,0006,009406,6 Holly Creek Fire Hall,1.0,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,WAYNE,4 2 SHAWNETTEE,0007,009407,7 Ovilla Fire Hall,1.0,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,WAYNE,5 1 BIG CYPRESS,0008,009408,3 Eagle Creek Fire Hall,1.0,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,WAYNE,5 2 LUTTS,0009,009409,3 Crazy Horse,1.0,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,WAYNE,5 3 WOODMEN,0010,009410,7 Buffalo River Fire Dept.,1.0,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,WAYNE,6 1 HOLLY CREEK,0011,009411,4 Collinwood City,1.0,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,WAYNE,6 2 SOUTH GATE,0012,009412,6 Southgate Fire Hall,1.0,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,WAYNE,7 1 BUFFALO RIVER,0013,009413,5 Big Cypress,1.0,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,WAYNE,7 2 OVILLA,0014,009414,5 Wayne Co. High School,1.0,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,WEAKLEY,PRECINCT 1,0001,009502,02 Gleason Community Building,1.0,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,WEAKLEY,PRECINCT 2,0002,009503,01B Latham Vol. Fire Dept.,1.0,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,WEAKLEY,PRECINCT 3,0003,009504,09 Dresden First United Methodist Church,1.0,exact_name,existing_blockweighted_drawable,high,1.0
