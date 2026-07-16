@@ -4,7 +4,7 @@
 Inputs (under Data/):
   - tn_vtd_2000.geojson
   - tn_vtd_2010_census_county_merged.geojson (preferred when available)
-    or tl_2012_47_vtd10.zip
+    or tl_2012_47_vtd10.zip / census/tl_2012_47_vtd10.zip
   - tl_2020_47_vtd20.zip (if available) or current DRA-backed precinct geometry
 
 Outputs (under Data/crosswalks/):
@@ -28,8 +28,11 @@ DATA_DIR = ROOT / "Data"
 OUT_DIR = DATA_DIR / "crosswalks"
 
 VTD00_PATH = DATA_DIR / "tn_vtd_2000.geojson"
+VTD10_DURABLE_PATH = DATA_DIR / "tn_vtd_2010.geojson"
 VTD10_MERGED_PATH = DATA_DIR / "tn_vtd_2010_census_county_merged.geojson"
 VTD10_FALLBACK_PATH = DATA_DIR / "tl_2012_47_vtd10.zip"
+VTD10_CENSUS_PATH = DATA_DIR / "census" / "tl_2012_47_vtd10.zip"
+VTD20_GEOJSON_PATH = DATA_DIR / "tn_vtd_2020.geojson"
 VTD20_PATH = DATA_DIR / "tl_2020_47_vtd20.zip"
 VTD20_DRA_PATH = OUT_DIR / "tn_dra_vtd20_boundaries_v07.geojson"
 
@@ -93,13 +96,17 @@ def read_vtd_2000() -> gpd.GeoDataFrame:
 
 
 def read_vtd_2010() -> gpd.GeoDataFrame:
-    if VTD10_MERGED_PATH.exists():
+    if VTD10_DURABLE_PATH.exists():
+        gdf = gpd.read_file(VTD10_DURABLE_PATH)
+    elif VTD10_MERGED_PATH.exists():
         gdf = gpd.read_file(VTD10_MERGED_PATH)
     elif VTD10_FALLBACK_PATH.exists():
         gdf = gpd.read_file(f"zip://{VTD10_FALLBACK_PATH.resolve()}")
+    elif VTD10_CENSUS_PATH.exists():
+        gdf = gpd.read_file(f"zip://{VTD10_CENSUS_PATH.resolve()}")
     else:
         raise FileNotFoundError(
-            f"Missing {VTD10_MERGED_PATH} and fallback {VTD10_FALLBACK_PATH}"
+            f"Missing {VTD10_DURABLE_PATH}, {VTD10_MERGED_PATH}, fallback {VTD10_FALLBACK_PATH}, and census fallback {VTD10_CENSUS_PATH}"
         )
     gdf = gdf.rename(
         columns={
@@ -109,6 +116,7 @@ def read_vtd_2010() -> gpd.GeoDataFrame:
             "GEOID10": "geoid",
             "NAME10": "name",
             "VTDI10": "vtdi",
+            "vtd_status": "vtdi",
         }
     )
     gdf["statefp"] = gdf["statefp"].astype(str).str.zfill(2)
@@ -123,7 +131,25 @@ def read_vtd_2010() -> gpd.GeoDataFrame:
 
 
 def read_vtd_2020() -> gpd.GeoDataFrame:
-    if VTD20_PATH.exists():
+    if VTD20_GEOJSON_PATH.exists():
+        gdf = gpd.read_file(VTD20_GEOJSON_PATH)
+        gdf = gdf.rename(
+            columns={
+                "STATEFP20": "statefp",
+                "COUNTYFP20": "countyfp",
+                "VTDST20": "vtdst",
+                "GEOID20": "geoid",
+                "NAME20": "name",
+                "VTDI20": "vtdi",
+            }
+        )
+        gdf["statefp"] = gdf["statefp"].astype(str).str.zfill(2)
+        gdf["countyfp"] = gdf["countyfp"].astype(str).str.zfill(3)
+        gdf["vtdst"] = gdf["vtdst"].astype(str).str.strip().str.zfill(6)
+        gdf["geoid"] = gdf["geoid"].astype(str).str.strip()
+        gdf["name"] = gdf["name"].astype(str).str.strip()
+        gdf["vtdi"] = gdf["vtdi"].astype(str).str.strip()
+    elif VTD20_PATH.exists():
         gdf = gpd.read_file(f"zip://{VTD20_PATH.resolve()}")
         gdf = gdf.rename(
             columns={
@@ -164,6 +190,22 @@ def prep(gdf: gpd.GeoDataFrame) -> gpd.GeoDataFrame:
         gdf.loc[invalid, "geometry"] = gdf.loc[invalid, "geometry"].buffer(0)
     gdf = gdf[gdf.geometry.notna() & ~gdf.geometry.is_empty].copy()
     return gdf.to_crs(AREA_CRS)
+
+
+def add_vintage_name_columns(df: pd.DataFrame) -> pd.DataFrame:
+    """Add explicit name00/name10/name20 aliases for audit/frontend labels."""
+    df = df.copy()
+    for col in ["name00", "name10", "name20"]:
+        df[col] = ""
+
+    src_year = df["src_year"].astype(str)
+    dst_year = df["dst_year"].astype(str)
+    for year, col in [("2000", "name00"), ("2010", "name10"), ("2020", "name20")]:
+        src_mask = src_year == year
+        dst_mask = dst_year == year
+        df.loc[src_mask, col] = df.loc[src_mask, "src_name"].fillna("").astype(str)
+        df.loc[dst_mask, col] = df.loc[dst_mask, "dst_name"].fillna("").astype(str)
+    return df
 
 
 def build_overlap(src: gpd.GeoDataFrame, dst: gpd.GeoDataFrame, src_year: int, dst_year: int) -> pd.DataFrame:
@@ -265,6 +307,9 @@ def build_overlap(src: gpd.GeoDataFrame, dst: gpd.GeoDataFrame, src_year: int, d
                 "src_vtdi",
                 "src_geoid",
                 "src_name",
+                "name00",
+                "name10",
+                "name20",
                 "dst_statefp",
                 "dst_countyfp",
                 "dst_vtdst",
@@ -290,6 +335,7 @@ def build_overlap(src: gpd.GeoDataFrame, dst: gpd.GeoDataFrame, src_year: int, d
     )
     out["src_year"] = src_year
     out["dst_year"] = dst_year
+    out = add_vintage_name_columns(out)
 
     out = out[
         [
@@ -301,6 +347,9 @@ def build_overlap(src: gpd.GeoDataFrame, dst: gpd.GeoDataFrame, src_year: int, d
             "src_vtdi",
             "src_geoid",
             "src_name",
+            "name00",
+            "name10",
+            "name20",
             "dst_statefp",
             "dst_countyfp",
             "dst_vtdst",
@@ -344,33 +393,62 @@ def summarize(df: pd.DataFrame, src_label: str, dst_label: str) -> Dict:
 def main() -> None:
     OUT_DIR.mkdir(parents=True, exist_ok=True)
 
-    vtd10 = read_vtd_2010()
     vtd20 = read_vtd_2020()
-    ov_10_20 = build_overlap(vtd10, vtd20, 2010, 2020)
-    ov_10_20.to_csv(OUT_10_20, index=False)
 
     summary = {
         "inputs": {
             "vtd00": VTD00_PATH.name if VTD00_PATH.exists() else None,
-            "vtd10": VTD10_MERGED_PATH.name if VTD10_MERGED_PATH.exists() else VTD10_FALLBACK_PATH.name,
-            "vtd20": VTD20_PATH.name if VTD20_PATH.exists() else VTD20_DRA_PATH.name,
+            "vtd10": (
+                VTD10_DURABLE_PATH.name
+                if VTD10_DURABLE_PATH.exists()
+                else (
+                    VTD10_MERGED_PATH.name
+                    if VTD10_MERGED_PATH.exists()
+                    else (
+                        str(VTD10_FALLBACK_PATH.relative_to(DATA_DIR))
+                        if VTD10_FALLBACK_PATH.exists()
+                        else (
+                            str(VTD10_CENSUS_PATH.relative_to(DATA_DIR))
+                            if VTD10_CENSUS_PATH.exists()
+                            else None
+                        )
+                    )
+                )
+            ),
+            "vtd20": (
+                VTD20_GEOJSON_PATH.name
+                if VTD20_GEOJSON_PATH.exists()
+                else (VTD20_PATH.name if VTD20_PATH.exists() else VTD20_DRA_PATH.name)
+            ),
         },
-        "outputs": {
-            "vtd10_to_vtd20": OUT_10_20.name,
-        },
-        "metrics": [summarize(ov_10_20, "2010", "2020")],
+        "outputs": {},
+        "metrics": [],
+        "skipped": [],
     }
+
+    vtd10 = None
+    if VTD10_DURABLE_PATH.exists() or VTD10_MERGED_PATH.exists() or VTD10_FALLBACK_PATH.exists() or VTD10_CENSUS_PATH.exists():
+        vtd10 = read_vtd_2010()
+        ov_10_20 = build_overlap(vtd10, vtd20, 2010, 2020)
+        ov_10_20.to_csv(OUT_10_20, index=False)
+        summary["outputs"]["vtd10_to_vtd20"] = OUT_10_20.name
+        summary["metrics"].append(summarize(ov_10_20, "2010", "2020"))
+    else:
+        summary["skipped"].append("vtd10 inputs missing; skipped 2010->2020 and 2000->2010 overlaps")
 
     if VTD00_PATH.exists():
         vtd00 = read_vtd_2000()
-        ov_00_10 = build_overlap(vtd00, vtd10, 2000, 2010)
         ov_00_20 = build_overlap(vtd00, vtd20, 2000, 2020)
-        ov_00_10.to_csv(OUT_00_10, index=False)
         ov_00_20.to_csv(OUT_00_20, index=False)
-        summary["outputs"]["vtd00_to_vtd10"] = OUT_00_10.name
         summary["outputs"]["vtd00_to_vtd20"] = OUT_00_20.name
-        summary["metrics"].insert(0, summarize(ov_00_10, "2000", "2010"))
         summary["metrics"].append(summarize(ov_00_20, "2000", "2020"))
+        if vtd10 is not None:
+            ov_00_10 = build_overlap(vtd00, vtd10, 2000, 2010)
+            ov_00_10.to_csv(OUT_00_10, index=False)
+            summary["outputs"]["vtd00_to_vtd10"] = OUT_00_10.name
+            summary["metrics"].insert(0, summarize(ov_00_10, "2000", "2010"))
+    else:
+        summary["skipped"].append("vtd00 input missing; skipped 2000 overlaps")
 
     OUT_SUMMARY.write_text(json.dumps(summary, indent=2), encoding="utf-8")
     print(json.dumps(summary, indent=2))

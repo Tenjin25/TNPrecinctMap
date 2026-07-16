@@ -1,0 +1,2 @@
+year,county_norm,from_precinct_norm,src_vtdst,match_method,transfer_method,reason
+2010,WASHINGTON,10I INDIAN TRAIL,0013,manual_override,none,no_drawable_destination

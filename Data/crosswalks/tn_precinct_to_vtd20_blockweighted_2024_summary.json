@@ -4,13 +4,13 @@
   "source_vintage": 2020,
   "overlap_csv": "tn_precinct_to_2024.csv",
   "input_precinct_keys": 1855,
-  "crosswalk_rows": 1883,
-  "strict_crosswalk_rows": 1883,
+  "crosswalk_rows": 2380,
+  "strict_crosswalk_rows": 2380,
   "low_confidence_crosswalk_rows": 0,
   "unmatched_rows": 0,
   "method_counts": {
-    "exact_name": 1851,
-    "manual_override": 4
+    "exact_name": 1845,
+    "manual_override": 10
   },
   "outputs": {
     "crosswalk_csv": "tn_precinct_to_vtd20_blockweighted_2024.csv",

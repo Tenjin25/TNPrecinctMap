@@ -1,0 +1,23 @@
+{
+  "official_vtd20_geojson": "tn_vtd_2020.geojson",
+  "frontend_geojson": "tn_voting_precincts_dra_v07.geojson",
+  "drawable_source_hint": "tl_2020_47_vtd20.zip",
+  "years": [
+    {
+      "year": 2022,
+      "source_vintage": 2020,
+      "status": "ok",
+      "source_precincts": 1841,
+      "mapped_precincts": 1841,
+      "unmatched_precincts": 0,
+      "output_rows": 2641,
+      "transfer_method_counts": {
+        "existing_blockweighted_drawable": 1841
+      },
+      "drawable_labels_touched": 1607,
+      "drawable_labels_total": 1965,
+      "output_csv": "crosswalks\\tn_precinct_to_vtd20_blockchain_2022.csv",
+      "unmatched_csv": "crosswalks\\tn_precinct_to_vtd20_blockchain_2022_unmatched.csv"
+    }
+  ]
+}

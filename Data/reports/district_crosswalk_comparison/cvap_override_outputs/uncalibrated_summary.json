@@ -1,0 +1,112 @@
+{
+  "output_dir": "reports\\district_crosswalk_comparison\\cvap_override_outputs\\uncalibrated_district_contests_2026",
+  "builder_summary": {
+    "output_dir": "Data\\reports\\district_crosswalk_comparison\\cvap_override_outputs\\uncalibrated_district_contests_2026",
+    "district_files": 22,
+    "manifest_path": "Data\\reports\\district_crosswalk_comparison\\cvap_override_outputs\\uncalibrated_district_contests_2026\\manifest.json"
+  },
+  "delta_csv": "reports/district_crosswalk_comparison/cvap_override_outputs/congressional_2026_calibrated_vs_uncalibrated.csv",
+  "delta_rows_changed": 112,
+  "president_2024": [
+    {
+      "district_num": "1",
+      "uncalibrated_dem": 71688,
+      "calibrated_dem": 71688,
+      "dem_delta": 0,
+      "uncalibrated_rep": 273347,
+      "calibrated_rep": 273347,
+      "rep_delta": 0,
+      "uncalibrated_total": 348607,
+      "calibrated_total": 348607
+    },
+    {
+      "district_num": "2",
+      "uncalibrated_dem": 118880,
+      "calibrated_dem": 118880,
+      "dem_delta": 0,
+      "uncalibrated_rep": 243382,
+      "calibrated_rep": 243382,
+      "rep_delta": 0,
+      "uncalibrated_total": 367313,
+      "calibrated_total": 367313
+    },
+    {
+      "district_num": "3",
+      "uncalibrated_dem": 114325,
+      "calibrated_dem": 114325,
+      "dem_delta": 0,
+      "uncalibrated_rep": 244076,
+      "calibrated_rep": 244076,
+      "rep_delta": 0,
+      "uncalibrated_total": 363187,
+      "calibrated_total": 363187
+    },
+    {
+      "district_num": "4",
+      "uncalibrated_dem": 109887,
+      "calibrated_dem": 109887,
+      "dem_delta": 0,
+      "uncalibrated_rep": 181956,
+      "calibrated_rep": 181956,
+      "rep_delta": 0,
+      "uncalibrated_total": 296144,
+      "calibrated_total": 296144
+    },
+    {
+      "district_num": "5",
+      "uncalibrated_dem": 123927,
+      "calibrated_dem": 116220,
+      "dem_delta": 7707,
+      "uncalibrated_rep": 201618,
+      "calibrated_rep": 217991,
+      "rep_delta": -16373,
+      "uncalibrated_total": 330055,
+      "calibrated_total": 338483
+    },
+    {
+      "district_num": "6",
+      "uncalibrated_dem": 134107,
+      "calibrated_dem": 134107,
+      "dem_delta": 0,
+      "uncalibrated_rep": 229680,
+      "calibrated_rep": 229680,
+      "rep_delta": 0,
+      "uncalibrated_total": 368635,
+      "calibrated_total": 368635
+    },
+    {
+      "district_num": "7",
+      "uncalibrated_dem": 135638,
+      "calibrated_dem": 135638,
+      "dem_delta": 0,
+      "uncalibrated_rep": 215821,
+      "calibrated_rep": 215821,
+      "rep_delta": 0,
+      "uncalibrated_total": 356656,
+      "calibrated_total": 356656
+    },
+    {
+      "district_num": "8",
+      "uncalibrated_dem": 121276,
+      "calibrated_dem": 116253,
+      "dem_delta": 5023,
+      "uncalibrated_rep": 169604,
+      "calibrated_rep": 175365,
+      "rep_delta": -5761,
+      "uncalibrated_total": 294807,
+      "calibrated_total": 295557
+    },
+    {
+      "district_num": "9",
+      "uncalibrated_dem": 126666,
+      "calibrated_dem": 111362,
+      "dem_delta": 15304,
+      "uncalibrated_rep": 207876,
+      "calibrated_rep": 225266,
+      "rep_delta": -17390,
+      "uncalibrated_total": 339167,
+      "calibrated_total": 340931
+    }
+  ],
+  "note": "Uncalibrated rebuild disables calibration_overrides.json for CD 5/8/9. Districts 1 and 2 still use the 2022-line legacy transfer."
+}

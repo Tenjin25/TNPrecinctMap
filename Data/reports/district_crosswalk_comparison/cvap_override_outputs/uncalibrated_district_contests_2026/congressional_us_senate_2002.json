@@ -1,0 +1,123 @@
+{
+  "scope": "congressional",
+  "contest_type": "us_senate",
+  "year": 2002,
+  "meta": {
+    "source": "tn_precinct_csv_district_aggregation_2026_lines_with_2022_line_transfer_for_districts_1_2",
+    "match_coverage_pct": 99.7924,
+    "direct_precinct_row_pct": 90.2883,
+    "overlap_precinct_row_pct": 0.0,
+    "non_geo_row_pct": 9.1047,
+    "county_fallback_row_pct": 0.0,
+    "dropped_row_pct": 0.607,
+    "direct_precinct_vote_pct": 79.1846,
+    "overlap_precinct_vote_pct": 0.0,
+    "non_geo_vote_pct": 20.6078,
+    "county_fallback_vote_pct": 0.0,
+    "dropped_vote_pct": 0.2076,
+    "districts": 9
+  },
+  "general": {
+    "results": {
+      "1": {
+        "dem_votes": 59147,
+        "rep_votes": 121463,
+        "other_votes": 3417,
+        "total_votes": 184027,
+        "dem_candidate": "Bob Clement",
+        "rep_candidate": "Lamar Alexander",
+        "margin": 62316,
+        "margin_pct": 33.8624,
+        "winner": "REP"
+      },
+      "2": {
+        "dem_votes": 68025,
+        "rep_votes": 113056,
+        "other_votes": 2536,
+        "total_votes": 183617,
+        "dem_candidate": "Bob Clement",
+        "rep_candidate": "Lamar Alexander",
+        "margin": 45031,
+        "margin_pct": 24.5244,
+        "winner": "REP"
+      },
+      "3": {
+        "dem_votes": 72000,
+        "rep_votes": 114088,
+        "other_votes": 2606,
+        "total_votes": 188694,
+        "dem_candidate": "Bob Clement",
+        "rep_candidate": "Lamar Alexander",
+        "margin": 42088,
+        "margin_pct": 22.3049,
+        "winner": "REP"
+      },
+      "4": {
+        "dem_votes": 69234,
+        "rep_votes": 68745,
+        "other_votes": 1767,
+        "total_votes": 139746,
+        "dem_candidate": "Bob Clement",
+        "rep_candidate": "Lamar Alexander",
+        "margin": -489,
+        "margin_pct": -0.3499,
+        "winner": "DEM"
+      },
+      "5": {
+        "dem_votes": 96368,
+        "rep_votes": 80523,
+        "other_votes": 2742,
+        "total_votes": 179633,
+        "dem_candidate": "Bob Clement",
+        "rep_candidate": "Lamar Alexander",
+        "margin": -15845,
+        "margin_pct": -8.8208,
+        "winner": "DEM"
+      },
+      "6": {
+        "dem_votes": 114161,
+        "rep_votes": 101414,
+        "other_votes": 2696,
+        "total_votes": 218271,
+        "dem_candidate": "Bob Clement",
+        "rep_candidate": "Lamar Alexander",
+        "margin": -12747,
+        "margin_pct": -5.84,
+        "winner": "DEM"
+      },
+      "7": {
+        "dem_votes": 74840,
+        "rep_votes": 74484,
+        "other_votes": 1680,
+        "total_votes": 151004,
+        "dem_candidate": "Bob Clement",
+        "rep_candidate": "Lamar Alexander",
+        "margin": -356,
+        "margin_pct": -0.2358,
+        "winner": "DEM"
+      },
+      "8": {
+        "dem_votes": 75301,
+        "rep_votes": 117802,
+        "other_votes": 2571,
+        "total_votes": 195674,
+        "dem_candidate": "Bob Clement",
+        "rep_candidate": "Lamar Alexander",
+        "margin": 42501,
+        "margin_pct": 21.7203,
+        "winner": "REP"
+      },
+      "9": {
+        "dem_votes": 97564,
+        "rep_votes": 97425,
+        "other_votes": 2628,
+        "total_votes": 197617,
+        "dem_candidate": "Bob Clement",
+        "rep_candidate": "Lamar Alexander",
+        "margin": -139,
+        "margin_pct": -0.0703,
+        "winner": "DEM"
+      }
+    }
+  }
+}

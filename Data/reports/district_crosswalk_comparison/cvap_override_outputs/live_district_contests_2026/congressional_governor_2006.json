@@ -1,0 +1,123 @@
+{
+  "scope": "congressional",
+  "contest_type": "governor",
+  "year": 2006,
+  "meta": {
+    "source": "tn_precinct_csv_district_aggregation_2026_lines_with_2022_line_transfer_for_districts_1_2",
+    "match_coverage_pct": 95.0728,
+    "direct_precinct_row_pct": 91.3928,
+    "overlap_precinct_row_pct": 0.0,
+    "non_geo_row_pct": 2.3474,
+    "county_fallback_row_pct": 0.0,
+    "dropped_row_pct": 6.2598,
+    "direct_precinct_vote_pct": 93.17,
+    "overlap_precinct_vote_pct": 0.0,
+    "non_geo_vote_pct": 1.9028,
+    "county_fallback_vote_pct": 0.0,
+    "dropped_vote_pct": 4.9272,
+    "districts": 9
+  },
+  "general": {
+    "results": {
+      "1": {
+        "dem_votes": 120376,
+        "rep_votes": 77632,
+        "other_votes": 3744,
+        "total_votes": 201752,
+        "dem_candidate": "Phil Bredesen",
+        "rep_candidate": "Jim Bryson",
+        "margin": -42744,
+        "margin_pct": -21.1864,
+        "winner": "DEM"
+      },
+      "2": {
+        "dem_votes": 134901,
+        "rep_votes": 58012,
+        "other_votes": 2993,
+        "total_votes": 195906,
+        "dem_candidate": "Phil Bredesen",
+        "rep_candidate": "Jim Bryson",
+        "margin": -76889,
+        "margin_pct": -39.2479,
+        "winner": "DEM"
+      },
+      "3": {
+        "dem_votes": 132776,
+        "rep_votes": 64583,
+        "other_votes": 2996,
+        "total_votes": 200355,
+        "dem_candidate": "Phil Bredesen",
+        "rep_candidate": "Jim Bryson",
+        "margin": -68193,
+        "margin_pct": -34.0361,
+        "winner": "DEM"
+      },
+      "4": {
+        "dem_votes": 115411,
+        "rep_votes": 48371,
+        "other_votes": 2804,
+        "total_votes": 166586,
+        "dem_candidate": "Phil Bredesen",
+        "rep_candidate": "Jim Bryson",
+        "margin": -67040,
+        "margin_pct": -40.2435,
+        "winner": "DEM"
+      },
+      "5": {
+        "dem_votes": 145248,
+        "rep_votes": 63102,
+        "other_votes": 3669,
+        "total_votes": 212019,
+        "dem_candidate": "Phil Bredesen",
+        "rep_candidate": "Jim Bryson",
+        "margin": -82146,
+        "margin_pct": -38.7446,
+        "winner": "DEM"
+      },
+      "6": {
+        "dem_votes": 134648,
+        "rep_votes": 53699,
+        "other_votes": 3557,
+        "total_votes": 191904,
+        "dem_candidate": "Phil Bredesen",
+        "rep_candidate": "Jim Bryson",
+        "margin": -80949,
+        "margin_pct": -42.182,
+        "winner": "DEM"
+      },
+      "7": {
+        "dem_votes": 118667,
+        "rep_votes": 45324,
+        "other_votes": 2885,
+        "total_votes": 166876,
+        "dem_candidate": "Phil Bredesen",
+        "rep_candidate": "Jim Bryson",
+        "margin": -73343,
+        "margin_pct": -43.9506,
+        "winner": "DEM"
+      },
+      "8": {
+        "dem_votes": 143117,
+        "rep_votes": 73008,
+        "other_votes": 2850,
+        "total_votes": 218975,
+        "dem_candidate": "Phil Bredesen",
+        "rep_candidate": "Jim Bryson",
+        "margin": -70109,
+        "margin_pct": -32.0169,
+        "winner": "DEM"
+      },
+      "9": {
+        "dem_votes": 136302,
+        "rep_votes": 62649,
+        "other_votes": 3259,
+        "total_votes": 202210,
+        "dem_candidate": "Phil Bredesen",
+        "rep_candidate": "Jim Bryson",
+        "margin": -73653,
+        "margin_pct": -36.424,
+        "winner": "DEM"
+      }
+    }
+  }
+}

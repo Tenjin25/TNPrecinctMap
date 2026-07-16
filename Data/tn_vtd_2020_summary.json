@@ -1,0 +1,9 @@
+{
+  "output": "tn_vtd_2020.geojson",
+  "source": "tl_2020_47_vtd20.zip",
+  "rows": 1965,
+  "name20_nonempty": 1965,
+  "name_sources": {
+    "tl_2020_47_vtd20.zip": 1965
+  }
+}

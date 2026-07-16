@@ -1,0 +1,13 @@
+{
+  "targets": 19,
+  "cvap_reweighted_precincts": 19,
+  "cvap_override_rows": 41,
+  "dropped_cvap_sliver_pieces": 1,
+  "min_cvap_weight": 0.01,
+  "preserved_prior_override_rows": 0,
+  "merged_override_rows": 41,
+  "cvap_source": "C:\\Users\\Shama\\OneDrive\\Documents\\Side_Projects\\Side_Projects\\TNPrecinctMap\\Data\\tn_cvap_2024_2020_b_csv\\tn_cvap_2024_2020_b.csv",
+  "comparison_csv": "reports\\district_crosswalk_comparison\\district_split_cvap_weight_comparison.csv",
+  "overrides_csv": "crosswalks\\tn_district_split_overrides.csv",
+  "max_abs_weight_delta": 0.3603474
+}

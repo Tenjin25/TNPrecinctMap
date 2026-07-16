@@ -1,0 +1,35 @@
+{
+  "output_dir": "reports\\district_crosswalk_comparison",
+  "crosswalks": {
+    "congressional_2022": {
+      "source_csv": "crosswalks\\tn_congressional_2022_precinct_crosswalk.csv",
+      "dominant_assignments_csv": "reports\\district_crosswalk_comparison\\congressional_2022_dominant_precinct_assignments.csv",
+      "precincts": 1965,
+      "split_precincts": 445
+    },
+    "congressional_2026": {
+      "source_csv": "crosswalks\\tn_congressional_2026_precinct_crosswalk.csv",
+      "dominant_assignments_csv": "reports\\district_crosswalk_comparison\\congressional_2026_dominant_precinct_assignments.csv",
+      "precincts": 1965,
+      "split_precincts": 524
+    },
+    "state_house_2022": {
+      "source_csv": "crosswalks\\tn_state_house_2022_precinct_crosswalk.csv",
+      "dominant_assignments_csv": "reports\\district_crosswalk_comparison\\state_house_2022_dominant_precinct_assignments.csv",
+      "precincts": 1965,
+      "split_precincts": 1391
+    },
+    "state_senate_2022": {
+      "source_csv": "crosswalks\\tn_state_senate_2022_precinct_crosswalk.csv",
+      "dominant_assignments_csv": "reports\\district_crosswalk_comparison\\state_senate_2022_dominant_precinct_assignments.csv",
+      "precincts": 1965,
+      "split_precincts": 947
+    }
+  },
+  "congressional_2022_vs_2026": {
+    "comparison_csv": "reports\\district_crosswalk_comparison\\congressional_2022_vs_2026_dominant_changes.csv",
+    "precincts_compared": 1965,
+    "dominant_district_changes": 662
+  },
+  "split_precincts_csv": "reports\\district_crosswalk_comparison\\split_precincts_by_crosswalk.csv"
+}

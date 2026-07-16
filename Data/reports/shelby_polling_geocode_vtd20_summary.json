@@ -1,0 +1,96 @@
+{
+  "targets": 55,
+  "candidates_csv": "C:\\Users\\Shama\\OneDrive\\Documents\\Side_Projects\\Side_Projects\\TNPrecinctMap-crosswalk-chain\\Data\\reports\\shelby_polling_geocode_vtd20_candidates.csv",
+  "overrides_added": 37,
+  "override_rows_total": 265,
+  "status_counts": {
+    "point_in_polygon": 37,
+    "geocode_miss": 18
+  },
+  "unmatched_focus": [
+    {
+      "prctseq": 35,
+      "display_code": "03-09",
+      "polling_location": "Waypoint Baptist",
+      "geocode_query": "Waypoint Baptist",
+      "lon": "-89.876505",
+      "lat": "35.206016",
+      "geocode_display": "Waypoint Baptist Church, 5586, Stage Road, Bartlett, Shelby County, West Tennessee, Tennessee, 38134, United States",
+      "vtd20": "008057",
+      "vtd_name": "Bartlett 06",
+      "status": "point_in_polygon"
+    },
+    {
+      "prctseq": 62,
+      "display_code": "06-02",
+      "polling_location": "Hope Apostolic Church",
+      "geocode_query": "Hope Apostolic Church",
+      "lon": "",
+      "lat": "",
+      "geocode_display": "",
+      "vtd20": "",
+      "vtd_name": "",
+      "status": "geocode_miss"
+    },
+    {
+      "prctseq": 65,
+      "display_code": "06-05",
+      "polling_location": "Springhill Baptist Church",
+      "geocode_query": "Springhill Baptist Church",
+      "lon": "-89.937456",
+      "lat": "35.226056",
+      "geocode_display": "Springhill Baptist Church, Hawkins Mill Road, Egypt, Memphis, Shelby County, West Tennessee, Tennessee, 38128, United States",
+      "vtd20": "008240",
+      "vtd_name": "Memphis 90-3",
+      "status": "point_in_polygon"
+    },
+    {
+      "prctseq": 66,
+      "display_code": "06-06",
+      "polling_location": "East Side Baptist Church",
+      "geocode_query": "East Side Baptist Church",
+      "lon": "-89.893621",
+      "lat": "35.213433",
+      "geocode_display": "East Side Baptist Church, Longacre Avenue, Raleigh, Memphis, Shelby County, West Tennessee, Tennessee, 38134, United States",
+      "vtd20": "008231",
+      "vtd_name": "Memphis 87-3",
+      "status": "point_in_polygon"
+    },
+    {
+      "prctseq": 74,
+      "display_code": "07-05",
+      "polling_location": "Hollywood Community Ctr",
+      "geocode_query": "Hollywood Community Ctr",
+      "lon": "-89.974577",
+      "lat": "35.178991",
+      "geocode_display": "Hollywood Community Center, 1560, North Hollywood Street, Hollywood, Memphis, Shelby County, West Tennessee, Tennessee, 38108, United States",
+      "vtd20": "008131",
+      "vtd_name": "Memphis 42-1",
+      "status": "point_in_polygon"
+    },
+    {
+      "prctseq": 76,
+      "display_code": "07-07",
+      "polling_location": "St Stephen's Methodist Church1301 - St Stephen's Methodist Church",
+      "geocode_query": "St Stephen's Methodist Church 1301",
+      "lon": "",
+      "lat": "",
+      "geocode_display": "",
+      "vtd20": "",
+      "vtd_name": "",
+      "status": "geocode_miss"
+    },
+    {
+      "prctseq": 98,
+      "display_code": "09-07",
+      "polling_location": "Whitehaven Community Ctr",
+      "geocode_query": "Whitehaven Community Ctr",
+      "lon": "-90.014263",
+      "lat": "35.030840",
+      "geocode_display": "Whitehaven Community Center, 4318, Graceland Drive, Whitehaven, Memphis, Shelby County, West Tennessee, Tennessee, 38116, United States",
+      "vtd20": "008211",
+      "vtd_name": "Memphis 79-1",
+      "status": "point_in_polygon"
+    }
+  ]
+}

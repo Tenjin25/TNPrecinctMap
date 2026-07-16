@@ -478,12 +478,63 @@ The repo now supports rebuilding Tennessee's historical VTD overlap chain from o
 
 - `Scripts/fetch_tn_census_2000_vtds.py` downloads and merges Tennessee county `vtd00` ZIPs into a statewide working GeoJSON.
 - `Scripts/fetch_tn_census_2010_vtds.py` downloads and merges Tennessee county `vtd10` ZIPs into a statewide working GeoJSON.
+- `Scripts/export_tn_vtd2010_geojson.py` materializes `Data/tn_vtd_2010.geojson` from the available Census VTD10 source and preserves `NAME10`/`NAMELSAD10`.
+- `Scripts/export_tn_vtd2020_geojson.py` materializes `Data/tn_vtd_2020.geojson` as the durable VTD20 source used by crosswalk builders. It prefers `tl_2020_47_vtd20.zip` when present, otherwise falls back to the DRA VTD20 geometry and enriches `NAME20`/`NAMELSAD20` from `tn_precinct_friendly_names_2020.json`.
 - `Scripts/build_tn_vtd_overlap_crosswalks.py` rebuilds:
   - `Data/crosswalks/tn_vtd00_to_vtd10_overlap.csv`
   - `Data/crosswalks/tn_vtd10_to_vtd20_overlap.csv`
   - `Data/crosswalks/tn_vtd00_to_vtd20_overlap.csv`
+- `Scripts/build_tn_vtd_full_block_chain_crosswalks.py` builds the **primary** geography bridge (preferred for frontend transfers):
+  - `VTD00 → tabblock00 → NHGIS 00→10 → tabblock10 → VTD10 → tabblock10 → NHGIS 10→20 → tabblock20 → VTD20`
+  - Hop artifacts under `Data/crosswalks/block_chain/`
+  - Combined: `tn_vtd00_to_vtd10_block_chain.csv`, `tn_vtd10_to_vtd20_block_chain.csv`, `tn_vtd00_to_vtd20_block_chain.csv`
+- `Scripts/build_tn_vtd_block_fallback_crosswalks.py` builds a **collapsed** legacy shortcut (skips the explicit VTD10 hop):
+  - `Data/crosswalks/tn_vtd00_to_vtd20_block_fallback.csv`
+  - `Data/crosswalks/tn_vtd10_to_vtd20_block_fallback.csv`
 
-The merged statewide GeoJSONs are treated as local rebuild artifacts; the tracked overlap CSV outputs are the durable checked-in products.
+### Frontend precinct block-chain run order
+
+Use this sequence after changing vintage matching, NHGIS bridges, or official VTD20 geometry:
+
+```powershell
+# 1) Full VTD geography chain (once, or when tabblock/NHGIS/VTD inputs change)
+python Scripts/build_tn_vtd_full_block_chain_crosswalks.py
+
+# 2) Historical precinct → vintage VTD attachment (≤2018: vintage catalogs only)
+python Scripts/build_dra_style_block_crosswalks.py --source-csv Data/20001107__tn__general__president__precinct.csv --year 2000 --no-source-tag
+# ...repeat for other years; modern 2020+ uses official VTDST20 PRCTSEQ bridge
+
+# 3) Precinct → official VTD20 weights for the map
+python Scripts/build_tn_block_chain_frontend_crosswalks.py
+
+# 4) Apply onto statewide contest JSONs (not district contests)
+node Scripts/apply_tn_block_chain_contests_to_dra_v07.js --force
+
+# 5) Verify join coverage vs Census VTD20
+python Scripts/report_phase4_vtd20_join_coverage.py
+```
+
+Matching rules of thumb:
+
+- **≤2019:** match source precincts only to VTD00/VTD10 catalogs; transfer via the full block chain. Do not merge the 2024 precinct catalog into historical `src` matching.
+- **2020+:** map SOE `PRCTSEQ` onto official Census `VTDST20` (overrides → PRCTSEQ bridge → name/code → identity only if the code exists on `tn_vtd_2020.geojson`). Never invent padded fake codes like Bedford `000001`.
+- Frontend destination universe is always `Data/tn_vtd_2020.geojson`. Contest join keys are `COUNTY - {VTDST20}`.
+
+`Scripts/build_tn_block_chain_frontend_crosswalks.py` prefers full block-chain transfers, then overlap, then collapsed fallback. Apply with `node Scripts/apply_tn_block_chain_contests_to_dra_v07.js` (optional `--force`). This path does not modify district contest JSONs.
+
+The durable vintage VTD sources are `Data/tn_vtd_2000.geojson`, `Data/tn_vtd_2010.geojson`, and `Data/tn_vtd_2020.geojson`. VTD crosswalk CSVs keep `src_name`/`dst_name` and vintage labels `name00`/`name10`/`name20` where applicable.
+
+### District carryover crosswalks
+
+`Scripts/build_tn_district_carryover_crosswalks.py` rebuilds precinct-to-district carryover CSVs used by district line toggles and cross-scope mapping. Congressional has distinct `2022` and `2026` outputs. Legislative districts use the unchanged 2022 SLDL/SLDU geometries, so the frontend does not expose or load a separate 2024 legislative line mode.
+Those frontend-facing carryover CSVs preserve the existing join columns and add `vtd_name20` plus `name20` so UI/debug tooling can show readable 2020 precinct/VTD names without losing stable precinct IDs.
+Reviewed split overrides live in `Data/crosswalks/tn_district_split_overrides.csv`. When a `(scope, lines_year, precinct_key)` appears there, those district weights fully replace the geometric area weights for that precinct. `Scripts/seed_tn_district_split_overrides_from_geometry_review.py` can seed an initial batch by dropping `<1%` sliver pieces from the GeoPandas review and renormalizing the remaining weights. `Scripts/seed_tn_district_split_overrides_from_block_cvap.py` reweights high-priority real secondary splits by assigning BlockAssign 2020 blocks (via block internal points) to districts and using `CVAP_TOT24` shares, then drops residual `<1%` CVAP pieces and renormalizes; it writes `Data/reports/district_crosswalk_comparison/district_split_cvap_weight_comparison.csv` for area-vs-CVAP review.
+
+`Scripts/audit_tn_district_crosswalk_vote_accuracy.py` reallocates precinct contest votes through those crosswalks and compares the totals with the app's current district contest outputs. It refreshes comparison diagnostics under `Data/reports/district_crosswalk_comparison/`, including `district_crosswalk_vote_accuracy_summary.csv`, `district_crosswalk_vote_accuracy_worst_deltas.csv`, `district_split_review_queue.csv`, and the split-precinct exposure reports `district_crosswalk_split_vote_exposure.csv`, `district_crosswalk_split_cvap_exposure.csv`, and `district_crosswalk_split_vote_exposure_summary.csv`. The split reports join `Data/tn_cvap_by_precinct_2020.json` so high-impact splits can be reviewed by both contest-vote exposure and CVAP exposure. The current precinct CVAP artifact is derived from a 2020-block CVAP allocation plus 2020 BlockAssign; the official Census CVAP special tabulation is a useful source for county/district/block-group checks but does not ship native block-level precinct assignments.
+
+`Scripts/export_tn_district_split_geometry_review.py` uses GeoPandas to overlay the top review-queue precincts against current district lines. It writes map packs under `Data/reports/district_crosswalk_comparison/split_geometry_review/` with per-split GeoJSONs (`precinct.geojson`, `districts.geojson`, `intersection_pieces.geojson`), plus `split_geometry_review_summary.csv` and `split_geometry_review_pieces.csv`. Each row gets a suggested action such as `manual_split_review`, `consider_dominant_only`, or `keep_area_weights`.
+
+`Scripts/export_tn_cvap_override_comparison_bundle.py` writes a side-by-side comparison pack to `Data/reports/district_crosswalk_comparison/cvap_override_outputs/` with candidate (CVAP-override) carryovers, area-weighted rebuilds, a live `district_contests_2026` snapshot, and 2026 Congress weight/totals diffs.
 
 ### Source-tagged historical precinct crosswalks
 
@@ -502,6 +553,7 @@ Reviewed hard cases now live in `Data/crosswalks/tn_crosswalk_manual_overrides.c
 - `override_src_vtdst` is used when a precinct label should resolve to a specific source-side VTD.
 - `override_dst_vtd20` can now be used as a direct fallback for reviewed `matched_no_transfer` cases where the source-side match is known but the transfer row is missing.
 - `Scripts/export_crosswalk_confidence_reports.py` now prefers the strongest available match per `(year, county, precinct)` key when both generic and source-tagged outputs exist.
+- The same exporter refreshes `tn_crosswalk_manual_fix_queue.csv` and `tn_crosswalk_manual_fix_queue_summary.csv` from the current low-confidence outputs, so stale reviewed or newly promoted high-confidence rows drop out of the review queue.
 
 This is the workflow behind the current `2020` improvement pass, including the Hamilton, Shelby, Weakley, Maury, Washington, and Dyer cleanup work.
 

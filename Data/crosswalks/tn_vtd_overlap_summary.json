@@ -1,41 +1,42 @@
 {
   "inputs": {
     "vtd00": "tn_vtd_2000.geojson",
-    "vtd10": "tn_vtd_2010_census_county_merged.geojson",
+    "vtd10": "census\\tl_2012_47_vtd10.zip",
     "vtd20": "tn_dra_vtd20_boundaries_v07.geojson"
   },
   "outputs": {
     "vtd10_to_vtd20": "tn_vtd10_to_vtd20_overlap.csv",
-    "vtd00_to_vtd10": "tn_vtd00_to_vtd10_overlap.csv",
-    "vtd00_to_vtd20": "tn_vtd00_to_vtd20_overlap.csv"
+    "vtd00_to_vtd20": "tn_vtd00_to_vtd20_overlap.csv",
+    "vtd00_to_vtd10": "tn_vtd00_to_vtd10_overlap.csv"
   },
   "metrics": [
     {
       "pair": "2000->2010",
-      "rows": 5151,
+      "rows": 11913,
       "src_units": 2407,
       "dst_units": 2174,
-      "src_weight_sum_min": 0.9366206547922031,
-      "src_weight_sum_mean": 0.9999193985410996,
-      "src_weight_sum_max": 1.0000000000000069
+      "src_weight_sum_min": 0.9366209776062547,
+      "src_weight_sum_mean": 0.9998691314720088,
+      "src_weight_sum_max": 1.0000000000010634
     },
     {
       "pair": "2010->2020",
-      "rows": 11033,
+      "rows": 11105,
       "src_units": 2174,
       "dst_units": 1965,
-      "src_weight_sum_min": 0.9179204064722881,
-      "src_weight_sum_mean": 0.9996547409055047,
-      "src_weight_sum_max": 1.0000000000004883
+      "src_weight_sum_min": 0.9179198238554075,
+      "src_weight_sum_mean": 0.9996547886616666,
+      "src_weight_sum_max": 1.0000000000004023
     },
     {
       "pair": "2000->2020",
-      "rows": 11166,
+      "rows": 11180,
       "src_units": 2407,
       "dst_units": 1965,
-      "src_weight_sum_min": 0.828242023492354,
-      "src_weight_sum_mean": 0.9995382405349084,
-      "src_weight_sum_max": 1.0000000000000129
+      "src_weight_sum_min": 0.8284841770293699,
+      "src_weight_sum_mean": 0.9994970422561824,
+      "src_weight_sum_max": 1.0000000000000189
     }
-  ]
+  ],
+  "skipped": []
 }

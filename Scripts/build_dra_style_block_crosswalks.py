@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
-"""Build DRA-style precinct->VTD20 crosswalks from source CSV + block overlap files.
+"""Build DRA-style precinct->VTD20 crosswalks from source CSV + vintage transfers.
 
-This script is intentionally "phase 1":
-- Input: one source precinct CSV (OpenElections/TN format) and a year.
-- Uses block-derived VTD overlap CSVs (00->20 or 10->20) to transfer weights.
-- Output: weighted mapping from source precinct labels to 2020 VTD codes.
+Historical years (≤2019) match only against vintage VTD00/VTD10 catalogs and
+transfer via the full block chain (preferred) or overlap CSV. The modern 2024
+precinct catalog is intentionally not merged into historical matching.
+
+Modern years (2020+) still use the curated precinct->2024 catalog plus Census
+VTD20 name groups.
 
 Artifacts:
 - Data/crosswalks/tn_precinct_to_vtd20_blockweighted_<year>.csv
@@ -23,15 +25,16 @@ from dataclasses import dataclass
 from datetime import datetime, timedelta
 from difflib import SequenceMatcher
 from pathlib import Path
-from typing import Dict, Iterable, List, Tuple
+from typing import Dict, Iterable, List, Optional, Tuple
 
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = ROOT / "Data"
 XWALK_DIR = DATA_DIR / "crosswalks"
-CENSUS_VTD20_GEOJSON = DATA_DIR / "tn_vtd_2020_census_statewide.geojson"
+CENSUS_VTD20_GEOJSON = DATA_DIR / "tn_vtd_2020.geojson"
 DRA_VTD20_CATALOG_CSV = XWALK_DIR / "tn_dra2020_vtd20_catalog.csv"
 PRCTSEQ_TO_VTD20_OVERRIDES_CSV = XWALK_DIR / "tn_prctseq_to_vtd20_overrides.csv"
+SOURCE_2024_PRECINCT_CSV = DATA_DIR / "20241105__tn__general__precinct.csv"
 
 
 HIGH_CONFIDENCE_METHODS = {
@@ -39,11 +42,13 @@ HIGH_CONFIDENCE_METHODS = {
     "manual_override",
     "prefix_name",
     "code_token_name",
-    "token_vtd",
     "shelby_alias_name",
+    "knox_alias_name",
+    "greene_alias_name",
     "alpha_code_name",
 }
 MEDIUM_CONFIDENCE_METHODS = {
+    "token_vtd",
     "simple_exact_name",
     "compact_exact_name",
     "tail_exact_name",
@@ -92,14 +97,53 @@ def pick_source_vintage(year: int) -> int:
 
 
 def source_overlap_path(vintage: int) -> Path:
+    """Return preferred vintage transfer CSV (block chain first, then overlap)."""
     if vintage == 2000:
+        chain = XWALK_DIR / "tn_vtd00_to_vtd20_block_chain.csv"
+        if chain.exists():
+            return chain
         return XWALK_DIR / "tn_vtd00_to_vtd20_overlap.csv"
     if vintage == 2010:
+        chain = XWALK_DIR / "tn_vtd10_to_vtd20_block_chain.csv"
+        if chain.exists():
+            return chain
         return XWALK_DIR / "tn_vtd10_to_vtd20_overlap.csv"
     if vintage == 2020:
         # 2020+ sources are best matched using the curated precinct->2024 catalog.
         return XWALK_DIR / "tn_precinct_to_2024.csv"
     raise ValueError(f"Unsupported vintage: {vintage}")
+
+
+def lookup_transfer_map(
+    transfers: Dict[Tuple[str, str], Dict[str, float]],
+    county_norm: str,
+    src_vtd: str,
+) -> Dict[str, float]:
+    src = str(src_vtd or "").strip()
+    candidates = [src]
+    if src.isdigit():
+        candidates.extend([src.zfill(4), src.zfill(6), str(int(src))])
+    for key in candidates:
+        hit = transfers.get((county_norm, key))
+        if hit:
+            return dict(hit)
+    return {}
+
+
+def token_vtd_name_agrees(body: str, names: Iterable[str]) -> bool:
+    """True when a non-empty precinct name body agrees with a vintage VTD name."""
+    if not body:
+        return True
+    body_simple = simplify_precinct_name(body) or body
+    for name in names:
+        cand = simplify_precinct_name(name) or name
+        if not cand:
+            continue
+        if body_simple == cand or body_simple in cand or cand in body_simple:
+            return True
+        if SequenceMatcher(None, body_simple, cand).ratio() >= 0.72:
+            return True
+    return False
 
 
 def county_name_by_fips() -> Dict[str, str]:
@@ -137,7 +181,7 @@ def collect_source_precincts(source_csv: Path) -> Dict[SourcePrecinctKey, dict]:
         precinct = (row.get("precinct") or row.get("PRECINCT") or "").strip()
         if not county or not precinct:
             continue
-        pnorm = norm_text(precinct)
+        pnorm = canonical_precinct_norm(precinct)
         if is_non_geographic_label(pnorm):
             continue
         key = SourcePrecinctKey(norm_county(county), pnorm)
@@ -209,6 +253,255 @@ def load_overlap_catalog(path: Path) -> Tuple[Dict[Tuple[str, str], List[dict]],
     return source_catalog, transfers
 
 
+def load_official_vtd20_by_county() -> Dict[str, set]:
+    """county_norm -> set of official 6-digit Census VTDST20 codes."""
+    out: Dict[str, set] = defaultdict(set)
+    if not CENSUS_VTD20_GEOJSON.exists():
+        return out
+    county_norm_from_fips = county_name_by_fips()
+    payload = json.loads(CENSUS_VTD20_GEOJSON.read_text(encoding="utf-8"))
+    for feat in payload.get("features", []):
+        props = feat.get("properties", {}) or {}
+        county_fp = str(props.get("COUNTYFP20", "")).zfill(3)
+        county_norm = county_norm_from_fips.get(county_fp, "")
+        vtd_code = str(props.get("VTDST20", "")).strip().zfill(6)
+        if county_norm and vtd_code.isdigit():
+            out[county_norm].add(vtd_code)
+    return out
+
+
+def load_census_vtd20_leading_code_lookup() -> Dict[Tuple[str, str], Dict[str, float]]:
+    """Map (county, leading NAME20 code token) -> official VTDST20 weights.
+
+    Example: Bedford NAME20 '101 Wartrace ...' yields token '101' -> 000101.
+    """
+    out: Dict[Tuple[str, str], Dict[str, float]] = defaultdict(lambda: defaultdict(float))
+    if not CENSUS_VTD20_GEOJSON.exists():
+        return out
+    county_norm_from_fips = county_name_by_fips()
+    payload = json.loads(CENSUS_VTD20_GEOJSON.read_text(encoding="utf-8"))
+    for feat in payload.get("features", []):
+        props = feat.get("properties", {}) or {}
+        county_fp = str(props.get("COUNTYFP20", "")).zfill(3)
+        county_norm = county_norm_from_fips.get(county_fp, "")
+        vtd_code = str(props.get("VTDST20", "")).strip().zfill(6)
+        name20 = norm_text(str(props.get("NAME20", "")).strip())
+        if not (county_norm and vtd_code.isdigit() and name20):
+            continue
+        try:
+            area = float(props.get("ALAND20") or 0.0) + float(props.get("AWATER20") or 0.0)
+        except (TypeError, ValueError):
+            area = 0.0
+        weight = area if area > 0 else 1.0
+        tokens = set(leading_code_tokens(name20))
+        # After norm_text, Census "10-W" becomes "10 W" — also index compact/hyphen forms.
+        spaced = re.match(r"^(\d{1,3})\s+([A-Z]{1,2})$", name20)
+        if spaced:
+            num = str(int(spaced.group(1)))
+            suf = spaced.group(2)
+            tokens.update({f"{num}-{suf}", f"{num}{suf}", f"{num} {suf}", num})
+        bare_name = re.match(r"^(\d{1,3})$", name20)
+        if bare_name:
+            tokens.add(str(int(bare_name.group(1))))
+        for tok in tokens:
+            if tok:
+                out[(county_norm, tok)][vtd_code] += weight
+        # Also index bare integer form of the VTDST20 itself (e.g. 101 -> 000101).
+        bare = str(int(vtd_code))
+        out[(county_norm, bare)][vtd_code] += weight
+        out[(county_norm, bare.zfill(4))][vtd_code] += weight
+    return out
+
+
+def _name_body_for_match(value: str) -> str:
+    s = strip_leading_locator_tokens(value)
+    s = simplify_precinct_name(s or value)
+    return s
+
+
+def resolve_name_to_official_vtd(
+    county_norm: str,
+    precinct_norm: str,
+    exact_lookup: Dict[Tuple[str, str], Dict[str, float]],
+    grouped_lookup: Dict[Tuple[str, str], Dict[str, float]],
+    leading_lookup: Dict[Tuple[str, str], Dict[str, float]],
+    official_by_county: Dict[str, set],
+) -> Dict[str, float]:
+    """Resolve a modern precinct label onto official Census VTDST20 codes only."""
+    official = official_by_county.get(county_norm, set())
+    if not official:
+        return {}
+
+    def filter_official(raw: Dict[str, float]) -> Dict[str, float]:
+        clean = {zfill_maybe(k): float(v) for k, v in raw.items() if zfill_maybe(k) in official and float(v) > 0}
+        total = sum(clean.values())
+        if total <= 0:
+            return {}
+        return {k: v / total for k, v in clean.items()}
+
+    exact = filter_official(exact_lookup.get((county_norm, precinct_norm), {}))
+    if exact:
+        return exact
+    grouped = filter_official(grouped_lookup.get((county_norm, modern_group_key(precinct_norm)), {}))
+    if grouped:
+        return grouped
+
+    # Leading code tokens from the election label (e.g. "101 WARTRACE", "10W HOWARD").
+    # Prefer the most specific token with a unique official hit.
+    for tok in leading_code_tokens(precinct_norm):
+        hits = filter_official(leading_lookup.get((county_norm, tok), {}))
+        if len(hits) == 1:
+            return hits
+    # Bare numeric parents (19, 68) may legitimately split across child VTDs.
+    for tok in leading_code_tokens(precinct_norm):
+        hits = filter_official(leading_lookup.get((county_norm, tok), {}))
+        if hits and (len(hits) == 1 or re.fullmatch(r"\d{1,3}", tok)):
+            return hits
+
+    # Soft place-name match against Census NAME20 bodies (unique best only).
+    body = _name_body_for_match(precinct_norm)
+    if body and len(body) >= 4:
+        scored: List[Tuple[float, str]] = []
+        for name_key, dst_map in exact_lookup.items():
+            if name_key[0] != county_norm:
+                continue
+            cand_body = _name_body_for_match(name_key[1])
+            if not cand_body or len(cand_body) < 4:
+                continue
+            if body == cand_body or body in cand_body or cand_body in body:
+                score = 1.0
+            else:
+                score = SequenceMatcher(None, body, cand_body).ratio()
+            if score < 0.88:
+                continue
+            for dst, w in dst_map.items():
+                if dst in official:
+                    scored.append((score * float(w), dst))
+        if scored:
+            scored.sort(reverse=True)
+            best_score = scored[0][0]
+            best = {dst: score for score, dst in scored if score >= best_score * 0.98}
+            if len(best) == 1:
+                return {next(iter(best)): 1.0}
+
+    return {}
+
+
+def zfill_maybe(value: str, width: int = 6) -> str:
+    s = str(value or "").strip()
+    if s.isdigit():
+        return s.zfill(width)
+    return s
+
+
+def build_prctseq_to_official_vtd_bridge(
+    exact_lookup: Dict[Tuple[str, str], Dict[str, float]],
+    grouped_lookup: Dict[Tuple[str, str], Dict[str, float]],
+    leading_lookup: Dict[Tuple[str, str], Dict[str, float]],
+    official_by_county: Dict[str, set],
+) -> Dict[Tuple[str, str], Dict[str, float]]:
+    """Build county-local PRCTSEQ -> official VTDST20 bridges.
+
+    Uses 2024 precinct labels for name/code matches, then fills remaining
+    PRCTSEQ values with injective offset matching against each county's
+    official VTDST20 set (e.g. Bedford 1..11 -> 101..111 via +100).
+    """
+    out: Dict[Tuple[str, str], Dict[str, float]] = {}
+    if not SOURCE_2024_PRECINCT_CSV.exists():
+        return out
+
+    prctseq_by_county: Dict[str, set] = defaultdict(set)
+    label_by_key: Dict[Tuple[str, int], str] = {}
+    for row in read_rows(SOURCE_2024_PRECINCT_CSV):
+        county_norm = norm_county(str(row.get("COUNTY") or row.get("county") or "").strip())
+        seq_raw = str(row.get("PRCTSEQ") or row.get("prctseq") or "").strip()
+        precinct = norm_text(str(row.get("PRECINCT") or row.get("precinct") or "").strip())
+        if not county_norm or not seq_raw.isdigit():
+            continue
+        seq_int = int(seq_raw)
+        prctseq_by_county[county_norm].add(seq_int)
+        if precinct and (county_norm, seq_int) not in label_by_key:
+            label_by_key[(county_norm, seq_int)] = precinct
+
+    # Pass 1: unique name/code resolutions from 2024 labels.
+    exact_by_county: Dict[str, Dict[int, str]] = defaultdict(dict)
+    for (county_norm, seq_int), precinct in label_by_key.items():
+        resolved = resolve_name_to_official_vtd(
+            county_norm,
+            precinct,
+            exact_lookup,
+            grouped_lookup,
+            leading_lookup,
+            official_by_county,
+        )
+        if len(resolved) == 1:
+            exact_by_county[county_norm][seq_int] = next(iter(resolved.keys()))
+
+    # Pass 2: offset / injective fill for remaining PRCTSEQ values.
+    for county_norm, pset in prctseq_by_county.items():
+        official = official_by_county.get(county_norm, set())
+        if not official:
+            continue
+        vset = {int(v) for v in official if str(v).isdigit()}
+        if not vset:
+            continue
+
+        assigned: Dict[int, str] = dict(exact_by_county.get(county_norm, {}))
+        used_vtds = {int(v) for v in assigned.values() if str(v).isdigit()}
+
+        # Score additive offsets by PRCTSEQ hit count.
+        pmin, pmax = min(pset), max(pset)
+        vmin, vmax = min(vset), max(vset)
+        scored: List[Tuple[int, float, int]] = []
+        for k in range(max(-200, vmin - pmax), min(10000, vmax - pmin) + 1):
+            hits = 0
+            weight = 0.0
+            for p in pset:
+                if (p + k) in vset:
+                    hits += 1
+                    weight += 1.0 / (1.0 + float(p))
+            if hits <= 0:
+                continue
+            # Bonus when exact name matches imply this offset.
+            bonus = sum(
+                1
+                for p, v in assigned.items()
+                if str(v).isdigit() and int(v) - int(p) == k
+            )
+            if bonus:
+                hits += min(25, bonus)
+                weight += 0.5 * float(bonus)
+            scored.append((hits, weight, k))
+        scored.sort(reverse=True)
+
+        unmatched = sorted(p for p in pset if p not in assigned)
+        for _hits, _weight, k in scored[:40]:
+            if not unmatched:
+                break
+            still = []
+            for p in unmatched:
+                cand = p + int(k)
+                if cand in vset and cand not in used_vtds:
+                    code = str(cand).zfill(6)
+                    assigned[p] = code
+                    used_vtds.add(cand)
+                else:
+                    still.append(p)
+            unmatched = still
+
+        # Identity for any remaining codes that are already official VTDST20s.
+        for p in list(unmatched):
+            if p in vset and p not in used_vtds:
+                assigned[p] = str(p).zfill(6)
+                used_vtds.add(p)
+
+        for seq_int, vtd in assigned.items():
+            out[(county_norm, str(seq_int).zfill(4))] = {vtd: 1.0}
+            out[(county_norm, str(seq_int).zfill(6))] = {vtd: 1.0}
+
+    return out
+
+
 def load_2024_precinct_catalog(path: Path) -> Tuple[Dict[Tuple[str, str], List[dict]], Dict[Tuple[str, str], Dict[str, float]]]:
     """Build a modern-name catalog retargeted into official Census/current VTD20 codes."""
     if not path.exists():
@@ -217,27 +510,85 @@ def load_2024_precinct_catalog(path: Path) -> Tuple[Dict[Tuple[str, str], List[d
     source_catalog: Dict[Tuple[str, str], List[dict]] = defaultdict(list)
     transfers: Dict[Tuple[str, str], Dict[str, float]] = defaultdict(lambda: defaultdict(float))
     exact_lookup, grouped_lookup = load_census_vtd20_name_lookup()
+    leading_lookup = load_census_vtd20_leading_code_lookup()
+    official_by_county = load_official_vtd20_by_county()
     dra_code_lookup = load_dra_vtd20_code_lookup()
     prctseq_override_lookup = load_prctseq_to_vtd20_override_lookup()
+    prctseq_bridge = build_prctseq_to_official_vtd_bridge(
+        exact_lookup,
+        grouped_lookup,
+        leading_lookup,
+        official_by_county,
+    )
 
     def resolved_dst_map(county_norm: str, precinct_norm: str, fallback_code: str) -> Dict[str, float]:
-        exact = exact_lookup.get((county_norm, precinct_norm), {})
+        official = official_by_county.get(county_norm, set())
+
+        def filter_official(raw: Dict[str, float]) -> Dict[str, float]:
+            clean = {
+                zfill_maybe(d): float(w)
+                for d, w in (raw or {}).items()
+                if zfill_maybe(d) in official and float(w) > 0
+            }
+            total = sum(clean.values())
+            if total <= 0:
+                return {}
+            return {k: v / total for k, v in clean.items()}
+
+        # 1) Explicit PRCTSEQ overrides (Davidson/Shelby review, etc.).
+        for key in (fallback_code.zfill(4), fallback_code.zfill(6), fallback_code):
+            explicit = filter_official(prctseq_override_lookup.get((county_norm, key), {}))
+            if explicit:
+                return explicit
+
+        # 2) Statewide PRCTSEQ -> official VTDST20 bridge (offsets + labels).
+        for key in (fallback_code.zfill(4), fallback_code.zfill(6), fallback_code):
+            bridged = prctseq_bridge.get((county_norm, key), {})
+            if bridged:
+                return dict(bridged)
+
+        # 3) Strict Census NAME20 exact match.
+        exact = filter_official(exact_lookup.get((county_norm, precinct_norm), {}))
         if exact:
-            return dict(exact)
-        grouped = grouped_lookup.get((county_norm, modern_group_key(precinct_norm)), {})
-        if grouped:
-            return dict(grouped)
-        explicit = prctseq_override_lookup.get((county_norm, fallback_code.zfill(4)), {})
-        if explicit:
-            return dict(explicit)
-        explicit = prctseq_override_lookup.get((county_norm, fallback_code.zfill(6)), {})
-        if explicit:
-            return dict(explicit)
-        dra_match = dra_code_lookup.get((county_norm, fallback_code.zfill(4)), {})
+            return exact
+
+        # 4) Prefer the most specific leading-code token with a unique official hit
+        # (so 10W -> 10-W wins over bare 10 -> {10-N,10-S,10-W}).
+        for tok in leading_code_tokens(precinct_norm):
+            hits = filter_official(leading_lookup.get((county_norm, tok), {}))
+            if len(hits) == 1:
+                return hits
+        for tok in leading_code_tokens(precinct_norm):
+            hits = filter_official(leading_lookup.get((county_norm, tok), {}))
+            if hits and (len(hits) == 1 or re.fullmatch(r"\d{1,3}", tok)):
+                return hits
+
+        # 5) Grouped Census name family, only when it collapses to one VTD.
+        grouped = filter_official(grouped_lookup.get((county_norm, modern_group_key(precinct_norm)), {}))
+        if len(grouped) == 1:
+            return grouped
+
+        # 6) DRA GEOID suffix lookup (helps Anderson-style codespaces).
+        dra_match = filter_official(dra_code_lookup.get((county_norm, fallback_code.zfill(4)), {}))
         if dra_match:
-            return dict(dra_match)
-        if fallback_code:
-            return {fallback_code.zfill(6): 1.0}
+            return dra_match
+
+        # 7) Identity only when the padded code is a real official VTDST20.
+        code = zfill_maybe(fallback_code, 6)
+        if code in official:
+            return {code: 1.0}
+
+        # 8) Soft place-name fallback (unique hit only).
+        soft = resolve_name_to_official_vtd(
+            county_norm,
+            precinct_norm,
+            exact_lookup,
+            grouped_lookup,
+            leading_lookup,
+            official_by_county,
+        )
+        if len(soft) == 1:
+            return soft
         return {}
 
     for row in read_rows(path):
@@ -635,6 +986,17 @@ def load_precinct_alias_rows() -> List[dict]:
     return out
 
 
+def _override_status_accepted(review_status_raw: str) -> bool:
+    """Accept approved reviews and Phase-3 auto seeds."""
+    status = norm_text(str(review_status_raw or "").strip())
+    if not status:
+        return True
+    if status in {"APPROVED", "CONFIRMED", "DONE"}:
+        return True
+    # norm_text turns phase3_auto_src -> "PHASE3 AUTO SRC"
+    return status.startswith("PHASE3")
+
+
 def load_manual_src_overrides() -> Dict[Tuple[int, str, str], str]:
     """Load reviewed source-VTD overrides for hard historical labels."""
     path = XWALK_DIR / "tn_crosswalk_manual_overrides.csv"
@@ -646,8 +1008,7 @@ def load_manual_src_overrides() -> Dict[Tuple[int, str, str], str]:
         enabled = str(row.get("enabled", "")).strip()
         if enabled not in {"1", "TRUE", "True", "true"}:
             continue
-        review_status = norm_text(str(row.get("review_status", "")).strip())
-        if review_status and review_status not in {"APPROVED", "CONFIRMED", "DONE"}:
+        if not _override_status_accepted(row.get("review_status", "")):
             continue
         try:
             year = int(str(row.get("year", "")).strip())
@@ -673,8 +1034,7 @@ def load_manual_dst_overrides() -> Dict[Tuple[int, str, str], str]:
         enabled = str(row.get("enabled", "")).strip()
         if enabled not in {"1", "TRUE", "True", "true"}:
             continue
-        review_status = norm_text(str(row.get("review_status", "")).strip())
-        if review_status and review_status not in {"APPROVED", "CONFIRMED", "DONE"}:
+        if not _override_status_accepted(row.get("review_status", "")):
             continue
         try:
             year = int(str(row.get("year", "")).strip())
@@ -683,6 +1043,8 @@ def load_manual_dst_overrides() -> Dict[Tuple[int, str, str], str]:
         county_norm = norm_county(str(row.get("county_norm", "")).strip())
         precinct_norm = norm_text(str(row.get("from_precinct_norm", "")).strip())
         dst_vtd20 = str(row.get("override_dst_vtd20", "")).strip()
+        if dst_vtd20.isdigit():
+            dst_vtd20 = dst_vtd20.zfill(6)
         if not (year and county_norm and precinct_norm and dst_vtd20):
             continue
         out[(year, county_norm, precinct_norm)] = dst_vtd20
@@ -721,7 +1083,11 @@ def leading_alpha_code(value: str) -> str:
 
 
 def excel_serial_aliases(precinct_norm: str) -> List[str]:
-    """Decode Excel date-serial artifacts like 44562 -> 1-1 / 01-01."""
+    """Decode Excel date-serial artifacts like 44562 -> 1-1 / 01-01.
+
+    Only emits month-day in the decoded date order. Emitting day-month swaps
+    causes collisions (1-2 vs 2-1 both claim each other).
+    """
     out: List[str] = []
     s = norm_text(precinct_norm)
     if not s:
@@ -731,12 +1097,9 @@ def excel_serial_aliases(precinct_norm: str) -> List[str]:
         serial = int(m.group(1))
         if 43000 <= serial <= 50000:
             dt = datetime(1899, 12, 30) + timedelta(days=serial)
-            mm = f"{dt.month:02d}"
-            dd = f"{dt.day:02d}"
-            out.append(f"{mm}-{dd}")
-            out.append(f"{dd}-{mm}")
-            out.append(f"{int(mm)}-{int(dd)}")
-            out.append(f"{int(dd)}-{int(mm)}")
+            # Unpadded first so canonical keys match OpenElections labels (1-2 not 01-02).
+            out.append(f"{int(dt.month)}-{int(dt.day)}")
+            out.append(f"{dt.month:02d}-{dt.day:02d}")
     dedup: List[str] = []
     seen = set()
     for v in out:
@@ -747,21 +1110,105 @@ def excel_serial_aliases(precinct_norm: str) -> List[str]:
     return dedup
 
 
+def canonical_precinct_norm(precinct_norm: str) -> str:
+    """Prefer decoded Excel month-day labels over raw serial keys."""
+    s = norm_text(precinct_norm)
+    aliases = excel_serial_aliases(s)
+    if not aliases:
+        return s
+    return aliases[0]
+
+
+SHELBY_SUBURB_ABBREV = {
+    "ARL": "ARLINGTON",
+    "BAR": "BARTLETT",
+    "BRU": "BRUNSWICK",
+    "CAP": "CAPLEVILLE",
+    "COL": "COLLIERVILLE",
+    "COR": "CORDOVA",
+    "EAD": "EADS",
+    "FOR": "FOREST HILLS",
+    "GER": "GERMANTOWN",
+    "KER": "KERRVILLE",
+    "LAK": "LAKELAND",
+    "LOC": "LOCKE",
+    "LUC": "LUCY",
+    "MCC": "MCCONNELL S",
+    "MIL": "MILLINGTON",
+    "MOR": "MORNING SUN",
+    "ROS": "ROSS STORE",
+    "STE": "STEWARTVILLE",
+    "WOO": "WOODSTOCK",
+}
+
+
+def _shelby_place_num_aliases(place: str, num: int) -> List[str]:
+    """Emit zero-padded and bare numbered place labels used across Shelby vintages."""
+    out = [f"{place} {num}", f"{place} {num:02d}"]
+    if place in {"BARTLETT", "GERMANTOWN", "ROSS STORE"}:
+        out.append(f"{place} {num:02d}")
+    if place in {"BRUNSWICK", "CAPLEVILLE", "COLLIERVILLE", "CORDOVA", "LUCY", "MILLINGTON", "WOODSTOCK"}:
+        out.append(f"{place} {num}")
+    return out
+
+
 def shelby_aliases(precinct_norm: str) -> List[str]:
     """Generate deterministic Shelby-specific label aliases."""
     out: List[str] = excel_serial_aliases(precinct_norm)
     s = norm_text(precinct_norm)
     if not s:
         return out
+    # Bare Memphis ward codes in older exports: 001 -> MEMPHIS 01
     m = re.match(r"^(\d{3})$", s)
     if m:
-        out.append(f"MEMPHIS {int(m.group(1))}")
+        n = int(m.group(1))
+        out.extend([f"MEMPHIS {n}", f"MEMPHIS {n:02d}", f"MEMPHIS {n:03d}"])
     m = re.match(r"^(\d{3})\s+(\d{1,2})$", s)
     if m:
-        out.append(f"MEMPHIS {int(m.group(1))}-{int(m.group(2))}")
+        a, b = int(m.group(1)), int(m.group(2))
+        out.extend(
+            [
+                f"MEMPHIS {a}-{b}",
+                f"MEMPHIS {a} {b}",
+                f"MEMPHIS {a:02d} {b}",
+                f"MEMPHIS {a:02d}-{b}",
+            ]
+        )
+    # 2000 suburb codes: "101 01 BAR 01", "102 1 BRU 1", "100 ARL", "106 EAD"
+    m = re.match(r"^(\d{3})\s+(\d{1,2})\s+([A-Z]{3})\s+(\d{1,2})$", s)
+    if m:
+        place = SHELBY_SUBURB_ABBREV.get(m.group(3), "")
+        if place:
+            out.extend(_shelby_place_num_aliases(place, int(m.group(4))))
+            if place in {"ARLINGTON", "EADS", "FOREST HILLS", "KERRVILLE", "LAKELAND", "LOCKE", "MORNING SUN", "STEWARTVILLE", "MCCONNELL S"}:
+                out.append(place)
+    m = re.match(r"^(\d{3})\s+([A-Z]{3})$", s)
+    if m:
+        place = SHELBY_SUBURB_ABBREV.get(m.group(2), "")
+        if place:
+            out.append(place)
+    # Compact suburb form without inner index: "118 WOO 1", "119 WOO 2"
+    m = re.match(r"^(\d{3})\s+([A-Z]{3})\s+(\d{1,2})$", s)
+    if m:
+        place = SHELBY_SUBURB_ABBREV.get(m.group(2), "")
+        if place:
+            out.extend(_shelby_place_num_aliases(place, int(m.group(3))))
+            if place in {
+                "ARLINGTON",
+                "EADS",
+                "FOREST HILLS",
+                "KERRVILLE",
+                "LAKELAND",
+                "LOCKE",
+                "MORNING SUN",
+                "STEWARTVILLE",
+                "MCCONNELL S",
+            }:
+                out.append(place)
     m = re.match(r"^ROSS\s+(\d{1,2})$", s)
     if m:
-        out.append(f"ROSS STORE {int(m.group(1)):02d}")
+        n = int(m.group(1))
+        out.extend([f"ROSS STORE {n:02d}", f"ROSS STORE {n}"])
     m = re.match(r"^LAKELAND\s+\d{1,2}$", s)
     if m:
         out.append("LAKELAND")
@@ -797,14 +1244,40 @@ def leading_code_tokens(value: str) -> List[str]:
     if not s:
         return []
     s = s.replace("_", " ")
+    # Normalize hyphenated codes so "10-W" and "10 W" share the same token path.
+    s = re.sub(r"\b(\d{1,3})\s*-\s*([A-Z]{1,2})\b", r"\1 \2", s)
     out: List[str] = []
     # examples: 25-3, 01-2, 2C, 10T, 001-006
     m = re.match(r"^\s*([0-9]{1,3}[A-Z]?)\s*[- ]\s*([0-9]{1,3}[A-Z]?)\b", s)
     if m:
         out.append(f"{normalize_numeric_token(m.group(1))}-{normalize_numeric_token(m.group(2))}")
-    m2 = re.match(r"^\s*([0-9]{1,3}[A-Z]?)\b", s)
-    if m2:
-        out.append(normalize_numeric_token(m2.group(1)))
+        # Knox 2000 dual codes "001-006" / "001 006": second token is the VTD00 name.
+        out.append(normalize_numeric_token(m.group(2)))
+        digits2 = re.sub(r"\D", "", m.group(2))
+        if digits2:
+            out.append(str(int(digits2)))
+    # Compact or spaced directional: 10W / 10 W / 65SW
+    m2 = re.match(r"^\s*([0-9]{1,3})([A-Z]{1,2})\b", s)
+    m2_space = re.match(r"^\s*([0-9]{1,3})\s+([A-Z]{1,2})\b", s)
+    if m2 or m2_space:
+        mm = m2 or m2_space
+        num = str(int(mm.group(1)))
+        suf = mm.group(2)
+        out.extend(
+            [
+                f"{num}{suf}",
+                f"{num}-{suf}",
+                f"{num} {suf}",
+                num,
+            ]
+        )
+        # Multi-letter suffixes: 66NE -> 66N / 66-N; 65SW -> 65S / 65-W candidates.
+        if len(suf) >= 2:
+            out.extend([f"{num}{suf[0]}", f"{num}-{suf[0]}", f"{num}{suf[-1]}", f"{num}-{suf[-1]}"])
+    else:
+        m2b = re.match(r"^\s*([0-9]{1,3}[A-Z]?)\b", s)
+        if m2b:
+            out.append(normalize_numeric_token(m2b.group(1)))
     m3 = re.match(r"^\s*([A-Z]+)\s+([0-9]{1,3}[A-Z]?)\b", s)
     if m3:
         out.append(f"{m3.group(1)} {normalize_numeric_token(m3.group(2))}")
@@ -818,12 +1291,158 @@ def leading_code_tokens(value: str) -> List[str]:
     return dedup
 
 
+def knox_label_aliases(precinct_norm: str) -> List[str]:
+    """Knox election labels -> candidate vintage/Census name keys."""
+    s = norm_text(precinct_norm)
+    out: List[str] = []
+    # 2000 dual codes: 001 006 -> VTD00 NAME00 "6"
+    m = re.match(r"^(\d{1,3})\s+(\d{1,3})$", s)
+    if m:
+        b = m.group(2)
+        out.extend([str(int(b)), b, b.lstrip("0") or "0"])
+    # Compact / spaced directional codes: 63N / 10 W -> 63N / 63-N / 10W
+    m = re.match(r"^(\d{1,3})\s*([A-Z]{1,2})\b(?:\s+(.*))?$", s)
+    if not m:
+        m = re.match(r"^(\d{1,3})\s+([A-Z]{1,2})\b(?:\s+(.*))?$", s)
+    if m:
+        num = str(int(m.group(1)))
+        suf = m.group(2)
+        rest = (m.group(3) or "").strip()
+        out.extend([f"{num}{suf}", f"{num}-{suf}", f"{num} {suf}", num])
+        if len(suf) >= 2:
+            out.extend([f"{num}{suf[0]}", f"{num}-{suf[0]}"])
+        if rest:
+            out.extend([f"{num}{suf} {rest}", f"{num}-{suf} {rest}", rest])
+    dedup: List[str] = []
+    seen = set()
+    for v in out:
+        n = norm_text(v)
+        if n and n not in seen:
+            seen.add(n)
+            dedup.append(n)
+    return dedup
+
+
+_GREENE_PLACE_TO_VTDST: Optional[Dict[str, str]] = None
+_GREENE_PLACE_ALIASES = {
+    # 2000/2002 label that predates the 2010 "04 MCDONALD" rename.
+    "WARRENSBURG": "MCDONALD",
+    "COURTHOUSE": "COURT HOUSE",
+    "COURT HOUSE": "COURT HOUSE",
+    "MT CARMEL": "MT CARMEL",
+    "MOUNT CARMEL": "MT CARMEL",
+    "MT PLEASANT": "MT PLEASANT",
+    "MOUNT PLEASANT": "MT PLEASANT",
+    # Spelling / split variants in early election exports.
+    "CHUCKY": "CHUCKY DOAK",
+    "CHUCKEY": "CHUCKY DOAK",
+    "CHUCKEY DOAK": "CHUCKY DOAK",
+    # Union Temple is a 2010 split; VTD00 only has Lost Mountain (3128).
+    "UNION TEMPLE": "LOST MOUNTAIN",
+}
+
+
+def load_greene_place_to_vtdst() -> Dict[str, str]:
+    """Map Greene place labels -> shared VTD00/VTD10 codes via VTD10 NAME10.
+
+    Greene VTD00 NAME00 values are bare numeric codes (3000, 3004, ...), while
+    election files and VTD10 use place names. Codes are stable across 2000/2010.
+    """
+    global _GREENE_PLACE_TO_VTDST
+    if _GREENE_PLACE_TO_VTDST is not None:
+        return _GREENE_PLACE_TO_VTDST
+    out: Dict[str, str] = {}
+    path = ROOT / "Data" / "tn_vtd_2010.geojson"
+    if not path.exists():
+        _GREENE_PLACE_TO_VTDST = out
+        return out
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    for feat in payload.get("features", []):
+        props = feat.get("properties", {}) or {}
+        if str(props.get("COUNTYFP10", "")).zfill(3) != "059":
+            continue
+        code = str(props.get("VTDST10", "")).strip()
+        name = norm_text(str(props.get("NAME10", "")).strip())
+        if not (code and name):
+            continue
+        out[name] = code
+        # Strip leading precinct index tokens: "01 FOREST HILLS" / "10 1 EAST VIEW"
+        body = re.sub(r"^\d{1,2}(?:\s+\d{1,2})?\s+", "", name).strip()
+        if body:
+            out.setdefault(body, code)
+        # Compact body without spaces for light matching helpers.
+        compact = re.sub(r"\s+", "", body or name)
+        if compact:
+            out.setdefault(compact, code)
+    for src, dst_name in _GREENE_PLACE_ALIASES.items():
+        dst_key = norm_text(dst_name)
+        if dst_key in out:
+            # Force alias overrides (e.g. UNION TEMPLE -> LOST MOUNTAIN for VTD00).
+            out[norm_text(src)] = out[dst_key]
+    _GREENE_PLACE_TO_VTDST = out
+    return out
+
+
+def greene_label_to_vtdst(precinct_norm: str) -> str:
+    """Resolve a Greene election label to a vintage VTDST code, if unique."""
+    lookup = load_greene_place_to_vtdst()
+    s = norm_text(precinct_norm)
+    if not s:
+        return ""
+    candidates = [s]
+    # Drop leading index: "01 FOREST HILLS", "10 1 EAST VIEW", "10 2 COURTHOUSE"
+    stripped = re.sub(r"^\d{1,2}(?:\s+\d{1,2})?\s+", "", s).strip()
+    if stripped and stripped != s:
+        candidates.append(stripped)
+    # Drop trailing ward/split numbers: "HARDINS 11", "WOODLAWN 5"
+    bare = re.sub(r"\s+\d{1,2}$", "", stripped or s).strip()
+    if bare and bare not in candidates:
+        candidates.append(bare)
+    # Prefer alias targets first so 2010-only splits (UNION TEMPLE) remap for VTD00.
+    ordered: List[str] = []
+    for key in candidates:
+        alias = _GREENE_PLACE_ALIASES.get(key)
+        if alias:
+            n = norm_text(alias)
+            if n and n not in ordered:
+                ordered.append(n)
+    for key in candidates:
+        if key and key not in ordered:
+            ordered.append(key)
+    for key in ordered:
+        code = lookup.get(key)
+        if code:
+            return code
+    # Truncated OCR/export labels: "10 2 ANDREW JOHNSO" -> ANDREW JOHNSON
+    for body in (bare, stripped, s):
+        if len(body) < 6:
+            continue
+        hits = sorted(
+            {
+                code
+                for name, code in lookup.items()
+                if not name[:1].isdigit()
+                and (name.startswith(body) or body.startswith(name[: max(6, min(len(name), len(body)))]))
+            }
+        )
+        if len(hits) == 1:
+            return hits[0]
+    return ""
+
+
 def match_source_vtd(
     county_norm: str,
     precinct_norm: str,
     source_catalog: Dict[Tuple[str, str], List[dict]],
+    allow_forced: bool = True,
 ) -> Tuple[str, str, float]:
-    """Return (src_vtdst, method, score)."""
+    """Return (src_vtdst, method, score).
+
+    token_vtd only accepts codes that exist in the provided catalog. When the
+    precinct label also has a place-name body, that body must agree with the
+    vintage VTD name so sequential election codes do not bind to unrelated
+    Census VTD codes.
+    """
     candidates = [
         (src_vtd, meta)
         for (c_norm, src_vtd), metas in source_catalog.items()
@@ -855,6 +1474,29 @@ def match_source_vtd(
                 if alias in names:
                     return src_vtd, "shelby_alias_name", 0.997
 
+    # 1bb) Knox dual-code / compact directional aliases (001 006 -> "6", 63N -> "63N").
+    if county_norm == "KNOX":
+        for alias in knox_label_aliases(precinct_norm):
+            for src_vtd, names in by_vtd_name_norms.items():
+                if alias in names:
+                    return src_vtd, "knox_alias_name", 0.997
+            for src_vtd, names in by_vtd_name_norms.items():
+                for cand in names:
+                    if cand == alias or cand.startswith(f"{alias} "):
+                        return src_vtd, "knox_alias_name", 0.996
+
+    # 1bc) Greene place names: VTD00 NAME00 is numeric, so resolve via VTD10 labels.
+    if county_norm == "GREENE":
+        greene_code = greene_label_to_vtdst(precinct_norm)
+        if greene_code:
+            catalog_codes = {src_vtd for src_vtd, _ in candidates}
+            if greene_code in catalog_codes:
+                return greene_code, "greene_alias_name", 0.997
+            # Some overlap tables zero-pad inconsistently.
+            padded = greene_code.zfill(4)
+            if padded in catalog_codes:
+                return padded, "greene_alias_name", 0.997
+
     # 1c) Prefix name match: source labels often look like "10-6 Gateway School"
     # while election CSVs can carry only "10-6".
     for src_vtd, names in by_vtd_name_norms.items():
@@ -870,14 +1512,6 @@ def match_source_vtd(
                 c_codes = leading_code_tokens(cand)
                 if any(q == c for q in q_codes for c in c_codes):
                     return src_vtd, "code_token_name", 0.993
-
-    # 2) Leading token/code match, e.g., "0008", "8A", etc.
-    qtok = code_token(precinct_norm)
-    if qtok:
-        for src_vtd in by_vtd_name_norms.keys():
-            vtok = re.sub(r"[^A-Z0-9]", "", src_vtd.upper())
-            if qtok == vtok or qtok.lstrip("0") == vtok.lstrip("0"):
-                return src_vtd, "token_vtd", 1.0
 
     # 2a) Leading numeric+alpha code match (e.g., 14CH, 11S).
     q_alpha = leading_alpha_code(precinct_norm)
@@ -938,7 +1572,22 @@ def match_source_vtd(
         if len(core_hits) == 1:
             return core_hits[0], "core_exact_name", 0.982
 
-    # 2e) Tail-name fuzzy match. Helps labels like "167 COLLEGEDALE 3" where
+    # 2e) Catalog-gated token/code match. Runs after name methods so labels like
+    # "02 ANDERSONVILLE" prefer the named VTD over a sequential code collision.
+    qtok = code_token(precinct_norm)
+    if qtok:
+        body = q_tail if q_tail and q_tail != precinct_norm else ""
+        if body and len(body) < 3:
+            body = ""
+        for src_vtd, names in by_vtd_name_norms.items():
+            vtok = re.sub(r"[^A-Z0-9]", "", src_vtd.upper())
+            if not (qtok == vtok or qtok.lstrip("0") == vtok.lstrip("0")):
+                continue
+            if body and not token_vtd_name_agrees(body, names):
+                continue
+            return src_vtd, "token_vtd", 0.98
+
+    # 2f) Tail-name fuzzy match. Helps labels like "167 COLLEGEDALE 3" where
     # code prefixes vary but the precinct name body still matches strongly.
     if q_tail and len(q_tail) >= 6:
         tail_best_vtd = ""
@@ -967,8 +1616,9 @@ def match_source_vtd(
     if best_vtd and best_score >= 0.86:
         return best_vtd, "fuzzy_name", round(best_score, 6)
 
-    # Coverage-max fallback: keep every row mapped when a county catalog exists.
-    if best_vtd:
+    # Coverage-max fallback (modern years only). Historical matching leaves
+    # weak rows unmatched so the block chain is not fed bogus src_vtdst codes.
+    if allow_forced and best_vtd:
         return best_vtd, "forced_best_name", round(best_score, 6)
 
     return "", "unmatched", round(best_score, 6)
@@ -980,9 +1630,9 @@ def build_crosswalk(source_csv: Path, year: int) -> dict:
     manual_src_overrides = load_manual_src_overrides()
     manual_dst_overrides = load_manual_dst_overrides()
     numeric_2022_overrides = load_numeric_precinct_2022_src_overrides() if year == 2022 else {}
-    cat_2024 = load_2024_precinct_catalog(XWALK_DIR / "tn_precinct_to_2024.csv")
-    census_group_catalog = load_census_vtd20_group_catalog()
     if vintage == 2020:
+        cat_2024 = load_2024_precinct_catalog(XWALK_DIR / "tn_precinct_to_2024.csv")
+        census_group_catalog = load_census_vtd20_group_catalog()
         source_catalog, transfers = merge_catalogs(
             [
                 census_group_catalog,
@@ -990,13 +1640,11 @@ def build_crosswalk(source_csv: Path, year: int) -> dict:
                 load_overlap_catalog(XWALK_DIR / "tn_vtd10_to_vtd20_overlap.csv"),
             ]
         )
+        allow_forced = True
     else:
-        source_catalog, transfers = merge_catalogs(
-            [
-                load_overlap_catalog(overlap_csv),
-                cat_2024,
-            ]
-        )
+        # Historical: vintage catalog + transfers only (no 2024 name bleed).
+        source_catalog, transfers = load_overlap_catalog(overlap_csv)
+        allow_forced = False
     src_precincts = collect_source_precincts(source_csv)
 
     out_rows: List[dict] = []
@@ -1006,6 +1654,26 @@ def build_crosswalk(source_csv: Path, year: int) -> dict:
 
     for key, meta in sorted(src_precincts.items(), key=lambda kv: (kv[0].county_norm, kv[0].precinct_norm)):
         override_key = (year, key.county_norm, key.precinct_norm)
+        # Direct destination override can resolve labels even when no vintage src match exists
+        # (common when VTD00/10 NAME fields are numeric codes but election labels match VTD20).
+        if override_key in manual_dst_overrides and override_key not in manual_src_overrides:
+            manual_dst = manual_dst_overrides[override_key]
+            out_rows.append(
+                {
+                    "from_year": year,
+                    "source_vintage": vintage,
+                    "county_norm": key.county_norm,
+                    "from_precinct_norm": key.precinct_norm,
+                    "src_vtdst": manual_dst,
+                    "dst_vtd20": manual_dst,
+                    "weight": 1.0,
+                    "match_method": "manual_override",
+                    "confidence_tier": "high",
+                    "match_score": 1.0,
+                }
+            )
+            method_counts["manual_override"] += 1
+            continue
         if override_key in manual_src_overrides:
             src_vtd = manual_src_overrides[override_key]
             method = "manual_override"
@@ -1015,7 +1683,12 @@ def build_crosswalk(source_csv: Path, year: int) -> dict:
             method = "manual_override"
             score = 1.0
         else:
-            src_vtd, method, score = match_source_vtd(key.county_norm, key.precinct_norm, source_catalog)
+            src_vtd, method, score = match_source_vtd(
+                key.county_norm,
+                key.precinct_norm,
+                source_catalog,
+                allow_forced=allow_forced,
+            )
         method_counts[method] += 1
         if method in HIGH_CONFIDENCE_METHODS:
             confidence_tier = "high"
@@ -1041,7 +1714,7 @@ def build_crosswalk(source_csv: Path, year: int) -> dict:
             )
             continue
 
-        dst_map = transfers.get((key.county_norm, src_vtd), {})
+        dst_map = lookup_transfer_map(transfers, key.county_norm, src_vtd)
         total = sum(dst_map.values())
         if total <= 0:
             manual_dst = manual_dst_overrides.get(override_key)

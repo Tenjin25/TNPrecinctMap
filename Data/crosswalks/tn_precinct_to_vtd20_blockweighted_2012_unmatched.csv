@@ -1,1 +1,46 @@
 year,county_norm,precinct_norm,county_raw,precinct_raw,match_method,confidence_tier,match_score,source_rows
+2012,ANDERSON,LAKE CITY CC,ANDERSON,Lake City CC,unmatched,unknown,0.727273,22
+2012,BEDFORD,1 2 BELL BUCKLE,BEDFORD,1-2 Bell Buckle,unmatched,unknown,0.666667,17
+2012,BEDFORD,2 3 FAIR HAVEN,BEDFORD,2-3 Fair Haven,unmatched,unknown,0.48,19
+2012,BEDFORD,3 3 UNIONVILLE,BEDFORD,3-3 Unionville,unmatched,unknown,0.619048,20
+2012,BLOUNT,EAGLETON MS CAF,BLOUNT,Eagleton MS Café,unmatched,unknown,0.693878,22
+2012,BLOUNT,EAGLETON MS GYM,BLOUNT,Eagleton MS Gym,unmatched,unknown,0.693878,23
+2012,BLOUNT,MARYVILLE HS,BLOUNT,Maryville HS,unmatched,unknown,0.727273,24
+2012,BRADLEY,2 2 WALKER VALLEY,BRADLEY,2-2 Walker Valley,unmatched,unknown,0.606061,24
+2012,CAMPBELL,2 4 LAFOLLETTE ES,CAMPBELL,2-4 LaFollette ES,unmatched,unknown,0.6875,18
+2012,CAMPBELL,3 1 CCHS,CAMPBELL,3-1 CCHS,unmatched,unknown,0.333333,22
+2012,CARROLL,BETHEL COLLEGE,CARROLL,Bethel College,unmatched,unknown,0.651163,22
+2012,DAVIDSON,SAFETY PRECINCT,DAVIDSON,Safety Precinct,unmatched,unknown,0.296296,49
+2012,HAMILTON,200 SIGNAL MTN 2,HAMILTON,200 Signal Mtn 2,unmatched,unknown,0.65,18
+2012,HAMILTON,207 SIGNAL MTN 1,HAMILTON,207 Signal Mtn 1,unmatched,unknown,0.65,20
+2012,HAMILTON,ELECTION COMM ED TSX,HAMILTON,Election Comm ED TSX,unmatched,unknown,0.324324,6
+2012,HAMILTON,ELECTION COMM EV,HAMILTON,Election Comm EV,unmatched,unknown,0.342857,31
+2012,HAMILTON,MILITARY OVERSEAS,HAMILTON,Military & Overseas,unmatched,unknown,0.432432,26
+2012,HAMILTON,NURSING HOME,HAMILTON,Nursing Home,unmatched,unknown,0.384615,28
+2012,HARDIN,CRUMP 4 2,HARDIN,Crump 4-2,unmatched,unknown,0.625,24
+2012,HARDIN,NIXON 2 1,HARDIN,Nixon 2-1,unmatched,unknown,0.625,24
+2012,HARDIN,NORTH 8 1,HARDIN,North 8-1,unmatched,unknown,0.625,24
+2012,LAUDERDALE,ARP 6,LAUDERDALE,Arp 6,unmatched,unknown,0.75,17
+2012,LINCOLN,1 3 TAFT,LINCOLN,1-3 Taft,unmatched,unknown,0.380952,19
+2012,LINCOLN,4 2 FNB,LINCOLN,4-2 FNB,unmatched,unknown,0.24,20
+2012,LINCOLN,5 1 CALVARY BAPTIST,LINCOLN,5-1 Calvary Baptist,unmatched,unknown,0.6,19
+2012,LINCOLN,7 3 KELSO,LINCOLN,7-3 Kelso,unmatched,unknown,0.272727,17
+2012,LOUDON,TELLICO V NORTH,LOUDON,Tellico V. North,unmatched,unknown,0.628571,24
+2012,LOUDON,TELLICO V SOUTH,LOUDON,Tellico V. South,unmatched,unknown,0.685714,25
+2012,MACON,JR HIGH,MACON,Jr. High,unmatched,unknown,0.545455,20
+2012,MAURY,YMCA 4 1,MAURY,YMCA 4-1,unmatched,unknown,0.25,27
+2012,MCMINN,E K BAKER,MCMINN,E K Baker,unmatched,unknown,0.592593,21
+2012,MCMINN,TN TECH CENTER,MCMINN,TN Tech Center,unmatched,unknown,0.411765,19
+2012,MCNAIRY,GUYS 5 3,MCNAIRY,Guys 5-3,unmatched,unknown,0.571429,21
+2012,MCNAIRY,NORTHEAST 3 2,MCNAIRY,Northeast 3-2,unmatched,unknown,0.625,25
+2012,MCNAIRY,PURDY 3 3,MCNAIRY,Purdy 3-3,unmatched,unknown,0.625,19
+2012,MCNAIRY,RAMER 5 4,MCNAIRY,Ramer 5-4,unmatched,unknown,0.625,23
+2012,MONROE,ELECTION COMM OFFICE,MONROE,Election Comm Office,unmatched,unknown,0.5,24
+2012,MONTGOMERY,EV,MONTGOMERY,EV,unmatched,unknown,0.0,4
+2012,PERRY,5 2 LINDEN,PERRY,5-2 Linden,unmatched,unknown,0.363636,24
+2012,UNICOI,INTERMEDIATE SCHOOL,UNICOI,Intermediate School,unmatched,unknown,0.625,23
+2012,WASHINGTON,19 LEESBURG,WASHINGTON,19 Leesburg,unmatched,unknown,0.666667,23
+2012,WASHINGTON,30 GRACE,WASHINGTON,30 Grace,unmatched,unknown,0.470588,23
+2012,WASHINGTON,31 CHEROKEE CITY,WASHINGTON,31 Cherokee City,unmatched,unknown,0.625,16
+2012,WASHINGTON,35 LIMESTONE,WASHINGTON,35 Limestone,unmatched,unknown,0.625,18
+2012,WASHINGTON,39 CONKLIN,WASHINGTON,39 Conklin,unmatched,unknown,0.571429,20

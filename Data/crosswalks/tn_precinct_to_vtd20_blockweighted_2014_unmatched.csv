@@ -1,1 +1,50 @@
 year,county_norm,precinct_norm,county_raw,precinct_raw,match_method,confidence_tier,match_score,source_rows
+2014,BEDFORD,1 2 BELL BUCKLE,Bedford,1-2 Bell Buckle,unmatched,unknown,0.666667,31
+2014,BEDFORD,2 3 FAIR HAVEN,Bedford,2-3 Fair Haven,unmatched,unknown,0.48,31
+2014,BEDFORD,3 3 UNIONVILLE,Bedford,3-3 Unionville,unmatched,unknown,0.619048,31
+2014,BLOUNT,EAGLETON MS CAF,Blount,Eagleton MS Café,matched_no_transfer,high,1.0,33
+2014,BLOUNT,EAGLETON MS GYM,Blount,Eagleton MS Gym,matched_no_transfer,high,1.0,33
+2014,BLOUNT,MARYVILLE HS,Blount,Maryville HS,unmatched,unknown,0.727273,34
+2014,BLOUNT,MARYVILLE JR HIGH,Blount,Maryville Jr High,unmatched,unknown,0.736842,33
+2014,BRADLEY,2 2 WALKER VALLEY,Bradley,2-2 Walker Valley,unmatched,unknown,0.606061,34
+2014,BRADLEY,5 2 OLD BLYTHE,Bradley,5-2 Old Blythe,unmatched,unknown,0.413793,32
+2014,CAMPBELL,2 4 LAFOLLETTE ES,Campbell,2-4 LaFollette ES,unmatched,unknown,0.6875,32
+2014,CAMPBELL,3 1 CCHS,Campbell,3-1 CCHS,unmatched,unknown,0.333333,32
+2014,GRUNDY,PAPER BALLOTS,Grundy,Paper Ballots,unmatched,unknown,0.421053,8
+2014,HAMILTON,176 KINGSPOINT 3,Hamilton,176 Kingspoint 3,matched_no_transfer,high,1.0,32
+2014,HAMILTON,190 KINGSPOINT 1,Hamilton,190 Kingspoint 1,matched_no_transfer,high,1.0,32
+2014,HAMILTON,191 KINGSPOINT 2,Hamilton,191 Kingspoint 2,matched_no_transfer,high,1.0,32
+2014,HAMILTON,200 SIGNAL MOUNTAIN 2,Hamilton,200 Signal Mountain 2,matched_no_transfer,high,1.0,33
+2014,HAMILTON,207 SIGNAL MOUNTAIN 1,Hamilton,207 Signal Mountain 1,matched_no_transfer,high,1.0,33
+2014,HARDIN,CRUMP 4 2,Hardin,Crump 4-2,unmatched,unknown,0.625,31
+2014,HARDIN,NIXON 2 1,Hardin,Nixon 2-1,unmatched,unknown,0.625,31
+2014,HARDIN,NORTH 8 1,Hardin,North 8-1,unmatched,unknown,0.625,31
+2014,LINCOLN,1 3 TAFT,Lincoln,1-3 Taft,unmatched,unknown,0.380952,32
+2014,LINCOLN,4 2 FNB,Lincoln,4-2 FNB,unmatched,unknown,0.24,32
+2014,LINCOLN,5 1 CALVARY,Lincoln,5-1 Calvary,unmatched,unknown,0.344828,33
+2014,LINCOLN,5 2 NGA,Lincoln,5-2 NGA,unmatched,unknown,0.32,31
+2014,LINCOLN,7 3 KELSO,Lincoln,7-3 Kelso,unmatched,unknown,0.272727,31
+2014,LINCOLN,8 2 SOUTH,Lincoln,8-2 South,unmatched,unknown,0.454545,31
+2014,LOUDON,TELLICO V NORTH,Loudon,Tellico V. North,unmatched,unknown,0.628571,34
+2014,LOUDON,TELLICO V SOUTH,Loudon,Tellico V. South,unmatched,unknown,0.685714,34
+2014,MACON,JR HIGH,Macon,Jr. High,matched_no_transfer,high,1.0,32
+2014,MAURY,CULLEOKA 8 2,Maury,Culleoka 8-2,matched_no_transfer,high,1.0,32
+2014,MAURY,ST CATHERINE 4 2,Maury,St. Catherine 4-2,matched_no_transfer,high,1.0,32
+2014,MAURY,YMCA 4 1,Maury,YMCA 4-1,matched_no_transfer,high,1.0,37
+2014,MCMINN,E K BAKER,McMinn,E K Baker,unmatched,unknown,0.592593,32
+2014,MCMINN,TCAT,McMinn,TCAT,matched_no_transfer,high,1.0,32
+2014,MCNAIRY,GUYS 5 3,McNairy,Guys 5-3,unmatched,unknown,0.571429,31
+2014,MCNAIRY,NORTHEAST 3 2,McNairy,Northeast 3-2,unmatched,unknown,0.625,31
+2014,MCNAIRY,PURDY 3 3,McNairy,Purdy 3-3,unmatched,unknown,0.625,31
+2014,MCNAIRY,RAMER 5 4,McNairy,Ramer 5-4,unmatched,unknown,0.625,31
+2014,MONTGOMERY,5A SMITH,Montgomery,5A Smith,matched_no_transfer,high,1.0,31
+2014,MONTGOMERY,5B MADISON,Montgomery,5B Madison,matched_no_transfer,high,1.0,32
+2014,PERRY,5 1 LINDEN,Perry,5-1 Linden,unmatched,unknown,0.454545,31
+2014,ROBERTSON,PAPER BALLOTS,Robertson,Paper Ballots,unmatched,unknown,0.333333,33
+2014,STEWART,PAPER BALLOTS,Stewart,Paper Ballots,unmatched,unknown,0.344828,33
+2014,TROUSDALE,PAPER BALLOTS,Trousdale,Paper Ballots,unmatched,unknown,0.363636,32
+2014,UNION,PAPER BALLOTS,Union,Paper Ballots,unmatched,unknown,0.342857,33
+2014,WASHINGTON,19 LEESBURG,Washington,19 Leesburg,unmatched,unknown,0.666667,33
+2014,WASHINGTON,30 GRACE,Washington,30 Grace,matched_no_transfer,high,1.0,33
+2014,WASHINGTON,31 CHEROKEE CITY,Washington,31 Cherokee City,unmatched,unknown,0.625,33
+2014,WASHINGTON,34 NEW VICTORY,Washington,34 New Victory,matched_no_transfer,high,1.0,33

@@ -1,0 +1,63 @@
+{
+  "chain": [
+    "VTD00 -> tabblock00",
+    "tabblock00 -> tabblock10 (NHGIS blk2000_blk2010)",
+    "tabblock10 -> VTD10",
+    "VTD10 -> tabblock10",
+    "tabblock10 -> tabblock20 (NHGIS blk2010_blk2020)",
+    "tabblock20 -> VTD20 (BlockAssign)"
+  ],
+  "inputs": {
+    "vtd00": "tn_vtd_2000.geojson",
+    "vtd10": "tn_vtd_2010.geojson",
+    "tabblock00": "tl_2008_47_tabblock00.zip",
+    "tabblock10": "tl_2012_47_tabblock10.zip",
+    "nhgis_00_10": "crosswalks\\nhgis_blk2000_blk2010_47_tn_to_tn.csv",
+    "nhgis_10_20": "crosswalks\\nhgis_blk2010_blk2020_47_tn_to_tn.csv",
+    "blockassign_vtd": "crosswalks\\blockassign_tn_vtd.csv"
+  },
+  "outputs": {
+    "hop_dir": "crosswalks\\block_chain",
+    "hop_tabblock20_to_vtd20_blockassign": "hop_tabblock20_to_vtd20_blockassign.csv",
+    "hop_tabblock10_to_tabblock20_nhgis": "hop_tabblock10_to_tabblock20_nhgis.csv",
+    "vtd00_to_vtd10_block_chain": "tn_vtd00_to_vtd10_block_chain.csv",
+    "vtd00_to_vtd20_block_chain": "tn_vtd00_to_vtd20_block_chain.csv",
+    "hop_vtd00_to_tabblock00": "hop_vtd00_to_tabblock00.csv",
+    "hop_tabblock00_to_tabblock10_nhgis": "hop_tabblock00_to_tabblock10_nhgis.csv",
+    "hop_tabblock10_to_vtd10": "hop_tabblock10_to_vtd10.csv",
+    "hop_vtd10_to_tabblock10": "hop_vtd10_to_tabblock10.csv",
+    "vtd10_to_vtd20_block_chain": "tn_vtd10_to_vtd20_block_chain.csv"
+  },
+  "metrics": {
+    "vtd00_to_vtd10": {
+      "pair": "2000->2010 block_chain",
+      "rows": 15193,
+      "src_units": 2407,
+      "dst_units": 2174,
+      "missing_src_units": 0,
+      "src_weight_sum_min": 0.2269414536511458,
+      "src_weight_sum_mean": 0.9911132508671325,
+      "src_weight_sum_max": 1.0000000001633098
+    },
+    "vtd10_to_vtd20": {
+      "pair": "2010->2020 block_chain",
+      "rows": 10732,
+      "src_units": 2174,
+      "dst_units": 1964,
+      "missing_src_units": 0,
+      "src_weight_sum_min": 0.13507458755003168,
+      "src_weight_sum_mean": 0.9883759057489628,
+      "src_weight_sum_max": 1.000000000081204
+    },
+    "vtd00_to_vtd20": {
+      "pair": "2000->2020 block_chain",
+      "rows": 80313,
+      "src_units": 2407,
+      "dst_units": 1964,
+      "missing_src_units": 0,
+      "src_weight_sum_min": 0.07597784652868016,
+      "src_weight_sum_mean": 0.9835825191892171,
+      "src_weight_sum_max": 1.0000000001844687
+    }
+  }
+}

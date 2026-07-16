@@ -1,0 +1,7 @@
+{
+  "pieces_csv": "reports\\district_crosswalk_comparison\\split_geometry_review\\split_geometry_review_pieces.csv",
+  "output_csv": "crosswalks\\tn_district_split_overrides.csv",
+  "seeded_precincts": 8,
+  "override_rows": 18,
+  "dropped_sliver_pieces": 11
+}

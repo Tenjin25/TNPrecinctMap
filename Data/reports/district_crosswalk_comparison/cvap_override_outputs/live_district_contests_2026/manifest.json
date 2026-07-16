@@ -1,0 +1,312 @@
+{
+  "files": [
+    {
+      "scope": "congressional",
+      "year": 2002,
+      "contest_type": "governor",
+      "file": "congressional_governor_2002.json",
+      "districts": 9,
+      "dem_total": 840843,
+      "rep_total": 828698,
+      "major_party_contested": true,
+      "legacy_line_transfer": [
+        1,
+        2
+      ]
+    },
+    {
+      "scope": "congressional",
+      "year": 2006,
+      "contest_type": "governor",
+      "file": "congressional_governor_2006.json",
+      "districts": 9,
+      "dem_total": 1181446,
+      "rep_total": 546380,
+      "major_party_contested": true,
+      "legacy_line_transfer": [
+        1,
+        2
+      ]
+    },
+    {
+      "scope": "congressional",
+      "year": 2010,
+      "contest_type": "governor",
+      "file": "congressional_governor_2010.json",
+      "districts": 9,
+      "dem_total": 494377,
+      "rep_total": 1075699,
+      "major_party_contested": true,
+      "legacy_line_transfer": [
+        1,
+        2
+      ]
+    },
+    {
+      "scope": "congressional",
+      "year": 2014,
+      "contest_type": "governor",
+      "file": "congressional_governor_2014.json",
+      "districts": 9,
+      "dem_total": 289516,
+      "rep_total": 989436,
+      "major_party_contested": true,
+      "legacy_line_transfer": [
+        1,
+        2
+      ]
+    },
+    {
+      "scope": "congressional",
+      "year": 2018,
+      "contest_type": "governor",
+      "file": "congressional_governor_2018.json",
+      "districts": 9,
+      "dem_total": 831008,
+      "rep_total": 1394707,
+      "major_party_contested": true,
+      "legacy_line_transfer": [
+        1,
+        2
+      ]
+    },
+    {
+      "scope": "congressional",
+      "year": 2022,
+      "contest_type": "governor",
+      "file": "congressional_governor_2022.json",
+      "districts": 9,
+      "dem_total": 641116,
+      "rep_total": 1199635,
+      "major_party_contested": true,
+      "legacy_line_transfer": [
+        1,
+        2
+      ]
+    },
+    {
+      "scope": "congressional",
+      "year": 2000,
+      "contest_type": "president",
+      "file": "congressional_president_2000.json",
+      "districts": 9,
+      "dem_total": 991393,
+      "rep_total": 1122222,
+      "major_party_contested": true,
+      "legacy_line_transfer": [
+        1,
+        2
+      ]
+    },
+    {
+      "scope": "congressional",
+      "year": 2004,
+      "contest_type": "president",
+      "file": "congressional_president_2004.json",
+      "districts": 9,
+      "dem_total": 1059239,
+      "rep_total": 1460977,
+      "major_party_contested": true,
+      "legacy_line_transfer": [
+        1,
+        2
+      ]
+    },
+    {
+      "scope": "congressional",
+      "year": 2008,
+      "contest_type": "president",
+      "file": "congressional_president_2008.json",
+      "districts": 9,
+      "dem_total": 981398,
+      "rep_total": 1519802,
+      "major_party_contested": true,
+      "legacy_line_transfer": [
+        1,
+        2
+      ]
+    },
+    {
+      "scope": "congressional",
+      "year": 2012,
+      "contest_type": "president",
+      "file": "congressional_president_2012.json",
+      "districts": 9,
+      "dem_total": 876973,
+      "rep_total": 1515675,
+      "major_party_contested": true,
+      "legacy_line_transfer": [
+        1,
+        2
+      ]
+    },
+    {
+      "scope": "congressional",
+      "year": 2016,
+      "contest_type": "president",
+      "file": "congressional_president_2016.json",
+      "districts": 9,
+      "dem_total": 814839,
+      "rep_total": 1592199,
+      "major_party_contested": true,
+      "legacy_line_transfer": [
+        1,
+        2
+      ]
+    },
+    {
+      "scope": "congressional",
+      "year": 2020,
+      "contest_type": "president",
+      "file": "congressional_president_2020.json",
+      "districts": 9,
+      "dem_total": 1091237,
+      "rep_total": 1936342,
+      "major_party_contested": true,
+      "legacy_line_transfer": [
+        1,
+        2
+      ]
+    },
+    {
+      "scope": "congressional",
+      "year": 2024,
+      "contest_type": "president",
+      "file": "congressional_president_2024.json",
+      "districts": 9,
+      "dem_total": 1028360,
+      "rep_total": 2006884,
+      "major_party_contested": true,
+      "legacy_line_transfer": [
+        1,
+        2
+      ]
+    },
+    {
+      "scope": "congressional",
+      "year": 2000,
+      "contest_type": "us_senate",
+      "file": "congressional_us_senate_2000.json",
+      "districts": 9,
+      "dem_total": 626633,
+      "rep_total": 1323187,
+      "major_party_contested": true,
+      "legacy_line_transfer": [
+        1,
+        2
+      ]
+    },
+    {
+      "scope": "congressional",
+      "year": 2002,
+      "contest_type": "us_senate",
+      "file": "congressional_us_senate_2002.json",
+      "districts": 9,
+      "dem_total": 733204,
+      "rep_total": 934347,
+      "major_party_contested": true,
+      "legacy_line_transfer": [
+        1,
+        2
+      ]
+    },
+    {
+      "scope": "congressional",
+      "year": 2006,
+      "contest_type": "us_senate",
+      "file": "congressional_us_senate_2006.json",
+      "districts": 9,
+      "dem_total": 759671,
+      "rep_total": 861205,
+      "major_party_contested": true,
+      "legacy_line_transfer": [
+        1,
+        2
+      ]
+    },
+    {
+      "scope": "congressional",
+      "year": 2008,
+      "contest_type": "us_senate",
+      "file": "congressional_us_senate_2008.json",
+      "districts": 9,
+      "dem_total": 694900,
+      "rep_total": 1597477,
+      "major_party_contested": true,
+      "legacy_line_transfer": [
+        1,
+        2
+      ]
+    },
+    {
+      "scope": "congressional",
+      "year": 2012,
+      "contest_type": "us_senate",
+      "file": "congressional_us_senate_2012.json",
+      "districts": 9,
+      "dem_total": 635661,
+      "rep_total": 1555723,
+      "major_party_contested": true,
+      "legacy_line_transfer": [
+        1,
+        2
+      ]
+    },
+    {
+      "scope": "congressional",
+      "year": 2014,
+      "contest_type": "us_senate",
+      "file": "congressional_us_senate_2014.json",
+      "districts": 9,
+      "dem_total": 415172,
+      "rep_total": 890069,
+      "major_party_contested": true,
+      "legacy_line_transfer": [
+        1,
+        2
+      ]
+    },
+    {
+      "scope": "congressional",
+      "year": 2018,
+      "contest_type": "us_senate",
+      "file": "congressional_us_senate_2018.json",
+      "districts": 9,
+      "dem_total": 952675,
+      "rep_total": 1281348,
+      "major_party_contested": true,
+      "legacy_line_transfer": [
+        1,
+        2
+      ]
+    },
+    {
+      "scope": "congressional",
+      "year": 2020,
+      "contest_type": "us_senate",
+      "file": "congressional_us_senate_2020.json",
+      "districts": 9,
+      "dem_total": 987893,
+      "rep_total": 1923981,
+      "major_party_contested": true,
+      "legacy_line_transfer": [
+        1,
+        2
+      ]
+    },
+    {
+      "scope": "congressional",
+      "year": 2024,
+      "contest_type": "us_senate",
+      "file": "congressional_us_senate_2024.json",
+      "districts": 9,
+      "dem_total": 1001427,
+      "rep_total": 1955381,
+      "major_party_contested": true,
+      "legacy_line_transfer": [
+        1,
+        2
+      ]
+    }
+  ]
+}

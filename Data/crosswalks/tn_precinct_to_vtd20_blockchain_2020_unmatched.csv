@@ -1,0 +1,9 @@
+year,county_norm,from_precinct_norm,src_vtdst,match_method,transfer_method,reason
+2020,CARROLL,HUNT POLICE STATION,1244,manual_override,none,no_drawable_destination
+2020,MAURY,CULLEOKA 8 2,5312,manual_override,none,no_drawable_destination
+2020,MAURY,NORTHFIELD 11 3,5900,manual_override,none,no_drawable_destination
+2020,MAURY,RALLY HILL 11 1,5908,manual_override,none,no_drawable_destination
+2020,MAURY,WEST END 1 2,5924,manual_override,none,no_drawable_destination
+2020,MCMINN,TCAT,6072,manual_override,none,no_drawable_destination
+2020,WASHINGTON,30 NEW VICTORY,9344,manual_override,none,no_drawable_destination
+2020,WASHINGTON,32 NEW SALEM,9352,manual_override,none,no_drawable_destination
