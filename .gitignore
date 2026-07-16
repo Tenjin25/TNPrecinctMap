@@ -9,7 +9,9 @@ tmp_ui_smoke_live/
 NCMap.html
 
 # Too large for standard GitHub push (>100 MB)
+Data/tl_2008_47_tabblock00.zip
 Data/tl_2010_47_tabblock00.zip
+Data/tl_2012_47_tabblock10.zip
 Data/tl_2020_47_tabblock10.zip
 Data/tl_2020_47_tabblock20.zip
 

@@ -7,7 +7,8 @@ const path = require("path");
 const ROOT = path.resolve(__dirname, "..");
 const DATA_DIR = path.join(ROOT, "Data");
 const CONTESTS_DIR = path.join(ROOT, "Data", "contests");
-const PRECINCT_GEOJSON = path.join(DATA_DIR, "tn_voting_precincts.geojson");
+const OFFICIAL_VTD20_GEOJSON = path.join(DATA_DIR, "tn_vtd_2020.geojson");
+const DRA_PRECINCT_GEOJSON = path.join(DATA_DIR, "tn_voting_precincts.geojson");
 const COUNTY_GEOJSON = path.join(DATA_DIR, "tl_2020_47_county20.geojson");
 const GRAPH_JSON = path.join(DATA_DIR, "crosswalks", "dra_tn_vtd20_geojson_v07", "TN_2020_graph.json");
 
@@ -15,102 +16,112 @@ const TARGETS = [
   {
     target: "president_2000.json",
     prior: "",
-    note: "2000 presidential zero VTD20 rows filled from adjacent VTD20 neighbor proxy",
+    note: "2000 presidential zero VTD20 rows filled from adjacent VTD20 neighbor / county-share proxy",
   },
   {
     target: "us_senate_2000.json",
     prior: "",
-    note: "2000 U.S. Senate zero VTD20 rows filled from adjacent VTD20 neighbor proxy",
+    note: "2000 U.S. Senate zero VTD20 rows filled from adjacent VTD20 neighbor / county-share proxy",
   },
   {
     target: "governor_2002.json",
     prior: "president_2000.json",
-    note: "2002 governor zero VTD20 rows filled from 2000 presidential same-VTD size/share proxy, then adjacent VTD20 neighbors",
+    note: "2002 governor zero VTD20 rows filled from 2000 presidential same-VTD size/share proxy, then neighbor / county-share",
   },
   {
     target: "us_senate_2002.json",
     prior: "president_2000.json",
-    note: "2002 U.S. Senate zero VTD20 rows filled from 2000 presidential same-VTD size/share proxy, then adjacent VTD20 neighbors",
+    note: "2002 U.S. Senate zero VTD20 rows filled from 2000 presidential same-VTD size/share proxy, then neighbor / county-share",
   },
   {
     target: "president_2004.json",
     prior: "president_2000.json",
-    note: "2004 presidential zero VTD20 rows filled from 2000 presidential same-VTD size/share proxy, then adjacent VTD20 neighbors",
+    note: "2004 presidential zero VTD20 rows filled from 2000 presidential same-VTD size/share proxy, then neighbor / county-share",
   },
   {
     target: "governor_2006.json",
     prior: "governor_2002.json",
-    note: "2006 governor zero VTD20 rows filled from 2002 governor same-VTD size/share proxy, then adjacent VTD20 neighbors",
+    note: "2006 governor zero VTD20 rows filled from 2002 governor same-VTD size/share proxy, then neighbor / county-share",
   },
   {
     target: "us_senate_2006.json",
     prior: "us_senate_2000.json",
-    note: "2006 U.S. Senate zero VTD20 rows filled from 2000 U.S. Senate same-VTD size/share proxy, then adjacent VTD20 neighbors",
+    note: "2006 U.S. Senate zero VTD20 rows filled from 2000 U.S. Senate same-VTD size/share proxy, then neighbor / county-share",
   },
   {
     target: "president_2008.json",
     prior: "president_2004.json",
-    note: "2008 presidential zero VTD20 rows filled from 2004 presidential same-VTD size/share proxy, then adjacent VTD20 neighbors",
+    note: "2008 presidential zero VTD20 rows filled from 2004 presidential same-VTD size/share proxy, then neighbor / county-share",
   },
   {
     target: "us_senate_2008.json",
     prior: "us_senate_2002.json",
-    note: "2008 U.S. Senate zero VTD20 rows filled from 2002 U.S. Senate same-VTD size/share proxy, then adjacent VTD20 neighbors",
+    note: "2008 U.S. Senate zero VTD20 rows filled from 2002 U.S. Senate same-VTD size/share proxy, then neighbor / county-share",
   },
   {
     target: "governor_2010.json",
     prior: "governor_2006.json",
-    note: "2010 governor zero VTD20 rows filled from 2006 governor same-VTD size/share proxy, then adjacent VTD20 neighbors",
+    note: "2010 governor zero VTD20 rows filled from 2006 governor same-VTD size/share proxy, then neighbor / county-share",
   },
   {
     target: "president_2012.json",
     prior: "president_2008.json",
-    note: "2012 presidential zero VTD20 rows filled from 2008 presidential same-VTD size/share proxy, then adjacent VTD20 neighbors",
+    note: "2012 presidential zero VTD20 rows filled from 2008 presidential same-VTD size/share proxy, then neighbor / county-share",
   },
   {
     target: "us_senate_2012.json",
     prior: "us_senate_2006.json",
-    note: "2012 U.S. Senate zero VTD20 rows filled from 2006 U.S. Senate same-VTD size/share proxy, then adjacent VTD20 neighbors",
+    note: "2012 U.S. Senate zero VTD20 rows filled from 2006 U.S. Senate same-VTD size/share proxy, then neighbor / county-share",
   },
   {
     target: "governor_2014.json",
     prior: "governor_2010.json",
-    note: "2014 governor zero VTD20 rows filled from 2010 governor same-VTD size/share proxy, then adjacent VTD20 neighbors",
+    note: "2014 governor zero VTD20 rows filled from 2010 governor same-VTD size/share proxy, then neighbor / county-share",
   },
   {
     target: "us_senate_2014.json",
     prior: "us_senate_2008.json",
-    note: "2014 U.S. Senate zero VTD20 rows filled from 2008 U.S. Senate same-VTD size/share proxy, then adjacent VTD20 neighbors",
+    note: "2014 U.S. Senate zero VTD20 rows filled from 2008 U.S. Senate same-VTD size/share proxy, then neighbor / county-share",
   },
   {
     target: "president_2016.json",
     prior: "president_2012.json",
-    note: "2016 presidential zero VTD20 rows filled from 2012 presidential same-VTD size/share proxy, then adjacent VTD20 neighbors",
+    note: "2016 presidential zero VTD20 rows filled from 2012 presidential same-VTD size/share proxy, then neighbor / county-share",
   },
   {
     target: "governor_2018.json",
     prior: "governor_2014.json",
-    note: "2018 governor zero VTD20 rows filled from 2014 governor same-VTD size/share proxy, then adjacent VTD20 neighbors",
+    note: "2018 governor zero VTD20 rows filled from 2014 governor same-VTD size/share proxy, then neighbor / county-share",
   },
   {
     target: "us_senate_2018.json",
     prior: "us_senate_2012.json",
-    note: "2018 U.S. Senate zero VTD20 rows filled from 2012 U.S. Senate same-VTD size/share proxy, then adjacent VTD20 neighbors",
+    note: "2018 U.S. Senate zero VTD20 rows filled from 2012 U.S. Senate same-VTD size/share proxy, then neighbor / county-share",
+  },
+  {
+    target: "president_2020.json",
+    prior: "",
+    note: "2020 presidential zero VTD20 rows filled from adjacent VTD20 neighbor / county-share proxy",
+  },
+  {
+    target: "us_senate_2020.json",
+    prior: "",
+    note: "2020 U.S. Senate zero VTD20 rows filled from adjacent VTD20 neighbor / county-share proxy",
   },
   {
     target: "governor_2022.json",
     prior: "president_2020.json",
-    note: "2022 governor zero VTD20 rows filled from 2020 presidential VTD20 size/share proxy",
+    note: "2022 governor zero VTD20 rows filled from 2020 presidential VTD20 size/share proxy, then neighbor / county-share",
   },
   {
     target: "president_2024.json",
     prior: "president_2020.json",
-    note: "2024 presidential zero VTD20 rows filled from 2020 presidential VTD20 size/share proxy",
+    note: "2024 presidential zero VTD20 rows filled from 2020 presidential VTD20 size/share proxy, then neighbor / county-share",
   },
   {
     target: "us_senate_2024.json",
     prior: "us_senate_2020.json",
-    note: "2024 U.S. Senate zero VTD20 rows filled from 2020 U.S. Senate VTD20 size/share proxy",
+    note: "2024 U.S. Senate zero VTD20 rows filled from 2020 U.S. Senate VTD20 size/share proxy, then neighbor / county-share",
   },
 ];
 
@@ -253,21 +264,34 @@ function loadCountyFipsByName() {
 
 function loadLabelGeoidIndexes() {
   const countyFips = loadCountyFipsByName();
-  const geo = loadJson(PRECINCT_GEOJSON);
+  const fipsToCounty = new Map([...countyFips.entries()].map(([name, fips]) => [fips, name]));
   const labelToGeoid = new Map();
   const geoidToLabel = new Map();
+
+  // Prefer the lighter DRA precinct layer when present; IDs match official VTDST20.
+  const preferDra = fs.existsSync(DRA_PRECINCT_GEOJSON);
+  const geoPath = preferDra ? DRA_PRECINCT_GEOJSON : OFFICIAL_VTD20_GEOJSON;
+  const geo = loadJson(geoPath);
+
   for (const feature of geo.features || []) {
     const props = feature.properties || {};
-    const county = normCounty(props.county_norm || props.county_nam || "");
-    const fips = countyFips.get(county);
-    const precId = normSpace(props.prec_id || props.VTDST20 || props.vtdst20 || "");
+    let county = normCounty(props.county_norm || props.county_nam || "");
+    let fips = countyFips.get(county) || "";
+    const countyFp = String(props.COUNTYFP20 || props.countyfp || "").padStart(3, "0");
+    if ((!county || !fips) && /^\d{3}$/.test(countyFp)) {
+      fips = countyFp;
+      county = fipsToCounty.get(fips) || county;
+    }
+    const precRaw = props.VTDST20 || props.vtdst20 || props.prec_id || "";
+    const precId = String(precRaw).trim();
     if (!county || !fips || !/^\d+$/.test(precId)) continue;
-    const label = `${county} - ${precId}`;
-    const geoid = `47${fips}${precId}`;
+    const code = precId.padStart(6, "0");
+    const label = `${county} - ${code}`;
+    const geoid = `47${fips}${code}`;
     labelToGeoid.set(label, geoid);
     geoidToLabel.set(geoid, label);
   }
-  return { labelToGeoid, geoidToLabel };
+  return { labelToGeoid, geoidToLabel, geoPath };
 }
 
 function groupRowsByCounty(rows) {
@@ -295,7 +319,7 @@ function neighborRowsFor(row, rowsByLabel, graph, labelIndexes) {
 
 function averageNeighborBuckets(neighbors) {
   const total = neighbors.reduce((sum, row) => sum + rowTotal(row, "total_votes"), 0);
-  if (!total) return null;
+  if (!neighbors.length || total <= 0) return null;
   return {
     demShare: neighbors.reduce((sum, row) => sum + rowTotal(row, "dem_votes"), 0) / total,
     repShare: neighbors.reduce((sum, row) => sum + rowTotal(row, "rep_votes"), 0) / total,
@@ -303,6 +327,51 @@ function averageNeighborBuckets(neighbors) {
     avgTotal: total / neighbors.length,
     labels: neighbors.map((row) => row.county),
   };
+}
+
+function applyProxyBuckets(row, avg, demCandidate, repCandidate, source) {
+  row.dem_votes = avg.avgTotal * avg.demShare;
+  row.rep_votes = avg.avgTotal * avg.repShare;
+  row.other_votes = avg.avgTotal * avg.otherShare;
+  row.dem_candidate = row.dem_candidate || demCandidate;
+  row.rep_candidate = row.rep_candidate || repCandidate;
+  row.inferred_gap_fill = source;
+  recomputeRow(row);
+}
+
+function rescueRoundedZeros(rows, demCandidate, repCandidate) {
+  const stillZero = rows.filter((row) => rowTotal(row, "total_votes") <= 0);
+  if (!stillZero.length) return 0;
+  let rescued = 0;
+  for (const row of stillZero) {
+    const donor = rows
+      .filter((candidate) => rowTotal(candidate, "total_votes") > 1)
+      .sort((a, b) => rowTotal(b, "total_votes") - rowTotal(a, "total_votes"))[0];
+    if (!donor) break;
+    if (rowTotal(donor, "rep_votes") >= rowTotal(donor, "dem_votes") && rowTotal(donor, "rep_votes") > 0) {
+      donor.rep_votes = rowTotal(donor, "rep_votes") - 1;
+      row.rep_votes = 1;
+      row.dem_votes = 0;
+      row.other_votes = 0;
+    } else if (rowTotal(donor, "dem_votes") > 0) {
+      donor.dem_votes = rowTotal(donor, "dem_votes") - 1;
+      row.dem_votes = 1;
+      row.rep_votes = 0;
+      row.other_votes = 0;
+    } else {
+      donor.other_votes = rowTotal(donor, "other_votes") - 1;
+      row.other_votes = 1;
+      row.dem_votes = 0;
+      row.rep_votes = 0;
+    }
+    row.dem_candidate = row.dem_candidate || demCandidate;
+    row.rep_candidate = row.rep_candidate || repCandidate;
+    row.inferred_gap_fill = row.inferred_gap_fill || "county_share_rescue";
+    recomputeRow(donor);
+    recomputeRow(row);
+    rescued += 1;
+  }
+  return rescued;
 }
 
 function fillTarget({ target, prior, note }) {
@@ -317,9 +386,12 @@ function fillTarget({ target, prior, note }) {
   const labelIndexes = loadLabelGeoidIndexes();
   const priorFillStats = [];
   const neighborFillStats = [];
+  const countyShareFillStats = [];
   let filledRows = 0;
   let priorFilledRows = 0;
   let neighborFilledRows = 0;
+  let countyShareFilledRows = 0;
+  let rescuedRows = 0;
 
   for (const [county, rows] of targetByCounty.entries()) {
     const originalTotals = countyTotals(rows);
@@ -360,6 +432,7 @@ function fillTarget({ target, prior, note }) {
         row.other_votes = priorBuckets.other * bucketFactors.other;
         row.dem_candidate = row.dem_candidate || demCandidate;
         row.rep_candidate = row.rep_candidate || repCandidate;
+        row.inferred_gap_fill = "prior_vtd20";
         recomputeRow(row);
       }
 
@@ -380,12 +453,7 @@ function fillTarget({ target, prior, note }) {
       const neighbors = neighborRowsFor(row, targetByLabel, graph, labelIndexes);
       const avg = averageNeighborBuckets(neighbors);
       if (!avg) continue;
-      row.dem_votes = avg.avgTotal * avg.demShare;
-      row.rep_votes = avg.avgTotal * avg.repShare;
-      row.other_votes = avg.avgTotal * avg.otherShare;
-      row.dem_candidate = row.dem_candidate || demCandidate;
-      row.rep_candidate = row.rep_candidate || repCandidate;
-      recomputeRow(row);
+      applyProxyBuckets(row, avg, demCandidate, repCandidate, "neighbor_vtd20");
       neighborFilled.push({
         label: row.county,
         neighbor_labels: avg.labels,
@@ -404,8 +472,27 @@ function fillTarget({ target, prior, note }) {
       });
     }
 
-    if (!zeroRows.length && !neighborFilled.length) continue;
+    const countyShareRows = rows.filter((row) => rowTotal(row, "total_votes") <= 0);
+    const countyAvg = averageNeighborBuckets(nonzeroRows);
+    const countyShareFilled = [];
+    if (countyAvg && countyShareRows.length) {
+      for (const row of countyShareRows) {
+        applyProxyBuckets(row, countyAvg, demCandidate, repCandidate, "county_share");
+        countyShareFilled.push(row.county);
+      }
+      filledRows += countyShareFilled.length;
+      countyShareFilledRows += countyShareFilled.length;
+      countyShareFillStats.push({
+        county,
+        rows_filled: countyShareFilled.length,
+        total_votes_preserved: true,
+        labels: countyShareFilled,
+      });
+    }
+
+    if (!zeroRows.length && !neighborFilled.length && !countyShareFilled.length) continue;
     scaleCountyBackToOriginal(rows, originalTotals);
+    rescuedRows += rescueRoundedZeros(rows, demCandidate, repCandidate);
   }
 
   const prunedNonGeographicRows = [];
@@ -417,8 +504,10 @@ function fillTarget({ target, prior, note }) {
     return false;
   });
 
-  if (!filledRows && !prunedNonGeographicRows.length) {
-    console.log(`${target}: no prior/neighbor zero VTD20 rows or zero-vote non-geographic rows to fill`);
+  const remainingZeros = (targetNode.rows || []).filter((row) => rowTotal(row, "total_votes") <= 0).length;
+
+  if (!filledRows && !prunedNonGeographicRows.length && !rescuedRows) {
+    console.log(`${target}: no prior/neighbor/county-share zero VTD20 rows or zero-vote non-geographic rows to fill`);
     return;
   }
 
@@ -432,15 +521,27 @@ function fillTarget({ target, prior, note }) {
     prior_vtd20_gap_fill_rows: filledRows,
     prior_vtd20_gap_fill_prior_rows: priorFilledRows,
     prior_vtd20_gap_fill_neighbor_rows: neighborFilledRows,
+    prior_vtd20_gap_fill_county_share_rows: countyShareFilledRows,
+    prior_vtd20_gap_fill_rescued_rows: rescuedRows,
+    prior_vtd20_gap_fill_remaining_zeros: remainingZeros,
     prior_vtd20_gap_fill_counties: priorFillStats,
     neighbor_vtd20_gap_fill: neighborFilledRows > 0,
     neighbor_vtd20_gap_fill_source: "Data/crosswalks/dra_tn_vtd20_geojson_v07/TN_2020_graph.json",
     neighbor_vtd20_gap_fill_counties: neighborFillStats,
+    county_share_vtd20_gap_fill: countyShareFilledRows > 0,
+    county_share_vtd20_gap_fill_counties: countyShareFillStats,
     zero_vote_non_geographic_rows_pruned: prunedNonGeographicRows.length,
     zero_vote_non_geographic_pruned_labels: prunedNonGeographicRows,
+    gap_fill_label_index_source: path.relative(ROOT, labelIndexes.geoPath).replace(/\\/g, "/"),
   };
   fs.writeFileSync(path.join(CONTESTS_DIR, target), `${JSON.stringify(targetNode, null, 2)}\n`);
-  console.log(`${target}: filled ${filledRows} zero VTD20 rows (${priorFilledRows} prior, ${neighborFilledRows} neighbor), pruned ${prunedNonGeographicRows.length} zero non-geographic rows, rows ${originalRowCount}->${targetNode.rows.length}`);
+  console.log(
+    `${target}: filled ${filledRows} zero VTD20 rows `
+    + `(${priorFilledRows} prior, ${neighborFilledRows} neighbor, ${countyShareFilledRows} county-share), `
+    + `rescued ${rescuedRows}, remainingZeros=${remainingZeros}, `
+    + `pruned ${prunedNonGeographicRows.length} zero non-geographic rows, `
+    + `rows ${originalRowCount}->${targetNode.rows.length}`,
+  );
 }
 
 function main() {

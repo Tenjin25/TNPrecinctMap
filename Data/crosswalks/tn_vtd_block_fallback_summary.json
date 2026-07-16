@@ -1,0 +1,45 @@
+{
+  "inputs": {
+    "vtd00": "tn_vtd_2000.geojson",
+    "vtd10": "census\\tl_2012_47_vtd10.zip",
+    "tabblock00": "tl_2008_47_tabblock00.zip",
+    "tabblock10": "tl_2012_47_tabblock10.zip",
+    "nhgis_00_10": "crosswalks\\nhgis_blk2000_blk2010_47_tn_to_tn.csv",
+    "nhgis_10_20": "crosswalks\\nhgis_blk2010_blk2020_47_tn_to_tn.csv",
+    "blockassign_vtd": "crosswalks\\blockassign_tn_vtd.csv"
+  },
+  "outputs": {
+    "vtd00_to_vtd20_block_fallback": "tn_vtd00_to_vtd20_block_fallback.csv",
+    "vtd10_to_vtd20_block_fallback": "tn_vtd10_to_vtd20_block_fallback.csv"
+  },
+  "metrics": [
+    {
+      "pair": "2000->2020 block_fallback",
+      "rows": 11342,
+      "src_units": 2407,
+      "dst_units": 1964,
+      "missing_src_units": 0,
+      "src_weight_sum_min": 0.7972715032493645,
+      "src_weight_sum_mean": 0.9995361719172694,
+      "src_weight_sum_max": 1.000000000188551,
+      "output_csv": "tn_vtd00_to_vtd20_block_fallback.csv",
+      "diagnostics": {
+        "diagnostics_csv": "tn_vtd00_block_fallback_diagnostics.csv",
+        "missing_src_units": 0,
+        "missing_by_stage": {},
+        "missing_by_stage_county_top": []
+      }
+    },
+    {
+      "pair": "2010->2020 block_fallback",
+      "rows": 4663,
+      "src_units": 2174,
+      "dst_units": 1964,
+      "missing_src_units": 0,
+      "src_weight_sum_min": 0.13507458754999607,
+      "src_weight_sum_mean": 0.9883759057489825,
+      "src_weight_sum_max": 1.0000000000811988,
+      "output_csv": "tn_vtd10_to_vtd20_block_fallback.csv"
+    }
+  ]
+}

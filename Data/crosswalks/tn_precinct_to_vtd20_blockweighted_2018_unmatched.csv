@@ -1,1 +1,47 @@
 year,county_norm,precinct_norm,county_raw,precinct_raw,match_method,confidence_tier,match_score,source_rows
+2018,ANDERSON,ROCKY TOP,Anderson,Rocky Top,unmatched,unknown,0.375,44
+2018,BEDFORD,1 2 BELL BUCKLE,Bedford,1-2 Bell Buckle,unmatched,unknown,0.666667,41
+2018,BEDFORD,2 3 FAIR HAVEN,Bedford,2-3 Fair Haven,unmatched,unknown,0.48,41
+2018,BEDFORD,3 3 UNIONVILLE,Bedford,3-3 Unionville,unmatched,unknown,0.619048,41
+2018,BLOUNT,MARYVILLE HS,Blount,Maryville HS,unmatched,unknown,0.727273,47
+2018,BLOUNT,MARYVILLE JR HIGH,Blount,Maryville Jr High,unmatched,unknown,0.736842,45
+2018,BRADLEY,2 2 WALKER VALLEY,Bradley,2-2 Walker Valley,unmatched,unknown,0.606061,43
+2018,BRADLEY,5 2 MUSEUM,Bradley,5-2 Museum,unmatched,unknown,0.466667,43
+2018,CAMPBELL,2 3 LAFOLLETTE ES,Campbell,2-3 LaFollette ES,unmatched,unknown,0.6875,40
+2018,CAMPBELL,3 1 CCHS,Campbell,3-1 CCHS,unmatched,unknown,0.333333,40
+2018,GRUNDY,PELHAM VALLEY,Grundy,Pelham Valley,unmatched,unknown,0.631579,41
+2018,HAMILTON,176 KINGSPOINT 3,Hamilton,176 Kingspoint 3,matched_no_transfer,high,1.0,42
+2018,HAMILTON,190 KINGSPOINT 1,Hamilton,190 Kingspoint 1,matched_no_transfer,high,1.0,42
+2018,HAMILTON,191 KINGSPOINT 2,Hamilton,191 Kingspoint 2,matched_no_transfer,high,1.0,42
+2018,HAMILTON,200 SIGNAL MOUNTAIN 2,Hamilton,200 Signal Mountain 2,matched_no_transfer,high,1.0,42
+2018,HAMILTON,207 SIGNAL MOUNTAIN 1,Hamilton,207 Signal Mountain 1,matched_no_transfer,high,1.0,42
+2018,HARDIN,AIRPORT 1 1,Hardin,Airport 1-1,matched_no_transfer,high,1.0,41
+2018,HARDIN,CRUMP 4 2,Hardin,Crump 4-2,unmatched,unknown,0.625,41
+2018,HARDIN,LIBRARY 9 1,Hardin,Library 9-1,unmatched,unknown,0.315789,41
+2018,HARDIN,NIXON 2 1,Hardin,Nixon 2-1,unmatched,unknown,0.625,41
+2018,HARDIN,NORTH 8 1,Hardin,North 8-1,unmatched,unknown,0.625,41
+2018,LINCOLN,1 3 TAFT,Lincoln,1-3 Taft,unmatched,unknown,0.380952,41
+2018,LINCOLN,4 2 FNB,Lincoln,4-2 FNB,unmatched,unknown,0.24,41
+2018,LINCOLN,5 1 CALVARY,Lincoln,5-1 Calvary,unmatched,unknown,0.344828,43
+2018,LINCOLN,7 3 KELSO,Lincoln,7-3 Kelso,unmatched,unknown,0.272727,41
+2018,LOUDON,TELLICO V NORTH,Loudon,Tellico V. North,unmatched,unknown,0.628571,45
+2018,LOUDON,TELLICO V SOUTH,Loudon,Tellico V. South,unmatched,unknown,0.685714,45
+2018,MAURY,CULLEOKA 8 2,Maury,Culleoka 8-2,matched_no_transfer,high,1.0,42
+2018,MCMINN,E K BAKER,McMinn,E K Baker,unmatched,unknown,0.592593,42
+2018,MCMINN,TCAT,McMinn,TCAT,matched_no_transfer,high,1.0,42
+2018,MCNAIRY,GUYS 5 3,McNairy,Guys 5-3,unmatched,unknown,0.571429,41
+2018,MCNAIRY,NORTHEAST 3 2,McNairy,Northeast 3-2,unmatched,unknown,0.625,41
+2018,MCNAIRY,PURDY 3 3,McNairy,Purdy 3-3,unmatched,unknown,0.625,41
+2018,MCNAIRY,RAMER 5 4,McNairy,Ramer 5-4,unmatched,unknown,0.625,41
+2018,MONTGOMERY,5A SMITH,Montgomery,5A Smith,matched_no_transfer,high,1.0,41
+2018,MONTGOMERY,5B MADISON,Montgomery,5B Madison,matched_no_transfer,high,1.0,42
+2018,PERRY,5 1 LINDEN,Perry,5-1 Linden,unmatched,unknown,0.454545,41
+2018,POLK,COMMUNITY CENTER,Polk,Community Center,unmatched,unknown,0.30303,41
+2018,ROBERTSON,PAPER BALLOTS,Robertson,Paper Ballots,unmatched,unknown,0.333333,44
+2018,UNION,PAPER BALLOTS,Union,Paper Ballots,unmatched,unknown,0.342857,42
+2018,WASHINGTON,24 GRACE CITY,Washington,24 Grace City,matched_no_transfer,high,1.0,41
+2018,WASHINGTON,25 GRACE WEST,Washington,25 Grace West,matched_no_transfer,high,1.0,41
+2018,WASHINGTON,26 FAIRHAVEN,Washington,26 Fairhaven,matched_no_transfer,high,1.0,41
+2018,WASHINGTON,27 COURTHOUSE,Washington,27 Courthouse,matched_no_transfer,high,1.0,41
+2018,WASHINGTON,30 NEW VICTORY,Washington,30 New Victory,matched_no_transfer,high,1.0,41
+2018,WASHINGTON,32 NEW SALEM,Washington,32 New Salem,matched_no_transfer,high,1.0,41

@@ -1,0 +1,322 @@
+{
+  "official_vtd20_labels": 1965,
+  "bedford_2024_spotcheck": {
+    "ok": true,
+    "rows": 11,
+    "sample": [
+      [
+        "1 1 WARTRACE",
+        "000101"
+      ],
+      [
+        "1 2 BELL BUCKLE",
+        "000102"
+      ],
+      [
+        "2 3 DEASON",
+        "000103"
+      ],
+      [
+        "3 3 UNIONVILLE",
+        "000104"
+      ]
+    ]
+  },
+  "blockchain_years": [
+    {
+      "year": 2022,
+      "mapped_precincts": 1841,
+      "source_precincts": 1841,
+      "mapped_pct": 100.0,
+      "drawable_labels_touched": 1607,
+      "drawable_labels_total": 1965,
+      "transfer_method_counts": {
+        "existing_blockweighted_drawable": 1841
+      }
+    }
+  ],
+  "contests": [
+    {
+      "file": "governor_1998.json",
+      "rows": 95,
+      "joined_official": 0,
+      "missing_official": 95,
+      "join_pct": 0.0,
+      "zero_vote_rows": 0,
+      "votes_joined": 0,
+      "votes_missing": 976236,
+      "block_chain_allocation": false,
+      "missing_samples": [
+        "ANDERSON",
+        "BEDFORD",
+        "BENTON",
+        "BLEDSOE",
+        "BLOUNT"
+      ]
+    },
+    {
+      "file": "governor_2002.json",
+      "rows": 1965,
+      "joined_official": 1965,
+      "missing_official": 0,
+      "join_pct": 100.0,
+      "zero_vote_rows": 0,
+      "votes_joined": 1643997,
+      "votes_missing": 0,
+      "block_chain_allocation": true,
+      "missing_samples": []
+    },
+    {
+      "file": "governor_2006.json",
+      "rows": 1965,
+      "joined_official": 1965,
+      "missing_official": 0,
+      "join_pct": 100.0,
+      "zero_vote_rows": 0,
+      "votes_joined": 1815929,
+      "votes_missing": 0,
+      "block_chain_allocation": true,
+      "missing_samples": []
+    },
+    {
+      "file": "governor_2010.json",
+      "rows": 1965,
+      "joined_official": 1965,
+      "missing_official": 0,
+      "join_pct": 100.0,
+      "zero_vote_rows": 0,
+      "votes_joined": 1601549,
+      "votes_missing": 0,
+      "block_chain_allocation": true,
+      "missing_samples": []
+    },
+    {
+      "file": "governor_2014.json",
+      "rows": 1965,
+      "joined_official": 1965,
+      "missing_official": 0,
+      "join_pct": 100.0,
+      "zero_vote_rows": 0,
+      "votes_joined": 1353728,
+      "votes_missing": 0,
+      "block_chain_allocation": true,
+      "missing_samples": []
+    },
+    {
+      "file": "governor_2018.json",
+      "rows": 1965,
+      "joined_official": 1965,
+      "missing_official": 0,
+      "join_pct": 100.0,
+      "zero_vote_rows": 0,
+      "votes_joined": 2242029,
+      "votes_missing": 0,
+      "block_chain_allocation": true,
+      "missing_samples": []
+    },
+    {
+      "file": "governor_2022.json",
+      "rows": 1965,
+      "joined_official": 1965,
+      "missing_official": 0,
+      "join_pct": 100.0,
+      "zero_vote_rows": 0,
+      "votes_joined": 1739882,
+      "votes_missing": 0,
+      "block_chain_allocation": true,
+      "missing_samples": []
+    },
+    {
+      "file": "president_2000.json",
+      "rows": 1965,
+      "joined_official": 1965,
+      "missing_official": 0,
+      "join_pct": 100.0,
+      "zero_vote_rows": 0,
+      "votes_joined": 2075185,
+      "votes_missing": 0,
+      "block_chain_allocation": true,
+      "missing_samples": []
+    },
+    {
+      "file": "president_2004.json",
+      "rows": 1965,
+      "joined_official": 1965,
+      "missing_official": 0,
+      "join_pct": 100.0,
+      "zero_vote_rows": 0,
+      "votes_joined": 2437319,
+      "votes_missing": 0,
+      "block_chain_allocation": true,
+      "missing_samples": []
+    },
+    {
+      "file": "president_2008.json",
+      "rows": 1965,
+      "joined_official": 1965,
+      "missing_official": 0,
+      "join_pct": 100.0,
+      "zero_vote_rows": 0,
+      "votes_joined": 2599749,
+      "votes_missing": 0,
+      "block_chain_allocation": true,
+      "missing_samples": []
+    },
+    {
+      "file": "president_2012.json",
+      "rows": 1965,
+      "joined_official": 1965,
+      "missing_official": 0,
+      "join_pct": 100.0,
+      "zero_vote_rows": 0,
+      "votes_joined": 2458577,
+      "votes_missing": 0,
+      "block_chain_allocation": true,
+      "missing_samples": []
+    },
+    {
+      "file": "president_2016.json",
+      "rows": 1965,
+      "joined_official": 1965,
+      "missing_official": 0,
+      "join_pct": 100.0,
+      "zero_vote_rows": 0,
+      "votes_joined": 2508027,
+      "votes_missing": 0,
+      "block_chain_allocation": true,
+      "missing_samples": []
+    },
+    {
+      "file": "president_2020.json",
+      "rows": 1965,
+      "joined_official": 1965,
+      "missing_official": 0,
+      "join_pct": 100.0,
+      "zero_vote_rows": 0,
+      "votes_joined": 3053850,
+      "votes_missing": 0,
+      "block_chain_allocation": true,
+      "missing_samples": []
+    },
+    {
+      "file": "president_2024.json",
+      "rows": 1965,
+      "joined_official": 1965,
+      "missing_official": 0,
+      "join_pct": 100.0,
+      "zero_vote_rows": 0,
+      "votes_joined": 3063942,
+      "votes_missing": 0,
+      "block_chain_allocation": true,
+      "missing_samples": []
+    },
+    {
+      "file": "us_senate_2000.json",
+      "rows": 1965,
+      "joined_official": 1965,
+      "missing_official": 0,
+      "join_pct": 100.0,
+      "zero_vote_rows": 0,
+      "votes_joined": 1927789,
+      "votes_missing": 0,
+      "block_chain_allocation": true,
+      "missing_samples": []
+    },
+    {
+      "file": "us_senate_2002.json",
+      "rows": 1965,
+      "joined_official": 1965,
+      "missing_official": 0,
+      "join_pct": 100.0,
+      "zero_vote_rows": 0,
+      "votes_joined": 1641712,
+      "votes_missing": 0,
+      "block_chain_allocation": true,
+      "missing_samples": []
+    },
+    {
+      "file": "us_senate_2006.json",
+      "rows": 1965,
+      "joined_official": 1965,
+      "missing_official": 0,
+      "join_pct": 100.0,
+      "zero_vote_rows": 0,
+      "votes_joined": 1727481,
+      "votes_missing": 0,
+      "block_chain_allocation": true,
+      "missing_samples": []
+    },
+    {
+      "file": "us_senate_2008.json",
+      "rows": 1965,
+      "joined_official": 1965,
+      "missing_official": 0,
+      "join_pct": 100.0,
+      "zero_vote_rows": 0,
+      "votes_joined": 2424585,
+      "votes_missing": 0,
+      "block_chain_allocation": true,
+      "missing_samples": []
+    },
+    {
+      "file": "us_senate_2012.json",
+      "rows": 1965,
+      "joined_official": 1965,
+      "missing_official": 0,
+      "join_pct": 100.0,
+      "zero_vote_rows": 0,
+      "votes_joined": 2321477,
+      "votes_missing": 0,
+      "block_chain_allocation": true,
+      "missing_samples": []
+    },
+    {
+      "file": "us_senate_2014.json",
+      "rows": 1965,
+      "joined_official": 1965,
+      "missing_official": 0,
+      "join_pct": 100.0,
+      "zero_vote_rows": 0,
+      "votes_joined": 1374065,
+      "votes_missing": 0,
+      "block_chain_allocation": true,
+      "missing_samples": []
+    },
+    {
+      "file": "us_senate_2018.json",
+      "rows": 1965,
+      "joined_official": 1965,
+      "missing_official": 0,
+      "join_pct": 100.0,
+      "zero_vote_rows": 0,
+      "votes_joined": 2243740,
+      "votes_missing": 0,
+      "block_chain_allocation": true,
+      "missing_samples": []
+    },
+    {
+      "file": "us_senate_2020.json",
+      "rows": 1965,
+      "joined_official": 1965,
+      "missing_official": 0,
+      "join_pct": 100.0,
+      "zero_vote_rows": 0,
+      "votes_joined": 2950163,
+      "votes_missing": 0,
+      "block_chain_allocation": true,
+      "missing_samples": []
+    },
+    {
+      "file": "us_senate_2024.json",
+      "rows": 1965,
+      "joined_official": 1965,
+      "missing_official": 0,
+      "join_pct": 100.0,
+      "zero_vote_rows": 0,
+      "votes_joined": 3007608,
+      "votes_missing": 0,
+      "block_chain_allocation": true,
+      "missing_samples": []
+    }
+  ]
+}

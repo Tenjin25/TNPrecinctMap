@@ -1,0 +1,123 @@
+{
+  "scope": "congressional",
+  "contest_type": "governor",
+  "year": 2010,
+  "meta": {
+    "source": "tn_precinct_csv_district_aggregation_2026_lines_with_2022_line_transfer_for_districts_1_2",
+    "match_coverage_pct": 99.9474,
+    "direct_precinct_row_pct": 98.1061,
+    "overlap_precinct_row_pct": 0.0,
+    "non_geo_row_pct": 1.7316,
+    "county_fallback_row_pct": 0.0,
+    "dropped_row_pct": 0.1623,
+    "direct_precinct_vote_pct": 98.8364,
+    "overlap_precinct_vote_pct": 0.0,
+    "non_geo_vote_pct": 1.111,
+    "county_fallback_vote_pct": 0.0,
+    "dropped_vote_pct": 0.0526,
+    "districts": 9
+  },
+  "general": {
+    "results": {
+      "1": {
+        "dem_votes": 35263,
+        "rep_votes": 135228,
+        "other_votes": 3007,
+        "total_votes": 173498,
+        "dem_candidate": "Mike McWherter",
+        "rep_candidate": "Bill Haslam",
+        "margin": 99965,
+        "margin_pct": 57.6174,
+        "winner": "REP"
+      },
+      "2": {
+        "dem_votes": 30172,
+        "rep_votes": 135563,
+        "other_votes": 3498,
+        "total_votes": 169233,
+        "dem_candidate": "Mike McWherter",
+        "rep_candidate": "Bill Haslam",
+        "margin": 105391,
+        "margin_pct": 62.2757,
+        "winner": "REP"
+      },
+      "3": {
+        "dem_votes": 48820,
+        "rep_votes": 125865,
+        "other_votes": 3323,
+        "total_votes": 178008,
+        "dem_candidate": "Mike McWherter",
+        "rep_candidate": "Bill Haslam",
+        "margin": 77045,
+        "margin_pct": 43.2818,
+        "winner": "REP"
+      },
+      "4": {
+        "dem_votes": 57416,
+        "rep_votes": 96962,
+        "other_votes": 3409,
+        "total_votes": 157787,
+        "dem_candidate": "Mike McWherter",
+        "rep_candidate": "Bill Haslam",
+        "margin": 39546,
+        "margin_pct": 25.0629,
+        "winner": "REP"
+      },
+      "5": {
+        "dem_votes": 84263,
+        "rep_votes": 94176,
+        "other_votes": 3866,
+        "total_votes": 182305,
+        "dem_candidate": "Mike McWherter",
+        "rep_candidate": "Bill Haslam",
+        "margin": 9913,
+        "margin_pct": 5.4376,
+        "winner": "REP"
+      },
+      "6": {
+        "dem_votes": 62376,
+        "rep_votes": 110949,
+        "other_votes": 3912,
+        "total_votes": 177237,
+        "dem_candidate": "Mike McWherter",
+        "rep_candidate": "Bill Haslam",
+        "margin": 48573,
+        "margin_pct": 27.4057,
+        "winner": "REP"
+      },
+      "7": {
+        "dem_votes": 62085,
+        "rep_votes": 108103,
+        "other_votes": 3402,
+        "total_votes": 173590,
+        "dem_candidate": "Mike McWherter",
+        "rep_candidate": "Bill Haslam",
+        "margin": 46018,
+        "margin_pct": 26.5096,
+        "winner": "REP"
+      },
+      "8": {
+        "dem_votes": 71526,
+        "rep_votes": 135714,
+        "other_votes": 2528,
+        "total_votes": 209768,
+        "dem_candidate": "Mike McWherter",
+        "rep_candidate": "Bill Haslam",
+        "margin": 64188,
+        "margin_pct": 30.5995,
+        "winner": "REP"
+      },
+      "9": {
+        "dem_votes": 77643,
+        "rep_votes": 98487,
+        "other_votes": 3192,
+        "total_votes": 179322,
+        "dem_candidate": "Mike McWherter",
+        "rep_candidate": "Bill Haslam",
+        "margin": 20844,
+        "margin_pct": 11.6238,
+        "winner": "REP"
+      }
+    }
+  }
+}

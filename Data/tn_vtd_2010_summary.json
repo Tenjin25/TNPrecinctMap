@@ -1,0 +1,8 @@
+{
+  "output": "tn_vtd_2010.geojson",
+  "source": "census\\tl_2012_47_vtd10.zip",
+  "rows": 2174,
+  "distinct_counties": 95,
+  "distinct_geoid10": 2174,
+  "name10_nonempty": 2174
+}

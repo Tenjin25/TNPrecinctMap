@@ -1,0 +1,2201 @@
+{
+  "total": 1126,
+  "counties_n": 53,
+  "top": [
+    {
+      "county": "GREENE",
+      "n": 121,
+      "tag": "place_name",
+      "years": [
+        2000,
+        2002,
+        2004,
+        2006,
+        2008
+      ],
+      "methods": {
+        "unmatched": 121
+      },
+      "samples": [
+        {
+          "year": 2000,
+          "precinct": "ANDREW JOHNSON",
+          "method": "unmatched",
+          "raw": "ANDREW JOHNSON"
+        },
+        {
+          "year": 2000,
+          "precinct": "CANEY BRANCH",
+          "method": "unmatched",
+          "raw": "CANEY BRANCH"
+        },
+        {
+          "year": 2000,
+          "precinct": "CROSS ANCHOR",
+          "method": "unmatched",
+          "raw": "CROSS ANCHOR"
+        },
+        {
+          "year": 2000,
+          "precinct": "EAST VIEW",
+          "method": "unmatched",
+          "raw": "EAST VIEW"
+        },
+        {
+          "year": 2000,
+          "precinct": "FLAG BRANCH",
+          "method": "unmatched",
+          "raw": "FLAG BRANCH"
+        },
+        {
+          "year": 2000,
+          "precinct": "FOREST HILLS",
+          "method": "unmatched",
+          "raw": "FOREST HILLS"
+        },
+        {
+          "year": 2000,
+          "precinct": "GREYSTONE",
+          "method": "unmatched",
+          "raw": "GREYSTONE"
+        },
+        {
+          "year": 2000,
+          "precinct": "HARDINS",
+          "method": "unmatched",
+          "raw": "HARDINS"
+        },
+        {
+          "year": 2000,
+          "precinct": "HIGHLAND ROBY",
+          "method": "unmatched",
+          "raw": "HIGHLAND ROBY"
+        },
+        {
+          "year": 2000,
+          "precinct": "JOCKEY",
+          "method": "unmatched",
+          "raw": "JOCKEY"
+        }
+      ],
+      "vtd20": [
+        {
+          "vtd": "003080",
+          "name": "Ottway"
+        },
+        {
+          "vtd": "003076",
+          "name": "West Pines"
+        },
+        {
+          "vtd": "003067",
+          "name": "Baileyton"
+        },
+        {
+          "vtd": "003073",
+          "name": "Chuckey"
+        },
+        {
+          "vtd": "003072",
+          "name": "Chuckey Doak"
+        },
+        {
+          "vtd": "003082",
+          "name": "Mosheim"
+        },
+        {
+          "vtd": "003077",
+          "name": "South Greene"
+        },
+        {
+          "vtd": "003059",
+          "name": "Debusk"
+        }
+      ],
+      "vtd20_n": 17
+    },
+    {
+      "county": "KNOX",
+      "n": 113,
+      "tag": "coded",
+      "years": [
+        2000,
+        2002,
+        2004,
+        2006,
+        2008,
+        2012,
+        2014,
+        2016,
+        2018,
+        2020,
+        2022,
+        2024
+      ],
+      "methods": {
+        "unmatched": 68,
+        "matched_no_transfer": 45
+      },
+      "samples": [
+        {
+          "year": 2000,
+          "precinct": "001 006",
+          "method": "unmatched",
+          "raw": "001-006"
+        },
+        {
+          "year": 2000,
+          "precinct": "003 009",
+          "method": "unmatched",
+          "raw": "003-009"
+        },
+        {
+          "year": 2000,
+          "precinct": "008 012",
+          "method": "unmatched",
+          "raw": "008-012"
+        },
+        {
+          "year": 2000,
+          "precinct": "039 034",
+          "method": "unmatched",
+          "raw": "039-034"
+        },
+        {
+          "year": 2000,
+          "precinct": "050 042",
+          "method": "unmatched",
+          "raw": "050-042"
+        },
+        {
+          "year": 2000,
+          "precinct": "052 044",
+          "method": "unmatched",
+          "raw": "052-044"
+        },
+        {
+          "year": 2000,
+          "precinct": "053 045",
+          "method": "unmatched",
+          "raw": "053-045"
+        },
+        {
+          "year": 2000,
+          "precinct": "054 046",
+          "method": "unmatched",
+          "raw": "054-046"
+        },
+        {
+          "year": 2000,
+          "precinct": "066 086",
+          "method": "unmatched",
+          "raw": "066-086"
+        },
+        {
+          "year": 2000,
+          "precinct": "069 067",
+          "method": "unmatched",
+          "raw": "069-067"
+        }
+      ],
+      "vtd20": [
+        {
+          "vtd": "004851",
+          "name": "68-E"
+        },
+        {
+          "vtd": "004841",
+          "name": "65-W"
+        },
+        {
+          "vtd": "004803",
+          "name": "41"
+        },
+        {
+          "vtd": "004857",
+          "name": "43"
+        },
+        {
+          "vtd": "004824",
+          "name": "90"
+        },
+        {
+          "vtd": "004822",
+          "name": "92"
+        },
+        {
+          "vtd": "004838",
+          "name": "46"
+        },
+        {
+          "vtd": "004837",
+          "name": "47"
+        }
+      ],
+      "vtd20_n": 89
+    },
+    {
+      "county": "RUTHERFORD",
+      "n": 100,
+      "tag": "mixed",
+      "years": [
+        2000,
+        2002,
+        2004,
+        2006,
+        2008
+      ],
+      "methods": {
+        "unmatched": 100
+      },
+      "samples": [
+        {
+          "year": 2000,
+          "precinct": "01 1 JOHN COLEMA",
+          "method": "unmatched",
+          "raw": "01-1 JOHN COLEMA"
+        },
+        {
+          "year": 2000,
+          "precinct": "01 2 LAVERGNE CTY",
+          "method": "unmatched",
+          "raw": "01-2 LAVERGNE CTY"
+        },
+        {
+          "year": 2000,
+          "precinct": "03 3 JOE EDY S STO",
+          "method": "unmatched",
+          "raw": "03-3 JOE EDY'S STO"
+        },
+        {
+          "year": 2000,
+          "precinct": "07 1 MIDLAND",
+          "method": "unmatched",
+          "raw": "07-1 MIDLAND"
+        },
+        {
+          "year": 2000,
+          "precinct": "07 3 SALEM BLACK",
+          "method": "unmatched",
+          "raw": "07-3 SALEM-BLACK"
+        },
+        {
+          "year": 2000,
+          "precinct": "09 1 ALMAVILLE FIR",
+          "method": "unmatched",
+          "raw": "09-1 ALMAVILLE FIR"
+        },
+        {
+          "year": 2000,
+          "precinct": "10 1 STEWARTSBOR",
+          "method": "unmatched",
+          "raw": "10-1 STEWARTSBOR"
+        },
+        {
+          "year": 2000,
+          "precinct": "11 1 SMYRNA LIBRA",
+          "method": "unmatched",
+          "raw": "11-1 SMYRNA LIBRA"
+        },
+        {
+          "year": 2000,
+          "precinct": "15 1 SPORTS COMM",
+          "method": "unmatched",
+          "raw": "15-1 SPORTS COMM"
+        },
+        {
+          "year": 2000,
+          "precinct": "16 1 CENTRAL MIDD",
+          "method": "unmatched",
+          "raw": "16-1 CENTRAL MIDD"
+        }
+      ],
+      "vtd20": [
+        {
+          "vtd": "007664",
+          "name": "7-2 Barfield Elementary School"
+        },
+        {
+          "vtd": "007665",
+          "name": "8-1 Rockvale Middle School"
+        },
+        {
+          "vtd": "007668",
+          "name": "8-4 Crescent Church of Christ"
+        },
+        {
+          "vtd": "007666",
+          "name": "8-2 Eagleville Community Center"
+        },
+        {
+          "vtd": "007683",
+          "name": "16-1 Central Magnet School"
+        },
+        {
+          "vtd": "007667",
+          "name": "8-3 Lebanon Campground Church"
+        },
+        {
+          "vtd": "007689",
+          "name": "18-1 Patterson Park Community Center"
+        },
+        {
+          "vtd": "007670",
+          "name": "9-2 Browns Chapel Elementary School"
+        }
+      ],
+      "vtd20_n": 49
+    },
+    {
+      "county": "MONTGOMERY",
+      "n": 92,
+      "tag": "coded",
+      "years": [
+        2000,
+        2002,
+        2004,
+        2006,
+        2008,
+        2012,
+        2014,
+        2016,
+        2018,
+        2020,
+        2022,
+        2024
+      ],
+      "methods": {
+        "unmatched": 65,
+        "matched_no_transfer": 27
+      },
+      "samples": [
+        {
+          "year": 2000,
+          "precinct": "3EARLY",
+          "method": "unmatched",
+          "raw": "3EARLY"
+        },
+        {
+          "year": 2000,
+          "precinct": "4ABSENTEE",
+          "method": "unmatched",
+          "raw": "4ABSENTEE"
+        },
+        {
+          "year": 2002,
+          "precinct": "05",
+          "method": "unmatched",
+          "raw": "05"
+        },
+        {
+          "year": 2002,
+          "precinct": "20",
+          "method": "unmatched",
+          "raw": "20"
+        },
+        {
+          "year": 2004,
+          "precinct": "5",
+          "method": "unmatched",
+          "raw": "5"
+        },
+        {
+          "year": 2006,
+          "precinct": "20 SCHOOL SERVICE CO",
+          "method": "unmatched",
+          "raw": "20 School Service Co"
+        },
+        {
+          "year": 2006,
+          "precinct": "3A EAST MONTGOMERY",
+          "method": "unmatched",
+          "raw": "3A East Montgomery"
+        },
+        {
+          "year": 2006,
+          "precinct": "3B SANGO SCHOOL",
+          "method": "unmatched",
+          "raw": "3B Sango School"
+        },
+        {
+          "year": 2006,
+          "precinct": "4A MCMS",
+          "method": "unmatched",
+          "raw": "4A MCMS"
+        },
+        {
+          "year": 2006,
+          "precinct": "4B CENTRAL CIVITAN",
+          "method": "unmatched",
+          "raw": "4B Central Civitan"
+        }
+      ],
+      "vtd20": [
+        {
+          "vtd": "006467",
+          "name": "1A"
+        },
+        {
+          "vtd": "006479",
+          "name": "1B"
+        },
+        {
+          "vtd": "006478",
+          "name": "2B"
+        },
+        {
+          "vtd": "006464",
+          "name": "2A"
+        },
+        {
+          "vtd": "006465",
+          "name": "14"
+        },
+        {
+          "vtd": "006472",
+          "name": "4B"
+        },
+        {
+          "vtd": "006461",
+          "name": "4A"
+        },
+        {
+          "vtd": "006453",
+          "name": "3"
+        }
+      ],
+      "vtd20_n": 29
+    },
+    {
+      "county": "SHELBY",
+      "n": 85,
+      "tag": "coded",
+      "years": [
+        2000,
+        2012,
+        2022,
+        2024
+      ],
+      "methods": {
+        "unmatched": 71,
+        "matched_no_transfer": 14
+      },
+      "samples": [
+        {
+          "year": 2000,
+          "precinct": "001",
+          "method": "unmatched",
+          "raw": "001"
+        },
+        {
+          "year": 2000,
+          "precinct": "002",
+          "method": "unmatched",
+          "raw": "002"
+        },
+        {
+          "year": 2000,
+          "precinct": "007",
+          "method": "unmatched",
+          "raw": "007"
+        },
+        {
+          "year": 2000,
+          "precinct": "100 ARL",
+          "method": "unmatched",
+          "raw": "100. ARL"
+        },
+        {
+          "year": 2000,
+          "precinct": "101 01 BAR 01",
+          "method": "unmatched",
+          "raw": "101-01. BAR 01"
+        },
+        {
+          "year": 2000,
+          "precinct": "101 02 BAR 02",
+          "method": "unmatched",
+          "raw": "101-02. BAR 02"
+        },
+        {
+          "year": 2000,
+          "precinct": "101 03 BAR 03",
+          "method": "unmatched",
+          "raw": "101-03. BAR 03"
+        },
+        {
+          "year": 2000,
+          "precinct": "101 04 BAR 04",
+          "method": "unmatched",
+          "raw": "101-04. BAR 04"
+        },
+        {
+          "year": 2000,
+          "precinct": "101 05 BAR 05",
+          "method": "unmatched",
+          "raw": "101-05. BAR 05"
+        },
+        {
+          "year": 2000,
+          "precinct": "101 06 BAR 06",
+          "method": "unmatched",
+          "raw": "101-06. BAR 06"
+        }
+      ],
+      "vtd20": [
+        {
+          "vtd": "008065",
+          "name": "Brunswick 1"
+        },
+        {
+          "vtd": "008241",
+          "name": "Memphis 91-1"
+        },
+        {
+          "vtd": "008102",
+          "name": "Memphis 02"
+        },
+        {
+          "vtd": "008089",
+          "name": "Germantown 05"
+        },
+        {
+          "vtd": "008095",
+          "name": "Germantown 12"
+        },
+        {
+          "vtd": "008239",
+          "name": "Memphis 90-2"
+        },
+        {
+          "vtd": "008231",
+          "name": "Memphis 87-3"
+        },
+        {
+          "vtd": "008228",
+          "name": "Memphis 84-2"
+        }
+      ],
+      "vtd20_n": 166
+    },
+    {
+      "county": "LINCOLN",
+      "n": 59,
+      "tag": "mixed",
+      "years": [
+        2000,
+        2002,
+        2004,
+        2006,
+        2008,
+        2010,
+        2012,
+        2014,
+        2016,
+        2018
+      ],
+      "methods": {
+        "unmatched": 59
+      },
+      "samples": [
+        {
+          "year": 2000,
+          "precinct": "11 T PKWY FIRE TH",
+          "method": "unmatched",
+          "raw": "11. T PKWY FIRE TH"
+        },
+        {
+          "year": 2000,
+          "precinct": "12 T PKWY FIRE TH",
+          "method": "unmatched",
+          "raw": "12. T PKWY FIRE TH"
+        },
+        {
+          "year": 2000,
+          "precinct": "15 CENTRAL",
+          "method": "unmatched",
+          "raw": "15. CENTRAL"
+        },
+        {
+          "year": 2000,
+          "precinct": "20 REC CENTER",
+          "method": "unmatched",
+          "raw": "20. REC. CENTER"
+        },
+        {
+          "year": 2002,
+          "precinct": "9TH GRADE ACADEMY",
+          "method": "unmatched",
+          "raw": "9th Grade Academy"
+        },
+        {
+          "year": 2002,
+          "precinct": "BELLEVILLE CC",
+          "method": "unmatched",
+          "raw": "Belleville CC"
+        },
+        {
+          "year": 2002,
+          "precinct": "BOONSHILL CC",
+          "method": "unmatched",
+          "raw": "Boonshill CC"
+        },
+        {
+          "year": 2002,
+          "precinct": "ELORA CC",
+          "method": "unmatched",
+          "raw": "Elora CC"
+        },
+        {
+          "year": 2002,
+          "precinct": "KELSO CC",
+          "method": "unmatched",
+          "raw": "Kelso CC"
+        },
+        {
+          "year": 2002,
+          "precinct": "LINCOLN CC",
+          "method": "unmatched",
+          "raw": "Lincoln CC"
+        }
+      ],
+      "vtd20": [
+        {
+          "vtd": "000015",
+          "name": "Molino"
+        },
+        {
+          "vtd": "000003",
+          "name": "Blanche"
+        },
+        {
+          "vtd": "000020",
+          "name": "Taft Baptist Church"
+        },
+        {
+          "vtd": "000004",
+          "name": "Boonshill Community Center"
+        },
+        {
+          "vtd": "000010",
+          "name": "Howell"
+        },
+        {
+          "vtd": "000017",
+          "name": "Petersburg"
+        },
+        {
+          "vtd": "000018",
+          "name": "Recreation Center"
+        },
+        {
+          "vtd": "000012",
+          "name": "Liberty"
+        }
+      ],
+      "vtd20_n": 20
+    },
+    {
+      "county": "HAMILTON",
+      "n": 49,
+      "tag": "admin",
+      "years": [
+        2002,
+        2004,
+        2006,
+        2008,
+        2010,
+        2012,
+        2014,
+        2016,
+        2018
+      ],
+      "methods": {
+        "unmatched": 34,
+        "matched_no_transfer": 15
+      },
+      "samples": [
+        {
+          "year": 2002,
+          "precinct": "107 DALLAS SOUTH",
+          "method": "unmatched",
+          "raw": "107 Dallas South"
+        },
+        {
+          "year": 2002,
+          "precinct": "111 LOOKOUT VALLEY 3",
+          "method": "unmatched",
+          "raw": "111 Lookout Valley 3"
+        },
+        {
+          "year": 2002,
+          "precinct": "139 NORTH CHATT 2",
+          "method": "unmatched",
+          "raw": "139 North Chatt 2"
+        },
+        {
+          "year": 2004,
+          "precinct": "LOOKOUT VALLEY 3",
+          "method": "unmatched",
+          "raw": "Lookout Valley 3"
+        },
+        {
+          "year": 2004,
+          "precinct": "LOOKOUT VALLEY 4",
+          "method": "unmatched",
+          "raw": "Lookout Valley 4"
+        },
+        {
+          "year": 2004,
+          "precinct": "Z1SATELLITE 1 EC",
+          "method": "unmatched",
+          "raw": "z1Satellite 1 EC"
+        },
+        {
+          "year": 2004,
+          "precinct": "Z2SATELLITE 2 NG",
+          "method": "unmatched",
+          "raw": "z2Satellite 2 NG"
+        },
+        {
+          "year": 2004,
+          "precinct": "Z3SATELLITE 3 BR",
+          "method": "unmatched",
+          "raw": "z3Satellite 3 BR"
+        },
+        {
+          "year": 2004,
+          "precinct": "Z4SATELLITE 4",
+          "method": "unmatched",
+          "raw": "z4Satellite 4"
+        },
+        {
+          "year": 2004,
+          "precinct": "Z5ELECTION DAY",
+          "method": "unmatched",
+          "raw": "z5Election Day"
+        }
+      ],
+      "vtd20": [
+        {
+          "vtd": "003439",
+          "name": "Northwoods 2"
+        },
+        {
+          "vtd": "003460",
+          "name": "Soddy Daisy 1"
+        },
+        {
+          "vtd": "003461",
+          "name": "Soddy Daisy 2"
+        },
+        {
+          "vtd": "003383",
+          "name": "Dallas 2"
+        },
+        {
+          "vtd": "003382",
+          "name": "Dallas 1"
+        },
+        {
+          "vtd": "003455",
+          "name": "Sale Creek"
+        },
+        {
+          "vtd": "003403",
+          "name": "Flat Top Mountain"
+        },
+        {
+          "vtd": "003462",
+          "name": "Soddy Daisy 3"
+        }
+      ],
+      "vtd20_n": 125
+    },
+    {
+      "county": "BLOUNT",
+      "n": 45,
+      "tag": "mixed",
+      "years": [
+        2000,
+        2002,
+        2004,
+        2006,
+        2008,
+        2010,
+        2012,
+        2014,
+        2016,
+        2018
+      ],
+      "methods": {
+        "unmatched": 43,
+        "matched_no_transfer": 2
+      },
+      "samples": [
+        {
+          "year": 2000,
+          "precinct": "08 EAG ELEM CAF",
+          "method": "unmatched",
+          "raw": "08. EAG. ELEM. CAF"
+        },
+        {
+          "year": 2000,
+          "precinct": "09 EAG GYM 20",
+          "method": "unmatched",
+          "raw": "09. EAG. GYM 20"
+        },
+        {
+          "year": 2000,
+          "precinct": "10 EAG GYM 8",
+          "method": "unmatched",
+          "raw": "10. EAG. GYM 8"
+        },
+        {
+          "year": 2000,
+          "precinct": "26 MARY MUNI",
+          "method": "unmatched",
+          "raw": "26. MARY MUNI"
+        },
+        {
+          "year": 2002,
+          "precinct": "BLOUNT CNTY BD CITY",
+          "method": "unmatched",
+          "raw": "Blount Cnty Bd City"
+        },
+        {
+          "year": 2002,
+          "precinct": "BLOUNT CNTY BD CNTY",
+          "method": "unmatched",
+          "raw": "Blount Cnty Bd Cnty"
+        },
+        {
+          "year": 2004,
+          "precinct": "01 ALCOA",
+          "method": "unmatched",
+          "raw": "01 Alcoa"
+        },
+        {
+          "year": 2004,
+          "precinct": "02 MARTIN L KING",
+          "method": "unmatched",
+          "raw": "02 Martin L King"
+        },
+        {
+          "year": 2004,
+          "precinct": "04 WILL BLOUNT MID",
+          "method": "unmatched",
+          "raw": "04 Will Blount Mid"
+        },
+        {
+          "year": 2004,
+          "precinct": "05 PELLISSIPPI",
+          "method": "unmatched",
+          "raw": "05 Pellissippi"
+        }
+      ],
+      "vtd20": [
+        {
+          "vtd": "000414",
+          "name": "Maryville Municipal"
+        },
+        {
+          "vtd": "000411",
+          "name": "Martin Luther King"
+        },
+        {
+          "vtd": "000413",
+          "name": "Everett"
+        },
+        {
+          "vtd": "000412",
+          "name": "Oak Street"
+        },
+        {
+          "vtd": "000409",
+          "name": "Mentor"
+        },
+        {
+          "vtd": "000408",
+          "name": "Alcoa High School"
+        },
+        {
+          "vtd": "000436",
+          "name": "Pellissippi Campus"
+        },
+        {
+          "vtd": "000410",
+          "name": "Beech Grove"
+        }
+      ],
+      "vtd20_n": 34
+    },
+    {
+      "county": "SUMNER",
+      "n": 34,
+      "tag": "coded",
+      "years": [
+        2002,
+        2004,
+        2006,
+        2008,
+        2012,
+        2022,
+        2024
+      ],
+      "methods": {
+        "unmatched": 30,
+        "matched_no_transfer": 4
+      },
+      "samples": [
+        {
+          "year": 2002,
+          "precinct": "01C CORINTH",
+          "method": "unmatched",
+          "raw": "01C Corinth"
+        },
+        {
+          "year": 2002,
+          "precinct": "05A GALLATIN CITY",
+          "method": "unmatched",
+          "raw": "05A Gallatin City"
+        },
+        {
+          "year": 2002,
+          "precinct": "06B GALLATIN HIGH",
+          "method": "unmatched",
+          "raw": "06B Gallatin High"
+        },
+        {
+          "year": 2002,
+          "precinct": "10B GOOD SHEPERD",
+          "method": "unmatched",
+          "raw": "10B Good Sheperd"
+        },
+        {
+          "year": 2004,
+          "precinct": "03C CIVIC CENTER",
+          "method": "unmatched",
+          "raw": "03C Civic Center"
+        },
+        {
+          "year": 2004,
+          "precinct": "07A MAGNET SCHOOL",
+          "method": "unmatched",
+          "raw": "07A Magnet School"
+        },
+        {
+          "year": 2004,
+          "precinct": "10B GOOD SHEPHERD",
+          "method": "unmatched",
+          "raw": "10B Good Shepherd"
+        },
+        {
+          "year": 2004,
+          "precinct": "ABS SATELLITE",
+          "method": "unmatched",
+          "raw": "ABS & SATELLITE"
+        },
+        {
+          "year": 2006,
+          "precinct": "1C CORINTH",
+          "method": "unmatched",
+          "raw": "1C Corinth"
+        },
+        {
+          "year": 2006,
+          "precinct": "3C BETHPAGE UMC",
+          "method": "unmatched",
+          "raw": "3C Bethpage UMC"
+        }
+      ],
+      "vtd20": [
+        {
+          "vtd": "008636",
+          "name": "103 Corinth Church of Christ"
+        },
+        {
+          "vtd": "008632",
+          "name": "101 Westmoreland Middle"
+        },
+        {
+          "vtd": "008614",
+          "name": "202 Portland High School"
+        },
+        {
+          "vtd": "008613",
+          "name": "203 Wiseman Elementary"
+        },
+        {
+          "vtd": "008635",
+          "name": "301 Gallatin Civic Center"
+        },
+        {
+          "vtd": "008607",
+          "name": "303 Creekside Fellowship"
+        },
+        {
+          "vtd": "008627",
+          "name": "403 Cottontown Fire Hall"
+        },
+        {
+          "vtd": "008611",
+          "name": "401 Howard Elementary School"
+        }
+      ],
+      "vtd20_n": 27
+    },
+    {
+      "county": "WASHINGTON",
+      "n": 34,
+      "tag": "admin",
+      "years": [
+        2002,
+        2004,
+        2006,
+        2008,
+        2012,
+        2014,
+        2016,
+        2018
+      ],
+      "methods": {
+        "matched_no_transfer": 15,
+        "unmatched": 19
+      },
+      "samples": [
+        {
+          "year": 2002,
+          "precinct": "10I INDIAN TRAIL",
+          "method": "matched_no_transfer",
+          "raw": "10I Indian Trail"
+        },
+        {
+          "year": 2002,
+          "precinct": "11E BOONES CRK MS",
+          "method": "unmatched",
+          "raw": "11E Boones Crk MS"
+        },
+        {
+          "year": 2002,
+          "precinct": "11M MARVIN CHAPEL",
+          "method": "unmatched",
+          "raw": "11M Marvin Chapel"
+        },
+        {
+          "year": 2002,
+          "precinct": "ZABSENTEE",
+          "method": "unmatched",
+          "raw": "zABSENTEE"
+        },
+        {
+          "year": 2004,
+          "precinct": "11W BOONES CRK WEST",
+          "method": "matched_no_transfer",
+          "raw": "11W Boones Crk West"
+        },
+        {
+          "year": 2006,
+          "precinct": "11W BOONES CR CC OUT",
+          "method": "unmatched",
+          "raw": "11W Boones Cr CC Out"
+        },
+        {
+          "year": 2008,
+          "precinct": "11M MARVIN S CHAPEL",
+          "method": "unmatched",
+          "raw": "11M Marvin's Chapel"
+        },
+        {
+          "year": 2008,
+          "precinct": "11W BOONES CR CH OUT",
+          "method": "unmatched",
+          "raw": "11W Boones Cr Ch Out"
+        },
+        {
+          "year": 2012,
+          "precinct": "19 LEESBURG",
+          "method": "unmatched",
+          "raw": "19 Leesburg"
+        },
+        {
+          "year": 2012,
+          "precinct": "30 GRACE",
+          "method": "unmatched",
+          "raw": "30 Grace"
+        }
+      ],
+      "vtd20": [
+        {
+          "vtd": "009324",
+          "name": "Lake Ridge"
+        },
+        {
+          "vtd": "009302",
+          "name": "Boones Creek Central"
+        },
+        {
+          "vtd": "009305",
+          "name": "Boones Creek East"
+        },
+        {
+          "vtd": "009322",
+          "name": "Indian Trail City"
+        },
+        {
+          "vtd": "009306",
+          "name": "Boones Creek West"
+        },
+        {
+          "vtd": "009304",
+          "name": "Boones Creek City"
+        },
+        {
+          "vtd": "009336",
+          "name": "Woodland"
+        },
+        {
+          "vtd": "009301",
+          "name": "Asbury"
+        }
+      ],
+      "vtd20_n": 35
+    },
+    {
+      "county": "BEDFORD",
+      "n": 27,
+      "tag": "place_name",
+      "years": [
+        2002,
+        2004,
+        2006,
+        2008,
+        2010,
+        2012,
+        2014,
+        2016,
+        2018
+      ],
+      "methods": {
+        "unmatched": 27
+      },
+      "samples": [
+        {
+          "year": 2002,
+          "precinct": "12 RAUS CC",
+          "method": "unmatched",
+          "raw": "12 Raus CC"
+        },
+        {
+          "year": 2002,
+          "precinct": "18 SOUTHSIDE SCHOOL",
+          "method": "unmatched",
+          "raw": "18 Southside School"
+        },
+        {
+          "year": 2006,
+          "precinct": "LIBERTY SCHOOL",
+          "method": "unmatched",
+          "raw": "Liberty School"
+        },
+        {
+          "year": 2006,
+          "precinct": "RAUS CC",
+          "method": "unmatched",
+          "raw": "Raus CC"
+        },
+        {
+          "year": 2006,
+          "precinct": "ROVER BAPTIST",
+          "method": "unmatched",
+          "raw": "Rover Baptist"
+        },
+        {
+          "year": 2008,
+          "precinct": "402 LIBERTY",
+          "method": "unmatched",
+          "raw": "402 Liberty"
+        },
+        {
+          "year": 2010,
+          "precinct": "1 2 BELL BUCKLE",
+          "method": "unmatched",
+          "raw": "1-2 Bell Buckle"
+        },
+        {
+          "year": 2010,
+          "precinct": "2 2 LONGVIEW",
+          "method": "unmatched",
+          "raw": "2-2 Longview"
+        },
+        {
+          "year": 2010,
+          "precinct": "3 1 ROVER",
+          "method": "unmatched",
+          "raw": "3-1 Rover"
+        },
+        {
+          "year": 2010,
+          "precinct": "3 3 UNIONVILLE",
+          "method": "unmatched",
+          "raw": "3-3 Unionville"
+        }
+      ],
+      "vtd20": [
+        {
+          "vtd": "000102",
+          "name": "102 Bell Buckle/Webb School"
+        },
+        {
+          "vtd": "000101",
+          "name": "101 Wartrace Baptist Church"
+        },
+        {
+          "vtd": "000103",
+          "name": "203 Fairhaven Baptist Church"
+        },
+        {
+          "vtd": "000104",
+          "name": "303 Uniounville Fire Hall"
+        },
+        {
+          "vtd": "000105",
+          "name": "403 Bedford Community Center"
+        },
+        {
+          "vtd": "000111",
+          "name": "902 Southside School"
+        },
+        {
+          "vtd": "000106",
+          "name": "502 Flat Creek Community Center"
+        },
+        {
+          "vtd": "000107",
+          "name": "505 Normandy Baptist Church"
+        }
+      ],
+      "vtd20_n": 11
+    },
+    {
+      "county": "MCNAIRY",
+      "n": 27,
+      "tag": "coded",
+      "years": [
+        2006,
+        2008,
+        2010,
+        2012,
+        2014,
+        2016,
+        2018
+      ],
+      "methods": {
+        "unmatched": 27
+      },
+      "samples": [
+        {
+          "year": 2006,
+          "precinct": "GUYS 5 4",
+          "method": "unmatched",
+          "raw": "Guys 5-4"
+        },
+        {
+          "year": 2006,
+          "precinct": "PURDY 3 3",
+          "method": "unmatched",
+          "raw": "Purdy 3-3"
+        },
+        {
+          "year": 2006,
+          "precinct": "RAMER 5 5",
+          "method": "unmatched",
+          "raw": "Ramer 5-5"
+        },
+        {
+          "year": 2008,
+          "precinct": "GUYS 5 3",
+          "method": "unmatched",
+          "raw": "Guys 5-3"
+        },
+        {
+          "year": 2008,
+          "precinct": "NORTHEAST 3 2",
+          "method": "unmatched",
+          "raw": "Northeast 3-2"
+        },
+        {
+          "year": 2008,
+          "precinct": "RAMER 5 4",
+          "method": "unmatched",
+          "raw": "Ramer 5-4"
+        }
+      ],
+      "vtd20": [
+        {
+          "vtd": "006159",
+          "name": "1 Finger"
+        },
+        {
+          "vtd": "006154",
+          "name": "1 McNairy"
+        },
+        {
+          "vtd": "006158",
+          "name": "1 Bethel Springs"
+        },
+        {
+          "vtd": "006151",
+          "name": "2 Adamsville"
+        },
+        {
+          "vtd": "006162",
+          "name": "2 Lawton"
+        },
+        {
+          "vtd": "006153",
+          "name": "3 North East Selmer"
+        },
+        {
+          "vtd": "006160",
+          "name": "3 Leapwood"
+        },
+        {
+          "vtd": "006161",
+          "name": "3 Purdy"
+        }
+      ],
+      "vtd20_n": 17
+    },
+    {
+      "county": "DAVIDSON",
+      "n": 25,
+      "tag": "admin",
+      "years": [
+        2000,
+        2002,
+        2004,
+        2006,
+        2008,
+        2010,
+        2012,
+        2020,
+        2022,
+        2024
+      ],
+      "methods": {
+        "unmatched": 8,
+        "matched_no_transfer": 17
+      },
+      "samples": [
+        {
+          "year": 2000,
+          "precinct": "AIS",
+          "method": "unmatched",
+          "raw": "AIS"
+        },
+        {
+          "year": 2000,
+          "precinct": "PAPER VOTES",
+          "method": "unmatched",
+          "raw": "PAPER VOTES"
+        },
+        {
+          "year": 2006,
+          "precinct": "SAFETY PRECINCT",
+          "method": "unmatched",
+          "raw": "Safety Precinct"
+        },
+        {
+          "year": 2020,
+          "precinct": "22 2",
+          "method": "matched_no_transfer",
+          "raw": "22-2"
+        },
+        {
+          "year": 2022,
+          "precinct": "25 5",
+          "method": "matched_no_transfer",
+          "raw": "25-5"
+        },
+        {
+          "year": 2022,
+          "precinct": "28 5",
+          "method": "matched_no_transfer",
+          "raw": "28-5"
+        },
+        {
+          "year": 2022,
+          "precinct": "33 5",
+          "method": "matched_no_transfer",
+          "raw": "33-5"
+        },
+        {
+          "year": 2022,
+          "precinct": "33 6",
+          "method": "matched_no_transfer",
+          "raw": "33-6"
+        },
+        {
+          "year": 2022,
+          "precinct": "34 6",
+          "method": "matched_no_transfer",
+          "raw": "34-6"
+        },
+        {
+          "year": 2022,
+          "precinct": "35 5",
+          "method": "matched_no_transfer",
+          "raw": "35-5"
+        }
+      ],
+      "vtd20": [
+        {
+          "vtd": "001804",
+          "name": "1-4"
+        },
+        {
+          "vtd": "001802",
+          "name": "1-2"
+        },
+        {
+          "vtd": "001805",
+          "name": "1-5"
+        },
+        {
+          "vtd": "001810",
+          "name": "2-5"
+        },
+        {
+          "vtd": "001807",
+          "name": "2-2"
+        },
+        {
+          "vtd": "001806",
+          "name": "2-1"
+        },
+        {
+          "vtd": "001808",
+          "name": "2-3"
+        },
+        {
+          "vtd": "001809",
+          "name": "2-4"
+        }
+      ],
+      "vtd20_n": 159
+    },
+    {
+      "county": "HARDIN",
+      "n": 25,
+      "tag": "coded",
+      "years": [
+        2006,
+        2008,
+        2010,
+        2012,
+        2014,
+        2016,
+        2018
+      ],
+      "methods": {
+        "unmatched": 23,
+        "matched_no_transfer": 2
+      },
+      "samples": [
+        {
+          "year": 2006,
+          "precinct": "CRUMP 4 2",
+          "method": "unmatched",
+          "raw": "Crump 4-2"
+        },
+        {
+          "year": 2006,
+          "precinct": "NIXON 2 1",
+          "method": "unmatched",
+          "raw": "Nixon 2-1"
+        },
+        {
+          "year": 2006,
+          "precinct": "NORTH 8 1",
+          "method": "unmatched",
+          "raw": "North 8-1"
+        },
+        {
+          "year": 2016,
+          "precinct": "AIRPORT 1 1",
+          "method": "matched_no_transfer",
+          "raw": "Airport 1-1"
+        },
+        {
+          "year": 2016,
+          "precinct": "LIBRARY 9 1",
+          "method": "unmatched",
+          "raw": "Library 9-1"
+        }
+      ],
+      "vtd20": [
+        {
+          "vtd": "003702",
+          "name": "1 Armory"
+        },
+        {
+          "vtd": "003707",
+          "name": "1 Olivet"
+        },
+        {
+          "vtd": "003701",
+          "name": "2 Walkers"
+        },
+        {
+          "vtd": "003703",
+          "name": "9 Courthouse"
+        },
+        {
+          "vtd": "003714",
+          "name": "3 Counce"
+        },
+        {
+          "vtd": "003710",
+          "name": "4 Crump"
+        },
+        {
+          "vtd": "003717",
+          "name": "5 Morris Chapel"
+        },
+        {
+          "vtd": "003706",
+          "name": "6 Cerro Gordo"
+        }
+      ],
+      "vtd20_n": 18
+    },
+    {
+      "county": "BRADLEY",
+      "n": 20,
+      "tag": "coded",
+      "years": [
+        2000,
+        2002,
+        2004,
+        2010,
+        2012,
+        2014,
+        2016,
+        2018
+      ],
+      "methods": {
+        "unmatched": 20
+      },
+      "samples": [
+        {
+          "year": 2000,
+          "precinct": "204 CHARLSTN CTY",
+          "method": "unmatched",
+          "raw": "204 CHARLSTN CTY"
+        },
+        {
+          "year": 2000,
+          "precinct": "303 BRADLEY JR",
+          "method": "unmatched",
+          "raw": "303 BRADLEY JR."
+        },
+        {
+          "year": 2000,
+          "precinct": "304 SR CTR",
+          "method": "unmatched",
+          "raw": "304 SR CTR"
+        },
+        {
+          "year": 2002,
+          "precinct": "101 1 MCDONALD",
+          "method": "unmatched",
+          "raw": "101-1 McDonald"
+        },
+        {
+          "year": 2002,
+          "precinct": "502 1 COMMUNITY SV",
+          "method": "unmatched",
+          "raw": "502-1 Community Sv"
+        },
+        {
+          "year": 2004,
+          "precinct": "502 1 COMMUNITY SVC",
+          "method": "unmatched",
+          "raw": "502-1 Community Svc"
+        },
+        {
+          "year": 2010,
+          "precinct": "2 2 WALKER VALLEY",
+          "method": "unmatched",
+          "raw": "2-2 Walker Valley"
+        },
+        {
+          "year": 2010,
+          "precinct": "5 1 BLYTHE BOWER",
+          "method": "unmatched",
+          "raw": "5-1 Blythe/Bower"
+        },
+        {
+          "year": 2014,
+          "precinct": "5 2 OLD BLYTHE",
+          "method": "unmatched",
+          "raw": "5-2 Old Blythe"
+        },
+        {
+          "year": 2016,
+          "precinct": "5 2 MUSEUM",
+          "method": "unmatched",
+          "raw": "5-2 Museum"
+        }
+      ],
+      "vtd20": [
+        {
+          "vtd": "000501",
+          "name": "101 McDonald Ruritan"
+        },
+        {
+          "vtd": "000516",
+          "name": "102 Prospect School"
+        },
+        {
+          "vtd": "000517",
+          "name": "103 Hopewell School"
+        },
+        {
+          "vtd": "000504",
+          "name": "201 E.L. Ross School"
+        },
+        {
+          "vtd": "000505",
+          "name": "202 Walker Valley High"
+        },
+        {
+          "vtd": "000507",
+          "name": "702 Cleveland High"
+        },
+        {
+          "vtd": "000502",
+          "name": "701 Stuart School"
+        },
+        {
+          "vtd": "000509",
+          "name": "301 Lee University"
+        }
+      ],
+      "vtd20_n": 17
+    },
+    {
+      "county": "WILLIAMSON",
+      "n": 19,
+      "tag": "coded",
+      "years": [
+        2020,
+        2022,
+        2024
+      ],
+      "methods": {
+        "matched_no_transfer": 19
+      },
+      "samples": [
+        {
+          "year": 2020,
+          "precinct": "1 1",
+          "method": "matched_no_transfer",
+          "raw": "1-1"
+        },
+        {
+          "year": 2020,
+          "precinct": "1 2",
+          "method": "matched_no_transfer",
+          "raw": "1-2"
+        },
+        {
+          "year": 2020,
+          "precinct": "1 3",
+          "method": "matched_no_transfer",
+          "raw": "1-3"
+        },
+        {
+          "year": 2022,
+          "precinct": "44562",
+          "method": "matched_no_transfer",
+          "raw": "44562"
+        },
+        {
+          "year": 2022,
+          "precinct": "44563",
+          "method": "matched_no_transfer",
+          "raw": "44563"
+        },
+        {
+          "year": 2022,
+          "precinct": "44564",
+          "method": "matched_no_transfer",
+          "raw": "44564"
+        },
+        {
+          "year": 2022,
+          "precinct": "44866",
+          "method": "matched_no_transfer",
+          "raw": "44866"
+        },
+        {
+          "year": 2022,
+          "precinct": "44867",
+          "method": "matched_no_transfer",
+          "raw": "44867"
+        },
+        {
+          "year": 2022,
+          "precinct": "44868",
+          "method": "matched_no_transfer",
+          "raw": "44868"
+        },
+        {
+          "year": 2022,
+          "precinct": "44896",
+          "method": "matched_no_transfer",
+          "raw": "44896"
+        }
+      ],
+      "vtd20": [
+        {
+          "vtd": "009702",
+          "name": "1-2 Fairview Recreation Center"
+        },
+        {
+          "vtd": "009703",
+          "name": "1-3 Old Pinewood School"
+        },
+        {
+          "vtd": "009707",
+          "name": "2-3 Oakview Elementary School"
+        },
+        {
+          "vtd": "009999",
+          "name": "2-5 Fire & Rescue Station #24"
+        },
+        {
+          "vtd": "009706",
+          "name": "2-2 Thompson Station Baptist Church"
+        },
+        {
+          "vtd": "009705",
+          "name": "2-1 Bethesda Recreation Center"
+        },
+        {
+          "vtd": "009708",
+          "name": "2-4 College Grove Community Center"
+        },
+        {
+          "vtd": "009739",
+          "name": "12-2 The Church of the City-Franklin"
+        }
+      ],
+      "vtd20_n": 43
+    },
+    {
+      "county": "MACON",
+      "n": 18,
+      "tag": "place_name",
+      "years": [
+        2006,
+        2008,
+        2010,
+        2012,
+        2014
+      ],
+      "methods": {
+        "unmatched": 17,
+        "matched_no_transfer": 1
+      },
+      "samples": [
+        {
+          "year": 2006,
+          "precinct": "CENTRAL ELEM SCH",
+          "method": "unmatched",
+          "raw": "Central Elem Sch"
+        },
+        {
+          "year": 2006,
+          "precinct": "GALEN SCH MUSEUM",
+          "method": "unmatched",
+          "raw": "Galen Sch Museum"
+        },
+        {
+          "year": 2006,
+          "precinct": "MACON CO JR HS",
+          "method": "unmatched",
+          "raw": "Macon Co. Jr. HS"
+        },
+        {
+          "year": 2006,
+          "precinct": "SALLY WELLS BLDG",
+          "method": "unmatched",
+          "raw": "Sally Wells Bldg"
+        },
+        {
+          "year": 2006,
+          "precinct": "WESTSIDE SCHOOL",
+          "method": "unmatched",
+          "raw": "Westside School"
+        },
+        {
+          "year": 2006,
+          "precinct": "WILLETTE HEAD STR",
+          "method": "unmatched",
+          "raw": "Willette Head Str"
+        },
+        {
+          "year": 2006,
+          "precinct": "WILLIAMS HEAD STR",
+          "method": "unmatched",
+          "raw": "Williams Head Str"
+        },
+        {
+          "year": 2008,
+          "precinct": "CENTRAL ELEM SCHOOL",
+          "method": "unmatched",
+          "raw": "Central Elem School"
+        },
+        {
+          "year": 2008,
+          "precinct": "GALEN SCHOOL MUSEUM",
+          "method": "unmatched",
+          "raw": "Galen School Museum"
+        },
+        {
+          "year": 2008,
+          "precinct": "LAFAYETTE ELEM SCH",
+          "method": "unmatched",
+          "raw": "Lafayette Elem Sch"
+        }
+      ],
+      "vtd20": [
+        {
+          "vtd": "005551",
+          "name": "Red Boiling Springs High School"
+        },
+        {
+          "vtd": "005552",
+          "name": "Willette Volunteer Fire Department"
+        },
+        {
+          "vtd": "005553",
+          "name": "Macon County High School"
+        },
+        {
+          "vtd": "005554",
+          "name": "Macon County Junior High School"
+        },
+        {
+          "vtd": "005560",
+          "name": "Lafayette Elementary School"
+        },
+        {
+          "vtd": "005558",
+          "name": "Macon County Welcome Center"
+        },
+        {
+          "vtd": "005559",
+          "name": "Central Elementary School"
+        },
+        {
+          "vtd": "005556",
+          "name": "Cross Roads Community Center"
+        }
+      ],
+      "vtd20_n": 10
+    },
+    {
+      "county": "MCMINN",
+      "n": 17,
+      "tag": "place_name",
+      "years": [
+        2006,
+        2008,
+        2010,
+        2012,
+        2014,
+        2016,
+        2018
+      ],
+      "methods": {
+        "unmatched": 14,
+        "matched_no_transfer": 3
+      },
+      "samples": [
+        {
+          "year": 2006,
+          "precinct": "CENTRAL HS",
+          "method": "unmatched",
+          "raw": "Central HS"
+        },
+        {
+          "year": 2006,
+          "precinct": "ETOWAH CC",
+          "method": "unmatched",
+          "raw": "Etowah CC"
+        },
+        {
+          "year": 2006,
+          "precinct": "MT VIEW SCHOOL",
+          "method": "unmatched",
+          "raw": "Mt. View School"
+        },
+        {
+          "year": 2006,
+          "precinct": "TN TECH CENTER",
+          "method": "unmatched",
+          "raw": "TN Tech Center"
+        },
+        {
+          "year": 2010,
+          "precinct": "E K BAKER",
+          "method": "unmatched",
+          "raw": "E K Baker"
+        },
+        {
+          "year": 2014,
+          "precinct": "TCAT",
+          "method": "matched_no_transfer",
+          "raw": "TCAT"
+        }
+      ],
+      "vtd20": [
+        {
+          "vtd": "006058",
+          "name": "05 Rogers Creek School"
+        },
+        {
+          "vtd": "006054",
+          "name": "12 North City School"
+        },
+        {
+          "vtd": "006056",
+          "name": "10 Tennessee College of Applied Technology"
+        },
+        {
+          "vtd": "006053",
+          "name": "08 Niota School"
+        },
+        {
+          "vtd": "006059",
+          "name": "14 EK Baker School"
+        },
+        {
+          "vtd": "006057",
+          "name": "06 Riceville School"
+        },
+        {
+          "vtd": "006055",
+          "name": "09 Ingleside School"
+        },
+        {
+          "vtd": "006060",
+          "name": "01 City Park School"
+        }
+      ],
+      "vtd20_n": 15
+    },
+    {
+      "county": "VAN BUREN",
+      "n": 16,
+      "tag": "mixed",
+      "years": [
+        2000,
+        2002,
+        2004,
+        2006,
+        2008
+      ],
+      "methods": {
+        "unmatched": 16
+      },
+      "samples": [
+        {
+          "year": 2000,
+          "precinct": "1 BONE CAVE CC",
+          "method": "unmatched",
+          "raw": "1. BONE CAVE CC"
+        },
+        {
+          "year": 2000,
+          "precinct": "2 CEDAR GROVE C",
+          "method": "unmatched",
+          "raw": "2. CEDAR GROVE C"
+        },
+        {
+          "year": 2000,
+          "precinct": "3 CUMMINGSVILLE",
+          "method": "unmatched",
+          "raw": "3. CUMMINGSVILLE"
+        },
+        {
+          "year": 2000,
+          "precinct": "8 WHITE HILL CC",
+          "method": "unmatched",
+          "raw": "8. WHITE HILL CC"
+        },
+        {
+          "year": 2002,
+          "precinct": "CEDAR GROVE CC",
+          "method": "unmatched",
+          "raw": "Cedar Grove CC"
+        },
+        {
+          "year": 2002,
+          "precinct": "CUMMINGSVILLE CC",
+          "method": "unmatched",
+          "raw": "Cummingsville CC"
+        },
+        {
+          "year": 2002,
+          "precinct": "WHITE HILL CC",
+          "method": "unmatched",
+          "raw": "White Hill CC"
+        }
+      ],
+      "vtd20": [
+        {
+          "vtd": "009101",
+          "name": "Cedar Grove Community Cntr."
+        },
+        {
+          "vtd": "009104",
+          "name": "Spencer 1"
+        },
+        {
+          "vtd": "009106",
+          "name": "Cummingsville Community Cntr"
+        },
+        {
+          "vtd": "009105",
+          "name": "Spencer 5"
+        },
+        {
+          "vtd": "009103",
+          "name": "Fall Creek Falls Comm. Center"
+        },
+        {
+          "vtd": "009102",
+          "name": "Piney Fire Hall"
+        },
+        {
+          "vtd": "009107",
+          "name": "White Hill Community Cntr."
+        }
+      ],
+      "vtd20_n": 7
+    },
+    {
+      "county": "HOUSTON",
+      "n": 15,
+      "tag": "mixed",
+      "years": [
+        2000,
+        2002,
+        2004,
+        2006,
+        2008
+      ],
+      "methods": {
+        "unmatched": 15
+      },
+      "samples": [
+        {
+          "year": 2000,
+          "precinct": "04 SENIOR CITIZEN",
+          "method": "unmatched",
+          "raw": "04. SENIOR CITIZEN"
+        },
+        {
+          "year": 2000,
+          "precinct": "06 HOUSTON H S",
+          "method": "unmatched",
+          "raw": "06. HOUSTON H.S."
+        },
+        {
+          "year": 2002,
+          "precinct": "2 TENN RIDGE",
+          "method": "unmatched",
+          "raw": "2 Tenn Ridge"
+        },
+        {
+          "year": 2002,
+          "precinct": "4 ARLINGTON",
+          "method": "unmatched",
+          "raw": "4 Arlington"
+        },
+        {
+          "year": 2002,
+          "precinct": "6 HOUSTON MIDDLE",
+          "method": "unmatched",
+          "raw": "6 Houston Middle"
+        },
+        {
+          "year": 2004,
+          "precinct": "1 STEWART CC",
+          "method": "unmatched",
+          "raw": "1 Stewart CC"
+        },
+        {
+          "year": 2004,
+          "precinct": "4 SENIOR CITIZ BLDG",
+          "method": "unmatched",
+          "raw": "4 Senior Citiz Bldg"
+        },
+        {
+          "year": 2004,
+          "precinct": "6 MIDDLE SCHOOL",
+          "method": "unmatched",
+          "raw": "6 Middle School"
+        },
+        {
+          "year": 2008,
+          "precinct": "HOUSTON CO GARAGE",
+          "method": "unmatched",
+          "raw": "Houston Co Garage"
+        },
+        {
+          "year": 2008,
+          "precinct": "NAT GUARD ARMORY",
+          "method": "unmatched",
+          "raw": "Nat Guard Armory"
+        }
+      ],
+      "vtd20": [
+        {
+          "vtd": "004304",
+          "name": "Stewart Community Center"
+        },
+        {
+          "vtd": "004301",
+          "name": "Tennessee Ridge City Hall"
+        },
+        {
+          "vtd": "004302",
+          "name": "Arlington Sr. Citizens Cntr"
+        },
+        {
+          "vtd": "004303",
+          "name": "Erin City Hall"
+        },
+        {
+          "vtd": "004306",
+          "name": "Houston Co. Middle School"
+        },
+        {
+          "vtd": "004307",
+          "name": "Griffin Chapel Church"
+        },
+        {
+          "vtd": "004305",
+          "name": "Erin Elementary School"
+        }
+      ],
+      "vtd20_n": 7
+    }
+  ]
+}

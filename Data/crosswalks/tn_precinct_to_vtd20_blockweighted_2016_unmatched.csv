@@ -1,1 +1,44 @@
 year,county_norm,precinct_norm,county_raw,precinct_raw,match_method,confidence_tier,match_score,source_rows
+2016,ANDERSON,ROCKY TOP,Anderson,Rocky Top,unmatched,unknown,0.375,16
+2016,BEDFORD,1 2 BELL BUCKLE,Bedford,1-2 Bell Buckle,unmatched,unknown,0.666667,13
+2016,BEDFORD,2 3 FAIR HAVEN,Bedford,2-3 Fair Haven,unmatched,unknown,0.48,14
+2016,BEDFORD,3 3 UNIONVILLE,Bedford,3-3 Unionville,unmatched,unknown,0.619048,15
+2016,BLOUNT,MARYVILLE HS,Blount,Maryville HS,unmatched,unknown,0.727273,15
+2016,BLOUNT,MARYVILLE JR HIGH,Blount,Maryville Jr High,unmatched,unknown,0.736842,13
+2016,BRADLEY,2 2 WALKER VALLEY,Bradley,2-2 Walker Valley,unmatched,unknown,0.606061,20
+2016,BRADLEY,5 2 MUSEUM,Bradley,5-2 Museum,unmatched,unknown,0.466667,12
+2016,CAMPBELL,2 3 LAFOLLETTE ES,Campbell,2-3 LaFollette ES,unmatched,unknown,0.6875,16
+2016,CAMPBELL,3 1 CCHS,Campbell,3-1 CCHS,unmatched,unknown,0.333333,16
+2016,HAMILTON,176 KINGSPOINT 3,Hamilton,176 Kingspoint 3,matched_no_transfer,high,1.0,13
+2016,HAMILTON,190 KINGSPOINT 1,Hamilton,190 Kingspoint 1,matched_no_transfer,high,1.0,15
+2016,HAMILTON,191 KINGSPOINT 2,Hamilton,191 Kingspoint 2,matched_no_transfer,high,1.0,15
+2016,HAMILTON,200 SIGNAL MOUNTAIN 2,Hamilton,200 Signal Mountain 2,matched_no_transfer,high,1.0,15
+2016,HAMILTON,207 SIGNAL MOUNTAIN 1,Hamilton,207 Signal Mountain 1,matched_no_transfer,high,1.0,18
+2016,HARDIN,AIRPORT 1 1,Hardin,Airport 1-1,matched_no_transfer,high,1.0,12
+2016,HARDIN,CRUMP 4 2,Hardin,Crump 4-2,unmatched,unknown,0.625,12
+2016,HARDIN,LIBRARY 9 1,Hardin,Library 9-1,unmatched,unknown,0.315789,12
+2016,HARDIN,NIXON 2 1,Hardin,Nixon 2-1,unmatched,unknown,0.625,12
+2016,HARDIN,NORTH 8 1,Hardin,North 8-1,unmatched,unknown,0.625,12
+2016,LINCOLN,1 3 TAFT,Lincoln,1-3 Taft,unmatched,unknown,0.380952,15
+2016,LINCOLN,4 2 FNB,Lincoln,4-2 FNB,unmatched,unknown,0.24,14
+2016,LINCOLN,5 1 CALVARY,Lincoln,5-1 Calvary,unmatched,unknown,0.344828,16
+2016,LINCOLN,7 3 KELSO,Lincoln,7-3 Kelso,unmatched,unknown,0.272727,14
+2016,LOUDON,TELLICO V NORTH,Loudon,Tellico V. North,unmatched,unknown,0.628571,14
+2016,LOUDON,TELLICO V SOUTH,Loudon,Tellico V. South,unmatched,unknown,0.685714,14
+2016,MAURY,CULLEOKA 8 2,Maury,Culleoka 8-2,matched_no_transfer,high,1.0,14
+2016,MCMINN,E K BAKER,McMinn,E K Baker,unmatched,unknown,0.592593,15
+2016,MCMINN,TCAT,McMinn,TCAT,matched_no_transfer,high,1.0,14
+2016,MCNAIRY,GUYS 5 3,McNairy,Guys 5-3,unmatched,unknown,0.571429,13
+2016,MCNAIRY,NORTHEAST 3 2,McNairy,Northeast 3-2,unmatched,unknown,0.625,13
+2016,MCNAIRY,PURDY 3 3,McNairy,Purdy 3-3,unmatched,unknown,0.625,13
+2016,MCNAIRY,RAMER 5 4,McNairy,Ramer 5-4,unmatched,unknown,0.625,13
+2016,MONTGOMERY,5A SMITH,Montgomery,5A Smith,matched_no_transfer,high,1.0,14
+2016,MONTGOMERY,5B MADISON,Montgomery,5B Madison,matched_no_transfer,high,1.0,16
+2016,PERRY,5 1 LINDEN,Perry,5-1 Linden,unmatched,unknown,0.454545,13
+2016,ROBERTSON,PAPER BALLOTS,Robertson,Paper Ballots,unmatched,unknown,0.333333,12
+2016,STEWART,PAPER BALLOTS,Stewart,Paper Ballots,unmatched,unknown,0.344828,15
+2016,UNION,PAPER BALLOTS,Union,Paper Ballots,unmatched,unknown,0.342857,18
+2016,WASHINGTON,19 LEESBURG,Washington,19 Leesburg,unmatched,unknown,0.666667,13
+2016,WASHINGTON,30 GRACE,Washington,30 Grace,matched_no_transfer,high,1.0,13
+2016,WASHINGTON,31 CHEROKEE CITY,Washington,31 Cherokee City,unmatched,unknown,0.625,13
+2016,WASHINGTON,34 NEW VICTORY,Washington,34 New Victory,matched_no_transfer,high,1.0,13

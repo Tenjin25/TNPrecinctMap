@@ -1,0 +1,56 @@
+prctseq,display_code,polling_location,geocode_query,lon,lat,geocode_display,vtd20,vtd_name,status
+18,02-07,The Farms at Bailey Station,The Farms at Bailey Station,-89.730927,35.058421,"The Farms at Bailey Station, 3300, South Houston Levee Road, Houston Levee Shopping Center, Bailey, Collierville, Shelby County, West Tennessee, Tennessee, 38017, United States",008071,Collierville 4,point_in_polygon
+21,02-10,Christ Community Baptist,Christ Community Baptist,,,,,,geocode_miss
+29,03-03,IH Clubhouse,IH Clubhouse,,,,,,geocode_miss
+35,03-09,Waypoint Baptist,Waypoint Baptist,-89.876505,35.206016,"Waypoint Baptist Church, 5586, Stage Road, Bartlett, Shelby County, West Tennessee, Tennessee, 38134, United States",008057,Bartlett 06,point_in_polygon
+46,04-09,Emmanuel United Methodist Church 0206 - Germantown Presbyterian Church (Gym),Emmanuel United Methodist Church 0206,-89.844389,35.083462,"Emmanuel United Methodist Church, 2404, Kirby Road, Memphis, Shelby County, West Tennessee, Tennessee, 38119, United States",008219,Memphis 81-3,point_in_polygon
+48,04-11,The Great Hall,The Great Hall,,,,,,geocode_miss
+49,04-12,Faith Presbyterian Church,Faith Presbyterian Church,-89.768195,35.066200,"Faith Presbyterian Church, Poplar Pike, Forest Hill, Germantown, Shelby County, West Tennessee, Tennessee, 38138, United States",008093,Germantown 10,point_in_polygon
+51,05-02,Whitten Memorial Baptist Church,Whitten Memorial Baptist Church,-89.837308,35.165923,"Whitten Memorial Baptist Church, Macon Road, Memphis, Shelby County, West Tennessee, Tennessee, 38134, United States",008237,Memphis 89-2,point_in_polygon
+52,05-03,Whitten Memorial Baptist Church,Whitten Memorial Baptist Church,-89.837308,35.165923,"Whitten Memorial Baptist Church, Macon Road, Memphis, Shelby County, West Tennessee, Tennessee, 38134, United States",008237,Memphis 89-2,point_in_polygon
+55,05-06,Houston Levee Community Ctr,Houston Levee Community Ctr,,,,,,geocode_miss
+56,05-07,Briarwood Community Church,Briarwood Community Church,,,,,,geocode_miss
+57,05-08,Cordova Community Ctr,Cordova Community Ctr,,,,,,geocode_miss
+58,05-09,Bert Ferguson Community Ctr,Bert Ferguson Community Ctr,-89.779141,35.141766,"Bert Ferguson Community Center, 8505, Trinity Road, Cordova, Memphis, Shelby County, West Tennessee, Tennessee, 38018, United States",008242,Memphis 91-2,point_in_polygon
+59,05-10,Faith Anglican Church,Faith Anglican Church,-89.835405,35.204105,"Faith Anglican Church, Summer Avenue, Bartlett, Shelby County, West Tennessee, Tennessee, 38134, United States",008053,Bartlett 09,point_in_polygon
+62,06-02,Hope Apostolic Church,Hope Apostolic Church,,,,,,geocode_miss
+63,06-03,Frayser Raleigh Senior Ctr,Frayser Raleigh Senior Ctr,,,,,,geocode_miss
+64,06-04,Raleigh Community Ctr,Raleigh Community Ctr,-89.911025,35.226591,"Raleigh Community Center, 3678, Powers Road, Raleigh, Memphis, Shelby County, West Tennessee, Tennessee, 38128, United States",008229,Memphis 86,point_in_polygon
+65,06-05,Springhill Baptist Church,Springhill Baptist Church,-89.937456,35.226056,"Springhill Baptist Church, Hawkins Mill Road, Egypt, Memphis, Shelby County, West Tennessee, Tennessee, 38128, United States",008240,Memphis 90-3,point_in_polygon
+66,06-06,East Side Baptist Church,East Side Baptist Church,-89.893621,35.213433,"East Side Baptist Church, Longacre Avenue, Raleigh, Memphis, Shelby County, West Tennessee, Tennessee, 38134, United States",008231,Memphis 87-3,point_in_polygon
+71,07-02,Ed Rice Community Center,Ed Rice Community Center,-90.004812,35.205644,"Ed Rice Community Center, North Watkins Street, Frayser, Memphis, Shelby County, West Tennessee, Tennessee, 38127, United States",008184,Memphis 70-2,point_in_polygon
+73,07-04,Ed Rice Community Center,Ed Rice Community Center,-90.004812,35.205644,"Ed Rice Community Center, North Watkins Street, Frayser, Memphis, Shelby County, West Tennessee, Tennessee, 38127, United States",008184,Memphis 70-2,point_in_polygon
+74,07-05,Hollywood Community Ctr,Hollywood Community Ctr,-89.974577,35.178991,"Hollywood Community Center, 1560, North Hollywood Street, Hollywood, Memphis, Shelby County, West Tennessee, Tennessee, 38108, United States",008131,Memphis 42-1,point_in_polygon
+76,07-07,St Stephen's Methodist Church1301 - St Stephen's Methodist Church,St Stephen's Methodist Church 1301,,,,,,geocode_miss
+77,07-08,Greater Galatian Baptist Church,Greater Galatian Baptist Church,-89.977021,35.158258,"Greater Galatian Baptist Church, Jackson Avenue, Binghampton, North Memphis, Memphis, Shelby County, West Tennessee, Tennessee, 38112, United States",008146,Memphis 52-1,point_in_polygon
+80,08-01,Grace Missionary Baptist Church,Grace Missionary Baptist Church,-90.031875,35.174580,"Grace Missionary Baptist Church, Firestone Avenue, Harbor Town, Memphis, Shelby County, West Tennessee, Tennessee, 38107, United States",008110,Memphis 20-3,point_in_polygon
+81,08-02,Word of Life SDA Church,Word of Life SDA Church,,,,,,geocode_miss
+83,08-04,Lewis Center,Lewis Center,-90.019257,35.154812,"Josephine K Lewis Center for Senior Citizens, North Bellevue Boulevard, Speedway Terrace, Midtown, Memphis, Shelby County, West Tennessee, Tennessee, 38107, United States",008111,Memphis 21,point_in_polygon
+90,08-11,Memphis ROX,Memphis ROX,-90.032707,35.115244,"Memphis Rox, East McLemore Avenue, South Memphis, Memphis, Shelby County, West Tennessee, Tennessee, 38106, United States",008120,Memphis 34-2,point_in_polygon
+92,09-01,The Oak Grove MB Church,The Oak Grove MB Church,,,,,,geocode_miss
+93,09-02,Mitchell Road Community Ctr,Mitchell Road Community Ctr,,,,,,geocode_miss
+96,09-05,Christ United Baptist Church,Christ United Baptist Church,-90.032853,35.034759,"Christ United Baptist Church, Southwyck Lane, Whitehaven, Memphis, Shelby County, West Tennessee, Tennessee, 38116, United States",008209,Memphis 77-3,point_in_polygon
+98,09-07,Whitehaven Community Ctr,Whitehaven Community Ctr,-90.014263,35.030840,"Whitehaven Community Center, 4318, Graceland Drive, Whitehaven, Memphis, Shelby County, West Tennessee, Tennessee, 38116, United States",008211,Memphis 79-1,point_in_polygon
+103,10-01,Orange Mound Senior Ctr,Orange Mound Senior Ctr,,,,,,geocode_miss
+104,10-02,Pine Hill Community Ctr,Pine Hill Community Ctr,-90.030381,35.093741,"Pine Hill Community Center, 973, Alice Avenue, Bunker Hill, Memphis, Shelby County, West Tennessee, Tennessee, 38106, United States",008144,Memphis 49,point_in_polygon
+105,10-03,Glenview Community Ctr,Glenview Community Ctr,-90.001195,35.114985,"Glenview Community Center, 1141, South Barksdale Street, Cooper-Young, Memphis, Shelby County, West Tennessee, Tennessee, 38114, United States",008118,Memphis 31-4,point_in_polygon
+108,10-06,Norris Avenue Baptist Church,Norris Avenue Baptist Church,-90.015167,35.082825,"Norris Avenue Baptist Church, Norris Road, Memphis, Shelby County, West Tennessee, Tennessee, 38106, United States",008164,Memphis 60-3,point_in_polygon
+109,10-07,Orange Mound Senior Ctr,Orange Mound Senior Ctr,,,,,,geocode_miss
+110,10-08,Greenwood CME Church,Greenwood CME Church,,,,,,geocode_miss
+113,11-01,Greater Middle Baptist Church,Greater Middle Baptist Church,-89.897892,35.062852,"Greater Middle Baptist Church, Clearbrook Street, Parkway Village, Memphis, Shelby County, West Tennessee, Tennessee, 38118, United States",008197,Memphis 74-5,point_in_polygon
+114,11-02,Greater Middle Baptist Church,Greater Middle Baptist Church,-89.897892,35.062852,"Greater Middle Baptist Church, Clearbrook Street, Parkway Village, Memphis, Shelby County, West Tennessee, Tennessee, 38118, United States",008197,Memphis 74-5,point_in_polygon
+115,11-03,McFarland Community Ctr,McFarland Community Ctr,-89.896746,35.068742,"McFarland Community Center, 4955, Cottonwood Road, Parkway Village, Memphis, Shelby County, West Tennessee, Tennessee, 38118, United States",008197,Memphis 74-5,point_in_polygon
+117,11-05,Hickory Hill Community Ctr,Hickory Hill Community Ctr,-89.852958,35.043888,"Hickory Hill Community Center, 3910, Ridgeway Road, Hickory Hill, Memphis, Shelby County, West Tennessee, Tennessee, 38115, United States",008250,Memphis 94-7,point_in_polygon
+118,11-06,New Beginnings Community Church,New Beginnings Community Church,-89.847976,35.026200,"New Beginnings Community Church of God in Christ, Kirby Parkway, Memphis, Shelby County, West Tennessee, Tennessee, 38115, United States",008248,Memphis 94-3,point_in_polygon
+119,11-07,Easthaven Church of Christ,Easthaven Church of Christ,-89.955114,35.016038,"Easthaven Church of Christ, Tchulahoma Road, Memphis, Shelby County, West Tennessee, Tennessee, 38118, United States",008168,Memphis 60-7,point_in_polygon
+120,11-08,Soul Winners Baptist Church,Soul Winners Baptist Church,-89.860478,35.033406,"Soul Winners Baptist Church, Crump Road, Hickory Hill, Memphis, Shelby County, West Tennessee, Tennessee, 38141, United States",008250,Memphis 94-7,point_in_polygon
+121,12-01,Ridgeway Assembly of God (Fellowship Hall),Ridgeway Assembly of God (Fellowship Hall),,,,,,geocode_miss
+123,12-03,St Mark's United Methodist Church,St Mark's United Methodist Church,,,,,,geocode_miss
+124,12-04,Anointed Temple of Praise,Anointed Temple of Praise,-89.831881,35.042052,"Anointed Temple of Praise, Riverdale Road, Memphis, Shelby County, West Tennessee, Tennessee, 38141, United States",008248,Memphis 94-3,point_in_polygon
+125,12-05,New Growth In Christ Christian Ctr,New Growth In Christ Christian Ctr,-89.812355,35.021240,"New Growth In Christ Christian Center, 7550, East Shelby Drive, Concord Estates, Memphis, Shelby County, West Tennessee, Tennessee, 38125, United States",008265,Ross Store 05,point_in_polygon
+126,12-06,Greater Love Baptist Church,Greater Love Baptist Church,-90.061801,35.122055,"Greater Love Baptist Church, East Desoto Avenue, Memphis, Shelby County, West Tennessee, Tennessee, 38106, United States",008104,Memphis 12,point_in_polygon
+132,13-02,Gaisman Community Center,Gaisman Community Center,-89.919627,35.161263,"Gaisman Community Center, 4221, Macon Road, Memphis, Shelby County, West Tennessee, Tennessee, 38122, United States",008152,Memphis 54,point_in_polygon
+134,13-04,First Baptist Church Broad,First Baptist Church Broad,-89.966531,35.146896,"First Baptist Church - Broad, Autumn Avenue, Binghampton, Memphis, Shelby County, West Tennessee, Tennessee, 38112, United States",008125,Memphis 37,point_in_polygon
+136,13-06,Memphis Bible Church,Memphis Bible Church,-89.952235,35.130000,"Fellowship Bible Church of Memphis, Poplar Avenue, Poplar Plaza, Chickasaw Gardens, Memphis, Shelby County, West Tennessee, Tennessee, 38152, United States",008136,Memphis 44-5,point_in_polygon
+138,13-08,St Johns Episcopal Church,St Johns Episcopal Church,,,,,,geocode_miss
+139,13-09,Davis Community Ctr,Davis Community Ctr,-89.950656,35.112633,"Davis Community Center, 3371, Spottswood Avenue, Buntyn, Memphis, Shelby County, West Tennessee, Tennessee, 38111, United States",008139,Memphis 45-4,point_in_polygon

@@ -1,1 +1,37 @@
 year,county_norm,precinct_norm,county_raw,precinct_raw,match_method,confidence_tier,match_score,source_rows
+2010,BEDFORD,1 2 BELL BUCKLE,BEDFORD,1-2 Bell Buckle,unmatched,unknown,0.666667,17
+2010,BEDFORD,2 2 LONGVIEW,BEDFORD,2-2 Longview,unmatched,unknown,0.564103,17
+2010,BEDFORD,3 1 ROVER,BEDFORD,3-1 Rover,unmatched,unknown,0.5,14
+2010,BEDFORD,3 3 UNIONVILLE,BEDFORD,3-3 Unionville,unmatched,unknown,0.619048,19
+2010,BEDFORD,3 4 HALLS MILL,BEDFORD,3-4 Halls Mill,unmatched,unknown,0.590909,17
+2010,BEDFORD,4 4 WHEEL,BEDFORD,4-4 Wheel,unmatched,unknown,0.37037,19
+2010,BEDFORD,5 3 RAUS,BEDFORD,5-3 Raus,unmatched,unknown,0.363636,11
+2010,BLOUNT,EAGLETON MS CAF,BLOUNT,Eagleton MS Café,unmatched,unknown,0.693878,18
+2010,BLOUNT,EAGLETON MS GYM,BLOUNT,Eagleton MS Gym,unmatched,unknown,0.693878,21
+2010,BLOUNT,MARYVILLE HS,BLOUNT,Maryville HS,unmatched,unknown,0.727273,19
+2010,BRADLEY,2 2 WALKER VALLEY,BRADLEY,2-2 Walker Valley,unmatched,unknown,0.606061,21
+2010,CAMPBELL,2 4 LAFOLLETTE ES,CAMPBELL,2-4 LaFollette ES,unmatched,unknown,0.6875,14
+2010,CAMPBELL,3 1 CCHS,CAMPBELL,3-1 CCHS,unmatched,unknown,0.333333,16
+2010,CARROLL,BETHEL COLLEGE,CARROLL,Bethel College,unmatched,unknown,0.651163,19
+2010,DAVIDSON,SAFETY PRECINCT,DAVIDSON,Safety Precinct,unmatched,unknown,0.296296,58
+2010,HAMILTON,EASTWOOD EV,HAMILTON,Eastwood EV,unmatched,unknown,0.5,28
+2010,HAMILTON,ELECTION COMM EV,HAMILTON,Election Comm EV,unmatched,unknown,0.342857,31
+2010,HAMILTON,MILITARY OVERSEAS,HAMILTON,Military & Overseas,unmatched,unknown,0.432432,21
+2010,HAMILTON,NURSING HOME,HAMILTON,Nursing Home,unmatched,unknown,0.384615,27
+2010,HARDIN,CRUMP 4 2,HARDIN,Crump 4-2,unmatched,unknown,0.625,16
+2010,HARDIN,NIXON 2 1,HARDIN,Nixon 2-1,unmatched,unknown,0.625,13
+2010,HARDIN,NORTH 8 1,HARDIN,North 8-1,unmatched,unknown,0.625,12
+2010,LAUDERDALE,ARP 6,LAUDERDALE,Arp 6,unmatched,unknown,0.75,12
+2010,LINCOLN,1 3 TAFT,LINCOLN,1-3 Taft,unmatched,unknown,0.380952,18
+2010,LINCOLN,4 2 FNB,LINCOLN,4-2 FNB,unmatched,unknown,0.24,18
+2010,LINCOLN,5 1 CALVARY BAPTIST,LINCOLN,5-1 Calvary Baptist,unmatched,unknown,0.6,17
+2010,LINCOLN,7 3 KELSO,LINCOLN,7-3 Kelso,unmatched,unknown,0.272727,17
+2010,MACON,WILLIAMS,MACON,Williams,unmatched,unknown,0.444444,17
+2010,MCMINN,E K BAKER,MCMINN,E K Baker,unmatched,unknown,0.592593,13
+2010,MCMINN,TN TECH CENTER,MCMINN,TN Tech Center,unmatched,unknown,0.411765,13
+2010,MCNAIRY,GUYS 5 3,MCNAIRY,Guys 5-3,unmatched,unknown,0.571429,8
+2010,MCNAIRY,NORTHEAST 3 2,MCNAIRY,Northeast 3-2,unmatched,unknown,0.625,11
+2010,MCNAIRY,PURDY 3 3,MCNAIRY,Purdy 3-3,unmatched,unknown,0.625,10
+2010,MCNAIRY,RAMER 5 4,MCNAIRY,Ramer 5-4,unmatched,unknown,0.625,14
+2010,MONROE,ELECTION COMM OFFICE,MONROE,Election Comm Office,unmatched,unknown,0.5,20
+2010,PERRY,5 1 LINDEN,PERRY,5-1 Linden,unmatched,unknown,0.454545,11

@@ -1,229 +1,1180 @@
 county_fp,county_norm,prctseq,vtd20,vtd_name,weight,source,confidence
-037,DAVIDSON,1,001801,1-1,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,2,001802,1-2,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,3,001803,1-3,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,4,001804,1-4,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,5,001805,1-5,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,8,001806,2-1,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,9,001807,2-2,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,10,001808,2-3,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,11,001809,2-4,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,12,001810,2-5,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,13,001811,3-1,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,14,001812,3-2,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,15,001813,3-3,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,16,001814,3-4,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,17,001815,3-5,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,18,001816,3-6,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,21,001817,4-1,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,22,001818,4-2,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,23,001819,4-3,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,24,001821,5-1,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,25,001822,5-2,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,26,001823,5-3,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,27,001824,5-4,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,28,001825,5-5,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,32,001826,6-1,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,33,001827,6-2,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,34,001828,6-3,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,35,001829,6-4,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,36,001830,6-5,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,40,001831,7-1,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,41,001832,7-2,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,42,001833,7-3,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,43,001834,7-4,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,44,001835,7-5,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,45,001836,7-6,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,47,001837,8-1,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,48,001838,8-2,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,49,001839,8-3,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,50,001841,9-1,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,51,001842,9-2,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,52,001843,9-3,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,53,001844,10-1,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,54,001845,10-2,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,55,001846,10-3,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,56,001847,10-4,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,57,001848,10-5,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,58,001849,10-6,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,62,001850,11-1,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,63,001851,11-2,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,64,001852,11-3,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,65,001853,11-4,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,66,001854,12-1,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,67,001855,12-2,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,68,001856,12-3,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,69,001857,12-4,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,70,001859,13-1,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,71,001860,13-2,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,72,001861,13-3,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,73,001862,13-4,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,75,001863,14-1,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,76,001864,14-2,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,77,001865,14-3,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,78,001866,14-4,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,79,001867,14-5,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,80,001868,15-1,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,81,001869,15-2,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,82,001870,15-3,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,83,001871,15-4,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,84,001872,15-5,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,86,001873,16-1,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,87,001874,16-2,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,88,001875,16-3,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,89,001876,16-4,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,90,001878,17-1,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,91,001879,17-2,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,92,001880,17-3,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,93,001881,17-4,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,94,001882,17-5,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,95,001883,17-6,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,96,001884,17-7,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,98,001885,18-1,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,99,001886,18-2,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,100,001887,18-3,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,101,001890,19-1,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,102,001891,19-2,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,103,001892,19-3,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,104,001893,19-4,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,105,001894,19-5,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,106,001896,20-1,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,107,001897,20-2,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,108,001898,20-3,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,111,001899,21-1,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,112,001900,21-2,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,113,001901,21-3,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,114,001902,21-4,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,115,001903,22-1,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,117,001905,22-3,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,118,001906,22-4,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,119,001907,23-1,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,120,001908,23-2,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,121,001909,23-3,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,122,001910,23-4,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,123,001911,23-5,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,124,001912,24-1,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,125,001913,24-2,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,126,001914,24-3,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,127,001915,24-4,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,128,001916,24-5,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,129,001917,24-6,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,130,001918,25-1,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,131,001919,25-2,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,132,001920,25-3,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,133,001921,25-4,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,135,001922,26-1,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,136,001923,26-2,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,137,001924,26-3,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,138,001925,26-4,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,139,001926,27-1,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,140,001928,27-3,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,142,001929,28-1,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,143,001930,28-2,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,144,001931,28-3,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,147,001932,29-1,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,148,001933,29-2,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,149,001934,29-3,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,150,001935,29-4,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,151,001936,30-1,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,152,001937,30-2,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,153,001938,30-3,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,154,001940,31-1,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,155,001941,31-2,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,156,001942,31-3,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,157,001943,31-4,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,158,001944,32-1,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,159,001945,32-2,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,160,001946,32-3,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,161,001947,32-4,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,162,001948,33-1,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,163,001949,33-2,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,164,001950,33-3,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,165,001951,33-4,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,168,001953,34-1,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,169,001954,34-2,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,170,001955,34-3,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,171,001956,34-4,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,172,001957,34-5,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,174,001958,35-1,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,175,001959,35-2,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,176,001960,35-3,1.0,davidson_current_label_exact,exact_name
-037,DAVIDSON,177,001961,35-4,1.0,davidson_current_label_exact,exact_name
-157,SHELBY,1,008051,ARL-01,1.0,shelby_geometry_review,core_tn08
-157,SHELBY,2,008052,ARL-02,1.0,shelby_geometry_review,core_tn08
-157,SHELBY,3,008054,Bartlett 03,1.0,shelby_geometry_review,core_tn08
-157,SHELBY,4,008055,Bartlett 04,1.0,shelby_geometry_review,core_tn08
-157,SHELBY,5,008056,Bartlett 05,1.0,shelby_geometry_review,core_tn08
-157,SHELBY,6,008057,Bartlett 06,1.0,shelby_geometry_review,core_tn08
-157,SHELBY,7,008065,Brunswick 1,1.0,shelby_geometry_review,core_tn08
-157,SHELBY,8,008058,Bartlett 08,1.0,shelby_geometry_review,core_tn08
-157,SHELBY,9,008053,Bartlett 09,1.0,shelby_geometry_review,core_tn08
-157,SHELBY,10,008068,Collierville 1,1.0,shelby_geometry_review,sliver_only
-157,SHELBY,11,008060,Bartlett 11,1.0,shelby_geometry_review,core_tn08
-157,SHELBY,12,008061,Memphis 87-2,1.0,shelby_geometry_review,boundary_split
-157,SHELBY,13,008066,Brunswick 2,1.0,shelby_geometry_review,core_tn08
-157,SHELBY,14,008069,Collierville 2,1.0,shelby_geometry_review,sliver_only
-157,SHELBY,15,008064,Memphis 87-4,1.0,shelby_geometry_review,core_tn08
-157,SHELBY,16,008072,Collierville 5,1.0,shelby_geometry_review,boundary_split
-157,SHELBY,17,008073,Collierville 6,1.0,shelby_geometry_review,core_tn08
-157,SHELBY,19,008075,Collierville 8,1.0,shelby_geometry_review,core_tn08
-157,SHELBY,20,008079,Memphis 96-2,1.0,shelby_geometry_review,core_tn08
-157,SHELBY,22,008086,Germantown 02,1.0,shelby_geometry_review,core_tn08
-157,SHELBY,23,008095,Germantown 12,1.0,shelby_geometry_review,core_tn08
-157,SHELBY,24,008063,Bartlett 13,1.0,shelby_geometry_review,core_tn08
-157,SHELBY,25,008097,Lakeland 2,1.0,shelby_geometry_review,core_tn08
-157,SHELBY,27,008070,Collierville 3,1.0,shelby_geometry_review,core_tn08
-157,SHELBY,28,008076,Cordova 3,1.0,shelby_geometry_review,core_tn08
-157,SHELBY,30,008071,Collierville 4,1.0,shelby_geometry_review,core_tn08
-157,SHELBY,31,008078,Cordova 5,1.0,shelby_geometry_review,core_tn08
-157,SHELBY,32,008087,Germantown 03,1.0,shelby_geometry_review,core_tn08
-157,SHELBY,33,008099,Lucy 3,1.0,shelby_geometry_review,core_tn08
-157,SHELBY,34,008091,Germantown 08,1.0,shelby_geometry_review,core_tn08
-157,SHELBY,36,008093,Germantown 10,1.0,shelby_geometry_review,core_tn08
-157,SHELBY,37,008094,Germantown 11,1.0,shelby_geometry_review,core_tn08
-157,SHELBY,38,008077,Cordova 4,1.0,shelby_geometry_review,core_tn08
-157,SHELBY,39,008080,Memphis 91-4,1.0,shelby_geometry_review,core_tn08
-157,SHELBY,40,008088,Germantown 04,1.0,shelby_geometry_review,core_tn08
-157,SHELBY,42,008089,Germantown 05,1.0,shelby_geometry_review,core_tn08
-157,SHELBY,43,008090,Germantown 06,1.0,shelby_geometry_review,core_tn08
-157,SHELBY,44,008139,Memphis 45-4,1.0,shelby_geometry_review,sliver_only
-157,SHELBY,45,008159,Memphis 58-4,1.0,shelby_geometry_review,boundary_split
-157,SHELBY,47,008187,Memphis 71-4,1.0,shelby_geometry_review,sliver_only
-157,SHELBY,50,008082,Forest Hills 1,1.0,shelby_geometry_review,boundary_split
-157,SHELBY,53,008136,Memphis 44-5,1.0,shelby_geometry_review,core_tn08
-157,SHELBY,60,008221,Memphis 81-5,1.0,shelby_geometry_review,boundary_split
-157,SHELBY,61,008096,Lakeland 1,1.0,shelby_geometry_review,core_tn08
-157,SHELBY,69,008256,Memphis 95-6,1.0,shelby_geometry_review,core_tn08
-157,SHELBY,70,008098,Lucy 1,1.0,shelby_geometry_review,boundary_split
-157,SHELBY,75,008222,Memphis 81-7,1.0,shelby_geometry_review,boundary_split
-157,SHELBY,78,008257,Memphis 95-7,1.0,shelby_geometry_review,core_tn08
-157,SHELBY,79,008146,Memphis 52-1,1.0,shelby_geometry_review,sliver_only
-157,SHELBY,82,008178,Memphis 67-3,1.0,shelby_geometry_review,core_tn08
-157,SHELBY,84,008255,Memphis 95-5,1.0,shelby_geometry_review,core_tn08
-157,SHELBY,85,008258,Memphis 95-8,1.0,shelby_geometry_review,core_tn08
-157,SHELBY,86,008154,Memphis 55-2,1.0,shelby_geometry_review,core_tn08
-157,SHELBY,87,008157,Memphis 57,1.0,shelby_geometry_review,core_tn08
-157,SHELBY,88,008271,Collierville 9,1.0,shelby_geometry_review,boundary_split
-157,SHELBY,89,008158,Memphis 58-1,1.0,shelby_geometry_review,sliver_only
-157,SHELBY,91,008141,Memphis 46-2,1.0,shelby_geometry_review,boundary_split
-157,SHELBY,94,008180,Memphis 68-3,1.0,shelby_geometry_review,core_tn08
-157,SHELBY,95,008234,Memphis 88-4,1.0,shelby_geometry_review,sliver_only
-157,SHELBY,97,008149,Memphis 53-1,1.0,shelby_geometry_review,boundary_split
-157,SHELBY,99,008152,Memphis 54,1.0,shelby_geometry_review,core_tn08
-157,SHELBY,100,008172,Memphis 62-0,1.0,shelby_geometry_review,sliver_only
-157,SHELBY,101,008174,Memphis 64,1.0,shelby_geometry_review,core_tn08
-157,SHELBY,102,008176,Memphis 66,1.0,shelby_geometry_review,core_tn08
-157,SHELBY,106,008177,Memphis 67-1,1.0,shelby_geometry_review,core_tn08
-157,SHELBY,107,008179,Memphis 68-1,1.0,shelby_geometry_review,core_tn08
-157,SHELBY,111,008192,Memphis 73-3,1.0,shelby_geometry_review,sliver_only
-157,SHELBY,112,008194,Memphis 74-1,1.0,shelby_geometry_review,sliver_only
-157,SHELBY,116,008245,Memphis 93-1,1.0,shelby_geometry_review,sliver_only
-157,SHELBY,122,008216,Memphis 80-2,1.0,shelby_geometry_review,core_tn08
-157,SHELBY,127,008219,Memphis 81-3,1.0,shelby_geometry_review,core_tn08
-157,SHELBY,128,008217,Memphis 81-1,1.0,shelby_geometry_review,core_tn08
-157,SHELBY,129,008259,Memphis 96-1,1.0,shelby_geometry_review,core_tn08
-157,SHELBY,130,008260,Millington 1,1.0,shelby_geometry_review,sliver_only
-157,SHELBY,133,008231,Memphis 87-3,1.0,shelby_geometry_review,core_tn08
-157,SHELBY,135,008263,Morning Sun 02,1.0,shelby_geometry_review,boundary_split
-157,SHELBY,137,008229,Memphis 86,1.0,shelby_geometry_review,sliver_only
-157,SHELBY,141,008270,Stewartville,1.0,shelby_geometry_review,core_tn08
+013,CAMPBELL,27,000603,West LaFollette,1.0,focus_nyt_precinct_area_overlay,area_core
+037,DAVIDSON,1,001801,1-1,0.813183,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,1,001812,3-2,0.186817,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,2,001804,1-4,0.561582,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,2,001802,1-2,0.438418,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,3,001803,1-3,0.741064,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,3,001813,3-3,0.258936,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,4,001814,3-4,0.443427,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,4,001813,3-3,0.395945,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,4,001815,3-5,0.14578,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,4,001807,2-2,0.014848,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,5,001805,1-5,0.822861,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,5,001810,2-5,0.177139,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,6,001803,1-3,0.497244,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,6,001810,2-5,0.31717,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,6,001805,1-5,0.185586,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,7,001803,1-3,1.0,boom_nyt_precinct_area_overlay,area_core
+037,DAVIDSON,8,001807,2-2,1.0,boom_nyt_precinct_area_overlay,area_core
+037,DAVIDSON,9,001807,2-2,1.0,boom_nyt_precinct_area_overlay,area_core
+037,DAVIDSON,10,001808,2-3,0.78575,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,10,001821,5-1,0.21425,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,11,001809,2-4,1.0,boom_nyt_precinct_area_overlay,area_core
+037,DAVIDSON,12,001806,2-1,0.505057,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,12,001810,2-5,0.325181,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,12,001803,1-3,0.088295,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,12,001815,3-5,0.081467,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,13,001812,3-2,1.0,boom_nyt_precinct_area_overlay,area_core
+037,DAVIDSON,14,001814,3-4,0.607911,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,14,001816,3-6,0.392089,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,15,001816,3-6,1.0,boom_nyt_precinct_area_overlay,area_core
+037,DAVIDSON,16,001839,8-3,1.0,boom_nyt_precinct_area_overlay,area_core
+037,DAVIDSON,17,001840,8-4,1.0,boom_nyt_precinct_area_overlay,area_core
+037,DAVIDSON,18,001814,3-4,1.0,boom_nyt_precinct_area_overlay,area_core
+037,DAVIDSON,19,001840,8-4,1.0,boom_nyt_precinct_area_overlay,area_core
+037,DAVIDSON,20,001815,3-5,0.492799,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,20,001814,3-4,0.425081,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,20,001807,2-2,0.08212,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,21,001818,4-2,0.568949,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,21,001927,27-2,0.431051,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,22,001820,4-4,1.0,boom_nyt_precinct_area_overlay,area_core
+037,DAVIDSON,23,001817,4-1,0.564386,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,23,001819,4-3,0.435614,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,24,001837,8-1,0.835356,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,24,001839,8-3,0.164644,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,25,001838,8-2,1.0,boom_nyt_precinct_area_overlay,area_core
+037,DAVIDSON,26,001838,8-2,1.0,boom_nyt_precinct_area_overlay,area_core
+037,DAVIDSON,27,001837,8-1,0.371631,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,27,001821,5-1,0.368066,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,27,001838,8-2,0.169045,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,27,001823,5-3,0.081398,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,27,001822,5-2,0.009861,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,28,001824,5-4,0.700498,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,28,001822,5-2,0.299502,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,29,001822,5-2,0.874754,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,29,001825,5-5,0.125246,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,30,001825,5-5,1.0,boom_nyt_precinct_area_overlay,area_core
+037,DAVIDSON,31,001823,5-3,0.774956,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,31,001839,8-3,0.225044,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,32,001833,7-3,0.753685,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,32,001834,7-4,0.246315,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,33,001833,7-3,0.64631,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,33,001830,6-5,0.35369,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,34,001830,6-5,0.727194,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,34,001833,7-3,0.272806,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,35,001829,6-4,1.0,boom_nyt_precinct_area_overlay,area_core
+037,DAVIDSON,36,001829,6-4,0.729541,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,36,001831,7-1,0.270459,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,37,001826,6-1,0.486449,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,37,001828,6-3,0.259834,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,37,001827,6-2,0.207595,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,37,001830,6-5,0.046122,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,38,001828,6-3,0.642682,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,38,001826,6-1,0.357318,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,39,001827,6-2,1.0,boom_nyt_precinct_area_overlay,area_core
+037,DAVIDSON,40,001833,7-3,1.0,boom_nyt_precinct_area_overlay,area_core
+037,DAVIDSON,41,001838,8-2,0.806352,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,41,001839,8-3,0.193648,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,42,001836,7-6,0.676243,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,42,001839,8-3,0.323757,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,43,001835,7-5,0.731531,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,43,001839,8-3,0.268469,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,44,001834,7-4,0.756567,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,44,001839,8-3,0.243433,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,45,001831,7-1,0.416195,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,45,001833,7-3,0.324244,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,45,001832,7-2,0.259561,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,46,001832,7-2,0.729314,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,46,001831,7-1,0.270686,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,47,001950,33-3,1.0,boom_nyt_precinct_area_overlay,area_core
+037,DAVIDSON,48,001949,33-2,1.0,boom_nyt_precinct_area_overlay,area_core
+037,DAVIDSON,49,001950,33-3,0.626556,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,49,001949,33-2,0.373444,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,50,001841,9-1,1.0,boom_nyt_precinct_area_overlay,area_core
+037,DAVIDSON,51,001843,9-3,0.901118,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,51,001842,9-2,0.098882,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,52,001843,9-3,0.847065,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,52,001842,9-2,0.152935,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,53,001844,10-1,1.0,boom_nyt_precinct_area_overlay,area_core
+037,DAVIDSON,54,001811,3-1,1.0,boom_nyt_precinct_area_overlay,area_core
+037,DAVIDSON,55,001811,3-1,0.633772,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,55,001845,10-2,0.366228,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,56,001847,10-4,0.511001,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,56,001846,10-3,0.478801,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,56,001845,10-2,0.010198,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,57,001848,10-5,0.768688,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,57,001840,8-4,0.231312,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,58,001849,10-6,1.0,boom_nyt_precinct_area_overlay,area_core
+037,DAVIDSON,59,001849,10-6,0.750689,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,59,001847,10-4,0.249311,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,60,001847,10-4,1.0,boom_nyt_precinct_area_overlay,area_core
+037,DAVIDSON,61,001801,1-1,1.0,boom_nyt_precinct_area_overlay,area_core
+037,DAVIDSON,62,001850,11-1,1.0,boom_nyt_precinct_area_overlay,area_core
+037,DAVIDSON,63,001850,11-1,1.0,boom_nyt_precinct_area_overlay,area_core
+037,DAVIDSON,64,001851,11-2,0.520031,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,64,001852,11-3,0.473179,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,64,001864,14-2,0.00679,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,65,001851,11-2,0.541634,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,65,001853,11-4,0.307247,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,65,001857,12-4,0.129566,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,65,001854,12-1,0.021553,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,66,001857,12-4,0.623174,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,66,001856,12-3,0.376826,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,67,001865,14-3,0.518856,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,67,001863,14-1,0.261776,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,67,001855,12-2,0.091121,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,67,001857,12-4,0.072672,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,67,001856,12-3,0.055575,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,68,001855,12-2,0.821963,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,68,001858,12-5,0.178037,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,69,001948,33-1,1.0,boom_nyt_precinct_area_overlay,area_core
+037,DAVIDSON,70,001859,13-1,0.790031,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,70,001872,15-5,0.209969,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,71,001859,13-1,0.408153,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,71,001860,13-2,0.365441,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,71,001932,29-1,0.226405,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,72,001861,13-3,0.715595,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,72,001862,13-4,0.284405,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,73,001932,29-1,1.0,boom_nyt_precinct_area_overlay,area_core
+037,DAVIDSON,74,001861,13-3,0.396607,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,74,001859,13-1,0.296603,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,74,001932,29-1,0.219778,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,74,001935,29-4,0.087012,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,75,001864,14-2,1.0,boom_nyt_precinct_area_overlay,area_core
+037,DAVIDSON,76,001864,14-2,1.0,boom_nyt_precinct_area_overlay,area_core
+037,DAVIDSON,77,001854,12-1,0.551559,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,77,001853,11-4,0.448441,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,78,001863,14-1,1.0,boom_nyt_precinct_area_overlay,area_core
+037,DAVIDSON,79,001867,14-5,1.0,boom_nyt_precinct_area_overlay,area_core
+037,DAVIDSON,80,001868,15-1,1.0,boom_nyt_precinct_area_overlay,area_core
+037,DAVIDSON,81,001895,19-6,0.611646,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,81,001894,19-5,0.388354,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,82,001869,15-2,1.0,boom_nyt_precinct_area_overlay,area_core
+037,DAVIDSON,83,001871,15-4,0.756023,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,83,001870,15-3,0.243977,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,84,001867,14-5,0.635261,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,84,001870,15-3,0.364739,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,85,001870,15-3,1.0,boom_nyt_precinct_area_overlay,area_core
+037,DAVIDSON,86,001875,16-3,0.460798,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,86,001883,17-6,0.284475,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,86,001884,17-7,0.147876,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,86,001876,16-4,0.10685,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,87,001875,16-3,1.0,boom_nyt_precinct_area_overlay,area_core
+037,DAVIDSON,88,001883,17-6,0.494283,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,88,001873,16-1,0.347381,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,88,001876,16-4,0.077139,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,88,001894,19-5,0.052216,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,88,001895,19-6,0.02898,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,89,001874,16-2,1.0,boom_nyt_precinct_area_overlay,area_core
+037,DAVIDSON,90,001893,19-4,0.691067,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,90,001879,17-2,0.308933,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,91,001879,17-2,0.544987,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,91,001878,17-1,0.455013,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,92,001878,17-1,0.803271,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,92,001879,17-2,0.196729,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,93,001880,17-3,1.0,boom_nyt_precinct_area_overlay,area_core
+037,DAVIDSON,94,001883,17-6,1.0,boom_nyt_precinct_area_overlay,area_core
+037,DAVIDSON,95,001894,19-5,1.0,boom_nyt_precinct_area_overlay,area_core
+037,DAVIDSON,96,001881,17-4,0.718682,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,96,001878,17-1,0.281318,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,97,001884,17-7,0.6584,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,97,001880,17-3,0.3416,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,98,001885,18-1,0.484367,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,98,001887,18-3,0.317188,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,98,001879,17-2,0.099996,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,98,001893,19-4,0.054081,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,98,001888,18-4,0.044367,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,99,001886,18-2,0.501956,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,99,001881,17-4,0.26584,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,99,001888,18-4,0.142252,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,99,001878,17-1,0.081131,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,99,001921,25-4,0.00882,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,100,001888,18-4,0.508455,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,100,001887,18-3,0.436759,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,100,001889,18-5,0.039524,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,100,001918,25-1,0.015262,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,101,001828,6-3,0.428842,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,101,001824,5-4,0.407549,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,101,001890,19-1,0.147245,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,101,001894,19-5,0.010586,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,101,001895,19-6,0.005778,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,102,001891,19-2,1.0,boom_nyt_precinct_area_overlay,area_core
+037,DAVIDSON,103,001892,19-3,0.909406,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,103,001902,21-4,0.090594,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,104,001890,19-1,0.879316,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,104,001893,19-4,0.120684,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,105,001890,19-1,0.768371,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,105,001893,19-4,0.231629,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,106,001896,20-1,1.0,boom_nyt_precinct_area_overlay,area_core
+037,DAVIDSON,107,001897,20-2,1.0,boom_nyt_precinct_area_overlay,area_core
+037,DAVIDSON,108,001898,20-3,1.0,boom_nyt_precinct_area_overlay,area_core
+037,DAVIDSON,109,001907,23-1,0.802262,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,109,001911,23-5,0.197738,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,110,001898,20-3,0.591122,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,110,001913,24-2,0.398371,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,110,001917,24-6,0.010507,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,111,001902,21-4,1.0,boom_nyt_precinct_area_overlay,area_core
+037,DAVIDSON,112,001901,21-3,0.81122,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,112,001892,19-3,0.18878,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,113,001900,21-2,1.0,boom_nyt_precinct_area_overlay,area_core
+037,DAVIDSON,114,001899,21-1,1.0,boom_nyt_precinct_area_overlay,area_core
+037,DAVIDSON,115,001903,22-1,0.763857,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,115,001905,22-3,0.236143,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,116,001908,23-2,1.0,boom_nyt_precinct_area_overlay,area_core
+037,DAVIDSON,117,001961,35-4,1.0,boom_nyt_precinct_area_overlay,area_core
+037,DAVIDSON,118,001905,22-3,0.63085,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,118,001906,22-4,0.36915,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,119,001910,23-4,1.0,boom_nyt_precinct_area_overlay,area_core
+037,DAVIDSON,120,001907,23-1,1.0,boom_nyt_precinct_area_overlay,area_core
+037,DAVIDSON,121,001908,23-2,0.772026,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,121,001909,23-3,0.227974,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,122,001908,23-2,0.707772,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,122,001909,23-3,0.292228,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,123,001917,24-6,1.0,boom_nyt_precinct_area_overlay,area_core
+037,DAVIDSON,124,001901,21-3,1.0,boom_nyt_precinct_area_overlay,area_core
+037,DAVIDSON,125,001918,25-1,0.623032,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,125,001917,24-6,0.376968,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,126,001915,24-4,1.0,boom_nyt_precinct_area_overlay,area_core
+037,DAVIDSON,127,001916,24-5,1.0,boom_nyt_precinct_area_overlay,area_core
+037,DAVIDSON,128,001912,24-1,0.698071,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,128,001913,24-2,0.301929,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,129,001917,24-6,0.550326,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,129,001914,24-3,0.449674,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,130,001919,25-2,0.84902,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,130,001921,25-4,0.15098,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,131,001957,34-5,0.855811,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,131,001919,25-2,0.144189,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,132,001919,25-2,0.502861,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,132,001920,25-3,0.439828,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,132,001957,34-5,0.057311,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,133,001921,25-4,1.0,boom_nyt_precinct_area_overlay,area_core
+037,DAVIDSON,134,001920,25-3,0.594421,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,134,001918,25-1,0.371461,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,134,001921,25-4,0.034117,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,135,001882,17-5,1.0,boom_nyt_precinct_area_overlay,area_core
+037,DAVIDSON,136,001817,4-1,0.57426,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,136,001925,26-4,0.41304,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,136,001956,34-4,0.0127,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,137,001923,26-2,1.0,boom_nyt_precinct_area_overlay,area_core
+037,DAVIDSON,138,001924,26-3,0.545771,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,138,001877,16-5,0.22516,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,138,001875,16-3,0.137443,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,138,001926,27-1,0.064574,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,138,001928,27-3,0.027052,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,139,001926,27-1,0.467761,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,139,001939,30-4,0.365466,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,139,001938,30-3,0.166773,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,140,001928,27-3,0.489908,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,140,001936,30-1,0.213576,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,140,001926,27-1,0.116175,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,140,001938,30-3,0.106904,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,140,001937,30-2,0.073437,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,141,001926,27-1,0.472013,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,141,001927,27-2,0.275391,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,141,001928,27-3,0.252596,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,142,001929,28-1,0.634098,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,142,001932,29-1,0.365902,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,143,001929,28-1,0.550711,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,143,001860,13-2,0.449289,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,144,001931,28-3,0.776084,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,144,001860,13-2,0.223916,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,145,001930,28-2,1.0,boom_nyt_precinct_area_overlay,area_core
+037,DAVIDSON,146,001929,28-1,0.802897,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,146,001930,28-2,0.197103,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,147,001935,29-4,0.761871,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,147,001949,33-2,0.238129,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,148,001933,29-2,0.393661,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,148,001934,29-3,0.390433,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,148,001932,29-1,0.108566,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,148,001949,33-2,0.073433,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,148,001935,29-4,0.033907,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,149,001933,29-2,1.0,boom_nyt_precinct_area_overlay,area_core
+037,DAVIDSON,150,001949,33-2,0.548306,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,150,001935,29-4,0.412421,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,150,001934,29-3,0.020226,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,150,001933,29-2,0.019048,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,151,001937,30-2,0.624053,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,151,001936,30-1,0.375947,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,152,001922,26-1,0.794717,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,152,001936,30-1,0.205283,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,153,001922,26-1,0.46876,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,153,001924,26-3,0.305987,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,153,001875,16-3,0.161118,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,153,001937,30-2,0.064135,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,154,001941,31-2,1.0,boom_nyt_precinct_area_overlay,area_core
+037,DAVIDSON,155,001942,31-3,1.0,boom_nyt_precinct_area_overlay,area_core
+037,DAVIDSON,156,001943,31-4,1.0,boom_nyt_precinct_area_overlay,area_core
+037,DAVIDSON,157,001941,31-2,1.0,boom_nyt_precinct_area_overlay,area_core
+037,DAVIDSON,158,001950,33-3,1.0,boom_nyt_precinct_area_overlay,area_core
+037,DAVIDSON,159,001945,32-2,0.642082,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,159,001946,32-3,0.357918,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,160,001944,32-1,0.598814,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,160,001947,32-4,0.401186,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,161,001944,32-1,0.794822,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,161,001930,28-2,0.205178,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,162,001943,31-4,0.501779,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,162,001951,33-4,0.498221,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,163,001951,33-4,0.560711,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,163,001943,31-4,0.237495,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,163,001946,32-3,0.201794,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,164,001946,32-3,1.0,boom_nyt_precinct_area_overlay,area_core
+037,DAVIDSON,165,001946,32-3,1.0,boom_nyt_precinct_area_overlay,area_core
+037,DAVIDSON,166,001940,31-1,1.0,boom_nyt_precinct_area_overlay,area_core
+037,DAVIDSON,167,001939,30-4,0.785045,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,167,001940,31-1,0.214955,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,168,001955,34-3,1.0,boom_nyt_precinct_area_overlay,area_core
+037,DAVIDSON,169,001954,34-2,0.521037,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,169,001956,34-4,0.469717,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,169,001909,23-3,0.009246,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,170,001956,34-4,1.0,boom_nyt_precinct_area_overlay,area_core
+037,DAVIDSON,171,001918,25-1,0.593488,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,171,001953,34-1,0.406512,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,172,001953,34-1,0.576004,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,172,001957,34-5,0.306009,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,172,001920,25-3,0.117987,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,173,001917,24-6,0.530182,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,173,001920,25-3,0.469818,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,174,001959,35-2,1.0,boom_nyt_precinct_area_overlay,area_core
+037,DAVIDSON,175,001960,35-3,0.404427,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,175,001959,35-2,0.316308,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,175,001961,35-4,0.279265,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,176,001960,35-3,1.0,boom_nyt_precinct_area_overlay,area_core
+037,DAVIDSON,177,001958,35-1,0.749387,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,177,001908,23-2,0.250613,boom_nyt_precinct_area_overlay,area_split
+037,DAVIDSON,178,001958,35-1,1.0,boom_nyt_precinct_area_overlay,area_core
+065,HAMILTON,1,003477,Woodmore 2,0.517743,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,1,003351,Airport,0.265524,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,1,003416,Kingspoint 3,0.153733,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,1,003469,Tyner 1,0.047801,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,1,003476,Woodmore 1,0.015198,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,2,003351,Airport,0.546396,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,2,003469,Tyner 1,0.435588,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,2,003417,Lake Hills,0.018016,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,3,003352,Alton Park 1,1.0,boom_nyt_precinct_area_overlay,area_core
+065,HAMILTON,4,003355,Apison 1,1.0,boom_nyt_precinct_area_overlay,area_core
+065,HAMILTON,5,003368,Collegedale 2,0.342551,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,5,003367,Collegedale 1,0.223993,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,5,003445,Ooltewah 6,0.187763,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,5,003355,Apison 1,0.16669,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,5,003444,Ooltewah 5,0.079003,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,6,003354,Amnicola,0.838747,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,6,003358,Avondale,0.161253,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,7,003361,Birchwood,1.0,boom_nyt_precinct_area_overlay,area_core
+065,HAMILTON,8,003466,Summit 1,0.788752,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,8,003362,Bonny Oaks,0.211248,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,9,003363,Brainerd,1.0,boom_nyt_precinct_area_overlay,area_core
+065,HAMILTON,10,003364,Brainerd Hills,1.0,boom_nyt_precinct_area_overlay,area_core
+065,HAMILTON,11,003365,Bushtown,0.851219,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,11,003405,Glenwood,0.148781,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,12,003370,Collegedale 4,0.480705,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,12,003443,Ooltewah 4,0.366902,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,12,003467,Summit 2,0.060795,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,12,003440,Ooltewah 1,0.057997,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,12,003367,Collegedale 1,0.0336,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,13,003367,Collegedale 1,1.0,boom_nyt_precinct_area_overlay,area_core
+065,HAMILTON,14,003371,Concord 1,0.834343,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,14,003372,Concord 2,0.165657,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,15,003375,Concord 4,0.52936,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,15,003372,Concord 2,0.428585,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,15,003387,East Brainerd 1,0.042055,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,16,003379,Courthouse 1,0.895029,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,16,003399,Eastside 1,0.104971,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,17,003414,Kingspoint 1,0.457189,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,17,003396,Eastdale,0.299924,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,17,003381,Dalewood,0.242888,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,18,003382,Dallas 1,0.832162,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,18,003425,Middle Valley 2,0.167838,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,19,003385,Downtown 2,0.571387,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,19,003384,Downtown 1,0.30944,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,19,003379,Courthouse 1,0.064686,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,19,003427,Moccasin Bend,0.028164,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,19,003380,Courthouse 2,0.026324,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,20,003386,DuPont,0.911835,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,20,003422,Lupton City,0.088165,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,21,003388,East Brainerd 2,1.0,boom_nyt_precinct_area_overlay,area_core
+065,HAMILTON,22,003387,East Brainerd 1,0.811629,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,22,003375,Concord 4,0.188371,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,23,003381,Dalewood,0.399354,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,23,003390,East Chattanooga 2,0.39669,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,23,003389,East Chattanooga 1,0.10159,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,23,003358,Avondale,0.093996,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,23,003414,Kingspoint 1,0.00837,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,24,003391,East Lake,1.0,boom_nyt_precinct_area_overlay,area_core
+065,HAMILTON,25,003392,East Ridge 1,0.441533,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,25,003393,East Ridge 2,0.312935,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,25,003394,East Ridge 3,0.245532,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,26,003393,East Ridge 2,0.328859,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,26,003392,East Ridge 1,0.326772,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,26,003394,East Ridge 3,0.313996,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,26,003363,Brainerd,0.030372,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,27,003392,East Ridge 1,0.486464,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,27,003394,East Ridge 3,0.452739,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,27,003363,Brainerd,0.060797,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,28,003395,East Ridge 4,1.0,boom_nyt_precinct_area_overlay,area_core
+065,HAMILTON,29,003398,Eastgate 2,0.554203,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,29,003397,Eastgate 1,0.445797,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,30,003399,Eastside 1,0.572334,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,30,003452,Ridgedale 2,0.172237,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,30,003352,Alton Park 1,0.135469,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,30,003451,Ridgedale 1,0.079494,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,30,003379,Courthouse 1,0.040465,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,31,003401,Fairmount,1.0,boom_nyt_precinct_area_overlay,area_core
+065,HAMILTON,32,003402,Falling Water,0.319871,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,32,003439,Northwoods 2,0.301747,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,32,003461,Soddy Daisy 2,0.211397,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,32,003447,Pleasant Grove 2,0.098277,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,32,003446,Pleasant Grove 1,0.068708,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,33,003402,Falling Water,1.0,boom_nyt_precinct_area_overlay,area_core
+065,HAMILTON,34,003403,Flat Top Mountain,1.0,boom_nyt_precinct_area_overlay,area_core
+065,HAMILTON,35,003404,Ganns,1.0,boom_nyt_precinct_area_overlay,area_core
+065,HAMILTON,36,003396,Eastdale,0.616652,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,36,003405,Glenwood,0.383348,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,37,003407,Harrison 2,0.771909,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,37,003406,Harrison 1,0.228091,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,38,003409,Harrison 4,0.325557,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,38,003458,Snowhill 1,0.282262,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,38,003410,Harrison 5,0.281877,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,38,003459,Snowhill 2,0.110304,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,39,003412,Hixson 2,0.513529,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,39,003411,Hixson 1,0.480598,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,39,003438,Northwoods 1,0.005874,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,40,003408,Harrison 3,0.436001,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,40,003468,Summit 3,0.310629,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,40,003443,Ooltewah 4,0.132581,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,40,003409,Harrison 4,0.089893,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,40,003407,Harrison 2,0.030895,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,41,003474,Westview 2,0.570731,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,41,003355,Apison 1,0.219615,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,41,003475,Westview 3,0.099357,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,41,003388,East Brainerd 2,0.097215,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,41,003387,East Brainerd 1,0.013083,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,42,003414,Kingspoint 1,0.385374,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,42,003415,Kingspoint 2,0.333145,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,42,003390,East Chattanooga 2,0.146921,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,42,003416,Kingspoint 3,0.071109,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,42,003381,Dalewood,0.063452,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,43,003417,Lake Hills,1.0,boom_nyt_precinct_area_overlay,area_core
+065,HAMILTON,44,003418,Lakesite,1.0,boom_nyt_precinct_area_overlay,area_core
+065,HAMILTON,45,003419,Lookout Mountain,1.0,boom_nyt_precinct_area_overlay,area_core
+065,HAMILTON,46,003421,Lookout Valley 2,0.682002,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,46,003420,Lookout Valley 1,0.317998,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,47,003422,Lupton City,0.529721,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,47,003437,Northgate 2,0.234019,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,47,003436,Northgate 1,0.21835,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,47,003465,Stuart Heights,0.017911,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,48,003361,Birchwood,0.385042,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,48,003423,Meadowview,0.313604,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,48,003458,Snowhill 1,0.263958,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,48,003459,Snowhill 2,0.037397,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,49,003424,Middle Valley 1,1.0,boom_nyt_precinct_area_overlay,area_core
+065,HAMILTON,50,003426,Missionary Ridge,1.0,boom_nyt_precinct_area_overlay,area_core
+065,HAMILTON,51,003428,Mountain Creek 1,1.0,boom_nyt_precinct_area_overlay,area_core
+065,HAMILTON,52,003471,Valdeau,0.789762,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,52,003428,Mountain Creek 1,0.210238,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,53,003430,Mountain Creek 3,0.850564,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,53,003429,Mountain Creek 2,0.149436,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,54,003431,Mowbray,1.0,boom_nyt_precinct_area_overlay,area_core
+065,HAMILTON,55,003431,Mowbray,1.0,boom_nyt_precinct_area_overlay,area_core
+065,HAMILTON,56,003432,Murray Hills 1,1.0,boom_nyt_precinct_area_overlay,area_core
+065,HAMILTON,57,003427,Moccasin Bend,1.0,boom_nyt_precinct_area_overlay,area_core
+065,HAMILTON,58,003427,Moccasin Bend,1.0,boom_nyt_precinct_area_overlay,area_core
+065,HAMILTON,59,003413,Hixson 3,0.861961,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,59,003412,Hixson 2,0.138039,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,60,003434,North Chattanooga 1,0.716602,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,60,003435,North Chattanooga 2,0.283398,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,61,003438,Northwoods 1,0.366768,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,61,003428,Mountain Creek 1,0.312948,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,61,003439,Northwoods 2,0.201537,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,61,003436,Northgate 1,0.118747,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,62,003443,Ooltewah 4,0.886695,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,62,003370,Collegedale 4,0.113305,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,63,003361,Birchwood,0.831206,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,63,003459,Snowhill 2,0.168794,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,64,003355,Apison 1,0.514235,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,64,003440,Ooltewah 1,0.284309,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,64,003356,Apison 2,0.201456,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,65,003446,Pleasant Grove 1,1.0,boom_nyt_precinct_area_overlay,area_core
+065,HAMILTON,66,003446,Pleasant Grove 1,1.0,boom_nyt_precinct_area_overlay,area_core
+065,HAMILTON,67,003360,Bakewell 2,1.0,boom_nyt_precinct_area_overlay,area_core
+065,HAMILTON,68,003448,Red Bank 1,1.0,boom_nyt_precinct_area_overlay,area_core
+065,HAMILTON,69,003450,Red Bank 3,0.861475,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,69,003449,Red Bank 2,0.138525,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,70,003450,Red Bank 3,1.0,boom_nyt_precinct_area_overlay,area_core
+065,HAMILTON,71,003399,Eastside 1,0.523954,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,71,003451,Ridgedale 1,0.467706,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,71,003379,Courthouse 1,0.008339,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,72,003453,Ridgeside,1.0,boom_nyt_precinct_area_overlay,area_core
+065,HAMILTON,73,003454,Riverview,1.0,boom_nyt_precinct_area_overlay,area_core
+065,HAMILTON,74,003455,Sale Creek,0.636832,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,74,003359,Bakewell 1,0.363168,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,75,003459,Snowhill 2,0.800579,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,75,003443,Ooltewah 4,0.199421,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,76,003382,Dallas 1,0.625368,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,76,003383,Dallas 2,0.374632,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,77,003457,Signal Mountain 2,1.0,boom_nyt_precinct_area_overlay,area_core
+065,HAMILTON,78,003456,Signal Mountain 1,0.56424,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,78,003401,Fairmount,0.43576,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,79,003374,Concord 3,0.312477,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,79,003470,Tyner 2,0.238952,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,79,003469,Tyner 1,0.174583,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,79,003375,Concord 4,0.15925,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,79,003377,Concord 6,0.114738,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,80,003461,Soddy Daisy 2,0.847737,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,80,003462,Soddy Daisy 3,0.152263,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,81,003460,Soddy Daisy 1,1.0,boom_nyt_precinct_area_overlay,area_core
+065,HAMILTON,82,003460,Soddy Daisy 1,1.0,boom_nyt_precinct_area_overlay,area_core
+065,HAMILTON,83,003463,St Elmo 1,0.545756,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,83,003385,Downtown 2,0.287711,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,83,003427,Moccasin Bend,0.093919,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,83,003464,St Elmo 2,0.036368,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,83,003352,Alton Park 1,0.036246,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,84,003465,Stuart Heights,0.718744,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,84,003422,Lupton City,0.281256,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,85,003441,Ooltewah 2,0.462511,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,85,003440,Ooltewah 1,0.201208,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,85,003378,Concord 7,0.177344,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,85,003467,Summit 2,0.083308,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,85,003469,Tyner 1,0.075629,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,86,003469,Tyner 1,1.0,boom_nyt_precinct_area_overlay,area_core
+065,HAMILTON,87,003413,Hixson 3,0.432922,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,87,003412,Hixson 2,0.359023,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,87,003446,Pleasant Grove 1,0.160528,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,87,003404,Ganns,0.047528,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,88,003472,Walden,1.0,boom_nyt_precinct_area_overlay,area_core
+065,HAMILTON,89,003475,Westview 3,1.0,boom_nyt_precinct_area_overlay,area_core
+065,HAMILTON,90,003473,Westview 1,1.0,boom_nyt_precinct_area_overlay,area_core
+065,HAMILTON,91,003466,Summit 1,0.387981,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,91,003407,Harrison 2,0.28454,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,91,003408,Harrison 3,0.177213,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,91,003409,Harrison 4,0.137106,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,91,003467,Summit 2,0.013161,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,92,003476,Woodmore 1,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,1,004864,06,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,2,004861,09,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,3,004893,10-W,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,4,004862,10-N,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,6,004893,10-W,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,7,004875,11,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,8,004865,12,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,9,004871,13,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,10,004873,14,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,11,004867,15,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,12,004867,15,0.819943,boom_nyt_precinct_area_overlay,area_split
+093,KNOX,12,004865,12,0.180057,boom_nyt_precinct_area_overlay,area_split
+093,KNOX,13,004883,16,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,14,004883,16,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,16,004876,17,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,17,004877,18,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,18,004804,19-E,0.734496,boom_nyt_precinct_area_overlay,area_split
+093,KNOX,18,004894,19-W,0.265504,boom_nyt_precinct_area_overlay,area_split
+093,KNOX,19,004863,20,0.658478,boom_nyt_precinct_area_overlay,area_split
+093,KNOX,19,004861,09,0.341522,boom_nyt_precinct_area_overlay,area_split
+093,KNOX,20,004859,23,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,21,004833,24-Q,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,22,004831,25,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,23,004809,26,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,24,004827,27,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,25,004826,29,0.831492,boom_nyt_precinct_area_overlay,area_split
+093,KNOX,25,004809,26,0.168508,boom_nyt_precinct_area_overlay,area_split
+093,KNOX,26,004868,30,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,27,004870,31,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,28,004872,32,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,29,004884,33,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,30,004884,33,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,31,004884,33,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,32,004882,34,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,33,004881,35,0.766867,boom_nyt_precinct_area_overlay,area_split
+093,KNOX,33,004882,34,0.233133,boom_nyt_precinct_area_overlay,area_split
+093,KNOX,34,004880,36,0.666485,boom_nyt_precinct_area_overlay,area_split
+093,KNOX,34,004879,37,0.333515,boom_nyt_precinct_area_overlay,area_split
+093,KNOX,35,004879,37,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,36,004803,41,0.547998,boom_nyt_precinct_area_overlay,area_split
+093,KNOX,36,004802,39,0.452002,boom_nyt_precinct_area_overlay,area_split
+093,KNOX,37,004802,39,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,38,004806,40,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,39,004803,41,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,40,004856,42,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,41,004857,43,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,42,004855,44,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,43,004854,45,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,44,004838,46,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,45,004837,47,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,46,004837,47,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,47,004801,48,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,48,004834,49,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,49,004834,49,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,50,004858,50-N,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,51,004860,50-S,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,52,004836,51,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,53,004853,55,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,54,004890,56,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,55,004810,57,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,56,004891,58-S,0.585123,boom_nyt_precinct_area_overlay,area_split
+093,KNOX,56,004895,58-N,0.414877,boom_nyt_precinct_area_overlay,area_split
+093,KNOX,57,004887,59,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,58,004811,60,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,59,004886,61,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,60,004886,61,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,61,004844,62,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,62,004848,63,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,63,004849,63-N,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,64,004846,64,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,65,004896,65-E,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,66,004845,65-N,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,67,004896,65-E,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,68,004841,65-W,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,69,004841,65-W,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,70,004805,66-N,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,71,004805,66-N,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,72,004842,66-S,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,73,004842,66-S,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,74,004852,67,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,75,004850,68,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,76,004851,68-E,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,77,004807,69-E,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,78,004840,69-N,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,79,004839,69-S,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,80,004897,69-W,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,81,004828,70-E,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,82,004847,70-W,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,83,004835,71,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,84,004888,72,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,85,004888,72,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,86,004892,73,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,87,004892,73,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,88,004885,74,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,89,004818,76,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,90,004821,77,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,91,004819,78,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,92,004820,79,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,93,004813,80,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,94,004812,81,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,95,004816,82,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,96,004808,84,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,97,004814,85,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,98,004815,86,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,99,004817,87,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,100,004829,89,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,101,004824,90,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,102,004822,92,1.0,boom_nyt_precinct_area_overlay,area_core
+093,KNOX,103,004823,93,1.0,boom_nyt_precinct_area_overlay,area_core
+119,MAURY,16,005965,Rally Hill,1.0,focus_nyt_precinct_area_overlay,area_core
+125,MONTGOMERY,1,006478,2B,0.506933,boom_nyt_precinct_area_overlay,area_split
+125,MONTGOMERY,1,006464,2A,0.493067,boom_nyt_precinct_area_overlay,area_split
+125,MONTGOMERY,2,006467,1A,0.671376,boom_nyt_precinct_area_overlay,area_split
+125,MONTGOMERY,2,006464,2A,0.328624,boom_nyt_precinct_area_overlay,area_split
+125,MONTGOMERY,3,006464,2A,0.511182,boom_nyt_precinct_area_overlay,area_split
+125,MONTGOMERY,3,006469,20A,0.468771,boom_nyt_precinct_area_overlay,area_split
+125,MONTGOMERY,3,006477,20B,0.020047,boom_nyt_precinct_area_overlay,area_split
+125,MONTGOMERY,4,006464,2A,0.535423,boom_nyt_precinct_area_overlay,area_split
+125,MONTGOMERY,4,006468,15,0.464577,boom_nyt_precinct_area_overlay,area_split
+125,MONTGOMERY,5,006453,3,1.0,boom_nyt_precinct_area_overlay,area_core
+125,MONTGOMERY,6,006453,3,1.0,boom_nyt_precinct_area_overlay,area_core
+125,MONTGOMERY,7,006461,4A,1.0,boom_nyt_precinct_area_overlay,area_core
+125,MONTGOMERY,8,006472,4B,0.711647,boom_nyt_precinct_area_overlay,area_split
+125,MONTGOMERY,8,006459,5A,0.288353,boom_nyt_precinct_area_overlay,area_split
+125,MONTGOMERY,9,006474,21A,0.357134,boom_nyt_precinct_area_overlay,area_split
+125,MONTGOMERY,9,006458,13,0.293011,boom_nyt_precinct_area_overlay,area_split
+125,MONTGOMERY,9,006476,5B,0.215166,boom_nyt_precinct_area_overlay,area_split
+125,MONTGOMERY,9,006459,5A,0.134689,boom_nyt_precinct_area_overlay,area_split
+125,MONTGOMERY,10,006460,6A,1.0,boom_nyt_precinct_area_overlay,area_core
+125,MONTGOMERY,11,006473,6B,0.498171,boom_nyt_precinct_area_overlay,area_split
+125,MONTGOMERY,11,006461,4A,0.272193,boom_nyt_precinct_area_overlay,area_split
+125,MONTGOMERY,11,006460,6A,0.229636,boom_nyt_precinct_area_overlay,area_split
+125,MONTGOMERY,12,006455,7,0.881096,boom_nyt_precinct_area_overlay,area_split
+125,MONTGOMERY,12,006470,16,0.118904,boom_nyt_precinct_area_overlay,area_split
+125,MONTGOMERY,13,006455,7,1.0,boom_nyt_precinct_area_overlay,area_core
+125,MONTGOMERY,14,006451,8A,0.497181,boom_nyt_precinct_area_overlay,area_split
+125,MONTGOMERY,14,006480,8B,0.27671,boom_nyt_precinct_area_overlay,area_split
+125,MONTGOMERY,14,006452,9,0.181447,boom_nyt_precinct_area_overlay,area_split
+125,MONTGOMERY,14,006463,18,0.044662,boom_nyt_precinct_area_overlay,area_split
+125,MONTGOMERY,15,006463,18,1.0,boom_nyt_precinct_area_overlay,area_core
+125,MONTGOMERY,16,006463,18,0.835438,boom_nyt_precinct_area_overlay,area_split
+125,MONTGOMERY,16,006471,19,0.164562,boom_nyt_precinct_area_overlay,area_split
+125,MONTGOMERY,17,006454,10,1.0,boom_nyt_precinct_area_overlay,area_core
+125,MONTGOMERY,18,006454,10,1.0,boom_nyt_precinct_area_overlay,area_core
+125,MONTGOMERY,19,006456,11,1.0,boom_nyt_precinct_area_overlay,area_core
+125,MONTGOMERY,20,006452,9,0.784537,boom_nyt_precinct_area_overlay,area_split
+125,MONTGOMERY,20,006457,12,0.215463,boom_nyt_precinct_area_overlay,area_split
+125,MONTGOMERY,21,006458,13,0.651395,boom_nyt_precinct_area_overlay,area_split
+125,MONTGOMERY,21,006470,16,0.348605,boom_nyt_precinct_area_overlay,area_split
+125,MONTGOMERY,22,006458,13,0.71667,boom_nyt_precinct_area_overlay,area_split
+125,MONTGOMERY,22,006457,12,0.28333,boom_nyt_precinct_area_overlay,area_split
+125,MONTGOMERY,23,006467,1A,0.588568,boom_nyt_precinct_area_overlay,area_split
+125,MONTGOMERY,23,006465,14,0.367597,boom_nyt_precinct_area_overlay,area_split
+125,MONTGOMERY,23,006479,1B,0.043835,boom_nyt_precinct_area_overlay,area_split
+125,MONTGOMERY,24,006465,14,0.84247,boom_nyt_precinct_area_overlay,area_split
+125,MONTGOMERY,24,006479,1B,0.15753,boom_nyt_precinct_area_overlay,area_split
+125,MONTGOMERY,25,006468,15,0.800722,boom_nyt_precinct_area_overlay,area_split
+125,MONTGOMERY,25,006469,20A,0.199278,boom_nyt_precinct_area_overlay,area_split
+125,MONTGOMERY,26,006453,3,0.845267,boom_nyt_precinct_area_overlay,area_split
+125,MONTGOMERY,26,006468,15,0.154733,boom_nyt_precinct_area_overlay,area_split
+125,MONTGOMERY,27,006457,12,1.0,boom_nyt_precinct_area_overlay,area_core
+125,MONTGOMERY,28,006457,12,0.616606,boom_nyt_precinct_area_overlay,area_split
+125,MONTGOMERY,28,006470,16,0.383394,boom_nyt_precinct_area_overlay,area_split
+125,MONTGOMERY,29,006467,1A,0.42899,boom_nyt_precinct_area_overlay,area_split
+125,MONTGOMERY,29,006465,14,0.320484,boom_nyt_precinct_area_overlay,area_split
+125,MONTGOMERY,29,006466,17,0.250525,boom_nyt_precinct_area_overlay,area_split
+125,MONTGOMERY,30,006466,17,0.527487,boom_nyt_precinct_area_overlay,area_split
+125,MONTGOMERY,30,006465,14,0.254347,boom_nyt_precinct_area_overlay,area_split
+125,MONTGOMERY,30,006463,18,0.218166,boom_nyt_precinct_area_overlay,area_split
+125,MONTGOMERY,31,006452,9,0.478361,boom_nyt_precinct_area_overlay,area_split
+125,MONTGOMERY,31,006463,18,0.432308,boom_nyt_precinct_area_overlay,area_split
+125,MONTGOMERY,31,006466,17,0.089331,boom_nyt_precinct_area_overlay,area_split
+125,MONTGOMERY,32,006466,17,1.0,boom_nyt_precinct_area_overlay,area_core
+125,MONTGOMERY,33,006471,19,1.0,boom_nyt_precinct_area_overlay,area_core
+125,MONTGOMERY,34,006471,19,1.0,boom_nyt_precinct_area_overlay,area_core
+125,MONTGOMERY,35,006471,19,1.0,boom_nyt_precinct_area_overlay,area_core
+125,MONTGOMERY,36,006471,19,1.0,boom_nyt_precinct_area_overlay,area_core
+125,MONTGOMERY,37,006462,21B,1.0,boom_nyt_precinct_area_overlay,area_core
+125,MONTGOMERY,38,006477,20B,0.745895,boom_nyt_precinct_area_overlay,area_split
+125,MONTGOMERY,38,006476,5B,0.254105,boom_nyt_precinct_area_overlay,area_split
+149,RUTHERFORD,1,007651,1-1 LaVergne Lake Elementary School,0.572608,boom_nyt_precinct_area_overlay,area_split
+149,RUTHERFORD,1,007654,3-1 Leanna Church of Christ,0.401298,boom_nyt_precinct_area_overlay,area_split
+149,RUTHERFORD,1,007660,5-2 LaVergne Middle School,0.026094,boom_nyt_precinct_area_overlay,area_split
+149,RUTHERFORD,2,007652,2-3 Milton Fire Station,0.507421,boom_nyt_precinct_area_overlay,area_split
+149,RUTHERFORD,2,007698,2-1 Lascassas Elementary School,0.30293,boom_nyt_precinct_area_overlay,area_split
+149,RUTHERFORD,2,007653,2-2 Wilson Elementary School,0.156478,boom_nyt_precinct_area_overlay,area_split
+149,RUTHERFORD,2,007654,3-1 Leanna Church of Christ,0.033171,boom_nyt_precinct_area_overlay,area_split
+149,RUTHERFORD,3,007653,2-2 Wilson Elementary School,0.733347,boom_nyt_precinct_area_overlay,area_split
+149,RUTHERFORD,3,007698,2-1 Lascassas Elementary School,0.266653,boom_nyt_precinct_area_overlay,area_split
+149,RUTHERFORD,4,007654,3-1 Leanna Church of Christ,1.0,boom_nyt_precinct_area_overlay,area_core
+149,RUTHERFORD,5,007654,3-1 Leanna Church of Christ,0.851242,boom_nyt_precinct_area_overlay,area_split
+149,RUTHERFORD,5,007655,3-2 Old Jefferson Church of Christ,0.148758,boom_nyt_precinct_area_overlay,area_split
+149,RUTHERFORD,6,007661,6-1 Whitworth-Buchannan Middle School,0.407359,boom_nyt_precinct_area_overlay,area_split
+149,RUTHERFORD,6,007656,4-1 Kittrell Elementary School,0.386577,boom_nyt_precinct_area_overlay,area_split
+149,RUTHERFORD,6,007658,4-3 Oakland Middle School,0.177197,boom_nyt_precinct_area_overlay,area_split
+149,RUTHERFORD,6,007700,4-5 Bud's Tire,0.017754,boom_nyt_precinct_area_overlay,area_split
+149,RUTHERFORD,6,007657,4-2 North Boulevard Church of Christ,0.011113,boom_nyt_precinct_area_overlay,area_split
+149,RUTHERFORD,7,007700,4-5 Bud's Tire,1.0,boom_nyt_precinct_area_overlay,area_core
+149,RUTHERFORD,8,007659,5-1 Cedar Grove Elementary School,0.428698,boom_nyt_precinct_area_overlay,area_split
+149,RUTHERFORD,8,007660,5-2 LaVergne Middle School,0.402359,boom_nyt_precinct_area_overlay,area_split
+149,RUTHERFORD,8,007699,12-3 LaVergne High School,0.168943,boom_nyt_precinct_area_overlay,area_split
+149,RUTHERFORD,9,007661,6-1 Whitworth-Buchannan Middle School,1.0,boom_nyt_precinct_area_overlay,area_core
+149,RUTHERFORD,10,007662,6-2 Christiana Middle School,0.481472,boom_nyt_precinct_area_overlay,area_split
+149,RUTHERFORD,10,007667,8-3 Lebanon Campground Church,0.26875,boom_nyt_precinct_area_overlay,area_split
+149,RUTHERFORD,10,007661,6-1 Whitworth-Buchannan Middle School,0.207329,boom_nyt_precinct_area_overlay,area_split
+149,RUTHERFORD,10,007668,8-4 Crescent Church of Christ,0.042449,boom_nyt_precinct_area_overlay,area_split
+149,RUTHERFORD,11,007664,7-2 Barfield Elementary School,0.762584,boom_nyt_precinct_area_overlay,area_split
+149,RUTHERFORD,11,007662,6-2 Christiana Middle School,0.237416,boom_nyt_precinct_area_overlay,area_split
+149,RUTHERFORD,12,007665,8-1 Rockvale Middle School,0.531417,boom_nyt_precinct_area_overlay,area_split
+149,RUTHERFORD,12,007666,8-2 Eagleville Community Center,0.278852,boom_nyt_precinct_area_overlay,area_split
+149,RUTHERFORD,12,007667,8-3 Lebanon Campground Church,0.128935,boom_nyt_precinct_area_overlay,area_split
+149,RUTHERFORD,12,007668,8-4 Crescent Church of Christ,0.060796,boom_nyt_precinct_area_overlay,area_split
+149,RUTHERFORD,13,007669,9-1 Stewarts Creek Elementary School,0.43886,boom_nyt_precinct_area_overlay,area_split
+149,RUTHERFORD,13,007693,20-1 Blackman United Methodist Church,0.332927,boom_nyt_precinct_area_overlay,area_split
+149,RUTHERFORD,13,007670,9-2 Browns Chapel Elementary School,0.228213,boom_nyt_precinct_area_overlay,area_split
+149,RUTHERFORD,14,007671,10-1 Rock Springs Elementary School,1.0,boom_nyt_precinct_area_overlay,area_core
+149,RUTHERFORD,15,007669,9-1 Stewarts Creek Elementary School,0.505684,boom_nyt_precinct_area_overlay,area_split
+149,RUTHERFORD,15,007672,10-2 Lifepoint Church,0.494316,boom_nyt_precinct_area_overlay,area_split
+149,RUTHERFORD,16,007673,11-1 Smyrna Middle School,1.0,boom_nyt_precinct_area_overlay,area_core
+149,RUTHERFORD,17,007674,11-2 StewartsboroElementary School,0.562675,boom_nyt_precinct_area_overlay,area_split
+149,RUTHERFORD,17,007672,10-2 Lifepoint Church,0.437325,boom_nyt_precinct_area_overlay,area_split
+149,RUTHERFORD,18,007675,12-1 TN National Guard Armory,0.74147,boom_nyt_precinct_area_overlay,area_split
+149,RUTHERFORD,18,007676,12-2 Smyrna Elementary School,0.25853,boom_nyt_precinct_area_overlay,area_split
+149,RUTHERFORD,19,007655,3-2 Old Jefferson Church of Christ,1.0,boom_nyt_precinct_area_overlay,area_core
+149,RUTHERFORD,20,007678,13-2 Cason Lane Academy,0.344613,boom_nyt_precinct_area_overlay,area_split
+149,RUTHERFORD,20,007663,7-1 New Heights Chapel,0.316482,boom_nyt_precinct_area_overlay,area_split
+149,RUTHERFORD,20,007694,20-2 Blackman High School,0.3085,boom_nyt_precinct_area_overlay,area_split
+149,RUTHERFORD,20,007677,13-1 Bellwood-Bowdoin Pre-School,0.030404,boom_nyt_precinct_area_overlay,area_split
+149,RUTHERFORD,21,007683,16-1 Central Magnet School,1.0,boom_nyt_precinct_area_overlay,area_core
+149,RUTHERFORD,22,007692,19-2 New Vision Baptist Church,0.505173,boom_nyt_precinct_area_overlay,area_split
+149,RUTHERFORD,22,007680,14-2 Siegel Elementary School,0.230967,boom_nyt_precinct_area_overlay,area_split
+149,RUTHERFORD,22,007679,14-1 Siegel Middle School,0.196403,boom_nyt_precinct_area_overlay,area_split
+149,RUTHERFORD,22,007654,3-1 Leanna Church of Christ,0.04868,boom_nyt_precinct_area_overlay,area_split
+149,RUTHERFORD,22,007698,2-1 Lascassas Elementary School,0.018777,boom_nyt_precinct_area_overlay,area_split
+149,RUTHERFORD,23,007681,15-1 John Pittard Elementary,0.694899,boom_nyt_precinct_area_overlay,area_split
+149,RUTHERFORD,23,007682,15-2 Northfield Elementary School,0.305101,boom_nyt_precinct_area_overlay,area_split
+149,RUTHERFORD,24,007680,14-2 Siegel Elementary School,0.551935,boom_nyt_precinct_area_overlay,area_split
+149,RUTHERFORD,24,007682,15-2 Northfield Elementary School,0.386193,boom_nyt_precinct_area_overlay,area_split
+149,RUTHERFORD,24,007679,14-1 Siegel Middle School,0.061872,boom_nyt_precinct_area_overlay,area_split
+149,RUTHERFORD,25,007683,16-1 Central Magnet School,1.0,boom_nyt_precinct_area_overlay,area_core
+149,RUTHERFORD,26,007677,13-1 Bellwood-Bowdoin Pre-School,0.476169,boom_nyt_precinct_area_overlay,area_split
+149,RUTHERFORD,26,007692,19-2 New Vision Baptist Church,0.215495,boom_nyt_precinct_area_overlay,area_split
+149,RUTHERFORD,26,007685,16-3 Lane Agri-Park,0.21314,boom_nyt_precinct_area_overlay,area_split
+149,RUTHERFORD,26,007683,16-1 Central Magnet School,0.089517,boom_nyt_precinct_area_overlay,area_split
+149,RUTHERFORD,26,007664,7-2 Barfield Elementary School,0.005678,boom_nyt_precinct_area_overlay,area_split
+149,RUTHERFORD,27,007686,17-1 North Boulevard Church of Christ,0.747219,boom_nyt_precinct_area_overlay,area_split
+149,RUTHERFORD,27,007682,15-2 Northfield Elementary School,0.252781,boom_nyt_precinct_area_overlay,area_split
+149,RUTHERFORD,28,007689,18-1 Patterson Park Community Center,1.0,boom_nyt_precinct_area_overlay,area_core
+149,RUTHERFORD,29,007690,18-2 Riverdale High School,0.526537,boom_nyt_precinct_area_overlay,area_split
+149,RUTHERFORD,29,007689,18-1 Patterson Park Community Center,0.280778,boom_nyt_precinct_area_overlay,area_split
+149,RUTHERFORD,29,007677,13-1 Bellwood-Bowdoin Pre-School,0.117924,boom_nyt_precinct_area_overlay,area_split
+149,RUTHERFORD,29,007662,6-2 Christiana Middle School,0.062052,boom_nyt_precinct_area_overlay,area_split
+149,RUTHERFORD,29,007664,7-2 Barfield Elementary School,0.01271,boom_nyt_precinct_area_overlay,area_split
+149,RUTHERFORD,30,007693,20-1 Blackman United Methodist Church,0.479866,boom_nyt_precinct_area_overlay,area_split
+149,RUTHERFORD,30,007691,19-1 Creekmont General Baptist Church,0.184384,boom_nyt_precinct_area_overlay,area_split
+149,RUTHERFORD,30,007663,7-1 New Heights Chapel,0.171626,boom_nyt_precinct_area_overlay,area_split
+149,RUTHERFORD,30,007670,9-2 Browns Chapel Elementary School,0.09275,boom_nyt_precinct_area_overlay,area_split
+149,RUTHERFORD,30,007692,19-2 New Vision Baptist Church,0.071375,boom_nyt_precinct_area_overlay,area_split
+149,RUTHERFORD,31,007694,20-2 Blackman High School,0.670102,boom_nyt_precinct_area_overlay,area_split
+149,RUTHERFORD,31,007685,16-3 Lane Agri-Park,0.329898,boom_nyt_precinct_area_overlay,area_split
+149,RUTHERFORD,32,007696,21-2 BlackFox Elementary School,0.6991,boom_nyt_precinct_area_overlay,area_split
+149,RUTHERFORD,32,007695,21-1 Hobgood Elementary School,0.3009,boom_nyt_precinct_area_overlay,area_split
+149,RUTHERFORD,33,007695,21-1 Hobgood Elementary School,0.522173,boom_nyt_precinct_area_overlay,area_split
+149,RUTHERFORD,33,007696,21-2 BlackFox Elementary School,0.340971,boom_nyt_precinct_area_overlay,area_split
+149,RUTHERFORD,33,007690,18-2 Riverdale High School,0.136856,boom_nyt_precinct_area_overlay,area_split
+157,SHELBY,1,008260,Millington 1,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,2,008261,Millington 2,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,3,008270,Stewartville,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,4,008100,McConnells,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,5,008099,Lucy 3,0.403207,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,5,008098,Lucy 1,0.389094,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,5,008260,Millington 1,0.207698,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,6,008052,ARL-02,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,7,008051,ARL-01,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,8,008252,Memphis 95-1,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,9,008252,Memphis 95-1,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,10,008255,Memphis 95-5,0.514126,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,10,008079,Memphis 96-2,0.485874,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,11,008259,Memphis 96-1,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,12,008081,Eads,0.558218,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,12,008263,Morning Sun 02,0.400999,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,12,008271,Collierville 9,0.040783,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,13,008080,Memphis 91-4,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,14,008094,Germantown 11,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,15,008073,Collierville 6,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,16,008271,Collierville 9,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,17,008091,Germantown 08,0.501043,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,17,008094,Germantown 11,0.498957,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,18,008071,Collierville 4,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,19,008070,Collierville 3,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,20,008068,Collierville 1,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,21,008068,Collierville 1,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,22,008069,Collierville 2,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,23,008074,Collierville 7,0.512513,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,23,008069,Collierville 2,0.487487,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,24,008074,Collierville 7,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,25,008074,Collierville 7,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,26,008263,Morning Sun 02,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,27,008063,Bartlett 13,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,28,008066,Brunswick 2,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,29,008096,Lakeland 1,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,30,008055,Bartlett 04,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,31,008058,Bartlett 08,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,32,008060,Bartlett 11,0.577904,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,32,008054,Bartlett 03,0.39805,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,32,008053,Bartlett 09,0.024046,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,33,008065,Brunswick 1,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,34,008096,Lakeland 1,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,35,008057,Bartlett 06,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,36,008053,Bartlett 09,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,37,008056,Bartlett 05,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,38,008157,Memphis 57,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,39,008180,Memphis 68-3,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,40,008217,Memphis 81-1,0.54867,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,40,008216,Memphis 80-2,0.45133,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,41,008216,Memphis 80-2,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,42,008089,Germantown 05,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,43,008087,Germantown 03,0.576475,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,43,008088,Germantown 04,0.423525,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,44,008177,Memphis 67-1,0.483465,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,44,008178,Memphis 67-3,0.421317,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,44,008180,Memphis 68-3,0.095218,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,45,008222,Memphis 81-7,0.53523,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,45,008217,Memphis 81-1,0.327562,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,45,008219,Memphis 81-3,0.137208,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,46,008219,Memphis 81-3,0.541472,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,46,008222,Memphis 81-7,0.458528,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,47,008086,Germantown 02,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,48,008088,Germantown 04,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,49,008093,Germantown 10,0.452795,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,49,008090,Germantown 06,0.444495,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,49,008086,Germantown 02,0.10271,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,50,008236,Memphis 89-1,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,51,008236,Memphis 89-1,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,52,008078,Cordova 5,0.487832,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,52,008077,Cordova 4,0.479239,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,52,008256,Memphis 95-6,0.032929,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,53,008237,Memphis 89-2,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,54,008262,Morning Sun 01,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,55,008262,Morning Sun 01,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,56,008257,Memphis 95-7,0.484145,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,56,008258,Memphis 95-8,0.317327,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,56,008241,Memphis 91-1,0.198527,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,57,008076,Cordova 3,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,58,008242,Memphis 91-2,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,59,008076,Cordova 3,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,60,008262,Morning Sun 01,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,61,008061,Memphis 87-2,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,62,008064,Memphis 87-4,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,63,008239,Memphis 90-2,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,64,008229,Memphis 86,0.504641,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,64,008231,Memphis 87-3,0.293377,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,64,008064,Memphis 87-4,0.201982,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,65,008240,Memphis 90-3,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,66,008231,Memphis 87-3,0.574964,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,66,008229,Memphis 86,0.425036,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,67,008226,Memphis 83,0.483735,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,67,008172,Memphis 62-0,0.468696,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,67,008234,Memphis 88-4,0.047569,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,68,008234,Memphis 88-4,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,69,008233,Memphis 88-3,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,70,008187,Memphis 71-4,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,71,008183,Memphis 70-1,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,72,008189,Memphis 72-3,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,73,008190,Memphis 72-7,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,74,008131,Memphis 42-1,0.566363,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,74,008190,Memphis 72-7,0.347988,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,74,008130,Memphis 41-3,0.08565,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,75,008130,Memphis 41-3,0.528467,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,75,008123,Memphis 36-2,0.471533,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,76,008149,Memphis 53-1,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,77,008146,Memphis 52-1,0.514538,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,77,008122,Memphis 36-1,0.485462,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,78,008125,Memphis 37,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,79,008109,Memphis 20-1,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,80,008184,Memphis 70-2,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,81,008182,Memphis 69-2,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,82,008101,Memphis 01,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,83,008111,Memphis 21,0.53147,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,83,008110,Memphis 20-3,0.46853,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,84,008102,Memphis 02,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,85,008110,Memphis 20-3,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,86,008108,Memphis 17,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,87,008104,Memphis 12,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,88,008103,Memphis 11,0.51369,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,88,008105,Memphis 13,0.404967,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,88,008104,Memphis 12,0.081343,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,89,008106,Memphis 16-3,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,90,008113,Memphis 26,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,91,008121,Memphis 50-2,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,92,008145,Memphis 50-1,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,93,008200,Memphis 75-1,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,94,008203,Memphis 75-7,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,95,008207,Memphis 77-1,0.449641,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,95,008204,Memphis 76-4,0.443624,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,95,008206,Memphis 76-6,0.106735,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,96,008209,Memphis 77-3,0.616174,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,96,008207,Memphis 77-1,0.293964,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,96,008206,Memphis 76-6,0.089862,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,97,008202,Memphis 75-6,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,98,008211,Memphis 79-1,0.502595,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,98,008212,Memphis 79-2,0.38554,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,98,008214,Memphis 79-7,0.111865,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,99,008214,Memphis 79-7,0.36071,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,99,008211,Memphis 79-1,0.358903,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,99,008213,Memphis 79-3,0.280387,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,100,008224,Memphis 82-2,0.518471,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,100,008201,Memphis 75-11,0.471,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,100,008202,Memphis 75-6,0.010528,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,101,008205,Memphis 76-5,0.579691,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,101,008206,Memphis 76-6,0.284708,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,101,008213,Memphis 79-3,0.135601,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,102,008213,Memphis 79-3,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,103,008171,Memphis 61,0.550603,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,103,008138,Memphis 45-2,0.449397,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,104,008144,Memphis 49,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,105,008170,Memphis 60-9,0.549539,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,105,008118,Memphis 31-4,0.323982,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,105,008164,Memphis 60-3,0.126479,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,106,008138,Memphis 45-2,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,107,008159,Memphis 58-4,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,108,008167,Memphis 60-6,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,109,008142,Memphis 47,0.511917,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,109,008161,Memphis 59-5,0.474441,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,109,008118,Memphis 31-4,0.013642,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,110,008161,Memphis 59-5,0.391889,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,110,008158,Memphis 58-1,0.341085,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,110,008159,Memphis 58-4,0.267025,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,111,008210,Memphis 78-3,0.469961,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,111,008167,Memphis 60-6,0.29319,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,111,008164,Memphis 60-3,0.236849,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,112,008166,Memphis 60-5,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,113,008192,Memphis 73-3,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,114,008194,Memphis 74-1,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,115,008197,Memphis 74-5,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,116,008195,Memphis 74-2,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,117,008199,Memphis 74-9,0.392201,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,117,008243,Memphis 92-1,0.318886,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,117,008250,Memphis 94-7,0.288913,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,118,008248,Memphis 94-3,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,119,008168,Memphis 60-7,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,120,008244,Memphis 94-6,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,121,008246,Memphis 93-3,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,122,008221,Memphis 81-5,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,123,008082,Forest Hills 1,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,124,008251,Memphis 94-8,0.556448,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,124,008245,Memphis 93-1,0.383669,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,124,008265,Ross Store 05,0.059883,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,125,008265,Ross Store 05,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,126,008084,Forest Hills 3,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,127,008266,Ross Store 13,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,128,008269,Ross Store 16,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,129,008083,Forest Hills 2,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,130,008267,Ross Store 14,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,131,008152,Memphis 54,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,132,008152,Memphis 54,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,133,008179,Memphis 68-1,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,134,008136,Memphis 44-5,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,135,008133,Memphis 44-1,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,136,008154,Memphis 55-2,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,137,008107,Memphis 16-1,0.58985,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,137,008117,Memphis 31-2,0.41015,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,138,008139,Memphis 45-4,0.532004,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,138,008114,Memphis 28,0.467996,shelby_nyt_precinct_area_overlay,area_split
+157,SHELBY,139,008141,Memphis 46-2,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,140,008141,Memphis 46-2,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,141,008176,Memphis 66,1.0,shelby_nyt_precinct_area_overlay,area_core
+157,SHELBY,142,008179,Memphis 68-1,1.0,shelby_nyt_precinct_area_overlay,area_core
+165,SUMNER,1,008632,101 Westmoreland Middle,0.669647,boom_nyt_precinct_area_overlay,area_split
+165,SUMNER,1,008636,103 Corinth Church of Christ,0.330353,boom_nyt_precinct_area_overlay,area_split
+165,SUMNER,2,008636,103 Corinth Church of Christ,0.580424,boom_nyt_precinct_area_overlay,area_split
+165,SUMNER,2,008614,202 Portland High School,0.264333,boom_nyt_precinct_area_overlay,area_split
+165,SUMNER,2,008613,203 Wiseman Elementary,0.155243,boom_nyt_precinct_area_overlay,area_split
+165,SUMNER,3,008614,202 Portland High School,0.844656,boom_nyt_precinct_area_overlay,area_split
+165,SUMNER,3,008613,203 Wiseman Elementary,0.155344,boom_nyt_precinct_area_overlay,area_split
+165,SUMNER,4,008612,1201 Oakmont Elementary,1.0,boom_nyt_precinct_area_overlay,area_core
+165,SUMNER,5,008627,403 Cottontown Fire Hall,0.513827,boom_nyt_precinct_area_overlay,area_split
+165,SUMNER,5,008610,404 Union Elementary,0.486173,boom_nyt_precinct_area_overlay,area_split
+165,SUMNER,6,008632,101 Westmoreland Middle,0.414473,boom_nyt_precinct_area_overlay,area_split
+165,SUMNER,6,008635,301 Gallatin Civic Center,0.344854,boom_nyt_precinct_area_overlay,area_split
+165,SUMNER,6,008636,103 Corinth Church of Christ,0.240673,boom_nyt_precinct_area_overlay,area_split
+165,SUMNER,7,008636,103 Corinth Church of Christ,0.507328,boom_nyt_precinct_area_overlay,area_split
+165,SUMNER,7,008635,301 Gallatin Civic Center,0.362844,boom_nyt_precinct_area_overlay,area_split
+165,SUMNER,7,008613,203 Wiseman Elementary,0.129828,boom_nyt_precinct_area_overlay,area_split
+165,SUMNER,8,008607,303 Creekside Fellowship,0.747979,boom_nyt_precinct_area_overlay,area_split
+165,SUMNER,8,008635,301 Gallatin Civic Center,0.252021,boom_nyt_precinct_area_overlay,area_split
+165,SUMNER,9,008635,301 Gallatin Civic Center,1.0,boom_nyt_precinct_area_overlay,area_core
+165,SUMNER,10,008608,502 Guild Elementary,0.731507,boom_nyt_precinct_area_overlay,area_split
+165,SUMNER,10,008609,501 First Baptist Gallatin,0.268493,boom_nyt_precinct_area_overlay,area_split
+165,SUMNER,11,008618,602 Gallatin Sr. High School,0.857716,boom_nyt_precinct_area_overlay,area_split
+165,SUMNER,11,008608,502 Guild Elementary,0.142284,boom_nyt_precinct_area_overlay,area_split
+165,SUMNER,12,008601,601 Vol State College,0.67296,boom_nyt_precinct_area_overlay,area_split
+165,SUMNER,12,008602,603 Jack Anderson Elementary,0.32704,boom_nyt_precinct_area_overlay,area_split
+165,SUMNER,13,008622,701 Whitten Elementary,0.486176,boom_nyt_precinct_area_overlay,area_split
+165,SUMNER,13,008602,603 Jack Anderson Elementary,0.321619,boom_nyt_precinct_area_overlay,area_split
+165,SUMNER,13,008628,703 Long Hollow Baptist Church,0.148329,boom_nyt_precinct_area_overlay,area_split
+165,SUMNER,13,008601,601 Vol State College,0.043876,boom_nyt_precinct_area_overlay,area_split
+165,SUMNER,14,008611,401 Howard Elementary School,1.0,boom_nyt_precinct_area_overlay,area_core
+165,SUMNER,15,008611,401 Howard Elementary School,1.0,boom_nyt_precinct_area_overlay,area_core
+165,SUMNER,16,008611,401 Howard Elementary School,0.672555,boom_nyt_precinct_area_overlay,area_split
+165,SUMNER,16,008610,404 Union Elementary,0.327445,boom_nyt_precinct_area_overlay,area_split
+165,SUMNER,17,008624,1101 Beech High School Annex,0.434826,boom_nyt_precinct_area_overlay,area_split
+165,SUMNER,17,008627,403 Cottontown Fire Hall,0.387053,boom_nyt_precinct_area_overlay,area_split
+165,SUMNER,17,008626,1203 White House Middle School,0.070447,boom_nyt_precinct_area_overlay,area_split
+165,SUMNER,17,008625,1103 Millersville Community Center,0.062081,boom_nyt_precinct_area_overlay,area_split
+165,SUMNER,17,008628,703 Long Hollow Baptist Church,0.045592,boom_nyt_precinct_area_overlay,area_split
+165,SUMNER,18,008627,403 Cottontown Fire Hall,0.411302,boom_nyt_precinct_area_overlay,area_split
+165,SUMNER,18,008612,1201 Oakmont Elementary,0.366339,boom_nyt_precinct_area_overlay,area_split
+165,SUMNER,18,008626,1203 White House Middle School,0.163537,boom_nyt_precinct_area_overlay,area_split
+165,SUMNER,18,008611,401 Howard Elementary School,0.058822,boom_nyt_precinct_area_overlay,area_split
+165,SUMNER,19,008626,1203 White House Middle School,1.0,boom_nyt_precinct_area_overlay,area_core
+165,SUMNER,20,008625,1103 Millersville Community Center,0.566014,boom_nyt_precinct_area_overlay,area_split
+165,SUMNER,20,008623,1102 Church of the Nazarene,0.269407,boom_nyt_precinct_area_overlay,area_split
+165,SUMNER,20,008624,1101 Beech High School Annex,0.136856,boom_nyt_precinct_area_overlay,area_split
+165,SUMNER,20,008626,1203 White House Middle School,0.027723,boom_nyt_precinct_area_overlay,area_split
+165,SUMNER,21,008623,1102 Church of the Nazarene,0.513917,boom_nyt_precinct_area_overlay,area_split
+165,SUMNER,21,008633,1002 Merrol Hyde Magnet School,0.455652,boom_nyt_precinct_area_overlay,area_split
+165,SUMNER,21,008624,1101 Beech High School Annex,0.030431,boom_nyt_precinct_area_overlay,area_split
+165,SUMNER,22,008633,1002 Merrol Hyde Magnet School,0.781148,boom_nyt_precinct_area_overlay,area_split
+165,SUMNER,22,008619,801 Brown Elementary,0.218852,boom_nyt_precinct_area_overlay,area_split
+165,SUMNER,23,008621,1001 Walton Ferry Elementary,0.57016,boom_nyt_precinct_area_overlay,area_split
+165,SUMNER,23,008619,801 Brown Elementary,0.42984,boom_nyt_precinct_area_overlay,area_split
+165,SUMNER,24,008631,802 Hawkins Middle School,0.587518,boom_nyt_precinct_area_overlay,area_split
+165,SUMNER,24,008621,1001 Walton Ferry Elementary,0.381628,boom_nyt_precinct_area_overlay,area_split
+165,SUMNER,24,008619,801 Brown Elementary,0.030855,boom_nyt_precinct_area_overlay,area_split
+165,SUMNER,25,008620,902 Indian Lake Elementary,0.813333,boom_nyt_precinct_area_overlay,area_split
+165,SUMNER,25,008603,901 Hendersonville High School,0.186667,boom_nyt_precinct_area_overlay,area_split
+165,SUMNER,26,008603,901 Hendersonville High School,0.582488,boom_nyt_precinct_area_overlay,area_split
+165,SUMNER,26,008602,603 Jack Anderson Elementary,0.41028,boom_nyt_precinct_area_overlay,area_split
+165,SUMNER,26,008620,902 Indian Lake Elementary,0.007233,boom_nyt_precinct_area_overlay,area_split
+165,SUMNER,27,008622,701 Whitten Elementary,0.590103,boom_nyt_precinct_area_overlay,area_split
+165,SUMNER,27,008628,703 Long Hollow Baptist Church,0.409897,boom_nyt_precinct_area_overlay,area_split
+165,SUMNER,28,008622,701 Whitten Elementary,1.0,boom_nyt_precinct_area_overlay,area_core
+165,SUMNER,29,008628,703 Long Hollow Baptist Church,0.731677,boom_nyt_precinct_area_overlay,area_split
+165,SUMNER,29,008624,1101 Beech High School Annex,0.268323,boom_nyt_precinct_area_overlay,area_split
+187,WILLIAMSON,1,009701,1-1 Westwood Elementary School,1.0,boom_nyt_precinct_area_overlay,area_core
+187,WILLIAMSON,2,009709,3-1 Heritage Elementary School,1.0,boom_nyt_precinct_area_overlay,area_core
+187,WILLIAMSON,3,009742,1-5 The Church of Spring Hill,1.0,boom_nyt_precinct_area_overlay,area_core
+187,WILLIAMSON,5,009703,1-3 Old Pinewood School,0.516302,boom_nyt_precinct_area_overlay,area_split
+187,WILLIAMSON,5,009704,1-4 Burwood Community Center,0.38824,boom_nyt_precinct_area_overlay,area_split
+187,WILLIAMSON,5,009731,9-4 Grace Chapel Church,0.085507,boom_nyt_precinct_area_overlay,area_split
+187,WILLIAMSON,5,009702,1-2 Fairview Recreation Center,0.009951,boom_nyt_precinct_area_overlay,area_split
+187,WILLIAMSON,6,009702,1-2 Fairview Recreation Center,0.505606,boom_nyt_precinct_area_overlay,area_split
+187,WILLIAMSON,6,009703,1-3 Old Pinewood School,0.417529,boom_nyt_precinct_area_overlay,area_split
+187,WILLIAMSON,6,009731,9-4 Grace Chapel Church,0.076866,boom_nyt_precinct_area_overlay,area_split
+187,WILLIAMSON,7,009707,2-3 Oakview Elementary School,1.0,boom_nyt_precinct_area_overlay,area_core
+187,WILLIAMSON,8,009999,2-5 Fire & Rescue Station #24,1.0,boom_nyt_precinct_area_overlay,area_core
+187,WILLIAMSON,9,009705,2-1 Bethesda Recreation Center,0.499793,boom_nyt_precinct_area_overlay,area_split
+187,WILLIAMSON,9,009708,2-4 College Grove Community Center,0.359515,boom_nyt_precinct_area_overlay,area_split
+187,WILLIAMSON,9,009717,5-3 Triune Baptist Church,0.112094,boom_nyt_precinct_area_overlay,area_split
+187,WILLIAMSON,9,009740,12-3 The Gate Community Church,0.028599,boom_nyt_precinct_area_overlay,area_split
+187,WILLIAMSON,10,009705,2-1 Bethesda Recreation Center,0.672586,boom_nyt_precinct_area_overlay,area_split
+187,WILLIAMSON,10,009708,2-4 College Grove Community Center,0.327414,boom_nyt_precinct_area_overlay,area_split
+187,WILLIAMSON,11,009706,2-2 Thompson Station Baptist Church,0.829731,boom_nyt_precinct_area_overlay,area_split
+187,WILLIAMSON,11,009709,3-1 Heritage Elementary School,0.170269,boom_nyt_precinct_area_overlay,area_split
+187,WILLIAMSON,12,009710,3-2 Longview Recreation Center,1.0,boom_nyt_precinct_area_overlay,area_core
+187,WILLIAMSON,13,009711,3-3 Chapman's Retreat Elementary School,1.0,boom_nyt_precinct_area_overlay,area_core
+187,WILLIAMSON,14,009709,3-1 Heritage Elementary School,1.0,boom_nyt_precinct_area_overlay,area_core
+187,WILLIAMSON,15,009712,4-1 Prairie Life Fitness Center,1.0,boom_nyt_precinct_area_overlay,area_core
+187,WILLIAMSON,16,009712,4-1 Prairie Life Fitness Center,1.0,boom_nyt_precinct_area_overlay,area_core
+187,WILLIAMSON,17,009714,4-3 Franklin Christian Church,0.537292,boom_nyt_precinct_area_overlay,area_split
+187,WILLIAMSON,17,009713,4-2 Millview Church of Christ,0.462708,boom_nyt_precinct_area_overlay,area_split
+187,WILLIAMSON,18,009713,4-2 Millview Church of Christ,0.436014,boom_nyt_precinct_area_overlay,area_split
+187,WILLIAMSON,18,009718,5-4 Nolensville Baptist Church,0.410931,boom_nyt_precinct_area_overlay,area_split
+187,WILLIAMSON,18,009715,5-1 Sunset Elementary School,0.092616,boom_nyt_precinct_area_overlay,area_split
+187,WILLIAMSON,18,009721,6-3 Holy Family Catholic Church,0.060439,boom_nyt_precinct_area_overlay,area_split
+187,WILLIAMSON,19,009718,5-4 Nolensville Baptist Church,0.646348,boom_nyt_precinct_area_overlay,area_split
+187,WILLIAMSON,19,009715,5-1 Sunset Elementary School,0.353652,boom_nyt_precinct_area_overlay,area_split
+187,WILLIAMSON,20,009716,5-2 Nolensville Methodist Church,1.0,boom_nyt_precinct_area_overlay,area_core
+187,WILLIAMSON,21,009717,5-3 Triune Baptist Church,0.484477,boom_nyt_precinct_area_overlay,area_split
+187,WILLIAMSON,21,009716,5-2 Nolensville Methodist Church,0.277784,boom_nyt_precinct_area_overlay,area_split
+187,WILLIAMSON,21,009718,5-4 Nolensville Baptist Church,0.237739,boom_nyt_precinct_area_overlay,area_split
+187,WILLIAMSON,22,009717,5-3 Triune Baptist Church,1.0,boom_nyt_precinct_area_overlay,area_core
+187,WILLIAMSON,23,009719,6-1 Brentwood Library,1.0,boom_nyt_precinct_area_overlay,area_core
+187,WILLIAMSON,24,009721,6-3 Holy Family Catholic Church,1.0,boom_nyt_precinct_area_overlay,area_core
+187,WILLIAMSON,25,009720,6-2 Brentwood Safety Center,1.0,boom_nyt_precinct_area_overlay,area_core
+187,WILLIAMSON,26,009715,5-1 Sunset Elementary School,1.0,boom_nyt_precinct_area_overlay,area_core
+187,WILLIAMSON,27,009724,7-3 New Hope Community Church,1.0,boom_nyt_precinct_area_overlay,area_core
+187,WILLIAMSON,28,009726,8-2 First Presbyterian Church,1.0,boom_nyt_precinct_area_overlay,area_core
+187,WILLIAMSON,29,009723,7-2 Baptist Children's Home,0.848573,boom_nyt_precinct_area_overlay,area_split
+187,WILLIAMSON,29,009722,7-1 Brenthaven Church,0.151427,boom_nyt_precinct_area_overlay,area_split
+187,WILLIAMSON,30,009722,7-1 Brenthaven Church,1.0,boom_nyt_precinct_area_overlay,area_core
+187,WILLIAMSON,31,009725,8-1 Grassland Middle School,0.880214,boom_nyt_precinct_area_overlay,area_split
+187,WILLIAMSON,31,009722,7-1 Brenthaven Church,0.119786,boom_nyt_precinct_area_overlay,area_split
+187,WILLIAMSON,32,009726,8-2 First Presbyterian Church,1.0,boom_nyt_precinct_area_overlay,area_core
+187,WILLIAMSON,33,009727,8-3 Episcopal Church,0.724311,boom_nyt_precinct_area_overlay,area_split
+187,WILLIAMSON,33,009729,9-2 Benton Hall School,0.275689,boom_nyt_precinct_area_overlay,area_split
+187,WILLIAMSON,34,009726,8-2 First Presbyterian Church,0.667169,boom_nyt_precinct_area_overlay,area_split
+187,WILLIAMSON,34,009738,12-1 Franklin Community of Faith Church,0.332831,boom_nyt_precinct_area_overlay,area_split
+187,WILLIAMSON,35,009729,9-2 Benton Hall School,0.703176,boom_nyt_precinct_area_overlay,area_split
+187,WILLIAMSON,35,009728,9-1 Walnut Grove Elementary School,0.296824,boom_nyt_precinct_area_overlay,area_split
+187,WILLIAMSON,36,009730,9-3 Westhaven Clubhouse,1.0,boom_nyt_precinct_area_overlay,area_core
+187,WILLIAMSON,37,009730,9-3 Westhaven Clubhouse,1.0,boom_nyt_precinct_area_overlay,area_core
+187,WILLIAMSON,38,009999,2-5 Fire & Rescue Station #24,1.0,boom_nyt_precinct_area_overlay,area_core
+187,WILLIAMSON,39,009706,2-2 Thompson Station Baptist Church,1.0,boom_nyt_precinct_area_overlay,area_core
+187,WILLIAMSON,40,009731,9-4 Grace Chapel Church,0.72242,boom_nyt_precinct_area_overlay,area_split
+187,WILLIAMSON,40,009741,9-5 Independence High School,0.27758,boom_nyt_precinct_area_overlay,area_split
+187,WILLIAMSON,41,009732,10-1 Franklin Recreation Complex,0.698433,boom_nyt_precinct_area_overlay,area_split
+187,WILLIAMSON,41,009734,10-3 Hunter's Bend Elementary School,0.301567,boom_nyt_precinct_area_overlay,area_split
+187,WILLIAMSON,42,009732,10-1 Franklin Recreation Complex,1.0,boom_nyt_precinct_area_overlay,area_core
+187,WILLIAMSON,43,009739,12-2 The Church of the City-Franklin,1.0,boom_nyt_precinct_area_overlay,area_core
+187,WILLIAMSON,44,009738,12-1 Franklin Community of Faith Church,1.0,boom_nyt_precinct_area_overlay,area_core
+187,WILLIAMSON,45,009733,10-2 Liberty Elementary School,1.0,boom_nyt_precinct_area_overlay,area_core
+187,WILLIAMSON,46,009734,10-3 Hunter's Bend Elementary School,0.432902,boom_nyt_precinct_area_overlay,area_split
+187,WILLIAMSON,46,009733,10-2 Liberty Elementary School,0.325731,boom_nyt_precinct_area_overlay,area_split
+187,WILLIAMSON,46,009732,10-1 Franklin Recreation Complex,0.241367,boom_nyt_precinct_area_overlay,area_split
+187,WILLIAMSON,47,009735,11-1 Franklin Elementary School,0.570704,boom_nyt_precinct_area_overlay,area_split
+187,WILLIAMSON,47,009737,11-3 Winstead Elementary School,0.317296,boom_nyt_precinct_area_overlay,area_split
+187,WILLIAMSON,47,009739,12-2 The Church of the City-Franklin,0.099916,boom_nyt_precinct_area_overlay,area_split
+187,WILLIAMSON,47,009707,2-3 Oakview Elementary School,0.006284,boom_nyt_precinct_area_overlay,area_split
+187,WILLIAMSON,47,009736,11-2 Robert Ring Indoor Soccer Complex,0.005801,boom_nyt_precinct_area_overlay,area_split
+187,WILLIAMSON,48,009736,11-2 Robert Ring Indoor Soccer Complex,0.729129,boom_nyt_precinct_area_overlay,area_split
+187,WILLIAMSON,48,009732,10-1 Franklin Recreation Complex,0.270871,boom_nyt_precinct_area_overlay,area_split
+187,WILLIAMSON,49,009741,9-5 Independence High School,0.566087,boom_nyt_precinct_area_overlay,area_split
+187,WILLIAMSON,49,009737,11-3 Winstead Elementary School,0.433913,boom_nyt_precinct_area_overlay,area_split
+187,WILLIAMSON,50,009736,11-2 Robert Ring Indoor Soccer Complex,1.0,boom_nyt_precinct_area_overlay,area_core
+187,WILLIAMSON,51,009737,11-3 Winstead Elementary School,0.521678,boom_nyt_precinct_area_overlay,area_split
+187,WILLIAMSON,51,009735,11-1 Franklin Elementary School,0.286283,boom_nyt_precinct_area_overlay,area_split
+187,WILLIAMSON,51,009707,2-3 Oakview Elementary School,0.185848,boom_nyt_precinct_area_overlay,area_split
+187,WILLIAMSON,51,009736,11-2 Robert Ring Indoor Soccer Complex,0.006191,boom_nyt_precinct_area_overlay,area_split
+187,WILLIAMSON,52,009739,12-2 The Church of the City-Franklin,1.0,boom_nyt_precinct_area_overlay,area_core
+187,WILLIAMSON,53,009712,4-1 Prairie Life Fitness Center,1.0,boom_nyt_precinct_area_overlay,area_core
+187,WILLIAMSON,54,009714,4-3 Franklin Christian Church,0.544351,boom_nyt_precinct_area_overlay,area_split
+187,WILLIAMSON,54,009740,12-3 The Gate Community Church,0.443585,boom_nyt_precinct_area_overlay,area_split
+187,WILLIAMSON,54,009712,4-1 Prairie Life Fitness Center,0.006285,boom_nyt_precinct_area_overlay,area_split
+187,WILLIAMSON,54,009739,12-2 The Church of the City-Franklin,0.005779,boom_nyt_precinct_area_overlay,area_split
+187,WILLIAMSON,55,009740,12-3 The Gate Community Church,0.627981,boom_nyt_precinct_area_overlay,area_split
+187,WILLIAMSON,55,009713,4-2 Millview Church of Christ,0.372019,boom_nyt_precinct_area_overlay,area_split

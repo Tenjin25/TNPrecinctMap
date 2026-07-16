@@ -7,7 +7,9 @@ const root = path.resolve(__dirname, '..');
 const dataDir = path.join(root, 'Data');
 const crosswalkDir = path.join(dataDir, 'crosswalks');
 
-const vtdPath = path.join(dataDir, 'tn_vtd_2020_census_statewide.geojson');
+const vtdPath = fs.existsSync(path.join(dataDir, 'tn_vtd_2020.geojson'))
+  ? path.join(dataDir, 'tn_vtd_2020.geojson')
+  : path.join(dataDir, 'tn_vtd_2020_census_statewide.geojson');
 const countyPath = path.join(dataDir, 'tl_2020_47_county20.geojson');
 const outPath = path.join(crosswalkDir, 'tn_precinct_friendly_names_2020.json');
 
@@ -31,7 +33,8 @@ function formatDisplayName(raw) {
 function pickVtdLabel(props) {
   const namelsad = normalizeCountyName(props.NAMELSAD20 || '');
   const name = normalizeCountyName(props.NAME20 || '');
-  return formatDisplayName(namelsad || name);
+  const fallback = normalizeCountyName(props.name || '');
+  return formatDisplayName(namelsad || name || fallback);
 }
 
 function main() {

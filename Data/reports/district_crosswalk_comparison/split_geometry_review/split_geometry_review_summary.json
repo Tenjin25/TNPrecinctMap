@@ -1,0 +1,12 @@
+{
+  "queue_csv": "reports\\district_crosswalk_comparison\\district_split_review_queue.csv",
+  "top_n": 19,
+  "priority_filter": "high",
+  "output_dir": "reports\\district_crosswalk_comparison\\split_geometry_review",
+  "summary_csv": "reports\\district_crosswalk_comparison\\split_geometry_review\\split_geometry_review_summary.csv",
+  "pieces_csv": "reports\\district_crosswalk_comparison\\split_geometry_review\\split_geometry_review_pieces.csv",
+  "suggested_action_counts": {
+    "manual_split_review": 19
+  },
+  "png_maps_written": 0
+}

@@ -1,0 +1,123 @@
+{
+  "scope": "congressional",
+  "contest_type": "us_senate",
+  "year": 2012,
+  "meta": {
+    "source": "tn_precinct_csv_district_aggregation_2026_lines_with_2022_line_transfer_for_districts_1_2",
+    "match_coverage_pct": 98.5728,
+    "direct_precinct_row_pct": 96.7078,
+    "overlap_precinct_row_pct": 0.0,
+    "non_geo_row_pct": 1.8519,
+    "county_fallback_row_pct": 0.0,
+    "dropped_row_pct": 1.4403,
+    "direct_precinct_vote_pct": 95.7021,
+    "overlap_precinct_vote_pct": 0.0,
+    "non_geo_vote_pct": 2.8706,
+    "county_fallback_vote_pct": 0.0,
+    "dropped_vote_pct": 1.4272,
+    "districts": 9
+  },
+  "general": {
+    "results": {
+      "1": {
+        "dem_votes": 48975,
+        "rep_votes": 195282,
+        "other_votes": 10712,
+        "total_votes": 254969,
+        "dem_candidate": "Mark E. Clayton",
+        "rep_candidate": "Bob Corker",
+        "margin": 146307,
+        "margin_pct": 57.3823,
+        "winner": "REP"
+      },
+      "2": {
+        "dem_votes": 55322,
+        "rep_votes": 188958,
+        "other_votes": 15725,
+        "total_votes": 260005,
+        "dem_candidate": "Mark E. Clayton",
+        "rep_candidate": "Bob Corker",
+        "margin": 133636,
+        "margin_pct": 51.3975,
+        "winner": "REP"
+      },
+      "3": {
+        "dem_votes": 67628,
+        "rep_votes": 192192,
+        "other_votes": 10091,
+        "total_votes": 269911,
+        "dem_candidate": "Mark E. Clayton",
+        "rep_candidate": "Bob Corker",
+        "margin": 124564,
+        "margin_pct": 46.15,
+        "winner": "REP"
+      },
+      "4": {
+        "dem_votes": 74576,
+        "rep_votes": 133345,
+        "other_votes": 10834,
+        "total_votes": 218755,
+        "dem_candidate": "Mark E. Clayton",
+        "rep_candidate": "Bob Corker",
+        "margin": 58769,
+        "margin_pct": 26.8652,
+        "winner": "REP"
+      },
+      "5": {
+        "dem_votes": 80944,
+        "rep_votes": 180289,
+        "other_votes": 11704,
+        "total_votes": 272937,
+        "dem_candidate": "Mark E. Clayton",
+        "rep_candidate": "Bob Corker",
+        "margin": 99345,
+        "margin_pct": 36.3985,
+        "winner": "REP"
+      },
+      "6": {
+        "dem_votes": 75146,
+        "rep_votes": 154195,
+        "other_votes": 14653,
+        "total_votes": 243994,
+        "dem_candidate": "Mark E. Clayton",
+        "rep_candidate": "Bob Corker",
+        "margin": 79049,
+        "margin_pct": 32.3979,
+        "winner": "REP"
+      },
+      "7": {
+        "dem_votes": 70484,
+        "rep_votes": 143868,
+        "other_votes": 11939,
+        "total_votes": 226291,
+        "dem_candidate": "Mark E. Clayton",
+        "rep_candidate": "Bob Corker",
+        "margin": 73384,
+        "margin_pct": 32.429,
+        "winner": "REP"
+      },
+      "8": {
+        "dem_votes": 88779,
+        "rep_votes": 191112,
+        "other_votes": 9370,
+        "total_votes": 289261,
+        "dem_candidate": "Mark E. Clayton",
+        "rep_candidate": "Bob Corker",
+        "margin": 102333,
+        "margin_pct": 35.3774,
+        "winner": "REP"
+      },
+      "9": {
+        "dem_votes": 73807,
+        "rep_votes": 176482,
+        "other_votes": 11034,
+        "total_votes": 261323,
+        "dem_candidate": "Mark E. Clayton",
+        "rep_candidate": "Bob Corker",
+        "margin": 102675,
+        "margin_pct": 39.2905,
+        "winner": "REP"
+      }
+    }
+  }
+}

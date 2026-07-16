@@ -1,0 +1,123 @@
+{
+  "scope": "congressional",
+  "contest_type": "us_senate",
+  "year": 2000,
+  "meta": {
+    "source": "tn_precinct_csv_district_aggregation_2026_lines_with_2022_line_transfer_for_districts_1_2",
+    "match_coverage_pct": 98.5606,
+    "direct_precinct_row_pct": 87.3635,
+    "overlap_precinct_row_pct": 0.0,
+    "non_geo_row_pct": 9.4644,
+    "county_fallback_row_pct": 0.0,
+    "dropped_row_pct": 3.1721,
+    "direct_precinct_vote_pct": 73.6268,
+    "overlap_precinct_vote_pct": 0.0,
+    "non_geo_vote_pct": 24.9337,
+    "county_fallback_vote_pct": 0.0,
+    "dropped_vote_pct": 1.4394,
+    "districts": 9
+  },
+  "general": {
+    "results": {
+      "1": {
+        "dem_votes": 51197,
+        "rep_votes": 159221,
+        "other_votes": 5720,
+        "total_votes": 216138,
+        "dem_candidate": "Jeff Clark",
+        "rep_candidate": "Bill Frist",
+        "margin": 108024,
+        "margin_pct": 49.9792,
+        "winner": "REP"
+      },
+      "2": {
+        "dem_votes": 54434,
+        "rep_votes": 157702,
+        "other_votes": 6604,
+        "total_votes": 218740,
+        "dem_candidate": "Jeff Clark",
+        "rep_candidate": "Bill Frist",
+        "margin": 103268,
+        "margin_pct": 47.2104,
+        "winner": "REP"
+      },
+      "3": {
+        "dem_votes": 69293,
+        "rep_votes": 162365,
+        "other_votes": 5076,
+        "total_votes": 236734,
+        "dem_candidate": "Jeff Clark",
+        "rep_candidate": "Bill Frist",
+        "margin": 93072,
+        "margin_pct": 39.315,
+        "winner": "REP"
+      },
+      "4": {
+        "dem_votes": 60250,
+        "rep_votes": 112157,
+        "other_votes": 5350,
+        "total_votes": 177757,
+        "dem_candidate": "Jeff Clark",
+        "rep_candidate": "Bill Frist",
+        "margin": 51907,
+        "margin_pct": 29.2011,
+        "winner": "REP"
+      },
+      "5": {
+        "dem_votes": 102385,
+        "rep_votes": 182292,
+        "other_votes": 6419,
+        "total_votes": 291096,
+        "dem_candidate": "Jeff Clark",
+        "rep_candidate": "Bill Frist",
+        "margin": 79907,
+        "margin_pct": 27.4504,
+        "winner": "REP"
+      },
+      "6": {
+        "dem_votes": 70625,
+        "rep_votes": 121696,
+        "other_votes": 6307,
+        "total_votes": 198628,
+        "dem_candidate": "Jeff Clark",
+        "rep_candidate": "Bill Frist",
+        "margin": 51071,
+        "margin_pct": 25.7119,
+        "winner": "REP"
+      },
+      "7": {
+        "dem_votes": 64341,
+        "rep_votes": 124954,
+        "other_votes": 5467,
+        "total_votes": 194762,
+        "dem_candidate": "Jeff Clark",
+        "rep_candidate": "Bill Frist",
+        "margin": 60613,
+        "margin_pct": 31.1216,
+        "winner": "REP"
+      },
+      "8": {
+        "dem_votes": 70766,
+        "rep_votes": 148786,
+        "other_votes": 4643,
+        "total_votes": 224195,
+        "dem_candidate": "Jeff Clark",
+        "rep_candidate": "Bill Frist",
+        "margin": 78020,
+        "margin_pct": 34.8001,
+        "winner": "REP"
+      },
+      "9": {
+        "dem_votes": 83342,
+        "rep_votes": 154014,
+        "other_votes": 5435,
+        "total_votes": 242791,
+        "dem_candidate": "Jeff Clark",
+        "rep_candidate": "Bill Frist",
+        "margin": 70672,
+        "margin_pct": 29.1082,
+        "winner": "REP"
+      }
+    }
+  }
+}

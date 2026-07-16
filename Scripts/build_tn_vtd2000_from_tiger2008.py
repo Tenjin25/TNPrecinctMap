@@ -14,6 +14,7 @@ import json
 import re
 import time
 import urllib.request
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 from typing import Dict, List, Tuple
 
@@ -64,35 +65,97 @@ def url_for_county_dir(county_dir: str) -> str:
     return f"{INDEX_URL}{county_dir}{zip_name_for_county_dir(county_dir)}"
 
 
-def ensure_downloads(county_dirs: List[str], skip_download: bool) -> Tuple[List[Tuple[str, Path]], int]:
+def download_zip(url: str, dest: Path, timeout: int) -> None:
+    temp_dest = dest.with_suffix(dest.suffix + ".part")
+    req = urllib.request.Request(url, headers=REQUEST_HEADERS)
+    with urllib.request.urlopen(req, timeout=timeout) as resp:
+        temp_dest.write_bytes(resp.read())
+    temp_dest.replace(dest)
+
+
+def download_county_zip(
+    county_dir: str,
+    skip_download: bool,
+    timeout: int,
+    retries: int,
+) -> dict:
+    local_zip = DOWNLOAD_DIR / zip_name_for_county_dir(county_dir)
+    if local_zip.exists():
+        return {"county_dir": county_dir, "zip_path": local_zip, "status": "cached"}
+    if skip_download:
+        return {
+            "county_dir": county_dir,
+            "zip_path": local_zip,
+            "status": "missing",
+            "error": f"Missing cached zip with --skip-download: {local_zip}",
+        }
+
+    url = url_for_county_dir(county_dir)
+    last_err: Exception | None = None
+    for attempt in range(1, retries + 1):
+        try:
+            download_zip(url, local_zip, timeout)
+            return {"county_dir": county_dir, "zip_path": local_zip, "status": "downloaded"}
+        except Exception as err:  # pragma: no cover - network path
+            last_err = err
+            part = local_zip.with_suffix(local_zip.suffix + ".part")
+            if part.exists():
+                part.unlink(missing_ok=True)
+            if attempt < retries:
+                time.sleep(1.5 * attempt)
+
+    return {
+        "county_dir": county_dir,
+        "zip_path": local_zip,
+        "status": "failed",
+        "error": str(last_err),
+    }
+
+
+def ensure_downloads(
+    county_dirs: List[str],
+    skip_download: bool,
+    workers: int,
+    timeout: int,
+    retries: int,
+) -> Tuple[List[Tuple[str, Path]], int, int]:
     DOWNLOAD_DIR.mkdir(parents=True, exist_ok=True)
     downloaded = 0
-    out: List[Tuple[str, Path]] = []
-    for county_dir in county_dirs:
-        local_zip = DOWNLOAD_DIR / zip_name_for_county_dir(county_dir)
-        if not local_zip.exists():
-            if skip_download:
-                raise FileNotFoundError(f"Missing cached zip with --skip-download: {local_zip}")
-            url = url_for_county_dir(county_dir)
-            last_err: Exception | None = None
-            for attempt in range(1, 4):
-                try:
-                    req = urllib.request.Request(url, headers=REQUEST_HEADERS)
-                    with urllib.request.urlopen(req, timeout=180) as resp:
-                        local_zip.write_bytes(resp.read())
-                    last_err = None
-                    break
-                except Exception as err:  # pragma: no cover - network path
-                    last_err = err
-                    if local_zip.exists():
-                        local_zip.unlink(missing_ok=True)
-                    if attempt < 3:
-                        time.sleep(1.5 * attempt)
-            if last_err is not None:
-                raise RuntimeError(f"Failed to download {url}: {last_err}") from last_err
-            downloaded += 1
-        out.append((county_dir, local_zip))
-    return out, downloaded
+    cached = 0
+    results = []
+    max_workers = max(1, min(workers, len(county_dirs)))
+
+    with ThreadPoolExecutor(max_workers=max_workers) as executor:
+        futures = {
+            executor.submit(
+                download_county_zip,
+                county_dir,
+                skip_download,
+                timeout,
+                retries,
+            ): county_dir
+            for county_dir in county_dirs
+        }
+        completed = 0
+        for future in as_completed(futures):
+            result = future.result()
+            results.append(result)
+            completed += 1
+            status = result["status"]
+            if status == "downloaded":
+                downloaded += 1
+            elif status == "cached":
+                cached += 1
+            print(f"[{completed}/{len(county_dirs)}] {result['county_dir']} {status}", flush=True)
+
+    failed = [r for r in results if r["status"] in {"failed", "missing"}]
+    if failed:
+        details = "; ".join(f"{r['county_dir']}: {r.get('error', '')}" for r in failed)
+        raise RuntimeError(f"Failed to resolve {len(failed)} VTD00 county ZIPs: {details}")
+
+    result_by_county = {r["county_dir"]: r for r in results}
+    out = [(county_dir, result_by_county[county_dir]["zip_path"]) for county_dir in county_dirs]
+    return out, downloaded, cached
 
 
 def county_name_from_dir(county_dir: str) -> str:
@@ -163,7 +226,7 @@ def build_statewide_vtd(zip_rows: List[Tuple[str, Path]]) -> gpd.GeoDataFrame:
     return statewide
 
 
-def write_outputs(statewide: gpd.GeoDataFrame, county_dirs: List[str], downloaded: int) -> None:
+def write_outputs(statewide: gpd.GeoDataFrame, county_dirs: List[str], downloaded: int, cached: int) -> None:
     OUT_GEOJSON.parent.mkdir(parents=True, exist_ok=True)
     out_cols = [
         "STATEFP00",
@@ -191,6 +254,7 @@ def write_outputs(statewide: gpd.GeoDataFrame, county_dirs: List[str], downloade
         "county_dirs_found": len(county_dirs),
         "county_dirs_sample": county_dirs[:5],
         "county_zips_downloaded_this_run": downloaded,
+        "county_zips_cached_this_run": cached,
         "statewide_feature_count": int(len(statewide)),
         "distinct_counties": int(statewide["COUNTYFP00"].nunique()),
         "distinct_vtdidfp00": int(statewide["VTDIDFP00"].nunique()),
@@ -207,12 +271,21 @@ def main() -> None:
         action="store_true",
         help="Do not fetch from Census; use only local cached county zips.",
     )
+    parser.add_argument("--workers", type=int, default=8, help="Parallel download workers")
+    parser.add_argument("--timeout", type=int, default=120, help="Per-request timeout in seconds")
+    parser.add_argument("--retries", type=int, default=3, help="Download attempts per county ZIP")
     args = parser.parse_args()
 
     county_dirs = list_county_dirs(fetch_index_html())
-    zip_rows, downloaded = ensure_downloads(county_dirs, skip_download=args.skip_download)
+    zip_rows, downloaded, cached = ensure_downloads(
+        county_dirs,
+        skip_download=args.skip_download,
+        workers=args.workers,
+        timeout=args.timeout,
+        retries=args.retries,
+    )
     statewide = build_statewide_vtd(zip_rows)
-    write_outputs(statewide, county_dirs, downloaded)
+    write_outputs(statewide, county_dirs, downloaded, cached)
 
 
 if __name__ == "__main__":

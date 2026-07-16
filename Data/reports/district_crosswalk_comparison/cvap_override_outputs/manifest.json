@@ -1,0 +1,50 @@
+{
+  "bundle_dir": "reports\\district_crosswalk_comparison\\cvap_override_outputs",
+  "candidate_files": [
+    "tn_congressional_2022_precinct_crosswalk.csv",
+    "tn_congressional_2026_precinct_crosswalk.csv",
+    "tn_state_house_2022_precinct_crosswalk.csv",
+    "tn_state_senate_2022_precinct_crosswalk.csv",
+    "tn_district_carryover_crosswalk_summary.json",
+    "tn_district_split_overrides.csv",
+    "tn_district_split_cvap_override_summary.json",
+    "district_split_cvap_weight_comparison.csv"
+  ],
+  "area_weighted_files": [
+    "tn_congressional_2022_precinct_crosswalk.csv",
+    "tn_congressional_2026_precinct_crosswalk.csv",
+    "tn_state_house_2022_precinct_crosswalk.csv",
+    "tn_state_senate_2022_precinct_crosswalk.csv"
+  ],
+  "live_district_contests_2026": {
+    "source": "C:\\Users\\Shama\\OneDrive\\Documents\\Side_Projects\\Side_Projects\\TNPrecinctMap\\Data\\district_contests_2026",
+    "files": [
+      "calibration_overrides.json",
+      "congressional_governor_2002.json",
+      "congressional_governor_2006.json",
+      "congressional_governor_2010.json",
+      "congressional_governor_2014.json",
+      "congressional_governor_2018.json",
+      "congressional_governor_2022.json",
+      "congressional_president_2000.json",
+      "congressional_president_2004.json",
+      "congressional_president_2008.json",
+      "congressional_president_2012.json",
+      "congressional_president_2016.json",
+      "congressional_president_2020.json",
+      "congressional_president_2024.json",
+      "congressional_us_senate_2000.json",
+      "congressional_us_senate_2002.json",
+      "congressional_us_senate_2006.json",
+      "congressional_us_senate_2008.json",
+      "congressional_us_senate_2012.json",
+      "congressional_us_senate_2014.json",
+      "congressional_us_senate_2018.json",
+      "congressional_us_senate_2020.json",
+      "congressional_us_senate_2024.json",
+      "manifest.json"
+    ]
+  },
+  "congressional_2026_weight_diff_rows": 6,
+  "congressional_2026_president_2024_totals_diff_rows": 9
+}

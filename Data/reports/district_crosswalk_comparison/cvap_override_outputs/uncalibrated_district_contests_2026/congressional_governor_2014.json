@@ -1,0 +1,123 @@
+{
+  "scope": "congressional",
+  "contest_type": "governor",
+  "year": 2014,
+  "meta": {
+    "source": "tn_precinct_csv_district_aggregation_2026_lines_with_2022_line_transfer_for_districts_1_2",
+    "match_coverage_pct": 100.0,
+    "direct_precinct_row_pct": 99.4262,
+    "overlap_precinct_row_pct": 0.0,
+    "non_geo_row_pct": 0.5738,
+    "county_fallback_row_pct": 0.0,
+    "dropped_row_pct": 0.0,
+    "direct_precinct_vote_pct": 99.8055,
+    "overlap_precinct_vote_pct": 0.0,
+    "non_geo_vote_pct": 0.1945,
+    "county_fallback_vote_pct": 0.0,
+    "dropped_vote_pct": 0.0,
+    "districts": 9
+  },
+  "general": {
+    "results": {
+      "1": {
+        "dem_votes": 21429,
+        "rep_votes": 118190,
+        "other_votes": 9994,
+        "total_votes": 149613,
+        "dem_candidate": "Charles V. \"Charlie\" Brown",
+        "rep_candidate": "Bill Haslam",
+        "margin": 96761,
+        "margin_pct": 64.6742,
+        "winner": "REP"
+      },
+      "2": {
+        "dem_votes": 24474,
+        "rep_votes": 126665,
+        "other_votes": 10863,
+        "total_votes": 162002,
+        "dem_candidate": "Charles V. \"Charlie\" Brown",
+        "rep_candidate": "Bill Haslam",
+        "margin": 102191,
+        "margin_pct": 63.0801,
+        "winner": "REP"
+      },
+      "3": {
+        "dem_votes": 32913,
+        "rep_votes": 121756,
+        "other_votes": 7934,
+        "total_votes": 162603,
+        "dem_candidate": "Charles V. \"Charlie\" Brown",
+        "rep_candidate": "Bill Haslam",
+        "margin": 88843,
+        "margin_pct": 54.638,
+        "winner": "REP"
+      },
+      "4": {
+        "dem_votes": 32400,
+        "rep_votes": 81149,
+        "other_votes": 9996,
+        "total_votes": 123545,
+        "dem_candidate": "Charles V. \"Charlie\" Brown",
+        "rep_candidate": "Bill Haslam",
+        "margin": 48749,
+        "margin_pct": 39.4585,
+        "winner": "REP"
+      },
+      "5": {
+        "dem_votes": 43950,
+        "rep_votes": 90883,
+        "other_votes": 11561,
+        "total_votes": 146394,
+        "dem_candidate": "Charles V. \"Charlie\" Brown",
+        "rep_candidate": "Bill Haslam",
+        "margin": 46933,
+        "margin_pct": 32.0594,
+        "winner": "REP"
+      },
+      "6": {
+        "dem_votes": 37142,
+        "rep_votes": 97922,
+        "other_votes": 13401,
+        "total_votes": 148465,
+        "dem_candidate": "Charles V. \"Charlie\" Brown",
+        "rep_candidate": "Bill Haslam",
+        "margin": 60780,
+        "margin_pct": 40.9389,
+        "winner": "REP"
+      },
+      "7": {
+        "dem_votes": 35548,
+        "rep_votes": 100444,
+        "other_votes": 12319,
+        "total_votes": 148311,
+        "dem_candidate": "Charles V. \"Charlie\" Brown",
+        "rep_candidate": "Bill Haslam",
+        "margin": 64896,
+        "margin_pct": 43.7567,
+        "winner": "REP"
+      },
+      "8": {
+        "dem_votes": 37793,
+        "rep_votes": 124316,
+        "other_votes": 8681,
+        "total_votes": 170790,
+        "dem_candidate": "Charles V. \"Charlie\" Brown",
+        "rep_candidate": "Bill Haslam",
+        "margin": 86523,
+        "margin_pct": 50.6605,
+        "winner": "REP"
+      },
+      "9": {
+        "dem_votes": 43592,
+        "rep_votes": 90482,
+        "other_votes": 7947,
+        "total_votes": 142021,
+        "dem_candidate": "Charles V. \"Charlie\" Brown",
+        "rep_candidate": "Bill Haslam",
+        "margin": 46890,
+        "margin_pct": 33.0162,
+        "winner": "REP"
+      }
+    }
+  }
+}

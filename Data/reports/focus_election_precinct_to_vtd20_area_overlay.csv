@@ -1,0 +1,11 @@
+geoid,county_norm,prctseq,label,vtd20,vtd_name,weight
+47013-5/LREC,CAMPBELL,0027,5-6 LaFollette Rec,000603,West LaFollette,1.0
+47119-Wright Elementary,MAURY,0016,Wright 8-2,005965,Rally Hill,0.8983171094565059
+47119-Wright Elementary,MAURY,0016,Wright 8-2,005951,Spring Hill,0.10168289054349408
+47165-1402 Birdwell Chapel Church of Christ,SUMNER,0018,14-2 Birdwell,008627,403 Cottontown Fire Hall,0.4113018794410833
+47165-1402 Birdwell Chapel Church of Christ,SUMNER,0018,14-2 Birdwell,008612,1201 Oakmont Elementary,0.36633885503414254
+47165-1402 Birdwell Chapel Church of Christ,SUMNER,0018,14-2 Birdwell,008626,1203 White House Middle School,0.16353689713803363
+47165-1402 Birdwell Chapel Church of Christ,SUMNER,0018,14-2 Birdwell,008611,401 Howard Elementary School,0.058822368386740646
+47165-1701 Church of the Nazarene,SUMNER,0021,17-1 Goodlettsville,008623,1102 Church of the Nazarene,0.5139169386965107
+47165-1701 Church of the Nazarene,SUMNER,0021,17-1 Goodlettsville,008633,1002 Merrol Hyde Magnet School,0.4556520552211205
+47165-1701 Church of the Nazarene,SUMNER,0021,17-1 Goodlettsville,008624,1101 Beech High School Annex,0.030431006082368685

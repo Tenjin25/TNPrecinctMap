@@ -4,15 +4,17 @@
 Reads Data/crosswalks/tn_precinct_to_vtd20_blockweighted_*.csv and writes:
   - Data/crosswalks/tn_crosswalk_confidence_by_year.csv
   - Data/crosswalks/tn_crosswalk_confidence_by_county_year.csv
+  - Data/crosswalks/tn_crosswalk_manual_fix_queue.csv
+  - Data/crosswalks/tn_crosswalk_manual_fix_queue_summary.csv
 """
 
 from __future__ import annotations
 
 import csv
 import re
-from collections import defaultdict
+from collections import Counter, defaultdict
 from pathlib import Path
-from typing import Dict, Iterable, Tuple
+from typing import Dict, Iterable, List, Tuple
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -21,6 +23,8 @@ XWALK_DIR = DATA_DIR / "crosswalks"
 
 OUT_YEAR = XWALK_DIR / "tn_crosswalk_confidence_by_year.csv"
 OUT_COUNTY_YEAR = XWALK_DIR / "tn_crosswalk_confidence_by_county_year.csv"
+OUT_FIX_QUEUE = XWALK_DIR / "tn_crosswalk_manual_fix_queue.csv"
+OUT_FIX_QUEUE_SUMMARY = XWALK_DIR / "tn_crosswalk_manual_fix_queue_summary.csv"
 
 
 HIGH_METHODS = {
@@ -58,12 +62,175 @@ def pct(numer: int, denom: int) -> float:
     return round((numer / denom) * 100.0, 4)
 
 
+def parse_float(value: str) -> float:
+    try:
+        return float(str(value or "").strip())
+    except ValueError:
+        return 0.0
+
+
 def method_rank(method: str) -> int:
     if method in HIGH_METHODS:
         return 2
     if method in MEDIUM_METHODS:
         return 1
     return 0
+
+
+def export_manual_fix_queue() -> Tuple[int, int]:
+    """Write prioritized low-confidence review queues from current crosswalk outputs."""
+    selected_groups = {}
+    selected_priority = {}
+
+    files = sorted(XWALK_DIR.glob("tn_precinct_to_vtd20_blockweighted_*_low_confidence.csv"))
+    for path in files:
+        file_groups = defaultdict(
+            lambda: {
+                "rows": 0,
+                "score_sum": 0.0,
+                "weight_sum": 0.0,
+                "dst_counts": Counter(),
+            }
+        )
+        for row in iter_rows(path):
+            year_raw = (row.get("from_year") or "").strip()
+            if not year_raw:
+                continue
+            year = int(year_raw)
+            county = (row.get("county_norm") or "").strip().upper()
+            precinct = (row.get("from_precinct_norm") or "").strip().upper()
+            method = (row.get("match_method") or "").strip()
+            dst_vtd20 = (row.get("dst_vtd20") or "").strip()
+            score = parse_float(row.get("match_score") or "")
+            weight = parse_float(row.get("weight") or "")
+            if not county or not precinct or not method:
+                continue
+
+            key = (year, county, precinct, method)
+            group = file_groups[key]
+            group["rows"] += 1
+            group["score_sum"] += score
+            group["weight_sum"] += weight
+            if dst_vtd20:
+                group["dst_counts"][dst_vtd20] += 1
+
+        file_priority = 1 if "__" in path.name else 0
+        for key, group in file_groups.items():
+            rows = int(group["rows"])
+            avg_score = group["score_sum"] / rows if rows else 0.0
+            unique_dst_count = len(group["dst_counts"])
+            impact_score = rows * (1.0 - avg_score) + unique_dst_count * 0.01
+            priority = (
+                method_rank(key[3]),
+                file_priority,
+                avg_score,
+                -impact_score,
+                -rows,
+                path.name,
+            )
+            if priority > selected_priority.get(key, (-1, -1, -1.0, float("-inf"), float("-inf"), "")):
+                selected_groups[key] = group
+                selected_priority[key] = priority
+
+    queue_rows: List[dict] = []
+    summary_groups = defaultdict(lambda: {"precincts": set(), "rows": 0, "score_sum": 0.0})
+    for (year, county, precinct, method), group in selected_groups.items():
+        rows = int(group["rows"])
+        avg_score = round(group["score_sum"] / rows, 6) if rows else 0.0
+        dst_counts = group["dst_counts"]
+        top_dst = ""
+        top_dst_count = 0
+        if dst_counts:
+            top_dst, top_dst_count = sorted(
+                dst_counts.items(),
+                key=lambda item: (-item[1], item[0]),
+            )[0]
+        unique_dst_count = len(dst_counts)
+        impact_score = round(rows * (1.0 - avg_score) + unique_dst_count * 0.01, 6)
+        queue_rows.append(
+            {
+                "year": year,
+                "county_norm": county,
+                "from_precinct_norm": precinct,
+                "match_method": method,
+                "low_conf_rows": rows,
+                "avg_match_score": avg_score,
+                "top_suggested_dst_vtd20": top_dst,
+                "top_suggested_dst_count": top_dst_count,
+                "unique_suggested_dst_count": unique_dst_count,
+                "total_weight": round(group["weight_sum"], 6),
+                "impact_score": impact_score,
+            }
+        )
+        summary_key = (year, county)
+        summary = summary_groups[summary_key]
+        summary["precincts"].add(precinct)
+        summary["rows"] += rows
+        summary["score_sum"] += group["score_sum"]
+
+    queue_rows.sort(
+        key=lambda row: (
+            -float(row["impact_score"]),
+            int(row["year"]),
+            row["county_norm"],
+            row["from_precinct_norm"],
+            row["match_method"],
+        )
+    )
+
+    with OUT_FIX_QUEUE.open("w", encoding="utf-8", newline="") as f:
+        fieldnames = [
+            "year",
+            "county_norm",
+            "from_precinct_norm",
+            "match_method",
+            "low_conf_rows",
+            "avg_match_score",
+            "top_suggested_dst_vtd20",
+            "top_suggested_dst_count",
+            "unique_suggested_dst_count",
+            "total_weight",
+            "impact_score",
+        ]
+        w = csv.DictWriter(f, fieldnames=fieldnames, lineterminator="\n")
+        w.writeheader()
+        w.writerows(queue_rows)
+
+    summary_rows: List[dict] = []
+    for (year, county), group in summary_groups.items():
+        rows = int(group["rows"])
+        avg_score = round(group["score_sum"] / rows, 6) if rows else 0.0
+        summary_rows.append(
+            {
+                "year": year,
+                "county_norm": county,
+                "low_conf_precinct_keys": len(group["precincts"]),
+                "low_conf_rows": rows,
+                "weighted_avg_match_score": avg_score,
+            }
+        )
+
+    summary_rows.sort(
+        key=lambda row: (
+            -int(row["low_conf_rows"]),
+            int(row["year"]),
+            row["county_norm"],
+        )
+    )
+
+    with OUT_FIX_QUEUE_SUMMARY.open("w", encoding="utf-8", newline="") as f:
+        fieldnames = [
+            "year",
+            "county_norm",
+            "low_conf_precinct_keys",
+            "low_conf_rows",
+            "weighted_avg_match_score",
+        ]
+        w = csv.DictWriter(f, fieldnames=fieldnames, lineterminator="\n")
+        w.writeheader()
+        w.writerows(summary_rows)
+
+    return len(queue_rows), len(summary_rows)
 
 
 def main() -> None:
@@ -125,6 +292,7 @@ def main() -> None:
                 "full_keys",
                 "full_pct",
             ],
+            lineterminator="\n",
         )
         w.writeheader()
         for year in sorted(by_year.keys()):
@@ -159,6 +327,7 @@ def main() -> None:
                 "full_keys",
                 "full_pct",
             ],
+            lineterminator="\n",
         )
         w.writeheader()
         for year, county in sorted(by_county_year.keys()):
@@ -182,6 +351,9 @@ def main() -> None:
 
     print(f"Wrote {OUT_YEAR}")
     print(f"Wrote {OUT_COUNTY_YEAR}")
+    queue_count, summary_count = export_manual_fix_queue()
+    print(f"Wrote {OUT_FIX_QUEUE} ({queue_count} rows)")
+    print(f"Wrote {OUT_FIX_QUEUE_SUMMARY} ({summary_count} rows)")
 
 
 if __name__ == "__main__":

@@ -1,0 +1,123 @@
+{
+  "scope": "congressional",
+  "contest_type": "us_senate",
+  "year": 2024,
+  "meta": {
+    "source": "tn_precinct_csv_district_aggregation_2026_lines_with_2022_line_transfer_for_districts_1_2",
+    "match_coverage_pct": 100.0,
+    "direct_precinct_row_pct": 99.9427,
+    "overlap_precinct_row_pct": 0.0,
+    "non_geo_row_pct": 0.0573,
+    "county_fallback_row_pct": 0.0,
+    "dropped_row_pct": 0.0,
+    "direct_precinct_vote_pct": 100.0,
+    "overlap_precinct_vote_pct": 0.0,
+    "non_geo_vote_pct": 0.0,
+    "county_fallback_vote_pct": 0.0,
+    "dropped_vote_pct": 0.0,
+    "districts": 9
+  },
+  "general": {
+    "results": {
+      "1": {
+        "dem_votes": 68574,
+        "rep_votes": 267495,
+        "other_votes": 6100,
+        "total_votes": 342169,
+        "dem_candidate": "Gloria Johnson",
+        "rep_candidate": "Marsha Blackburn",
+        "margin": 198921,
+        "margin_pct": 58.1353,
+        "winner": "REP"
+      },
+      "2": {
+        "dem_votes": 120505,
+        "rep_votes": 238269,
+        "other_votes": 5811,
+        "total_votes": 364585,
+        "dem_candidate": "Gloria Johnson",
+        "rep_candidate": "Marsha Blackburn",
+        "margin": 117764,
+        "margin_pct": 32.3008,
+        "winner": "REP"
+      },
+      "3": {
+        "dem_votes": 112034,
+        "rep_votes": 239017,
+        "other_votes": 7279,
+        "total_votes": 358330,
+        "dem_candidate": "Gloria Johnson",
+        "rep_candidate": "Marsha Blackburn",
+        "margin": 126983,
+        "margin_pct": 35.4374,
+        "winner": "REP"
+      },
+      "4": {
+        "dem_votes": 108494,
+        "rep_votes": 174459,
+        "other_votes": 6655,
+        "total_votes": 289608,
+        "dem_candidate": "Gloria Johnson",
+        "rep_candidate": "Marsha Blackburn",
+        "margin": 65965,
+        "margin_pct": 22.7773,
+        "winner": "REP"
+      },
+      "5": {
+        "dem_votes": 117763,
+        "rep_votes": 198346,
+        "other_votes": 7190,
+        "total_votes": 323299,
+        "dem_candidate": "Gloria Johnson",
+        "rep_candidate": "Marsha Blackburn",
+        "margin": 80583,
+        "margin_pct": 24.9252,
+        "winner": "REP"
+      },
+      "6": {
+        "dem_votes": 133063,
+        "rep_votes": 220657,
+        "other_votes": 7131,
+        "total_votes": 360851,
+        "dem_candidate": "Gloria Johnson",
+        "rep_candidate": "Marsha Blackburn",
+        "margin": 87594,
+        "margin_pct": 24.2743,
+        "winner": "REP"
+      },
+      "7": {
+        "dem_votes": 132528,
+        "rep_votes": 208658,
+        "other_votes": 7715,
+        "total_votes": 348901,
+        "dem_candidate": "Gloria Johnson",
+        "rep_candidate": "Marsha Blackburn",
+        "margin": 76130,
+        "margin_pct": 21.8199,
+        "winner": "REP"
+      },
+      "8": {
+        "dem_votes": 113428,
+        "rep_votes": 168675,
+        "other_votes": 6242,
+        "total_votes": 288345,
+        "dem_candidate": "Gloria Johnson",
+        "rep_candidate": "Marsha Blackburn",
+        "margin": 55247,
+        "margin_pct": 19.16,
+        "winner": "REP"
+      },
+      "9": {
+        "dem_votes": 121210,
+        "rep_votes": 203633,
+        "other_votes": 7291,
+        "total_votes": 332134,
+        "dem_candidate": "Gloria Johnson",
+        "rep_candidate": "Marsha Blackburn",
+        "margin": 82423,
+        "margin_pct": 24.8162,
+        "winner": "REP"
+      }
+    }
+  }
+}

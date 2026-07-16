@@ -1,0 +1,42 @@
+scope,lines_year,precinct_key,county_norm,prec_id,name20,district_num,area_weight,note,source
+congressional,2026,DAVIDSON - 001898,DAVIDSON,001898,Davidson - 001898,6,0.53964256,block_cvap_weighted; area_weight=0.521435; cvap=4499/8337,block_cvap_weighted
+congressional,2026,DAVIDSON - 001898,DAVIDSON,001898,Davidson - 001898,7,0.46035744,block_cvap_weighted; area_weight=0.478565; cvap=3838/8337,block_cvap_weighted
+congressional,2026,MONTGOMERY - 006457,MONTGOMERY,006457,Montgomery - 006457,5,0.54200024,block_cvap_weighted; area_weight=0.385674; cvap=4536/8369,block_cvap_weighted
+congressional,2026,MONTGOMERY - 006457,MONTGOMERY,006457,Montgomery - 006457,7,0.45799976,block_cvap_weighted; area_weight=0.614326; cvap=3833/8369,block_cvap_weighted
+congressional,2026,RUTHERFORD - 007691,RUTHERFORD,007691,Rutherford - 007691,4,0.53235411,block_cvap_weighted; area_weight=0.728995; cvap=2682/5038,block_cvap_weighted
+congressional,2026,RUTHERFORD - 007691,RUTHERFORD,007691,Rutherford - 007691,9,0.46764589,block_cvap_weighted; area_weight=0.271005; cvap=2356/5038,block_cvap_weighted
+state_house,2022,DAVIDSON - 001875,DAVIDSON,001875,Davidson - 001875,53,0.71230038,block_cvap_weighted; area_weight=0.621114; cvap=5843/8277; drop_cvap_slivers[52:0.008940]; renormalize,block_cvap_weighted
+state_house,2022,DAVIDSON - 001875,DAVIDSON,001875,Davidson - 001875,55,0.28769962,block_cvap_weighted; area_weight=0.357155; cvap=2360/8277; drop_cvap_slivers[52:0.008940]; renormalize,block_cvap_weighted
+state_house,2022,DAVIDSON - 001898,DAVIDSON,001898,Davidson - 001898,50,0.55403622,block_cvap_weighted; area_weight=0.565188; cvap=4619/8337,block_cvap_weighted
+state_house,2022,DAVIDSON - 001898,DAVIDSON,001898,Davidson - 001898,56,0.44596378,block_cvap_weighted; area_weight=0.432630; cvap=3718/8337,block_cvap_weighted
+state_house,2022,DAVIDSON - 001950,DAVIDSON,001950,Davidson - 001950,52,0.92729740,block_cvap_weighted; area_weight=0.566950; cvap=9566/10316,block_cvap_weighted
+state_house,2022,DAVIDSON - 001950,DAVIDSON,001950,Davidson - 001950,53,0.07270260,block_cvap_weighted; area_weight=0.432085; cvap=750/10316,block_cvap_weighted
+state_house,2022,DAVIDSON - 001953,DAVIDSON,001953,Davidson - 001953,56,0.62677824,block_cvap_weighted; area_weight=0.440395; cvap=2247/3585,block_cvap_weighted
+state_house,2022,DAVIDSON - 001953,DAVIDSON,001953,Davidson - 001953,59,0.37322176,block_cvap_weighted; area_weight=0.559605; cvap=1338/3585,block_cvap_weighted
+state_house,2022,DAVIDSON - 001960,DAVIDSON,001960,Davidson - 001960,50,0.60142408,block_cvap_weighted; area_weight=0.615708; cvap=3632/6039,block_cvap_weighted
+state_house,2022,DAVIDSON - 001960,DAVIDSON,001960,Davidson - 001960,59,0.39857592,block_cvap_weighted; area_weight=0.384292; cvap=2407/6039,block_cvap_weighted
+state_house,2022,KNOX - 004831,KNOX,004831,Knox - 004831,15,0.87340942,block_cvap_weighted; area_weight=0.596287; cvap=6658/7623,block_cvap_weighted
+state_house,2022,KNOX - 004831,KNOX,004831,Knox - 004831,18,0.12659058,block_cvap_weighted; area_weight=0.403713; cvap=965/7623,block_cvap_weighted
+state_house,2022,MAURY - 005951,MAURY,005951,Maury - 005951,64,0.80114836,block_cvap_weighted; area_weight=0.717761; cvap=9488/11843,block_cvap_weighted
+state_house,2022,MAURY - 005951,MAURY,005951,Maury - 005951,71,0.19885164,block_cvap_weighted; area_weight=0.282165; cvap=2355/11843,block_cvap_weighted
+state_house,2022,RUTHERFORD - 007663,RUTHERFORD,007663,Rutherford - 007663,34,0.76617415,block_cvap_weighted; area_weight=0.443669; cvap=5341/6971,block_cvap_weighted
+state_house,2022,RUTHERFORD - 007663,RUTHERFORD,007663,Rutherford - 007663,13,0.23382585,block_cvap_weighted; area_weight=0.556331; cvap=1630/6971,block_cvap_weighted
+state_house,2022,RUTHERFORD - 007665,RUTHERFORD,007665,Rutherford - 007665,34,0.61267802,block_cvap_weighted; area_weight=0.415670; cvap=4388/7162,block_cvap_weighted
+state_house,2022,RUTHERFORD - 007665,RUTHERFORD,007665,Rutherford - 007665,13,0.38732198,block_cvap_weighted; area_weight=0.584216; cvap=2774/7162,block_cvap_weighted
+state_house,2022,RUTHERFORD - 007669,RUTHERFORD,007669,Rutherford - 007669,49,0.83317132,block_cvap_weighted; area_weight=0.712465; cvap=6857/8230,block_cvap_weighted
+state_house,2022,RUTHERFORD - 007669,RUTHERFORD,007669,Rutherford - 007669,13,0.16682868,block_cvap_weighted; area_weight=0.287430; cvap=1373/8230,block_cvap_weighted
+state_house,2022,RUTHERFORD - 007683,RUTHERFORD,007683,Rutherford - 007683,37,0.63598858,block_cvap_weighted; area_weight=0.485755; cvap=4008/6302,block_cvap_weighted
+state_house,2022,RUTHERFORD - 007683,RUTHERFORD,007683,Rutherford - 007683,34,0.36401142,block_cvap_weighted; area_weight=0.514232; cvap=2294/6302,block_cvap_weighted
+state_house,2022,SHELBY - 008076,SHELBY,008076,Shelby - 008076,96,0.60244328,block_cvap_weighted; area_weight=0.303845; cvap=3452/5730,block_cvap_weighted
+state_house,2022,SHELBY - 008076,SHELBY,008076,Shelby - 008076,83,0.35008726,block_cvap_weighted; area_weight=0.302225; cvap=2006/5730,block_cvap_weighted
+state_house,2022,SHELBY - 008076,SHELBY,008076,Shelby - 008076,97,0.02862129,block_cvap_weighted; area_weight=0.118688; cvap=164/5730,block_cvap_weighted
+state_house,2022,SHELBY - 008076,SHELBY,008076,Shelby - 008076,95,0.01884817,block_cvap_weighted; area_weight=0.275242; cvap=108/5730,block_cvap_weighted
+state_house,2022,SHELBY - 008141,SHELBY,008141,Shelby - 008141,91,0.73309729,block_cvap_weighted; area_weight=0.453307; cvap=4348/5931,block_cvap_weighted
+state_house,2022,SHELBY - 008141,SHELBY,008141,Shelby - 008141,97,0.14213455,block_cvap_weighted; area_weight=0.429440; cvap=843/5931,block_cvap_weighted
+state_house,2022,SHELBY - 008141,SHELBY,008141,Shelby - 008141,87,0.12476817,block_cvap_weighted; area_weight=0.117249; cvap=740/5931,block_cvap_weighted
+state_house,2022,SUMNER - 008628,SUMNER,008628,Sumner - 008628,45,0.73178808,block_cvap_weighted; area_weight=0.702652; cvap=6851/9362,block_cvap_weighted
+state_house,2022,SUMNER - 008628,SUMNER,008628,Sumner - 008628,44,0.26821192,block_cvap_weighted; area_weight=0.297348; cvap=2511/9362,block_cvap_weighted
+state_senate,2022,KNOX - 004888,KNOX,004888,Knox - 004888,5,0.53621103,block_cvap_weighted; area_weight=0.689890; cvap=3354/6255,block_cvap_weighted
+state_senate,2022,KNOX - 004888,KNOX,004888,Knox - 004888,7,0.46378897,block_cvap_weighted; area_weight=0.310110; cvap=2901/6255,block_cvap_weighted
+state_senate,2022,MONTGOMERY - 006471,MONTGOMERY,006471,Montgomery - 006471,22,0.76321512,block_cvap_weighted; area_weight=0.662953; cvap=10179/13337,block_cvap_weighted
+state_senate,2022,MONTGOMERY - 006471,MONTGOMERY,006471,Montgomery - 006471,23,0.23678488,block_cvap_weighted; area_weight=0.337035; cvap=3158/13337,block_cvap_weighted
