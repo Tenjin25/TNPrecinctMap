@@ -742,6 +742,7 @@ function main() {
   const force = process.argv.includes("--force");
   const forceAll = process.argv.includes("--force-all");
   const skipGapFill = process.argv.includes("--skip-gap-fill");
+  const { spawnSync } = require("child_process");
   const overlayLabels = loadOverlayLabels();
   console.log(
     `Frontend GeoJSON: ${path.relative(ROOT, PRECINCT_GEOJSON)} | drawable labels=${overlayLabels.allLabels.size} | force=${force} | forceAll=${forceAll}`
@@ -749,8 +750,22 @@ function main() {
   for (const target of TARGETS) {
     patchContest(target, overlayLabels, { force: force || forceAll, forceAll });
   }
+
+  // Hamilton 2020 source labels are coded ("002 Signal Mountain 2") and need an
+  // exact NAME20 remap after blockchain apply; otherwise force-refresh leaves
+  // stale/wrong geography even when meta still claims the patch ran.
+  const touched2020 = TARGETS.some((t) => Number(t.year) === 2020);
+  if (touched2020) {
+    const hamiltonPatch = path.join(__dirname, "patch_hamilton_2020_exact_vtd_names.js");
+    console.log(`Running Hamilton 2020 name patch: ${path.relative(ROOT, hamiltonPatch)}`);
+    const patchResult = spawnSync(process.execPath, [hamiltonPatch], { stdio: "inherit", cwd: ROOT });
+    if (patchResult.status) {
+      process.exitCode = patchResult.status;
+      return;
+    }
+  }
+
   if (!skipGapFill) {
-    const { spawnSync } = require("child_process");
     const fillScript = path.join(__dirname, "fill_tn_vtd20_gap_rows_from_prior.js");
     console.log(`Running mapped-zero gap fill: ${path.relative(ROOT, fillScript)}`);
     const result = spawnSync(process.execPath, [fillScript], { stdio: "inherit", cwd: ROOT });

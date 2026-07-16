@@ -737,6 +737,25 @@ def load_census_vtd20_group_catalog() -> Tuple[
         for row in rows:
             transfers[(county_norm, synthetic_src)][row["vtd_code"]] += float(row["area"])
 
+    # Also index every official VTD20 by its exact Census NAME20 with identity
+    # transfer. This lets modern coded labels like "002 SIGNAL MOUNTAIN 2" bind via
+    # tail/exact name instead of a colliding leading code token.
+    for feat in payload.get("features", []):
+        props = feat.get("properties", {}) or {}
+        county_fp = str(props.get("COUNTYFP20", "")).zfill(3)
+        county_norm = county_norm_from_fips.get(county_fp, "")
+        vtd_code = str(props.get("VTDST20", "")).strip().zfill(6)
+        name20 = norm_text(str(props.get("NAME20", "")).strip())
+        if not (county_norm and vtd_code.isdigit() and name20):
+            continue
+        source_catalog[(county_norm, vtd_code)].append(
+            {
+                "src_name": name20,
+                "src_name_norm": name20,
+            }
+        )
+        transfers[(county_norm, vtd_code)][vtd_code] += 1.0
+
     return source_catalog, transfers
 
 
@@ -1576,15 +1595,6 @@ def match_source_vtd(
             if cand == precinct_norm or cand.startswith(f"{precinct_norm} "):
                 return src_vtd, "prefix_name", 0.995
 
-    # 1d) Leading code-token match (robust to zero-padding and minor formatting).
-    q_codes = leading_code_tokens(precinct_norm)
-    if q_codes:
-        for src_vtd, names in by_vtd_name_norms.items():
-            for cand in names:
-                c_codes = leading_code_tokens(cand)
-                if any(q == c for q in q_codes for c in c_codes):
-                    return src_vtd, "code_token_name", 0.993
-
     # 2a) Leading numeric+alpha code match (e.g., 14CH, 11S).
     q_alpha = leading_alpha_code(precinct_norm)
     if q_alpha:
@@ -1643,6 +1653,29 @@ def match_source_vtd(
         core_hits = list(dict.fromkeys(core_hits))
         if len(core_hits) == 1:
             return core_hits[0], "core_exact_name", 0.982
+
+    # 1d) Leading code-token match. Runs AFTER place-name methods so labels like
+    # "002 SIGNAL MOUNTAIN 2" do not bind to an unrelated VTD that happens to
+    # share leading code "2" (Hamilton 2020 collapse onto Alton Park, etc.).
+    # When a place-name body is present, require name agreement.
+    q_codes = leading_code_tokens(precinct_norm)
+    if q_codes:
+        code_hits: List[str] = []
+        for src_vtd, names in by_vtd_name_norms.items():
+            code_ok = False
+            for cand in names:
+                c_codes = leading_code_tokens(cand)
+                if any(q == c for q in q_codes for c in c_codes):
+                    code_ok = True
+                    break
+            if not code_ok:
+                continue
+            if q_tail and len(q_tail) >= 3 and not token_vtd_name_agrees(q_tail, names):
+                continue
+            code_hits.append(src_vtd)
+        code_hits = list(dict.fromkeys(code_hits))
+        if len(code_hits) == 1:
+            return code_hits[0], "code_token_name", 0.993
 
     # 2e) Catalog-gated token/code match. Runs after name methods so labels like
     # "02 ANDERSONVILLE" prefer the named VTD over a sequential code collision.
