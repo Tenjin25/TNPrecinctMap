@@ -4,21 +4,20 @@
   "drawable_source_hint": "tl_2020_47_vtd20.zip",
   "years": [
     {
-      "year": 2020,
+      "year": 2024,
       "source_vintage": 2020,
       "status": "ok",
-      "source_precincts": 1952,
-      "mapped_precincts": 1944,
-      "unmatched_precincts": 8,
-      "output_rows": 2385,
+      "source_precincts": 1855,
+      "mapped_precincts": 1855,
+      "unmatched_precincts": 0,
+      "output_rows": 2362,
       "transfer_method_counts": {
-        "existing_blockweighted_drawable": 1944,
-        "none": 8
+        "existing_blockweighted_drawable": 1855
       },
-      "drawable_labels_touched": 1877,
+      "drawable_labels_touched": 1805,
       "drawable_labels_total": 1965,
-      "output_csv": "crosswalks\\tn_precinct_to_vtd20_blockchain_2020.csv",
-      "unmatched_csv": "crosswalks\\tn_precinct_to_vtd20_blockchain_2020_unmatched.csv"
+      "output_csv": "crosswalks\\tn_precinct_to_vtd20_blockchain_2024.csv",
+      "unmatched_csv": "crosswalks\\tn_precinct_to_vtd20_blockchain_2024_unmatched.csv"
     }
   ]
 }
