@@ -7,7 +7,7 @@
     "synthetic_zero_rows_added": 263,
     "weighted_vtd20_allocation": true,
     "weighted_vtd20_source": "Data/crosswalks/tn_precinct_to_vtd20_blockchain_2002.csv",
-    "weighted_vtd20_applied_at": "2026-07-16T20:29:31.671Z",
+    "weighted_vtd20_applied_at": "2026-07-17T00:14:14.555Z",
     "weighted_vtd20_matched_source_rows": 10905,
     "weighted_vtd20_split_source_rows": 7804,
     "weighted_vtd20_unmatched_source_rows": 986,
@@ -779,7 +779,7 @@
       }
     ],
     "prior_vtd20_gap_fill": true,
-    "prior_vtd20_gap_fill_applied_at": "2026-07-16T20:29:42.428Z",
+    "prior_vtd20_gap_fill_applied_at": "2026-07-17T00:14:44.461Z",
     "prior_vtd20_gap_fill_source": "Data/contests/president_2000.json",
     "prior_vtd20_gap_fill_note": "2002 governor zero VTD20 rows filled from 2000 presidential same-VTD size/share proxy, then neighbor / county-share",
     "prior_vtd20_gap_fill_rows": 294,

@@ -41,6 +41,9 @@ OVERLAY_CSV = REPORTS / "boom_election_precinct_to_vtd20_area_overlay.csv"
 OVERRIDES = XWALK / "tn_prctseq_to_vtd20_overrides.csv"
 VTD20 = DATA / "tn_vtd_2020.geojson"
 SOURCE = "boom_nyt_precinct_area_overlay"
+MIN_OVERLAY_SHARE = 0.02
+MAX_OVERLAY_TARGETS = 8
+LETTER_TO_NUM = {"A": "1", "B": "2", "C": "3", "D": "4", "E": "5"}
 
 FOCUS = {
     "DAVIDSON": "037",
@@ -213,6 +216,49 @@ def resolve_prctseq(county: str, nyt_key: str, labels: Dict[str, str]) -> Option
     return None
 
 
+def apply_letter_family_correction(
+    label: str,
+    ranked: List[dict],
+    name_to_vtd: Dict[str, Tuple[str, str]],
+) -> List[dict]:
+    """Prefer Census 'Family N' when election label is 'Family X' but geometry hit a stranger.
+
+    Example: Hamilton 'Mountain Creek B' overlays mostly onto Valdeau; remap the
+    primary share to Census 'Mountain Creek 2' while keeping in-family secondaries.
+    """
+    ln = norm_text(label)
+    m = re.fullmatch(r"(.+?) ([A-E])", ln)
+    if not m or not ranked:
+        return ranked
+    family, letter = m.group(1), m.group(2)
+    want = f"{family} {LETTER_TO_NUM[letter]}"
+    top_name = norm_text(ranked[0].get("vtd_name") or "")
+    if top_name.startswith(f"{family} "):
+        return ranked
+    if want not in name_to_vtd:
+        return ranked
+    code, nice_name = name_to_vtd[want]
+    primary_w = float(ranked[0]["weight"])
+    rest = [
+        r
+        for r in ranked[1:]
+        if norm_text(r.get("vtd_name") or "").startswith(f"{family} ")
+        or float(r["weight"]) >= MIN_OVERLAY_SHARE
+    ]
+    return [{"vtd20": code, "vtd_name": nice_name, "weight": primary_w}, *rest]
+
+
+def select_overlay_targets(ranked: List[dict]) -> Tuple[List[dict], str]:
+    """Keep all meaningful area shares instead of majority-only collapse."""
+    if not ranked:
+        return [], "area_core"
+    keep = [r for r in ranked if float(r["weight"]) >= MIN_OVERLAY_SHARE][:MAX_OVERLAY_TARGETS]
+    if not keep:
+        keep = ranked[:1]
+    conf = "area_core" if len(keep) == 1 else "area_split"
+    return keep, conf
+
+
 def overlay_county(
     left: gpd.GeoDataFrame,
     right: gpd.GeoDataFrame,
@@ -311,6 +357,11 @@ def main() -> None:
 
         left = gpd.GeoDataFrame(matched_feats, geometry="geometry", crs=sub.crs)
         right = vtd_all[vtd_all["county_fp"] == fips].copy()
+        name_to_vtd = {
+            norm_text(str(row.vtd_name)): (str(row.vtd20), str(row.vtd_name))
+            for row in right.itertuples()
+            if str(row.vtd_name or "").strip()
+        }
         pieces = overlay_county(left, right)
         for row in pieces:
             overlay_rows.append({**row, "county_norm": county, "county_fp": fips})
@@ -322,6 +373,7 @@ def main() -> None:
         for seq, seq_pieces in by_seq.items():
             # Collapse duplicate vtd20s if multiple NYT features somehow share a seq.
             collapsed: Dict[Tuple[str, str], float] = defaultdict(float)
+            label = str(seq_pieces[0].get("label") or "")
             for p in seq_pieces:
                 collapsed[(p["vtd20"], p["vtd_name"])] += float(p["weight"])
             ranked = sorted(
@@ -331,15 +383,11 @@ def main() -> None:
             total = sum(r["weight"] for r in ranked) or 1.0
             for r in ranked:
                 r["weight"] = r["weight"] / total
-            if ranked[0]["weight"] >= 0.85:
-                keep = ranked[:1]
-                conf = "area_core"
-            elif ranked[0]["weight"] >= 0.60:
-                keep = ranked[:2]
-                conf = "area_split"
-            else:
-                keep = ranked[:5]
-                conf = "area_split"
+            ranked = apply_letter_family_correction(label, ranked, name_to_vtd)
+            total = sum(float(r["weight"]) for r in ranked) or 1.0
+            for r in ranked:
+                r["weight"] = float(r["weight"]) / total
+            keep, conf = select_overlay_targets(ranked)
             wsum = sum(r["weight"] for r in keep) or 1.0
             for r in keep:
                 override_rows.append(
