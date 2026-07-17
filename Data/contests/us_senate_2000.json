@@ -7,7 +7,7 @@
     "synthetic_zero_rows_added": 201,
     "weighted_vtd20_allocation": true,
     "weighted_vtd20_source": "Data/crosswalks/tn_precinct_to_vtd20_blockchain_2000.csv",
-    "weighted_vtd20_applied_at": "2026-07-17T00:14:13.419Z",
+    "weighted_vtd20_applied_at": "2026-07-17T00:29:10.861Z",
     "weighted_vtd20_matched_source_rows": 11036,
     "weighted_vtd20_split_source_rows": 8413,
     "weighted_vtd20_unmatched_source_rows": 2509,
@@ -779,7 +779,7 @@
       }
     ],
     "prior_vtd20_gap_fill": true,
-    "prior_vtd20_gap_fill_applied_at": "2026-07-17T00:14:44.157Z",
+    "prior_vtd20_gap_fill_applied_at": "2026-07-17T00:29:30.862Z",
     "prior_vtd20_gap_fill_source": "",
     "prior_vtd20_gap_fill_note": "2000 U.S. Senate zero VTD20 rows filled from adjacent VTD20 neighbor / county-share proxy",
     "prior_vtd20_gap_fill_rows": 245,

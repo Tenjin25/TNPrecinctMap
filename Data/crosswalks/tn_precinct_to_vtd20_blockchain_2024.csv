@@ -748,7 +748,7 @@ from_year,source_vintage,county_norm,from_precinct_norm,src_vtdst,dst_vtd20,name
 2024,2020,HAMILTON,ALTON PARK,0003,003352,Alton Park 1,0.881139,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HAMILTON,ALTON PARK,0003,003399,Eastside 1,0.118861,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HAMILTON,APISON A,0004,003355,Apison 1,1.0,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,HAMILTON,APISON B,0005,003356,Apison 2,0.296917697,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,HAMILTON,APISON B,0005,003368,Collegedale 2,0.296917697,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HAMILTON,APISON B,0005,003367,Collegedale 1,0.1941528081,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HAMILTON,APISON B,0005,003445,Ooltewah 6,0.1627498384,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HAMILTON,APISON B,0005,003355,Apison 1,0.1444848586,exact_name,existing_blockweighted_drawable,high,1.0
@@ -875,7 +875,7 @@ from_year,source_vintage,county_norm,from_precinct_norm,src_vtdst,dst_vtd20,name
 2024,2020,HAMILTON,MIDDLE VALLEY,0049,003424,Middle Valley 1,1.0,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HAMILTON,MISSIONARY RIDGE,003426,003426,Missionary Ridge,1.0,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HAMILTON,MOUNTAIN CREEK A,0051,003428,Mountain Creek 1,1.0,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,HAMILTON,MOUNTAIN CREEK B,0052,003429,Mountain Creek 2,0.789762,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,HAMILTON,MOUNTAIN CREEK B,0052,003471,Valdeau,0.789762,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HAMILTON,MOUNTAIN CREEK B,0052,003428,Mountain Creek 1,0.210238,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HAMILTON,MOUNTAIN CREEK C,0053,003430,Mountain Creek 3,0.850564,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HAMILTON,MOUNTAIN CREEK C,0053,003429,Mountain Creek 2,0.149436,exact_name,existing_blockweighted_drawable,high,1.0
@@ -883,9 +883,9 @@ from_year,source_vintage,county_norm,from_precinct_norm,src_vtdst,dst_vtd20,name
 2024,2020,HAMILTON,MOWBRAY B,0055,003431,Mowbray,1.0,manual_override,existing_blockweighted_drawable,high,1.0
 2024,2020,HAMILTON,MURRAY HILLS,0056,003432,Murray Hills 1,0.904789,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HAMILTON,MURRAY HILLS,0056,003433,Murray Hills 2,0.095211,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,HAMILTON,NORTH CHATTANOOGA A,0057,003434,North Chattanooga 1,0.964717,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,HAMILTON,NORTH CHATTANOOGA A,0057,003427,Moccasin Bend,0.964717,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HAMILTON,NORTH CHATTANOOGA A,0057,003435,North Chattanooga 2,0.035283,exact_name,existing_blockweighted_drawable,high,1.0
-2024,2020,HAMILTON,NORTH CHATTANOOGA B,0058,003435,North Chattanooga 2,1.0,exact_name,existing_blockweighted_drawable,high,1.0
+2024,2020,HAMILTON,NORTH CHATTANOOGA B,0058,003427,Moccasin Bend,1.0,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HAMILTON,NORTHGATE,0059,003413,Hixson 3,0.732739,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HAMILTON,NORTHGATE,0059,003412,Hixson 2,0.117345,exact_name,existing_blockweighted_drawable,high,1.0
 2024,2020,HAMILTON,NORTHGATE,0059,003437,Northgate 2,0.116294,exact_name,existing_blockweighted_drawable,high,1.0

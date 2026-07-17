@@ -401,7 +401,7 @@ county_fp,county_norm,prctseq,vtd20,vtd_name,weight,source,confidence
 065,HAMILTON,3,003352,Alton Park 1,0.881139,boom_nyt_precinct_area_overlay,area_split
 065,HAMILTON,3,003399,Eastside 1,0.118861,boom_nyt_precinct_area_overlay,area_split
 065,HAMILTON,4,003355,Apison 1,1.0,boom_nyt_precinct_area_overlay,area_core
-065,HAMILTON,5,003356,Apison 2,0.296918,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,5,003368,Collegedale 2,0.296918,boom_nyt_precinct_area_overlay,area_split
 065,HAMILTON,5,003367,Collegedale 1,0.194153,boom_nyt_precinct_area_overlay,area_split
 065,HAMILTON,5,003445,Ooltewah 6,0.16275,boom_nyt_precinct_area_overlay,area_split
 065,HAMILTON,5,003355,Apison 1,0.144485,boom_nyt_precinct_area_overlay,area_split
@@ -539,7 +539,7 @@ county_fp,county_norm,prctseq,vtd20,vtd_name,weight,source,confidence
 065,HAMILTON,49,003424,Middle Valley 1,1.0,boom_nyt_precinct_area_overlay,area_core
 065,HAMILTON,50,003426,Missionary Ridge,1.0,boom_nyt_precinct_area_overlay,area_core
 065,HAMILTON,51,003428,Mountain Creek 1,1.0,boom_nyt_precinct_area_overlay,area_core
-065,HAMILTON,52,003429,Mountain Creek 2,0.789762,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,52,003471,Valdeau,0.789762,boom_nyt_precinct_area_overlay,area_split
 065,HAMILTON,52,003428,Mountain Creek 1,0.210238,boom_nyt_precinct_area_overlay,area_split
 065,HAMILTON,53,003430,Mountain Creek 3,0.850564,boom_nyt_precinct_area_overlay,area_split
 065,HAMILTON,53,003429,Mountain Creek 2,0.149436,boom_nyt_precinct_area_overlay,area_split
@@ -547,9 +547,9 @@ county_fp,county_norm,prctseq,vtd20,vtd_name,weight,source,confidence
 065,HAMILTON,55,003431,Mowbray,1.0,boom_nyt_precinct_area_overlay,area_core
 065,HAMILTON,56,003432,Murray Hills 1,0.904789,boom_nyt_precinct_area_overlay,area_split
 065,HAMILTON,56,003433,Murray Hills 2,0.095211,boom_nyt_precinct_area_overlay,area_split
-065,HAMILTON,57,003434,North Chattanooga 1,0.964717,boom_nyt_precinct_area_overlay,area_split
+065,HAMILTON,57,003427,Moccasin Bend,0.964717,boom_nyt_precinct_area_overlay,area_split
 065,HAMILTON,57,003435,North Chattanooga 2,0.035283,boom_nyt_precinct_area_overlay,area_split
-065,HAMILTON,58,003435,North Chattanooga 2,1.0,boom_nyt_precinct_area_overlay,area_core
+065,HAMILTON,58,003427,Moccasin Bend,1.0,boom_nyt_precinct_area_overlay,area_core
 065,HAMILTON,59,003413,Hixson 3,0.732739,boom_nyt_precinct_area_overlay,area_split
 065,HAMILTON,59,003412,Hixson 2,0.117345,boom_nyt_precinct_area_overlay,area_split
 065,HAMILTON,59,003437,Northgate 2,0.116294,boom_nyt_precinct_area_overlay,area_split
