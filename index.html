@@ -7,31 +7,31 @@
     // Resolve the initial legend palette before first paint. The full palette
     // initializer below still owns persistence and interactive switching.
     try {
-      const initialPalette = window.localStorage?.getItem('tn-atlas-partisan-palette-v1') === 'atlas'
-        ? 'atlas'
-        : 'dra';
+      const initialPalette = window.localStorage?.getItem('tn-atlas-partisan-palette-v1') === 'dra'
+        ? 'dra'
+        : 'atlas';
       document.documentElement.setAttribute('data-initial-partisan-palette', initialPalette);
     } catch (_) {
-      document.documentElement.setAttribute('data-initial-partisan-palette', 'dra');
+      document.documentElement.setAttribute('data-initial-partisan-palette', 'atlas');
     }
   </script>
   <style>
   :root {
-    --initial-margin-1: #67000d;
-    --initial-margin-2: #a50f15;
-    --initial-margin-3: #cb181d;
-    --initial-margin-4: #ef3b2c;
+    --initial-margin-1: #821818;
+    --initial-margin-2: #9a1c1c;
+    --initial-margin-3: #c82c2c;
+    --initial-margin-4: #e23230;
     --initial-margin-5: #fb6a4a;
     --initial-margin-6: #fcae91;
-    --initial-margin-7: #fee8c8;
+    --initial-margin-7: #f5d6c4;
     --initial-margin-8: #f7f7f7;
-    --initial-margin-9: #e1f5fe;
+    --initial-margin-9: #cfe4f5;
     --initial-margin-10: #c6dbef;
     --initial-margin-11: #9ecae1;
-    --initial-margin-12: #6baed6;
-    --initial-margin-13: #3182bd;
-    --initial-margin-14: #08519c;
-    --initial-margin-15: #08306b;
+    --initial-margin-12: #4684cc;
+    --initial-margin-13: #2e66ae;
+    --initial-margin-14: #164e96;
+    --initial-margin-15: #123060;
   }
   html[data-initial-partisan-palette="dra"] {
     --initial-margin-1: #68000c;
@@ -9268,12 +9268,11 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   const DRA_PALETTE_STORAGE_KEY = 'tn-atlas-partisan-palette-v1';
   try {
-    if (window.localStorage && window.localStorage.getItem(DRA_PALETTE_STORAGE_KEY) !== 'atlas') {
+    // Default to the hybrid atlas ramp; only enable DRA when explicitly saved.
+    if (window.localStorage && window.localStorage.getItem(DRA_PALETTE_STORAGE_KEY) === 'dra') {
       document.body.classList.add('dra-palette');
     }
-  } catch (_) {
-    document.body.classList.add('dra-palette');
-  }
+  } catch (_) {}
   syncDraPaletteToggle();
   updateLegendColors();
   if (draPaletteBtn) {
@@ -9772,7 +9771,7 @@ document.addEventListener('DOMContentLoaded', function() {
                   <details class="contest-tools-more" aria-label="More tools">
                     <summary class="tool-chip-btn tool-chip-btn-muted" role="button">More</summary>
                     <div class="contest-tools-row contest-tools-row-more">
-                      <button id="dra-palette-toggle" title="Use the original Atlas colors" class="tool-chip-btn tool-chip-btn-muted" type="button" data-testid="tool-dra-palette" aria-label="Toggle DRA color palette" aria-pressed="true">Atlas Colors</button>
+                      <button id="dra-palette-toggle" title="Use DRA-inspired colors with the existing 15 margin tiers" class="tool-chip-btn tool-chip-btn-muted" type="button" data-testid="tool-dra-palette" aria-label="Toggle DRA color palette" aria-pressed="false">DRA Colors</button>
                       <button id="follow-hover-toggle" title="Auto-update hover tooltip while panning (mobile)" class="tool-chip-btn tool-chip-btn-muted" type="button" data-testid="tool-follow-hover" aria-label="Toggle auto hover while panning" aria-pressed="false">Auto Hover Off</button>
                       <button id="gps-locate-btn" title="Find my precinct by GPS" class="tool-chip-btn" type="button" data-testid="tool-gps" aria-label="Find my precinct by GPS">Find My Precinct</button>
                       <button id="reset-view-btn" title="Reset map camera and clear pinned focus" class="tool-chip-btn tool-chip-btn-muted" type="button" data-testid="tool-reset-view" aria-label="Reset map view">Reset View</button>
@@ -10185,8 +10184,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Cache destroyer token for static data requests.
     // Bump this value when you want browsers/CDNs to fetch fresh files immediately.
-    const DATA_CACHE_BUSTER = '2026-07-18-tennessee-dra-1';
-    const APP_BUILD_ID = '2026-07-18-tennessee-dra-1';
+    const DATA_CACHE_BUSTER = '2026-07-18-tennessee-hybrid-1';
+    const APP_BUILD_ID = '2026-07-18-tennessee-hybrid-1';
 
     function withCacheBuster(path) {
       const p = (path || '').toString().trim();
@@ -12013,6 +12012,21 @@ document.addEventListener('DOMContentLoaded', function() {
       const data = await loadJSON(path);
       districtGeometryCache.set(cacheKey, data);
       return data;
+    }
+
+    async function ensureCongressionalDistrictSource(linesYear = currentDistrictLinesYear) {
+      if (!map) return false;
+      if (map.getSource('districts')) return true;
+      const vectorUrl = CONFIG.tilesets?.enabled ? CONFIG.tilesets?.sources?.districts?.url : '';
+      if (vectorUrl) {
+        map.addSource('districts', { type: 'vector', url: vectorUrl });
+        return true;
+      }
+      const districtsGeoJSON = await loadDistrictGeometry('congressional', linesYear);
+      if (!districtsGeoJSON) throw new Error('Congressional district geometry returned no data');
+      map.addSource('districts', { type: 'geojson', data: districtsGeoJSON });
+      window['districts__search_geojson'] = districtsGeoJSON;
+      return true;
     }
 
     async function refreshDistrictGeometrySources(linesYear = currentDistrictLinesYear) {
@@ -14903,12 +14917,52 @@ document.addEventListener('DOMContentLoaded', function() {
       queueVoteBreakdownLayoutMeasure();
     });
 
+    const TRANSIENT_FETCH_STATUSES = new Set([408, 425, 429, 500, 502, 503, 504]);
+
+    function atlasRetryDelayMs(response, attempt) {
+      const retryAfter = response?.headers?.get?.('Retry-After');
+      if (retryAfter) {
+        const seconds = Number(retryAfter);
+        if (Number.isFinite(seconds) && seconds >= 0) {
+          return Math.min(8000, Math.max(250, seconds * 1000));
+        }
+        const retryDate = Date.parse(retryAfter);
+        if (Number.isFinite(retryDate)) {
+          return Math.min(8000, Math.max(250, retryDate - Date.now()));
+        }
+      }
+      const backoff = [450, 1000, 2200][Math.min(attempt, 2)] || 2200;
+      return backoff + Math.round(Math.random() * 180);
+    }
+
+    async function fetchAtlasResource(requestPath, init = {}, { maxAttempts = 4 } = {}) {
+      let lastError = null;
+      for (let attempt = 0; attempt < maxAttempts; attempt++) {
+        let response = null;
+        try {
+          response = await fetch(requestPath, {
+            ...init,
+            cache: attempt === 0 ? (init.cache || 'force-cache') : 'reload'
+          });
+          if (response.ok || !TRANSIENT_FETCH_STATUSES.has(response.status) || attempt >= maxAttempts - 1) {
+            return response;
+          }
+          try { await response.body?.cancel?.(); } catch (_) {}
+        } catch (err) {
+          lastError = err;
+          if (attempt >= maxAttempts - 1) throw err;
+        }
+        await new Promise(resolve => setTimeout(resolve, atlasRetryDelayMs(response, attempt)));
+      }
+      throw lastError || new Error(`${requestPath} fetch failed`);
+    }
+
     async function loadJSON(path) {
       if (!(path || '').toString().trim()) throw new Error('JSON path not configured');
       const requestPath = withCacheBuster(path);
       if (jsonInflightByPath.has(requestPath)) return jsonInflightByPath.get(requestPath);
       const p = atlasPerf(`json:${requestPath}`, async () => {
-        const r = await fetch(requestPath, { cache: 'force-cache' });
+        const r = await fetchAtlasResource(requestPath, { cache: 'force-cache' });
         if (!r.ok) throw new Error(`${requestPath} fetch failed: ${r.status}`);
         return r.json();
       });
@@ -14925,7 +14979,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	      const requestPath = withCacheBuster(path);
 	      if (csvInflightByPath.has(requestPath)) return csvInflightByPath.get(requestPath);
 	      const p = atlasPerf(`csv:${requestPath}`, async () => {
-	        const r = await fetch(requestPath, { cache: 'force-cache' });
+	        const r = await fetchAtlasResource(requestPath, { cache: 'force-cache' });
 	        if (!r.ok) throw new Error(`${requestPath} fetch failed: ${r.status}`);
 	        return r.text();
 	      });
@@ -19648,6 +19702,16 @@ document.addEventListener('DOMContentLoaded', function() {
       // cannot skip the repaint because lastCountyFillExpr points to an old layer.
       lastCountyFillExpr = null;
       clearHoverOutline();
+
+      if (view === 'districts' && !map.getSource('districts')) {
+        setStatus('Loading congressional districts...');
+        try {
+          await ensureCongressionalDistrictSource(currentDistrictLinesYear);
+        } catch (err) {
+          console.warn('Congressional GeoJSON retry failed:', err?.message || err);
+          setStatus('Congressional districts are temporarily unavailable. Try Congress again in a moment.');
+        }
+      }
       
       // Add appropriate layers
       if (view === 'counties') {
@@ -31475,18 +31539,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
       try {
         setStatus('Loading congressional districts...');
-        if (CONFIG.tilesets?.enabled && CONFIG.tilesets?.sources?.districts?.url) {
-          if (!map.getSource('districts')) {
-            map.addSource('districts', { type: 'vector', url: CONFIG.tilesets.sources.districts.url });
+        if (map.getSource('districts')) {
+          const districtsGeoJSON = await loadDistrictGeometry('congressional', currentDistrictLinesYear);
+          const source = map.getSource('districts');
+          if (districtsGeoJSON && source?.type === 'geojson' && typeof source.setData === 'function') {
+            source.setData(districtsGeoJSON);
+            window['districts__search_geojson'] = districtsGeoJSON;
           }
         } else {
-          const districtsGeoJSON = await loadDistrictGeometry('congressional', currentDistrictLinesYear);
-          if (map.getSource('districts')) {
-            map.getSource('districts').setData(districtsGeoJSON);
-          } else {
-            map.addSource('districts', { type: 'geojson', data: districtsGeoJSON });
-          }
-          window['districts__search_geojson'] = districtsGeoJSON;
+          await ensureCongressionalDistrictSource(currentDistrictLinesYear);
         }
         setStatus('Congressional districts loaded');
       } catch (err) {
@@ -31720,20 +31781,22 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function categoryColorForMargin(marginPct, winner) {
+      // Dark-end hybrid: classic ColorBrewer Likely/Lean; DRA-inspired Safe→Annihilation;
+      // both Tilts nudged off white/cream.
       if (marginPct >= 40) {
-        return winner === 'R' ? '#67000d' : '#08306b';
+        return winner === 'R' ? '#821818' : '#123060';
       } else if (marginPct >= 30) {
-        return winner === 'R' ? '#a50f15' : '#08519c';
+        return winner === 'R' ? '#9a1c1c' : '#164e96';
       } else if (marginPct >= 20) {
-        return winner === 'R' ? '#cb181d' : '#3182bd';
+        return winner === 'R' ? '#c82c2c' : '#2e66ae';
       } else if (marginPct >= 10) {
-        return winner === 'R' ? '#ef3b2c' : '#6baed6';
+        return winner === 'R' ? '#e23230' : '#4684cc';
       } else if (marginPct >= 5.5) {
         return winner === 'R' ? '#fb6a4a' : '#9ecae1';
       } else if (marginPct >= 1.0) {
         return winner === 'R' ? '#fcae91' : '#c6dbef';
       } else if (marginPct >= 0.5) {
-        return winner === 'R' ? '#fee8c8' : '#e1f5fe';
+        return winner === 'R' ? '#f5d6c4' : '#cfe4f5';
       } else {
         return '#f7f7f7';
       }
