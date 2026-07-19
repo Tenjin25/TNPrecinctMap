@@ -20,15 +20,15 @@
     --initial-margin-1: #67000d;
     --initial-margin-2: #a50f15;
     --initial-margin-3: #cb181d;
-    --initial-margin-4: #d6362e;
-    --initial-margin-5: #ed4e46;
-    --initial-margin-6: #fb9875;
+    --initial-margin-4: #de3030;
+    --initial-margin-5: #ee464a;
+    --initial-margin-6: #f99a90;
     --initial-margin-7: #f5d6c4;
     --initial-margin-8: #f7f7f7;
     --initial-margin-9: #b8d4ec;
     --initial-margin-10: #8bbde0;
-    --initial-margin-11: #6baed6;
-    --initial-margin-12: #4e9ad4;
+    --initial-margin-11: #5eabd8;
+    --initial-margin-12: #3f8fd0;
     --initial-margin-13: #3182bd;
     --initial-margin-14: #08519c;
     --initial-margin-15: #08306b;
@@ -10184,8 +10184,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Cache destroyer token for static data requests.
     // Bump this value when you want browsers/CDNs to fetch fresh files immediately.
-    const DATA_CACHE_BUSTER = '2026-07-19-dra-hybrid-11';
-    const APP_BUILD_ID = '2026-07-19-dra-hybrid-11';
+    const DATA_CACHE_BUSTER = '2026-07-19-dra-hybrid-20';
+    const APP_BUILD_ID = '2026-07-19-dra-hybrid-20';
 
     function withCacheBuster(path) {
       const p = (path || '').toString().trim();
@@ -10221,9 +10221,9 @@ document.addEventListener('DOMContentLoaded', function() {
       },
       paths: {
         counties: withBase('./Data/tl_2020_47_county20.geojson'),
-        precincts: withBase('./Data/tn_vtd_2020.geojson'),
-        precincts_fallback_vtd20: withBase('./Data/tn_vtd_2020.geojson'),
-        precinct_centroids: withBase('./Data/tn_vtd_2020_centroids.geojson'),
+        precincts: withBase('./Data/tn_voting_precincts_dra_v07.geojson'),
+        precincts_fallback_vtd20: withBase('./Data/tn_voting_precincts_dra_v07.geojson'),
+        precinct_centroids: withBase('./Data/tn_precinct_centroids_dra_v07.geojson'),
         precinct_aliases: withBase('./Data/crosswalks/tn_precinct_aliases.csv'),
         precinct_friendly_names: withBase('./Data/crosswalks/tn_precinct_friendly_names_2020.json'),
         precinct_variant_overrides: '',
@@ -10257,6 +10257,7 @@ document.addEventListener('DOMContentLoaded', function() {
         district_contests_2020_2024_dir: '',
         district_contests_dirs: {
           '2022': withBase('./Data/district_contests'),
+          '2024': withBase('./Data/district_contests'),
           '2026': withBase('./Data/district_contests_2026')
         },
         districts_info: withBase('./Data/tn_congressional_districts.csv'),
@@ -10268,11 +10269,13 @@ document.addEventListener('DOMContentLoaded', function() {
         reports_match_year_summary: '',
         reports_top_unmatched: '',
         crosswalks: {
-          congressional: withBase('./Data/crosswalks/tn_congressional_2022_precinct_crosswalk.csv'),
-          congressional_2022: withBase('./Data/crosswalks/tn_congressional_2022_precinct_crosswalk.csv'),
-          congressional_2026: withBase('./Data/crosswalks/tn_congressional_2026_precinct_crosswalk.csv'),
-          state_house_2022: withBase('./Data/crosswalks/tn_state_house_2022_precinct_crosswalk.csv'),
-          state_senate_2022: withBase('./Data/crosswalks/tn_state_senate_2022_precinct_crosswalk.csv')
+          congressional: '',
+          congressional_2022: '',
+          congressional_2026: '',
+          state_house_2022: '',
+          state_house_2024: '',
+          state_senate_2022: '',
+          state_senate_2024: ''
         }
       },
       center: [-86.1, 35.9],
@@ -10666,7 +10669,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let electionData = null; // Flattened array for compatibility
     let contestManifest = [];
     let districtManifest = [];
-    let districtManifestByLines = { '2022': [], '2026': [] };
+    let districtManifestByLines = { '2022': [], '2024': [], '2026': [] };
     let currentDistrictLinesYear = 2022;
     const districtGeometryCache = new Map();
     let congressionalData = []; // Optional legacy district-level table
@@ -11695,6 +11698,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function normalizeDistrictLinesYear(raw) {
       const y = Number(raw);
       if (y === 2026) return 2026;
+      if (y === 2024) return 2024;
       return 2022;
     }
 
@@ -11737,7 +11741,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const y = normalizeDistrictLinesYear(linesYear);
       if (y === 2026) {
         const m2026 = Array.isArray(districtManifestByLines?.['2026']) ? districtManifestByLines['2026'] : [];
-        const m2022 = Array.isArray(districtManifestByLines?.['2022']) ? districtManifestByLines['2022'] : [];
+        const m2024 = Array.isArray(districtManifestByLines?.['2024']) ? districtManifestByLines['2024'] : [];
         const merged = [];
         const seen = new Set();
         const add = (entry) => {
@@ -11751,12 +11755,12 @@ document.addEventListener('DOMContentLoaded', function() {
           merged.push(entry);
         };
         m2026.filter(e => (e?.scope || '').toString().trim() === 'congressional').forEach(add);
-        m2022.filter(e => {
+        m2024.filter(e => {
           const s = (e?.scope || '').toString().trim();
           const contest = (e?.contest_type || '').toString().trim();
           return s === 'congressional' && contest === 'us_house';
         }).forEach(add);
-        m2022.filter(e => {
+        m2024.filter(e => {
           const s = (e?.scope || '').toString().trim();
           return s === 'state_house' || s === 'state_senate';
         }).forEach(add);
@@ -12076,7 +12080,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function shouldWarnDistrictLinesLoad(linesYear) {
       const y = normalizeDistrictLinesYear(linesYear);
       if (y !== 2026) return false;
-      const scopes = ['congressional'];
+      const scopes = ['congressional', 'state_house', 'state_senate'];
       return scopes.some(scope => {
         const path = getDistrictGeometryPath(scope, y);
         if (!path) return false;
@@ -12087,6 +12091,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     async function setDistrictLinesMode(linesYear) {
       const nextYear = normalizeDistrictLinesYear(linesYear);
+      if (nextYear === 2024) {
+        currentDistrictLinesYear = 2022;
+        updateDistrictLinesToggleUI();
+        return;
+      }
       if (nextYear === 2026 && currentView !== 'districts') {
         setStatus('2026 lines are only available for congressional view.');
         updateDistrictLinesToggleUI();
@@ -28180,15 +28189,13 @@ document.addEventListener('DOMContentLoaded', function() {
         const original = feature.properties || {};
         const rawFips = (original.COUNTYFP20 || original.COUNTYFP || '').toString().replace(/[^0-9]/g, '').slice(-3).padStart(3, '0');
         const countyFromFips = (countyNameByFips && rawFips) ? (countyNameByFips.get(rawFips) || '') : '';
-        // Prefer county fields / FIPS. Do not use NAME20 as county — on Census VTD20 that is the precinct name.
-        const countyRaw = (original.county_nam || original.COUNTYNAME || original.County || countyFromFips || original.county || '').toString().trim();
-        const countyNorm = countyRaw.replace(/[^a-z0-9 .\-']/gi, '').replace(/\s+/g, ' ').trim().toUpperCase();
-        let precRaw = (original.prec_id || original.PREC_ID || original.VTDST20 || original.VTDST10 || original.VTDST00 || '').toString().trim();
-        if (/^\d+$/.test(precRaw)) precRaw = precRaw.padStart(6, '0');
-        const fullNameRaw = (original.enr_desc || original.ENR_DESC || original.precinct_full_name || original.NAMELSAD20 || original.NAME20 || original.precinct_name || '').toString();
+        const countyRaw = (original.county_nam || original.COUNTYNAME || original.County || original.NAME20 || original.NAME || countyFromFips || '').toString().trim();
+        const countyNorm = countyRaw.replace(/[^a-z0-9 .\-]/gi, '').replace(/\s+/g, ' ').trim().toUpperCase();
+        const precRaw = (original.prec_id || original.PREC_ID || original.VTDST20 || original.VTDST10 || original.VTDST00 || '').toString().trim();
+        const fullNameRaw = (original.enr_desc || original.ENR_DESC || original.precinct_full_name || original.precinct_name || '').toString();
         const fullName = fullNameRaw.replace(/\s+/g, ' ').trim();
         const precinctRaw = countyRaw && precRaw ? `${countyRaw} - ${precRaw}` : countyRaw;
-        const precinctNorm = (precinctRaw || '').replace(/[^a-z0-9 .\-']/gi, '').replace(/\s+/g, ' ').trim().toUpperCase();
+        const precinctNorm = (precinctRaw || '').replace(/[^a-z0-9 .\-]/gi, '').replace(/\s+/g, ' ').trim().toUpperCase();
         if (precinctNorm && fullName) fullNameByNorm.set(precinctNorm, fullName);
         feature.properties = {
           county_nam: countyRaw,
@@ -28197,9 +28204,7 @@ document.addEventListener('DOMContentLoaded', function() {
           precinct_norm: precinctNorm,
           prec_id: precRaw,
           precinct_full_name: fullName,
-          name20: (original.NAME20 || '').toString().trim(),
-          geoid20: (original.GEOID20 || original.id || '').toString().trim() || null,
-          id: original.id || original.GEOID20 || original.objectid || null
+          id: original.id || original.objectid || null
         };
         return feature;
       });
@@ -31421,8 +31426,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
       try {
         let loadedAnyDistrictManifest = false;
-        districtManifestByLines = { '2022': [], '2026': [] };
-        for (const linesYear of [2022, 2026]) {
+        districtManifestByLines = { '2022': [], '2024': [], '2026': [] };
+        for (const linesYear of [2022, 2024, 2026]) {
           const dir = getActiveDistrictContestsDir(linesYear);
           if (!dir) continue;
           try {
@@ -31455,7 +31460,7 @@ document.addEventListener('DOMContentLoaded', function() {
         districtElectionDataJSON = null;
         districtElectionDataLoadInflight = null;
         districtElectionDataLoadFailed = false;
-        districtManifestByLines = { '2022': [], '2026': [] };
+        districtManifestByLines = { '2022': [], '2024': [], '2026': [] };
         districtManifest = [];
         updateDistrictLinesToggleUI();
       }
@@ -31784,11 +31789,11 @@ document.addEventListener('DOMContentLoaded', function() {
       } else if (marginPct >= 20) {
         return winner === 'R' ? '#cb181d' : '#3182bd';
       } else if (marginPct >= 10) {
-        return winner === 'R' ? '#d6362e' : '#4e9ad4';
+        return winner === 'R' ? '#de3030' : '#3f8fd0';
       } else if (marginPct >= 5.5) {
-        return winner === 'R' ? '#ed4e46' : '#6baed6';
+        return winner === 'R' ? '#ee464a' : '#5eabd8';
       } else if (marginPct >= 1.0) {
-        return winner === 'R' ? '#fb9875' : '#8bbde0';
+        return winner === 'R' ? '#f99a90' : '#8bbde0';
       } else if (marginPct >= 0.5) {
         return winner === 'R' ? '#f5d6c4' : '#b8d4ec';
       } else {
