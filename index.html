@@ -21,13 +21,13 @@
     --initial-margin-2: #a50f15;
     --initial-margin-3: #cb181d;
     --initial-margin-4: #de3030;
-    --initial-margin-5: #ee464a;
+    --initial-margin-5: #e05450;
     --initial-margin-6: #f99a90;
     --initial-margin-7: #f5d6c4;
     --initial-margin-8: #f7f7f7;
     --initial-margin-9: #b8d4ec;
     --initial-margin-10: #8bbde0;
-    --initial-margin-11: #5eabd8;
+    --initial-margin-11: #6baed6;
     --initial-margin-12: #3f8fd0;
     --initial-margin-13: #3182bd;
     --initial-margin-14: #08519c;
@@ -10184,8 +10184,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Cache destroyer token for static data requests.
     // Bump this value when you want browsers/CDNs to fetch fresh files immediately.
-    const DATA_CACHE_BUSTER = '2026-07-19-dra-hybrid-20';
-    const APP_BUILD_ID = '2026-07-19-dra-hybrid-20';
+    const DATA_CACHE_BUSTER = '2026-07-19-dra-hybrid-25';
+    const APP_BUILD_ID = '2026-07-19-dra-hybrid-25';
 
     function withCacheBuster(path) {
       const p = (path || '').toString().trim();
@@ -31791,7 +31791,7 @@ document.addEventListener('DOMContentLoaded', function() {
       } else if (marginPct >= 10) {
         return winner === 'R' ? '#de3030' : '#3f8fd0';
       } else if (marginPct >= 5.5) {
-        return winner === 'R' ? '#ee464a' : '#5eabd8';
+        return winner === 'R' ? '#e05450' : '#6baed6';
       } else if (marginPct >= 1.0) {
         return winner === 'R' ? '#f99a90' : '#8bbde0';
       } else if (marginPct >= 0.5) {
