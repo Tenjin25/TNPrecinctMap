@@ -7,7 +7,7 @@
     "synthetic_zero_rows_added": 244,
     "weighted_vtd20_allocation": true,
     "weighted_vtd20_source": "Data/crosswalks/tn_precinct_to_vtd20_blockchain_2014.csv",
-    "weighted_vtd20_applied_at": "2026-07-17T00:14:27.895Z",
+    "weighted_vtd20_applied_at": "2026-07-21T01:59:08.756Z",
     "weighted_vtd20_matched_source_rows": 13119,
     "weighted_vtd20_split_source_rows": 8026,
     "weighted_vtd20_unmatched_source_rows": 361,
@@ -779,7 +779,7 @@
       }
     ],
     "prior_vtd20_gap_fill": true,
-    "prior_vtd20_gap_fill_applied_at": "2026-07-17T00:14:48.394Z",
+    "prior_vtd20_gap_fill_applied_at": "2026-07-21T01:59:44.700Z",
     "prior_vtd20_gap_fill_source": "Data/contests/governor_2010.json",
     "prior_vtd20_gap_fill_note": "2014 governor zero VTD20 rows filled from 2010 governor same-VTD size/share proxy, then neighbor / county-share",
     "prior_vtd20_gap_fill_rows": 277,
