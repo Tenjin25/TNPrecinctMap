@@ -40,6 +40,7 @@ SOURCE_2024_PRECINCT_CSV = DATA_DIR / "20241105__tn__general__precinct.csv"
 HIGH_CONFIDENCE_METHODS = {
     "exact_name",
     "manual_override",
+    "prctseq_area_overlay",
     "prefix_name",
     "code_token_name",
     "shelby_alias_name",
@@ -185,14 +186,35 @@ def collect_source_precincts(source_csv: Path) -> Dict[SourcePrecinctKey, dict]:
         if is_non_geographic_label(pnorm):
             continue
         key = SourcePrecinctKey(norm_county(county), pnorm)
+        seq_raw = str(row.get("PRCTSEQ") or row.get("prctseq") or "").strip()
+        prctseq = str(int(seq_raw)) if seq_raw.isdigit() else ""
         if key not in out:
             out[key] = {
                 "county_raw": county,
                 "precinct_raw": precinct,
+                "prctseq": prctseq,
                 "rows": 0,
             }
+        elif prctseq and not out[key].get("prctseq"):
+            out[key]["prctseq"] = prctseq
         out[key]["rows"] += 1
     return out
+
+
+def resolve_prctseq_area_override(
+    county_norm: str,
+    prctseq: str,
+    prctseq_overrides: Dict[Tuple[str, str], Dict[str, float]],
+) -> Dict[str, float]:
+    """Return boom/NYT PRCTSEQ→VTD20 weights when present."""
+    if not prctseq or not prctseq.isdigit():
+        return {}
+    seq_int = str(int(prctseq))
+    for key in (seq_int.zfill(4), seq_int.zfill(6), seq_int):
+        hits = prctseq_overrides.get((county_norm, key), {})
+        if hits:
+            return {str(k): float(v) for k, v in hits.items() if float(v) > 0}
+    return {}
 
 
 def is_non_geographic_label(pnorm: str) -> bool:
@@ -1735,6 +1757,12 @@ def build_crosswalk(source_csv: Path, year: int) -> dict:
     manual_src_overrides = load_manual_src_overrides()
     manual_dst_overrides = load_manual_dst_overrides()
     numeric_2022_overrides = load_numeric_precinct_2022_src_overrides() if year == 2022 else {}
+    # Davidson (and later boom counties): NYT area overlays keyed by PRCTSEQ beat
+    # Census name-identity matches when labels collide (10-2 ballot ≠ 10-2 VTD).
+    prctseq_area_override_counties = {"DAVIDSON"} if year >= 2020 else set()
+    prctseq_overrides = (
+        load_prctseq_to_vtd20_override_lookup() if prctseq_area_override_counties else {}
+    )
     if vintage == 2020:
         cat_2024 = load_2024_precinct_catalog(XWALK_DIR / "tn_precinct_to_2024.csv")
         census_group_catalog = load_census_vtd20_group_catalog()
@@ -1779,6 +1807,36 @@ def build_crosswalk(source_csv: Path, year: int) -> dict:
             )
             method_counts["manual_override"] += 1
             continue
+
+        if key.county_norm in prctseq_area_override_counties:
+            area_map = resolve_prctseq_area_override(
+                key.county_norm,
+                str(meta.get("prctseq") or ""),
+                prctseq_overrides,
+            )
+            if area_map:
+                total = sum(area_map.values())
+                method_counts["prctseq_area_overlay"] += 1
+                for dst_vtd, w in sorted(area_map.items(), key=lambda it: it[1], reverse=True):
+                    weight = float(w) / total
+                    if weight <= 0:
+                        continue
+                    out_rows.append(
+                        {
+                            "from_year": year,
+                            "source_vintage": vintage,
+                            "county_norm": key.county_norm,
+                            "from_precinct_norm": key.precinct_norm,
+                            "src_vtdst": str(meta.get("prctseq") or "").zfill(4),
+                            "dst_vtd20": dst_vtd if not str(dst_vtd).isdigit() else str(dst_vtd).zfill(6),
+                            "weight": round(weight, 8),
+                            "match_method": "prctseq_area_overlay",
+                            "confidence_tier": "high",
+                            "match_score": 1.0,
+                        }
+                    )
+                continue
+
         if override_key in manual_src_overrides:
             src_vtd = manual_src_overrides[override_key]
             method = "manual_override"

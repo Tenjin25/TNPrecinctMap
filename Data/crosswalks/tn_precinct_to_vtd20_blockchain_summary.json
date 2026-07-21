@@ -10,11 +10,11 @@
       "source_precincts": 1855,
       "mapped_precincts": 1855,
       "unmatched_precincts": 0,
-      "output_rows": 2362,
+      "output_rows": 2492,
       "transfer_method_counts": {
         "existing_blockweighted_drawable": 1855
       },
-      "drawable_labels_touched": 1807,
+      "drawable_labels_touched": 1812,
       "drawable_labels_total": 1965,
       "output_csv": "crosswalks\\tn_precinct_to_vtd20_blockchain_2024.csv",
       "unmatched_csv": "crosswalks\\tn_precinct_to_vtd20_blockchain_2024_unmatched.csv"
