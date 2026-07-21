@@ -6,6 +6,23 @@
     window.MAPBOX_TOKEN = window.MAPBOX_TOKEN || localStorage.getItem('MAPBOX_TOKEN') || 'pk.eyJ1Ijoic2hhbWFyZGF2aXMiLCJhIjoiY21udXFjNmtvMTFzYTJycHNnN291NDk5MyJ9.AjtL4Zw2-jSQgo_DdV9FnA';
   </script>
   <style>
+  :root {
+    --initial-margin-1: #67000d;
+    --initial-margin-2: #a50f15;
+    --initial-margin-3: #cb181d;
+    --initial-margin-4: #e03a32;
+    --initial-margin-5: #e85a52;
+    --initial-margin-6: #f99a90;
+    --initial-margin-7: #f5d6c4;
+    --initial-margin-8: #f7f7f7;
+    --initial-margin-9: #b8d4ec;
+    --initial-margin-10: #8bbde0;
+    --initial-margin-11: #6baed6;
+    --initial-margin-12: #3f8fd0;
+    --initial-margin-13: #1f6aad;
+    --initial-margin-14: #08519c;
+    --initial-margin-15: #08306b;
+  }
   /* Mobile Styles - Enhanced for touch and small screens */
   @media (max-width: 768px) {
     /* Make minimize buttons touch-friendly */
@@ -9169,6 +9186,7 @@ body.focus-active #hover-tooltip[data-context="preview"] {
 <body>
 <!-- Move JS to script block -->
 <script>
+
 // Accessibility: Color Blind Mode Toggle
 document.addEventListener('DOMContentLoaded', function() {
   var accBtn = document.getElementById('accessibility-toggle');
@@ -9194,6 +9212,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const pressed = document.body.classList.contains('colorblind-mode');
     accBtn.setAttribute('aria-pressed', pressed ? 'true' : 'false');
   }
+  updateLegendColors();
     if (accBtn) {
       syncColorblindToggleAria();
       accBtn.onclick = function() {
@@ -9810,16 +9829,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 <span class="legend-segment legend-color" style="background: #67000d;"></span>
                 <span class="legend-segment legend-color" style="background: #a50f15;"></span>
                 <span class="legend-segment legend-color" style="background: #cb181d;"></span>
-                <span class="legend-segment legend-color" style="background: #ef3b2c;"></span>
-                <span class="legend-segment legend-color" style="background: #fb6a4a;"></span>
-                <span class="legend-segment legend-color" style="background: #fcae91;"></span>
-                <span class="legend-segment legend-color" style="background: #fee8c8;"></span>
+                <span class="legend-segment legend-color" style="background: #e03a32;"></span>
+                <span class="legend-segment legend-color" style="background: #e85a52;"></span>
+                <span class="legend-segment legend-color" style="background: #f99a90;"></span>
+                <span class="legend-segment legend-color" style="background: #f5d6c4;"></span>
                 <span class="legend-segment legend-color" style="background: #f7f7f7; border-left: 1px solid rgba(15,23,42,0.12); border-right: 1px solid rgba(15,23,42,0.12);"></span>
-                <span class="legend-segment legend-color" style="background: #e1f5fe;"></span>
-                <span class="legend-segment legend-color" style="background: #c6dbef;"></span>
-                <span class="legend-segment legend-color" style="background: #9ecae1;"></span>
+                <span class="legend-segment legend-color" style="background: #b8d4ec;"></span>
+                <span class="legend-segment legend-color" style="background: #8bbde0;"></span>
                 <span class="legend-segment legend-color" style="background: #6baed6;"></span>
-                <span class="legend-segment legend-color" style="background: #3182bd;"></span>
+                <span class="legend-segment legend-color" style="background: #3f8fd0;"></span>
+                <span class="legend-segment legend-color" style="background: #1f6aad;"></span>
                 <span class="legend-segment legend-color" style="background: #08519c;"></span>
                 <span class="legend-segment legend-color" style="background: #08306b;"></span>
               </div>
@@ -10082,7 +10101,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Cache destroyer token for static data requests.
     // Bump this value when you want browsers/CDNs to fetch fresh files immediately.
     const DATA_CACHE_BUSTER = '2026-07-20-01';
-    const APP_BUILD_ID = '2026-07-15-23';
+    const APP_BUILD_ID = '2026-07-19-nc-hybrid-default';
 
     function withCacheBuster(path) {
       const p = (path || '').toString().trim();
@@ -10118,9 +10137,9 @@ document.addEventListener('DOMContentLoaded', function() {
       },
       paths: {
         counties: withBase('./Data/tl_2020_47_county20.geojson'),
-        precincts: withBase('./Data/tn_vtd_2020.geojson'),
-        precincts_fallback_vtd20: withBase('./Data/tn_vtd_2020.geojson'),
-        precinct_centroids: withBase('./Data/tn_vtd_2020_centroids.geojson'),
+        precincts: withBase('./Data/tn_voting_precincts_dra_v07.geojson'),
+        precincts_fallback_vtd20: withBase('./Data/tn_voting_precincts_dra_v07.geojson'),
+        precinct_centroids: withBase('./Data/tn_precinct_centroids_dra_v07.geojson'),
         precinct_aliases: withBase('./Data/crosswalks/tn_precinct_aliases.csv'),
         precinct_friendly_names: withBase('./Data/crosswalks/tn_precinct_friendly_names_2020.json'),
         precinct_variant_overrides: '',
@@ -10154,6 +10173,7 @@ document.addEventListener('DOMContentLoaded', function() {
         district_contests_2020_2024_dir: '',
         district_contests_dirs: {
           '2022': withBase('./Data/district_contests'),
+          '2024': withBase('./Data/district_contests'),
           '2026': withBase('./Data/district_contests_2026')
         },
         districts_info: withBase('./Data/tn_congressional_districts.csv'),
@@ -10165,11 +10185,13 @@ document.addEventListener('DOMContentLoaded', function() {
         reports_match_year_summary: '',
         reports_top_unmatched: '',
         crosswalks: {
-          congressional: withBase('./Data/crosswalks/tn_congressional_2022_precinct_crosswalk.csv'),
-          congressional_2022: withBase('./Data/crosswalks/tn_congressional_2022_precinct_crosswalk.csv'),
-          congressional_2026: withBase('./Data/crosswalks/tn_congressional_2026_precinct_crosswalk.csv'),
-          state_house_2022: withBase('./Data/crosswalks/tn_state_house_2022_precinct_crosswalk.csv'),
-          state_senate_2022: withBase('./Data/crosswalks/tn_state_senate_2022_precinct_crosswalk.csv')
+          congressional: '',
+          congressional_2022: '',
+          congressional_2026: '',
+          state_house_2022: '',
+          state_house_2024: '',
+          state_senate_2022: '',
+          state_senate_2024: ''
         }
       },
       center: [-86.1, 35.9],
@@ -10563,7 +10585,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let electionData = null; // Flattened array for compatibility
     let contestManifest = [];
     let districtManifest = [];
-    let districtManifestByLines = { '2022': [], '2026': [] };
+    let districtManifestByLines = { '2022': [], '2024': [], '2026': [] };
     let currentDistrictLinesYear = 2022;
     const districtGeometryCache = new Map();
     let congressionalData = []; // Optional legacy district-level table
@@ -11592,6 +11614,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function normalizeDistrictLinesYear(raw) {
       const y = Number(raw);
       if (y === 2026) return 2026;
+      if (y === 2024) return 2024;
       return 2022;
     }
 
@@ -11634,7 +11657,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const y = normalizeDistrictLinesYear(linesYear);
       if (y === 2026) {
         const m2026 = Array.isArray(districtManifestByLines?.['2026']) ? districtManifestByLines['2026'] : [];
-        const m2022 = Array.isArray(districtManifestByLines?.['2022']) ? districtManifestByLines['2022'] : [];
+        const m2024 = Array.isArray(districtManifestByLines?.['2024']) ? districtManifestByLines['2024'] : [];
         const merged = [];
         const seen = new Set();
         const add = (entry) => {
@@ -11648,12 +11671,12 @@ document.addEventListener('DOMContentLoaded', function() {
           merged.push(entry);
         };
         m2026.filter(e => (e?.scope || '').toString().trim() === 'congressional').forEach(add);
-        m2022.filter(e => {
+        m2024.filter(e => {
           const s = (e?.scope || '').toString().trim();
           const contest = (e?.contest_type || '').toString().trim();
           return s === 'congressional' && contest === 'us_house';
         }).forEach(add);
-        m2022.filter(e => {
+        m2024.filter(e => {
           const s = (e?.scope || '').toString().trim();
           return s === 'state_house' || s === 'state_senate';
         }).forEach(add);
@@ -11907,6 +11930,21 @@ document.addEventListener('DOMContentLoaded', function() {
       return data;
     }
 
+    async function ensureCongressionalDistrictSource(linesYear = currentDistrictLinesYear) {
+      if (!map) return false;
+      if (map.getSource('districts')) return true;
+      const vectorUrl = CONFIG.tilesets?.enabled ? CONFIG.tilesets?.sources?.districts?.url : '';
+      if (vectorUrl) {
+        map.addSource('districts', { type: 'vector', url: vectorUrl });
+        return true;
+      }
+      const districtsGeoJSON = await loadDistrictGeometry('congressional', linesYear);
+      if (!districtsGeoJSON) throw new Error('Congressional district geometry returned no data');
+      map.addSource('districts', { type: 'geojson', data: districtsGeoJSON });
+      window['districts__search_geojson'] = districtsGeoJSON;
+      return true;
+    }
+
     async function refreshDistrictGeometrySources(linesYear = currentDistrictLinesYear) {
       if (!map) return;
       const targets = [
@@ -11958,7 +11996,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function shouldWarnDistrictLinesLoad(linesYear) {
       const y = normalizeDistrictLinesYear(linesYear);
       if (y !== 2026) return false;
-      const scopes = ['congressional'];
+      const scopes = ['congressional', 'state_house', 'state_senate'];
       return scopes.some(scope => {
         const path = getDistrictGeometryPath(scope, y);
         if (!path) return false;
@@ -11969,6 +12007,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     async function setDistrictLinesMode(linesYear) {
       const nextYear = normalizeDistrictLinesYear(linesYear);
+      if (nextYear === 2024) {
+        currentDistrictLinesYear = 2022;
+        updateDistrictLinesToggleUI();
+        return;
+      }
       if (nextYear === 2026 && currentView !== 'districts') {
         setStatus('2026 lines are only available for congressional view.');
         updateDistrictLinesToggleUI();
@@ -12611,6 +12654,13 @@ document.addEventListener('DOMContentLoaded', function() {
         try {
           map.setPaintProperty('county-fill', 'fill-opacity', countyOpacity);
           updateCountyLabelHaloForFillOpacity(countyBaseOpacity);
+        } catch (_) {}
+      }
+      if (map.getLayer('county-stroke-casing')) {
+        try {
+          map.setPaintProperty('county-stroke-casing', 'line-opacity', draCountyPresentationActive
+            ? ['interpolate', ['linear'], ['zoom'], 4, 0.30, 6, 0.38, 8, 0.50, 10, 0.62, 12, 0.76]
+            : 0);
         } catch (_) {}
       }
       if (map.getLayer('district-fill')) {
@@ -14766,12 +14816,52 @@ document.addEventListener('DOMContentLoaded', function() {
       queueVoteBreakdownLayoutMeasure();
     });
 
+    const TRANSIENT_FETCH_STATUSES = new Set([408, 425, 429, 500, 502, 503, 504]);
+
+    function atlasRetryDelayMs(response, attempt) {
+      const retryAfter = response?.headers?.get?.('Retry-After');
+      if (retryAfter) {
+        const seconds = Number(retryAfter);
+        if (Number.isFinite(seconds) && seconds >= 0) {
+          return Math.min(8000, Math.max(250, seconds * 1000));
+        }
+        const retryDate = Date.parse(retryAfter);
+        if (Number.isFinite(retryDate)) {
+          return Math.min(8000, Math.max(250, retryDate - Date.now()));
+        }
+      }
+      const backoff = [450, 1000, 2200][Math.min(attempt, 2)] || 2200;
+      return backoff + Math.round(Math.random() * 180);
+    }
+
+    async function fetchAtlasResource(requestPath, init = {}, { maxAttempts = 4 } = {}) {
+      let lastError = null;
+      for (let attempt = 0; attempt < maxAttempts; attempt++) {
+        let response = null;
+        try {
+          response = await fetch(requestPath, {
+            ...init,
+            cache: attempt === 0 ? (init.cache || 'force-cache') : 'reload'
+          });
+          if (response.ok || !TRANSIENT_FETCH_STATUSES.has(response.status) || attempt >= maxAttempts - 1) {
+            return response;
+          }
+          try { await response.body?.cancel?.(); } catch (_) {}
+        } catch (err) {
+          lastError = err;
+          if (attempt >= maxAttempts - 1) throw err;
+        }
+        await new Promise(resolve => setTimeout(resolve, atlasRetryDelayMs(response, attempt)));
+      }
+      throw lastError || new Error(`${requestPath} fetch failed`);
+    }
+
     async function loadJSON(path) {
       if (!(path || '').toString().trim()) throw new Error('JSON path not configured');
       const requestPath = withCacheBuster(path);
       if (jsonInflightByPath.has(requestPath)) return jsonInflightByPath.get(requestPath);
       const p = atlasPerf(`json:${requestPath}`, async () => {
-        const r = await fetch(requestPath, { cache: 'force-cache' });
+        const r = await fetchAtlasResource(requestPath, { cache: 'force-cache' });
         if (!r.ok) throw new Error(`${requestPath} fetch failed: ${r.status}`);
         return r.json();
       });
@@ -14788,7 +14878,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	      const requestPath = withCacheBuster(path);
 	      if (csvInflightByPath.has(requestPath)) return csvInflightByPath.get(requestPath);
 	      const p = atlasPerf(`csv:${requestPath}`, async () => {
-	        const r = await fetch(requestPath, { cache: 'force-cache' });
+	        const r = await fetchAtlasResource(requestPath, { cache: 'force-cache' });
 	        if (!r.ok) throw new Error(`${requestPath} fetch failed: ${r.status}`);
 	        return r.text();
 	      });
@@ -18528,7 +18618,10 @@ document.addEventListener('DOMContentLoaded', function() {
       const precinctGeom = (typeof getDesiredPrecinctGeometryMode === 'function') ? String(getDesiredPrecinctGeometryMode() || '') : '';
       const overlays = `split:${splitTicketOverlayEnabled ? 1 : 0}|baro:${barometerOverlayEnabled ? 1 : 0}|turnout:${turnoutBivariateEnabled ? 1 : 0}|opacity:${String(overlayOpacityPreset || '')}`;
       const precinct = `precincts:${precinctsEnabled ? 1 : 0}|geom:${precinctGeom}`;
-      return `k:${key}|ct:${ct}|y:${Number.isFinite(y) ? y : ''}|v:${view}|m:${mode}|lines:${linesYear}|${precinct}|${overlays}|scenario:${scenarioSignature()}`;
+      const palette = (typeof activePartisanPaletteKey === 'function')
+        ? activePartisanPaletteKey()
+        : (document.body.classList.contains('colorblind-mode') ? 'colorblind' : 'atlas');
+      return `k:${key}|ct:${ct}|y:${Number.isFinite(y) ? y : ''}|v:${view}|m:${mode}|palette:${palette}|lines:${linesYear}|${precinct}|${overlays}|scenario:${scenarioSignature()}`;
     }
 
     function wireContestSelectHandlers(sel) {
@@ -19508,6 +19601,16 @@ document.addEventListener('DOMContentLoaded', function() {
       // cannot skip the repaint because lastCountyFillExpr points to an old layer.
       lastCountyFillExpr = null;
       clearHoverOutline();
+
+      if (view === 'districts' && !map.getSource('districts')) {
+        setStatus('Loading congressional districts...');
+        try {
+          await ensureCongressionalDistrictSource(currentDistrictLinesYear);
+        } catch (err) {
+          console.warn('Congressional GeoJSON retry failed:', err?.message || err);
+          setStatus('Congressional districts are temporarily unavailable. Try Congress again in a moment.');
+        }
+      }
       
       // Add appropriate layers
       if (view === 'counties') {
@@ -27770,6 +27873,19 @@ document.addEventListener('DOMContentLoaded', function() {
           paint: { 'fill-color': '#d9e3ef', 'fill-opacity': 0.0 }
         });
         addLayerWithOptionalSourceLayer({
+          id: 'county-stroke-casing',
+          type: 'line',
+          source: 'counties',
+          beforeId: baseSymbolLayerId,
+          layout: { 'line-join': 'round', 'line-cap': 'round' },
+          paint: {
+            'line-color': 'rgba(248, 250, 252, 0.94)',
+            'line-opacity': 0,
+            'line-width': ['interpolate', ['linear'], ['zoom'], 4, 1.5, 6, 1.8, 8, 2.2, 10, 2.7, 12, 3.2],
+            'line-blur': ['interpolate', ['linear'], ['zoom'], 4, 0.48, 7, 0.30, 10, 0.10, 12, 0]
+          }
+        });
+        addLayerWithOptionalSourceLayer({
           id: 'county-stroke',
           type: 'line',
           source: 'counties',
@@ -27971,15 +28087,13 @@ document.addEventListener('DOMContentLoaded', function() {
         const original = feature.properties || {};
         const rawFips = (original.COUNTYFP20 || original.COUNTYFP || '').toString().replace(/[^0-9]/g, '').slice(-3).padStart(3, '0');
         const countyFromFips = (countyNameByFips && rawFips) ? (countyNameByFips.get(rawFips) || '') : '';
-        // Prefer county fields / FIPS. Do not use NAME20 as county — on Census VTD20 that is the precinct name.
-        const countyRaw = (original.county_nam || original.COUNTYNAME || original.County || countyFromFips || original.county || '').toString().trim();
-        const countyNorm = countyRaw.replace(/[^a-z0-9 .\-']/gi, '').replace(/\s+/g, ' ').trim().toUpperCase();
-        let precRaw = (original.prec_id || original.PREC_ID || original.VTDST20 || original.VTDST10 || original.VTDST00 || '').toString().trim();
-        if (/^\d+$/.test(precRaw)) precRaw = precRaw.padStart(6, '0');
-        const fullNameRaw = (original.enr_desc || original.ENR_DESC || original.precinct_full_name || original.NAMELSAD20 || original.NAME20 || original.precinct_name || '').toString();
+        const countyRaw = (original.county_nam || original.COUNTYNAME || original.County || original.NAME20 || original.NAME || countyFromFips || '').toString().trim();
+        const countyNorm = countyRaw.replace(/[^a-z0-9 .\-]/gi, '').replace(/\s+/g, ' ').trim().toUpperCase();
+        const precRaw = (original.prec_id || original.PREC_ID || original.VTDST20 || original.VTDST10 || original.VTDST00 || '').toString().trim();
+        const fullNameRaw = (original.enr_desc || original.ENR_DESC || original.precinct_full_name || original.precinct_name || '').toString();
         const fullName = fullNameRaw.replace(/\s+/g, ' ').trim();
         const precinctRaw = countyRaw && precRaw ? `${countyRaw} - ${precRaw}` : countyRaw;
-        const precinctNorm = (precinctRaw || '').replace(/[^a-z0-9 .\-']/gi, '').replace(/\s+/g, ' ').trim().toUpperCase();
+        const precinctNorm = (precinctRaw || '').replace(/[^a-z0-9 .\-]/gi, '').replace(/\s+/g, ' ').trim().toUpperCase();
         if (precinctNorm && fullName) fullNameByNorm.set(precinctNorm, fullName);
         feature.properties = {
           county_nam: countyRaw,
@@ -27988,9 +28102,7 @@ document.addEventListener('DOMContentLoaded', function() {
           precinct_norm: precinctNorm,
           prec_id: precRaw,
           precinct_full_name: fullName,
-          name20: (original.NAME20 || '').toString().trim(),
-          geoid20: (original.GEOID20 || original.id || '').toString().trim() || null,
-          id: original.id || original.GEOID20 || original.objectid || null
+          id: original.id || original.objectid || null
         };
         return feature;
       });
@@ -31212,8 +31324,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
       try {
         let loadedAnyDistrictManifest = false;
-        districtManifestByLines = { '2022': [], '2026': [] };
-        for (const linesYear of [2022, 2026]) {
+        districtManifestByLines = { '2022': [], '2024': [], '2026': [] };
+        for (const linesYear of [2022, 2024, 2026]) {
           const dir = getActiveDistrictContestsDir(linesYear);
           if (!dir) continue;
           try {
@@ -31246,7 +31358,7 @@ document.addEventListener('DOMContentLoaded', function() {
         districtElectionDataJSON = null;
         districtElectionDataLoadInflight = null;
         districtElectionDataLoadFailed = false;
-        districtManifestByLines = { '2022': [], '2026': [] };
+        districtManifestByLines = { '2022': [], '2024': [], '2026': [] };
         districtManifest = [];
         updateDistrictLinesToggleUI();
       }
@@ -31325,18 +31437,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
       try {
         setStatus('Loading congressional districts...');
-        if (CONFIG.tilesets?.enabled && CONFIG.tilesets?.sources?.districts?.url) {
-          if (!map.getSource('districts')) {
-            map.addSource('districts', { type: 'vector', url: CONFIG.tilesets.sources.districts.url });
+        if (map.getSource('districts')) {
+          const districtsGeoJSON = await loadDistrictGeometry('congressional', currentDistrictLinesYear);
+          const source = map.getSource('districts');
+          if (districtsGeoJSON && source?.type === 'geojson' && typeof source.setData === 'function') {
+            source.setData(districtsGeoJSON);
+            window['districts__search_geojson'] = districtsGeoJSON;
           }
         } else {
-          const districtsGeoJSON = await loadDistrictGeometry('congressional', currentDistrictLinesYear);
-          if (map.getSource('districts')) {
-            map.getSource('districts').setData(districtsGeoJSON);
-          } else {
-            map.addSource('districts', { type: 'geojson', data: districtsGeoJSON });
-          }
-          window['districts__search_geojson'] = districtsGeoJSON;
+          await ensureCongressionalDistrictSource(currentDistrictLinesYear);
         }
         setStatus('Congressional districts loaded');
       } catch (err) {
@@ -31570,20 +31679,22 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function categoryColorForMargin(marginPct, winner) {
+      // DRA-hybrid mid tiers; OG Stronghold + OG Dominant/Annihilation.
+      // Safe sits clearly above Stronghold (wider mid→deep gap).
       if (marginPct >= 40) {
-        return winner === 'R' ? '#67000d' : '#08306b';
+        return winner === 'R' ? '#67000d' : '#08306b'; // OG Annihilation
       } else if (marginPct >= 30) {
-        return winner === 'R' ? '#a50f15' : '#08519c';
+        return winner === 'R' ? '#a50f15' : '#08519c'; // OG Dominant
       } else if (marginPct >= 20) {
-        return winner === 'R' ? '#cb181d' : '#3182bd';
+        return winner === 'R' ? '#cb181d' : '#1f6aad'; // Stronghold — OG Dem nudged darker
       } else if (marginPct >= 10) {
-        return winner === 'R' ? '#ef3b2c' : '#6baed6';
+        return winner === 'R' ? '#e03a32' : '#3f8fd0'; // Safe — toward OG brightness, still above Stronghold
       } else if (marginPct >= 5.5) {
-        return winner === 'R' ? '#fb6a4a' : '#9ecae1';
+        return winner === 'R' ? '#e85a52' : '#6baed6'; // Likely — option A (locked)
       } else if (marginPct >= 1.0) {
-        return winner === 'R' ? '#fcae91' : '#c6dbef';
+        return winner === 'R' ? '#f99a90' : '#8bbde0'; // Lean — cooler red, less orange
       } else if (marginPct >= 0.5) {
-        return winner === 'R' ? '#fee8c8' : '#e1f5fe';
+        return winner === 'R' ? '#f5d6c4' : '#b8d4ec'; // Dem Tilt less white, still under Lean
       } else {
         return '#f7f7f7';
       }
@@ -31591,6 +31702,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function isColorblindModeActive() {
       return document.body.classList.contains('colorblind-mode');
+    }
+
+    function activePartisanPaletteKey() {
+      if (isColorblindModeActive()) return 'colorblind';
+      return 'atlas';
     }
 
     function accessibilityMarginColor(marginPct, winner) {
@@ -32869,7 +32985,8 @@ document.addEventListener('DOMContentLoaded', function() {
       }
 
       const prevYearKey = Number(vizPrevCache?.prevYear || 0) || 0;
-      const countyExprKey = `${aggCacheKey}|countyExpr|mode:${mode}|prev:${prevYearKey}`;
+      const paletteKey = activePartisanPaletteKey();
+      const countyExprKey = `${aggCacheKey}|countyExpr|mode:${mode}|prev:${prevYearKey}|palette:${paletteKey}`;
       const cachedCountyExpr = countyColorExprCache.get(countyExprKey) || null;
       let countyFillColorByNorm = cachedCountyExpr?.countyFillColorByNorm || new Map();
       const expr = cachedCountyExpr?.expr || (() => {
