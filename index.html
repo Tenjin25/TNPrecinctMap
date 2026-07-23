@@ -10100,8 +10100,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Cache destroyer token for static data requests.
     // Bump this value when you want browsers/CDNs to fetch fresh files immediately.
-    const DATA_CACHE_BUSTER = '2026-07-20-01';
-    const APP_BUILD_ID = '2026-07-19-nc-hybrid-default';
+    const DATA_CACHE_BUSTER = '2026-07-23-01';
+    const APP_BUILD_ID = '2026-07-23-windle-independent';
 
     function withCacheBuster(path) {
       const p = (path || '').toString().trim();
@@ -20652,7 +20652,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function winnerMarginCall(repVotes, demVotes, totalVotes, repCandidate, demCandidate, signedPctOverride = NaN, options = {}) {
       const signedFromVotes = signedMarginPctFromVotes(demVotes, repVotes, totalVotes);
-      const signed = Number.isFinite(Number(signedPctOverride)) ? Number(signedPctOverride) : signedFromVotes;
+      const hasSignedOverride = Number.isFinite(Number(signedPctOverride));
+      const signed = hasSignedOverride ? Number(signedPctOverride) : signedFromVotes;
       const repVoteNum = Number(repVotes) || 0;
       const demVoteNum = Number(demVotes) || 0;
       const totalVoteNum = Number(totalVotes) || 0;
@@ -20663,15 +20664,17 @@ document.addEventListener('DOMContentLoaded', function() {
       const repMissingByVotes = totalVoteNum > 0 && repVoteNum <= 0 && demVoteNum > 0;
       const demMissingByVotes = totalVoteNum > 0 && demVoteNum <= 0 && repVoteNum > 0;
       const repMissingAny = repMissing || repMissingByVotes;
-      const demMissingAny = demMissing || demMissingByVotes;
+      const demMissingAny = (demMissing || demMissingByVotes) && options?.hasOpponent !== true;
 
       // Keep hover tooltip margins on the same display pipeline as the rest of the UI.
       // The sign can still come from the active/derived margin, but the printed number
       // should be derived from the same rounded vote-share display values used in cards.
       const useCountyPrecision = String(options?.precision || '').toLowerCase() === 'county';
-      const marginPct = useCountyPrecision
-        ? countyMarginPctDisplayValue(repVotes, demVotes, totalVotes)
-        : marginPctDisplayValue(repVotes, demVotes, totalVotes);
+      const marginPct = options?.useSignedMarginForDisplay === true && hasSignedOverride
+        ? Math.abs(signed)
+        : (useCountyPrecision
+          ? countyMarginPctDisplayValue(repVotes, demVotes, totalVotes)
+          : marginPctDisplayValue(repVotes, demVotes, totalVotes));
       const marginLabel = useCountyPrecision
         ? formatCountyMarginPctForDisplay(marginPct)
         : formatMarginPctForDisplay(marginPct);
@@ -21703,6 +21706,8 @@ document.addEventListener('DOMContentLoaded', function() {
           total_votes: Number(r.total_votes) || 0,
           dem_candidate: demCand,
           rep_candidate: repCand,
+          other_candidate: (r.other_candidate || '').toString().trim(),
+          other_party: (r.other_party || '').toString().trim(),
           winner: r.winner || '',
           margin_pct: Number(r.margin_pct) || 0,
           coverage_pct: payload?.meta?.match_coverage_pct
@@ -26209,6 +26214,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
       let demCandidate = (row.dem_candidate || '').toString().trim();
       let repCandidate = (row.rep_candidate || '').toString().trim();
+      const otherCandidate = (row.other_candidate || '').toString().trim();
+      const otherParty = (row.other_party || 'Other').toString().trim();
       if ((!(demCandidate && repCandidate)) && contestType !== 'us_house') {
         try {
           const cand = await getContestCandidates(contestType, year);
@@ -26252,7 +26259,18 @@ document.addEventListener('DOMContentLoaded', function() {
         ? shortCandidateLabel(repCandidate, 'Republican')
         : (signedMarginPct < 0 ? shortCandidateLabel(demCandidate, 'Democratic') : 'Tie');
       const winnerParty = signedMarginPct > 0 ? 'rep' : (signedMarginPct < 0 ? 'dem' : 'tie');
-      const marginCall = winnerMarginCall(repVotes, demVotes, totalVotes, repCandidate, demCandidate, signedMarginPct);
+      const marginCall = winnerMarginCall(
+        repVotes,
+        demVotes,
+        totalVotes,
+        repCandidate,
+        demCandidate,
+        signedMarginPct,
+        {
+          hasOpponent: otherVotes > 0 && !!otherCandidate,
+          useSignedMarginForDisplay: otherVotes > 0 && !!otherCandidate
+        }
+      );
       let shiftDelta = NaN;
       let shiftClass = 'tie';
       if (currentVizMode === 'shift' && Number.isFinite(Number(prevSignedForFlip)) && prevYearForFlip) {
@@ -26264,7 +26282,9 @@ document.addEventListener('DOMContentLoaded', function() {
         subtitle: subtitleByScope,
         demName: demCandidate,
         repName: repCandidate,
-        otherName: 'Other',
+        otherName: otherCandidate
+          ? `${shortCandidateLabel(otherCandidate, otherParty)} (${otherParty === 'Independent' ? 'I' : otherParty})`
+          : otherParty,
         demVotes,
         repVotes,
         otherVotes,
@@ -30806,6 +30826,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
       let demCandidate = stripRunningMateName((row.dem_candidate || '').toString().trim());
       let repCandidate = stripRunningMateName((row.rep_candidate || '').toString().trim());
+      const otherCandidate = stripRunningMateName((row.other_candidate || '').toString().trim());
+      const otherParty = (row.other_party || 'Other').toString().trim();
       if (!demCandidate) demCandidate = stripRunningMateName((fallbackCandidates?.dem || '').toString().trim());
       if (!repCandidate) repCandidate = stripRunningMateName((fallbackCandidates?.rep || '').toString().trim());
       if (!demCandidate) demCandidate = 'D';
@@ -30820,7 +30842,18 @@ document.addEventListener('DOMContentLoaded', function() {
         : signedMarginPctFromVotes(demVotes, repVotes, totalVotes);
       const marginPct = Math.abs(signedMarginPct);
       const winnerParty = signedMarginPct > 0 ? 'R' : (signedMarginPct < 0 ? 'D' : 'TIE');
-      const winnerCall = winnerMarginCall(repVotes, demVotes, totalVotes, repCandidate, demCandidate, signedMarginPct);
+      const winnerCall = winnerMarginCall(
+        repVotes,
+        demVotes,
+        totalVotes,
+        repCandidate,
+        demCandidate,
+        signedMarginPct,
+        {
+          hasOpponent: otherVotes > 0 && !!otherCandidate,
+          useSignedMarginForDisplay: otherVotes > 0 && !!otherCandidate
+        }
+      );
 
       let compLabel = '';
       let compColor = '#6b7280';
@@ -30854,9 +30887,13 @@ document.addEventListener('DOMContentLoaded', function() {
         ? fullCandidateLabel(repCandidate, 'Republican')
         : (winnerParty === 'D' ? fullCandidateLabel(demCandidate, 'Democratic') : 'Tie');
       const winColor = winnerParty === 'R' ? '#dc2626' : (winnerParty === 'D' ? '#2563eb' : '#6b7280');
+      const storedMarginVotes = Number(row.margin);
+      const marginVotes = Number.isFinite(storedMarginVotes)
+        ? Math.abs(storedMarginVotes)
+        : Math.abs(repVotes - demVotes);
       const marginLineText = winnerCall.uncontested
         ? `Result: ${winnerCall.shortLabel}`
-        : `Margin: ${winnerCall.text} <span style="color:#64748b;font-weight:600;">(${Math.abs(repVotes - demVotes).toLocaleString()} votes)</span>`;
+        : `Margin: ${winnerCall.text} <span style="color:#64748b;font-weight:600;">(${marginVotes.toLocaleString()} votes)</span>`;
 
       return `
         <div style="margin-bottom: 12px;">
@@ -30868,7 +30905,7 @@ document.addEventListener('DOMContentLoaded', function() {
           <div style="margin-top:8px;font-size:14px;">
             <div class="tooltip-vote-line"><span style="color:#2563eb;font-weight:800;">${fullCandidateLabel(demCandidate, 'Democratic')} (D)</span>: <span class="tooltip-vote-pct">${toFixedForDisplay(demPct, 2)}%</span> (${demVotes.toLocaleString()})</div>
             <div class="tooltip-vote-line"><span style="color:#dc2626;font-weight:800;">${fullCandidateLabel(repCandidate, 'Republican')} (R)</span>: <span class="tooltip-vote-pct">${toFixedForDisplay(repPct, 2)}%</span> (${repVotes.toLocaleString()})</div>
-            ${otherVotes > 0 ? `<div class="tooltip-vote-line"><span style="color:#6b7280;font-weight:800;">Other</span>: <span class="tooltip-vote-pct">${toFixedForDisplay(othPct, 2)}%</span> (${otherVotes.toLocaleString()})</div>` : ''}
+            ${otherVotes > 0 ? `<div class="tooltip-vote-line"><span style="color:#6b7280;font-weight:800;">${otherCandidate ? `${fullCandidateLabel(otherCandidate, otherParty)} (${otherParty === 'Independent' ? 'I' : otherParty})` : otherParty}</span>: <span class="tooltip-vote-pct">${toFixedForDisplay(othPct, 2)}%</span> (${otherVotes.toLocaleString()})</div>` : ''}
             <div style="margin-top:6px;color:#374151;font-weight:700;">Total Votes: ${totalVotes.toLocaleString()}</div>
           </div>
           <div style="margin-top:8px;font-size:14px;font-weight:800;color:${compColor};">Competitiveness: ${compLabel}</div>
@@ -30890,7 +30927,11 @@ document.addEventListener('DOMContentLoaded', function() {
             Number(s.total_votes || 0),
             s.rep_candidate,
             s.dem_candidate,
-            Number(s.margin_pct)
+            Number(s.margin_pct),
+            {
+              hasOpponent: Number(s.other_votes || 0) > 0 && !!s.other_candidate,
+              useSignedMarginForDisplay: Number(s.other_votes || 0) > 0 && !!s.other_candidate
+            }
           ).text;
           return `<div style="margin-top:4px;color:${color};font-weight:800;">${s.year}: ${label}</div>`;
         })
