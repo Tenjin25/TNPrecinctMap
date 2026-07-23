@@ -466,8 +466,10 @@
         "total_votes": 17263,
         "dem_candidate": "",
         "rep_candidate": "Ed Butler",
-        "margin": 9079,
-        "margin_pct": 52.5922,
+        "other_candidate": "John Mark Windle",
+        "other_party": "Independent",
+        "margin": 895,
+        "margin_pct": 5.1845,
         "winner": "REP"
       },
       "42": {
