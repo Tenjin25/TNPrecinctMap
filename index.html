@@ -2441,30 +2441,6 @@ body.focus-active #hover-tooltip[data-context="preview"] {
   min-width: 0;
 }
 
-.vote-counter-context .context-badges {
-  display: flex;
-  gap: 6px;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: flex-end;
-  flex: 0 0 auto;
-}
-
-.vote-counter-context .context-tag {
-  display: inline-flex;
-  align-items: center;
-  padding: 2px 8px;
-  border-radius: 999px;
-  font-size: 10px;
-  font-weight: 900;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: rgba(15, 23, 42, 0.72);
-  background: rgba(15, 23, 42, 0.05);
-  border: 1px solid rgba(15, 23, 42, 0.12);
-  white-space: nowrap;
-}
-
 .vote-counter-context .context-title {
   flex: 1 1 auto;
   min-width: 0;
@@ -9907,7 +9883,6 @@ document.addEventListener('DOMContentLoaded', function() {
       <div class="context-left">
         <div class="context-title-row">
           <div class="context-title" id="vote-context-title">Statewide Focus</div>
-          <div class="context-badges" id="vote-context-badges" aria-hidden="true"></div>
         </div>
         <div class="context-sub" id="vote-context-sub">Choose a contest, then hover or tap a county</div>
       </div>
@@ -10100,8 +10075,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Cache destroyer token for static data requests.
     // Bump this value when you want browsers/CDNs to fetch fresh files immediately.
-    const DATA_CACHE_BUSTER = '2026-07-23-03';
-    const APP_BUILD_ID = '2026-07-23-windle-contested';
+    const DATA_CACHE_BUSTER = '2026-07-25-01';
+    const APP_BUILD_ID = '2026-07-25-knox-margin';
 
     function withCacheBuster(path) {
       const p = (path || '').toString().trim();
@@ -13684,17 +13659,8 @@ document.addEventListener('DOMContentLoaded', function() {
       const t = document.getElementById('vote-context-title');
       const s = document.getElementById('vote-context-sub');
       const c = document.getElementById('vote-context-clear');
-      const b = document.getElementById('vote-context-badges');
       const rawTitle = String(title || '').trim();
-      let cleanedTitle = rawTitle;
-      let tag = '';
-      const m = /^(Hover|Selected|Pinned):\s*(.+)$/i.exec(rawTitle);
-      if (m && m[2]) {
-        tag = String(m[1] || '').trim();
-        cleanedTitle = String(m[2] || '').trim();
-      }
-      // Preserve the exact legacy title string (tests + users rely on "Selected:" / "Hover:" prefixes).
-      // Use the separate badge row for the compact context tag + tier badge.
+      // Preserve the plain "Selected:" / "Hover:" prefix in the title.
       if (t) t.textContent = rawTitle || '';
       if (s) s.textContent = sub || '';
       if (c) {
@@ -13714,16 +13680,11 @@ document.addEventListener('DOMContentLoaded', function() {
           }
         } catch (_) {}
       }
-      if (b) b.dataset.contextTag = tag ? tag[0].toUpperCase() + tag.slice(1).toLowerCase() : '';
     }
 
     function renderVoteContextTierBadge(meta, signedMarginPct) {
-      const b = document.getElementById('vote-context-badges');
-      if (!b) return;
-      const tag = String(b.dataset.contextTag || '').trim();
       void meta;
       void signedMarginPct;
-      b.innerHTML = tag ? `<span class="context-tag">${escapeHtml(tag)}</span>` : '';
     }
 
     function setVoteCounterMinimizedState(minimized) {
@@ -20577,6 +20538,18 @@ document.addEventListener('DOMContentLoaded', function() {
       return 0;
     }
 
+    function countyContestMarginPctDisplayValue(repVotes, demVotes, totalVotes, signedPctOverride = NaN, otherVotes = NaN) {
+      const otherVoteNum = resolveOtherVoteTotal(demVotes, repVotes, totalVotes, otherVotes);
+      const signedFromVotes = signedMarginPctFromMajorOrOther(demVotes, repVotes, otherVoteNum, totalVotes);
+      const hasSignedOverride = Number.isFinite(Number(signedPctOverride));
+      const signed = hasSignedOverride ? Number(signedPctOverride) : signedFromVotes;
+      const hasBothMajorCandidates = Number(repVotes || 0) > 0 && Number(demVotes || 0) > 0;
+      const overrideMatchesVotes = !hasSignedOverride || Math.abs(signed - signedFromVotes) < 0.005;
+      return hasBothMajorCandidates && overrideMatchesVotes
+        ? countyMarginPctDisplayValue(repVotes, demVotes, totalVotes)
+        : Math.abs(signed);
+    }
+
     function leadCountyMarginPctLabel(repVotes, demVotes, totalVotes) {
       const margin = Number(repVotes || 0) - Number(demVotes || 0);
       if (!margin) return 'Tie';
@@ -20638,10 +20611,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function compactCountyWinnerMarginLabel(repVotes, demVotes, totalVotes, repCandidate, demCandidate, options = {}) {
       const otherVoteNum = resolveOtherVoteTotal(demVotes, repVotes, totalVotes, options?.otherVotes);
-      const signed = Number.isFinite(Number(options?.signedPctOverride))
+      const signedFromVotes = signedMarginPctFromMajorOrOther(demVotes, repVotes, otherVoteNum, totalVotes);
+      const hasSignedOverride = Number.isFinite(Number(options?.signedPctOverride));
+      const signed = hasSignedOverride
         ? Number(options.signedPctOverride)
-        : signedMarginPctFromMajorOrOther(demVotes, repVotes, otherVoteNum, totalVotes);
-      const pctLabel = `${formatCountyMarginPctForDisplay(Math.abs(signed))}%`;
+        : signedFromVotes;
+      const displayMarginPct = countyContestMarginPctDisplayValue(
+        repVotes,
+        demVotes,
+        totalVotes,
+        hasSignedOverride ? signed : NaN,
+        otherVoteNum
+      );
+      const pctLabel = `${formatCountyMarginPctForDisplay(displayMarginPct)}%`;
       const hasOtherOpponent = options?.hasOpponent === true || otherVoteNum > 0;
       if (signed > 0) {
         const repName = (repCandidate || '').toString().trim();
@@ -27236,7 +27218,9 @@ document.addEventListener('DOMContentLoaded', function() {
         ? signedMarginPctRaw
         : signedMarginPctFromVotes(demVotes, repVotes, totalVotes);
       const marginPct = Math.abs(signedMarginPct);
-      const marginPctLabel = formatCountyMarginPctForDisplay(marginPct);
+      const marginPctLabel = formatCountyMarginPctForDisplay(
+        countyContestMarginPctDisplayValue(repVotes, demVotes, totalVotes, signedMarginPct, otherVotes)
+      );
       const winner = margin > 0 ? 'Democratic' : (margin < 0 ? 'Republican' : 'Tie');
       const winnerCandidate = margin > 0 ? demCandidate : repCandidate;
       const marginText = winnerMarginLabelShortCounty(repVotes, demVotes, totalVotes, repCandidate, demCandidate);
