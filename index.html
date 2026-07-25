@@ -10075,7 +10075,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Cache destroyer token for static data requests.
     // Bump this value when you want browsers/CDNs to fetch fresh files immediately.
-    const DATA_CACHE_BUSTER = '2026-07-25-02';
+    const DATA_CACHE_BUSTER = '2026-07-25-03';
     const APP_BUILD_ID = '2026-07-25-county-margins';
 
     function withCacheBuster(path) {
@@ -14001,7 +14001,13 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         const leadLabel = leadMarginLabelFn(repVotes, demVotes, totalVotes);
         const shiftMeta = describeTrendShift(signedPct, prevSignedPct, prev ? prev.year : '');
-        const flip = prev ? flipInfo(prevSignedPct, signedPct) : { flipped: false, from: 'T', to: 'T' };
+        const flip = prev
+          ? flipInfo(prevSignedPct, signedPct, {
+              contestType: contestTypeHint,
+              fromYear: prev.year,
+              toYear: item.year
+            })
+          : { flipped: false, from: 'T', to: 'T' };
         return {
           item,
           prev,
@@ -20681,7 +20687,22 @@ document.addEventListener('DOMContentLoaded', function() {
       return 'T';
     }
 
-    function flipInfo(prevSignedPct, curSignedPct) {
+    function isStateLegislativeContestType(contestType) {
+      const ct = String(contestType || '').trim().toLowerCase();
+      return ct === 'state_house' || ct === 'state_senate';
+    }
+
+    function isFlipComparisonAllowed(contestType, fromYear, toYear) {
+      if (!isStateLegislativeContestType(contestType)) return true;
+      const from = Number(fromYear);
+      const to = Number(toYear);
+      return Number.isFinite(from) && Number.isFinite(to) && from >= 2022 && to > from;
+    }
+
+    function flipInfo(prevSignedPct, curSignedPct, options = {}) {
+      if (!isFlipComparisonAllowed(options?.contestType, options?.fromYear, options?.toYear)) {
+        return { flipped: false, from: 'T', to: 'T' };
+      }
       const from = winnerFromSignedMarginPct(prevSignedPct);
       const to = winnerFromSignedMarginPct(curSignedPct);
       const flipped = (from !== 'T' && to !== 'T' && from !== to);
@@ -21654,8 +21675,8 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }
 
-    function flipChipHTML(prevSignedPct, curSignedPct) {
-      const f = flipInfo(prevSignedPct, curSignedPct);
+    function flipChipHTML(prevSignedPct, curSignedPct, contestType = '', fromYear = null, toYear = null) {
+      const f = flipInfo(prevSignedPct, curSignedPct, { contestType, fromYear, toYear });
       if (!f.flipped) return '';
       const labelFrom = f.from === 'R' ? 'R' : 'D';
       const labelTo = f.to === 'R' ? 'R' : 'D';
@@ -21663,8 +21684,8 @@ document.addEventListener('DOMContentLoaded', function() {
       return `<span class="meta-chip flip ${cls}"><span class="dot"></span>Flip ${labelFrom}\u2192${labelTo}</span>`;
     }
 
-    function flipLineHTML(prevSignedPct, curSignedPct, fromYear = null, toYear = null) {
-      const f = flipInfo(prevSignedPct, curSignedPct);
+    function flipLineHTML(prevSignedPct, curSignedPct, fromYear = null, toYear = null, contestType = '') {
+      const f = flipInfo(prevSignedPct, curSignedPct, { contestType, fromYear, toYear });
       if (!f.flipped) return '';
       const labelFrom = f.from === 'R' ? 'R' : 'D';
       const labelTo = f.to === 'R' ? 'R' : 'D';
@@ -25684,7 +25705,13 @@ document.addEventListener('DOMContentLoaded', function() {
         chips.push(winnerChipHTML(winner));
       }
       if (prevSignedForFlip !== null) {
-        const flipChip = flipChipHTML(prevSignedForFlip, signedMarginPct);
+        const flipChip = flipChipHTML(
+          prevSignedForFlip,
+          signedMarginPct,
+          contestType,
+          vizPrevCache?.prevYear || null,
+          Number(year)
+        );
         if (flipChip) chips.push(flipChip);
       }
 
@@ -25699,7 +25726,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
       const marginCall = winnerMarginCall(repVotes, demVotes, totalVotes, repCandidate, demCandidate, signedMarginPct, { precision: 'county' });
       const flipLine = (prevSignedForFlip !== null)
-        ? flipLineHTML(prevSignedForFlip, signedMarginPct, vizPrevCache?.prevYear || null, Number(year))
+        ? flipLineHTML(prevSignedForFlip, signedMarginPct, vizPrevCache?.prevYear || null, Number(year), contestType)
         : '';
       const shiftDelta = Number.isFinite(shiftDeltaForTooltip)
         ? shiftDeltaForTooltip
@@ -25830,6 +25857,8 @@ document.addEventListener('DOMContentLoaded', function() {
         winnerRawLeadToneClass: (popChangeHeaderMeta && isDesktopTooltipMode()) ? popChangeHeaderMeta.tone : '',
         prevSignedMarginPct: prevSignedForFlip,
         currentSignedMarginPct: signedMarginPct,
+        contestType,
+        currentYear: Number(year),
         flipYearLabel: vizPrevCache?.prevYear || null,
         districtType: 'County',
         showWinnerLine: true,
@@ -26044,6 +26073,8 @@ document.addEventListener('DOMContentLoaded', function() {
         winnerLineText: marginCall?.text || '',
         prevSignedMarginPct: prevSignedForFlip,
         currentSignedMarginPct: curSigned,
+        contestType,
+        currentYear: Number(year),
         flipYearLabel: vizPrevCache?.prevYear || null,
         districtType: 'Precinct',
         showWinnerLine: true,
@@ -26336,15 +26367,26 @@ document.addEventListener('DOMContentLoaded', function() {
         : signedMarginPctFromMajorOrOther(demVotes, repVotes, otherVotes, totalVotes);
       let prevSignedForFlip = null;
       let prevYearForFlip = null;
+      let prevSignedForShift = null;
+      let prevYearForShift = null;
       try {
         const prevCached = await ensurePrevDistrictCache(scope, contestType, Number(year));
-        prevYearForFlip = prevCached?.prevYear || null;
-        const prevResults = prevCached?.prevNode?.general?.results || null;
-        if (prevResults) {
-          const prevRow = prevResults[String(districtNum)] || prevResults[String(Number(districtNum))] || null;
-          if (prevRow) {
-            const prevSignedRaw = getDistrictSignedMarginFromRow(prevRow, contestType);
+        prevYearForFlip = prevCached?.flipPrevYear || null;
+        const flipPrevResults = prevCached?.flipPrevNode?.general?.results || null;
+        if (flipPrevResults) {
+          const flipPrevRow = flipPrevResults[String(districtNum)] || flipPrevResults[String(Number(districtNum))] || null;
+          if (flipPrevRow) {
+            const prevSignedRaw = getDistrictSignedMarginFromRow(flipPrevRow, contestType);
             if (Number.isFinite(prevSignedRaw)) prevSignedForFlip = prevSignedRaw;
+          }
+        }
+        prevYearForShift = prevCached?.prevYear || null;
+        const shiftPrevResults = prevCached?.prevNode?.general?.results || null;
+        if (shiftPrevResults) {
+          const shiftPrevRow = shiftPrevResults[String(districtNum)] || shiftPrevResults[String(Number(districtNum))] || null;
+          if (shiftPrevRow) {
+            const prevSignedRaw = getDistrictSignedMarginFromRow(shiftPrevRow, contestType);
+            if (Number.isFinite(prevSignedRaw)) prevSignedForShift = prevSignedRaw;
           }
         }
       } catch (_) {}
@@ -26377,8 +26419,8 @@ document.addEventListener('DOMContentLoaded', function() {
       );
       let shiftDelta = NaN;
       let shiftClass = 'tie';
-      if (currentVizMode === 'shift' && Number.isFinite(Number(prevSignedForFlip)) && prevYearForFlip) {
-        shiftDelta = Number(signedMarginPct) - Number(prevSignedForFlip);
+      if (currentVizMode === 'shift' && Number.isFinite(Number(prevSignedForShift)) && prevYearForShift) {
+        shiftDelta = Number(signedMarginPct) - Number(prevSignedForShift);
         shiftClass = Math.abs(shiftDelta) < 0.01 ? 'tie' : (shiftDelta > 0 ? 'rep' : 'dem');
       }
       const inner = buildVotehubResultsTooltip({
@@ -26399,13 +26441,15 @@ document.addEventListener('DOMContentLoaded', function() {
         winnerLineText: marginCall?.text || '',
         prevSignedMarginPct: prevSignedForFlip,
         currentSignedMarginPct: signedMarginPct,
+        contestType,
+        currentYear: Number(year),
         flipYearLabel: prevYearForFlip,
         districtType: subtitleByScope,
         showWinnerLine: true,
         shiftLineText: Number.isFinite(shiftDelta) ? formatShiftLabel(shiftDelta) : '',
         shiftToneClass: shiftClass,
-        shiftYearLabel: (prevYearForFlip && year) ? `${prevYearForFlip}→${year}` : '',
-        showShiftLine: currentVizMode === 'shift' && Number.isFinite(shiftDelta) && !!prevYearForFlip
+        shiftYearLabel: (prevYearForShift && year) ? `${prevYearForShift}→${year}` : '',
+        showShiftLine: currentVizMode === 'shift' && Number.isFinite(shiftDelta) && !!prevYearForShift
       });
       const copyText = `${panelDistrictTitle} (Lines ${currentDistrictLinesYear})`;
       showHoverTooltip(
@@ -28316,6 +28360,8 @@ document.addEventListener('DOMContentLoaded', function() {
       winnerRawLeadText,
       prevSignedMarginPct,
       currentSignedMarginPct,
+      contestType,
+      currentYear,
       flipYearLabel,
       districtType,
       showWinnerLine,
@@ -28391,7 +28437,11 @@ document.addEventListener('DOMContentLoaded', function() {
       const prevSigned = Number(prevSignedMarginPct);
       const curSigned = Number(currentSignedMarginPct);
       const flipMeta = (Number.isFinite(prevSigned) && Number.isFinite(curSigned))
-        ? flipInfo(prevSigned, curSigned)
+        ? flipInfo(prevSigned, curSigned, {
+            contestType,
+            fromYear: flipYearLabel,
+            toYear: currentYear
+          })
         : null;
       const flipToneClass = (flipMeta && flipMeta.flipped)
         ? (flipMeta.to === 'R' ? 'rep' : (flipMeta.to === 'D' ? 'dem' : 'tie'))
@@ -32328,7 +32378,7 @@ document.addEventListener('DOMContentLoaded', function() {
       return null;
     }
 
-    async function getPreviousDistrictSlice(scope, contestType, year, linesYear = currentDistrictLinesYear) {
+    async function getPreviousDistrictSlice(scope, contestType, year, linesYear = currentDistrictLinesYear, options = {}) {
       const y = Number(year);
       const modeledDef = getModeledContestDefinition(contestType, y);
       if (modeledDef) {
@@ -32339,6 +32389,10 @@ document.addEventListener('DOMContentLoaded', function() {
       }
       const candidates = (() => {
         const ct = String(contestType || '').trim();
+        if (options?.forFlip && isStateLegislativeContestType(ct)) {
+          return [y - 2, y - 4, y - 6, y - 8, y - 10, y - 12]
+            .filter(v => v >= 2022 && v < y);
+        }
         // Tennessee Governor starts in 1998 in this atlas, so Governor 2002 must be
         // allowed to compare against Governor 1998. Keep the 2000 floor for other
         // contests so we do not accidentally probe older slices that are not part of
@@ -32366,7 +32420,15 @@ document.addEventListener('DOMContentLoaded', function() {
       const key = `${linesYear}_${scope}_${contestType}_${y}`;
       if (vizPrevDistrictCache.has(key)) return vizPrevDistrictCache.get(key);
       const prev = await getPreviousDistrictSlice(scope, contestType, y, linesYear);
-      const cached = prev ? { prevYear: prev.year, prevNode: prev.node } : { prevYear: null, prevNode: null };
+      const flipPrev = isStateLegislativeContestType(contestType)
+        ? await getPreviousDistrictSlice(scope, contestType, y, linesYear, { forFlip: true })
+        : prev;
+      const cached = {
+        prevYear: prev?.year || null,
+        prevNode: prev?.node || null,
+        flipPrevYear: flipPrev?.year || null,
+        flipPrevNode: flipPrev?.node || null
+      };
       vizPrevDistrictCache.set(key, cached);
       return cached;
     }
@@ -33224,7 +33286,11 @@ document.addEventListener('DOMContentLoaded', function() {
             // governor contests do not create fake flip context from a zero margin.
             if (prev && Number(prev.total || 0) > 0) {
               const prevSigned = signedMarginPctFromVotes(prev.dem, prev.rep, prev.total);
-              const f = flipInfo(prevSigned, signedMarginPct);
+              const f = flipInfo(prevSigned, signedMarginPct, {
+                contestType,
+                fromYear: vizPrevCache?.prevYear,
+                toYear: Number(year)
+              });
               color = f.flipped ? colorForFlipMode(f.to) : colorForFlipMode('T');
             } else {
               color = colorForFlipMode('T');
@@ -33304,7 +33370,11 @@ document.addEventListener('DOMContentLoaded', function() {
           const curSigned = signedMarginPctFromVotes(demVotes, repVotes, totalVotes);
           const prev = vizPrevCache.prevCountyTotals?.[countyNorm] || null;
           const prevSigned = prev ? signedMarginPctFromVotes(prev.dem, prev.rep, prev.total) : 0;
-          const f = flipInfo(prevSigned, curSigned);
+          const f = flipInfo(prevSigned, curSigned, {
+            contestType,
+            fromYear: vizPrevCache?.prevYear,
+            toYear: Number(year)
+          });
           if (!f.flipped) continue;
           const toColor = colorForFlipMode(f.to);
           flipColorExpr.push(['==', ['upcase', ['coalesce', ['get', 'NAME20'], ['get', 'CountyName'], ['get', 'COUNTYNAME'], ['get', 'county_nam'], ['get', 'NAME']]], countyNorm]);
@@ -33387,7 +33457,11 @@ document.addEventListener('DOMContentLoaded', function() {
               for (const n of precinctNames) {
                 if (vizPrevCache?.prevPrecinctMarginByNorm?.has(n)) { prevSigned = vizPrevCache.prevPrecinctMarginByNorm.get(n); break; }
               }
-              const f = flipInfo(prevSigned, curSigned);
+              const f = flipInfo(prevSigned, curSigned, {
+                contestType,
+                fromYear: vizPrevCache?.prevYear,
+                toYear: Number(year)
+              });
               color = f.flipped ? colorForFlipMode(f.to) : colorForFlipMode('T');
             } else if (mode === 'winners') {
               color = colorForWinnerMode(winner);
@@ -33596,10 +33670,14 @@ document.addEventListener('DOMContentLoaded', function() {
           // Preload previous-year results for shift/flip detection.
           let prevYear = null;
           let prevResults = null;
+          let flipPrevYear = null;
+          let flipPrevResults = null;
           try {
             const prevCached = await ensurePrevDistrictCache(districtScope, contestType, Number(year));
             prevYear = prevCached?.prevYear || null;
             prevResults = prevCached?.prevNode?.general?.results || null;
+            flipPrevYear = prevCached?.flipPrevYear || null;
+            flipPrevResults = prevCached?.flipPrevNode?.general?.results || null;
           } catch (_) {}
           if (mode === 'shift' && !prevYear) {
             setStatus(`Shift mode needs a prior year for ${formatContestName(contestType, year)} in ${districtScope}. Falling back to Margins.`);
@@ -33610,7 +33688,7 @@ document.addEventListener('DOMContentLoaded', function() {
           } else if (mode === 'shift' && prevYear) {
             renderLegendForVizMode('shift', { fromYear: prevYear, toYear: Number(year) });
           } else if (mode === 'flips') {
-            renderLegendForVizMode('flips', prevYear ? { fromYear: prevYear, toYear: Number(year) } : {});
+            renderLegendForVizMode('flips', flipPrevYear ? { fromYear: flipPrevYear, toYear: Number(year) } : {});
           } else {
             renderLegendForVizMode(mode);
           }
@@ -33658,10 +33736,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 demoRow?.multiracial_vap_pct ?? demoRow?.multiracial_pct ?? demoRow?.Multiracial
               );
             } else if (mode === 'flips') {
-              const prevRow = prevResults ? (prevResults[String(districtId)] || prevResults[String(Number(districtId))] || null) : null;
+              const prevRow = flipPrevResults ? (flipPrevResults[String(districtId)] || flipPrevResults[String(Number(districtId))] || null) : null;
               const prevSignedRaw = prevRow ? getDistrictSignedMarginFromRow(prevRow, contestType) : NaN;
               const prevSigned = Number.isFinite(prevSignedRaw) ? prevSignedRaw : 0;
-              const f = flipInfo(prevSigned, signed);
+              const f = flipInfo(prevSigned, signed, {
+                contestType,
+                fromYear: flipPrevYear,
+                toYear: Number(year)
+              });
               color = f.flipped ? colorForFlipMode(f.to) : colorForFlipMode('T');
             } else if (mode === 'winners') {
               color = colorForWinnerMode(winner);
