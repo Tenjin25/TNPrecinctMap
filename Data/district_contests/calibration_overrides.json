@@ -2003,6 +2003,17 @@
       "other_votes": 1754,
       "dem_candidate": "Hillary Clinton",
       "rep_candidate": "Donald J. Trump"
+    },
+    {
+      "scope": "state_house",
+      "contest_type": "state_house",
+      "year": 2022,
+      "district": "41",
+      "dem_votes": 8184,
+      "rep_votes": 9079,
+      "other_votes": 0,
+      "dem_candidate": "John Mark Windle",
+      "rep_candidate": "Ed Butler"
     }
   ]
 }

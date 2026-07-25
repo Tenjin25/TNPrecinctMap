@@ -10075,8 +10075,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Cache destroyer token for static data requests.
     // Bump this value when you want browsers/CDNs to fetch fresh files immediately.
-    const DATA_CACHE_BUSTER = '2026-07-25-01';
-    const APP_BUILD_ID = '2026-07-25-knox-margin';
+    const DATA_CACHE_BUSTER = '2026-07-25-02';
+    const APP_BUILD_ID = '2026-07-25-county-margins';
 
     function withCacheBuster(path) {
       const p = (path || '').toString().trim();
@@ -13321,7 +13321,7 @@ document.addEventListener('DOMContentLoaded', function() {
         && !(meta?.kind === 'statewide' && contestType === 'us_house' && !demCandidate && !repCandidate);
       if (shouldLookupContestCandidates) {
         const officeName = formatContestName(contestType, year);
-        // Do not invent a Democrat when the district race was Independent-only (HD-41 2022 Windle).
+        // Do not invent a Democrat when the district race only has non-major opposition.
         if (!demCandidate && !otherCandidate) demCandidate = getCandidateName(year, officeName, 'Democrat');
         if (!repCandidate) repCandidate = getCandidateName(year, officeName, 'Republican');
       }
@@ -20564,6 +20564,11 @@ document.addEventListener('DOMContentLoaded', function() {
       return Math.max(0, totalVoteNum - demVoteNum - repVoteNum);
     }
 
+    function hasNonMajorOnlyOpponent(demVotes, repVotes, otherVotes) {
+      return Number(otherVotes || 0) > 0
+        && (Number(demVotes || 0) <= 0 || Number(repVotes || 0) <= 0);
+    }
+
     // Signed margin: D-vs-R when both majors have votes; otherwise winner vs Independent/other.
     function signedMarginPctFromMajorOrOther(demVotes, repVotes, otherVotes, totalVotes) {
       const demVoteNum = Number(demVotes) || 0;
@@ -20583,7 +20588,7 @@ document.addEventListener('DOMContentLoaded', function() {
         ? Number(options.signedPctOverride)
         : signedMarginPctFromMajorOrOther(demVotes, repVotes, otherVoteNum, totalVotes);
       const pctLabel = `${formatMarginPctForDisplay(Math.abs(signed))}%`;
-      const hasOtherOpponent = options?.hasOpponent === true || otherVoteNum > 0;
+      const hasOtherOpponent = options?.hasOpponent === true;
       if (signed > 0) {
         const repName = (repCandidate || '').toString().trim();
         const demName = (demCandidate || '').toString().trim();
@@ -20624,7 +20629,7 @@ document.addEventListener('DOMContentLoaded', function() {
         otherVoteNum
       );
       const pctLabel = `${formatCountyMarginPctForDisplay(displayMarginPct)}%`;
-      const hasOtherOpponent = options?.hasOpponent === true || otherVoteNum > 0;
+      const hasOtherOpponent = options?.hasOpponent === true;
       if (signed > 0) {
         const repName = (repCandidate || '').toString().trim();
         const demName = (demCandidate || '').toString().trim();
@@ -20688,8 +20693,8 @@ document.addEventListener('DOMContentLoaded', function() {
       const demVoteNum = Number(demVotes) || 0;
       const totalVoteNum = Number(totalVotes) || 0;
       const otherVoteNum = resolveOtherVoteTotal(demVotes, repVotes, totalVotes, options?.otherVotes);
-      // Independent/third-party opposition (e.g. HD-41 2022 Windle) is contested, not Uncontested R/D.
-      const hasOtherOpponent = options?.hasOpponent === true || otherVoteNum > 0;
+      // Independent/third-party opposition is contested, not Uncontested R/D.
+      const hasOtherOpponent = options?.hasOpponent === true;
       const signedFromVotes = signedMarginPctFromMajorOrOther(demVotes, repVotes, otherVoteNum, totalVotes);
       const hasSignedOverride = Number.isFinite(Number(signedPctOverride));
       const signed = hasSignedOverride ? Number(signedPctOverride) : signedFromVotes;
@@ -21194,7 +21199,13 @@ document.addEventListener('DOMContentLoaded', function() {
         : (winnerParty === 'dem'
           ? formatVoteCounterCandidateLabel(resolvedCandidates.demCandidate, 'D', 'Democratic')
           : 'Tie');
-      const hasOtherOpponent = o > 0;
+      // Ordinary third-party votes do not replace the D-vs-R margin. Only switch to
+      // winner-vs-other display when one major party has no candidate.
+      const hasOtherOpponent = hasNonMajorOnlyOpponent(
+        d,
+        r,
+        o
+      );
       const leadLabel = hasOtherOpponent
         ? `${formatMarginPctForDisplay(Math.abs(signedForLead))}%`
         : (isCountyContext
@@ -21210,7 +21221,7 @@ document.addEventListener('DOMContentLoaded', function() {
         {
           precision: isCountyContext ? 'county' : 'default',
           otherVotes: o,
-          hasOpponent: hasOtherOpponent && !!resolvedCandidates.otherCandidate,
+          hasOpponent: hasOtherOpponent,
           useSignedMarginForDisplay: hasOtherOpponent
         }
       );
@@ -23622,6 +23633,11 @@ document.addEventListener('DOMContentLoaded', function() {
         .map(s => {
           const win = (s.winner || '').toString().toUpperCase();
           const color = win === 'REP' ? '#ef4444' : (win === 'DEM' ? '#3b82f6' : '#a3a3a3');
+          const hasOtherOpponent = hasNonMajorOnlyOpponent(
+            s.dem_votes,
+            s.rep_votes,
+            s.other_votes
+          );
           const label = winnerMarginCall(
             Number(s.rep_votes || 0),
             Number(s.dem_votes || 0),
@@ -23631,8 +23647,8 @@ document.addEventListener('DOMContentLoaded', function() {
             Number(s.margin_pct),
             {
               otherVotes: Number(s.other_votes || 0),
-              hasOpponent: Number(s.other_votes || 0) > 0 && !!s.other_candidate,
-              useSignedMarginForDisplay: Number(s.other_votes || 0) > 0
+              hasOpponent: hasOtherOpponent,
+              useSignedMarginForDisplay: hasOtherOpponent
             }
           ).text;
           return `<div style="display:flex;justify-content:space-between;gap:10px;"><span style="color:#cbd5e1;">${s.year}</span><span style="color:${color};font-weight:700;">${label}</span></div>`;
@@ -26341,6 +26357,11 @@ document.addEventListener('DOMContentLoaded', function() {
         ? shortCandidateLabel(repCandidate, 'Republican')
         : (signedMarginPct < 0 ? shortCandidateLabel(demCandidate, 'Democratic') : 'Tie');
       const winnerParty = signedMarginPct > 0 ? 'rep' : (signedMarginPct < 0 ? 'dem' : 'tie');
+      const hasOtherOpponent = hasNonMajorOnlyOpponent(
+        demVotes,
+        repVotes,
+        otherVotes
+      );
       const marginCall = winnerMarginCall(
         repVotes,
         demVotes,
@@ -26350,8 +26371,8 @@ document.addEventListener('DOMContentLoaded', function() {
         signedMarginPct,
         {
           otherVotes,
-          hasOpponent: otherVotes > 0 && !!otherCandidate,
-          useSignedMarginForDisplay: otherVotes > 0
+          hasOpponent: hasOtherOpponent,
+          useSignedMarginForDisplay: hasOtherOpponent
         }
       );
       let shiftDelta = NaN;
@@ -30957,8 +30978,12 @@ document.addEventListener('DOMContentLoaded', function() {
       const otherParty = (row.other_party || 'Other').toString().trim();
       if (!demCandidate) demCandidate = stripRunningMateName((fallbackCandidates?.dem || '').toString().trim());
       if (!repCandidate) repCandidate = stripRunningMateName((fallbackCandidates?.rep || '').toString().trim());
-      const hasOtherOpponent = otherVotes > 0;
-      // Keep blank Dem label blank when the race was Independent-only (e.g. Windle 2022).
+      const hasOtherOpponent = hasNonMajorOnlyOpponent(
+        demVotes,
+        repVotes,
+        otherVotes
+      );
+      // Keep a blank Dem label blank when the race only has non-major opposition.
       if (!demCandidate && !hasOtherOpponent) demCandidate = 'D';
       if (!repCandidate) repCandidate = 'R';
 
@@ -31056,6 +31081,11 @@ document.addEventListener('DOMContentLoaded', function() {
         .map(s => {
           const win = (s.winner || '').toString().toUpperCase();
           const color = win === 'REP' ? '#ef4444' : (win === 'DEM' ? '#3b82f6' : '#a3a3a3');
+          const hasOtherOpponent = hasNonMajorOnlyOpponent(
+            s.dem_votes,
+            s.rep_votes,
+            s.other_votes
+          );
           const label = winnerMarginCall(
             Number(s.rep_votes || 0),
             Number(s.dem_votes || 0),
@@ -31065,8 +31095,8 @@ document.addEventListener('DOMContentLoaded', function() {
             Number(s.margin_pct),
             {
               otherVotes: Number(s.other_votes || 0),
-              hasOpponent: Number(s.other_votes || 0) > 0 && !!s.other_candidate,
-              useSignedMarginForDisplay: Number(s.other_votes || 0) > 0
+              hasOpponent: hasOtherOpponent,
+              useSignedMarginForDisplay: hasOtherOpponent
             }
           ).text;
           return `<div style="margin-top:4px;color:${color};font-weight:800;">${s.year}: ${label}</div>`;
