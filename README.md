@@ -72,7 +72,7 @@ This project has been moving on two tracks at once: frontend/panel polish for th
 - Improved precinct-matching accuracy and wired the Tennessee precinct-alias crosswalk.
 - Fixed U.S. Senate flip-chip comparison-year chains and applied seat-year chains to trend timelines.
 - Improved uncontested-race display so they can appear without misleading margins.
-- Adjusted the HD-41 `2022` read so the Windle independent result lands in the intended lean-R bucket.
+- Reclassified the HD-41 `2022` Windle vote as Democratic for atlas continuity while preserving the R+5.18 result.
 - Added and wired older historical source imports:
   - `1998` governor county data
   - `2000`, `2002`, and `2006` election source CSVs
