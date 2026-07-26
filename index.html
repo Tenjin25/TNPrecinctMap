@@ -4041,7 +4041,40 @@ body.focus-active #hover-tooltip[data-context="preview"] {
 
   .region-jumps {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(128px, 1fr));
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .region-jump-group {
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    background: rgba(248, 250, 252, 0.62);
+    border-radius: 12px;
+    padding: 9px;
+  }
+
+  .region-jump-group-title {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin: 0 0 7px;
+    color: #475569;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  .region-jump-group-title::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: rgba(100, 116, 139, 0.18);
+  }
+
+  .region-jump-options {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 6px;
   }
 
@@ -4236,9 +4269,9 @@ body.focus-active #hover-tooltip[data-context="preview"] {
       margin-bottom: 12px;
     }
 
-    .region-jumps {
+    .region-jump-options {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 8px;
     }
 
@@ -5913,7 +5946,7 @@ body.focus-active #hover-tooltip[data-context="preview"] {
       align-items: flex-start;
     }
 
-    .region-jumps,
+    .region-jump-options,
     .view-toggle-row {
       display: grid !important;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -8100,7 +8133,7 @@ body.focus-active #hover-tooltip[data-context="preview"] {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    .region-jumps,
+    .region-jump-options,
     .view-toggle-row {
       grid-template-columns: 1fr !important;
     }
@@ -9701,16 +9734,35 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="control-group" style="margin-bottom:12px;">
                 <span class="section-kicker">Quick Jumps</span>
                 <div class="region-jumps" id="region-jumps">
-                  <button type="button" class="region-jump-btn" data-region-jump="west_tn">West TN</button>
-                  <button type="button" class="region-jump-btn" data-region-jump="middle_tn">Middle TN</button>
-                  <button type="button" class="region-jump-btn" data-region-jump="east_tn">East TN</button>
-                  <button type="button" class="region-jump-btn" data-region-jump="memphis_metro">Memphis Metro</button>
-                  <button type="button" class="region-jump-btn" data-region-jump="nashville_murfreesboro_csa">Nashville Metro</button>
-                  <button type="button" class="region-jump-btn" data-region-jump="clarksville_metro">Clarksville Metro</button>
-                  <button type="button" class="region-jump-btn" data-region-jump="jackson_metro">Jackson Metro</button>
-                  <button type="button" class="region-jump-btn" data-region-jump="knoxville_metro">Knoxville Metro</button>
-                  <button type="button" class="region-jump-btn" data-region-jump="tri_cities_metro">Tri-Cities Metro</button>
-                  <button type="button" class="region-jump-btn" data-region-jump="chattanooga_metro">Chattanooga Metro</button>
+                  <section class="region-jump-group" aria-labelledby="west-jumps-title">
+                    <h3 class="region-jump-group-title" id="west-jumps-title">West Tennessee</h3>
+                    <div class="region-jump-options">
+                      <button type="button" class="region-jump-btn" data-region-jump="west_tn">Entire division</button>
+                      <button type="button" class="region-jump-btn" data-region-jump="memphis_metro">Memphis Metro</button>
+                      <button type="button" class="region-jump-btn" data-region-jump="jackson_metro">Jackson Area</button>
+                      <button type="button" class="region-jump-btn" data-region-jump="northwest_tn">Northwest TN</button>
+                    </div>
+                  </section>
+                  <section class="region-jump-group" aria-labelledby="middle-jumps-title">
+                    <h3 class="region-jump-group-title" id="middle-jumps-title">Middle Tennessee</h3>
+                    <div class="region-jump-options">
+                      <button type="button" class="region-jump-btn" data-region-jump="middle_tn">Entire division</button>
+                      <button type="button" class="region-jump-btn" data-region-jump="nashville_murfreesboro_csa">Nashville Metro</button>
+                      <button type="button" class="region-jump-btn" data-region-jump="clarksville_metro">Clarksville Area</button>
+                      <button type="button" class="region-jump-btn" data-region-jump="upper_cumberland">Upper Cumberland Plateau</button>
+                      <button type="button" class="region-jump-btn" data-region-jump="south_central_tn">South Central TN</button>
+                    </div>
+                  </section>
+                  <section class="region-jump-group" aria-labelledby="east-jumps-title">
+                    <h3 class="region-jump-group-title" id="east-jumps-title">East Tennessee</h3>
+                    <div class="region-jump-options">
+                      <button type="button" class="region-jump-btn" data-region-jump="east_tn">Entire division</button>
+                      <button type="button" class="region-jump-btn" data-region-jump="knoxville_metro">Knoxville Metro</button>
+                      <button type="button" class="region-jump-btn" data-region-jump="tri_cities_metro">Tri-Cities</button>
+                      <button type="button" class="region-jump-btn" data-region-jump="chattanooga_metro">Chattanooga Metro</button>
+                      <button type="button" class="region-jump-btn" data-region-jump="smoky_mountains">Smoky Mountains</button>
+                    </div>
+                  </section>
                 </div>
             </div>
             <div class="control-group" style="margin-bottom:10px;">
@@ -10214,10 +10266,25 @@ document.addEventListener('DOMContentLoaded', function() {
         bounds: [[-89.25, 35.30], [-88.45, 36.05]],
         counties: ['Carroll', 'Chester', 'Crockett', 'Decatur', 'Gibson', 'Hardeman', 'Haywood', 'Henderson', 'Madison', 'McNairy', 'Weakley']
       },
+      northwest_tn: {
+        label: 'Northwest Tennessee',
+        bounds: [[-89.55, 35.65], [-87.85, 36.70]],
+        counties: ['Benton', 'Carroll', 'Crockett', 'Dyer', 'Gibson', 'Henry', 'Lake', 'Obion', 'Weakley']
+      },
       nashville_murfreesboro_csa: {
         label: 'Nashville Metro',
         bounds: [[-87.80, 35.15], [-85.90, 36.85]],
         counties: ['Bedford', 'Cannon', 'Cheatham', 'Coffee', 'Davidson', 'DeKalb', 'Dickson', 'Montgomery', 'Robertson', 'Rutherford', 'Sumner', 'Warren', 'Williamson', 'Wilson']
+      },
+      upper_cumberland: {
+        label: 'Upper Cumberland Plateau',
+        bounds: [[-86.35, 35.45], [-84.75, 36.70]],
+        counties: ['Cannon', 'Clay', 'Cumberland', 'DeKalb', 'Fentress', 'Jackson', 'Macon', 'Overton', 'Pickett', 'Putnam', 'Smith', 'Van Buren', 'Warren', 'White']
+      },
+      south_central_tn: {
+        label: 'South Central Tennessee',
+        bounds: [[-88.15, 34.90], [-86.10, 36.05]],
+        counties: ['Bedford', 'Coffee', 'Franklin', 'Giles', 'Hickman', 'Lawrence', 'Lewis', 'Lincoln', 'Marshall', 'Maury', 'Moore', 'Perry', 'Wayne']
       },
       knoxville_metro: {
         label: 'Knoxville Metro',
@@ -10233,6 +10300,11 @@ document.addEventListener('DOMContentLoaded', function() {
         label: 'Chattanooga Metro',
         bounds: [[-86.05, 34.95], [-84.20, 35.75]],
         counties: ['Bledsoe', 'Bradley', 'Hamilton', 'Marion', 'McMinn', 'Meigs', 'Polk', 'Rhea', 'Sequatchie']
+      },
+      smoky_mountains: {
+        label: 'Smoky Mountains',
+        bounds: [[-84.10, 35.25], [-82.65, 36.15]],
+        counties: ['Blount', 'Cocke', 'Greene', 'Hamblen', 'Jefferson', 'Monroe', 'Sevier']
       }
     };
 
