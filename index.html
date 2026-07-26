@@ -4045,6 +4045,16 @@ body.focus-active #hover-tooltip[data-context="preview"] {
     gap: 10px;
   }
 
+  .region-jump-subheading {
+    margin: 0 0 -4px;
+    color: #64748b;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 0.07em;
+    line-height: 1.2;
+    text-transform: uppercase;
+  }
+
   .region-division-jumps {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -9752,11 +9762,13 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="control-group" style="margin-bottom:12px;">
                 <span class="section-kicker">Quick Jumps</span>
                 <div class="region-jumps" id="region-jumps">
+                  <div class="region-jump-subheading">Grand Divisions</div>
                   <div class="region-division-jumps" aria-label="Tennessee grand divisions">
                     <button type="button" class="region-jump-btn" data-region-jump="west_tn">West Tennessee</button>
                     <button type="button" class="region-jump-btn" data-region-jump="middle_tn">Middle Tennessee</button>
                     <button type="button" class="region-jump-btn" data-region-jump="east_tn">East Tennessee</button>
                   </div>
+                  <div class="region-jump-subheading">Other Regions and Metros</div>
                   <div class="region-metro-groups">
                   <section class="region-jump-group" aria-labelledby="west-jumps-title">
                     <h3 class="region-jump-group-title" id="west-jumps-title">West Tennessee metros &amp; areas</h3>
@@ -10149,8 +10161,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Cache destroyer token for static data requests.
     // Bump this value when you want browsers/CDNs to fetch fresh files immediately.
-    const DATA_CACHE_BUSTER = '2026-07-25-05';
-    const APP_BUILD_ID = '2026-07-25-quick-jump-layout';
+    const DATA_CACHE_BUSTER = '2026-07-25-06';
+    const APP_BUILD_ID = '2026-07-25-labeled-quick-jumps';
 
     function withCacheBuster(path) {
       const p = (path || '').toString().trim();
