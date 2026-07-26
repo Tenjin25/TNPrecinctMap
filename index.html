@@ -4045,6 +4045,34 @@ body.focus-active #hover-tooltip[data-context="preview"] {
     gap: 10px;
   }
 
+  .region-jump-subheading {
+    margin: 0 0 -4px;
+    color: #64748b;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 0.07em;
+    line-height: 1.2;
+    text-transform: uppercase;
+  }
+
+  .region-division-jumps {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  .region-division-jumps .region-jump-btn {
+    background: rgba(239, 246, 255, 0.98);
+    border-color: rgba(37, 99, 235, 0.20);
+    color: #1e3a5f;
+  }
+
+  .region-metro-groups {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
   .region-jump-group {
     border: 1px solid rgba(15, 23, 42, 0.08);
     background: rgba(248, 250, 252, 0.62);
@@ -9734,35 +9762,41 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="control-group" style="margin-bottom:12px;">
                 <span class="section-kicker">Quick Jumps</span>
                 <div class="region-jumps" id="region-jumps">
+                  <div class="region-jump-subheading">Grand Divisions</div>
+                  <div class="region-division-jumps" aria-label="Tennessee grand divisions">
+                    <button type="button" class="region-jump-btn" data-region-jump="west_tn">West Tennessee</button>
+                    <button type="button" class="region-jump-btn" data-region-jump="middle_tn">Middle Tennessee</button>
+                    <button type="button" class="region-jump-btn" data-region-jump="east_tn">East Tennessee</button>
+                  </div>
+                  <div class="region-jump-subheading">Metros and Regional Areas</div>
+                  <div class="region-metro-groups">
                   <section class="region-jump-group" aria-labelledby="west-jumps-title">
-                    <h3 class="region-jump-group-title" id="west-jumps-title">West Tennessee</h3>
+                    <h3 class="region-jump-group-title" id="west-jumps-title">West Tennessee metros &amp; areas</h3>
                     <div class="region-jump-options">
-                      <button type="button" class="region-jump-btn" data-region-jump="west_tn">Entire division</button>
                       <button type="button" class="region-jump-btn" data-region-jump="memphis_metro">Memphis Metro</button>
                       <button type="button" class="region-jump-btn" data-region-jump="jackson_metro">Jackson Area</button>
-                      <button type="button" class="region-jump-btn" data-region-jump="northwest_tn">Northwest TN</button>
+                      <button type="button" class="region-jump-btn" data-region-jump="northwest_tn">Northwest Tennessee</button>
                     </div>
                   </section>
                   <section class="region-jump-group" aria-labelledby="middle-jumps-title">
-                    <h3 class="region-jump-group-title" id="middle-jumps-title">Middle Tennessee</h3>
+                    <h3 class="region-jump-group-title" id="middle-jumps-title">Middle Tennessee metros &amp; areas</h3>
                     <div class="region-jump-options">
-                      <button type="button" class="region-jump-btn" data-region-jump="middle_tn">Entire division</button>
                       <button type="button" class="region-jump-btn" data-region-jump="nashville_murfreesboro_csa">Nashville Metro</button>
                       <button type="button" class="region-jump-btn" data-region-jump="clarksville_metro">Clarksville Area</button>
                       <button type="button" class="region-jump-btn" data-region-jump="upper_cumberland">Upper Cumberland Plateau</button>
-                      <button type="button" class="region-jump-btn" data-region-jump="south_central_tn">South Central TN</button>
+                      <button type="button" class="region-jump-btn" data-region-jump="south_central_tn">South Central Tennessee</button>
                     </div>
                   </section>
                   <section class="region-jump-group" aria-labelledby="east-jumps-title">
-                    <h3 class="region-jump-group-title" id="east-jumps-title">East Tennessee</h3>
+                    <h3 class="region-jump-group-title" id="east-jumps-title">East Tennessee metros &amp; areas</h3>
                     <div class="region-jump-options">
-                      <button type="button" class="region-jump-btn" data-region-jump="east_tn">Entire division</button>
                       <button type="button" class="region-jump-btn" data-region-jump="knoxville_metro">Knoxville Metro</button>
                       <button type="button" class="region-jump-btn" data-region-jump="tri_cities_metro">Tri-Cities</button>
                       <button type="button" class="region-jump-btn" data-region-jump="chattanooga_metro">Chattanooga Metro</button>
                       <button type="button" class="region-jump-btn" data-region-jump="smoky_mountains">Smoky Mountains</button>
                     </div>
                   </section>
+                  </div>
                 </div>
             </div>
             <div class="control-group" style="margin-bottom:10px;">
@@ -10127,8 +10161,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Cache destroyer token for static data requests.
     // Bump this value when you want browsers/CDNs to fetch fresh files immediately.
-    const DATA_CACHE_BUSTER = '2026-07-25-04';
-    const APP_BUILD_ID = '2026-07-25-regional-quick-jumps';
+    const DATA_CACHE_BUSTER = '2026-07-25-07';
+    const APP_BUILD_ID = '2026-07-25-regional-area-jumps';
 
     function withCacheBuster(path) {
       const p = (path || '').toString().trim();
