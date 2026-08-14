@@ -607,7 +607,7 @@
     <link href='https://api.mapbox.com/mapbox-gl-js/v3.0.1/mapbox-gl.css' rel='stylesheet'>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&family=IBM+Plex+Sans:wght@400;700&display=swap" rel="stylesheet">
     <style>
 html, body {
   height: 100vh;
@@ -622,6 +622,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Manrope', 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  font-weight: 400;
   color: #0f172a;
   overflow: hidden;
   touch-action: pan-x pan-y;
@@ -2797,6 +2798,7 @@ body.focus-active #hover-tooltip[data-context="preview"] {
 
   body {
     font-family: 'Manrope', 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  font-weight: 400;
     background:
       radial-gradient(circle at 16% 10%, rgba(143, 36, 51, 0.16) 0%, rgba(143, 36, 51, 0) 44%),
       radial-gradient(circle at 86% 9%, rgba(214, 166, 58, 0.16) 0%, rgba(214, 166, 58, 0) 40%),
@@ -10184,8 +10186,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Cache destroyer token for static data requests.
     // Bump this value when you want browsers/CDNs to fetch fresh files immediately.
-    const DATA_CACHE_BUSTER = '2026-07-19-dra-hybrid-32';
-    const APP_BUILD_ID = '2026-07-19-dra-hybrid-32';
+    const DATA_CACHE_BUSTER = '2026-08-14-dem-full-ramp-v2';
+    const APP_BUILD_ID = '2026-08-14-dem-full-ramp-v2';
 
     function withCacheBuster(path) {
       const p = (path || '').toString().trim();
@@ -31787,13 +31789,13 @@ document.addEventListener('DOMContentLoaded', function() {
       } else if (marginPct >= 30) {
         return winner === 'R' ? '#a50f15' : '#08519c';
       } else if (marginPct >= 20) {
-        return winner === 'R' ? '#cb181d' : '#1f6aad';
+        return winner === 'R' ? '#cb181d' : '#2876b5;
       } else if (marginPct >= 10) {
         return winner === 'R' ? '#e03a32' : '#3f8fd0';
       } else if (marginPct >= 5.5) {
-        return winner === 'R' ? '#e85a52' : '#6baed6';
+        return winner === 'R' ? '#e85a52' : '#5b9fd0';
       } else if (marginPct >= 1.0) {
-        return winner === 'R' ? '#f99a90' : '#8bbde0';
+        return winner === 'R' ? '#f99a90' : '#9ecae1';
       } else if (marginPct >= 0.5) {
         return winner === 'R' ? '#f5d6c4' : '#b8d4ec';
       } else {
