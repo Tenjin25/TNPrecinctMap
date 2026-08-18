@@ -300,8 +300,8 @@
       "contest_type": "us_senate",
       "file": "congressional_us_senate_2024.json",
       "districts": 9,
-      "dem_total": 1001427,
-      "rep_total": 1955381,
+      "dem_total": 1027461,
+      "rep_total": 1918743,
       "major_party_contested": true,
       "legacy_line_transfer": [
         1,

@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import argparse
 import json
 from pathlib import Path
 
@@ -14,9 +15,10 @@ import shapely
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "Data"
 OUT = DATA / "reports" / "district_crosswalk_comparison"
-BRIDGE = OUT / "tn_2024_canonical_to_rdh_block_bridge.csv"
-DISTRICT_OUT = OUT / "tn_2024_canonical_block_bridge_2026_districts_area_weighted.csv"
-SUMMARY = OUT / "tn_2024_canonical_block_bridge_area_summary.json"
+CONTEST_FILES = {
+    "president": "president_2024.json",
+    "us_senate": "us_senate_2024.json",
+}
 
 
 def num(value: object) -> float:
@@ -27,9 +29,13 @@ def num(value: object) -> float:
 
 
 def main() -> None:
-    bridge = pd.read_csv(BRIDGE)
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--contest", choices=sorted(CONTEST_FILES), default="president")
+    args = parser.parse_args()
+    suffix = args.contest
+    bridge = pd.read_csv(OUT / f"tn_2024_{suffix}_canonical_to_rdh_block_bridge.csv")
     bridge["GEOID20"] = bridge["GEOID20"].astype(str)
-    votes = json.loads((DATA / "contests" / "president_2024.json").read_text(encoding="utf-8"))["rows"]
+    votes = json.loads((DATA / "contests" / CONTEST_FILES[args.contest]).read_text(encoding="utf-8"))["rows"]
     vote_map = {}
     for row in votes:
         county, prec_id = row["county"].split(" - ", 1)
@@ -82,7 +88,9 @@ def main() -> None:
     result = combined.groupby("DISTRICT")[["dem", "rep", "other"]].sum().sort_index()
     result["total"] = result.sum(axis=1)
     result["margin"] = result.rep - result.dem
-    result.reset_index().to_csv(DISTRICT_OUT, index=False, float_format="%.4f")
+    district_out = OUT / f"tn_2024_{suffix}_canonical_block_bridge_2026_districts_area_weighted.csv"
+    summary_path = OUT / f"tn_2024_{suffix}_canonical_block_bridge_area_summary.json"
+    result.reset_index().to_csv(district_out, index=False, float_format="%.4f")
 
     canonical_totals = {party: float(bridge[f"synthetic_{party}"].sum()) for party in ("dem", "rep", "other")}
     district_totals = {party: float(result[party].sum()) for party in ("dem", "rep", "other")}
@@ -93,11 +101,11 @@ def main() -> None:
         "canonical_totals": canonical_totals,
         "district_totals": district_totals,
         "vote_preservation_error": {p: district_totals[p] - canonical_totals[p] for p in canonical_totals},
-        "outputs": {"districts": str(DISTRICT_OUT)},
+        "outputs": {"districts": str(district_out)},
     }
-    SUMMARY.write_text(json.dumps(summary, indent=2), encoding="utf-8")
+    summary_path.write_text(json.dumps(summary, indent=2), encoding="utf-8")
     print(json.dumps(summary, indent=2))
-    print(DISTRICT_OUT)
+    print(district_out)
 
 
 if __name__ == "__main__":
