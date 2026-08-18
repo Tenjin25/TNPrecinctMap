@@ -1,0 +1,23 @@
+{
+  "bridge_rows": 239644,
+  "district_weight_rows": 179746,
+  "blocks_with_multiple_districts": 29,
+  "canonical_totals": {
+    "dem": 1056264.99988123,
+    "rep": 1966865.00089698,
+    "other": 40812.00003153
+  },
+  "district_totals": {
+    "dem": 1056264.99988123,
+    "rep": 1966865.00089698,
+    "other": 40812.00003153
+  },
+  "vote_preservation_error": {
+    "dem": 0.0,
+    "rep": 0.0,
+    "other": 0.0
+  },
+  "outputs": {
+    "districts": "C:\\Users\\Shama\\OneDrive\\Documents\\Side_Projects\\Side_Projects\\TNPrecinctMap-crosswalk-chain\\Data\\reports\\district_crosswalk_comparison\\tn_2024_canonical_block_bridge_2026_districts_area_weighted.csv"
+  }
+}

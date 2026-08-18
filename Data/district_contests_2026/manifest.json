@@ -174,8 +174,8 @@
       "contest_type": "president",
       "file": "congressional_president_2024.json",
       "districts": 9,
-      "dem_total": 1028360,
-      "rep_total": 2006884,
+      "dem_total": 1056265,
+      "rep_total": 1966865,
       "major_party_contested": true,
       "legacy_line_transfer": [
         1,
