@@ -13,6 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "Data"
 SOURCE = DATA / "reports" / "district_crosswalk_comparison" / "tn_2024_canonical_block_bridge_2026_districts_area_weighted.csv"
 TARGET = DATA / "district_contests_2026" / "congressional_president_2024.json"
+UNCHANGED_DISTRICTS = {"1", "2"}
 
 
 def main() -> None:
@@ -21,6 +22,8 @@ def main() -> None:
     rows = pd.read_csv(SOURCE)
     for row in rows.to_dict("records"):
         district = str(int(row["DISTRICT"]))
+        if district in UNCHANGED_DISTRICTS:
+            continue
         node = current[district]
         dem = int(round(row["dem"]))
         rep = int(round(row["rep"]))
