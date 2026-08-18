@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import argparse
 import json
 from pathlib import Path
 
@@ -15,9 +16,10 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "Data"
 OUT = DATA / "reports" / "district_crosswalk_comparison"
 OUT.mkdir(parents=True, exist_ok=True)
-SUMMARY = OUT / "tn_2024_canonical_block_bridge_summary.json"
-DISTRICT_OUT = OUT / "tn_2024_canonical_block_bridge_2026_districts.csv"
-BRIDGE_OUT = OUT / "tn_2024_canonical_to_rdh_block_bridge.csv"
+CONTEST_FILES = {
+    "president": "president_2024.json",
+    "us_senate": "us_senate_2024.json",
+}
 
 
 def numeric(value: object) -> float:
@@ -28,6 +30,13 @@ def numeric(value: object) -> float:
 
 
 def main() -> None:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--contest", choices=sorted(CONTEST_FILES), default="president")
+    args = parser.parse_args()
+    suffix = args.contest
+    summary_path = OUT / f"tn_2024_{suffix}_canonical_block_bridge_summary.json"
+    district_out = OUT / f"tn_2024_{suffix}_canonical_block_bridge_2026_districts.csv"
+    bridge_out = OUT / f"tn_2024_{suffix}_canonical_to_rdh_block_bridge.csv"
     block_url = "zip://Data/tn_2024_gen_2020_blocks.zip!tn_2024_gen_2020_blocks/tn_2024_gen_2020_blocks.shp"
     blocks = gpd.read_file(block_url, columns=["GEOID20", "COUNTYFP", "VAP_MOD", "geometry"]).to_crs(5070)
     blocks["block_area"] = blocks.geometry.area
@@ -35,7 +44,7 @@ def main() -> None:
 
     canonical = gpd.read_file(DATA / "tn_voting_precincts.geojson", columns=["county_norm", "prec_id", "geometry"]).to_crs(5070)
     canonical["prec_id"] = canonical["prec_id"].astype(str).str.zfill(6)
-    votes = json.loads((DATA / "contests" / "president_2024.json").read_text(encoding="utf-8"))["rows"]
+    votes = json.loads((DATA / "contests" / CONTEST_FILES[args.contest]).read_text(encoding="utf-8"))["rows"]
     vote_map = {}
     for row in votes:
         county, prec_id = row["county"].split(" - ", 1)
@@ -67,7 +76,7 @@ def main() -> None:
         pairs[f"synthetic_{party}"] = pairs[party] * pairs["canonical_weight"]
 
     bridge_cols = ["GEOID20", "county_norm", "prec_id", "canonical_weight", "intersection_area", "area_fraction"]
-    pairs[bridge_cols].to_csv(BRIDGE_OUT, index=False, float_format="%.8f")
+    pairs[bridge_cols].to_csv(bridge_out, index=False, float_format="%.8f")
 
     # RDH block -> 2026 district assignment. Interior blocks are assigned by
     # centroid; boundary-block area weighting remains available in the audit
@@ -85,7 +94,7 @@ def main() -> None:
     district_result = combined.groupby("DISTRICT")[["dem", "rep", "other"]].sum().sort_index()
     district_result["total"] = district_result.sum(axis=1)
     district_result["margin"] = district_result["rep"] - district_result["dem"]
-    district_result.reset_index().to_csv(DISTRICT_OUT, index=False, float_format="%.4f")
+    district_result.reset_index().to_csv(district_out, index=False, float_format="%.4f")
 
     canonical_allocated = pairs.groupby("canonical_key")["canonical_weight"].sum()
     summary = {
@@ -96,11 +105,11 @@ def main() -> None:
         "canonical_vote_totals": {party: float(canonical[party].sum()) for party in ("dem", "rep", "other")},
         "bridged_vote_totals": {party: float(district_result[party].sum()) for party in ("dem", "rep", "other")},
         "vote_preservation_error": {party: float(district_result[party].sum() - canonical[party].sum()) for party in ("dem", "rep", "other")},
-        "outputs": {"bridge": str(BRIDGE_OUT), "districts": str(DISTRICT_OUT)},
+        "outputs": {"bridge": str(bridge_out), "districts": str(district_out)},
     }
-    SUMMARY.write_text(json.dumps(summary, indent=2), encoding="utf-8")
-    print(SUMMARY)
-    print(DISTRICT_OUT)
+    summary_path.write_text(json.dumps(summary, indent=2), encoding="utf-8")
+    print(summary_path)
+    print(district_out)
     print(json.dumps(summary, indent=2))
 
 

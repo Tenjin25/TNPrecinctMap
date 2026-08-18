@@ -1,0 +1,23 @@
+{
+  "bridge_rows": 239644,
+  "district_weight_rows": 179746,
+  "blocks_with_multiple_districts": 29,
+  "canonical_totals": {
+    "dem": 1027460.99965052,
+    "rep": 1918743.0009740097,
+    "other": 61404.00005012
+  },
+  "district_totals": {
+    "dem": 1027460.9996505199,
+    "rep": 1918743.00097401,
+    "other": 61404.00005012
+  },
+  "vote_preservation_error": {
+    "dem": -1.1641532182693481e-10,
+    "rep": 2.3283064365386963e-10,
+    "other": 0.0
+  },
+  "outputs": {
+    "districts": "C:\\Users\\Shama\\OneDrive\\Documents\\Side_Projects\\Side_Projects\\TNPrecinctMap-crosswalk-chain\\Data\\reports\\district_crosswalk_comparison\\tn_2024_us_senate_canonical_block_bridge_2026_districts_area_weighted.csv"
+  }
+}
