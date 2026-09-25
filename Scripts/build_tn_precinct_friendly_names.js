@@ -12,6 +12,10 @@ const vtdPath = fs.existsSync(path.join(dataDir, 'tn_vtd_2020.geojson'))
   : path.join(dataDir, 'tn_vtd_2020_census_statewide.geojson');
 const countyPath = path.join(dataDir, 'tl_2020_47_county20.geojson');
 const outPath = path.join(crosswalkDir, 'tn_precinct_friendly_names_2020.json');
+const denominationOverrides = {
+  '187:009726': '8-2 First Presbyterian Church, PCUSA',
+  '183:009510': '06 Martin Trinity Presbyterian Church, PCUSA'
+};
 
 function readJson(filePath) {
   return JSON.parse(fs.readFileSync(filePath, 'utf8'));
@@ -76,7 +80,7 @@ function main() {
     const label = pickVtdLabel(props);
     if (!countyName || !code || !label) continue;
     if (!out.counties[countyName]) out.counties[countyName] = {};
-    out.counties[countyName][code] = label;
+    out.counties[countyName][code] = denominationOverrides[`${countyFp}:${code}`] || label;
     entries += 1;
   }
 
