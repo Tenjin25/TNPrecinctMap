@@ -4,6 +4,10 @@ Interactive Tennessee election map focused on county, district, and precinct ana
 
 This project runs as a single-page app from `index.html` and reads local data assets from `Data/`.
 
+## Precinct display names
+
+`Data/crosswalks/tn_precinct_friendly_names_2020.json` supplies labels for the VTD20 precinct overlay. Verified church affiliations (PCA, PCUSA, EPC, OPC, ECO, or Evangel Presbytery) take precedence over older venue names in geometry, and the app cache-busts the lookup. Friendly names do not change VTD20 IDs, boundaries, or election-result joins.
+
 ## Recent Development Timeline
 
 This project has been moving on two tracks at once: frontend/panel polish for the atlas UI, and deeper historical/data-pipeline work for Tennessee precinct and district results. The dated notes below pull together the recent repo history, including work that was previously undocumented in this README.
