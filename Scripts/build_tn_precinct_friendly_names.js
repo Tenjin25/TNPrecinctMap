@@ -13,8 +13,8 @@ const vtdPath = fs.existsSync(path.join(dataDir, 'tn_vtd_2020.geojson'))
 const countyPath = path.join(dataDir, 'tl_2020_47_county20.geojson');
 const outPath = path.join(crosswalkDir, 'tn_precinct_friendly_names_2020.json');
 const denominationOverrides = {
-  '187:009726': '8-2 First Presbyterian Church, PCUSA',
-  '183:009510': '06 Martin Trinity Presbyterian Church, PCUSA'
+  '187:009726': '8-2 First Presbyterian Church (PCUSA)',
+  '183:009510': '06 Martin Trinity Presbyterian Church (PCUSA)'
 };
 
 function readJson(filePath) {
