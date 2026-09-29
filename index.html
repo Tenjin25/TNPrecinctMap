@@ -20263,6 +20263,15 @@ document.addEventListener('DOMContentLoaded', function() {
       return Number.isFinite(n) ? n : 0;
     }
 
+    function countyDemoPct(demo, group) {
+      return numericOrNull(demo?.[`${group}_cvap_pct`] ?? demo?.[`${group}_pop_pct`]);
+    }
+
+    function countyDemoUsesCvapShares(demo) {
+      return ['white', 'black', 'hispanic', 'native', 'asian', 'pacific', 'multiracial']
+        .some(group => numericOrNull(demo?.[`${group}_cvap_pct`]) !== null);
+    }
+
     function buildRaceChipRowHTML(whitePct, blackPct, hispanicPct, nativePct, extraRacesOrOptions = null, maybeOptions = null) {
       let extraRaces = {};
       let options = maybeOptions;
@@ -20492,47 +20501,46 @@ document.addEventListener('DOMContentLoaded', function() {
       } catch (_) {}
     }
 
+    function buildDemographicsHoverCardHTML({ metricLabel, metricValue, racesHTML = '', note = '' } = {}) {
+      const value = Number(metricValue);
+      if (!Number.isFinite(value)) return '';
+      return `
+        <div class="demo-hover-card">
+          <div class="demo-hover-metric">${escapeHtml(String(metricLabel || 'Population'))}: ${Math.round(value).toLocaleString()}</div>
+          ${String(racesHTML || '')}
+          ${note ? `<div class="demo-hover-note">${escapeHtml(String(note))}</div>` : ''}
+        </div>
+      `;
+    }
+
     function buildCountyDemographicsHoverHTML(demo, countyNormRaw = '') {
       if (!demo) return '';
-      const touchMode = (typeof isTouchInteractionMode === 'function') ? isTouchInteractionMode() : false;
       const vap = numericOrZero(demo.vap_18plus);
       const countyNorm = normalizeCountyToken(countyNormRaw || demo.county || '');
       const cvapDirect = numericOrNull(demo.cvap_total);
       const cvap = cvapDirect !== null ? cvapDirect : (countyNorm ? getCvapCountyTotal(countyNorm) : null);
       const metricValue = Number.isFinite(Number(cvap)) ? Number(cvap) : vap;
       const metricLabel = Number.isFinite(Number(cvap)) ? 'CVAP (18+):' : 'VAP (18+):';
-      const dominant = describeDemographicDominance(
-        demo.white_cvap_pct ?? demo.white_pop_pct,
-        demo.black_cvap_pct ?? demo.black_pop_pct,
-        demo.hispanic_cvap_pct ?? demo.hispanic_pop_pct,
-        demo.native_cvap_pct ?? demo.native_pop_pct,
-        demo.asian_pop_pct,
-        demo.pacific_pop_pct,
-        demo.multiracial_pop_pct
-      );
+      const usesCvapShares = countyDemoUsesCvapShares(demo);
       const races = buildRaceChipRowHTML(
-        demo.white_cvap_pct ?? demo.white_pop_pct,
-        demo.black_cvap_pct ?? demo.black_pop_pct,
-        demo.hispanic_cvap_pct ?? demo.hispanic_pop_pct,
-        demo.native_cvap_pct ?? demo.native_pop_pct,
+        countyDemoPct(demo, 'white'),
+        countyDemoPct(demo, 'black'),
+        countyDemoPct(demo, 'hispanic'),
+        countyDemoPct(demo, 'native'),
         {
-          asianPct: demo.asian_cvap_pct ?? demo.asian_pop_pct,
-          pacificPct: demo.pacific_cvap_pct ?? demo.pacific_pop_pct,
-          multiracialPct: demo.multiracial_cvap_pct ?? demo.multiracial_pop_pct
+          asianPct: countyDemoPct(demo, 'asian'),
+          pacificPct: countyDemoPct(demo, 'pacific'),
+          multiracialPct: countyDemoPct(demo, 'multiracial')
         }
       );
-      return `
-        <div class="demo-hover-card">
-          <div class="demo-hover-metric">${metricLabel} ${Math.round(metricValue).toLocaleString()}</div>
-          ${touchMode ? '' : `
-          <div class="demo-hover-dominance ${dominant.relation === 'majority' ? 'majority' : dominant.relation === 'plurality' ? 'plurality' : 'mixed'}">
-            <span class="demo-hover-dominance-name">${escapeHtml(dominant.key === 'mixed' ? 'Mixed' : dominant.key === 'unknown' ? 'No dominant group' : `${dominant.key.charAt(0).toUpperCase()}${dominant.key.slice(1)}`)}</span>
-            <span class="demo-hover-dominance-relation">${escapeHtml(dominant.relation === 'mixed' ? 'near tie' : dominant.relation === 'none' ? 'unavailable' : dominant.relation === 'majority' ? 'majority 50%+' : 'plurality <50%')}</span>
-          </div>`}
-          ${races}
-          <div class="demo-hover-note">${numericOrNull(demo.white_cvap_pct) !== null ? 'Race/ethnicity and totals are CVAP estimates from the 2020–2024 ACS special tabulation.' : 'Race/ethnicity reflects total population; the adult total is shown separately.'}</div>
-        </div>
-      `;
+      return buildDemographicsHoverCardHTML({
+        metricLabel: metricLabel.replace(/:$/, ''),
+        metricValue,
+        racesHTML: races,
+        note: usesCvapShares
+          ? 'Race/ethnicity and totals are CVAP estimates from the 2020–2024 ACS special tabulation.'
+          : 'Race/ethnicity reflects total population; the adult total is shown separately.'
+      });
     }
 
     function buildPrecinctDemographicsHoverHTML(demo, precinctNormRaw = '') {
@@ -28063,27 +28071,28 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   } catch (_) {}
 
-  // County demographics (county VAP 18+ + county VAP race shares aggregated from precinct CVAP).
+  // County demographics (preferred: latest ACS CVAP special tabulation).
   let demoHtml = '';
   try {
     const demo = countyDemographics?.counties?.[norm] || null;
     if (demo) {
       const demoRaceChips = buildRaceChipRowHTML(
-        demo.white_pop_pct,
-        demo.black_pop_pct,
-        demo.hispanic_pop_pct,
-        demo.native_pop_pct,
+        countyDemoPct(demo, 'white'),
+        countyDemoPct(demo, 'black'),
+        countyDemoPct(demo, 'hispanic'),
+        countyDemoPct(demo, 'native'),
         {
-          asianPct: demo.asian_pop_pct,
-          pacificPct: demo.pacific_pop_pct,
-          multiracialPct: demo.multiracial_pop_pct
+          asianPct: countyDemoPct(demo, 'asian'),
+          pacificPct: countyDemoPct(demo, 'pacific'),
+          multiracialPct: countyDemoPct(demo, 'multiracial')
         },
         { extraClass: 'sidebar-demo-race-row' }
       );
       const countyCvap = numericOrNull(demo.cvap_total) ?? getCvapCountyTotal(norm);
       const hasCountyCvap = numericOrNull(countyCvap) !== null && Number(countyCvap) > 0;
+      const usesCvapShares = countyDemoUsesCvapShares(demo);
       demoHtml += `<p class="sidebar-breakdown"><b>${hasCountyCvap ? 'CVAP' : 'VAP'} (18+):</b> ${escapeHtml(Number(hasCountyCvap ? countyCvap : (demo.vap_18plus || 0)).toLocaleString())}</p>`;
-      demoHtml += `<p class="sidebar-margin-details" style="margin-top:6px;">${numericOrNull(demo.white_cvap_pct) !== null ? 'Citizen voting-age population by race/ethnicity, 2020–2024 ACS CVAP.' : 'Race/ethnicity reflects total population; the adult total is shown separately.'}</p>`;
+      demoHtml += `<p class="sidebar-margin-details" style="margin-top:6px;">${usesCvapShares ? 'Citizen voting-age population by race/ethnicity, 2020–2024 ACS CVAP.' : 'Race/ethnicity reflects total population; the adult total is shown separately.'}</p>`;
       if (demoRaceChips) demoHtml += demoRaceChips;
     }
   } catch (_) {}
@@ -32095,7 +32104,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
       // Optional county demographics (county VAP shares) for sidebar/tooltips.
       try {
-        countyDemographics = await loadJSON(CONFIG.paths.county_demographics);
+        const countyDemoPayload = await loadJSON(CONFIG.paths.county_demographics);
+        const normalizedCounties = {};
+        Object.entries(countyDemoPayload?.counties || {}).forEach(([key, demo]) => {
+          const norm = normalizeCountyToken(key || demo?.county || '').replace(/\s+COUNTY$/, '');
+          if (norm) normalizedCounties[norm] = demo;
+        });
+        countyDemographics = { ...countyDemoPayload, counties: normalizedCounties };
       } catch (err) {
         countyDemographics = null;
         console.warn('County demographics not loaded:', err?.message || err);
@@ -33567,13 +33582,13 @@ document.addEventListener('DOMContentLoaded', function() {
             const countyGeoid = String(demo.county_geoid || '').trim();
             if (!countyGeoid) return;
             const color = colorForDemographicsMode(
-              demo.white_pop_pct,
-              demo.black_pop_pct,
-              demo.hispanic_pop_pct,
-              demo.native_pop_pct,
-              demo.asian_pop_pct,
-              demo.pacific_pop_pct,
-              demo.multiracial_pop_pct
+              countyDemoPct(demo, 'white'),
+              countyDemoPct(demo, 'black'),
+              countyDemoPct(demo, 'hispanic'),
+              countyDemoPct(demo, 'native'),
+              countyDemoPct(demo, 'asian'),
+              countyDemoPct(demo, 'pacific'),
+              countyDemoPct(demo, 'multiracial')
             );
             countyExpr.push(['==', ['get', 'GEOID20'], countyGeoid]);
             countyExpr.push(color);
