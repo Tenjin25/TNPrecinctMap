@@ -10402,7 +10402,7 @@ document.addEventListener('DOMContentLoaded', function() {
         state_senate: withBase('./Data/tl_2022_47_sldu.geojson'),
         state_senate_2022: withBase('./Data/tl_2022_47_sldu.geojson'),
         state_senate_2024: withBase('./Data/tl_2022_47_sldu.geojson'),
-        county_demographics: withBase('./data/cvap_aggregates/county_2020__demographics_cvap24.json'),
+        county_demographics: withBase('./Data/cvap_aggregates/county_2020__demographics_cvap24.json'),
         county_population_estimates: withBase('./Data/CO-EST2025-POP-47.cleaned.csv'),
         precinct_demographics: withBase('./Data/tn_cvap_by_precinct_2020.json'),
         cvap_aggregates: {
@@ -25757,6 +25757,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     async function ensureUnmatchedAuditDataLoaded() {
       if (Array.isArray(unmatchedYearSummaryRows) && Array.isArray(unmatchedTopRows)) return;
+      if (!CONFIG.paths.reports_match_year_summary || !CONFIG.paths.reports_top_unmatched) {
+        unmatchedYearSummaryRows = [];
+        unmatchedTopRows = [];
+        return;
+      }
       const [yearRes, topRes] = await Promise.allSettled([
         loadCSV(CONFIG.paths.reports_match_year_summary),
         loadCSV(CONFIG.paths.reports_top_unmatched)
@@ -25848,6 +25853,10 @@ document.addEventListener('DOMContentLoaded', function() {
       }
       if (currentView !== 'counties' && currentView !== 'vtds_2000') {
         body.innerHTML = 'Ghost precinct audit is available in county view.';
+        return;
+      }
+      if (!CONFIG.paths.reports_match_year_summary || !CONFIG.paths.reports_top_unmatched) {
+        body.innerHTML = 'Unmatched precinct audit is not configured for this map.';
         return;
       }
       try {
@@ -33555,6 +33564,8 @@ document.addEventListener('DOMContentLoaded', function() {
         if (countyDemoRows) {
           Object.keys(countyDemoRows).forEach(countyNorm => {
             const demo = countyDemoRows[countyNorm] || {};
+            const countyGeoid = String(demo.county_geoid || '').trim();
+            if (!countyGeoid) return;
             const color = colorForDemographicsMode(
               demo.white_pop_pct,
               demo.black_pop_pct,
@@ -33564,18 +33575,15 @@ document.addEventListener('DOMContentLoaded', function() {
               demo.pacific_pop_pct,
               demo.multiracial_pop_pct
             );
-            countyExpr.push([
-              '==',
-              ['upcase', ['coalesce', ['get', 'NAME20'], ['get', 'CountyName'], ['get', 'COUNTYNAME'], ['get', 'county_nam'], ['get', 'NAME']]],
-              countyNorm
-            ]);
+            countyExpr.push(['==', ['get', 'GEOID20'], countyGeoid]);
             countyExpr.push(color);
           });
         }
         countyExpr.push('#e2e8f0');
+        const countyPaint = countyExpr.length > 2 ? countyExpr : '#e2e8f0';
         if (staleCheck()) return;
         if (map.getLayer('county-fill')) {
-          map.setPaintProperty('county-fill', 'fill-color', countyExpr);
+          map.setPaintProperty('county-fill', 'fill-color', countyPaint);
         }
         if (map.getLayer('county-stroke')) {
           try {
@@ -33607,15 +33615,16 @@ document.addEventListener('DOMContentLoaded', function() {
           });
         }
         exprPrecinct.push('#d1d5db');
+        const precinctPaint = exprPrecinct.length > 2 ? exprPrecinct : '#d1d5db';
         if (staleCheck()) return;
-        lastPrecinctFillExpr = exprPrecinct;
-        lastPrecinctDotExpr = exprPrecinct;
+        lastPrecinctFillExpr = precinctPaint;
+        lastPrecinctDotExpr = precinctPaint;
         if (needsPrecinctDetail) {
           if (map.getLayer('precinct-fill')) {
-            map.setPaintProperty('precinct-fill', 'fill-color', exprPrecinct);
+            map.setPaintProperty('precinct-fill', 'fill-color', precinctPaint);
           }
           if (map.getLayer('precinct-dot')) {
-            map.setPaintProperty('precinct-dot', 'circle-color', exprPrecinct);
+            map.setPaintProperty('precinct-dot', 'circle-color', precinctPaint);
           }
         }
 
@@ -33649,9 +33658,10 @@ document.addEventListener('DOMContentLoaded', function() {
           });
         }
         countyExpr.push('#e2e8f0');
+        const countyPaint = countyExpr.length > 2 ? countyExpr : '#e2e8f0';
 
         if (map.getLayer('county-fill')) {
-          map.setPaintProperty('county-fill', 'fill-color', countyExpr);
+          map.setPaintProperty('county-fill', 'fill-color', countyPaint);
         }
         if (map.getLayer('county-stroke')) {
           try {
@@ -33854,9 +33864,11 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         flipColorExpr.push('rgba(15,23,42,0.35)');
         flipWidthExpr.push(1);
+        const flipColorPaint = flipColorExpr.length > 2 ? flipColorExpr : 'rgba(15,23,42,0.35)';
+        const flipWidthPaint = flipWidthExpr.length > 2 ? flipWidthExpr : 1;
         try {
-          map.setPaintProperty('county-stroke', 'line-color', flipColorExpr);
-          map.setPaintProperty('county-stroke', 'line-width', flipWidthExpr);
+          map.setPaintProperty('county-stroke', 'line-color', flipColorPaint);
+          map.setPaintProperty('county-stroke', 'line-width', flipWidthPaint);
         } catch (_) {}
       } else if (map.getLayer('county-stroke')) {
         try {
