@@ -317,6 +317,12 @@ def main():
             district_payload = load(district_path)
             contest_type = district_payload.get("contest_type")
             year = int(district_payload.get("year", 0) or 0)
+            # The 2024 source file reports House JURISID by PRCTSEQ on the same
+            # ballot as each statewide contest.  Those election-defined splits
+            # are more authoritative than a VTD polygon reconstruction and must
+            # not be replaced by this geographic audit.
+            if scope == "state_house" and year == 2024:
+                continue
             contest_path = args.staged_root / "contests" / f"{contest_type}_{year}.json"
             targets = targets_by_contest.get((contest_type, year))
             if not contest_path.exists() or not targets:
