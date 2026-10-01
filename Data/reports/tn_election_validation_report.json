@@ -1,2318 +1,622 @@
 {
   "valid": true,
-  "json_files_checked": 121,
+  "json_files_checked": 122,
   "errors": [],
   "county_reconciliation_mismatches": [],
   "district_statewide_mismatches": [],
   "comparison": {
     "party_flips": [
       {
-        "file": "state_house_president_2024.json",
+        "file": "state_house_president_2008.json",
+        "district": "30",
+        "before": "DEM",
+        "after": "REP",
+        "before_votes": {
+          "dem_votes": 22410,
+          "rep_votes": 19895,
+          "other_votes": 349
+        },
+        "after_votes": {
+          "dem_votes": 16443,
+          "rep_votes": 27082,
+          "other_votes": 546
+        }
+      },
+      {
+        "file": "state_house_president_2008.json",
+        "district": "50",
+        "before": "DEM",
+        "after": "REP",
+        "before_votes": {
+          "dem_votes": 71680,
+          "rep_votes": 47672,
+          "other_votes": 1466
+        },
+        "after_votes": {
+          "dem_votes": 15013,
+          "rep_votes": 17714,
+          "other_votes": 452
+        }
+      },
+      {
+        "file": "state_house_president_2008.json",
+        "district": "59",
+        "before": "DEM",
+        "after": "REP",
+        "before_votes": {
+          "dem_votes": 170,
+          "rep_votes": 131,
+          "other_votes": 4
+        },
+        "after_votes": {
+          "dem_votes": 16485,
+          "rep_votes": 23111,
+          "other_votes": 416
+        }
+      },
+      {
+        "file": "state_house_president_2008.json",
+        "district": "75",
+        "before": "REP",
+        "after": "DEM",
+        "before_votes": {
+          "dem_votes": 8444,
+          "rep_votes": 8612,
+          "other_votes": 192
+        },
+        "after_votes": {
+          "dem_votes": 6827,
+          "rep_votes": 6785,
+          "other_votes": 178
+        }
+      },
+      {
+        "file": "state_house_president_2008.json",
+        "district": "90",
+        "before": "DEM",
+        "after": "REP",
+        "before_votes": {
+          "dem_votes": 9229,
+          "rep_votes": 8869,
+          "other_votes": 362
+        },
+        "after_votes": {
+          "dem_votes": 11249,
+          "rep_votes": 11701,
+          "other_votes": 476
+        }
+      },
+      {
+        "file": "state_house_president_2012.json",
+        "district": "30",
+        "before": "DEM",
+        "after": "REP",
+        "before_votes": {
+          "dem_votes": 21854,
+          "rep_votes": 20805,
+          "other_votes": 566
+        },
+        "after_votes": {
+          "dem_votes": 13259,
+          "rep_votes": 21977,
+          "other_votes": 0
+        }
+      },
+      {
+        "file": "state_house_president_2012.json",
+        "district": "75",
+        "before": "REP",
+        "after": "DEM",
+        "before_votes": {
+          "dem_votes": 9827,
+          "rep_votes": 11165,
+          "other_votes": 350
+        },
+        "after_votes": {
+          "dem_votes": 8106,
+          "rep_votes": 8099,
+          "other_votes": 0
+        }
+      },
+      {
+        "file": "state_house_president_2016.json",
         "district": "80",
         "before": "REP",
         "after": "DEM",
         "before_votes": {
-          "dem_votes": 9957,
-          "rep_votes": 10488,
-          "other_votes": 228
+          "dem_votes": 15240,
+          "rep_votes": 15377,
+          "other_votes": 883
         },
         "after_votes": {
-          "dem_votes": 11436,
-          "rep_votes": 9794,
-          "other_votes": 245
+          "dem_votes": 11180,
+          "rep_votes": 7158,
+          "other_votes": 445
         }
       },
       {
-        "file": "state_house_president_2024.json",
-        "district": "98",
+        "file": "state_house_us_senate_2008.json",
+        "district": "65",
         "before": "REP",
         "after": "DEM",
         "before_votes": {
-          "dem_votes": 5278,
-          "rep_votes": 5696,
-          "other_votes": 177
+          "dem_votes": 17763,
+          "rep_votes": 61893,
+          "other_votes": 2543
         },
         "after_votes": {
-          "dem_votes": 15851,
-          "rep_votes": 6279,
-          "other_votes": 405
+          "dem_votes": 17763,
+          "rep_votes": 12552,
+          "other_votes": 1092
         }
       },
       {
-        "file": "state_house_us_senate_2024.json",
+        "file": "state_house_us_senate_2008.json",
         "district": "80",
         "before": "REP",
         "after": "DEM",
         "before_votes": {
-          "dem_votes": 9140,
-          "rep_votes": 10525,
-          "other_votes": 453
+          "dem_votes": 14249,
+          "rep_votes": 19021,
+          "other_votes": 977
         },
         "after_votes": {
-          "dem_votes": 10490,
-          "rep_votes": 9866,
-          "other_votes": 508
-        }
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "98",
-        "before": "REP",
-        "after": "DEM",
-        "before_votes": {
-          "dem_votes": 5016,
-          "rep_votes": 5728,
-          "other_votes": 232
-        },
-        "after_votes": {
-          "dem_votes": 15021,
-          "rep_votes": 6289,
-          "other_votes": 619
+          "dem_votes": 13081,
+          "rep_votes": 12909,
+          "other_votes": 1334
         }
       }
     ],
     "margin_changes_ge_0_25pp": [
       {
-        "file": "state_house_president_2024.json",
-        "district": "1",
-        "before_margin_pct": 55.2323,
-        "after_margin_pct": 54.9734,
-        "change_pp": -0.2589
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "2",
-        "before_margin_pct": 51.7629,
-        "after_margin_pct": 52.161,
-        "change_pp": 0.3981
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "6",
-        "before_margin_pct": 43.3116,
-        "after_margin_pct": 41.0648,
-        "change_pp": -2.2468
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "7",
-        "before_margin_pct": 35.9787,
-        "after_margin_pct": 37.5997,
-        "change_pp": 1.621
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "8",
-        "before_margin_pct": 53.11,
-        "after_margin_pct": 51.1362,
-        "change_pp": -1.9738
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "12",
-        "before_margin_pct": 59.6321,
-        "after_margin_pct": 59.9397,
-        "change_pp": 0.3076
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "13",
-        "before_margin_pct": 14.8932,
-        "after_margin_pct": 18.4921,
-        "change_pp": 3.5989
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "14",
-        "before_margin_pct": 20.1726,
-        "after_margin_pct": 24.4927,
-        "change_pp": 4.3201
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "15",
-        "before_margin_pct": -20.0885,
-        "after_margin_pct": -32.8648,
-        "change_pp": -12.7763
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "16",
-        "before_margin_pct": 34.2025,
-        "after_margin_pct": 35.9995,
-        "change_pp": 1.797
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "17",
-        "before_margin_pct": 63.8216,
-        "after_margin_pct": 63.5255,
-        "change_pp": -0.2961
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "18",
-        "before_margin_pct": 8.9134,
-        "after_margin_pct": 9.316,
-        "change_pp": 0.4026
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "19",
-        "before_margin_pct": 48.5011,
-        "after_margin_pct": 50.851,
-        "change_pp": 2.3499
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "20",
-        "before_margin_pct": 42.1704,
-        "after_margin_pct": 44.1884,
-        "change_pp": 2.018
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "21",
-        "before_margin_pct": 57.1535,
-        "after_margin_pct": 57.5478,
-        "change_pp": 0.3943
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "22",
-        "before_margin_pct": 67.0192,
-        "after_margin_pct": 68.5917,
-        "change_pp": 1.5725
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "24",
-        "before_margin_pct": 53.0453,
-        "after_margin_pct": 51.8158,
-        "change_pp": -1.2295
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "25",
-        "before_margin_pct": 58.9711,
-        "after_margin_pct": 58.6906,
-        "change_pp": -0.2805
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "26",
-        "before_margin_pct": 21.3407,
-        "after_margin_pct": 23.4097,
-        "change_pp": 2.069
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "27",
-        "before_margin_pct": 21.8479,
-        "after_margin_pct": 19.5206,
-        "change_pp": -2.3273
-      },
-      {
-        "file": "state_house_president_2024.json",
+        "file": "state_house_president_2008.json",
         "district": "28",
-        "before_margin_pct": -26.6974,
-        "after_margin_pct": -49.1035,
-        "change_pp": -22.4061
+        "before_margin_pct": -46.1171,
+        "after_margin_pct": -61.4186,
+        "change_pp": -15.3015
       },
       {
-        "file": "state_house_president_2024.json",
+        "file": "state_house_president_2008.json",
         "district": "30",
-        "before_margin_pct": 6.9157,
-        "after_margin_pct": 15.4368,
-        "change_pp": 8.5211
+        "before_margin_pct": -5.8963,
+        "after_margin_pct": 24.1406,
+        "change_pp": 30.0369
       },
       {
-        "file": "state_house_president_2024.json",
-        "district": "32",
-        "before_margin_pct": 53.4204,
-        "after_margin_pct": 53.1663,
-        "change_pp": -0.2541
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "33",
-        "before_margin_pct": 30.1665,
-        "after_margin_pct": 31.7627,
-        "change_pp": 1.5962
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "34",
-        "before_margin_pct": 21.1312,
-        "after_margin_pct": 22.3519,
-        "change_pp": 1.2207
-      },
-      {
-        "file": "state_house_president_2024.json",
+        "file": "state_house_president_2008.json",
         "district": "37",
-        "before_margin_pct": 23.5937,
-        "after_margin_pct": 23.0276,
-        "change_pp": -0.5661
+        "before_margin_pct": 19.4406,
+        "after_margin_pct": 22.0071,
+        "change_pp": 2.5665
       },
       {
-        "file": "state_house_president_2024.json",
-        "district": "40",
-        "before_margin_pct": 63.5117,
-        "after_margin_pct": 63.7844,
-        "change_pp": 0.2727
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "41",
-        "before_margin_pct": 67.8215,
-        "after_margin_pct": 68.3606,
-        "change_pp": 0.5391
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "42",
-        "before_margin_pct": 46.4478,
-        "after_margin_pct": 46.1456,
-        "change_pp": -0.3022
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "44",
-        "before_margin_pct": 49.3294,
-        "after_margin_pct": 50.1442,
-        "change_pp": 0.8148
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "45",
-        "before_margin_pct": 38.8729,
-        "after_margin_pct": 34.3987,
-        "change_pp": -4.4742
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "46",
-        "before_margin_pct": 46.3983,
-        "after_margin_pct": 47.0443,
-        "change_pp": 0.646
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "48",
-        "before_margin_pct": 26.8954,
-        "after_margin_pct": 26.1684,
-        "change_pp": -0.727
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "49",
-        "before_margin_pct": 18.858,
-        "after_margin_pct": 18.1143,
-        "change_pp": -0.7437
-      },
-      {
-        "file": "state_house_president_2024.json",
+        "file": "state_house_president_2008.json",
         "district": "50",
-        "before_margin_pct": -16.7225,
-        "after_margin_pct": -4.3454,
-        "change_pp": 12.3771
+        "before_margin_pct": -19.8712,
+        "after_margin_pct": 8.1407,
+        "change_pp": 28.0119
       },
       {
-        "file": "state_house_president_2024.json",
-        "district": "51",
-        "before_margin_pct": -46.5269,
-        "after_margin_pct": -37.4518,
-        "change_pp": 9.0751
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "52",
-        "before_margin_pct": -25.1509,
-        "after_margin_pct": -36.6348,
-        "change_pp": -11.4839
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "53",
-        "before_margin_pct": -15.6157,
-        "after_margin_pct": -23.1625,
-        "change_pp": -7.5468
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "54",
-        "before_margin_pct": -50.0315,
-        "after_margin_pct": -61.5216,
-        "change_pp": -11.4901
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "55",
-        "before_margin_pct": -39.1177,
-        "after_margin_pct": -42.7786,
-        "change_pp": -3.6609
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "56",
-        "before_margin_pct": -28.9453,
-        "after_margin_pct": -29.2833,
-        "change_pp": -0.338
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "57",
-        "before_margin_pct": 32.3192,
-        "after_margin_pct": 32.8011,
-        "change_pp": 0.4819
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "58",
-        "before_margin_pct": -47.3969,
-        "after_margin_pct": -54.5012,
-        "change_pp": -7.1043
-      },
-      {
-        "file": "state_house_president_2024.json",
+        "file": "state_house_president_2008.json",
         "district": "59",
-        "before_margin_pct": -11.4612,
-        "after_margin_pct": -2.4983,
-        "change_pp": 8.9629
+        "before_margin_pct": -12.7869,
+        "after_margin_pct": 16.56,
+        "change_pp": 29.3469
       },
       {
-        "file": "state_house_president_2024.json",
-        "district": "61",
-        "before_margin_pct": 25.144,
-        "after_margin_pct": 25.7339,
-        "change_pp": 0.5899
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "62",
-        "before_margin_pct": 61.428,
-        "after_margin_pct": 58.9459,
-        "change_pp": -2.4821
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "63",
-        "before_margin_pct": 33.466,
-        "after_margin_pct": 34.2375,
-        "change_pp": 0.7715
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "64",
-        "before_margin_pct": 42.605,
-        "after_margin_pct": 41.3872,
-        "change_pp": -1.2178
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "65",
-        "before_margin_pct": 36.8454,
-        "after_margin_pct": 34.3041,
-        "change_pp": -2.5413
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "67",
-        "before_margin_pct": 6.4451,
-        "after_margin_pct": 1.6598,
-        "change_pp": -4.7853
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "70",
-        "before_margin_pct": 61.9948,
-        "after_margin_pct": 64.1095,
-        "change_pp": 2.1147
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "71",
-        "before_margin_pct": 60.7931,
-        "after_margin_pct": 62.3907,
-        "change_pp": 1.5976
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "73",
-        "before_margin_pct": 27.5804,
-        "after_margin_pct": 32.2268,
-        "change_pp": 4.6464
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "74",
-        "before_margin_pct": 59.7356,
-        "after_margin_pct": 59.1503,
-        "change_pp": -0.5853
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "75",
-        "before_margin_pct": 14.6462,
-        "after_margin_pct": 12.5561,
-        "change_pp": -2.0901
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "76",
-        "before_margin_pct": 57.5618,
-        "after_margin_pct": 57.9534,
-        "change_pp": 0.3916
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "79",
-        "before_margin_pct": 55.219,
-        "after_margin_pct": 56.1987,
-        "change_pp": 0.9797
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "80",
-        "before_margin_pct": 2.5686,
-        "after_margin_pct": -7.6461,
-        "change_pp": -10.2147
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "81",
-        "before_margin_pct": 46.276,
-        "after_margin_pct": 50.4999,
-        "change_pp": 4.2239
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "82",
-        "before_margin_pct": 53.1833,
-        "after_margin_pct": 52.4598,
-        "change_pp": -0.7235
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "83",
-        "before_margin_pct": 4.8446,
-        "after_margin_pct": 7.7569,
-        "change_pp": 2.9123
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "84",
-        "before_margin_pct": -52.0633,
-        "after_margin_pct": -75.7558,
-        "change_pp": -23.6925
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "85",
-        "before_margin_pct": -46.6014,
-        "after_margin_pct": -73.7087,
-        "change_pp": -27.1073
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "86",
-        "before_margin_pct": -48.438,
-        "after_margin_pct": -45.6305,
-        "change_pp": 2.8075
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "87",
-        "before_margin_pct": -45.3462,
-        "after_margin_pct": -68.2656,
-        "change_pp": -22.9194
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "88",
-        "before_margin_pct": -12.9616,
-        "after_margin_pct": -42.294,
-        "change_pp": -29.3324
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "90",
-        "before_margin_pct": -13.3943,
-        "after_margin_pct": -13.6512,
-        "change_pp": -0.2569
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "91",
-        "before_margin_pct": -39.4652,
-        "after_margin_pct": -72.0556,
-        "change_pp": -32.5904
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "92",
-        "before_margin_pct": 48.5573,
-        "after_margin_pct": 46.9082,
-        "change_pp": -1.6491
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "93",
-        "before_margin_pct": -43.6994,
-        "after_margin_pct": -56.1598,
-        "change_pp": -12.4604
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "94",
-        "before_margin_pct": 50.5186,
-        "after_margin_pct": 50.8077,
-        "change_pp": 0.2891
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "95",
-        "before_margin_pct": 13.0807,
-        "after_margin_pct": 34.7337,
-        "change_pp": 21.653
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "96",
-        "before_margin_pct": -40.2289,
-        "after_margin_pct": -47.3875,
-        "change_pp": -7.1586
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "97",
-        "before_margin_pct": -52.6338,
-        "after_margin_pct": -6.4305,
-        "change_pp": 46.2033
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "98",
-        "before_margin_pct": 3.7485,
-        "after_margin_pct": -42.4761,
-        "change_pp": -46.2246
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "99",
-        "before_margin_pct": 3.044,
-        "after_margin_pct": 29.5786,
-        "change_pp": 26.5346
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "2",
-        "before_margin_pct": 53.9288,
-        "after_margin_pct": 54.3244,
-        "change_pp": 0.3956
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "6",
-        "before_margin_pct": 45.8504,
-        "after_margin_pct": 43.6608,
-        "change_pp": -2.1896
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "7",
-        "before_margin_pct": 38.4532,
-        "after_margin_pct": 40.0108,
-        "change_pp": 1.5576
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "8",
-        "before_margin_pct": 51.5905,
-        "after_margin_pct": 49.6281,
-        "change_pp": -1.9624
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "12",
-        "before_margin_pct": 58.1132,
-        "after_margin_pct": 58.3716,
-        "change_pp": 0.2584
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "13",
-        "before_margin_pct": 13.8777,
-        "after_margin_pct": 17.4617,
-        "change_pp": 3.584
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "14",
-        "before_margin_pct": 20.2793,
-        "after_margin_pct": 24.883,
-        "change_pp": 4.6037
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "15",
-        "before_margin_pct": -21.3661,
-        "after_margin_pct": -34.6464,
-        "change_pp": -13.2803
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "16",
-        "before_margin_pct": 32.828,
-        "after_margin_pct": 34.0847,
-        "change_pp": 1.2567
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "17",
-        "before_margin_pct": 61.2619,
-        "after_margin_pct": 60.9884,
-        "change_pp": -0.2735
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "18",
-        "before_margin_pct": 7.9477,
-        "after_margin_pct": 8.4113,
-        "change_pp": 0.4636
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "19",
-        "before_margin_pct": 46.0508,
-        "after_margin_pct": 48.1062,
-        "change_pp": 2.0554
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "20",
-        "before_margin_pct": 41.5069,
-        "after_margin_pct": 43.5223,
-        "change_pp": 2.0154
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "22",
-        "before_margin_pct": 65.4058,
-        "after_margin_pct": 66.9011,
-        "change_pp": 1.4953
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "24",
-        "before_margin_pct": 52.8742,
-        "after_margin_pct": 51.6549,
-        "change_pp": -1.2193
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "25",
-        "before_margin_pct": 58.3587,
-        "after_margin_pct": 58.0247,
-        "change_pp": -0.334
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "26",
-        "before_margin_pct": 21.8758,
-        "after_margin_pct": 23.8832,
-        "change_pp": 2.0074
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "27",
-        "before_margin_pct": 23.0697,
-        "after_margin_pct": 20.8011,
-        "change_pp": -2.2686
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "28",
-        "before_margin_pct": -23.8913,
-        "after_margin_pct": -46.2067,
-        "change_pp": -22.3154
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "29",
-        "before_margin_pct": 36.6546,
-        "after_margin_pct": 36.3434,
-        "change_pp": -0.3112
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "30",
-        "before_margin_pct": 8.6718,
-        "after_margin_pct": 17.1118,
-        "change_pp": 8.44
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "33",
-        "before_margin_pct": 28.2209,
-        "after_margin_pct": 29.7662,
-        "change_pp": 1.5453
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "34",
-        "before_margin_pct": 19.8805,
-        "after_margin_pct": 21.3076,
-        "change_pp": 1.4271
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "37",
-        "before_margin_pct": 22.8497,
-        "after_margin_pct": 22.384,
-        "change_pp": -0.4657
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "40",
-        "before_margin_pct": 60.6477,
-        "after_margin_pct": 60.9177,
-        "change_pp": 0.27
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "41",
-        "before_margin_pct": 64.2393,
-        "after_margin_pct": 64.737,
-        "change_pp": 0.4977
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "42",
-        "before_margin_pct": 44.5617,
-        "after_margin_pct": 44.2563,
-        "change_pp": -0.3054
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "44",
-        "before_margin_pct": 47.4234,
-        "after_margin_pct": 48.5375,
-        "change_pp": 1.1141
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "45",
-        "before_margin_pct": 38.3062,
-        "after_margin_pct": 33.9043,
-        "change_pp": -4.4019
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "46",
-        "before_margin_pct": 45.337,
-        "after_margin_pct": 45.9909,
-        "change_pp": 0.6539
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "48",
-        "before_margin_pct": 26.5032,
-        "after_margin_pct": 25.7711,
-        "change_pp": -0.7321
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "49",
-        "before_margin_pct": 17.8675,
-        "after_margin_pct": 17.1107,
-        "change_pp": -0.7568
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "50",
-        "before_margin_pct": -17.0513,
-        "after_margin_pct": -5.0692,
-        "change_pp": 11.9821
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "51",
-        "before_margin_pct": -47.7651,
-        "after_margin_pct": -39.2997,
-        "change_pp": 8.4654
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "52",
-        "before_margin_pct": -26.3934,
-        "after_margin_pct": -37.8369,
-        "change_pp": -11.4435
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "53",
-        "before_margin_pct": -16.6932,
-        "after_margin_pct": -25.1925,
-        "change_pp": -8.4993
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "54",
-        "before_margin_pct": -49.9525,
-        "after_margin_pct": -60.5025,
-        "change_pp": -10.55
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "55",
-        "before_margin_pct": -41.0008,
-        "after_margin_pct": -44.7301,
-        "change_pp": -3.7293
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "56",
-        "before_margin_pct": -28.4128,
-        "after_margin_pct": -28.8232,
-        "change_pp": -0.4104
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "57",
-        "before_margin_pct": 31.5994,
-        "after_margin_pct": 32.0103,
-        "change_pp": 0.4109
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "58",
-        "before_margin_pct": -46.5058,
-        "after_margin_pct": -53.1685,
-        "change_pp": -6.6627
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "59",
-        "before_margin_pct": -10.8017,
-        "after_margin_pct": -1.3595,
-        "change_pp": 9.4422
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
+        "file": "state_house_president_2008.json",
         "district": "60",
-        "before_margin_pct": -11.0754,
-        "after_margin_pct": -11.5851,
-        "change_pp": -0.5097
+        "before_margin_pct": -20.498,
+        "after_margin_pct": -45.437,
+        "change_pp": -24.939
       },
       {
-        "file": "state_house_us_senate_2024.json",
-        "district": "61",
-        "before_margin_pct": 26.8623,
-        "after_margin_pct": 27.3337,
-        "change_pp": 0.4714
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "62",
-        "before_margin_pct": 60.1951,
-        "after_margin_pct": 58.0289,
-        "change_pp": -2.1662
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "63",
-        "before_margin_pct": 34.2717,
-        "after_margin_pct": 35.1628,
-        "change_pp": 0.8911
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "64",
-        "before_margin_pct": 42.0154,
-        "after_margin_pct": 40.712,
-        "change_pp": -1.3034
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
+        "file": "state_house_president_2008.json",
         "district": "65",
-        "before_margin_pct": 37.4319,
-        "after_margin_pct": 35.122,
-        "change_pp": -2.3099
+        "before_margin_pct": 39.1961,
+        "after_margin_pct": 46.5584,
+        "change_pp": 7.3623
       },
       {
-        "file": "state_house_us_senate_2024.json",
-        "district": "67",
-        "before_margin_pct": 7.2981,
-        "after_margin_pct": 3.0533,
-        "change_pp": -4.2448
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "70",
-        "before_margin_pct": 61.166,
-        "after_margin_pct": 63.0234,
-        "change_pp": 1.8574
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "71",
-        "before_margin_pct": 59.083,
-        "after_margin_pct": 60.7751,
-        "change_pp": 1.6921
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "73",
-        "before_margin_pct": 31.4582,
-        "after_margin_pct": 35.7895,
-        "change_pp": 4.3313
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
+        "file": "state_house_president_2008.json",
         "district": "74",
-        "before_margin_pct": 58.4112,
-        "after_margin_pct": 57.8402,
-        "change_pp": -0.571
+        "before_margin_pct": 7.1673,
+        "after_margin_pct": 9.97,
+        "change_pp": 2.8027
       },
       {
-        "file": "state_house_us_senate_2024.json",
+        "file": "state_house_president_2008.json",
         "district": "75",
-        "before_margin_pct": 16.1612,
-        "after_margin_pct": 14.0944,
-        "change_pp": -2.0668
+        "before_margin_pct": 0.974,
+        "after_margin_pct": -0.3046,
+        "change_pp": -1.2786
       },
       {
-        "file": "state_house_us_senate_2024.json",
-        "district": "79",
-        "before_margin_pct": 58.5545,
-        "after_margin_pct": 59.3634,
-        "change_pp": 0.8089
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
+        "file": "state_house_president_2008.json",
         "district": "80",
-        "before_margin_pct": 6.8844,
-        "after_margin_pct": -2.9908,
-        "change_pp": -9.8752
+        "before_margin_pct": -0.2127,
+        "after_margin_pct": -33.3781,
+        "change_pp": -33.1654
       },
       {
-        "file": "state_house_us_senate_2024.json",
-        "district": "81",
-        "before_margin_pct": 46.7327,
-        "after_margin_pct": 50.7341,
-        "change_pp": 4.0014
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "82",
-        "before_margin_pct": 55.7186,
-        "after_margin_pct": 55.0992,
-        "change_pp": -0.6194
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "83",
-        "before_margin_pct": 6.9089,
-        "after_margin_pct": 10.409,
-        "change_pp": 3.5001
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "84",
-        "before_margin_pct": -48.6279,
-        "after_margin_pct": -69.2419,
-        "change_pp": -20.614
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "85",
-        "before_margin_pct": -42.477,
-        "after_margin_pct": -68.6486,
-        "change_pp": -26.1716
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "86",
-        "before_margin_pct": -42.3889,
-        "after_margin_pct": -40.473,
-        "change_pp": 1.9159
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "87",
-        "before_margin_pct": -41.687,
-        "after_margin_pct": -62.7763,
-        "change_pp": -21.0893
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "88",
-        "before_margin_pct": -9.2348,
-        "after_margin_pct": -38.9301,
-        "change_pp": -29.6953
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
+        "file": "state_house_president_2008.json",
         "district": "90",
-        "before_margin_pct": -15.8987,
-        "after_margin_pct": -16.2856,
-        "change_pp": -0.3869
+        "before_margin_pct": -1.9502,
+        "after_margin_pct": 1.9295,
+        "change_pp": 3.8797
       },
       {
-        "file": "state_house_us_senate_2024.json",
-        "district": "91",
-        "before_margin_pct": -35.8362,
-        "after_margin_pct": -66.8417,
-        "change_pp": -31.0055
+        "file": "state_house_president_2012.json",
+        "district": "28",
+        "before_margin_pct": -50.2465,
+        "after_margin_pct": -58.6276,
+        "change_pp": -8.3811
       },
       {
-        "file": "state_house_us_senate_2024.json",
-        "district": "92",
-        "before_margin_pct": 47.3263,
-        "after_margin_pct": 45.7528,
-        "change_pp": -1.5735
+        "file": "state_house_president_2012.json",
+        "district": "30",
+        "before_margin_pct": -2.4268,
+        "after_margin_pct": 24.7417,
+        "change_pp": 27.1685
       },
       {
-        "file": "state_house_us_senate_2024.json",
-        "district": "93",
-        "before_margin_pct": -39.5891,
-        "after_margin_pct": -52.0071,
-        "change_pp": -12.418
+        "file": "state_house_president_2012.json",
+        "district": "50",
+        "before_margin_pct": 1.0798,
+        "after_margin_pct": 10.2235,
+        "change_pp": 9.1437
       },
       {
-        "file": "state_house_us_senate_2024.json",
-        "district": "94",
-        "before_margin_pct": 52.4354,
-        "after_margin_pct": 52.6927,
-        "change_pp": 0.2573
+        "file": "state_house_president_2012.json",
+        "district": "65",
+        "before_margin_pct": 46.0196,
+        "after_margin_pct": 53.6345,
+        "change_pp": 7.6149
       },
       {
-        "file": "state_house_us_senate_2024.json",
-        "district": "95",
-        "before_margin_pct": 15.2116,
-        "after_margin_pct": 36.6756,
-        "change_pp": 21.464
+        "file": "state_house_president_2012.json",
+        "district": "75",
+        "before_margin_pct": 6.2693,
+        "after_margin_pct": -0.0432,
+        "change_pp": -6.3125
       },
       {
-        "file": "state_house_us_senate_2024.json",
-        "district": "96",
-        "before_margin_pct": -36.4297,
-        "after_margin_pct": -45.3918,
-        "change_pp": -8.9621
+        "file": "state_house_president_2012.json",
+        "district": "80",
+        "before_margin_pct": -11.6638,
+        "after_margin_pct": -29.0208,
+        "change_pp": -17.357
       },
       {
-        "file": "state_house_us_senate_2024.json",
-        "district": "97",
-        "before_margin_pct": -47.1821,
-        "after_margin_pct": -4.5973,
-        "change_pp": 42.5848
+        "file": "state_house_president_2012.json",
+        "district": "85",
+        "before_margin_pct": -84.1312,
+        "after_margin_pct": -90.6384,
+        "change_pp": -6.5072
       },
       {
-        "file": "state_house_us_senate_2024.json",
-        "district": "98",
-        "before_margin_pct": 6.4869,
-        "after_margin_pct": -39.8194,
-        "change_pp": -46.3063
+        "file": "state_house_president_2016.json",
+        "district": "28",
+        "before_margin_pct": -46.0217,
+        "after_margin_pct": -56.7496,
+        "change_pp": -10.7279
       },
       {
-        "file": "state_house_us_senate_2024.json",
-        "district": "99",
-        "before_margin_pct": 4.7086,
-        "after_margin_pct": 30.7955,
-        "change_pp": 26.0869
+        "file": "state_house_president_2016.json",
+        "district": "30",
+        "before_margin_pct": 25.6683,
+        "after_margin_pct": 25.1791,
+        "change_pp": -0.4892
+      },
+      {
+        "file": "state_house_president_2016.json",
+        "district": "80",
+        "before_margin_pct": 0.4349,
+        "after_margin_pct": -21.413,
+        "change_pp": -21.8479
+      },
+      {
+        "file": "state_house_us_senate_2008.json",
+        "district": "28",
+        "before_margin_pct": -22.1556,
+        "after_margin_pct": -30.8342,
+        "change_pp": -8.6786
+      },
+      {
+        "file": "state_house_us_senate_2008.json",
+        "district": "30",
+        "before_margin_pct": 15.7977,
+        "after_margin_pct": 19.1508,
+        "change_pp": 3.3531
+      },
+      {
+        "file": "state_house_us_senate_2008.json",
+        "district": "37",
+        "before_margin_pct": 37.0601,
+        "after_margin_pct": 39.4568,
+        "change_pp": 2.3967
+      },
+      {
+        "file": "state_house_us_senate_2008.json",
+        "district": "50",
+        "before_margin_pct": 2.884,
+        "after_margin_pct": 8.4904,
+        "change_pp": 5.6064
+      },
+      {
+        "file": "state_house_us_senate_2008.json",
+        "district": "59",
+        "before_margin_pct": 14.4781,
+        "after_margin_pct": 30.1158,
+        "change_pp": 15.6377
+      },
+      {
+        "file": "state_house_us_senate_2008.json",
+        "district": "60",
+        "before_margin_pct": 1.9342,
+        "after_margin_pct": 41.2851,
+        "change_pp": 39.3509
+      },
+      {
+        "file": "state_house_us_senate_2008.json",
+        "district": "65",
+        "before_margin_pct": 53.6868,
+        "after_margin_pct": -16.5918,
+        "change_pp": -70.2786
+      },
+      {
+        "file": "state_house_us_senate_2008.json",
+        "district": "74",
+        "before_margin_pct": 19.7824,
+        "after_margin_pct": 21.3993,
+        "change_pp": 1.6169
+      },
+      {
+        "file": "state_house_us_senate_2008.json",
+        "district": "75",
+        "before_margin_pct": 22.0427,
+        "after_margin_pct": 15.6034,
+        "change_pp": -6.4393
+      },
+      {
+        "file": "state_house_us_senate_2008.json",
+        "district": "80",
+        "before_margin_pct": 13.9341,
+        "after_margin_pct": -0.6295,
+        "change_pp": -14.5636
+      },
+      {
+        "file": "state_house_us_senate_2008.json",
+        "district": "90",
+        "before_margin_pct": 25.0484,
+        "after_margin_pct": 32.465,
+        "change_pp": 7.4166
       }
     ],
     "vote_total_changes_ge_100": [
       {
-        "file": "state_house_president_2024.json",
-        "district": "1",
-        "before_total": 28219,
-        "after_total": 29467,
-        "change": 1248
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "2",
-        "before_total": 33014,
-        "after_total": 32415,
-        "change": -599
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "6",
-        "before_total": 29140,
-        "after_total": 33021,
-        "change": 3881
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "7",
-        "before_total": 32094,
-        "after_total": 28213,
-        "change": -3881
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "9",
-        "before_total": 30189,
-        "after_total": 29716,
-        "change": -473
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "11",
-        "before_total": 31541,
-        "after_total": 32175,
-        "change": 634
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "12",
-        "before_total": 30061,
-        "after_total": 30514,
-        "change": 453
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "13",
-        "before_total": 20694,
-        "after_total": 28277,
-        "change": 7583
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "14",
-        "before_total": 26645,
-        "after_total": 41984,
-        "change": 15339
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "15",
-        "before_total": 22814,
-        "after_total": 18783,
-        "change": -4031
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "16",
-        "before_total": 43219,
-        "after_total": 32931,
-        "change": -10288
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "17",
-        "before_total": 31317,
-        "after_total": 30169,
-        "change": -1148
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "18",
-        "before_total": 33747,
-        "after_total": 35101,
-        "change": 1354
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "19",
-        "before_total": 36459,
-        "after_total": 33490,
-        "change": -2969
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "21",
-        "before_total": 37653,
-        "after_total": 37958,
-        "change": 305
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "22",
-        "before_total": 36209,
-        "after_total": 34857,
-        "change": -1352
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "23",
-        "before_total": 31588,
-        "after_total": 30610,
-        "change": -978
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "24",
-        "before_total": 27863,
-        "after_total": 29215,
-        "change": 1352
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "25",
-        "before_total": 37108,
-        "after_total": 38720,
-        "change": 1612
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "26",
-        "before_total": 40828,
-        "after_total": 40227,
-        "change": -601
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "27",
-        "before_total": 42773,
-        "after_total": 39010,
-        "change": -3763
-      },
-      {
-        "file": "state_house_president_2024.json",
+        "file": "state_house_president_2008.json",
         "district": "28",
-        "before_total": 30546,
-        "after_total": 24929,
-        "change": -5617
+        "before_total": 16341,
+        "after_total": 11941,
+        "change": -4400
       },
       {
-        "file": "state_house_president_2024.json",
-        "district": "29",
-        "before_total": 31082,
-        "after_total": 37083,
-        "change": 6001
-      },
-      {
-        "file": "state_house_president_2024.json",
+        "file": "state_house_president_2008.json",
         "district": "30",
-        "before_total": 29209,
-        "after_total": 33187,
-        "change": 3978
+        "before_total": 42654,
+        "after_total": 44071,
+        "change": 1417
       },
       {
-        "file": "state_house_president_2024.json",
-        "district": "32",
-        "before_total": 36136,
-        "after_total": 36715,
-        "change": 579
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "33",
-        "before_total": 29188,
-        "after_total": 31027,
-        "change": 1839
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "34",
-        "before_total": 21428,
-        "after_total": 30937,
-        "change": 9509
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "35",
-        "before_total": 31662,
-        "after_total": 30880,
-        "change": -782
-      },
-      {
-        "file": "state_house_president_2024.json",
+        "file": "state_house_president_2008.json",
         "district": "37",
-        "before_total": 27804,
-        "after_total": 27632,
-        "change": -172
+        "before_total": 16090,
+        "after_total": 14827,
+        "change": -1263
       },
       {
-        "file": "state_house_president_2024.json",
-        "district": "38",
-        "before_total": 31050,
-        "after_total": 31369,
-        "change": 319
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "40",
-        "before_total": 33767,
-        "after_total": 32798,
-        "change": -969
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "41",
-        "before_total": 34001,
-        "after_total": 31938,
-        "change": -2063
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "42",
-        "before_total": 32473,
-        "after_total": 30861,
-        "change": -1612
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "44",
-        "before_total": 24233,
-        "after_total": 37091,
-        "change": 12858
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "45",
-        "before_total": 46827,
-        "after_total": 34042,
-        "change": -12785
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "46",
-        "before_total": 40661,
-        "after_total": 38908,
-        "change": -1753
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "48",
-        "before_total": 41390,
-        "after_total": 32673,
-        "change": -8717
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "49",
-        "before_total": 36340,
-        "after_total": 28138,
-        "change": -8202
-      },
-      {
-        "file": "state_house_president_2024.json",
+        "file": "state_house_president_2008.json",
         "district": "50",
-        "before_total": 33422,
-        "after_total": 32908,
-        "change": -514
+        "before_total": 120818,
+        "after_total": 33179,
+        "change": -87639
       },
       {
-        "file": "state_house_president_2024.json",
-        "district": "51",
-        "before_total": 36394,
-        "after_total": 36858,
-        "change": 464
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "52",
-        "before_total": 25506,
-        "after_total": 20516,
-        "change": -4990
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "53",
-        "before_total": 25628,
-        "after_total": 24013,
-        "change": -1615
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "54",
-        "before_total": 23787,
-        "after_total": 27891,
-        "change": 4104
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "55",
-        "before_total": 16095,
-        "after_total": 16908,
-        "change": 813
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "57",
-        "before_total": 37405,
-        "after_total": 40837,
-        "change": 3432
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "58",
-        "before_total": 22377,
-        "after_total": 22983,
-        "change": 606
-      },
-      {
-        "file": "state_house_president_2024.json",
+        "file": "state_house_president_2008.json",
         "district": "59",
-        "before_total": 43006,
-        "after_total": 41788,
-        "change": -1218
+        "before_total": 305,
+        "after_total": 40012,
+        "change": 39707
       },
       {
-        "file": "state_house_president_2024.json",
+        "file": "state_house_president_2008.json",
         "district": "60",
-        "before_total": 29774,
-        "after_total": 32155,
-        "change": 2381
+        "before_total": 114621,
+        "after_total": 167093,
+        "change": 52472
       },
       {
-        "file": "state_house_president_2024.json",
-        "district": "61",
-        "before_total": 46870,
-        "after_total": 41556,
-        "change": -5314
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "63",
-        "before_total": 41723,
-        "after_total": 42690,
-        "change": 967
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "64",
-        "before_total": 36545,
-        "after_total": 36318,
-        "change": -227
-      },
-      {
-        "file": "state_house_president_2024.json",
+        "file": "state_house_president_2008.json",
         "district": "65",
-        "before_total": 41191,
-        "after_total": 41549,
-        "change": 358
+        "before_total": 85182,
+        "after_total": 96917,
+        "change": 11735
       },
       {
-        "file": "state_house_president_2024.json",
-        "district": "67",
-        "before_total": 26904,
-        "after_total": 23557,
-        "change": -3347
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "68",
-        "before_total": 29725,
-        "after_total": 36568,
-        "change": 6843
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "69",
-        "before_total": 29830,
-        "after_total": 29298,
-        "change": -532
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "70",
-        "before_total": 33177,
-        "after_total": 32393,
-        "change": -784
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "71",
-        "before_total": 31826,
-        "after_total": 33638,
-        "change": 1812
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "72",
-        "before_total": 31412,
-        "after_total": 30618,
-        "change": -794
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "73",
-        "before_total": 29869,
-        "after_total": 31117,
-        "change": 1248
-      },
-      {
-        "file": "state_house_president_2024.json",
+        "file": "state_house_president_2008.json",
         "district": "74",
-        "before_total": 32905,
-        "after_total": 31163,
-        "change": -1742
+        "before_total": 26635,
+        "after_total": 27633,
+        "change": 998
       },
       {
-        "file": "state_house_president_2024.json",
+        "file": "state_house_president_2008.json",
         "district": "75",
-        "before_total": 25126,
-        "after_total": 21631,
-        "change": -3495
+        "before_total": 17248,
+        "after_total": 13790,
+        "change": -3458
       },
       {
-        "file": "state_house_president_2024.json",
-        "district": "76",
-        "before_total": 27857,
-        "after_total": 28554,
-        "change": 697
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "77",
-        "before_total": 26070,
-        "after_total": 25758,
-        "change": -312
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "78",
-        "before_total": 32314,
-        "after_total": 32846,
-        "change": 532
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "79",
-        "before_total": 25091,
-        "after_total": 27885,
-        "change": 2794
-      },
-      {
-        "file": "state_house_president_2024.json",
+        "file": "state_house_president_2008.json",
         "district": "80",
-        "before_total": 20673,
-        "after_total": 21475,
-        "change": 802
+        "before_total": 37607,
+        "after_total": 23072,
+        "change": -14535
       },
       {
-        "file": "state_house_president_2024.json",
-        "district": "81",
-        "before_total": 31109,
-        "after_total": 28907,
-        "change": -2202
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "82",
-        "before_total": 27943,
-        "after_total": 26567,
-        "change": -1376
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "83",
-        "before_total": 34719,
-        "after_total": 35349,
-        "change": 630
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "84",
-        "before_total": 16042,
-        "after_total": 15777,
-        "change": -265
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "85",
-        "before_total": 32057,
-        "after_total": 27241,
-        "change": -4816
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "86",
-        "before_total": 22887,
-        "after_total": 21696,
-        "change": -1191
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "87",
-        "before_total": 25162,
-        "after_total": 16386,
-        "change": -8776
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "88",
-        "before_total": 28461,
-        "after_total": 22450,
-        "change": -6011
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "89",
-        "before_total": 35694,
-        "after_total": 36023,
-        "change": 329
-      },
-      {
-        "file": "state_house_president_2024.json",
+        "file": "state_house_president_2008.json",
         "district": "90",
-        "before_total": 23286,
-        "after_total": 23551,
-        "change": 265
+        "before_total": 18460,
+        "after_total": 23426,
+        "change": 4966
       },
       {
-        "file": "state_house_president_2024.json",
-        "district": "91",
-        "before_total": 27936,
-        "after_total": 19911,
-        "change": -8025
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "92",
-        "before_total": 30846,
-        "after_total": 34834,
-        "change": 3988
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "93",
-        "before_total": 22847,
-        "after_total": 16900,
-        "change": -5947
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "94",
-        "before_total": 36060,
-        "after_total": 36213,
-        "change": 153
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "95",
-        "before_total": 40686,
-        "after_total": 35657,
-        "change": -5029
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "96",
-        "before_total": 22280,
-        "after_total": 22660,
-        "change": 380
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "97",
-        "before_total": 21737,
-        "after_total": 33030,
-        "change": 11293
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "98",
-        "before_total": 11151,
-        "after_total": 22535,
-        "change": 11384
-      },
-      {
-        "file": "state_house_president_2024.json",
-        "district": "99",
-        "before_total": 20532,
-        "after_total": 36905,
-        "change": 16373
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "1",
-        "before_total": 27930,
-        "after_total": 29167,
-        "change": 1237
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "2",
-        "before_total": 32758,
-        "after_total": 32166,
-        "change": -592
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "6",
-        "before_total": 28726,
-        "after_total": 32512,
-        "change": 3786
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "7",
-        "before_total": 31511,
-        "after_total": 27725,
-        "change": -3786
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "9",
-        "before_total": 29160,
-        "after_total": 28702,
-        "change": -458
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "11",
-        "before_total": 30776,
-        "after_total": 31399,
-        "change": 623
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "12",
-        "before_total": 29606,
-        "after_total": 30054,
-        "change": 448
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "13",
-        "before_total": 20306,
-        "after_total": 27775,
-        "change": 7469
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "14",
-        "before_total": 26707,
-        "after_total": 42081,
-        "change": 15374
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "15",
-        "before_total": 22737,
-        "after_total": 18709,
-        "change": -4028
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "16",
-        "before_total": 43143,
-        "after_total": 32830,
-        "change": -10313
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "17",
-        "before_total": 30732,
-        "after_total": 29604,
-        "change": -1128
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "18",
-        "before_total": 33796,
-        "after_total": 35155,
-        "change": 1359
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "19",
-        "before_total": 36349,
-        "after_total": 33372,
-        "change": -2977
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "21",
-        "before_total": 37140,
-        "after_total": 37422,
-        "change": 282
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "22",
-        "before_total": 35425,
-        "after_total": 34128,
-        "change": -1297
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "23",
-        "before_total": 31012,
-        "after_total": 30044,
-        "change": -968
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "24",
-        "before_total": 27225,
-        "after_total": 28522,
-        "change": 1297
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "25",
-        "before_total": 36130,
-        "after_total": 37715,
-        "change": 1585
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "26",
-        "before_total": 40547,
-        "after_total": 39957,
-        "change": -590
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "27",
-        "before_total": 42662,
-        "after_total": 38921,
-        "change": -3741
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
+        "file": "state_house_president_2012.json",
         "district": "28",
-        "before_total": 30057,
-        "after_total": 24451,
-        "change": -5606
+        "before_total": 13794,
+        "after_total": 11921,
+        "change": -1873
       },
       {
-        "file": "state_house_us_senate_2024.json",
-        "district": "29",
-        "before_total": 30872,
-        "after_total": 36799,
-        "change": 5927
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
+        "file": "state_house_president_2012.json",
         "district": "30",
-        "before_total": 28979,
-        "after_total": 32989,
-        "change": 4010
+        "before_total": 43225,
+        "after_total": 35236,
+        "change": -7989
       },
       {
-        "file": "state_house_us_senate_2024.json",
-        "district": "32",
-        "before_total": 35547,
-        "after_total": 36139,
-        "change": 592
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "33",
-        "before_total": 28773,
-        "after_total": 30585,
-        "change": 1812
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "34",
-        "before_total": 21081,
-        "after_total": 30421,
-        "change": 9340
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "35",
-        "before_total": 30839,
-        "after_total": 30076,
-        "change": -763
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "37",
-        "before_total": 27357,
-        "after_total": 27198,
-        "change": -159
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "38",
-        "before_total": 29682,
-        "after_total": 29990,
-        "change": 308
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "40",
-        "before_total": 32547,
-        "after_total": 31600,
-        "change": -947
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "41",
-        "before_total": 33067,
-        "after_total": 31041,
-        "change": -2026
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "42",
-        "before_total": 31756,
-        "after_total": 30172,
-        "change": -1584
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "44",
-        "before_total": 23539,
-        "after_total": 36170,
-        "change": 12631
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "45",
-        "before_total": 45909,
-        "after_total": 33335,
-        "change": -12574
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "46",
-        "before_total": 39974,
-        "after_total": 38238,
-        "change": -1736
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "48",
-        "before_total": 40712,
-        "after_total": 32129,
-        "change": -8583
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "49",
-        "before_total": 35657,
-        "after_total": 27591,
-        "change": -8066
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
+        "file": "state_house_president_2012.json",
         "district": "50",
-        "before_total": 32936,
-        "after_total": 32372,
-        "change": -564
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "51",
         "before_total": 35840,
-        "after_total": 36387,
-        "change": 547
+        "after_total": 24610,
+        "change": -11230
       },
       {
-        "file": "state_house_us_senate_2024.json",
-        "district": "52",
-        "before_total": 24957,
-        "after_total": 19925,
-        "change": -5032
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "53",
-        "before_total": 25172,
-        "after_total": 23511,
-        "change": -1661
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "54",
-        "before_total": 23142,
-        "after_total": 27265,
-        "change": 4123
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "55",
-        "before_total": 15668,
-        "after_total": 16414,
-        "change": 746
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "57",
-        "before_total": 37026,
-        "after_total": 40412,
-        "change": 3386
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "58",
-        "before_total": 21965,
-        "after_total": 22487,
-        "change": 522
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "59",
-        "before_total": 42595,
-        "after_total": 41559,
-        "change": -1036
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "60",
-        "before_total": 29254,
-        "after_total": 31601,
-        "change": 2347
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "61",
-        "before_total": 46865,
-        "after_total": 41575,
-        "change": -5290
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "63",
-        "before_total": 41527,
-        "after_total": 42508,
-        "change": 981
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "64",
-        "before_total": 36251,
-        "after_total": 36009,
-        "change": -242
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
+        "file": "state_house_president_2012.json",
         "district": "65",
-        "before_total": 40949,
-        "after_total": 41296,
-        "change": 347
+        "before_total": 70068,
+        "after_total": 85967,
+        "change": 15899
       },
       {
-        "file": "state_house_us_senate_2024.json",
-        "district": "67",
-        "before_total": 25897,
-        "after_total": 22664,
-        "change": -3233
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "68",
-        "before_total": 28937,
-        "after_total": 35579,
-        "change": 6642
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "69",
-        "before_total": 29267,
-        "after_total": 28745,
-        "change": -522
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "70",
-        "before_total": 32160,
-        "after_total": 31428,
-        "change": -732
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "71",
-        "before_total": 31124,
-        "after_total": 32900,
-        "change": 1776
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "72",
-        "before_total": 30565,
-        "after_total": 29797,
-        "change": -768
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "73",
-        "before_total": 29331,
-        "after_total": 30590,
-        "change": 1259
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "74",
-        "before_total": 31987,
-        "after_total": 30299,
-        "change": -1688
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
+        "file": "state_house_president_2012.json",
         "district": "75",
-        "before_total": 24169,
-        "after_total": 20760,
-        "change": -3409
+        "before_total": 21342,
+        "after_total": 16205,
+        "change": -5137
       },
       {
-        "file": "state_house_us_senate_2024.json",
-        "district": "76",
-        "before_total": 27084,
-        "after_total": 27762,
-        "change": 678
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "77",
-        "before_total": 25205,
-        "after_total": 24899,
-        "change": -306
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "78",
-        "before_total": 31875,
-        "after_total": 32397,
-        "change": 522
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "79",
-        "before_total": 24449,
-        "after_total": 27143,
-        "change": 2694
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
+        "file": "state_house_president_2012.json",
         "district": "80",
-        "before_total": 20118,
-        "after_total": 20864,
-        "change": 746
+        "before_total": 33454,
+        "after_total": 21874,
+        "change": -11580
       },
       {
-        "file": "state_house_us_senate_2024.json",
-        "district": "81",
-        "before_total": 30285,
-        "after_total": 28129,
-        "change": -2156
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "82",
-        "before_total": 26982,
-        "after_total": 25661,
-        "change": -1321
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "83",
-        "before_total": 34289,
-        "after_total": 35037,
-        "change": 748
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "84",
-        "before_total": 15596,
-        "after_total": 15183,
-        "change": -413
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
+        "file": "state_house_president_2012.json",
         "district": "85",
-        "before_total": 31264,
-        "after_total": 26388,
-        "change": -4876
+        "before_total": 31521,
+        "after_total": 53431,
+        "change": 21910
       },
       {
-        "file": "state_house_us_senate_2024.json",
-        "district": "86",
-        "before_total": 22152,
-        "after_total": 20972,
-        "change": -1180
+        "file": "state_house_president_2016.json",
+        "district": "28",
+        "before_total": 25551,
+        "after_total": 22994,
+        "change": -2557
       },
       {
-        "file": "state_house_us_senate_2024.json",
-        "district": "87",
-        "before_total": 24576,
-        "after_total": 15697,
-        "change": -8879
+        "file": "state_house_president_2016.json",
+        "district": "30",
+        "before_total": 29663,
+        "after_total": 28762,
+        "change": -901
       },
       {
-        "file": "state_house_us_senate_2024.json",
-        "district": "88",
-        "before_total": 27927,
-        "after_total": 21834,
-        "change": -6093
+        "file": "state_house_president_2016.json",
+        "district": "65",
+        "before_total": 76450,
+        "after_total": 92625,
+        "change": 16175
       },
       {
-        "file": "state_house_us_senate_2024.json",
-        "district": "89",
-        "before_total": 35607,
-        "after_total": 35931,
-        "change": 324
+        "file": "state_house_president_2016.json",
+        "district": "80",
+        "before_total": 31500,
+        "after_total": 18783,
+        "change": -12717
       },
       {
-        "file": "state_house_us_senate_2024.json",
+        "file": "state_house_us_senate_2008.json",
+        "district": "28",
+        "before_total": 15355,
+        "after_total": 8883,
+        "change": -6472
+      },
+      {
+        "file": "state_house_us_senate_2008.json",
+        "district": "30",
+        "before_total": 40740,
+        "after_total": 77934,
+        "change": 37194
+      },
+      {
+        "file": "state_house_us_senate_2008.json",
+        "district": "37",
+        "before_total": 15116,
+        "after_total": 17490,
+        "change": 2374
+      },
+      {
+        "file": "state_house_us_senate_2008.json",
+        "district": "50",
+        "before_total": 111824,
+        "after_total": 155752,
+        "change": 43928
+      },
+      {
+        "file": "state_house_us_senate_2008.json",
+        "district": "60",
+        "before_total": 105731,
+        "after_total": 73661,
+        "change": -32070
+      },
+      {
+        "file": "state_house_us_senate_2008.json",
+        "district": "65",
+        "before_total": 82199,
+        "after_total": 31407,
+        "change": -50792
+      },
+      {
+        "file": "state_house_us_senate_2008.json",
+        "district": "74",
+        "before_total": 24451,
+        "after_total": 27772,
+        "change": 3321
+      },
+      {
+        "file": "state_house_us_senate_2008.json",
+        "district": "75",
+        "before_total": 14912,
+        "after_total": 9530,
+        "change": -5382
+      },
+      {
+        "file": "state_house_us_senate_2008.json",
+        "district": "80",
+        "before_total": 34247,
+        "after_total": 27324,
+        "change": -6923
+      },
+      {
+        "file": "state_house_us_senate_2008.json",
         "district": "90",
-        "before_total": 23222,
-        "after_total": 23487,
-        "change": 265
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "91",
-        "before_total": 27235,
-        "after_total": 19229,
-        "change": -8006
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "92",
-        "before_total": 30389,
-        "after_total": 34352,
-        "change": 3963
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "93",
-        "before_total": 22246,
-        "after_total": 16367,
-        "change": -5879
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "94",
-        "before_total": 35148,
-        "after_total": 35299,
-        "change": 151
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "95",
-        "before_total": 39963,
-        "after_total": 35255,
-        "change": -4708
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "96",
-        "before_total": 21735,
-        "after_total": 22156,
-        "change": 421
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "97",
-        "before_total": 21044,
-        "after_total": 32780,
-        "change": 11736
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "98",
-        "before_total": 10976,
-        "after_total": 21929,
-        "change": 10953
-      },
-      {
-        "file": "state_house_us_senate_2024.json",
-        "district": "99",
-        "before_total": 20091,
-        "after_total": 36265,
-        "change": 16174
+        "before_total": 17578,
+        "after_total": 32438,
+        "change": 14860
       }
     ]
   },
@@ -2478,18 +782,18 @@
     {
       "file": "state_house_president_2008.json",
       "district": "75",
-      "margin_pct": 0.974,
-      "dem_votes": 8444,
-      "rep_votes": 8612,
-      "other_votes": 192
+      "margin_pct": -0.3046,
+      "dem_votes": 6827,
+      "rep_votes": 6785,
+      "other_votes": 178
     },
     {
-      "file": "state_house_president_2008.json",
-      "district": "80",
-      "margin_pct": -0.2127,
-      "dem_votes": 18694,
-      "rep_votes": 18614,
-      "other_votes": 299
+      "file": "state_house_president_2012.json",
+      "district": "75",
+      "margin_pct": -0.0432,
+      "dem_votes": 8106,
+      "rep_votes": 8099,
+      "other_votes": 0
     },
     {
       "file": "state_house_president_2012.json",
@@ -2498,14 +802,6 @@
       "dem_votes": 9706,
       "rep_votes": 9814,
       "other_votes": 573
-    },
-    {
-      "file": "state_house_president_2016.json",
-      "district": "80",
-      "margin_pct": 0.4349,
-      "dem_votes": 15240,
-      "rep_votes": 15377,
-      "other_votes": 883
     },
     {
       "file": "state_house_state_house_2004.json",
@@ -2626,6 +922,14 @@
       "dem_votes": 8248,
       "rep_votes": 8259,
       "other_votes": 640
+    },
+    {
+      "file": "state_house_us_senate_2008.json",
+      "district": "80",
+      "margin_pct": -0.6295,
+      "dem_votes": 13081,
+      "rep_votes": 12909,
+      "other_votes": 1334
     },
     {
       "file": "state_house_us_senate_2008.json",

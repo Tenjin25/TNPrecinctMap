@@ -70,6 +70,23 @@ def load_senate_presidential_benchmarks(data_dir: Path):
     return dict(out)
 
 
+def load_house_presidential_benchmarks(data_dir: Path):
+    path = data_dir / "district_contests" / "calibration_overrides.json"
+    if not path.exists():
+        return {}
+    payload = load(path)
+    out = defaultdict(dict)
+    for row in payload.get("overrides", []):
+        if row.get("scope") != "state_house" or row.get("contest_type") != "president":
+            continue
+        district = str(row.get("district", "")).strip()
+        if district:
+            out[int(row.get("year", 0) or 0)][district] = {
+                field: int(row.get(field, 0) or 0) for field in FIELDS
+            }
+    return dict(out)
+
+
 def apply_full_plan_benchmarks(independent, benchmarks):
     """Use full-plan benchmark geography while preserving certified party totals."""
     if not benchmarks or set(benchmarks) != set(independent):
@@ -104,6 +121,72 @@ def apply_reference_calibration(independent, reference_geographic, reference_ben
         allocation = allocate(target, adjusted_weights)
         for district, votes in allocation.items():
             out[district][field] = votes
+    return out, True
+
+
+def apply_partial_benchmark_locks(independent, benchmarks):
+    """Lock source-backed districts and use NC-style safe district balancers."""
+    locked = set(benchmarks) & set(independent)
+    unlocked = set(independent) - locked
+    if not locked or not unlocked:
+        return independent, False
+    out = {district: dict(values) for district, values in independent.items()}
+    for district in locked:
+        for field in FIELDS:
+            out[district][field] = int(benchmarks[district].get(field, 0) or 0)
+    for field in FIELDS:
+        target = sum(int(values.get(field, 0) or 0) for values in independent.values())
+        current = sum(int(values.get(field, 0) or 0) for values in out.values())
+        adjustment = target - current
+        if adjustment == 0:
+            continue
+        # Preserve every ordinary district unless capacity requires another one.
+        # Largest party-vote districts are safest from winner/margin instability.
+        remaining = adjustment
+        for district in sorted(
+            unlocked,
+            key=lambda value: int(out[value].get(field, 0) or 0),
+            reverse=True,
+        ):
+            before = int(out[district].get(field, 0) or 0)
+            applied = remaining if remaining >= 0 else max(remaining, -before)
+            out[district][field] = before + applied
+            remaining -= applied
+            if remaining == 0:
+                break
+        if remaining != 0:
+            return independent, False
+    return out, True
+
+
+def apply_partial_reference_calibration(independent, reference_geographic, reference_benchmarks):
+    """Transfer factors to source-backed districts and balance elsewhere safely."""
+    corrected = set(reference_benchmarks) & set(reference_geographic) & set(independent)
+    if not corrected:
+        return independent, False
+    out = {district: dict(values) for district, values in independent.items()}
+    untouched = set(independent) - corrected
+    for field in FIELDS:
+        target = sum(int(values.get(field, 0) or 0) for values in independent.values())
+        for district in corrected:
+            baseline = float(reference_geographic[district].get(field, 0) or 0)
+            benchmark = float(reference_benchmarks[district].get(field, 0) or 0)
+            factor = benchmark / baseline if baseline > 0 and benchmark >= 0 else 1.0
+            out[district][field] = max(0, int(round(float(independent[district].get(field, 0) or 0) * factor)))
+        remaining = target - sum(int(values.get(field, 0) or 0) for values in out.values())
+        for district in sorted(
+            untouched,
+            key=lambda value: int(out[value].get(field, 0) or 0),
+            reverse=True,
+        ):
+            before = int(out[district].get(field, 0) or 0)
+            applied = remaining if remaining >= 0 else max(remaining, -before)
+            out[district][field] = before + applied
+            remaining -= applied
+            if remaining == 0:
+                break
+        if remaining != 0:
+            return independent, False
     return out, True
 
 
@@ -292,6 +375,7 @@ def main():
     for row in audit.get("county_rows", []):
         targets_by_contest[(row["contest_type"], int(row["year"]))][row["county"]] = row["certified_targets"]
     senate_presidential_benchmarks = load_senate_presidential_benchmarks(args.data_dir)
+    house_presidential_benchmarks = load_house_presidential_benchmarks(args.data_dir)
 
     reviews = []
     weight_cache = {}
@@ -311,6 +395,15 @@ def main():
                     senate_reference_geography[reference_year], _ = independently_rebuild(
                         load(reference_contest), reference_targets, weights, county_weights
                     )
+        house_reference_geography = {}
+        if scope == "state_house" and not lines_2026:
+            for reference_year in house_presidential_benchmarks:
+                reference_contest = args.staged_root / "contests" / f"president_{reference_year}.json"
+                reference_targets = targets_by_contest.get(("president", reference_year))
+                if reference_contest.exists() and reference_targets:
+                    house_reference_geography[reference_year], _ = independently_rebuild(
+                        load(reference_contest), reference_targets, weights, county_weights
+                    )
         for district_path in sorted(district_dir.glob(f"{scope}_*.json")):
             if district_path.name in {"manifest.json", "calibration_overrides.json"}:
                 continue
@@ -328,9 +421,54 @@ def main():
             if not contest_path.exists() or not targets:
                 continue
             independent, methods = independently_rebuild(load(contest_path), targets, weights, county_weights)
+            generated = district_payload.get("general", {}).get("results", {})
             benchmark_applied = False
             reference_year = None
-            if scope == "state_senate" and contest_type == "president" and not lines_2026:
+            prior_benchmark_method = str(district_payload.get("meta", {}).get("full_plan_benchmark_method", ""))
+            house_benchmark_already_applied = scope == "state_house" and (
+                prior_benchmark_method.startswith("source-backed district locks")
+                or prior_benchmark_method.startswith("same-year partial House")
+            )
+            if house_benchmark_already_applied:
+                independent = {
+                    district: {field: int(row.get(field, 0) or 0) for field in FIELDS}
+                    for district, row in generated.items()
+                }
+                methods["preserved_existing_house_benchmark_calibration"] = sum(
+                    sum(row.values()) for row in independent.values()
+                )
+            elif (
+                scope == "state_house"
+                and contest_type == "president"
+                and year in house_presidential_benchmarks
+                and not lines_2026
+            ):
+                independent, benchmark_applied = apply_partial_benchmark_locks(
+                    generated, house_presidential_benchmarks[year]
+                )
+                if benchmark_applied:
+                    methods["partial_house_benchmark_locks_party_rebalanced"] = sum(
+                        sum(int(row.get(field, 0) or 0) for field in FIELDS)
+                        for row in independent.values()
+                    )
+            elif (
+                scope == "state_house"
+                and contest_type == "us_senate"
+                and year in house_reference_geography
+                and not lines_2026
+            ):
+                reference_year = year
+                independent, benchmark_applied = apply_partial_reference_calibration(
+                    generated,
+                    house_reference_geography[year],
+                    house_presidential_benchmarks[year],
+                )
+                if benchmark_applied:
+                    methods["same_year_house_reference_calibration_party_rebalanced"] = sum(
+                        sum(int(row.get(field, 0) or 0) for field in FIELDS)
+                        for row in independent.values()
+                    )
+            elif scope == "state_senate" and contest_type == "president" and not lines_2026:
                 independent, benchmark_applied = apply_full_plan_benchmarks(
                     independent, senate_presidential_benchmarks.get(year, {})
                 )
@@ -357,7 +495,6 @@ def main():
                         sum(int(row.get(field, 0) or 0) for field in FIELDS)
                         for row in independent.values()
                     )
-            generated = district_payload.get("general", {}).get("results", {})
             discrepancies = []
             flips = []
             independent_zero_districts = []
@@ -396,14 +533,20 @@ def main():
                     "precinct overlay; party-specific within-county residual reconciliation"
                 )
                 if benchmark_applied:
-                    corrected_payload["meta"]["full_plan_benchmark_method"] = (
-                        "district benchmark distribution with party-specific statewide rebalance"
-                    )
+                    if scope == "state_house" and contest_type == "president":
+                        corrected_payload["meta"]["full_plan_benchmark_method"] = (
+                            "source-backed district locks with unbenchmarked districts "
+                            "party-specifically rebalanced to statewide totals"
+                        )
+                    else:
+                        corrected_payload["meta"]["full_plan_benchmark_method"] = (
+                            "district benchmark distribution with party-specific statewide rebalance"
+                        )
                     if reference_year is not None:
                         corrected_payload["meta"]["full_plan_benchmark_reference_year"] = reference_year
                         corrected_payload["meta"]["full_plan_benchmark_method"] = (
-                            "nearest presidential district/party geographic correction factors "
-                            "with party-specific statewide rebalance"
+                            ("same-year partial House" if scope == "state_house" else "nearest presidential")
+                            + " district/party geographic correction factors with party-specific statewide rebalance"
                         )
                 corrected_results = {}
                 for district in sorted(independent, key=int):
