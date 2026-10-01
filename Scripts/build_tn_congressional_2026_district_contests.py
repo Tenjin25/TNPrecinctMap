@@ -11,6 +11,7 @@ from __future__ import annotations
 
 import importlib.util
 import json
+import os
 import sys
 from collections import defaultdict
 from pathlib import Path
@@ -20,10 +21,16 @@ import geopandas as gpd
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = ROOT / "Data"
-OUTPUT_DIR = DATA_DIR / "district_contests_2026"
+OUTPUT_DIR = Path(
+    os.environ.get("TNPRECINCTMAP_DISTRICT_CONTESTS_2026_DIR", str(DATA_DIR / "district_contests_2026"))
+).resolve()
 OVERRIDES_PATH = OUTPUT_DIR / "calibration_overrides.json"
-LEGACY_DISTRICT_CONTEST_DIR = DATA_DIR / "district_contests"
-CONTESTS_DIR = DATA_DIR / "contests"
+LEGACY_DISTRICT_CONTEST_DIR = Path(
+    os.environ.get("TNPRECINCTMAP_DISTRICT_CONTESTS_DIR", str(DATA_DIR / "district_contests"))
+).resolve()
+CONTESTS_DIR = Path(
+    os.environ.get("TNPRECINCTMAP_CONTESTS_DIR", str(DATA_DIR / "contests"))
+).resolve()
 BUILD_SCRIPT = ROOT / "Scripts" / "build_tn_contests.py"
 
 
@@ -40,6 +47,46 @@ def load_build_module():
 def write_json(path: Path, payload: dict) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+
+
+def reconcile_with_margin_anchors(tn, results: dict[str, dict], targets: dict[str, int], anchors: set[str]) -> dict:
+    """Reconcile totals while preserving transferred districts' partisan margins."""
+    before = {field: sum(int(row.get(field, 0) or 0) for row in results.values()) for field in tn.PARTY_FIELDS}
+    anchor_baselines = {district: dict(results[district]) for district in anchors if district in results}
+    provisional = {district: dict(row) for district, row in results.items()}
+    tn.reconcile_district_results(provisional, targets)
+    for district, baseline in anchor_baselines.items():
+        target_total = int(provisional[district].get("total_votes", 0) or 0)
+        scaled = tn.allocate_integer_target(
+            target_total,
+            [float(baseline.get(field, 0) or 0) for field in tn.PARTY_FIELDS],
+        )
+        for field, votes in zip(tn.PARTY_FIELDS, scaled):
+            results[district][field] = votes
+        tn.refresh_result_row(results[district])
+    adjustable = sorted((district for district in results if district not in anchors), key=int)
+    for field in tn.PARTY_FIELDS:
+        anchor_votes = sum(int(results[d].get(field, 0) or 0) for d in anchors if d in results)
+        remaining_target = int(targets[field]) - anchor_votes
+        if remaining_target < 0:
+            raise RuntimeError(f"2026 margin anchors exceed statewide {field} target")
+        allocation = tn.allocate_integer_target(
+            remaining_target,
+            [float(results[d].get(field, 0) or 0) for d in adjustable],
+        )
+        for district, votes in zip(adjustable, allocation):
+            results[district][field] = votes
+    for district in adjustable:
+        tn.refresh_result_row(results[district])
+    after = {field: sum(int(row.get(field, 0) or 0) for row in results.values()) for field in tn.PARTY_FIELDS}
+    return {
+        "before": before,
+        "targets": dict(targets),
+        "after": after,
+        "margin_anchor_districts": sorted(anchors, key=int),
+        "anchor_margin_pct_before": {d: anchor_baselines[d].get("margin_pct") for d in anchor_baselines},
+        "anchor_margin_pct_after": {d: results[d].get("margin_pct") for d in anchor_baselines},
+    }
 
 
 def load_2026_district_result_overrides() -> dict[tuple[str, str, int, str], dict]:
@@ -200,62 +247,21 @@ def build_congressional_2026():
     )
     prctseq_exact_to_vtd.update(prctseq_unique_to_vtd)
 
-    csv_files = sorted(DATA_DIR.glob("*__tn__*__precinct.csv"))
-    if not csv_files:
-        raise RuntimeError("No TN precinct CSV files found in Data/")
-
-    contest_precinct = defaultdict(tn.Totals)
-    statewide_2024_prctseq = defaultdict(tn.Totals)
-
-    for row in tn.iter_all_rows(csv_files):
-      contest_type = tn.infer_contest_type(row["office"])
-      if not contest_type:
-        continue
-      county_norm = tn.norm_county(row["county"])
-      if not county_norm:
-        continue
-      county_fp = county_norm_to_fp.get(county_norm, "")
-      party = tn.party_bucket(row["party"])
-      votes = float(row["votes"])
-      candidate = row["candidate"]
-      year = int(row["year"])
-
-      if contest_type in tn.COUNTY_PLUS_PRECINCT_CONTESTS:
-        code = tn.resolve_precinct_code(
-          year=year,
-          county_norm=county_norm,
-          county_fp=county_fp,
-          precinct_raw=row["precinct"],
-          prctseq_raw=row["prctseq"],
-          to2024=to2024,
-          strict_to2020=strict_to2020,
-          to2024_split_by_year=to2024_split_by_year,
-          to2024_split_any_year=to2024_split_any_year,
-          to2024_fuzzy_candidates=to2024_fuzzy_candidates,
-          offsets_by_county=prctseq_offsets_by_county,
-          vtd_ints_by_county=vtd_ints_by_county,
-          prctseq_exact_to_vtd=prctseq_exact_to_vtd,
-          overlap_maps_by_src_year=overlap_maps_by_src_year,
-          vtd_name_key_maps_by_src_year=vtd_name_key_maps_by_src_year,
-          vtd20_name_key_map=vtd20_name_key_map,
-          vtd20_leading_code_map=vtd20_leading_code_map,
-        )
-        if not code:
-          continue
-        label = f"{county_norm} - {code}"
-        contest_precinct[(contest_type, year, label)].add(party, candidate, votes)
-        if year == 2024 and county_fp:
-          seq_raw = tn.norm_space(row["prctseq"])
-          if seq_raw.isdigit():
-            statewide_2024_prctseq[(contest_type, county_fp, seq_raw.zfill(6))].add(
-              party, candidate, votes
-            )
-
     all_contest_rows_by_contest_year = defaultdict(list)
-    for (contest_type, year, label), totals in contest_precinct.items():
-      all_contest_rows_by_contest_year[(contest_type, year)].append(
-        totals.as_precinct_row(label)
-      )
+    manifest_path = CONTESTS_DIR / "manifest.json"
+    if not manifest_path.exists():
+      raise RuntimeError(f"Missing reconciled contest manifest: {manifest_path}")
+    contest_manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    for entry in contest_manifest.get("files", []):
+      contest_type = str(entry.get("contest_type", "")).strip()
+      year = int(entry.get("year", 0) or 0)
+      if contest_type not in tn.COUNTY_PLUS_PRECINCT_CONTESTS or not year:
+        continue
+      contest_path = CONTESTS_DIR / str(entry.get("file", ""))
+      payload = json.loads(contest_path.read_text(encoding="utf-8"))
+      all_contest_rows_by_contest_year[(contest_type, year)] = [
+        row for row in payload.get("rows", []) if int(row.get("total_votes", 0) or 0) > 0
+      ]
 
     statewide_district = defaultdict(tn.Totals)
     statewide_alloc_stats = defaultdict(
@@ -443,6 +449,16 @@ def build_congressional_2026():
       if legacy_overrides:
         results.update({k: v for k, v in legacy_overrides.items() if k in {"1", "2"}})
 
+      contest_path = CONTESTS_DIR / f"{contest_type}_{year}.json"
+      contest_payload = json.loads(contest_path.read_text(encoding="utf-8"))
+      statewide_targets = {
+        field: sum(int(row.get(field, 0) or 0) for row in contest_payload.get("rows", []))
+        for field in tn.PARTY_FIELDS
+      }
+      statewide_reconciliation = reconcile_with_margin_anchors(
+        tn, results, statewide_targets, {"1", "2"}
+      )
+
       dem_total = 0
       rep_total = 0
       for row in results.values():
@@ -468,6 +484,7 @@ def build_congressional_2026():
           "county_fallback_vote_pct": round(county_fallback_vote_pct, 4),
           "dropped_vote_pct": round(dropped_vote_pct, 4),
           "districts": len(results),
+          "statewide_reconciliation": statewide_reconciliation,
         },
         "general": {"results": results},
       }

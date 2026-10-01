@@ -33,6 +33,12 @@ DISTRICT_DIR = Path(
     os.environ.get("TNPRECINCTMAP_DISTRICT_CONTESTS_DIR", str(DATA_DIR / "district_contests"))
 ).resolve()
 DISTRICT_CALIBRATION_OVERRIDES = DISTRICT_DIR / "calibration_overrides.json"
+AUDIT_PATH = Path(
+    os.environ.get(
+        "TNPRECINCTMAP_AUDIT_PATH",
+        str(DATA_DIR / "reports" / "tn_election_reconciliation_audit.json"),
+    )
+).resolve()
 
 
 COUNTY_PLUS_PRECINCT_CONTESTS = {"president", "us_senate", "governor"}
@@ -331,6 +337,181 @@ class Totals:
             "margin_pct": round(margin_pct, 4),
             "winner": winner,
         }
+
+
+PARTY_FIELDS = ("dem_votes", "rep_votes", "other_votes")
+
+
+def refresh_result_row(row: dict) -> None:
+    dem = int(row.get("dem_votes", 0) or 0)
+    rep = int(row.get("rep_votes", 0) or 0)
+    other = int(row.get("other_votes", 0) or 0)
+    total = dem + rep + other
+    margin = rep - dem
+    row["total_votes"] = total
+    row["margin"] = margin
+    row["margin_pct"] = round((margin / total * 100.0) if total else 0.0, 4)
+    row["winner"] = "REP" if margin > 0 else ("DEM" if margin < 0 else "TIE")
+
+
+def allocate_integer_target(target: int, weights: List[float]) -> List[int]:
+    """Largest-remainder allocation that conserves an integer target exactly."""
+    if not weights:
+        return []
+    clean = [max(0.0, float(w)) for w in weights]
+    total = sum(clean)
+    if total <= 0:
+        clean = [1.0] * len(clean)
+        total = float(len(clean))
+    exact = [float(target) * w / total for w in clean]
+    out = [int(v) for v in exact]
+    remainder = int(target) - sum(out)
+    order = sorted(
+        range(len(out)),
+        key=lambda i: (exact[i] - out[i], -i),
+        reverse=True,
+    )
+    for i in order[:remainder]:
+        out[i] += 1
+    return out
+
+
+def reconcile_county_rows(
+    row_map: Dict[str, dict],
+    county_targets: Dict[str, Dict[str, int]],
+    contest_type: str,
+    year: int,
+) -> Tuple[List[dict], List[dict]]:
+    """Reconcile mapped precinct rows to county certified party targets."""
+    audits: List[dict] = []
+    fallbacks: List[dict] = []
+    rows_by_county: Dict[str, List[dict]] = defaultdict(list)
+    for label, row in row_map.items():
+        county = norm_county(label.split(" - ", 1)[0])
+        rows_by_county[county].append(row)
+
+    for county, targets in sorted(county_targets.items()):
+        rows = rows_by_county.get(county, [])
+        initial = {field: sum(int(r.get(field, 0) or 0) for r in rows) for field in PARTY_FIELDS}
+        flags: List[str] = []
+        coverage = {
+            field: ((initial[field] / targets[field]) if targets[field] else (1.0 if initial[field] == 0 else float("inf")))
+            for field in PARTY_FIELDS
+        }
+        dem_cov = coverage["dem_votes"]
+        rep_cov = coverage["rep_votes"]
+        if dem_cov != float("inf") and rep_cov != float("inf") and abs(dem_cov - rep_cov) > 0.05:
+            flags.append("major_party_coverage_gap_gt_5pp")
+        if (targets["dem_votes"] > 0 and dem_cov < 0.5) or (targets["rep_votes"] > 0 and rep_cov < 0.5):
+            flags.append("implausibly_low_major_party_coverage")
+        if any(
+            initial[field] > targets[field]
+            and (initial[field] - targets[field]) > max(2, int(round(targets[field] * 0.0005)))
+            for field in PARTY_FIELDS
+        ):
+            flags.append("mapped_exceeds_certified")
+        target_total = sum(targets.values())
+        if target_total and targets["other_votes"] / target_total > 0.10:
+            flags.append("unusually_large_other_vote_share")
+        if not rows and target_total:
+            flags.append("unresolved_county_geography")
+            audits.append({
+                "contest_type": contest_type,
+                "year": year,
+                "county": county,
+                "source_totals": dict(targets),
+                "initial_mapped_totals": initial,
+                "certified_targets": dict(targets),
+                "adjustment_factors": {},
+                "residual_allocations": [],
+                "final_totals": initial,
+                "flags": flags,
+            })
+            continue
+
+        residuals: List[dict] = []
+        factors: Dict[str, Optional[float]] = {}
+        for field in PARTY_FIELDS:
+            target = int(targets[field])
+            mapped = int(initial[field])
+            factors[field] = (target / mapped) if mapped else None
+            observed = [int(r.get(field, 0) or 0) for r in rows]
+            if mapped > target:
+                allocation = allocate_integer_target(target, observed)
+                method = "party_specific_contraction"
+                for row, votes in zip(rows, allocation):
+                    row[field] = votes
+            elif mapped < target:
+                residual = target - mapped
+                weights = [float(v) for v in observed]
+                method = "party_specific_observed_weights"
+                if sum(weights) <= 0:
+                    weights = [float(r.get("total_votes", 0) or 0) for r in rows]
+                    method = "same_county_turnout_weights"
+                    if sum(weights) <= 0:
+                        weights = [1.0 if re.search(r" - \d+$", str(r.get("county", ""))) else 0.0 for r in rows]
+                        method = "same_county_equal_geographic_weights"
+                        if sum(weights) <= 0:
+                            weights = [1.0] * len(rows)
+                            method = "same_county_equal_all_rows"
+                    fallbacks.append({
+                        "contest_type": contest_type,
+                        "year": year,
+                        "county": county,
+                        "party_field": field,
+                        "votes": residual,
+                        "method": method,
+                    })
+                additions = allocate_integer_target(residual, weights)
+                for row, base, extra in zip(rows, observed, additions):
+                    row[field] = base + extra
+                residuals.append({
+                    "party_field": field,
+                    "votes": residual,
+                    "method": method,
+                })
+        for row in rows:
+            refresh_result_row(row)
+        final = {field: sum(int(r.get(field, 0) or 0) for r in rows) for field in PARTY_FIELDS}
+        audits.append({
+            "contest_type": contest_type,
+            "year": year,
+            "county": county,
+            "source_totals": dict(targets),
+            "initial_mapped_totals": initial,
+            "certified_targets": dict(targets),
+            "coverage": {k: (None if v == float("inf") else round(v, 8)) for k, v in coverage.items()},
+            "adjustment_factors": {k: (None if v is None else round(v, 10)) for k, v in factors.items()},
+            "residual_allocations": residuals,
+            "final_totals": final,
+            "flags": flags,
+        })
+    return audits, fallbacks
+
+
+def reconcile_district_results(results: Dict[str, dict], targets: Dict[str, int]) -> dict:
+    """Force district sums to statewide party targets while preserving each party pattern."""
+    before = {field: sum(int(r.get(field, 0) or 0) for r in results.values()) for field in PARTY_FIELDS}
+    districts = sorted(results, key=lambda d: int(d))
+    for field in PARTY_FIELDS:
+        allocation = allocate_integer_target(
+            int(targets[field]),
+            [float(results[d].get(field, 0) or 0) for d in districts],
+        )
+        for district, votes in zip(districts, allocation):
+            results[district][field] = votes
+    for row in results.values():
+        refresh_result_row(row)
+    after = {field: sum(int(r.get(field, 0) or 0) for r in results.values()) for field in PARTY_FIELDS}
+    return {
+        "before": before,
+        "targets": dict(targets),
+        "after": after,
+        "adjustment_factors": {
+            field: (round(targets[field] / before[field], 10) if before[field] else None)
+            for field in PARTY_FIELDS
+        },
+    }
 
 
 def load_district_result_overrides() -> Dict[Tuple[str, str, int, str], dict]:
@@ -2312,6 +2493,12 @@ def build() -> dict:
     direct_precinct_scope_votes: Dict[Tuple[str, int, str, str], Dict[str, float]] = defaultdict(
         lambda: defaultdict(float)
     )
+    certified_county: Dict[Tuple[str, int, str], Dict[str, int]] = defaultdict(
+        lambda: {field: 0 for field in PARTY_FIELDS}
+    )
+    candidate_party_votes: Dict[Tuple[str, int, str, str], int] = defaultdict(int)
+    source_row_keys: Counter = Counter()
+    join_precedence_stats: Dict[Tuple[str, int], Counter] = defaultdict(Counter)
 
     for row in iter_all_rows(csv_files):
         contest_type = infer_contest_type(row["office"])
@@ -2326,17 +2513,71 @@ def build() -> dict:
         candidate = row["candidate"]
         year = int(row["year"])
 
+        if contest_type in COUNTY_PLUS_PRECINCT_CONTESTS:
+            party_field = {
+                "DEM": "dem_votes",
+                "REP": "rep_votes",
+                "OTHER": "other_votes",
+            }[party]
+            certified_county[(contest_type, year, county_norm)][party_field] += int(round(votes))
+            candidate_key = norm_text(candidate)
+            if candidate_key:
+                candidate_party_votes[(contest_type, year, candidate_key, party)] += int(round(votes))
+            source_row_keys[(
+                contest_type,
+                year,
+                county_norm,
+                norm_precinct_name(row["precinct"]),
+                candidate_key,
+                party,
+            )] += 1
+
         # County+precinct contest slices for statewide races.
         if contest_type in COUNTY_PLUS_PRECINCT_CONTESTS:
             precinct_norm = norm_precinct_name(row["precinct"])
             weighted_allocs = weighted_to2020.get((year, county_norm, precinct_norm), [])
-            if weighted_allocs:
+            direct_code = ""
+            # VTD20-era election precincts must get the first chance to join the
+            # target Census VTD20 vintage directly.  Sending a directly matchable
+            # precinct through an older-vintage crosswalk can smear votes across
+            # district boundaries in split counties.  Historical weighted
+            # crosswalks are therefore fallback-only for 2020-and-later sources.
+            if year >= 2020:
+                resolved = resolve_precinct_code(
+                    year=year,
+                    county_norm=county_norm,
+                    county_fp=county_fp,
+                    precinct_raw=row["precinct"],
+                    prctseq_raw=row["prctseq"],
+                    to2024=to2024,
+                    strict_to2020=strict_to2020,
+                    to2024_split_by_year=to2024_split_by_year,
+                    to2024_split_any_year=to2024_split_any_year,
+                    to2024_fuzzy_candidates=to2024_fuzzy_candidates,
+                    offsets_by_county=prctseq_offsets_by_county,
+                    vtd_ints_by_county=vtd_ints_by_county,
+                    prctseq_exact_to_vtd=prctseq_exact_to_vtd,
+                    overlap_maps_by_src_year=overlap_maps_by_src_year,
+                    vtd_name_key_maps_by_src_year=vtd_name_key_maps_by_src_year,
+                    vtd20_name_key_map=vtd20_name_key_map,
+                    vtd20_leading_code_map=vtd20_leading_code_map,
+                )
+                if resolved and resolved.isdigit():
+                    direct_code = resolved.zfill(6)
+            if direct_code:
+                label = f"{county_norm} - {direct_code}"
+                contest_precinct[(contest_type, year, label)].add(party, candidate, votes)
+                join_precedence_stats[(contest_type, year)]["direct_vtd20_first_rows"] += 1
+                join_precedence_stats[(contest_type, year)]["direct_vtd20_first_votes"] += int(round(votes))
+            elif weighted_allocs:
                 for code, weight in weighted_allocs:
                     if not code or float(weight) <= 0:
                         continue
                     label = f"{county_norm} - {code}"
                     key = (contest_type, year, label)
                     contest_precinct[key].add(party, candidate, votes * float(weight))
+                join_precedence_stats[(contest_type, year)]["historical_crosswalk_fallback_rows"] += 1
+                join_precedence_stats[(contest_type, year)]["historical_crosswalk_fallback_votes"] += int(round(votes))
             else:
                 code = resolve_precinct_code(
                     year=year,
@@ -2362,6 +2603,8 @@ def build() -> dict:
                 label = f"{county_norm} - {code}"
                 key = (contest_type, year, label)
                 contest_precinct[key].add(party, candidate, votes)
+                join_precedence_stats[(contest_type, year)]["resolved_without_weighted_crosswalk_rows"] += 1
+                join_precedence_stats[(contest_type, year)]["resolved_without_weighted_crosswalk_votes"] += int(round(votes))
             if year == 2024 and county_fp:
                 seq_raw = norm_space(row["prctseq"])
                 if seq_raw.isdigit():
@@ -2397,6 +2640,8 @@ def build() -> dict:
     # Build contest JSON files + manifest.
     contest_manifest_files: List[dict] = []
     all_contest_rows_by_contest_year: Dict[Tuple[str, int], List[dict]] = {}
+    county_audit_rows: List[dict] = []
+    residual_fallbacks: List[dict] = []
 
     contests_present = sorted({(k[0], k[1]) for k in contest_precinct.keys()})
     for contest_type, year in contests_present:
@@ -2410,6 +2655,19 @@ def build() -> dict:
             row_map[label] = row_out
             dem_total += row_out["dem_votes"]
             rep_total += row_out["rep_votes"]
+
+        contest_targets = {
+            county: dict(values)
+            for (target_contest, target_year, county), values in certified_county.items()
+            if target_contest == contest_type and target_year == year
+        }
+        contest_audits, contest_fallbacks = reconcile_county_rows(
+            row_map, contest_targets, contest_type, year
+        )
+        county_audit_rows.extend(contest_audits)
+        residual_fallbacks.extend(contest_fallbacks)
+        dem_total = sum(int(r.get("dem_votes", 0) or 0) for r in row_map.values())
+        rep_total = sum(int(r.get("rep_votes", 0) or 0) for r in row_map.values())
 
         # Ensure statewide precinct contest files include every precinct polygon from the
         # overlay so the UI can display explicit zero/no-return precincts instead of
@@ -2707,6 +2965,7 @@ def build() -> dict:
 
     # Build district files + manifest (direct + statewide-reallocated).
     district_manifest_files: List[dict] = []
+    district_reconciliation_rows: List[dict] = []
     grouped: Dict[Tuple[str, str, int], Dict[str, Totals]] = defaultdict(dict)
 
     for (scope, contest_type, year, district), totals in direct_district.items():
@@ -2738,6 +2997,18 @@ def build() -> dict:
             results[str(int(district))] = row
             dem_total += row["dem_votes"]
             rep_total += row["rep_votes"]
+
+        if contest_type in COUNTY_PLUS_PRECINCT_CONTESTS and results:
+            statewide_targets = {field: 0 for field in PARTY_FIELDS}
+            for (target_contest, target_year, _county), values in certified_county.items():
+                if target_contest == contest_type and target_year == year:
+                    for field in PARTY_FIELDS:
+                        statewide_targets[field] += int(values[field])
+            reconciliation = reconcile_district_results(results, statewide_targets)
+            reconciliation.update({"scope": scope, "contest_type": contest_type, "year": year})
+            district_reconciliation_rows.append(reconciliation)
+            dem_total = reconciliation["after"]["dem_votes"]
+            rep_total = reconciliation["after"]["rep_votes"]
 
         file_name = f"{scope}_{contest_type}_{year}.json"
         alloc = statewide_alloc_stats.get((scope, contest_type, year))
@@ -2850,11 +3121,72 @@ def build() -> dict:
         },
     )
 
+    candidate_parties: Dict[Tuple[str, int, str], set] = defaultdict(set)
+    for (contest_type, year, candidate, party), votes in candidate_party_votes.items():
+        if votes > 0:
+            candidate_parties[(contest_type, year, candidate)].add(party)
+    party_classification_flags = [
+        {
+            "contest_type": contest_type,
+            "year": year,
+            "candidate": candidate,
+            "parties": sorted(parties),
+            "flag": "candidate_assigned_to_multiple_party_buckets",
+        }
+        for (contest_type, year, candidate), parties in sorted(candidate_parties.items())
+        if "DEM" in parties and "REP" in parties
+    ]
+    duplicate_source_rows = [
+        {
+            "contest_type": key[0],
+            "year": key[1],
+            "county": key[2],
+            "precinct": key[3],
+            "candidate": key[4],
+            "party": key[5],
+            "occurrences": count,
+            "flag": "duplicated_source_precinct_candidate_row",
+        }
+        for key, count in source_row_keys.items()
+        if count > 1
+    ]
+    statewide_targets_audit: List[dict] = []
+    for contest_type, year in sorted({(k[0], k[1]) for k in certified_county}):
+        totals = {field: 0 for field in PARTY_FIELDS}
+        for (c, y, _county), values in certified_county.items():
+            if c == contest_type and y == year:
+                for field in PARTY_FIELDS:
+                    totals[field] += int(values[field])
+        statewide_targets_audit.append({"contest_type": contest_type, "year": year, **totals})
+    audit_payload = {
+        "generated_by": "build_tn_contests.py",
+        "methodology": "county_constrained_party_specific_largest_remainder",
+        "county_rows": county_audit_rows,
+        "district_reconciliation": district_reconciliation_rows,
+        "residual_fallbacks": residual_fallbacks,
+        "party_classification_flags": party_classification_flags,
+        "duplicate_source_rows": duplicate_source_rows,
+        "statewide_certified_targets": statewide_targets_audit,
+        "join_precedence_stats": [
+            {"contest_type": contest_type, "year": year, **dict(stats)}
+            for (contest_type, year), stats in sorted(join_precedence_stats.items())
+        ],
+        "summary": {
+            "county_rows": len(county_audit_rows),
+            "county_rows_flagged": sum(1 for row in county_audit_rows if row.get("flags")),
+            "residual_fallbacks": len(residual_fallbacks),
+            "party_classification_flags": len(party_classification_flags),
+            "duplicate_source_rows": len(duplicate_source_rows),
+        },
+    }
+    write_json(AUDIT_PATH, audit_payload)
+
     summary = {
         "contest_files": len(contest_manifest_files),
         "district_files": len(district_manifest_files),
         "contest_manifest_path": str((CONTESTS_DIR / "manifest.json").relative_to(ROOT)),
         "district_manifest_path": str((DISTRICT_DIR / "manifest.json").relative_to(ROOT)),
+        "audit_path": str(AUDIT_PATH.relative_to(ROOT)),
     }
     return summary
 

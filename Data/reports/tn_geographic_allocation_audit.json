@@ -1,0 +1,1329 @@
+{
+  "methodology": "independent_county_constrained_spatial_precinct_overlay",
+  "summary": {
+    "files_checked": 88,
+    "files_with_discrepancies": 0,
+    "district_discrepancies": 0,
+    "winner_disagreements": 0,
+    "independent_zero_districts": 0
+  },
+  "reviews": [
+    {
+      "lines": 2022,
+      "scope": "congressional",
+      "contest_type": "governor",
+      "year": 2002,
+      "file": "congressional_governor_2002.json",
+      "allocation_methods": {
+        "observed_plus_county_geographic_residual": 1535104,
+        "observed_exact": 108893
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2022,
+      "scope": "congressional",
+      "contest_type": "governor",
+      "year": 2006,
+      "file": "congressional_governor_2006.json",
+      "allocation_methods": {
+        "observed_plus_county_geographic_residual": 1562731,
+        "observed_exact": 198564,
+        "party_specific_contraction": 54634
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2022,
+      "scope": "congressional",
+      "contest_type": "governor",
+      "year": 2010,
+      "file": "congressional_governor_2010.json",
+      "allocation_methods": {
+        "observed_plus_county_geographic_residual": 885733,
+        "observed_exact": 574769,
+        "party_specific_contraction": 141047
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2022,
+      "scope": "congressional",
+      "contest_type": "governor",
+      "year": 2014,
+      "file": "congressional_governor_2014.json",
+      "allocation_methods": {
+        "observed_plus_county_geographic_residual": 944176,
+        "observed_exact": 274983,
+        "party_specific_contraction": 134569
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2022,
+      "scope": "congressional",
+      "contest_type": "governor",
+      "year": 2018,
+      "file": "congressional_governor_2018.json",
+      "allocation_methods": {
+        "observed_exact": 415080,
+        "observed_plus_county_geographic_residual": 1752062,
+        "party_specific_contraction": 74887
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2022,
+      "scope": "congressional",
+      "contest_type": "governor",
+      "year": 2022,
+      "file": "congressional_governor_2022.json",
+      "allocation_methods": {
+        "observed_plus_county_geographic_residual": 319353,
+        "observed_exact": 1058032,
+        "party_specific_contraction": 362497
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2022,
+      "scope": "congressional",
+      "contest_type": "president",
+      "year": 2000,
+      "file": "congressional_president_2000.json",
+      "allocation_methods": {
+        "observed_plus_county_geographic_residual": 1931416,
+        "party_specific_contraction": 4091,
+        "observed_exact": 139678
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2022,
+      "scope": "congressional",
+      "contest_type": "president",
+      "year": 2004,
+      "file": "congressional_president_2004.json",
+      "allocation_methods": {
+        "observed_plus_county_geographic_residual": 2375320,
+        "party_specific_contraction": 7433,
+        "observed_exact": 54566
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2022,
+      "scope": "congressional",
+      "contest_type": "president",
+      "year": 2008,
+      "file": "congressional_president_2008.json",
+      "allocation_methods": {
+        "observed_plus_county_geographic_residual": 1920166,
+        "observed_exact": 588759,
+        "party_specific_contraction": 90824
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2022,
+      "scope": "congressional",
+      "contest_type": "president",
+      "year": 2012,
+      "file": "congressional_president_2012.json",
+      "allocation_methods": {
+        "observed_plus_county_geographic_residual": 1987836,
+        "observed_exact": 227581,
+        "party_specific_contraction": 243160
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2022,
+      "scope": "congressional",
+      "contest_type": "president",
+      "year": 2016,
+      "file": "congressional_president_2016.json",
+      "allocation_methods": {
+        "observed_exact": 705565,
+        "observed_plus_county_geographic_residual": 1774248,
+        "party_specific_contraction": 28214
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2022,
+      "scope": "congressional",
+      "contest_type": "president",
+      "year": 2020,
+      "file": "congressional_president_2020.json",
+      "allocation_methods": {
+        "party_specific_contraction": 702581,
+        "observed_exact": 1713783,
+        "observed_plus_county_geographic_residual": 637486
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2022,
+      "scope": "congressional",
+      "contest_type": "president",
+      "year": 2024,
+      "file": "congressional_president_2024.json",
+      "allocation_methods": {
+        "observed_exact": 2133327,
+        "party_specific_contraction": 456850,
+        "observed_plus_county_geographic_residual": 473765
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2022,
+      "scope": "congressional",
+      "contest_type": "us_senate",
+      "year": 2000,
+      "file": "congressional_us_senate_2000.json",
+      "allocation_methods": {
+        "observed_plus_county_geographic_residual": 1779706,
+        "observed_exact": 148083
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2022,
+      "scope": "congressional",
+      "contest_type": "us_senate",
+      "year": 2002,
+      "file": "congressional_us_senate_2002.json",
+      "allocation_methods": {
+        "observed_plus_county_geographic_residual": 1536141,
+        "observed_exact": 102266,
+        "party_specific_contraction": 3305
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2022,
+      "scope": "congressional",
+      "contest_type": "us_senate",
+      "year": 2006,
+      "file": "congressional_us_senate_2006.json",
+      "allocation_methods": {
+        "observed_plus_county_geographic_residual": 1178662,
+        "observed_exact": 543143,
+        "party_specific_contraction": 5676
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2022,
+      "scope": "congressional",
+      "contest_type": "us_senate",
+      "year": 2008,
+      "file": "congressional_us_senate_2008.json",
+      "allocation_methods": {
+        "observed_plus_county_geographic_residual": 1641114,
+        "observed_exact": 290079,
+        "party_specific_contraction": 493392
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2022,
+      "scope": "congressional",
+      "contest_type": "us_senate",
+      "year": 2012,
+      "file": "congressional_us_senate_2012.json",
+      "allocation_methods": {
+        "observed_plus_county_geographic_residual": 2066685,
+        "observed_exact": 216639,
+        "party_specific_contraction": 38153
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2022,
+      "scope": "congressional",
+      "contest_type": "us_senate",
+      "year": 2014,
+      "file": "congressional_us_senate_2014.json",
+      "allocation_methods": {
+        "party_specific_contraction": 86714,
+        "observed_exact": 338223,
+        "observed_plus_county_geographic_residual": 949128
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2022,
+      "scope": "congressional",
+      "contest_type": "us_senate",
+      "year": 2018,
+      "file": "congressional_us_senate_2018.json",
+      "allocation_methods": {
+        "observed_exact": 583658,
+        "observed_plus_county_geographic_residual": 1636922,
+        "party_specific_contraction": 23160
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2022,
+      "scope": "congressional",
+      "contest_type": "us_senate",
+      "year": 2020,
+      "file": "congressional_us_senate_2020.json",
+      "allocation_methods": {
+        "observed_exact": 1884918,
+        "party_specific_contraction": 473286,
+        "observed_plus_county_geographic_residual": 591959
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2022,
+      "scope": "congressional",
+      "contest_type": "us_senate",
+      "year": 2024,
+      "file": "congressional_us_senate_2024.json",
+      "allocation_methods": {
+        "observed_exact": 2049451,
+        "observed_plus_county_geographic_residual": 307261,
+        "party_specific_contraction": 650896
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2022,
+      "scope": "state_house",
+      "contest_type": "governor",
+      "year": 2002,
+      "file": "state_house_governor_2002.json",
+      "allocation_methods": {
+        "observed_plus_county_geographic_residual": 1544200,
+        "observed_exact": 85400,
+        "party_specific_contraction": 14397
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2022,
+      "scope": "state_house",
+      "contest_type": "governor",
+      "year": 2006,
+      "file": "state_house_governor_2006.json",
+      "allocation_methods": {
+        "observed_plus_county_geographic_residual": 1195410,
+        "observed_exact": 578870,
+        "party_specific_contraction": 41649
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2022,
+      "scope": "state_house",
+      "contest_type": "governor",
+      "year": 2010,
+      "file": "state_house_governor_2010.json",
+      "allocation_methods": {
+        "observed_plus_county_geographic_residual": 909366,
+        "observed_exact": 537020,
+        "party_specific_contraction": 155163
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2022,
+      "scope": "state_house",
+      "contest_type": "governor",
+      "year": 2014,
+      "file": "state_house_governor_2014.json",
+      "allocation_methods": {
+        "party_specific_contraction": 55738,
+        "observed_exact": 319806,
+        "observed_plus_county_geographic_residual": 978184
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2022,
+      "scope": "state_house",
+      "contest_type": "governor",
+      "year": 2018,
+      "file": "state_house_governor_2018.json",
+      "allocation_methods": {
+        "observed_exact": 537883,
+        "party_specific_contraction": 52963,
+        "observed_plus_county_geographic_residual": 1651183
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2022,
+      "scope": "state_house",
+      "contest_type": "governor",
+      "year": 2022,
+      "file": "state_house_governor_2022.json",
+      "allocation_methods": {
+        "observed_exact": 1273673,
+        "party_specific_contraction": 107842,
+        "observed_plus_county_geographic_residual": 358367
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2022,
+      "scope": "state_house",
+      "contest_type": "president",
+      "year": 2000,
+      "file": "state_house_president_2000.json",
+      "allocation_methods": {
+        "observed_plus_county_geographic_residual": 1964580,
+        "observed_exact": 65654,
+        "party_specific_contraction": 44951
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2022,
+      "scope": "state_house",
+      "contest_type": "president",
+      "year": 2004,
+      "file": "state_house_president_2004.json",
+      "allocation_methods": {
+        "observed_plus_county_geographic_residual": 2383477,
+        "observed_exact": 53790,
+        "party_specific_contraction": 52
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2022,
+      "scope": "state_house",
+      "contest_type": "president",
+      "year": 2008,
+      "file": "state_house_president_2008.json",
+      "allocation_methods": {
+        "observed_plus_county_geographic_residual": 1605941,
+        "observed_exact": 727099,
+        "party_specific_contraction": 266709
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2022,
+      "scope": "state_house",
+      "contest_type": "president",
+      "year": 2012,
+      "file": "state_house_president_2012.json",
+      "allocation_methods": {
+        "observed_plus_county_geographic_residual": 1982830,
+        "observed_exact": 338920,
+        "party_specific_contraction": 136827
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2022,
+      "scope": "state_house",
+      "contest_type": "president",
+      "year": 2016,
+      "file": "state_house_president_2016.json",
+      "allocation_methods": {
+        "observed_exact": 676906,
+        "party_specific_contraction": 61939,
+        "observed_plus_county_geographic_residual": 1769182
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2022,
+      "scope": "state_house",
+      "contest_type": "president",
+      "year": 2020,
+      "file": "state_house_president_2020.json",
+      "allocation_methods": {
+        "observed_exact": 1521860,
+        "observed_plus_county_geographic_residual": 884360,
+        "party_specific_contraction": 647630
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2022,
+      "scope": "state_house",
+      "contest_type": "president",
+      "year": 2024,
+      "file": "state_house_president_2024.json",
+      "allocation_methods": {
+        "party_specific_contraction": 314960,
+        "observed_exact": 2169955,
+        "observed_plus_county_geographic_residual": 579027
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2022,
+      "scope": "state_house",
+      "contest_type": "us_senate",
+      "year": 2000,
+      "file": "state_house_us_senate_2000.json",
+      "allocation_methods": {
+        "observed_plus_county_geographic_residual": 1818983,
+        "observed_exact": 72229,
+        "party_specific_contraction": 36577
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2022,
+      "scope": "state_house",
+      "contest_type": "us_senate",
+      "year": 2002,
+      "file": "state_house_us_senate_2002.json",
+      "allocation_methods": {
+        "observed_plus_county_geographic_residual": 1545375,
+        "observed_exact": 82612,
+        "party_specific_contraction": 13725
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2022,
+      "scope": "state_house",
+      "contest_type": "us_senate",
+      "year": 2006,
+      "file": "state_house_us_senate_2006.json",
+      "allocation_methods": {
+        "observed_plus_county_geographic_residual": 1190566,
+        "observed_exact": 401762,
+        "party_specific_contraction": 135153
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2022,
+      "scope": "state_house",
+      "contest_type": "us_senate",
+      "year": 2008,
+      "file": "state_house_us_senate_2008.json",
+      "allocation_methods": {
+        "observed_plus_county_geographic_residual": 1551420,
+        "observed_exact": 736344,
+        "party_specific_contraction": 136821
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2022,
+      "scope": "state_house",
+      "contest_type": "us_senate",
+      "year": 2012,
+      "file": "state_house_us_senate_2012.json",
+      "allocation_methods": {
+        "observed_plus_county_geographic_residual": 1885270,
+        "observed_exact": 418725,
+        "party_specific_contraction": 17482
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2022,
+      "scope": "state_house",
+      "contest_type": "us_senate",
+      "year": 2014,
+      "file": "state_house_us_senate_2014.json",
+      "allocation_methods": {
+        "observed_plus_county_geographic_residual": 955901,
+        "party_specific_contraction": 42738,
+        "observed_exact": 375426
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2022,
+      "scope": "state_house",
+      "contest_type": "us_senate",
+      "year": 2018,
+      "file": "state_house_us_senate_2018.json",
+      "allocation_methods": {
+        "observed_plus_county_geographic_residual": 1600976,
+        "observed_exact": 551546,
+        "party_specific_contraction": 91218
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2022,
+      "scope": "state_house",
+      "contest_type": "us_senate",
+      "year": 2020,
+      "file": "state_house_us_senate_2020.json",
+      "allocation_methods": {
+        "party_specific_contraction": 342837,
+        "observed_exact": 1793201,
+        "observed_plus_county_geographic_residual": 814125
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2022,
+      "scope": "state_house",
+      "contest_type": "us_senate",
+      "year": 2024,
+      "file": "state_house_us_senate_2024.json",
+      "allocation_methods": {
+        "observed_plus_county_geographic_residual": 367953,
+        "observed_exact": 2184126,
+        "party_specific_contraction": 455529
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2022,
+      "scope": "state_senate",
+      "contest_type": "governor",
+      "year": 2002,
+      "file": "state_senate_governor_2002.json",
+      "allocation_methods": {
+        "observed_plus_county_geographic_residual": 1535415,
+        "observed_exact": 79607,
+        "party_specific_contraction": 28975
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2022,
+      "scope": "state_senate",
+      "contest_type": "governor",
+      "year": 2006,
+      "file": "state_senate_governor_2006.json",
+      "allocation_methods": {
+        "observed_plus_county_geographic_residual": 1292866,
+        "party_specific_contraction": 26987,
+        "observed_exact": 496076
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2022,
+      "scope": "state_senate",
+      "contest_type": "governor",
+      "year": 2010,
+      "file": "state_senate_governor_2010.json",
+      "allocation_methods": {
+        "observed_plus_county_geographic_residual": 890712,
+        "observed_exact": 516965,
+        "party_specific_contraction": 193872
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2022,
+      "scope": "state_senate",
+      "contest_type": "governor",
+      "year": 2014,
+      "file": "state_senate_governor_2014.json",
+      "allocation_methods": {
+        "observed_plus_county_geographic_residual": 939789,
+        "observed_exact": 382628,
+        "party_specific_contraction": 31311
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2022,
+      "scope": "state_senate",
+      "contest_type": "governor",
+      "year": 2018,
+      "file": "state_senate_governor_2018.json",
+      "allocation_methods": {
+        "party_specific_contraction": 185853,
+        "observed_exact": 379259,
+        "observed_plus_county_geographic_residual": 1676917
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2022,
+      "scope": "state_senate",
+      "contest_type": "governor",
+      "year": 2022,
+      "file": "state_senate_governor_2022.json",
+      "allocation_methods": {
+        "party_specific_contraction": 370164,
+        "observed_exact": 824560,
+        "observed_plus_county_geographic_residual": 545158
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2022,
+      "scope": "state_senate",
+      "contest_type": "president",
+      "year": 2000,
+      "file": "state_senate_president_2000.json",
+      "allocation_methods": {
+        "observed_plus_county_geographic_residual": 1945582,
+        "party_specific_contraction": 32485,
+        "observed_exact": 97118
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2022,
+      "scope": "state_senate",
+      "contest_type": "president",
+      "year": 2004,
+      "file": "state_senate_president_2004.json",
+      "allocation_methods": {
+        "observed_plus_county_geographic_residual": 2378044,
+        "party_specific_contraction": 40046,
+        "observed_exact": 19229
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2022,
+      "scope": "state_senate",
+      "contest_type": "president",
+      "year": 2008,
+      "file": "state_senate_president_2008.json",
+      "allocation_methods": {
+        "observed_plus_county_geographic_residual": 2092074,
+        "observed_exact": 331902,
+        "party_specific_contraction": 175773
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2022,
+      "scope": "state_senate",
+      "contest_type": "president",
+      "year": 2012,
+      "file": "state_senate_president_2012.json",
+      "allocation_methods": {
+        "observed_plus_county_geographic_residual": 2206200,
+        "observed_exact": 244745,
+        "party_specific_contraction": 7632
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2022,
+      "scope": "state_senate",
+      "contest_type": "president",
+      "year": 2016,
+      "file": "state_senate_president_2016.json",
+      "allocation_methods": {
+        "observed_exact": 479847,
+        "observed_plus_county_geographic_residual": 1905443,
+        "party_specific_contraction": 122737
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2022,
+      "scope": "state_senate",
+      "contest_type": "president",
+      "year": 2020,
+      "file": "state_senate_president_2020.json",
+      "allocation_methods": {
+        "observed_exact": 1424020,
+        "observed_plus_county_geographic_residual": 1105400,
+        "party_specific_contraction": 524430
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2022,
+      "scope": "state_senate",
+      "contest_type": "president",
+      "year": 2024,
+      "file": "state_senate_president_2024.json",
+      "allocation_methods": {
+        "observed_plus_county_geographic_residual": 740882,
+        "observed_exact": 1667912,
+        "party_specific_contraction": 655148
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2022,
+      "scope": "state_senate",
+      "contest_type": "us_senate",
+      "year": 2000,
+      "file": "state_senate_us_senate_2000.json",
+      "allocation_methods": {
+        "observed_plus_county_geographic_residual": 1852915,
+        "observed_exact": 65356,
+        "party_specific_contraction": 9518
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2022,
+      "scope": "state_senate",
+      "contest_type": "us_senate",
+      "year": 2002,
+      "file": "state_senate_us_senate_2002.json",
+      "allocation_methods": {
+        "observed_plus_county_geographic_residual": 1536666,
+        "observed_exact": 105046
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2022,
+      "scope": "state_senate",
+      "contest_type": "us_senate",
+      "year": 2006,
+      "file": "state_senate_us_senate_2006.json",
+      "allocation_methods": {
+        "observed_plus_county_geographic_residual": 1536199,
+        "observed_exact": 148834,
+        "party_specific_contraction": 42448
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2022,
+      "scope": "state_senate",
+      "contest_type": "us_senate",
+      "year": 2008,
+      "file": "state_senate_us_senate_2008.json",
+      "allocation_methods": {
+        "observed_plus_county_geographic_residual": 1646822,
+        "party_specific_contraction": 68635,
+        "observed_exact": 709128
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2022,
+      "scope": "state_senate",
+      "contest_type": "us_senate",
+      "year": 2012,
+      "file": "state_senate_us_senate_2012.json",
+      "allocation_methods": {
+        "observed_plus_county_geographic_residual": 2014199,
+        "observed_exact": 284309,
+        "party_specific_contraction": 22969
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2022,
+      "scope": "state_senate",
+      "contest_type": "us_senate",
+      "year": 2014,
+      "file": "state_senate_us_senate_2014.json",
+      "allocation_methods": {
+        "observed_exact": 320453,
+        "observed_plus_county_geographic_residual": 1007272,
+        "party_specific_contraction": 46340
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2022,
+      "scope": "state_senate",
+      "contest_type": "us_senate",
+      "year": 2018,
+      "file": "state_senate_us_senate_2018.json",
+      "allocation_methods": {
+        "observed_exact": 219932,
+        "party_specific_contraction": 369392,
+        "observed_plus_county_geographic_residual": 1654416
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2022,
+      "scope": "state_senate",
+      "contest_type": "us_senate",
+      "year": 2020,
+      "file": "state_senate_us_senate_2020.json",
+      "allocation_methods": {
+        "observed_exact": 1700113,
+        "party_specific_contraction": 614205,
+        "observed_plus_county_geographic_residual": 635845
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2022,
+      "scope": "state_senate",
+      "contest_type": "us_senate",
+      "year": 2024,
+      "file": "state_senate_us_senate_2024.json",
+      "allocation_methods": {
+        "observed_plus_county_geographic_residual": 673498,
+        "observed_exact": 1972137,
+        "party_specific_contraction": 361973
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2026,
+      "scope": "congressional",
+      "contest_type": "governor",
+      "year": 2002,
+      "file": "congressional_governor_2002.json",
+      "allocation_methods": {
+        "observed_plus_county_geographic_residual": 1535618,
+        "party_specific_contraction": 9849,
+        "observed_exact": 98530
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2026,
+      "scope": "congressional",
+      "contest_type": "governor",
+      "year": 2006,
+      "file": "congressional_governor_2006.json",
+      "allocation_methods": {
+        "observed_plus_county_geographic_residual": 1183907,
+        "observed_exact": 187403,
+        "party_specific_contraction": 444619
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2026,
+      "scope": "congressional",
+      "contest_type": "governor",
+      "year": 2010,
+      "file": "congressional_governor_2010.json",
+      "allocation_methods": {
+        "observed_plus_county_geographic_residual": 901143,
+        "observed_exact": 544977,
+        "party_specific_contraction": 155429
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2026,
+      "scope": "congressional",
+      "contest_type": "governor",
+      "year": 2014,
+      "file": "congressional_governor_2014.json",
+      "allocation_methods": {
+        "party_specific_contraction": 182743,
+        "observed_exact": 232133,
+        "observed_plus_county_geographic_residual": 938852
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2026,
+      "scope": "congressional",
+      "contest_type": "governor",
+      "year": 2018,
+      "file": "congressional_governor_2018.json",
+      "allocation_methods": {
+        "party_specific_contraction": 156709,
+        "observed_plus_county_geographic_residual": 1666777,
+        "observed_exact": 418543
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2026,
+      "scope": "congressional",
+      "contest_type": "governor",
+      "year": 2022,
+      "file": "congressional_governor_2022.json",
+      "allocation_methods": {
+        "observed_exact": 1328260,
+        "observed_plus_county_geographic_residual": 314931,
+        "party_specific_contraction": 96691
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2026,
+      "scope": "congressional",
+      "contest_type": "president",
+      "year": 2000,
+      "file": "congressional_president_2000.json",
+      "allocation_methods": {
+        "observed_plus_county_geographic_residual": 1967616,
+        "observed_exact": 91788,
+        "party_specific_contraction": 15781
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2026,
+      "scope": "congressional",
+      "contest_type": "president",
+      "year": 2004,
+      "file": "congressional_president_2004.json",
+      "allocation_methods": {
+        "observed_plus_county_geographic_residual": 2378139,
+        "party_specific_contraction": 13220,
+        "observed_exact": 45960
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2026,
+      "scope": "congressional",
+      "contest_type": "president",
+      "year": 2008,
+      "file": "congressional_president_2008.json",
+      "allocation_methods": {
+        "observed_plus_county_geographic_residual": 1782592,
+        "observed_exact": 233437,
+        "party_specific_contraction": 583720
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2026,
+      "scope": "congressional",
+      "contest_type": "president",
+      "year": 2012,
+      "file": "congressional_president_2012.json",
+      "allocation_methods": {
+        "observed_plus_county_geographic_residual": 1973846,
+        "party_specific_contraction": 267872,
+        "observed_exact": 216859
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2026,
+      "scope": "congressional",
+      "contest_type": "president",
+      "year": 2016,
+      "file": "congressional_president_2016.json",
+      "allocation_methods": {
+        "observed_exact": 518504,
+        "observed_plus_county_geographic_residual": 1805072,
+        "party_specific_contraction": 184451
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2026,
+      "scope": "congressional",
+      "contest_type": "president",
+      "year": 2020,
+      "file": "congressional_president_2020.json",
+      "allocation_methods": {
+        "observed_exact": 1997108,
+        "party_specific_contraction": 510244,
+        "observed_plus_county_geographic_residual": 546498
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2026,
+      "scope": "congressional",
+      "contest_type": "president",
+      "year": 2024,
+      "file": "congressional_president_2024.json",
+      "allocation_methods": {
+        "party_specific_contraction": 528159,
+        "observed_exact": 2145421,
+        "observed_plus_county_geographic_residual": 390362
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2026,
+      "scope": "congressional",
+      "contest_type": "us_senate",
+      "year": 2000,
+      "file": "congressional_us_senate_2000.json",
+      "allocation_methods": {
+        "observed_plus_county_geographic_residual": 1782770,
+        "observed_exact": 131710,
+        "party_specific_contraction": 13309
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2026,
+      "scope": "congressional",
+      "contest_type": "us_senate",
+      "year": 2002,
+      "file": "congressional_us_senate_2002.json",
+      "allocation_methods": {
+        "observed_plus_county_geographic_residual": 1521853,
+        "party_specific_contraction": 13645,
+        "observed_exact": 106214
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2026,
+      "scope": "congressional",
+      "contest_type": "us_senate",
+      "year": 2006,
+      "file": "congressional_us_senate_2006.json",
+      "allocation_methods": {
+        "observed_plus_county_geographic_residual": 1249200,
+        "observed_exact": 290717,
+        "party_specific_contraction": 187564
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2026,
+      "scope": "congressional",
+      "contest_type": "us_senate",
+      "year": 2008,
+      "file": "congressional_us_senate_2008.json",
+      "allocation_methods": {
+        "observed_plus_county_geographic_residual": 1757899,
+        "observed_exact": 430581,
+        "party_specific_contraction": 236105
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2026,
+      "scope": "congressional",
+      "contest_type": "us_senate",
+      "year": 2012,
+      "file": "congressional_us_senate_2012.json",
+      "allocation_methods": {
+        "observed_plus_county_geographic_residual": 2074185,
+        "observed_exact": 198578,
+        "party_specific_contraction": 48714
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2026,
+      "scope": "congressional",
+      "contest_type": "us_senate",
+      "year": 2014,
+      "file": "congressional_us_senate_2014.json",
+      "allocation_methods": {
+        "observed_exact": 354019,
+        "party_specific_contraction": 40716,
+        "observed_plus_county_geographic_residual": 979330
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2026,
+      "scope": "congressional",
+      "contest_type": "us_senate",
+      "year": 2018,
+      "file": "congressional_us_senate_2018.json",
+      "allocation_methods": {
+        "observed_plus_county_geographic_residual": 1603349,
+        "observed_exact": 611202,
+        "party_specific_contraction": 29189
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2026,
+      "scope": "congressional",
+      "contest_type": "us_senate",
+      "year": 2020,
+      "file": "congressional_us_senate_2020.json",
+      "allocation_methods": {
+        "observed_exact": 1849553,
+        "party_specific_contraction": 359531,
+        "observed_plus_county_geographic_residual": 741079
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    },
+    {
+      "lines": 2026,
+      "scope": "congressional",
+      "contest_type": "us_senate",
+      "year": 2024,
+      "file": "congressional_us_senate_2024.json",
+      "allocation_methods": {
+        "party_specific_contraction": 317796,
+        "observed_exact": 2176584,
+        "observed_plus_county_geographic_residual": 513228
+      },
+      "discrepancies_gt_2_votes": [],
+      "winner_disagreements": [],
+      "independent_zero_districts": []
+    }
+  ]
+}
