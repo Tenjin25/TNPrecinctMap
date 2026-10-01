@@ -59,6 +59,12 @@ DRA_VTD20_CATALOG_CSV = DATA_DIR / "crosswalks" / "tn_blockassign_vtd_with_names
 CONGRESSIONAL_DISTRICT_GEOJSON = DATA_DIR / "tl_2022_47_cd118.geojson"
 STATE_HOUSE_DISTRICT_GEOJSON = DATA_DIR / "tl_2022_47_sldl.geojson"
 STATE_SENATE_DISTRICT_GEOJSON = DATA_DIR / "tl_2022_47_sldu.geojson"
+COUNTY_GEOJSON = DATA_DIR / "tl_2020_47_county20.geojson"
+DISTRICT_SPLIT_OVERRIDES_CSV = DATA_DIR / "crosswalks" / "tn_district_split_overrides.csv"
+# Match NCPrecinctMap's legislative county-component treatment. A 99.9%-dominant
+# county is an exact whole-county component; contacts at or below 0.1% are slivers.
+LEGISLATIVE_COUNTY_CLUSTER_THRESHOLD = 0.999
+LEGISLATIVE_COUNTY_SLIVER_THRESHOLD = 0.001
 LEGACY_PRECINCT_VTD20_OVERRIDES: Dict[Tuple[str, str], str] = {
     ("TIPTON", "NE COVINGTON"): "008708",
     ("TIPTON", "SE COVINGTON"): "008705",
@@ -1367,6 +1373,41 @@ def normalize_district_code(raw) -> str:
     return s
 
 
+def load_legislative_split_overrides() -> Dict[str, Dict[Tuple[str, str], List[Tuple[str, float]]]]:
+    """Load block/CVAP-weighted precinct splits for the enacted 2022 legislative lines."""
+    raw: Dict[str, Dict[Tuple[str, str], Dict[str, float]]] = defaultdict(
+        lambda: defaultdict(lambda: defaultdict(float))
+    )
+    if not DISTRICT_SPLIT_OVERRIDES_CSV.exists():
+        return {}
+    county_norm_to_fp, _ = load_county_maps()
+    with DISTRICT_SPLIT_OVERRIDES_CSV.open("r", encoding="utf-8-sig", newline="") as source:
+        for row in csv.DictReader(source):
+            scope = norm_space(row.get("scope", ""))
+            if scope not in {"state_house", "state_senate"} or norm_space(row.get("lines_year", "")) != "2022":
+                continue
+            countyfp = county_norm_to_fp.get(norm_county(row.get("county_norm", "")), "")
+            precinct = norm_space(row.get("prec_id", "")).zfill(6)
+            district = normalize_district_code(row.get("district_num", ""))
+            try:
+                weight = float(row.get("area_weight", 0) or 0)
+            except ValueError:
+                continue
+            if countyfp and precinct and district and weight > 0:
+                raw[scope][(countyfp, precinct)][district] += weight
+    out = {}
+    for scope, mappings in raw.items():
+        out[scope] = {}
+        for key, dmap in mappings.items():
+            total = sum(dmap.values())
+            if total > 0:
+                out[scope][key] = sorted(
+                    ((district, weight / total) for district, weight in dmap.items()),
+                    key=lambda item: item[1], reverse=True,
+                )
+    return out
+
+
 def build_district_weight_maps_from_overlay() -> Tuple[
     Dict[str, Dict[Tuple[str, str], List[Tuple[str, float]]]],
     Dict[str, Dict[str, List[Tuple[str, float]]]],
@@ -1393,11 +1434,24 @@ def build_district_weight_maps_from_overlay() -> Tuple[
     vtd = vtd[(vtd["COUNTYFP"] != "") & (vtd["VTD"] != "")].copy()
     vtd = vtd[vtd["geometry"].notna()].copy()
     vtd = vtd.to_crs(5070)
+    counties = gpd.read_file(COUNTY_GEOJSON)[["COUNTYFP20", "geometry"]].copy()
+    counties["COUNTYFP"] = counties["COUNTYFP20"].astype(str).str.zfill(3)
+    counties = counties[counties["geometry"].notna()].to_crs(5070)
+    county_geometry = dict(zip(counties["COUNTYFP"], counties.geometry))
+    # A few source precinct polygons extend microscopically across their labelled
+    # county boundary.  Clip first so those contacts cannot leak votes to a
+    # neighboring county's House district.
+    vtd["geometry"] = [
+        geom.intersection(county_geometry[countyfp])
+        if countyfp in county_geometry else geom
+        for countyfp, geom in zip(vtd["COUNTYFP"], vtd.geometry)
+    ]
     vtd["vtd_area"] = vtd.geometry.area
     vtd = vtd[vtd["vtd_area"] > 0].copy()
 
     precinct_out: Dict[str, Dict[Tuple[str, str], List[Tuple[str, float]]]] = {}
     county_out: Dict[str, Dict[str, List[Tuple[str, float]]]] = {}
+    split_overrides = load_legislative_split_overrides()
 
     for scope, (shape_path, district_field) in scope_shapes.items():
         districts = gpd.read_file(shape_path)[[district_field, "geometry"]].copy()
@@ -1435,25 +1489,37 @@ def build_district_weight_maps_from_overlay() -> Tuple[
                 key=lambda x: x[1],
                 reverse=True,
             )
+            if scope in {"state_house", "state_senate"} and rows:
+                if rows[0][1] >= LEGISLATIVE_COUNTY_CLUSTER_THRESHOLD:
+                    rows = [(rows[0][0], 1.0)]
+                else:
+                    rows = [row for row in rows if row[1] > LEGISLATIVE_COUNTY_SLIVER_THRESHOLD]
+                    row_total = sum(weight for _district, weight in rows)
+                    rows = [(district, weight / row_total) for district, weight in rows] if row_total else []
             if rows:
                 mapping[(str(countyfp).zfill(3), str(vtd_code).zfill(6))] = rows
         precinct_out[scope] = dict(mapping)
 
-        county_inter = (
-            intersections.groupby(["COUNTYFP", "DISTRICT"], as_index=False)["inter_area"]
-            .sum()
+        # County fallback weights come from official county polygons, independently
+        # of precinct coverage.  This is also where the NC county-cluster rule is
+        # applied for state House.
+        county_inter = gpd.overlay(
+            counties[["COUNTYFP", "geometry"]],
+            districts[["DISTRICT", "geometry"]],
+            how="intersection",
+            keep_geom_type=False,
         )
-        county_totals = (
-            county_inter.groupby("COUNTYFP", as_index=False)["inter_area"]
-            .sum()
-            .rename(columns={"inter_area": "county_area"})
+        county_inter["inter_area"] = county_inter.geometry.area
+        county_totals = counties[["COUNTYFP", "geometry"]].copy()
+        county_totals["county_area"] = county_totals.geometry.area
+        county_inter = county_inter.merge(
+            county_totals[["COUNTYFP", "county_area"]], on="COUNTYFP", how="left"
         )
-        county_inter = county_inter.merge(county_totals, on="COUNTYFP", how="left")
         county_inter["weight"] = county_inter["inter_area"] / county_inter["county_area"]
 
         county_mapping: Dict[str, List[Tuple[str, float]]] = defaultdict(list)
         for countyfp, frame in county_inter.groupby("COUNTYFP"):
-            rows = sorted(
+            raw_rows = sorted(
                 (
                     (str(d), float(w))
                     for d, w in zip(frame["DISTRICT"], frame["weight"])
@@ -1462,9 +1528,38 @@ def build_district_weight_maps_from_overlay() -> Tuple[
                 key=lambda x: x[1],
                 reverse=True,
             )
+            if scope in {"state_house", "state_senate"} and raw_rows:
+                if raw_rows[0][1] >= LEGISLATIVE_COUNTY_CLUSTER_THRESHOLD:
+                    raw_rows = [(raw_rows[0][0], 1.0)]
+                else:
+                    raw_rows = [
+                        row for row in raw_rows
+                        if row[1] > LEGISLATIVE_COUNTY_SLIVER_THRESHOLD
+                    ]
+            total = sum(weight for _district, weight in raw_rows)
+            rows = [(district, weight / total) for district, weight in raw_rows] if total > 0 else []
             if rows:
                 county_mapping[str(countyfp).zfill(3)] = rows
         county_out[scope] = dict(county_mapping)
+
+        if scope in {"state_house", "state_senate"}:
+            allowed_by_county = {
+                countyfp: {district for district, _weight in rows}
+                for countyfp, rows in county_mapping.items()
+            }
+            cleaned_mapping = {}
+            for key, rows in precinct_out[scope].items():
+                allowed = allowed_by_county.get(key[0], set())
+                kept = [(district, weight) for district, weight in rows if district in allowed]
+                total = sum(weight for _district, weight in kept)
+                if total > 0:
+                    cleaned_mapping[key] = [
+                        (district, weight / total) for district, weight in kept
+                    ]
+            precinct_out[scope] = cleaned_mapping
+            # NC-style preference order: official block/VAP split weights supersede
+            # polygon area for known split precincts.
+            precinct_out[scope].update(split_overrides.get(scope, {}))
 
     return precinct_out, county_out
 
@@ -3181,12 +3276,18 @@ def build() -> dict:
     }
     write_json(AUDIT_PATH, audit_payload)
 
+    def display_path(path: Path) -> str:
+        try:
+            return str(path.relative_to(ROOT))
+        except ValueError:
+            return str(path)
+
     summary = {
         "contest_files": len(contest_manifest_files),
         "district_files": len(district_manifest_files),
-        "contest_manifest_path": str((CONTESTS_DIR / "manifest.json").relative_to(ROOT)),
-        "district_manifest_path": str((DISTRICT_DIR / "manifest.json").relative_to(ROOT)),
-        "audit_path": str(AUDIT_PATH.relative_to(ROOT)),
+        "contest_manifest_path": display_path(CONTESTS_DIR / "manifest.json"),
+        "district_manifest_path": display_path(DISTRICT_DIR / "manifest.json"),
+        "audit_path": display_path(AUDIT_PATH),
     }
     return summary
 

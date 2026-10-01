@@ -18,6 +18,93 @@ SCOPE_FILES = {
     "state_house": ("tl_2022_47_sldl.geojson", "SLDLST"),
     "state_senate": ("tl_2022_47_sldu.geojson", "SLDUST"),
 }
+LEGISLATIVE_COUNTY_CLUSTER_THRESHOLD = 0.999
+LEGISLATIVE_COUNTY_SLIVER_THRESHOLD = 0.001
+
+
+def legislative_split_overrides(data_dir: Path):
+    import csv
+    raw = defaultdict(lambda: defaultdict(lambda: defaultdict(float)))
+    path = data_dir / "crosswalks" / "tn_district_split_overrides.csv"
+    if not path.exists():
+        return {}
+    with path.open("r", encoding="utf-8-sig", newline="") as source:
+        for row in csv.DictReader(source):
+            scope = str(row.get("scope", "")).strip()
+            if scope not in {"state_house", "state_senate"} or str(row.get("lines_year", "")).strip() != "2022":
+                continue
+            county = str(row.get("county_norm", "")).strip().upper()
+            precinct = str(row.get("prec_id", "")).strip().zfill(6)
+            district = str(row.get("district_num", "")).strip()
+            district = str(int(district)) if district.isdigit() else district
+            try:
+                weight = float(row.get("area_weight", 0) or 0)
+            except ValueError:
+                continue
+            if county and precinct and district and weight > 0:
+                raw[scope][(county, precinct)][district] += weight
+    out = {}
+    for scope, mappings in raw.items():
+        out[scope] = {}
+        for key, dmap in mappings.items():
+            total = sum(dmap.values())
+            if total > 0:
+                out[scope][key] = {district: weight / total for district, weight in dmap.items()}
+    return out
+
+
+def load_senate_presidential_benchmarks(data_dir: Path):
+    path = data_dir / "district_contests" / "calibration_overrides.json"
+    if not path.exists():
+        return {}
+    payload = load(path)
+    out = defaultdict(dict)
+    for row in payload.get("overrides", []):
+        if row.get("scope") != "state_senate" or row.get("contest_type") != "president":
+            continue
+        district = str(row.get("district", "")).strip()
+        if district:
+            out[int(row.get("year", 0) or 0)][district] = {
+                field: int(row.get(field, 0) or 0) for field in FIELDS
+            }
+    return dict(out)
+
+
+def apply_full_plan_benchmarks(independent, benchmarks):
+    """Use full-plan benchmark geography while preserving certified party totals."""
+    if not benchmarks or set(benchmarks) != set(independent):
+        return independent, False
+    out = {district: dict(values) for district, values in independent.items()}
+    for field in FIELDS:
+        target = sum(int(values.get(field, 0) or 0) for values in independent.values())
+        allocation = allocate(target, {
+            district: float(values.get(field, 0) or 0)
+            for district, values in benchmarks.items()
+        })
+        for district, votes in allocation.items():
+            out[district][field] = votes
+    return out, True
+
+
+def apply_reference_calibration(independent, reference_geographic, reference_benchmarks):
+    """Transfer district/party geographic correction factors to another contest."""
+    if not reference_geographic or not reference_benchmarks:
+        return independent, False
+    if set(independent) != set(reference_geographic) or set(independent) != set(reference_benchmarks):
+        return independent, False
+    out = {district: dict(values) for district, values in independent.items()}
+    for field in FIELDS:
+        target = sum(int(values.get(field, 0) or 0) for values in independent.values())
+        adjusted_weights = {}
+        for district, values in independent.items():
+            baseline = float(reference_geographic[district].get(field, 0) or 0)
+            benchmark = float(reference_benchmarks[district].get(field, 0) or 0)
+            factor = benchmark / baseline if baseline > 0 and benchmark >= 0 else 1.0
+            adjusted_weights[district] = float(values.get(field, 0) or 0) * factor
+        allocation = allocate(target, adjusted_weights)
+        for district, votes in allocation.items():
+            out[district][field] = votes
+    return out, True
 
 
 def load(path: Path):
@@ -52,8 +139,19 @@ def spatial_weights(data_dir: Path, scope: str, lines_2026: bool = False):
     districts = gpd.read_file(district_path)[[district_col, "geometry"]]
     precincts = precincts.to_crs(5070)
     districts = districts.to_crs(5070)
+    counties = gpd.read_file(data_dir / "tl_2020_47_county20.geojson")[["NAME20", "geometry"]].to_crs(5070)
+    county_geometry = {
+        str(row.NAME20).strip().upper(): row.geometry
+        for row in counties.itertuples(index=False)
+    }
+    precincts["geometry"] = [
+        geom.intersection(county_geometry[county])
+        if county in county_geometry else geom
+        for county, geom in zip(precincts["county_norm"].astype(str).str.strip().str.upper(), precincts.geometry)
+    ]
     precincts["prec_area"] = precincts.geometry.area
-    joined = gpd.overlay(precincts, districts, how="intersection")
+    joined = gpd.overlay(precincts, districts, how="intersection", keep_geom_type=False)
+    joined = joined[joined.geometry.area > 0].copy()
     joined["weight"] = joined.geometry.area / joined["prec_area"]
     raw = defaultdict(lambda: defaultdict(float))
     county = defaultdict(lambda: defaultdict(float))
@@ -67,11 +165,20 @@ def spatial_weights(data_dir: Path, scope: str, lines_2026: bool = False):
             raw[(county_norm, precinct)][district] += weight
     weights = {}
     for key, dmap in raw.items():
+        if scope in {"state_house", "state_senate"} and dmap:
+            ordered = sorted(dmap.items(), key=lambda item: item[1], reverse=True)
+            if ordered[0][1] >= LEGISLATIVE_COUNTY_CLUSTER_THRESHOLD:
+                dmap = {ordered[0][0]: 1.0}
+            else:
+                dmap = {
+                    district: value for district, value in dmap.items()
+                    if value > LEGISLATIVE_COUNTY_SLIVER_THRESHOLD
+                }
         total = sum(dmap.values())
         weights[key] = {district: value / total for district, value in dmap.items()}
-    counties = gpd.read_file(data_dir / "tl_2020_47_county20.geojson")[["NAME20", "geometry"]].to_crs(5070)
     counties["county_area"] = counties.geometry.area
-    county_joined = gpd.overlay(counties, districts, how="intersection")
+    county_joined = gpd.overlay(counties, districts, how="intersection", keep_geom_type=False)
+    county_joined = county_joined[county_joined.geometry.area > 0].copy()
     county_joined["weight"] = county_joined.geometry.area / county_joined["county_area"]
     for row in county_joined.itertuples(index=False):
         county_norm = str(row.NAME20).strip().upper()
@@ -81,8 +188,24 @@ def spatial_weights(data_dir: Path, scope: str, lines_2026: bool = False):
             county[county_norm][district] += float(row.weight)
     county_weights = {}
     for key, dmap in county.items():
+        if scope in {"state_house", "state_senate"} and dmap:
+            ordered = sorted(dmap.items(), key=lambda item: item[1], reverse=True)
+            if ordered[0][1] >= LEGISLATIVE_COUNTY_CLUSTER_THRESHOLD:
+                dmap = {ordered[0][0]: 1.0}
+            else:
+                dmap = {
+                    district: value for district, value in dmap.items()
+                    if value > LEGISLATIVE_COUNTY_SLIVER_THRESHOLD
+                }
         total = sum(dmap.values())
         county_weights[key] = {district: value / total for district, value in dmap.items()}
+    if scope in {"state_house", "state_senate"}:
+        for key, dmap in list(weights.items()):
+            allowed = set(county_weights.get(key[0], {}))
+            kept = {district: value for district, value in dmap.items() if district in allowed}
+            total = sum(kept.values())
+            weights[key] = {district: value / total for district, value in kept.items()} if total else {}
+        weights.update(legislative_split_overrides(data_dir).get(scope, {}))
     return weights, county_weights
 
 
@@ -168,6 +291,7 @@ def main():
     targets_by_contest = defaultdict(dict)
     for row in audit.get("county_rows", []):
         targets_by_contest[(row["contest_type"], int(row["year"]))][row["county"]] = row["certified_targets"]
+    senate_presidential_benchmarks = load_senate_presidential_benchmarks(args.data_dir)
 
     reviews = []
     weight_cache = {}
@@ -178,6 +302,15 @@ def main():
         cache_key = (scope, lines_2026)
         weight_cache[cache_key] = spatial_weights(args.data_dir, scope, lines_2026)
         weights, county_weights = weight_cache[cache_key]
+        senate_reference_geography = {}
+        if scope == "state_senate" and not lines_2026:
+            for reference_year in senate_presidential_benchmarks:
+                reference_contest = args.staged_root / "contests" / f"president_{reference_year}.json"
+                reference_targets = targets_by_contest.get(("president", reference_year))
+                if reference_contest.exists() and reference_targets:
+                    senate_reference_geography[reference_year], _ = independently_rebuild(
+                        load(reference_contest), reference_targets, weights, county_weights
+                    )
         for district_path in sorted(district_dir.glob(f"{scope}_*.json")):
             if district_path.name in {"manifest.json", "calibration_overrides.json"}:
                 continue
@@ -189,6 +322,35 @@ def main():
             if not contest_path.exists() or not targets:
                 continue
             independent, methods = independently_rebuild(load(contest_path), targets, weights, county_weights)
+            benchmark_applied = False
+            reference_year = None
+            if scope == "state_senate" and contest_type == "president" and not lines_2026:
+                independent, benchmark_applied = apply_full_plan_benchmarks(
+                    independent, senate_presidential_benchmarks.get(year, {})
+                )
+                if benchmark_applied:
+                    methods["full_plan_benchmark_party_rebalanced"] = sum(
+                        sum(int(row.get(field, 0) or 0) for field in FIELDS)
+                        for row in independent.values()
+                    )
+            elif scope == "state_senate" and senate_reference_geography and not lines_2026:
+                # On an equal-distance tie, prefer the newer precinct era (for
+                # example, 2022 statewide returns use the 2024 rather than 2020
+                # reference geography).
+                reference_year = min(
+                    senate_reference_geography,
+                    key=lambda value: (abs(value - year), -value),
+                )
+                independent, benchmark_applied = apply_reference_calibration(
+                    independent,
+                    senate_reference_geography[reference_year],
+                    senate_presidential_benchmarks.get(reference_year, {}),
+                )
+                if benchmark_applied:
+                    methods["presidential_reference_calibration_party_rebalanced"] = sum(
+                        sum(int(row.get(field, 0) or 0) for field in FIELDS)
+                        for row in independent.values()
+                    )
             generated = district_payload.get("general", {}).get("results", {})
             discrepancies = []
             flips = []
@@ -223,6 +385,20 @@ def main():
                 corrected_payload = dict(district_payload)
                 corrected_payload["meta"] = dict(district_payload.get("meta", {}))
                 corrected_payload["meta"]["geographic_audit_method"] = "independent_county_constrained_spatial_precinct_overlay"
+                corrected_payload["meta"]["legislative_hybrid_method"] = (
+                    "exact whole-county components; block/CVAP split overrides; county-clipped "
+                    "precinct overlay; party-specific within-county residual reconciliation"
+                )
+                if benchmark_applied:
+                    corrected_payload["meta"]["full_plan_benchmark_method"] = (
+                        "district benchmark distribution with party-specific statewide rebalance"
+                    )
+                    if reference_year is not None:
+                        corrected_payload["meta"]["full_plan_benchmark_reference_year"] = reference_year
+                        corrected_payload["meta"]["full_plan_benchmark_method"] = (
+                            "nearest presidential district/party geographic correction factors "
+                            "with party-specific statewide rebalance"
+                        )
                 corrected_results = {}
                 for district in sorted(independent, key=int):
                     source_row = dict(generated.get(district, {}))

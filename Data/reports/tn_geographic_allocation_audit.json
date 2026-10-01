@@ -1,7 +1,7 @@
 {
   "methodology": "independent_county_constrained_spatial_precinct_overlay",
   "summary": {
-    "files_checked": 88,
+    "files_checked": 66,
     "files_with_discrepancies": 0,
     "district_discrepancies": 0,
     "winner_disagreements": 0,
@@ -15,8 +15,8 @@
       "year": 2002,
       "file": "congressional_governor_2002.json",
       "allocation_methods": {
-        "observed_plus_county_geographic_residual": 1535104,
-        "observed_exact": 108893
+        "observed_plus_county_geographic_residual": 1467629,
+        "observed_exact": 176368
       },
       "discrepancies_gt_2_votes": [],
       "winner_disagreements": [],
@@ -29,9 +29,9 @@
       "year": 2006,
       "file": "congressional_governor_2006.json",
       "allocation_methods": {
-        "observed_plus_county_geographic_residual": 1562731,
-        "observed_exact": 198564,
-        "party_specific_contraction": 54634
+        "observed_plus_county_geographic_residual": 949220,
+        "observed_exact": 639477,
+        "party_specific_contraction": 227232
       },
       "discrepancies_gt_2_votes": [],
       "winner_disagreements": [],
@@ -44,9 +44,9 @@
       "year": 2010,
       "file": "congressional_governor_2010.json",
       "allocation_methods": {
-        "observed_plus_county_geographic_residual": 885733,
-        "observed_exact": 574769,
-        "party_specific_contraction": 141047
+        "observed_plus_county_geographic_residual": 510063,
+        "observed_exact": 967035,
+        "party_specific_contraction": 124451
       },
       "discrepancies_gt_2_votes": [],
       "winner_disagreements": [],
@@ -59,9 +59,9 @@
       "year": 2014,
       "file": "congressional_governor_2014.json",
       "allocation_methods": {
-        "observed_plus_county_geographic_residual": 944176,
-        "observed_exact": 274983,
-        "party_specific_contraction": 134569
+        "observed_exact": 926403,
+        "observed_plus_county_geographic_residual": 323499,
+        "party_specific_contraction": 103826
       },
       "discrepancies_gt_2_votes": [],
       "winner_disagreements": [],
@@ -74,9 +74,9 @@
       "year": 2018,
       "file": "congressional_governor_2018.json",
       "allocation_methods": {
-        "observed_exact": 415080,
-        "observed_plus_county_geographic_residual": 1752062,
-        "party_specific_contraction": 74887
+        "observed_exact": 1685759,
+        "party_specific_contraction": 54596,
+        "observed_plus_county_geographic_residual": 501674
       },
       "discrepancies_gt_2_votes": [],
       "winner_disagreements": [],
@@ -89,9 +89,9 @@
       "year": 2022,
       "file": "congressional_governor_2022.json",
       "allocation_methods": {
-        "observed_plus_county_geographic_residual": 319353,
-        "observed_exact": 1058032,
-        "party_specific_contraction": 362497
+        "observed_exact": 1368459,
+        "party_specific_contraction": 60456,
+        "observed_plus_county_geographic_residual": 310967
       },
       "discrepancies_gt_2_votes": [],
       "winner_disagreements": [],
@@ -104,9 +104,8 @@
       "year": 2000,
       "file": "congressional_president_2000.json",
       "allocation_methods": {
-        "observed_plus_county_geographic_residual": 1931416,
-        "party_specific_contraction": 4091,
-        "observed_exact": 139678
+        "observed_plus_county_geographic_residual": 1894377,
+        "observed_exact": 180808
       },
       "discrepancies_gt_2_votes": [],
       "winner_disagreements": [],
@@ -119,9 +118,8 @@
       "year": 2004,
       "file": "congressional_president_2004.json",
       "allocation_methods": {
-        "observed_plus_county_geographic_residual": 2375320,
-        "party_specific_contraction": 7433,
-        "observed_exact": 54566
+        "observed_plus_county_geographic_residual": 2244954,
+        "observed_exact": 192365
       },
       "discrepancies_gt_2_votes": [],
       "winner_disagreements": [],
@@ -134,9 +132,9 @@
       "year": 2008,
       "file": "congressional_president_2008.json",
       "allocation_methods": {
-        "observed_plus_county_geographic_residual": 1920166,
-        "observed_exact": 588759,
-        "party_specific_contraction": 90824
+        "observed_plus_county_geographic_residual": 1556354,
+        "observed_exact": 969679,
+        "party_specific_contraction": 73716
       },
       "discrepancies_gt_2_votes": [],
       "winner_disagreements": [],
@@ -149,9 +147,9 @@
       "year": 2012,
       "file": "congressional_president_2012.json",
       "allocation_methods": {
-        "observed_plus_county_geographic_residual": 1987836,
-        "observed_exact": 227581,
-        "party_specific_contraction": 243160
+        "observed_exact": 1448037,
+        "observed_plus_county_geographic_residual": 720814,
+        "party_specific_contraction": 289726
       },
       "discrepancies_gt_2_votes": [],
       "winner_disagreements": [],
@@ -164,9 +162,9 @@
       "year": 2016,
       "file": "congressional_president_2016.json",
       "allocation_methods": {
-        "observed_exact": 705565,
-        "observed_plus_county_geographic_residual": 1774248,
-        "party_specific_contraction": 28214
+        "observed_exact": 1623400,
+        "observed_plus_county_geographic_residual": 605489,
+        "party_specific_contraction": 279138
       },
       "discrepancies_gt_2_votes": [],
       "winner_disagreements": [],
@@ -179,9 +177,9 @@
       "year": 2020,
       "file": "congressional_president_2020.json",
       "allocation_methods": {
-        "party_specific_contraction": 702581,
-        "observed_exact": 1713783,
-        "observed_plus_county_geographic_residual": 637486
+        "observed_exact": 2324217,
+        "party_specific_contraction": 415590,
+        "observed_plus_county_geographic_residual": 314043
       },
       "discrepancies_gt_2_votes": [],
       "winner_disagreements": [],
@@ -194,9 +192,9 @@
       "year": 2024,
       "file": "congressional_president_2024.json",
       "allocation_methods": {
-        "observed_exact": 2133327,
-        "party_specific_contraction": 456850,
-        "observed_plus_county_geographic_residual": 473765
+        "observed_exact": 2629422,
+        "party_specific_contraction": 325372,
+        "observed_plus_county_geographic_residual": 109148
       },
       "discrepancies_gt_2_votes": [],
       "winner_disagreements": [],
@@ -209,8 +207,9 @@
       "year": 2000,
       "file": "congressional_us_senate_2000.json",
       "allocation_methods": {
-        "observed_plus_county_geographic_residual": 1779706,
-        "observed_exact": 148083
+        "observed_plus_county_geographic_residual": 1756252,
+        "observed_exact": 171465,
+        "party_specific_contraction": 72
       },
       "discrepancies_gt_2_votes": [],
       "winner_disagreements": [],
@@ -223,9 +222,9 @@
       "year": 2002,
       "file": "congressional_us_senate_2002.json",
       "allocation_methods": {
-        "observed_plus_county_geographic_residual": 1536141,
-        "observed_exact": 102266,
-        "party_specific_contraction": 3305
+        "observed_plus_county_geographic_residual": 1454486,
+        "observed_exact": 187172,
+        "party_specific_contraction": 54
       },
       "discrepancies_gt_2_votes": [],
       "winner_disagreements": [],
@@ -238,9 +237,9 @@
       "year": 2006,
       "file": "congressional_us_senate_2006.json",
       "allocation_methods": {
-        "observed_plus_county_geographic_residual": 1178662,
-        "observed_exact": 543143,
-        "party_specific_contraction": 5676
+        "observed_plus_county_geographic_residual": 890437,
+        "observed_exact": 757983,
+        "party_specific_contraction": 79061
       },
       "discrepancies_gt_2_votes": [],
       "winner_disagreements": [],
@@ -253,9 +252,9 @@
       "year": 2008,
       "file": "congressional_us_senate_2008.json",
       "allocation_methods": {
-        "observed_plus_county_geographic_residual": 1641114,
-        "observed_exact": 290079,
-        "party_specific_contraction": 493392
+        "observed_plus_county_geographic_residual": 1250619,
+        "observed_exact": 1153377,
+        "party_specific_contraction": 20589
       },
       "discrepancies_gt_2_votes": [],
       "winner_disagreements": [],
@@ -268,9 +267,9 @@
       "year": 2012,
       "file": "congressional_us_senate_2012.json",
       "allocation_methods": {
-        "observed_plus_county_geographic_residual": 2066685,
-        "observed_exact": 216639,
-        "party_specific_contraction": 38153
+        "observed_exact": 1392910,
+        "observed_plus_county_geographic_residual": 879457,
+        "party_specific_contraction": 49110
       },
       "discrepancies_gt_2_votes": [],
       "winner_disagreements": [],
@@ -283,9 +282,9 @@
       "year": 2014,
       "file": "congressional_us_senate_2014.json",
       "allocation_methods": {
-        "party_specific_contraction": 86714,
-        "observed_exact": 338223,
-        "observed_plus_county_geographic_residual": 949128
+        "observed_exact": 827370,
+        "party_specific_contraction": 123395,
+        "observed_plus_county_geographic_residual": 423300
       },
       "discrepancies_gt_2_votes": [],
       "winner_disagreements": [],
@@ -298,9 +297,9 @@
       "year": 2018,
       "file": "congressional_us_senate_2018.json",
       "allocation_methods": {
-        "observed_exact": 583658,
-        "observed_plus_county_geographic_residual": 1636922,
-        "party_specific_contraction": 23160
+        "observed_exact": 1415543,
+        "party_specific_contraction": 146709,
+        "observed_plus_county_geographic_residual": 681488
       },
       "discrepancies_gt_2_votes": [],
       "winner_disagreements": [],
@@ -313,9 +312,9 @@
       "year": 2020,
       "file": "congressional_us_senate_2020.json",
       "allocation_methods": {
-        "observed_exact": 1884918,
-        "party_specific_contraction": 473286,
-        "observed_plus_county_geographic_residual": 591959
+        "observed_exact": 2306372,
+        "observed_plus_county_geographic_residual": 312752,
+        "party_specific_contraction": 331039
       },
       "discrepancies_gt_2_votes": [],
       "winner_disagreements": [],
@@ -328,9 +327,9 @@
       "year": 2024,
       "file": "congressional_us_senate_2024.json",
       "allocation_methods": {
-        "observed_exact": 2049451,
-        "observed_plus_county_geographic_residual": 307261,
-        "party_specific_contraction": 650896
+        "observed_exact": 2350054,
+        "party_specific_contraction": 285392,
+        "observed_plus_county_geographic_residual": 372162
       },
       "discrepancies_gt_2_votes": [],
       "winner_disagreements": [],
@@ -343,9 +342,9 @@
       "year": 2002,
       "file": "state_house_governor_2002.json",
       "allocation_methods": {
-        "observed_plus_county_geographic_residual": 1544200,
-        "observed_exact": 85400,
-        "party_specific_contraction": 14397
+        "observed_plus_county_geographic_residual": 1459614,
+        "observed_exact": 164645,
+        "party_specific_contraction": 19738
       },
       "discrepancies_gt_2_votes": [],
       "winner_disagreements": [],
@@ -358,9 +357,9 @@
       "year": 2006,
       "file": "state_house_governor_2006.json",
       "allocation_methods": {
-        "observed_plus_county_geographic_residual": 1195410,
-        "observed_exact": 578870,
-        "party_specific_contraction": 41649
+        "observed_plus_county_geographic_residual": 886518,
+        "observed_exact": 917781,
+        "party_specific_contraction": 11630
       },
       "discrepancies_gt_2_votes": [],
       "winner_disagreements": [],
@@ -373,9 +372,9 @@
       "year": 2010,
       "file": "state_house_governor_2010.json",
       "allocation_methods": {
-        "observed_plus_county_geographic_residual": 909366,
-        "observed_exact": 537020,
-        "party_specific_contraction": 155163
+        "observed_plus_county_geographic_residual": 534404,
+        "observed_exact": 1030299,
+        "party_specific_contraction": 36846
       },
       "discrepancies_gt_2_votes": [],
       "winner_disagreements": [],
@@ -388,9 +387,9 @@
       "year": 2014,
       "file": "state_house_governor_2014.json",
       "allocation_methods": {
-        "party_specific_contraction": 55738,
-        "observed_exact": 319806,
-        "observed_plus_county_geographic_residual": 978184
+        "observed_exact": 1017702,
+        "party_specific_contraction": 7055,
+        "observed_plus_county_geographic_residual": 328971
       },
       "discrepancies_gt_2_votes": [],
       "winner_disagreements": [],
@@ -403,9 +402,9 @@
       "year": 2018,
       "file": "state_house_governor_2018.json",
       "allocation_methods": {
-        "observed_exact": 537883,
-        "party_specific_contraction": 52963,
-        "observed_plus_county_geographic_residual": 1651183
+        "observed_exact": 1591351,
+        "observed_plus_county_geographic_residual": 557307,
+        "party_specific_contraction": 93371
       },
       "discrepancies_gt_2_votes": [],
       "winner_disagreements": [],
@@ -418,9 +417,9 @@
       "year": 2022,
       "file": "state_house_governor_2022.json",
       "allocation_methods": {
-        "observed_exact": 1273673,
-        "party_specific_contraction": 107842,
-        "observed_plus_county_geographic_residual": 358367
+        "party_specific_contraction": 57598,
+        "observed_exact": 1491357,
+        "observed_plus_county_geographic_residual": 190927
       },
       "discrepancies_gt_2_votes": [],
       "winner_disagreements": [],
@@ -433,9 +432,8 @@
       "year": 2000,
       "file": "state_house_president_2000.json",
       "allocation_methods": {
-        "observed_plus_county_geographic_residual": 1964580,
-        "observed_exact": 65654,
-        "party_specific_contraction": 44951
+        "observed_plus_county_geographic_residual": 1896931,
+        "observed_exact": 178254
       },
       "discrepancies_gt_2_votes": [],
       "winner_disagreements": [],
@@ -448,9 +446,9 @@
       "year": 2004,
       "file": "state_house_president_2004.json",
       "allocation_methods": {
-        "observed_plus_county_geographic_residual": 2383477,
-        "observed_exact": 53790,
-        "party_specific_contraction": 52
+        "observed_plus_county_geographic_residual": 2244954,
+        "observed_exact": 181421,
+        "party_specific_contraction": 10944
       },
       "discrepancies_gt_2_votes": [],
       "winner_disagreements": [],
@@ -463,9 +461,9 @@
       "year": 2008,
       "file": "state_house_president_2008.json",
       "allocation_methods": {
-        "observed_plus_county_geographic_residual": 1605941,
-        "observed_exact": 727099,
-        "party_specific_contraction": 266709
+        "observed_plus_county_geographic_residual": 1173413,
+        "observed_exact": 1387964,
+        "party_specific_contraction": 38372
       },
       "discrepancies_gt_2_votes": [],
       "winner_disagreements": [],
@@ -478,9 +476,9 @@
       "year": 2012,
       "file": "state_house_president_2012.json",
       "allocation_methods": {
-        "observed_plus_county_geographic_residual": 1982830,
-        "observed_exact": 338920,
-        "party_specific_contraction": 136827
+        "observed_exact": 1674573,
+        "observed_plus_county_geographic_residual": 778770,
+        "party_specific_contraction": 5234
       },
       "discrepancies_gt_2_votes": [],
       "winner_disagreements": [],
@@ -493,9 +491,9 @@
       "year": 2016,
       "file": "state_house_president_2016.json",
       "allocation_methods": {
-        "observed_exact": 676906,
-        "party_specific_contraction": 61939,
-        "observed_plus_county_geographic_residual": 1769182
+        "observed_exact": 1690189,
+        "observed_plus_county_geographic_residual": 637543,
+        "party_specific_contraction": 180295
       },
       "discrepancies_gt_2_votes": [],
       "winner_disagreements": [],
@@ -508,9 +506,9 @@
       "year": 2020,
       "file": "state_house_president_2020.json",
       "allocation_methods": {
-        "observed_exact": 1521860,
-        "observed_plus_county_geographic_residual": 884360,
-        "party_specific_contraction": 647630
+        "observed_exact": 2332125,
+        "party_specific_contraction": 291348,
+        "observed_plus_county_geographic_residual": 430377
       },
       "discrepancies_gt_2_votes": [],
       "winner_disagreements": [],
@@ -523,9 +521,9 @@
       "year": 2024,
       "file": "state_house_president_2024.json",
       "allocation_methods": {
-        "party_specific_contraction": 314960,
-        "observed_exact": 2169955,
-        "observed_plus_county_geographic_residual": 579027
+        "observed_exact": 2893428,
+        "party_specific_contraction": 170070,
+        "observed_plus_county_geographic_residual": 444
       },
       "discrepancies_gt_2_votes": [],
       "winner_disagreements": [],
@@ -538,9 +536,9 @@
       "year": 2000,
       "file": "state_house_us_senate_2000.json",
       "allocation_methods": {
-        "observed_plus_county_geographic_residual": 1818983,
-        "observed_exact": 72229,
-        "party_specific_contraction": 36577
+        "observed_plus_county_geographic_residual": 1756252,
+        "observed_exact": 149283,
+        "party_specific_contraction": 22254
       },
       "discrepancies_gt_2_votes": [],
       "winner_disagreements": [],
@@ -553,9 +551,8 @@
       "year": 2002,
       "file": "state_house_us_senate_2002.json",
       "allocation_methods": {
-        "observed_plus_county_geographic_residual": 1545375,
-        "observed_exact": 82612,
-        "party_specific_contraction": 13725
+        "observed_plus_county_geographic_residual": 1454486,
+        "observed_exact": 187226
       },
       "discrepancies_gt_2_votes": [],
       "winner_disagreements": [],
@@ -568,9 +565,9 @@
       "year": 2006,
       "file": "state_house_us_senate_2006.json",
       "allocation_methods": {
-        "observed_plus_county_geographic_residual": 1190566,
-        "observed_exact": 401762,
-        "party_specific_contraction": 135153
+        "observed_plus_county_geographic_residual": 934533,
+        "observed_exact": 772090,
+        "party_specific_contraction": 20858
       },
       "discrepancies_gt_2_votes": [],
       "winner_disagreements": [],
@@ -583,9 +580,9 @@
       "year": 2008,
       "file": "state_house_us_senate_2008.json",
       "allocation_methods": {
-        "observed_plus_county_geographic_residual": 1551420,
-        "observed_exact": 736344,
-        "party_specific_contraction": 136821
+        "observed_plus_county_geographic_residual": 1097873,
+        "observed_exact": 1325483,
+        "party_specific_contraction": 1229
       },
       "discrepancies_gt_2_votes": [],
       "winner_disagreements": [],
@@ -598,9 +595,9 @@
       "year": 2012,
       "file": "state_house_us_senate_2012.json",
       "allocation_methods": {
-        "observed_plus_county_geographic_residual": 1885270,
-        "observed_exact": 418725,
-        "party_specific_contraction": 17482
+        "observed_exact": 1560457,
+        "observed_plus_county_geographic_residual": 732143,
+        "party_specific_contraction": 28877
       },
       "discrepancies_gt_2_votes": [],
       "winner_disagreements": [],
@@ -613,9 +610,9 @@
       "year": 2014,
       "file": "state_house_us_senate_2014.json",
       "allocation_methods": {
-        "observed_plus_county_geographic_residual": 955901,
-        "party_specific_contraction": 42738,
-        "observed_exact": 375426
+        "observed_exact": 989419,
+        "party_specific_contraction": 61798,
+        "observed_plus_county_geographic_residual": 322848
       },
       "discrepancies_gt_2_votes": [],
       "winner_disagreements": [],
@@ -628,9 +625,9 @@
       "year": 2018,
       "file": "state_house_us_senate_2018.json",
       "allocation_methods": {
-        "observed_plus_county_geographic_residual": 1600976,
-        "observed_exact": 551546,
-        "party_specific_contraction": 91218
+        "observed_exact": 1607250,
+        "party_specific_contraction": 89806,
+        "observed_plus_county_geographic_residual": 546684
       },
       "discrepancies_gt_2_votes": [],
       "winner_disagreements": [],
@@ -643,9 +640,9 @@
       "year": 2020,
       "file": "state_house_us_senate_2020.json",
       "allocation_methods": {
-        "party_specific_contraction": 342837,
-        "observed_exact": 1793201,
-        "observed_plus_county_geographic_residual": 814125
+        "observed_plus_county_geographic_residual": 351400,
+        "observed_exact": 2361987,
+        "party_specific_contraction": 236776
       },
       "discrepancies_gt_2_votes": [],
       "winner_disagreements": [],
@@ -658,9 +655,9 @@
       "year": 2024,
       "file": "state_house_us_senate_2024.json",
       "allocation_methods": {
-        "observed_plus_county_geographic_residual": 367953,
-        "observed_exact": 2184126,
-        "party_specific_contraction": 455529
+        "observed_exact": 2991740,
+        "observed_plus_county_geographic_residual": 3626,
+        "party_specific_contraction": 12242
       },
       "discrepancies_gt_2_votes": [],
       "winner_disagreements": [],
@@ -673,9 +670,9 @@
       "year": 2002,
       "file": "state_senate_governor_2002.json",
       "allocation_methods": {
-        "observed_plus_county_geographic_residual": 1535415,
-        "observed_exact": 79607,
-        "party_specific_contraction": 28975
+        "observed_plus_county_geographic_residual": 1460240,
+        "observed_exact": 183757,
+        "presidential_reference_calibration_party_rebalanced": 1643997
       },
       "discrepancies_gt_2_votes": [],
       "winner_disagreements": [],
@@ -688,9 +685,10 @@
       "year": 2006,
       "file": "state_senate_governor_2006.json",
       "allocation_methods": {
-        "observed_plus_county_geographic_residual": 1292866,
-        "party_specific_contraction": 26987,
-        "observed_exact": 496076
+        "observed_plus_county_geographic_residual": 949671,
+        "observed_exact": 778721,
+        "party_specific_contraction": 87537,
+        "presidential_reference_calibration_party_rebalanced": 1815929
       },
       "discrepancies_gt_2_votes": [],
       "winner_disagreements": [],
@@ -703,9 +701,10 @@
       "year": 2010,
       "file": "state_senate_governor_2010.json",
       "allocation_methods": {
-        "observed_plus_county_geographic_residual": 890712,
-        "observed_exact": 516965,
-        "party_specific_contraction": 193872
+        "observed_plus_county_geographic_residual": 535280,
+        "observed_exact": 1047042,
+        "party_specific_contraction": 19227,
+        "presidential_reference_calibration_party_rebalanced": 1601549
       },
       "discrepancies_gt_2_votes": [],
       "winner_disagreements": [],
@@ -718,9 +717,9 @@
       "year": 2014,
       "file": "state_senate_governor_2014.json",
       "allocation_methods": {
-        "observed_plus_county_geographic_residual": 939789,
-        "observed_exact": 382628,
-        "party_specific_contraction": 31311
+        "observed_exact": 1026407,
+        "observed_plus_county_geographic_residual": 327321,
+        "presidential_reference_calibration_party_rebalanced": 1353728
       },
       "discrepancies_gt_2_votes": [],
       "winner_disagreements": [],
@@ -733,9 +732,10 @@
       "year": 2018,
       "file": "state_senate_governor_2018.json",
       "allocation_methods": {
-        "party_specific_contraction": 185853,
-        "observed_exact": 379259,
-        "observed_plus_county_geographic_residual": 1676917
+        "observed_exact": 1705490,
+        "observed_plus_county_geographic_residual": 535674,
+        "party_specific_contraction": 865,
+        "presidential_reference_calibration_party_rebalanced": 2242029
       },
       "discrepancies_gt_2_votes": [],
       "winner_disagreements": [],
@@ -748,9 +748,10 @@
       "year": 2022,
       "file": "state_senate_governor_2022.json",
       "allocation_methods": {
-        "party_specific_contraction": 370164,
-        "observed_exact": 824560,
-        "observed_plus_county_geographic_residual": 545158
+        "observed_exact": 1458125,
+        "observed_plus_county_geographic_residual": 226370,
+        "party_specific_contraction": 55387,
+        "presidential_reference_calibration_party_rebalanced": 1739882
       },
       "discrepancies_gt_2_votes": [],
       "winner_disagreements": [],
@@ -763,9 +764,8 @@
       "year": 2000,
       "file": "state_senate_president_2000.json",
       "allocation_methods": {
-        "observed_plus_county_geographic_residual": 1945582,
-        "party_specific_contraction": 32485,
-        "observed_exact": 97118
+        "observed_plus_county_geographic_residual": 1894377,
+        "observed_exact": 180808
       },
       "discrepancies_gt_2_votes": [],
       "winner_disagreements": [],
@@ -778,9 +778,8 @@
       "year": 2004,
       "file": "state_senate_president_2004.json",
       "allocation_methods": {
-        "observed_plus_county_geographic_residual": 2378044,
-        "party_specific_contraction": 40046,
-        "observed_exact": 19229
+        "observed_plus_county_geographic_residual": 2244954,
+        "observed_exact": 192365
       },
       "discrepancies_gt_2_votes": [],
       "winner_disagreements": [],
@@ -793,9 +792,10 @@
       "year": 2008,
       "file": "state_senate_president_2008.json",
       "allocation_methods": {
-        "observed_plus_county_geographic_residual": 2092074,
-        "observed_exact": 331902,
-        "party_specific_contraction": 175773
+        "observed_plus_county_geographic_residual": 1217211,
+        "observed_exact": 1341451,
+        "party_specific_contraction": 41087,
+        "full_plan_benchmark_party_rebalanced": 2599749
       },
       "discrepancies_gt_2_votes": [],
       "winner_disagreements": [],
@@ -808,9 +808,9 @@
       "year": 2012,
       "file": "state_senate_president_2012.json",
       "allocation_methods": {
-        "observed_plus_county_geographic_residual": 2206200,
-        "observed_exact": 244745,
-        "party_specific_contraction": 7632
+        "observed_exact": 1445988,
+        "observed_plus_county_geographic_residual": 1012589,
+        "full_plan_benchmark_party_rebalanced": 2458577
       },
       "discrepancies_gt_2_votes": [],
       "winner_disagreements": [],
@@ -823,9 +823,10 @@
       "year": 2016,
       "file": "state_senate_president_2016.json",
       "allocation_methods": {
-        "observed_exact": 479847,
-        "observed_plus_county_geographic_residual": 1905443,
-        "party_specific_contraction": 122737
+        "observed_exact": 1820410,
+        "observed_plus_county_geographic_residual": 650911,
+        "party_specific_contraction": 36706,
+        "full_plan_benchmark_party_rebalanced": 2508027
       },
       "discrepancies_gt_2_votes": [],
       "winner_disagreements": [],
@@ -838,9 +839,10 @@
       "year": 2020,
       "file": "state_senate_president_2020.json",
       "allocation_methods": {
-        "observed_exact": 1424020,
-        "observed_plus_county_geographic_residual": 1105400,
-        "party_specific_contraction": 524430
+        "observed_exact": 2603614,
+        "observed_plus_county_geographic_residual": 415032,
+        "party_specific_contraction": 35204,
+        "full_plan_benchmark_party_rebalanced": 3053850
       },
       "discrepancies_gt_2_votes": [],
       "winner_disagreements": [],
@@ -853,9 +855,10 @@
       "year": 2024,
       "file": "state_senate_president_2024.json",
       "allocation_methods": {
-        "observed_plus_county_geographic_residual": 740882,
-        "observed_exact": 1667912,
-        "party_specific_contraction": 655148
+        "observed_exact": 2643891,
+        "observed_plus_county_geographic_residual": 289236,
+        "party_specific_contraction": 130815,
+        "full_plan_benchmark_party_rebalanced": 3063942
       },
       "discrepancies_gt_2_votes": [],
       "winner_disagreements": [],
@@ -868,9 +871,9 @@
       "year": 2000,
       "file": "state_senate_us_senate_2000.json",
       "allocation_methods": {
-        "observed_plus_county_geographic_residual": 1852915,
-        "observed_exact": 65356,
-        "party_specific_contraction": 9518
+        "observed_plus_county_geographic_residual": 1756252,
+        "observed_exact": 171537,
+        "presidential_reference_calibration_party_rebalanced": 1927789
       },
       "discrepancies_gt_2_votes": [],
       "winner_disagreements": [],
@@ -883,8 +886,10 @@
       "year": 2002,
       "file": "state_senate_us_senate_2002.json",
       "allocation_methods": {
-        "observed_plus_county_geographic_residual": 1536666,
-        "observed_exact": 105046
+        "observed_plus_county_geographic_residual": 1454486,
+        "observed_exact": 186213,
+        "party_specific_contraction": 1013,
+        "presidential_reference_calibration_party_rebalanced": 1641712
       },
       "discrepancies_gt_2_votes": [],
       "winner_disagreements": [],
@@ -897,9 +902,9 @@
       "year": 2006,
       "file": "state_senate_us_senate_2006.json",
       "allocation_methods": {
-        "observed_plus_county_geographic_residual": 1536199,
-        "observed_exact": 148834,
-        "party_specific_contraction": 42448
+        "observed_plus_county_geographic_residual": 897763,
+        "observed_exact": 829718,
+        "presidential_reference_calibration_party_rebalanced": 1727481
       },
       "discrepancies_gt_2_votes": [],
       "winner_disagreements": [],
@@ -912,9 +917,10 @@
       "year": 2008,
       "file": "state_senate_us_senate_2008.json",
       "allocation_methods": {
-        "observed_plus_county_geographic_residual": 1646822,
-        "party_specific_contraction": 68635,
-        "observed_exact": 709128
+        "observed_plus_county_geographic_residual": 1070111,
+        "observed_exact": 1135717,
+        "party_specific_contraction": 218757,
+        "presidential_reference_calibration_party_rebalanced": 2424585
       },
       "discrepancies_gt_2_votes": [],
       "winner_disagreements": [],
@@ -927,9 +933,9 @@
       "year": 2012,
       "file": "state_senate_us_senate_2012.json",
       "allocation_methods": {
-        "observed_plus_county_geographic_residual": 2014199,
-        "observed_exact": 284309,
-        "party_specific_contraction": 22969
+        "observed_exact": 1416228,
+        "observed_plus_county_geographic_residual": 905249,
+        "presidential_reference_calibration_party_rebalanced": 2321477
       },
       "discrepancies_gt_2_votes": [],
       "winner_disagreements": [],
@@ -942,9 +948,10 @@
       "year": 2014,
       "file": "state_senate_us_senate_2014.json",
       "allocation_methods": {
-        "observed_exact": 320453,
-        "observed_plus_county_geographic_residual": 1007272,
-        "party_specific_contraction": 46340
+        "observed_exact": 889162,
+        "observed_plus_county_geographic_residual": 417167,
+        "party_specific_contraction": 67736,
+        "presidential_reference_calibration_party_rebalanced": 1374065
       },
       "discrepancies_gt_2_votes": [],
       "winner_disagreements": [],
@@ -957,9 +964,10 @@
       "year": 2018,
       "file": "state_senate_us_senate_2018.json",
       "allocation_methods": {
-        "observed_exact": 219932,
-        "party_specific_contraction": 369392,
-        "observed_plus_county_geographic_residual": 1654416
+        "observed_exact": 1562172,
+        "observed_plus_county_geographic_residual": 545057,
+        "party_specific_contraction": 136511,
+        "presidential_reference_calibration_party_rebalanced": 2243740
       },
       "discrepancies_gt_2_votes": [],
       "winner_disagreements": [],
@@ -972,9 +980,10 @@
       "year": 2020,
       "file": "state_senate_us_senate_2020.json",
       "allocation_methods": {
-        "observed_exact": 1700113,
-        "party_specific_contraction": 614205,
-        "observed_plus_county_geographic_residual": 635845
+        "observed_exact": 2282536,
+        "observed_plus_county_geographic_residual": 529608,
+        "party_specific_contraction": 138019,
+        "presidential_reference_calibration_party_rebalanced": 2950163
       },
       "discrepancies_gt_2_votes": [],
       "winner_disagreements": [],
@@ -987,339 +996,10 @@
       "year": 2024,
       "file": "state_senate_us_senate_2024.json",
       "allocation_methods": {
-        "observed_plus_county_geographic_residual": 673498,
-        "observed_exact": 1972137,
-        "party_specific_contraction": 361973
-      },
-      "discrepancies_gt_2_votes": [],
-      "winner_disagreements": [],
-      "independent_zero_districts": []
-    },
-    {
-      "lines": 2026,
-      "scope": "congressional",
-      "contest_type": "governor",
-      "year": 2002,
-      "file": "congressional_governor_2002.json",
-      "allocation_methods": {
-        "observed_plus_county_geographic_residual": 1535618,
-        "party_specific_contraction": 9849,
-        "observed_exact": 98530
-      },
-      "discrepancies_gt_2_votes": [],
-      "winner_disagreements": [],
-      "independent_zero_districts": []
-    },
-    {
-      "lines": 2026,
-      "scope": "congressional",
-      "contest_type": "governor",
-      "year": 2006,
-      "file": "congressional_governor_2006.json",
-      "allocation_methods": {
-        "observed_plus_county_geographic_residual": 1183907,
-        "observed_exact": 187403,
-        "party_specific_contraction": 444619
-      },
-      "discrepancies_gt_2_votes": [],
-      "winner_disagreements": [],
-      "independent_zero_districts": []
-    },
-    {
-      "lines": 2026,
-      "scope": "congressional",
-      "contest_type": "governor",
-      "year": 2010,
-      "file": "congressional_governor_2010.json",
-      "allocation_methods": {
-        "observed_plus_county_geographic_residual": 901143,
-        "observed_exact": 544977,
-        "party_specific_contraction": 155429
-      },
-      "discrepancies_gt_2_votes": [],
-      "winner_disagreements": [],
-      "independent_zero_districts": []
-    },
-    {
-      "lines": 2026,
-      "scope": "congressional",
-      "contest_type": "governor",
-      "year": 2014,
-      "file": "congressional_governor_2014.json",
-      "allocation_methods": {
-        "party_specific_contraction": 182743,
-        "observed_exact": 232133,
-        "observed_plus_county_geographic_residual": 938852
-      },
-      "discrepancies_gt_2_votes": [],
-      "winner_disagreements": [],
-      "independent_zero_districts": []
-    },
-    {
-      "lines": 2026,
-      "scope": "congressional",
-      "contest_type": "governor",
-      "year": 2018,
-      "file": "congressional_governor_2018.json",
-      "allocation_methods": {
-        "party_specific_contraction": 156709,
-        "observed_plus_county_geographic_residual": 1666777,
-        "observed_exact": 418543
-      },
-      "discrepancies_gt_2_votes": [],
-      "winner_disagreements": [],
-      "independent_zero_districts": []
-    },
-    {
-      "lines": 2026,
-      "scope": "congressional",
-      "contest_type": "governor",
-      "year": 2022,
-      "file": "congressional_governor_2022.json",
-      "allocation_methods": {
-        "observed_exact": 1328260,
-        "observed_plus_county_geographic_residual": 314931,
-        "party_specific_contraction": 96691
-      },
-      "discrepancies_gt_2_votes": [],
-      "winner_disagreements": [],
-      "independent_zero_districts": []
-    },
-    {
-      "lines": 2026,
-      "scope": "congressional",
-      "contest_type": "president",
-      "year": 2000,
-      "file": "congressional_president_2000.json",
-      "allocation_methods": {
-        "observed_plus_county_geographic_residual": 1967616,
-        "observed_exact": 91788,
-        "party_specific_contraction": 15781
-      },
-      "discrepancies_gt_2_votes": [],
-      "winner_disagreements": [],
-      "independent_zero_districts": []
-    },
-    {
-      "lines": 2026,
-      "scope": "congressional",
-      "contest_type": "president",
-      "year": 2004,
-      "file": "congressional_president_2004.json",
-      "allocation_methods": {
-        "observed_plus_county_geographic_residual": 2378139,
-        "party_specific_contraction": 13220,
-        "observed_exact": 45960
-      },
-      "discrepancies_gt_2_votes": [],
-      "winner_disagreements": [],
-      "independent_zero_districts": []
-    },
-    {
-      "lines": 2026,
-      "scope": "congressional",
-      "contest_type": "president",
-      "year": 2008,
-      "file": "congressional_president_2008.json",
-      "allocation_methods": {
-        "observed_plus_county_geographic_residual": 1782592,
-        "observed_exact": 233437,
-        "party_specific_contraction": 583720
-      },
-      "discrepancies_gt_2_votes": [],
-      "winner_disagreements": [],
-      "independent_zero_districts": []
-    },
-    {
-      "lines": 2026,
-      "scope": "congressional",
-      "contest_type": "president",
-      "year": 2012,
-      "file": "congressional_president_2012.json",
-      "allocation_methods": {
-        "observed_plus_county_geographic_residual": 1973846,
-        "party_specific_contraction": 267872,
-        "observed_exact": 216859
-      },
-      "discrepancies_gt_2_votes": [],
-      "winner_disagreements": [],
-      "independent_zero_districts": []
-    },
-    {
-      "lines": 2026,
-      "scope": "congressional",
-      "contest_type": "president",
-      "year": 2016,
-      "file": "congressional_president_2016.json",
-      "allocation_methods": {
-        "observed_exact": 518504,
-        "observed_plus_county_geographic_residual": 1805072,
-        "party_specific_contraction": 184451
-      },
-      "discrepancies_gt_2_votes": [],
-      "winner_disagreements": [],
-      "independent_zero_districts": []
-    },
-    {
-      "lines": 2026,
-      "scope": "congressional",
-      "contest_type": "president",
-      "year": 2020,
-      "file": "congressional_president_2020.json",
-      "allocation_methods": {
-        "observed_exact": 1997108,
-        "party_specific_contraction": 510244,
-        "observed_plus_county_geographic_residual": 546498
-      },
-      "discrepancies_gt_2_votes": [],
-      "winner_disagreements": [],
-      "independent_zero_districts": []
-    },
-    {
-      "lines": 2026,
-      "scope": "congressional",
-      "contest_type": "president",
-      "year": 2024,
-      "file": "congressional_president_2024.json",
-      "allocation_methods": {
-        "party_specific_contraction": 528159,
-        "observed_exact": 2145421,
-        "observed_plus_county_geographic_residual": 390362
-      },
-      "discrepancies_gt_2_votes": [],
-      "winner_disagreements": [],
-      "independent_zero_districts": []
-    },
-    {
-      "lines": 2026,
-      "scope": "congressional",
-      "contest_type": "us_senate",
-      "year": 2000,
-      "file": "congressional_us_senate_2000.json",
-      "allocation_methods": {
-        "observed_plus_county_geographic_residual": 1782770,
-        "observed_exact": 131710,
-        "party_specific_contraction": 13309
-      },
-      "discrepancies_gt_2_votes": [],
-      "winner_disagreements": [],
-      "independent_zero_districts": []
-    },
-    {
-      "lines": 2026,
-      "scope": "congressional",
-      "contest_type": "us_senate",
-      "year": 2002,
-      "file": "congressional_us_senate_2002.json",
-      "allocation_methods": {
-        "observed_plus_county_geographic_residual": 1521853,
-        "party_specific_contraction": 13645,
-        "observed_exact": 106214
-      },
-      "discrepancies_gt_2_votes": [],
-      "winner_disagreements": [],
-      "independent_zero_districts": []
-    },
-    {
-      "lines": 2026,
-      "scope": "congressional",
-      "contest_type": "us_senate",
-      "year": 2006,
-      "file": "congressional_us_senate_2006.json",
-      "allocation_methods": {
-        "observed_plus_county_geographic_residual": 1249200,
-        "observed_exact": 290717,
-        "party_specific_contraction": 187564
-      },
-      "discrepancies_gt_2_votes": [],
-      "winner_disagreements": [],
-      "independent_zero_districts": []
-    },
-    {
-      "lines": 2026,
-      "scope": "congressional",
-      "contest_type": "us_senate",
-      "year": 2008,
-      "file": "congressional_us_senate_2008.json",
-      "allocation_methods": {
-        "observed_plus_county_geographic_residual": 1757899,
-        "observed_exact": 430581,
-        "party_specific_contraction": 236105
-      },
-      "discrepancies_gt_2_votes": [],
-      "winner_disagreements": [],
-      "independent_zero_districts": []
-    },
-    {
-      "lines": 2026,
-      "scope": "congressional",
-      "contest_type": "us_senate",
-      "year": 2012,
-      "file": "congressional_us_senate_2012.json",
-      "allocation_methods": {
-        "observed_plus_county_geographic_residual": 2074185,
-        "observed_exact": 198578,
-        "party_specific_contraction": 48714
-      },
-      "discrepancies_gt_2_votes": [],
-      "winner_disagreements": [],
-      "independent_zero_districts": []
-    },
-    {
-      "lines": 2026,
-      "scope": "congressional",
-      "contest_type": "us_senate",
-      "year": 2014,
-      "file": "congressional_us_senate_2014.json",
-      "allocation_methods": {
-        "observed_exact": 354019,
-        "party_specific_contraction": 40716,
-        "observed_plus_county_geographic_residual": 979330
-      },
-      "discrepancies_gt_2_votes": [],
-      "winner_disagreements": [],
-      "independent_zero_districts": []
-    },
-    {
-      "lines": 2026,
-      "scope": "congressional",
-      "contest_type": "us_senate",
-      "year": 2018,
-      "file": "congressional_us_senate_2018.json",
-      "allocation_methods": {
-        "observed_plus_county_geographic_residual": 1603349,
-        "observed_exact": 611202,
-        "party_specific_contraction": 29189
-      },
-      "discrepancies_gt_2_votes": [],
-      "winner_disagreements": [],
-      "independent_zero_districts": []
-    },
-    {
-      "lines": 2026,
-      "scope": "congressional",
-      "contest_type": "us_senate",
-      "year": 2020,
-      "file": "congressional_us_senate_2020.json",
-      "allocation_methods": {
-        "observed_exact": 1849553,
-        "party_specific_contraction": 359531,
-        "observed_plus_county_geographic_residual": 741079
-      },
-      "discrepancies_gt_2_votes": [],
-      "winner_disagreements": [],
-      "independent_zero_districts": []
-    },
-    {
-      "lines": 2026,
-      "scope": "congressional",
-      "contest_type": "us_senate",
-      "year": 2024,
-      "file": "congressional_us_senate_2024.json",
-      "allocation_methods": {
-        "party_specific_contraction": 317796,
-        "observed_exact": 2176584,
-        "observed_plus_county_geographic_residual": 513228
+        "observed_exact": 2800703,
+        "party_specific_contraction": 105287,
+        "observed_plus_county_geographic_residual": 101618,
+        "presidential_reference_calibration_party_rebalanced": 3007608
       },
       "discrepancies_gt_2_votes": [],
       "winner_disagreements": [],
