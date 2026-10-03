@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Aggregate RDH block-disaggregated statewide results to TN legislative districts."""
+"""Aggregate RDH block-disaggregated statewide results to Tennessee districts."""
 
 from __future__ import annotations
 
@@ -70,28 +70,44 @@ def read_block_votes(path: Path, columns: list[str], prefer_csv: bool) -> pd.Dat
     )
 
 
-def current_plan_assignment(data_dir: Path, published_data_dir: Path, scope: str) -> tuple[pd.DataFrame, dict]:
-    """Build a 2022-plan block assignment from legislative races plus TIGER geometry.
+def current_plan_assignment(
+    data_dir: Path, published_data_dir: Path, scope: str, lines_year: int
+) -> tuple[pd.DataFrame, dict]:
+    """Build a current-plan block assignment from district races plus TIGER geometry.
 
     The repository's Census BlockAssign archive is dated December 2020 and therefore
     contains the prior legislative plan.  The RDH 2022/2024 files encode the current
-    district in their GSL/GSU contest columns.  Those columns are authoritative when
-    they contain votes; representative-point containment fills zero-vote blocks.
+    district in their GSL/GSU/GCON contest columns. Those columns are authoritative
+    when they contain votes; representative-point containment fills zero-vote blocks.
     """
     if scope == "state_house":
         election_years = (2024,)
         race_prefix = "GSL"
         tiger_name = "tl_2022_47_sldl.geojson"
         district_field = "SLDLST"
-    else:
+    elif scope == "state_senate":
         election_years = (2022, 2024)
         race_prefix = "GSU"
         tiger_name = "tl_2022_47_sldu.geojson"
         district_field = "SLDUST"
+    elif lines_year == 2022:
+        election_years = (2024,)
+        race_prefix = "GCON"
+        tiger_name = "tl_2022_47_cd118.geojson"
+        district_field = "CD118FP"
+    else:
+        election_years = ()
+        race_prefix = ""
+        tiger_name = "tl_2026_47_cd2026.geojson"
+        district_field = "DISTRICT"
 
     assignments = None
     block_geometry = None
-    diagnostic = {"race_prefix": race_prefix, "election_years": list(election_years)}
+    diagnostic = {
+        "race_prefix": race_prefix or None,
+        "election_years": list(election_years),
+        "lines_year": lines_year,
+    }
     for year in election_years:
         path = data_dir / f"tn_{year}_gen_2020_blocks.zip"
         fields = available_fields(path, False)
@@ -101,8 +117,15 @@ def current_plan_assignment(data_dir: Path, published_data_dir: Path, scope: str
         )
         frame["GEOID20"] = frame["GEOID20"].astype(str).str.zfill(15)
         grouped = {
-            district: [column for column in race_columns if column[3:5] == district]
-            for district in sorted({column[3:5] for column in race_columns})
+            district: [
+                column
+                for column in race_columns
+                if column[len(race_prefix):len(race_prefix) + 2] == district
+            ]
+            for district in sorted({
+                column[len(race_prefix):len(race_prefix) + 2]
+                for column in race_columns
+            })
         }
         district_votes = pd.DataFrame({
             district: frame[columns].apply(pd.to_numeric, errors="coerce").fillna(0).sum(axis=1)
@@ -117,7 +140,12 @@ def current_plan_assignment(data_dir: Path, published_data_dir: Path, scope: str
         if block_geometry is None:
             block_geometry = frame[["GEOID20", "geometry"]].copy()
 
-    assert assignments is not None and block_geometry is not None
+    if block_geometry is None:
+        path = data_dir / "tn_2024_gen_2020_blocks.zip"
+        block_geometry = pyogrio.read_dataframe(shapefile_uri(path), columns=["GEOID20"])
+        block_geometry["GEOID20"] = block_geometry["GEOID20"].astype(str).str.zfill(15)
+    if assignments is None:
+        assignments = pd.Series(index=block_geometry["GEOID20"], dtype="object")
     block_geometry["district"] = block_geometry["GEOID20"].map(assignments)
     points = block_geometry[["GEOID20", "district", "geometry"]].copy()
     points.geometry = points.geometry.representative_point()
@@ -173,11 +201,14 @@ def main() -> None:
     parser.add_argument("--data-dir", type=Path, required=True)
     parser.add_argument("--published-data-dir", type=Path, required=True)
     parser.add_argument("--output-dir", type=Path, required=True)
-    parser.add_argument("--scope", choices=("state_house", "state_senate"), default="state_house")
+    parser.add_argument(
+        "--scope", choices=("state_house", "state_senate", "congressional"), default="state_house"
+    )
+    parser.add_argument("--lines-year", type=int, choices=(2022, 2026), default=2022)
     args = parser.parse_args()
 
     assignment, assignment_diagnostic = current_plan_assignment(
-        args.data_dir, args.published_data_dir, args.scope
+        args.data_dir, args.published_data_dir, args.scope, args.lines_year
     )
     args.output_dir.mkdir(parents=True, exist_ok=True)
     report = []
@@ -208,7 +239,16 @@ def main() -> None:
                 raw_by_field[field] = {str(district): float(value) for district, value in grouped.items()}
 
             contest_path = args.published_data_dir / "contests" / f"{contest_type}_{year}.json"
-            district_path = args.published_data_dir / "district_contests" / f"{args.scope}_{contest_type}_{year}.json"
+            district_subdir = (
+                "district_contests_2026"
+                if args.scope == "congressional" and args.lines_year == 2026
+                else "district_contests"
+            )
+            district_path = (
+                args.published_data_dir
+                / district_subdir
+                / f"{args.scope}_{contest_type}_{year}.json"
+            )
             if not contest_path.exists() or not district_path.exists():
                 continue
             contest_payload = load_json(contest_path)
@@ -218,6 +258,25 @@ def main() -> None:
                 field: largest_remainder(targets[field], raw_by_field[field]) for field in FIELDS
             }
             results = district_payload.get("general", {}).get("results", {})
+            if args.scope == "congressional" and args.lines_year == 2026:
+                anchors = {district for district in ("1", "2") if district in results}
+                for field in FIELDS:
+                    anchor_votes = {
+                        district: int(results[district].get(field, 0) or 0)
+                        for district in anchors
+                    }
+                    remaining_target = targets[field] - sum(anchor_votes.values())
+                    if remaining_target < 0:
+                        raise RuntimeError(f"2026 congressional anchors exceed {field} target")
+                    adjustable_weights = {
+                        district: weight
+                        for district, weight in raw_by_field[field].items()
+                        if district not in anchors
+                    }
+                    allocations[field] = {
+                        **anchor_votes,
+                        **largest_remainder(remaining_target, adjustable_weights),
+                    }
             all_districts = sorted(set(results) | set(allocations["dem_votes"]), key=int)
             corrected = {}
             for district in all_districts:
@@ -228,13 +287,15 @@ def main() -> None:
                 corrected[district] = row
             district_payload["general"] = {"results": corrected}
             district_payload.setdefault("meta", {})["block_disaggregated_method"] = (
-                "RDH statewide votes disaggregated to 2020 Census blocks; current-plan district "
-                "assignments inferred from 2022/2024 legislative contest columns with enacted "
-                "2022 TIGER representative-point fallback for zero-vote blocks; party-specifically "
-                "reconciled to certified statewide totals"
+                "RDH statewide votes disaggregated to 2020 Census blocks; district assignments "
+                "inferred from 2022/2024 district contest columns when applicable, with enacted "
+                f"{args.lines_year} TIGER representative-point assignment as fallback; "
+                "party-specifically reconciled to certified statewide totals"
             )
             district_payload["meta"]["block_disaggregated_source"] = source_path.name
             district_payload["meta"]["block_assignment_audit"] = assignment_diagnostic
+            if args.scope == "congressional" and args.lines_year == 2026:
+                district_payload["meta"]["preserved_districts"] = ["1", "2"]
             out_path = args.output_dir / district_path.name
             out_path.write_text(json.dumps(district_payload, indent=2) + "\n", encoding="utf-8")
             report.append({
