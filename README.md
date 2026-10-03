@@ -451,6 +451,43 @@ Some district-level statewide results are intentionally calibrated after the bas
 - Generated district slices are written to `Data/district_contests/`, with the file list tracked in `Data/district_contests/manifest.json`.
 - External district-stat reference files can be used as calibration targets when generated district margins are directionally or numerically off.
 
+### RDH block-disaggregated legislative results
+
+`Scripts/build_tn_legislative_rdh_results.py` rebuilds 2016-2024 statewide
+president, governor, and U.S. Senate results on the enacted 2022 Tennessee
+House and Senate plans from the local Redistricting Data Hub 2020-block files.
+
+- Votes are apportioned to blocks with RDH's modified voting-age-population
+  method (`VAP_MOD`).
+- For 2022 and 2024, nonzero `GSL##` and `GSU##` candidate fields identify the
+  enacted district. Zero-vote blocks fall back to representative-point
+  containment in the enacted TIGER legislative geometry.
+- Earlier RDH files lack legislative candidate fields, so all their blocks use
+  enacted TIGER representative-point containment.
+- Democratic, Republican, and other votes are reconciled independently and
+  exactly to the certified statewide totals with largest remainder.
+- Direct official district totals and reliable precinct results carrying
+  district identifiers outrank RDH estimates and are retained automatically.
+  This preserves the direct 2024 State House result slices.
+- 2012 is built separately by `Scripts/build_tn_2012_rdh_results.py` from the
+  official 2010 Census PL/SF1 block data, 2012 TIGER VTDs, and the reviewed
+  2012 precinct source. Its modified VAP is `P003001 - P042003`; only explicit
+  absentee/early buckets use the documented county-cluster fallback.
+
+Run the reusable build from the repository root:
+
+```powershell
+python Scripts/build_tn_legislative_rdh_results.py
+python Scripts/build_tn_2012_rdh_results.py
+```
+
+The build writes provenance into every published result file, refreshes the
+district manifest totals, and emits the complete before/after review at
+`Data/reports/tn_legislative_rdh_audit.json`. The audit records changed
+districts, flips, margin changes of at least one point, vote-total changes,
+source ranks, 2024 comparison error, block-assignment methods, and unresolved
+anomalies.
+
 ### HD-30 guardrail
 
 There is a lightweight validation script for the current Tennessee House District 30 assumption set:
