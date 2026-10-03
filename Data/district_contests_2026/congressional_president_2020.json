@@ -46,17 +46,14 @@
       }
     },
     "geographic_audit_method": "independent_county_constrained_spatial_precinct_overlay",
-    "block_disaggregated_method": "RDH statewide votes disaggregated to 2020 Census blocks; district assignments inferred from 2022/2024 district contest columns when applicable, with enacted 2026 TIGER representative-point assignment as fallback; party-specifically reconciled to certified statewide totals",
+    "block_disaggregated_method": "RDH statewide votes disaggregated to 2020 Census blocks; district assignments taken from the official Census block equivalency file when available, otherwise inferred from 2022/2024 district contest columns with enacted TIGER representative-point fallback; party-specifically reconciled to certified statewide totals",
     "block_disaggregated_source": "tn_2020_gen_2020_blocks.zip",
     "block_assignment_audit": {
-      "race_prefix": null,
-      "election_years": [],
+      "assignment_source": "CD120_47.txt",
+      "assignment_authority": "U.S. Census Bureau 120th Congress Block Equivalency File",
       "lines_year": 2026,
       "blocks": 179717,
-      "explicit_race_assignment_blocks": 0,
-      "geometry_fallback_blocks": 179717,
-      "explicit_geometry_agreements": 0,
-      "explicit_geometry_disagreements": 0
+      "districts": 9
     },
     "preserved_districts": [
       "1",

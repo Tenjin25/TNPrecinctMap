@@ -80,6 +80,26 @@ def current_plan_assignment(
     district in their GSL/GSU/GCON contest columns. Those columns are authoritative
     when they contain votes; representative-point containment fills zero-vote blocks.
     """
+    if scope == "congressional" and lines_year == 2026:
+        bef_path = published_data_dir / "CD120_47.txt"
+        frame = pd.read_csv(bef_path, dtype=str)
+        required = {"GEOID", "CDFP"}
+        if not required.issubset(frame.columns):
+            raise RuntimeError(f"Missing required columns in {bef_path}: {sorted(required)}")
+        frame = frame.rename(columns={"GEOID": "GEOID20", "CDFP": "district"})
+        frame["GEOID20"] = frame["GEOID20"].astype(str).str.zfill(15)
+        frame["district"] = pd.to_numeric(frame["district"]).astype(int).astype(str)
+        if len(frame) != frame["GEOID20"].nunique():
+            raise RuntimeError(f"Duplicate block assignments in {bef_path}")
+        diagnostic = {
+            "assignment_source": bef_path.name,
+            "assignment_authority": "U.S. Census Bureau 120th Congress Block Equivalency File",
+            "lines_year": lines_year,
+            "blocks": int(len(frame)),
+            "districts": int(frame["district"].nunique()),
+        }
+        return frame[["GEOID20", "district"]], diagnostic
+
     if scope == "state_house":
         election_years = (2024,)
         race_prefix = "GSL"
@@ -288,8 +308,9 @@ def main() -> None:
             district_payload["general"] = {"results": corrected}
             district_payload.setdefault("meta", {})["block_disaggregated_method"] = (
                 "RDH statewide votes disaggregated to 2020 Census blocks; district assignments "
-                "inferred from 2022/2024 district contest columns when applicable, with enacted "
-                f"{args.lines_year} TIGER representative-point assignment as fallback; "
+                "taken from the official Census block equivalency file when available, otherwise "
+                "inferred from 2022/2024 district contest columns with enacted TIGER "
+                "representative-point fallback; "
                 "party-specifically reconciled to certified statewide totals"
             )
             district_payload["meta"]["block_disaggregated_source"] = source_path.name
