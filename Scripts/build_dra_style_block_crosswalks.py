@@ -1682,22 +1682,20 @@ def match_source_vtd(
     # When a place-name body is present, require name agreement.
     q_codes = leading_code_tokens(precinct_norm)
     if q_codes:
-        code_hits: List[str] = []
-        for src_vtd, names in by_vtd_name_norms.items():
-            code_ok = False
-            for cand in names:
-                c_codes = leading_code_tokens(cand)
-                if any(q == c for q in q_codes for c in c_codes):
-                    code_ok = True
-                    break
-            if not code_ok:
-                continue
-            if q_tail and len(q_tail) >= 3 and not token_vtd_name_agrees(q_tail, names):
-                continue
-            code_hits.append(src_vtd)
-        code_hits = list(dict.fromkeys(code_hits))
-        if len(code_hits) == 1:
-            return code_hits[0], "code_token_name", 0.993
+        # Tokens are ordered from most specific to least specific (for example,
+        # ``7-1`` before ``7``).  Resolve each level independently so the broad
+        # token cannot make an otherwise exact subprecinct code ambiguous.
+        for q_code in q_codes:
+            code_hits: List[str] = []
+            for src_vtd, names in by_vtd_name_norms.items():
+                if not any(q_code in leading_code_tokens(cand) for cand in names):
+                    continue
+                if q_tail and len(q_tail) >= 3 and not token_vtd_name_agrees(q_tail, names):
+                    continue
+                code_hits.append(src_vtd)
+            code_hits = list(dict.fromkeys(code_hits))
+            if len(code_hits) == 1:
+                return code_hits[0], "code_token_name", 0.993
 
     # 2e) Catalog-gated token/code match. Runs after name methods so labels like
     # "02 ANDERSONVILLE" prefer the named VTD over a sequential code collision.

@@ -1,0 +1,35 @@
+{
+  "source_csv": "20121106__tn__general__precinct.csv",
+  "source_year": 2012,
+  "source_vintage": 2010,
+  "overlap_csv": "tn_vtd10_to_vtd20_block_chain.csv",
+  "input_precinct_keys": 2065,
+  "crosswalk_rows": 9372,
+  "strict_crosswalk_rows": 6774,
+  "low_confidence_crosswalk_rows": 910,
+  "unmatched_rows": 187,
+  "method_counts": {
+    "alpha_code_name": 9,
+    "code_token_name": 212,
+    "compact_exact_name": 6,
+    "core_exact_name": 86,
+    "exact_name": 741,
+    "fuzzy_name": 2,
+    "greene_alias_name": 14,
+    "knox_alias_name": 7,
+    "manual_override": 71,
+    "prefix_name": 295,
+    "shelby_alias_name": 7,
+    "simple_exact_name": 6,
+    "tail_exact_name": 256,
+    "tail_fuzzy_name": 166,
+    "unmatched": 187
+  },
+  "outputs": {
+    "crosswalk_csv": "tn_precinct_to_vtd20_blockweighted_2012__20121106_tn_general_precinct.csv",
+    "strict_crosswalk_csv": "tn_precinct_to_vtd20_blockweighted_2012__20121106_tn_general_precinct_strict.csv",
+    "low_confidence_crosswalk_csv": "tn_precinct_to_vtd20_blockweighted_2012__20121106_tn_general_precinct_low_confidence.csv",
+    "unmatched_csv": "tn_precinct_to_vtd20_blockweighted_2012__20121106_tn_general_precinct_unmatched.csv",
+    "summary_json": "tn_precinct_to_vtd20_blockweighted_2012__20121106_tn_general_precinct_summary.json"
+  }
+}
