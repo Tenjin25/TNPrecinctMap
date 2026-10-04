@@ -374,6 +374,18 @@ def load_2016_proxy_block_membership(proxy_zip: Path | None) -> pd.DataFrame:
         "01": "1 1", "02": "2 1", "03": "3 1", "04": "4 1", "05": "5 1",
         "06": "6 1", "07": "7 1", "08": "8 1", "10": "10 1",
     }
+    montgomery_labels = {
+        "1A": "1A ST B ES", "1B": "1B EMMANUEL", "2A": "2A ST B UMC",
+        "2B": "2B ST B CC", "3": "3 EAST MONTGOMERY", "4A": "4A MCMS",
+        "4B": "4B JOSTENS", "5A": "5A SMITH", "5B": "5B MADISON",
+        "6A": "6A CUMBERLAND", "6B": "6B BETHEL", "7": "7 WOODLAWN",
+        "8A": "8A BETHEL", "8B": "8B BARKERS MILL", "9": "9 OUTLAW",
+        "10": "10 MINGLEWOOD", "11": "11 NORTHWEST", "12": "12 RINGGOLD",
+        "13": "13 BYRNS DARDEN", "14": "14 GLENELLEN", "15": "15 SANGO",
+        "16": "16 NEW PROVIDENCE", "17": "17 GRACE", "18": "18 HAZELWOOD",
+        "19": "19 LUTHERAN", "20A": "20A CLARKSVILLE", "20B": "20B BARKSDALE",
+        "21A": "21A CUMBERLAND", "21B": "21B HILLDALE",
+    }
     rows = []
     for row in blocks.itertuples(index=False):
         key = (row.COUNTYFP, row.precinct_id)
@@ -403,6 +415,11 @@ def load_2016_proxy_block_membership(proxy_zip: Path | None) -> pd.DataFrame:
             code = match.group(1) if match else ""
             if code in haywood_labels:
                 target = ("HAYWOOD", haywood_labels[code])
+        elif row.COUNTYFP == "125":
+            match = re.match(r"^\d+\s+(\d{1,2}[A-Z]?)\s+", row.precinct_id)
+            code = match.group(1) if match else ""
+            if code in montgomery_labels:
+                target = ("MONTGOMERY", montgomery_labels[code])
         if target:
             rows.append({
                 "county_norm": target[0],
