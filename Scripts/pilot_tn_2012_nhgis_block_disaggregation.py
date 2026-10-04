@@ -7,6 +7,7 @@ import argparse
 import json
 import re
 import sys
+import zipfile
 from collections import defaultdict
 from pathlib import Path
 
@@ -376,6 +377,50 @@ def load_2016_proxy_block_membership(proxy_zip: Path | None) -> pd.DataFrame:
     return pd.DataFrame(rows, columns=columns).drop_duplicates()
 
 
+def load_2012_house_ballot_constraints(
+    data_dir: Path, election: pd.DataFrame
+) -> tuple[pd.DataFrame, pd.DataFrame]:
+    """Return old-plan block districts and per-bucket House-ballot weights.
+
+    The December 2020 Census BlockAssign SLDL file represents the legislative
+    plan used from 2012 through 2020.  State House votes reported within an
+    early/absentee/safety bucket reveal which old-plan district ballots made up
+    that bucket, allowing a constrained allocation instead of a countywide one.
+    """
+    archive_path = data_dir / "BlockAssign_ST47_TN.zip"
+    if not archive_path.exists():
+        return (
+            pd.DataFrame(columns=["GEOID20", "old_house_district"]),
+            pd.DataFrame(columns=["county_norm", "from_precinct_norm", "old_house_district", "district_share"]),
+        )
+    with zipfile.ZipFile(archive_path) as archive:
+        member = "BlockAssign_ST47_TN_SLDL.txt"
+        with archive.open(member) as source:
+            assignments = pd.read_csv(source, sep="|", dtype=str)
+    assignments = assignments.rename(columns={"BLOCKID": "GEOID20", "DISTRICT": "old_house_district"})
+    assignments["GEOID20"] = assignments["GEOID20"].astype(str).str.zfill(15)
+    assignments["old_house_district"] = (
+        pd.to_numeric(assignments["old_house_district"], errors="coerce").astype("Int64").astype(str)
+    )
+
+    house = election[election["office"].eq("State House District")].copy()
+    house["county_norm"] = house["county"].map(norm_county)
+    house["from_precinct_norm"] = house["precinct"].map(norm_text)
+    house["old_house_district"] = (
+        pd.to_numeric(house["district"], errors="coerce").astype("Int64").astype(str)
+    )
+    house["votes"] = pd.to_numeric(house["votes"], errors="coerce").fillna(0)
+    ballot = house.groupby(
+        ["county_norm", "from_precinct_norm", "old_house_district"], as_index=False
+    )["votes"].sum()
+    totals = ballot.groupby(["county_norm", "from_precinct_norm"])["votes"].transform("sum")
+    ballot = ballot[totals > 0].copy()
+    ballot["district_share"] = ballot["votes"] / totals[totals > 0]
+    return assignments[["GEOID20", "old_house_district"]], ballot[
+        ["county_norm", "from_precinct_norm", "old_house_district", "district_share"]
+    ]
+
+
 def load_allocation_weights(
     data_dir: Path, weight_scheme: str, cvap_csv: Path | None
 ) -> pd.DataFrame:
@@ -410,7 +455,7 @@ def build_demographic_party_weights(
     votes: pd.DataFrame,
     cvap_csv: Path,
     block_counties: pd.DataFrame,
-) -> tuple[pd.DataFrame, dict]:
+) -> tuple[pd.DataFrame, dict, pd.DataFrame]:
     cvap = pd.read_csv(cvap_csv, usecols=["GEOID20", *CVAP_SOURCE_FIELDS], dtype={"GEOID20": str})
     cvap["GEOID20"] = cvap["GEOID20"].str.zfill(15)
     for column in CVAP_SOURCE_FIELDS:
@@ -483,8 +528,8 @@ def allocate_votes_to_blocks(
     precinct_map, county_map = precinct_to_vtd10(data_dir, crosswalk_data_dir)
     base_blocks = load_allocation_weights(data_dir, "vap_mod", None)
 
-    election = pd.read_csv(data_dir / "20121106__tn__general__precinct.csv")
-    election = election[election["office"].isin(CONTEST_OFFICES)].copy()
+    all_election = pd.read_csv(data_dir / "20121106__tn__general__precinct.csv")
+    election = all_election[all_election["office"].isin(CONTEST_OFFICES)].copy()
     election["county_norm"] = election["county"].map(norm_county)
     election["from_precinct_norm"] = election["precinct"].map(norm_text)
     election["contest"] = election["office"].map(CONTEST_OFFICES)
@@ -592,6 +637,8 @@ def allocate_votes_to_blocks(
     fallback = pd.concat([non_geo, failed_geo], ignore_index=True)
     fallback["COUNTYFP10"] = fallback["county_norm"].map(county_map)
     county_blocks = block_weights.copy()
+    old_house_assignment, house_ballot = load_2012_house_ballot_constraints(data_dir, all_election)
+    county_blocks = county_blocks.merge(old_house_assignment, on="GEOID20", how="left")
     county_group = ["COUNTYFP"]
     fallback_keys_left = ["COUNTYFP10"]
     fallback_keys_right = ["COUNTYFP"]
@@ -604,22 +651,57 @@ def allocate_votes_to_blocks(
     county_blocks["county_share"] = (county_blocks["allocation_weight"] / county_blocks["county_mass"]).where(
         county_blocks["county_mass"] > 0, 1.0 / county_blocks["county_count"]
     )
-    non_join = fallback.merge(
+    constrained = fallback.merge(
+        house_ballot,
+        on=["county_norm", "from_precinct_norm"],
+        how="inner",
+        validate="many_to_many",
+    )
+    constrained_ids = set(constrained["source_vote_id"])
+    unconstrained = fallback[~fallback["source_vote_id"].isin(constrained_ids)].copy()
+    constrained_keys_left = [*fallback_keys_left, "old_house_district"]
+    constrained_keys_right = [*fallback_keys_right, "old_house_district"]
+    constrained_join = constrained.merge(
+        county_blocks,
+        left_on=constrained_keys_left,
+        right_on=constrained_keys_right,
+        how="left",
+    )
+    constrained_group = ["source_vote_id", "old_house_district"]
+    constrained_mass = constrained_join.groupby(constrained_group)["allocation_weight"].transform("sum")
+    constrained_count = constrained_join.groupby(constrained_group)["GEOID20"].transform("count")
+    constrained_join["within_district_share"] = (
+        constrained_join["allocation_weight"] / constrained_mass
+    ).where(constrained_mass > 0, 1.0 / constrained_count)
+    constrained_join["block_votes"] = (
+        constrained_join["votes"]
+        * constrained_join["district_share"]
+        * constrained_join["within_district_share"]
+    )
+    non_join = unconstrained.merge(
         county_blocks, left_on=fallback_keys_left, right_on=fallback_keys_right, how="left"
     )
-    if non_join["GEOID20"].isna().any():
-        missing = sorted(non_join.loc[non_join["GEOID20"].isna(), "county_norm"].unique())
+    fallback_joins = pd.concat([constrained_join, non_join], ignore_index=True)
+    if fallback_joins["GEOID20"].isna().any():
+        missing = sorted(fallback_joins.loc[fallback_joins["GEOID20"].isna(), "county_norm"].unique())
         raise RuntimeError(f"County fallback has no 2020 blocks for: {missing}")
     non_join["block_votes"] = non_join["votes"] * non_join["county_share"]
 
-    allocated = pd.concat(
-        [
-            direct_join[["GEOID20", "contest", "field", "block_votes"]],
-            geo_join[["GEOID20", "contest", "field", "block_votes"]],
-            non_join[["GEOID20", "contest", "field", "block_votes"]],
-        ],
-        ignore_index=True,
-    )
+    allocation_parts = []
+    for frame, method in (
+        (direct_join, "stable_2016_block_proxy"),
+        (geo_join, "historical_vtd_geometry"),
+        (constrained_join, "house_ballot_constrained_fallback"),
+        (non_join, "countywide_fallback"),
+    ):
+        part = frame[[
+            "GEOID20", "contest", "field", "block_votes", "source_vote_id",
+            "county_norm", "from_precinct_norm",
+        ]].copy()
+        part["allocation_method"] = method
+        allocation_parts.append(part)
+    source_allocated = pd.concat(allocation_parts, ignore_index=True)
+    allocated = source_allocated[["GEOID20", "contest", "field", "block_votes"]].copy()
     allocated = allocated.groupby(["GEOID20", "contest", "field"], as_index=False)["block_votes"].sum()
     source_totals = source_vote_rows.groupby(["contest", "field"])["votes"].sum().sort_index()
     allocated_totals = allocated.groupby(["contest", "field"])["block_votes"].sum().sort_index()
@@ -634,6 +716,16 @@ def allocate_votes_to_blocks(
         "geographic_vote_rows": int(len(geographic)),
         "countywide_non_geographic_vote_rows": int(len(non_geo)),
         "mapped_vote_rows_requiring_county_fallback": int(len(failed_geo)),
+        "house_ballot_constrained_fallback_vote_rows": int(len(constrained_ids)),
+        "house_ballot_constrained_votes_by_county": {
+            f"{contest}:{county}": round(float(value), 6)
+            for (contest, county), value in constrained.drop_duplicates("source_vote_id").groupby(
+                ["contest", "county_norm"]
+            )["votes"].sum().items()
+        },
+        "unconstrained_countywide_fallback_vote_rows": int(
+            unconstrained["source_vote_id"].nunique()
+        ),
         "direct_2016_proxy_vote_rows": int(direct_votes["source_vote_id"].nunique()),
         "direct_2016_proxy_precincts": int(
             direct_votes[["county_norm", "from_precinct_norm"]].drop_duplicates().shape[0]
@@ -664,7 +756,7 @@ def allocate_votes_to_blocks(
             for (contest, field), value in allocated.groupby(["contest", "field"])["block_votes"].sum().items()
         },
     })
-    return allocated, audit
+    return allocated, audit, source_allocated
 
 
 def finalize(row: dict) -> None:
@@ -694,7 +786,7 @@ def main() -> None:
     sys.path.insert(0, str((Path(__file__).parent).resolve()))
     from build_tn_legislative_from_blocks import current_plan_assignment
 
-    allocated, audit = allocate_votes_to_blocks(
+    allocated, audit, source_allocated = allocate_votes_to_blocks(
         args.data_dir,
         args.published_data_dir,
         args.weight_scheme,
@@ -708,11 +800,57 @@ def main() -> None:
         ("congressional", 2026, "district_contests_2026"),
     )
     comparisons = []
+    sensitivity_attribution = []
     for scope, lines_year, subdir in specs:
         assignment, assignment_audit = current_plan_assignment(
             args.data_dir, args.published_data_dir, scope, lines_year
         )
         joined = allocated.merge(assignment, on="GEOID20", how="inner", validate="many_to_one")
+        if scope == "state_house" and lines_year == 2022:
+            source_joined = source_allocated.merge(
+                assignment, on="GEOID20", how="inner", validate="many_to_one"
+            )
+            for target_district, target_contest in (("75", "president"), ("80", "us_senate")):
+                focus = source_joined[
+                    source_joined["district"].eq(target_district)
+                    & source_joined["contest"].eq(target_contest)
+                ].copy()
+                pivot = focus.pivot_table(
+                    index=["county_norm", "from_precinct_norm", "allocation_method"],
+                    columns="field",
+                    values="block_votes",
+                    aggfunc="sum",
+                    fill_value=0,
+                ).reset_index()
+                for field in FIELDS:
+                    if field not in pivot:
+                        pivot[field] = 0.0
+                pivot["total_votes"] = pivot[list(FIELDS)].sum(axis=1)
+                pivot["margin"] = pivot["rep_votes"] - pivot["dem_votes"]
+                top_sources = []
+                for row in pivot.sort_values("total_votes", ascending=False).head(30).to_dict("records"):
+                    top_sources.append({
+                        "county": row["county_norm"],
+                        "precinct": row["from_precinct_norm"],
+                        "allocation_method": row["allocation_method"],
+                        "dem_votes": round(float(row["dem_votes"]), 3),
+                        "rep_votes": round(float(row["rep_votes"]), 3),
+                        "other_votes": round(float(row["other_votes"]), 3),
+                        "total_votes": round(float(row["total_votes"]), 3),
+                        "margin": round(float(row["margin"]), 3),
+                    })
+                method_totals = focus.groupby("allocation_method")["block_votes"].sum().sort_values(
+                    ascending=False
+                )
+                sensitivity_attribution.append({
+                    "district": target_district,
+                    "contest": target_contest,
+                    "raw_allocated_votes": round(float(focus["block_votes"].sum()), 3),
+                    "allocation_method_votes": {
+                        method: round(float(value), 3) for method, value in method_totals.items()
+                    },
+                    "top_sources": top_sources,
+                })
         for contest in CONTEST_OFFICES.values():
             template_path = args.published_data_dir / subdir / f"{scope}_{contest}_2012.json"
             if not template_path.exists():
@@ -754,7 +892,9 @@ def main() -> None:
                     if args.weight_scheme == "cvap"
                     else "RDH VAP_MOD from Tennessee 2016 2020-block file"
                 ),
-                "non_geographic_method": f"county-constrained {args.weight_scheme} allocation",
+                "non_geographic_method": (
+                    f"2012 State House ballot-constrained {args.weight_scheme} allocation within the prior-plan district"
+                ),
                 "reconciliation": "party-specific certified statewide largest remainder",
                 "target_lines_year": lines_year,
                 "assignment_audit": assignment_audit,
@@ -787,8 +927,12 @@ def main() -> None:
         "method": f"2012 NHGIS block-crosswalk {args.weight_scheme} pilot",
         "allocation_audit": audit,
         "comparisons": comparisons,
+        "sensitivity_attribution": sensitivity_attribution,
     }
     (args.output_dir / "pilot_report.json").write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
+    (args.output_dir / "state_house_75_80_source_attribution.json").write_text(
+        json.dumps(sensitivity_attribution, indent=2) + "\n", encoding="utf-8"
+    )
     print(json.dumps(report, indent=2))
 
 
