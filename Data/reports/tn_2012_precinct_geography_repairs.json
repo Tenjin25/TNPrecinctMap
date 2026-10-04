@@ -64,7 +64,7 @@
   "stable_2016_block_proxy_pilot": {
     "status": "optional_medium_confidence_not_published",
     "method": "Use the supplied VEST/RDH 2016-on-2020-block file only where a normal election-day precinct retained the same distinctive code or name from 2012 through 2016.",
-    "precincts": 354,
+    "precincts": 361,
     "counties": {
       "davidson": {
         "precincts": 13,
@@ -121,6 +121,13 @@
         "precincts": 40,
         "presidential_votes_assigned_by_proxy": 96225,
         "match_basis": "All 40 2012 precinct codes persist in the 2016 VEST/RDH block file; three new 2016 precincts are excluded."
+      },
+      "marshall": {
+        "precincts": 7,
+        "presidential_votes_assigned_by_proxy": 8106,
+        "match_basis": "Seven polling-place identities persist. West Hills/Parkview Baptist and Courthouse/McKnight Center remain historical because their continuity is not explicit.",
+        "house_92_us_senate_change_before_proxy_pp": -10.7635,
+        "house_92_us_senate_change_after_proxy_pp": -8.8098
       }
     },
     "comparison_to_live": {
@@ -144,7 +151,7 @@
     "status": "implemented_in_pilot_not_published",
     "method": "Allocate each fallback bucket among 2012 State House districts in proportion to that bucket's State House votes, then distribute within each old-plan district using block VAP.",
     "old_plan_assignment_source": "Data/BlockAssign_ST47_TN.zip:BlockAssign_ST47_TN_SLDL.txt",
-    "constrained_president_and_senate_rows": 929,
+    "constrained_president_and_senate_rows": 923,
     "unconstrained_rows": 0,
     "statewide_vote_conservation": true,
     "sensitivity_findings": {
