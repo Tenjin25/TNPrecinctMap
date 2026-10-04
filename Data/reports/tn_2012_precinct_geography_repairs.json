@@ -131,9 +131,9 @@
       }
     },
     "comparison_to_live": {
-      "state_house_president_max_change_pp": 19.977,
+      "state_house_president_max_change_pp": 13.4881,
       "state_house_president_flip": null,
-      "state_house_us_senate_max_change_pp": 20.1296,
+      "state_house_us_senate_max_change_pp": 28.1875,
       "state_house_us_senate_flip": "80",
       "state_senate_president_max_change_pp": 8.6777,
       "state_senate_us_senate_max_change_pp": 10.6737
@@ -170,10 +170,32 @@
       }
     }
   },
+  "near_whole_county_residual_rule": {
+    "status": "implemented_for_state_house_and_state_senate_not_published",
+    "threshold": 0.999,
+    "measure": "2020-block VAP_MOD share of each county in its dominant current-plan district",
+    "method": "Estimate only votes in non-dominant district slivers, subtract them from each certified county-party total, and assign the exact residual to the dominant district.",
+    "result": "The audit found 142 chamber-specific county/dominant-district pairs meeting the threshold. Every adjustment delta was zero because the existing source allocation already conserves certified totals independently within each county; the rule therefore validates and documents those whole-county assignments without changing votes."
+  },
+  "hamilton_hybrid_early_vote_pilot": {
+    "status": "implemented_in_pilot_not_published",
+    "method": "For Hamilton non-geographic buckets, iterative proportional fitting preserves each bucket's certified presidential or U.S. Senate party totals and its 2012 State House ballot totals by old district. Stable ordinary precincts supply old-district partisan priors; the fitted old-district totals are then distributed to blocks within that district.",
+    "groups": 14,
+    "ordinary_reference_votes": 202515,
+    "statewide_vote_conservation": true,
+    "house_president_margins": {
+      "26": {"live": 31.5971, "pre_hybrid": 29.5119, "hybrid": 31.8955},
+      "27": {"live": 31.5736, "pre_hybrid": 23.313, "hybrid": 28.8401},
+      "28": {"live": -58.6276, "pre_hybrid": -38.6506, "hybrid": -63.7328},
+      "29": {"live": 44.2909, "pre_hybrid": 37.184, "hybrid": 43.4943},
+      "30": {"live": 24.7417, "pre_hybrid": 15.98, "hybrid": 25.1285}
+    },
+    "finding": "The hybrid moves all five Hamilton House presidential margins toward the published results except HD28, where it passes the published D+58.63 to D+63.73. This confirms that equal-party allocation of early votes was the main Hamilton distortion. Senate-plan effects are small because current SD10 and SD11 each combine several old House districts."
+  },
   "publication_blockers": [
-    "Fallback votes are now ballot-constrained to the 2012 House plan, but the district shares use State House votes as a turnout proxy rather than presidential ballot counts.",
-    "The largest presidential House change remains concentrated in Hamilton-area district 28; most unresolved Hamilton votes are non-geographic early, absentee, military, nursing-home, or provisional totals.",
+    "Fallback votes outside Hamilton are ballot-constrained to the 2012 House plan, but the district shares use State House votes as a turnout proxy rather than presidential ballot counts.",
+    "Hamilton now uses a two-margin IPF hybrid for non-geographic votes, but its old-district partisan priors are estimates from ordinary precincts and should remain labeled estimated.",
     "Historical Davidson precinct polygons for the new 2012 precinct labels have not been recovered.",
-    "Publishing now would introduce House margin changes as large as 19.977 percentage points for president and 20.1296 points for U.S. Senate."
+    "Publishing now would introduce House margin changes as large as 13.4881 percentage points for president and 28.1875 points for U.S. Senate."
   ]
 }

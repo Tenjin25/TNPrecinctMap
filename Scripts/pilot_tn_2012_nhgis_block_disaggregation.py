@@ -628,6 +628,85 @@ def build_demographic_party_weights(
     return pd.concat(outputs, ignore_index=True), coefficient_audit
 
 
+def hamilton_hybrid_district_shares(
+    constrained: pd.DataFrame,
+    direct_join: pd.DataFrame,
+    geo_join: pd.DataFrame,
+    old_house_assignment: pd.DataFrame,
+) -> tuple[pd.DataFrame, dict]:
+    """Differentiate Hamilton early-vote party shares while preserving ballot district totals."""
+    reference = pd.concat([direct_join, geo_join], ignore_index=True)[
+        ["GEOID20", "county_norm", "contest", "field", "block_votes"]
+    ].merge(old_house_assignment, on="GEOID20", how="left")
+    reference = reference[
+        reference["county_norm"].eq("HAMILTON") & reference["old_house_district"].notna()
+    ]
+    priors = reference.groupby(
+        ["contest", "old_house_district", "field"], as_index=False
+    )["block_votes"].sum()
+    priors["district_total"] = priors.groupby(
+        ["contest", "old_house_district"]
+    )["block_votes"].transform("sum")
+    priors["party_rate"] = (priors["block_votes"] / priors["district_total"]).fillna(0)
+    prior_lookup = {
+        (row.contest, row.old_house_district, row.field): float(row.party_rate)
+        for row in priors.itertuples(index=False)
+    }
+
+    output = constrained.copy()
+    audit_groups = []
+    hamilton = output[output["county_norm"].eq("HAMILTON")]
+    for (precinct, contest), group in hamilton.groupby(["from_precinct_norm", "contest"]):
+        row_targets = group.drop_duplicates("source_vote_id").set_index("field")["votes"].to_dict()
+        district_shares = group.drop_duplicates("old_house_district").set_index(
+            "old_house_district"
+        )["district_share"].to_dict()
+        fields = [field for field in FIELDS if field in row_targets]
+        districts = sorted(district_shares, key=int)
+        total = float(sum(row_targets.values()))
+        if total <= 0 or not fields or not districts:
+            continue
+        matrix = np.array([
+            [
+                max(district_shares[district] * total, 0.0)
+                * max(prior_lookup.get((contest, district, field), 0.0), 1e-9)
+                for district in districts
+            ]
+            for field in fields
+        ], dtype=float)
+        row_vector = np.array([row_targets[field] for field in fields], dtype=float)
+        column_vector = np.array([district_shares[district] * total for district in districts], dtype=float)
+        for _ in range(200):
+            row_sums = matrix.sum(axis=1)
+            matrix *= np.divide(row_vector, row_sums, out=np.ones_like(row_vector), where=row_sums > 0)[:, None]
+            column_sums = matrix.sum(axis=0)
+            matrix *= np.divide(
+                column_vector, column_sums, out=np.ones_like(column_vector), where=column_sums > 0
+            )[None, :]
+        for field_index, field in enumerate(fields):
+            target = row_targets[field]
+            for district_index, district in enumerate(districts):
+                mask = (
+                    output["county_norm"].eq("HAMILTON")
+                    & output["from_precinct_norm"].eq(precinct)
+                    & output["contest"].eq(contest)
+                    & output["field"].eq(field)
+                    & output["old_house_district"].eq(district)
+                )
+                output.loc[mask, "district_share"] = matrix[field_index, district_index] / target if target else 0
+        audit_groups.append({
+            "precinct": precinct,
+            "contest": contest,
+            "votes": round(total, 3),
+            "old_house_districts": districts,
+        })
+    return output, {
+        "method": "IPF preserving early-vote party totals and State House ballot district totals",
+        "groups": audit_groups,
+        "reference_votes": round(float(reference["block_votes"].sum()), 3),
+    }
+
+
 def allocate_votes_to_blocks(
     data_dir: Path,
     crosswalk_data_dir: Path,
@@ -772,6 +851,9 @@ def allocate_votes_to_blocks(
     )
     constrained_ids = set(constrained["source_vote_id"])
     unconstrained = fallback[~fallback["source_vote_id"].isin(constrained_ids)].copy()
+    constrained, hamilton_hybrid_audit = hamilton_hybrid_district_shares(
+        constrained, direct_join, geo_join, old_house_assignment
+    )
     constrained_keys_left = [*fallback_keys_left, "old_house_district"]
     constrained_keys_right = [*fallback_keys_right, "old_house_district"]
     constrained_join = constrained.merge(
@@ -822,6 +904,8 @@ def allocate_votes_to_blocks(
     if (deltas.abs() > 1e-6).any():
         raise RuntimeError(f"Vote allocation failed conservation check: {deltas.to_dict()}")
     audit.update({
+        "county_fips": county_map,
+        "hamilton_hybrid": hamilton_hybrid_audit,
         "weight_scheme": weight_scheme,
         "cvap_source": str(cvap_csv) if cvap_csv else None,
         "demographic_coefficients": coefficient_audit,
@@ -879,6 +963,85 @@ def finalize(row: dict) -> None:
     row["winner"] = "REP" if row["margin"] > 0 else "DEM" if row["margin"] < 0 else "TIE"
 
 
+def apply_near_whole_county_residuals(
+    source_joined: pd.DataFrame,
+    base_blocks: pd.DataFrame,
+    county_map: dict[str, str],
+    contest: str,
+    field: str,
+    threshold: float,
+) -> tuple[dict[str, float], list[dict]]:
+    """Anchor near-whole counties to certified totals and estimate only their slivers."""
+    selected = source_joined[
+        source_joined["contest"].eq(contest) & source_joined["field"].eq(field)
+    ].copy()
+    raw_county_district = selected.groupby(
+        ["county_norm", "district"], as_index=False
+    )["block_votes"].sum()
+    certified_county = selected.groupby("county_norm")["block_votes"].sum().to_dict()
+
+    reverse_county_map = {str(fips).zfill(3): county for county, fips in county_map.items()}
+    overlap = base_blocks[["GEOID20", "COUNTYFP", "VAP_MOD"]].copy()
+    overlap["county_norm"] = overlap["COUNTYFP"].map(reverse_county_map)
+    if overlap["county_norm"].isna().any():
+        missing = sorted(overlap.loc[overlap["county_norm"].isna(), "COUNTYFP"].unique())
+        raise RuntimeError(f"Missing normalized county names for Census FIPS: {missing}")
+    overlap = overlap.merge(
+        source_joined[["GEOID20", "district"]].drop_duplicates(),
+        on="GEOID20",
+        how="inner",
+        validate="one_to_one",
+    )
+    overlap = overlap.groupby(["county_norm", "district"], as_index=False)["VAP_MOD"].sum()
+    overlap["county_vap"] = overlap.groupby("county_norm")["VAP_MOD"].transform("sum")
+    overlap["county_share"] = (overlap["VAP_MOD"] / overlap["county_vap"]).where(
+        overlap["county_vap"] > 0, 0
+    )
+    dominant = overlap.sort_values(
+        ["county_norm", "county_share"], ascending=[True, False]
+    ).drop_duplicates("county_norm")
+    dominant = dominant[dominant["county_share"] >= threshold]
+
+    adjusted = raw_county_district.copy()
+    audit_rows = []
+    for row in dominant.itertuples(index=False):
+        county_rows = adjusted[adjusted["county_norm"].eq(row.county_norm)]
+        sliver_votes = float(
+            county_rows.loc[county_rows["district"].ne(row.district), "block_votes"].sum()
+        )
+        certified = float(certified_county.get(row.county_norm, 0.0))
+        residual = certified - sliver_votes
+        if residual < -1e-6:
+            raise RuntimeError(
+                f"Near-whole county slivers exceed certified total for {row.county_norm} {contest}:{field}"
+            )
+        mask = adjusted["county_norm"].eq(row.county_norm) & adjusted["district"].eq(row.district)
+        before = float(adjusted.loc[mask, "block_votes"].sum())
+        if mask.any():
+            adjusted.loc[mask, "block_votes"] = residual
+        else:
+            adjusted = pd.concat([
+                adjusted,
+                pd.DataFrame([{
+                    "county_norm": row.county_norm,
+                    "district": row.district,
+                    "block_votes": residual,
+                }]),
+            ], ignore_index=True)
+        audit_rows.append({
+            "county": row.county_norm,
+            "dominant_district": row.district,
+            "dominant_vap_share": round(float(row.county_share), 8),
+            "sliver_vap": round(float(row.county_vap - row.VAP_MOD), 3),
+            "certified_votes": round(certified, 6),
+            "estimated_sliver_votes": round(sliver_votes, 6),
+            "dominant_votes_before": round(before, 6),
+            "dominant_votes_after": round(residual, 6),
+            "delta": round(residual - before, 6),
+        })
+    return adjusted.groupby("district")["block_votes"].sum().to_dict(), audit_rows
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--data-dir", type=Path, required=True)
@@ -893,6 +1056,12 @@ def main() -> None:
         type=Path,
         help="Optional RDH/VEST 2016-on-2020-block ZIP for conservative stable-precinct proxies.",
     )
+    parser.add_argument(
+        "--whole-county-threshold",
+        type=float,
+        default=0.999,
+        help="For State House and Senate, assign the certified county residual to a district containing at least this VAP share.",
+    )
     args = parser.parse_args()
     args.output_dir.mkdir(parents=True, exist_ok=True)
 
@@ -906,6 +1075,7 @@ def main() -> None:
         args.cvap_csv,
         args.proxy_block_zip,
     )
+    base_blocks = load_allocation_weights(args.data_dir, "vap_mod", None)
     specs = (
         ("state_house", 2022, "district_contests"),
         ("state_senate", 2022, "district_contests"),
@@ -914,15 +1084,18 @@ def main() -> None:
     )
     comparisons = []
     sensitivity_attribution = []
+    whole_county_audit = []
     for scope, lines_year, subdir in specs:
         assignment, assignment_audit = current_plan_assignment(
             args.data_dir, args.published_data_dir, scope, lines_year
         )
         joined = allocated.merge(assignment, on="GEOID20", how="inner", validate="many_to_one")
-        if scope == "state_house" and lines_year == 2022:
+        source_joined = None
+        if scope in ("state_house", "state_senate") and lines_year == 2022:
             source_joined = source_allocated.merge(
                 assignment, on="GEOID20", how="inner", validate="many_to_one"
             )
+        if scope == "state_house" and lines_year == 2022:
             sensitivity_targets = (
                 ("6", "president"), ("13", "president"), ("28", "president"),
                 ("61", "president"), ("65", "president"), ("75", "president"),
@@ -981,7 +1154,20 @@ def main() -> None:
             allocations = {}
             for field in FIELDS:
                 selected = joined[(joined["contest"] == contest) & (joined["field"] == field)]
-                raw = selected.groupby("district")["block_votes"].sum().to_dict()
+                if scope in ("state_house", "state_senate") and lines_year == 2022:
+                    raw, residual_audit = apply_near_whole_county_residuals(
+                        source_joined,
+                        base_blocks,
+                        audit["county_fips"],
+                        contest,
+                        field,
+                        args.whole_county_threshold,
+                    )
+                    whole_county_audit.extend([
+                        {"contest": contest, "field": field, **row} for row in residual_audit
+                    ])
+                else:
+                    raw = selected.groupby("district")["block_votes"].sum().to_dict()
                 if scope == "congressional" and lines_year == 2026:
                     anchors = {d: int(old[d].get(field, 0) or 0) for d in ("1", "2")}
                     remainder = targets[field] - sum(anchors.values())
@@ -1012,9 +1198,14 @@ def main() -> None:
                     else "RDH VAP_MOD from Tennessee 2016 2020-block file"
                 ),
                 "non_geographic_method": (
-                    f"2012 State House ballot-constrained {args.weight_scheme} allocation within the prior-plan district"
+                    f"2012 State House ballot-constrained {args.weight_scheme} allocation within the prior-plan district; Hamilton party/district margins fitted by IPF"
                 ),
                 "reconciliation": "party-specific certified statewide largest remainder",
+                "near_whole_county_rule": (
+                    f"certified county residual assigned to dominant legislative district at >= {args.whole_county_threshold:.4%} VAP overlap"
+                    if scope in ("state_house", "state_senate") and lines_year == 2022
+                    else None
+                ),
                 "target_lines_year": lines_year,
                 "assignment_audit": assignment_audit,
             }
@@ -1047,6 +1238,7 @@ def main() -> None:
         "allocation_audit": audit,
         "comparisons": comparisons,
         "sensitivity_attribution": sensitivity_attribution,
+        "near_whole_county_audit": whole_county_audit,
     }
     (args.output_dir / "pilot_report.json").write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
     (args.output_dir / "state_house_75_80_source_attribution.json").write_text(
