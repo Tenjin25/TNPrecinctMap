@@ -342,9 +342,9 @@ def load_2016_proxy_block_membership(proxy_zip: Path | None) -> pd.DataFrame:
         "20 1", "14 4", "18 5", "23 5", "19 6", "12 5",
     }
     sullivan_codes = {
-        "1A", "2A", "2B", "2C", "3A", "4A", "4B", "4C", "5A", "5B",
-        "5C", "6A", "6B", "6C", "7A", "7B", "7C", "8A", "8B", "9A",
-        "9B", "10A", "10B", "11A", "11B",
+        # Only the eight codes still unresolved after official polling-place/VTD
+        # matches; retain the 17 high-confidence official matches above.
+        "2A", "5A", "5B", "6B", "8A", "8B", "9A", "10B",
     }
     exact_ids = {
         ("065", "3365 SIGNAL MOUNTAIN 1"): ("HAMILTON", "207 SIGNAL MTN 1"),

@@ -64,7 +64,7 @@
   "stable_2016_block_proxy_pilot": {
     "status": "optional_medium_confidence_not_published",
     "method": "Use the supplied VEST/RDH 2016-on-2020-block file only where a normal election-day precinct retained the same distinctive code or name from 2012 through 2016.",
-    "precincts": 42,
+    "precincts": 25,
     "counties": {
       "davidson": {
         "precincts": 13,
@@ -80,8 +80,8 @@
         "fallback_after": 38876
       },
       "sullivan": {
-        "precincts": 25,
-        "presidential_votes_assigned_by_proxy": 59887,
+        "precincts": 8,
+        "presidential_votes_assigned_by_proxy": 19320,
         "fallback_before": 19320,
         "fallback_after": 0
       },
