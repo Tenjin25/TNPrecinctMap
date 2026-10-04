@@ -353,6 +353,27 @@ def load_2016_proxy_block_membership(proxy_zip: Path | None) -> pd.DataFrame:
         ("179", "9334 9 BOONES CREEK CITY"): ("WASHINGTON", "09 B C CITY"),
         ("179", "9317 30 GRACE FELLOWSHIP CHURCH"): ("WASHINGTON", "30 GRACE"),
     }
+    madison_labels = {
+        "1 1": "1 1 CIVIC CENTER", "1 2": "1 2 MT MORIAH",
+        "2 1": "2 1 ALEXANDER", "2 2": "2 2 ALDERSGATE", "2 3": "2 3 TIGRETT MIDDLE",
+        "3 1": "3 1 BOARD OF EDUC", "3 2": "3 2 OLD BELLS RD 10", "3 3": "3 3 J CIL",
+        "4 1": "4 1 MASONIC LODGE", "4 2": "4 2 ANDREW JACKSON", "4 3": "4 3 FESTIVITIES",
+        "5 1": "5 1 WHITEHALL", "5 2": "5 2 MACEDONIA", "5 3": "5 3 NORTH PARKWAY",
+        "6 1": "6 1 SOUTHSIDE", "6 2": "6 2 SOUTH", "6 3": "6 3 MALESUS", "6 4": "6 4 MEDON",
+        "7 1": "7 1 UT EXPERIMENT", "7 2": "7 2 TN TECH CTR", "7 3": "7 3 DENMARK", "7 4": "7 4 MERCER",
+        "8 1": "8 1 BEECH BLUFF", "8 2": "8 2 BROWNS", "8 3": "8 3 MIFFLIN", "8 4": "8 4 EAST UNION", "8 5": "8 5 LESTERS",
+        "9 1": "9 1 VFW", "9 2": "9 2 POPE", "9 3": "9 3 THREE WAY",
+        "10 1": "10 1 SPRING CREEK", "10 2": "10 2 NORTH EAST", "10 3": "10 3 NORTH SIDE",
+    }
+    hardeman_labels = {
+        "BOLIVAR", "HICKORY VALLEY", "WHITEVILLE", "WEST BOLIVAR", "MIDDLETON",
+        "LACY", "SILERTON", "TOONE", "HORNSBY", "DIXIE HILLS", "POCAHONTAS",
+        "SAULSBURY", "GRAND JUNCTION",
+    }
+    haywood_labels = {
+        "01": "1 1", "02": "2 1", "03": "3 1", "04": "4 1", "05": "5 1",
+        "06": "6 1", "07": "7 1", "08": "8 1", "10": "10 1",
+    }
     rows = []
     for row in blocks.itertuples(index=False):
         key = (row.COUNTYFP, row.precinct_id)
@@ -367,6 +388,21 @@ def load_2016_proxy_block_membership(proxy_zip: Path | None) -> pd.DataFrame:
             code = match.group(1) if match else ""
             if code in sullivan_codes:
                 target = ("SULLIVAN", code)
+        elif row.COUNTYFP == "113":
+            match = re.search(r"^\d+\s+(\d{1,2})\s+(\d+)\s+", row.precinct_id)
+            code = f"{int(match.group(1))} {int(match.group(2))}" if match else ""
+            if code in madison_labels:
+                target = ("MADISON", madison_labels[code])
+        elif row.COUNTYFP == "069":
+            match = re.match(r"^\d+\s+(.+)$", row.precinct_id)
+            name = match.group(1) if match else ""
+            if name in hardeman_labels:
+                target = ("HARDEMAN", name)
+        elif row.COUNTYFP == "075":
+            match = re.match(r"^\d+\s+(\d{2})\s+", row.precinct_id)
+            code = match.group(1) if match else ""
+            if code in haywood_labels:
+                target = ("HAYWOOD", haywood_labels[code])
         if target:
             rows.append({
                 "county_norm": target[0],

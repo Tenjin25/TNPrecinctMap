@@ -64,7 +64,7 @@
   "stable_2016_block_proxy_pilot": {
     "status": "optional_medium_confidence_not_published",
     "method": "Use the supplied VEST/RDH 2016-on-2020-block file only where a normal election-day precinct retained the same distinctive code or name from 2012 through 2016.",
-    "precincts": 25,
+    "precincts": 80,
     "counties": {
       "davidson": {
         "precincts": 13,
@@ -91,14 +91,29 @@
         "presidential_votes_removed_from_fallback": 3623,
         "fallback_before": 8260,
         "fallback_after": 4637
+      },
+      "madison": {
+        "precincts": 33,
+        "presidential_votes_assigned_by_proxy": 40702,
+        "match_basis": "Every 2012 precinct code and polling-place label persists in the 2016 VEST/RDH block file."
+      },
+      "hardeman": {
+        "precincts": 13,
+        "presidential_votes_assigned_by_proxy": 10439,
+        "match_basis": "Every 2012 polling-place name persists exactly in the 2016 VEST/RDH block file."
+      },
+      "haywood": {
+        "precincts": 9,
+        "presidential_votes_assigned_by_proxy": 6778,
+        "match_basis": "Unique precinct numbers 1-8 and 10 persist; ambiguous 2012 precincts 9-1 and 9-2 remain on historical VTD geometry."
       }
     },
     "comparison_to_live": {
-      "state_house_president_max_change_pp": 19.3769,
+      "state_house_president_max_change_pp": 21.2079,
       "state_house_president_flip": "75",
-      "state_house_us_senate_max_change_pp": 23.5567,
+      "state_house_us_senate_max_change_pp": 20.1296,
       "state_house_us_senate_flip": "80",
-      "state_senate_president_max_change_pp": 8.9599,
+      "state_senate_president_max_change_pp": 8.6777,
       "state_senate_us_senate_max_change_pp": 10.6737
     },
     "excluded_buckets": [
@@ -114,7 +129,7 @@
     "status": "implemented_in_pilot_not_published",
     "method": "Allocate each fallback bucket among 2012 State House districts in proportion to that bucket's State House votes, then distribute within each old-plan district using block VAP.",
     "old_plan_assignment_source": "Data/BlockAssign_ST47_TN.zip:BlockAssign_ST47_TN_SLDL.txt",
-    "constrained_president_and_senate_rows": 983,
+    "constrained_president_and_senate_rows": 971,
     "unconstrained_rows": 0,
     "statewide_vote_conservation": true,
     "sensitivity_findings": {
@@ -126,17 +141,17 @@
       },
       "house_80_us_senate": {
         "live_margin_pct": 4.0202,
-        "pilot_margin_pct": -16.4866,
-        "raw_pilot_votes_from_historical_vtd_geometry": 22395.66,
-        "raw_pilot_votes_from_house_ballot_constrained_fallback": 557.252,
-        "finding": "Only about 2.4% of raw pilot votes come from constrained fallback; the flip is principally a historical VTD-to-current-district geography issue."
+        "pilot_margin_pct": -16.1094,
+        "raw_pilot_votes_from_stable_2016_block_proxy": 22612.601,
+        "raw_pilot_votes_from_remaining_historical_vtd_geometry": 567.271,
+        "finding": "The Democratic flip persists after replacing Madison, Hardeman, and unambiguous Haywood VTD footprints with stable 2016 block assignments. This strongly indicates the live R+4.02 result is a geography-allocation artifact rather than a fallback artifact."
       }
     }
   },
   "publication_blockers": [
-    "State House still has 154541 presidential votes allocated by countywide fallback inside split counties.",
-    "The largest House changes are concentrated in Hamilton-area districts 27-30; most unresolved Hamilton votes are non-geographic early, absentee, military, nursing-home, or provisional totals.",
+    "Fallback votes are now ballot-constrained to the 2012 House plan, but the district shares use State House votes as a turnout proxy rather than presidential ballot counts.",
+    "The largest presidential House change remains concentrated in Hamilton-area district 28; most unresolved Hamilton votes are non-geographic early, absentee, military, nursing-home, or provisional totals.",
     "Historical Davidson precinct polygons for the new 2012 precinct labels have not been recovered.",
-    "Publishing now would introduce House margin changes as large as 21.5432 percentage points for president and 24.1614 points for U.S. Senate."
+    "Publishing now would introduce House margin changes as large as 21.2079 percentage points for president and 20.1296 points for U.S. Senate."
   ]
 }
