@@ -1,0 +1,202 @@
+{
+  "method": "within-county high-confidence 2012 VTD distribution backtest",
+  "interpretation": "lower error is better; this tests population weighting, not precinct-boundary matching",
+  "membership_audit": {
+    "source_2010_blocks": 241758,
+    "nearest_vtd_fallback_blocks": 4,
+    "nhgis_crosswalk_rows": 274920,
+    "target_2020_blocks": 178233,
+    "fractionally_split_target_blocks": 3231
+  },
+  "schemes": [
+    {
+      "scheme": "vap_mod",
+      "vtd_observations": 7601,
+      "counties": 74,
+      "total_variation_pct": 20.2703,
+      "mean_absolute_share_error_pp": 1.4628,
+      "by_contest_field": [
+        {
+          "contest": "president",
+          "field": "dem_votes",
+          "vtd_observations": 1271,
+          "counties": 74,
+          "total_variation_pct": 20.4732,
+          "mean_absolute_share_error_pp": 1.3549,
+          "weighted_absolute_vote_error_pct": 40.9464
+        },
+        {
+          "contest": "president",
+          "field": "other_votes",
+          "vtd_observations": 1248,
+          "counties": 74,
+          "total_variation_pct": 20.2039,
+          "mean_absolute_share_error_pp": 1.8852,
+          "weighted_absolute_vote_error_pct": 40.4077
+        },
+        {
+          "contest": "president",
+          "field": "rep_votes",
+          "vtd_observations": 1272,
+          "counties": 74,
+          "total_variation_pct": 20.2983,
+          "mean_absolute_share_error_pp": 1.3093,
+          "weighted_absolute_vote_error_pct": 40.5966
+        },
+        {
+          "contest": "us_senate",
+          "field": "dem_votes",
+          "vtd_observations": 1271,
+          "counties": 74,
+          "total_variation_pct": 21.2346,
+          "mean_absolute_share_error_pp": 1.374,
+          "weighted_absolute_vote_error_pct": 42.4693
+        },
+        {
+          "contest": "us_senate",
+          "field": "other_votes",
+          "vtd_observations": 1267,
+          "counties": 74,
+          "total_variation_pct": 18.1446,
+          "mean_absolute_share_error_pp": 1.5918,
+          "weighted_absolute_vote_error_pct": 36.2891
+        },
+        {
+          "contest": "us_senate",
+          "field": "rep_votes",
+          "vtd_observations": 1272,
+          "counties": 74,
+          "total_variation_pct": 19.747,
+          "mean_absolute_share_error_pp": 1.2697,
+          "weighted_absolute_vote_error_pct": 39.494
+        }
+      ]
+    },
+    {
+      "scheme": "cvap",
+      "vtd_observations": 7601,
+      "counties": 74,
+      "total_variation_pct": 20.9281,
+      "mean_absolute_share_error_pp": 1.6244,
+      "by_contest_field": [
+        {
+          "contest": "president",
+          "field": "dem_votes",
+          "vtd_observations": 1271,
+          "counties": 74,
+          "total_variation_pct": 21.0737,
+          "mean_absolute_share_error_pp": 1.494,
+          "weighted_absolute_vote_error_pct": 42.1473
+        },
+        {
+          "contest": "president",
+          "field": "other_votes",
+          "vtd_observations": 1248,
+          "counties": 74,
+          "total_variation_pct": 20.8926,
+          "mean_absolute_share_error_pp": 2.035,
+          "weighted_absolute_vote_error_pct": 41.7852
+        },
+        {
+          "contest": "president",
+          "field": "rep_votes",
+          "vtd_observations": 1272,
+          "counties": 74,
+          "total_variation_pct": 20.9565,
+          "mean_absolute_share_error_pp": 1.5186,
+          "weighted_absolute_vote_error_pct": 41.9129
+        },
+        {
+          "contest": "us_senate",
+          "field": "dem_votes",
+          "vtd_observations": 1271,
+          "counties": 74,
+          "total_variation_pct": 21.9457,
+          "mean_absolute_share_error_pp": 1.5054,
+          "weighted_absolute_vote_error_pct": 43.8915
+        },
+        {
+          "contest": "us_senate",
+          "field": "other_votes",
+          "vtd_observations": 1267,
+          "counties": 74,
+          "total_variation_pct": 18.8644,
+          "mean_absolute_share_error_pp": 1.7199,
+          "weighted_absolute_vote_error_pct": 37.7288
+        },
+        {
+          "contest": "us_senate",
+          "field": "rep_votes",
+          "vtd_observations": 1272,
+          "counties": 74,
+          "total_variation_pct": 20.4119,
+          "mean_absolute_share_error_pp": 1.4816,
+          "weighted_absolute_vote_error_pct": 40.8237
+        }
+      ]
+    },
+    {
+      "scheme": "race_specific_cvap_out_of_county_cv",
+      "vtd_observations": 7601,
+      "counties": 74,
+      "total_variation_pct": 16.4831,
+      "mean_absolute_share_error_pp": 1.5356,
+      "by_contest_field": [
+        {
+          "contest": "president",
+          "field": "dem_votes",
+          "vtd_observations": 1271,
+          "counties": 74,
+          "total_variation_pct": 17.2868,
+          "mean_absolute_share_error_pp": 1.4604,
+          "weighted_absolute_vote_error_pct": 34.5736
+        },
+        {
+          "contest": "president",
+          "field": "other_votes",
+          "vtd_observations": 1248,
+          "counties": 74,
+          "total_variation_pct": 19.0724,
+          "mean_absolute_share_error_pp": 1.9302,
+          "weighted_absolute_vote_error_pct": 38.1449
+        },
+        {
+          "contest": "president",
+          "field": "rep_votes",
+          "vtd_observations": 1272,
+          "counties": 74,
+          "total_variation_pct": 15.9381,
+          "mean_absolute_share_error_pp": 1.316,
+          "weighted_absolute_vote_error_pct": 31.8762
+        },
+        {
+          "contest": "us_senate",
+          "field": "dem_votes",
+          "vtd_observations": 1271,
+          "counties": 74,
+          "total_variation_pct": 16.9134,
+          "mean_absolute_share_error_pp": 1.5,
+          "weighted_absolute_vote_error_pct": 33.8268
+        },
+        {
+          "contest": "us_senate",
+          "field": "other_votes",
+          "vtd_observations": 1267,
+          "counties": 74,
+          "total_variation_pct": 18.9845,
+          "mean_absolute_share_error_pp": 1.7109,
+          "weighted_absolute_vote_error_pct": 37.969
+        },
+        {
+          "contest": "us_senate",
+          "field": "rep_votes",
+          "vtd_observations": 1272,
+          "counties": 74,
+          "total_variation_pct": 15.9207,
+          "mean_absolute_share_error_pp": 1.304,
+          "weighted_absolute_vote_error_pct": 31.8413
+        }
+      ]
+    }
+  ]
+}

@@ -11,11 +11,14 @@ from collections import defaultdict
 from pathlib import Path
 
 import geopandas as gpd
+import numpy as np
 import pandas as pd
 import pyogrio
 
 
 FIELDS = ("dem_votes", "rep_votes", "other_votes")
+CVAP_SOURCE_FIELDS = ("CVAP_TOT24", "CVAP_WHT24", "CVAP_BLA24", "CVAP_HSP24")
+CVAP_FEATURES = ("CVAP_WHT24", "CVAP_BLA24", "CVAP_HSP24", "CVAP_OTH24")
 CONTEST_OFFICES = {
     "President": "president",
     "United States Senate": "us_senate",
@@ -151,7 +154,9 @@ def precinct_to_vtd10(data_dir: Path, crosswalk_data_dir: Path) -> tuple[pd.Data
     return frame, county_map
 
 
-def load_modified_vap(data_dir: Path) -> pd.DataFrame:
+def load_allocation_weights(
+    data_dir: Path, weight_scheme: str, cvap_csv: Path | None
+) -> pd.DataFrame:
     import zipfile
 
     path = data_dir / "tn_2016_gen_2020_blocks.zip"
@@ -163,19 +168,96 @@ def load_modified_vap(data_dir: Path) -> pd.DataFrame:
     frame["GEOID20"] = frame["GEOID20"].astype(str).str.zfill(15)
     frame["COUNTYFP"] = frame["COUNTYFP"].astype(str).str.zfill(3)
     frame["VAP_MOD"] = pd.to_numeric(frame["VAP_MOD"], errors="coerce").fillna(0).clip(lower=0)
+    if weight_scheme == "cvap":
+        if cvap_csv is None:
+            raise RuntimeError("--cvap-csv is required for --weight-scheme cvap")
+        cvap = pd.read_csv(cvap_csv, usecols=["GEOID20", "CVAP_TOT24"], dtype={"GEOID20": str})
+        cvap["GEOID20"] = cvap["GEOID20"].str.zfill(15)
+        cvap["CVAP_TOT24"] = pd.to_numeric(cvap["CVAP_TOT24"], errors="coerce").fillna(0).clip(lower=0)
+        frame = frame.merge(cvap, on="GEOID20", how="left", validate="one_to_one")
+        if frame["CVAP_TOT24"].isna().any():
+            raise RuntimeError(f"CVAP file missed {int(frame['CVAP_TOT24'].isna().sum())} blocks")
+        frame["allocation_weight"] = frame["CVAP_TOT24"]
+    else:
+        frame["allocation_weight"] = frame["VAP_MOD"]
     return frame
 
 
-def allocate_votes_to_blocks(data_dir: Path, crosswalk_data_dir: Path) -> tuple[pd.DataFrame, dict]:
+def build_demographic_party_weights(
+    membership: pd.DataFrame,
+    votes: pd.DataFrame,
+    cvap_csv: Path,
+    block_counties: pd.DataFrame,
+) -> tuple[pd.DataFrame, dict]:
+    cvap = pd.read_csv(cvap_csv, usecols=["GEOID20", *CVAP_SOURCE_FIELDS], dtype={"GEOID20": str})
+    cvap["GEOID20"] = cvap["GEOID20"].str.zfill(15)
+    for column in CVAP_SOURCE_FIELDS:
+        cvap[column] = pd.to_numeric(cvap[column], errors="coerce").fillna(0).clip(lower=0)
+    cvap["CVAP_OTH24"] = (
+        cvap["CVAP_TOT24"] - cvap["CVAP_WHT24"] - cvap["CVAP_BLA24"] - cvap["CVAP_HSP24"]
+    ).clip(lower=0)
+    member_features = membership.merge(
+        cvap,
+        left_on="target_block_geoid",
+        right_on="GEOID20",
+        how="inner",
+        validate="many_to_one",
+    )
+    for column in CVAP_FEATURES:
+        member_features[column] *= member_features["vtd_membership"]
+    vtd_features = member_features.groupby(["COUNTYFP10", "VTDST10"], as_index=False)[list(CVAP_FEATURES)].sum()
+    training = votes[votes["confidence_tier"].eq("high")].merge(
+        vtd_features,
+        left_on=["COUNTYFP10", "src_vtdst"],
+        right_on=["COUNTYFP10", "VTDST10"],
+        how="inner",
+    )
+    aggregations = {"votes": ("votes", "sum")}
+    aggregations.update({column: (column, "first") for column in CVAP_FEATURES})
+    training = training.groupby(
+        ["COUNTYFP10", "src_vtdst", "contest", "field"], as_index=False
+    ).agg(**aggregations)
+
+    block_features = block_counties.merge(cvap, on="GEOID20", how="left", validate="one_to_one")
+    if block_features[list(CVAP_FEATURES)].isna().any().any():
+        raise RuntimeError("Race-specific CVAP file does not cover every allocation block")
+    outputs = []
+    coefficient_audit = {}
+    for (contest, field), frame in training.groupby(["contest", "field"]):
+        coefficients = np.linalg.lstsq(
+            frame[list(CVAP_FEATURES)].to_numpy(dtype=float),
+            frame["votes"].to_numpy(dtype=float),
+            rcond=1e-8,
+        )[0]
+        coefficients = np.clip(coefficients, 0, None)
+        predicted = np.maximum(
+            block_features[list(CVAP_FEATURES)].to_numpy(dtype=float) @ coefficients, 0
+        )
+        # Empty demographic cells retain a tiny total-CVAP proxy so a populated
+        # county/VTD cannot become mathematically unallocatable.
+        total_cvap = block_features[list(CVAP_FEATURES)].sum(axis=1).to_numpy(dtype=float)
+        predicted = np.where(predicted > 0, predicted, total_cvap)
+        out = block_features[["GEOID20", "COUNTYFP"]].copy()
+        out["contest"] = contest
+        out["field"] = field
+        out["allocation_weight"] = predicted
+        outputs.append(out)
+        coefficient_audit[f"{contest}:{field}"] = {
+            column: round(float(value), 8)
+            for column, value in zip(CVAP_FEATURES, coefficients)
+        }
+    return pd.concat(outputs, ignore_index=True), coefficient_audit
+
+
+def allocate_votes_to_blocks(
+    data_dir: Path,
+    crosswalk_data_dir: Path,
+    weight_scheme: str = "vap_mod",
+    cvap_csv: Path | None = None,
+) -> tuple[pd.DataFrame, dict]:
     membership, audit = build_target_block_to_vtd10(data_dir)
     precinct_map, county_map = precinct_to_vtd10(data_dir, crosswalk_data_dir)
-    vap = load_modified_vap(data_dir)
-    membership = membership.merge(
-        vap, left_on="target_block_geoid", right_on="GEOID20", how="right"
-    )
-    membership["COUNTYFP10"] = membership["COUNTYFP10"].fillna(membership["COUNTYFP"])
-    membership["vtd_membership"] = membership["vtd_membership"].fillna(1.0)
-    membership["allocation_mass"] = membership["VAP_MOD"] * membership["vtd_membership"]
+    base_blocks = load_allocation_weights(data_dir, "vap_mod", None)
 
     election = pd.read_csv(data_dir / "20121106__tn__general__precinct.csv")
     election = election[election["office"].isin(CONTEST_OFFICES)].copy()
@@ -194,16 +276,44 @@ def allocate_votes_to_blocks(data_dir: Path, crosswalk_data_dir: Path) -> tuple[
         validate="many_to_one",
     )
     votes["source_vote_id"] = range(len(votes))
+    coefficient_audit = None
+    if weight_scheme == "cvap_demographic":
+        if cvap_csv is None:
+            raise RuntimeError("--cvap-csv is required for demographic CVAP")
+        block_weights, coefficient_audit = build_demographic_party_weights(
+            membership,
+            votes,
+            cvap_csv,
+            base_blocks[["GEOID20", "COUNTYFP"]],
+        )
+    else:
+        block_weights = load_allocation_weights(data_dir, weight_scheme, cvap_csv)[
+            ["GEOID20", "COUNTYFP", "allocation_weight"]
+        ]
+    membership = membership.merge(
+        block_weights, left_on="target_block_geoid", right_on="GEOID20", how="right"
+    )
+    membership["COUNTYFP10"] = membership["COUNTYFP10"].fillna(membership["COUNTYFP"])
+    membership["vtd_membership"] = membership["vtd_membership"].fillna(1.0)
+    membership["allocation_mass"] = membership["allocation_weight"] * membership["vtd_membership"]
     geographic = votes[votes["src_vtdst"].notna()].copy()
     non_geo = votes[votes["src_vtdst"].isna()].copy()
 
     block_rows = membership[[
-        "GEOID20", "COUNTYFP10", "VTDST10", "allocation_mass", "vtd_membership", "VAP_MOD"
+        column for column in (
+            "GEOID20", "COUNTYFP10", "VTDST10", "contest", "field",
+            "allocation_mass", "vtd_membership"
+        ) if column in membership.columns
     ]].copy()
+    geo_keys_left = ["COUNTYFP10", "src_vtdst"]
+    geo_keys_right = ["COUNTYFP10", "VTDST10"]
+    if weight_scheme == "cvap_demographic":
+        geo_keys_left += ["contest", "field"]
+        geo_keys_right += ["contest", "field"]
     geo_join = geographic.merge(
         block_rows,
-        left_on=["COUNTYFP10", "src_vtdst"],
-        right_on=["COUNTYFP10", "VTDST10"],
+        left_on=geo_keys_left,
+        right_on=geo_keys_right,
         how="left",
     )
     geo_mass = geo_join.groupby("source_vote_id")["allocation_mass"].transform("sum")
@@ -221,13 +331,22 @@ def allocate_votes_to_blocks(data_dir: Path, crosswalk_data_dir: Path) -> tuple[
 
     fallback = pd.concat([non_geo, failed_geo], ignore_index=True)
     fallback["COUNTYFP10"] = fallback["county_norm"].map(county_map)
-    county_blocks = vap[["GEOID20", "COUNTYFP", "VAP_MOD"]].copy()
-    county_blocks["county_mass"] = county_blocks.groupby("COUNTYFP")["VAP_MOD"].transform("sum")
-    county_blocks["county_count"] = county_blocks.groupby("COUNTYFP")["GEOID20"].transform("count")
-    county_blocks["county_share"] = (county_blocks["VAP_MOD"] / county_blocks["county_mass"]).where(
+    county_blocks = block_weights.copy()
+    county_group = ["COUNTYFP"]
+    fallback_keys_left = ["COUNTYFP10"]
+    fallback_keys_right = ["COUNTYFP"]
+    if weight_scheme == "cvap_demographic":
+        county_group += ["contest", "field"]
+        fallback_keys_left += ["contest", "field"]
+        fallback_keys_right += ["contest", "field"]
+    county_blocks["county_mass"] = county_blocks.groupby(county_group)["allocation_weight"].transform("sum")
+    county_blocks["county_count"] = county_blocks.groupby(county_group)["GEOID20"].transform("count")
+    county_blocks["county_share"] = (county_blocks["allocation_weight"] / county_blocks["county_mass"]).where(
         county_blocks["county_mass"] > 0, 1.0 / county_blocks["county_count"]
     )
-    non_join = fallback.merge(county_blocks, left_on="COUNTYFP10", right_on="COUNTYFP", how="left")
+    non_join = fallback.merge(
+        county_blocks, left_on=fallback_keys_left, right_on=fallback_keys_right, how="left"
+    )
     if non_join["GEOID20"].isna().any():
         missing = sorted(non_join.loc[non_join["GEOID20"].isna(), "county_norm"].unique())
         raise RuntimeError(f"County fallback has no 2020 blocks for: {missing}")
@@ -247,6 +366,9 @@ def allocate_votes_to_blocks(data_dir: Path, crosswalk_data_dir: Path) -> tuple[
     if (deltas.abs() > 1e-6).any():
         raise RuntimeError(f"Vote allocation failed conservation check: {deltas.to_dict()}")
     audit.update({
+        "weight_scheme": weight_scheme,
+        "cvap_source": str(cvap_csv) if cvap_csv else None,
+        "demographic_coefficients": coefficient_audit,
         "source_precinct_labels": int(votes[["county_norm", "from_precinct_norm"]].drop_duplicates().shape[0]),
         "geographic_vote_rows": int(len(geographic)),
         "countywide_non_geographic_vote_rows": int(len(non_geo)),
@@ -286,13 +408,19 @@ def main() -> None:
     parser.add_argument("--data-dir", type=Path, required=True)
     parser.add_argument("--published-data-dir", type=Path, required=True)
     parser.add_argument("--output-dir", type=Path, required=True)
+    parser.add_argument(
+        "--weight-scheme", choices=("vap_mod", "cvap", "cvap_demographic"), default="vap_mod"
+    )
+    parser.add_argument("--cvap-csv", type=Path)
     args = parser.parse_args()
     args.output_dir.mkdir(parents=True, exist_ok=True)
 
     sys.path.insert(0, str((Path(__file__).parent).resolve()))
     from build_tn_legislative_from_blocks import current_plan_assignment
 
-    allocated, audit = allocate_votes_to_blocks(args.data_dir, args.published_data_dir)
+    allocated, audit = allocate_votes_to_blocks(
+        args.data_dir, args.published_data_dir, args.weight_scheme, args.cvap_csv
+    )
     specs = (
         ("state_house", 2022, "district_contests"),
         ("state_senate", 2022, "district_contests"),
@@ -339,8 +467,14 @@ def main() -> None:
                 "source_precinct_results": "20121106__tn__general__precinct.csv",
                 "source_geography": "2010 Census VTD",
                 "block_crosswalk": "NHGIS 2010 block to 2020 block",
-                "disaggregator": "RDH VAP_MOD from Tennessee 2016 2020-block file",
-                "non_geographic_method": "county modified-VAP allocation",
+                "disaggregator": (
+                    "party-specific model trained on high-confidence 2012 VTDs using RDH 2020-2024 race/ethnicity CVAP"
+                    if args.weight_scheme == "cvap_demographic"
+                    else "RDH 2020-2024 ACS CVAP_TOT24 disaggregated to 2020 blocks"
+                    if args.weight_scheme == "cvap"
+                    else "RDH VAP_MOD from Tennessee 2016 2020-block file"
+                ),
+                "non_geographic_method": f"county-constrained {args.weight_scheme} allocation",
                 "reconciliation": "party-specific certified statewide largest remainder",
                 "target_lines_year": lines_year,
                 "assignment_audit": assignment_audit,
@@ -369,7 +503,11 @@ def main() -> None:
                 "largest_changes": sorted(deltas, key=lambda row: abs(row["change_pp"]), reverse=True)[:12],
             })
 
-    report = {"method": "2012 NHGIS block-crosswalk modified-VAP pilot", "allocation_audit": audit, "comparisons": comparisons}
+    report = {
+        "method": f"2012 NHGIS block-crosswalk {args.weight_scheme} pilot",
+        "allocation_audit": audit,
+        "comparisons": comparisons,
+    }
     (args.output_dir / "pilot_report.json").write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
     print(json.dumps(report, indent=2))
 
