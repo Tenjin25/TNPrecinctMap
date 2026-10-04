@@ -346,7 +346,10 @@ def load_2016_proxy_block_membership(
         return " ".join(replacements.get(token, token) for token in value.split())
 
     hamilton_labels = {}
-    stable_code_labels = {"RUTHERFORD": {}, "WASHINGTON": {}, "WILLIAMSON": {}}
+    stable_code_labels = {
+        "DAVIDSON": {}, "RUTHERFORD": {}, "WASHINGTON": {}, "WILLIAMSON": {}
+    }
+    stable_name_labels = {"SHELBY": {}}
     if election_csv is not None and election_csv.exists():
         election_labels = pd.read_csv(
             election_csv, usecols=["county", "precinct", "office"]
@@ -363,7 +366,10 @@ def load_2016_proxy_block_membership(
         for county, lookup in stable_code_labels.items():
             labels = all_labels[all_labels["county"].map(norm_county).eq(county)]["precinct"].map(norm_text)
             for label in labels.unique():
-                if county in {"RUTHERFORD", "WILLIAMSON"}:
+                if county == "DAVIDSON":
+                    match = re.match(r"^(\d{2})\s+(\d+)$", label)
+                    code = f"{match.group(1)} {int(match.group(2))}" if match else ""
+                elif county in {"RUTHERFORD", "WILLIAMSON"}:
                     match = re.match(r"^(\d+)\s+(\d+)$", label)
                     code = f"{int(match.group(1))} {int(match.group(2))}" if match else ""
                 else:
@@ -371,11 +377,11 @@ def load_2016_proxy_block_membership(
                     code = str(int(match.group(1))) if match else ""
                 if code:
                     lookup[code] = label
+        for county, lookup in stable_name_labels.items():
+            labels = all_labels[all_labels["county"].map(norm_county).eq(county)]["precinct"].map(norm_text)
+            for label in labels.unique():
+                lookup[label] = label
 
-    davidson_codes = {
-        "25 3", "26 2", "18 4", "28 2", "07 6", "16 1", "03 3",
-        "20 1", "14 4", "18 5", "23 5", "19 6", "12 5",
-    }
     sullivan_codes = {
         # Only the eight codes still unresolved after official polling-place/VTD
         # matches; retain the 17 high-confidence official matches above.
@@ -434,8 +440,9 @@ def load_2016_proxy_block_membership(
         if row.COUNTYFP == "037":
             match = re.search(r"(\d{2})\s+(\d+)$", row.precinct_id)
             code = f"{match.group(1)} {match.group(2)}" if match else ""
-            if code in davidson_codes:
-                target = ("DAVIDSON", code)
+            label = stable_code_labels["DAVIDSON"].get(code)
+            if label:
+                target = ("DAVIDSON", label)
         elif row.COUNTYFP == "163":
             match = re.search(r"(\d{1,2}[A-Z])$", row.precinct_id)
             code = match.group(1) if match else ""
@@ -465,6 +472,11 @@ def load_2016_proxy_block_membership(
             code = match.group(1) if match else ""
             if code in montgomery_labels:
                 target = ("MONTGOMERY", montgomery_labels[code])
+        elif row.COUNTYFP == "157":
+            label_key = re.sub(r"^\d+\s+", "", row.precinct_id)
+            label = stable_name_labels["SHELBY"].get(label_key)
+            if label:
+                target = ("SHELBY", label)
         elif row.COUNTYFP in {"149", "187"}:
             county = "RUTHERFORD" if row.COUNTYFP == "149" else "WILLIAMSON"
             match = re.match(r"^\d+\s+(\d+)\s+(\d+)\s+", row.precinct_id)

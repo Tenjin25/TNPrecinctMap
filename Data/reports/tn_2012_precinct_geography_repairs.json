@@ -1,5 +1,5 @@
 {
-  "status": "pilot_only_not_published",
+  "status": "published_in_review_branch_pending_deployment",
   "purpose": "Document the 2012 precinct-geography repairs used by the NHGIS block-disaggregation pilot.",
   "sources": {
     "montgomery_precinct_gis": "https://gis.mcgtn.org/arcgis/rest/services/VotingPrecincts/MapServer/0",
@@ -62,14 +62,14 @@
     }
   },
   "stable_2016_block_proxy_pilot": {
-    "status": "optional_medium_confidence_not_published",
+    "status": "published_in_review_branch_with_medium_confidence_label",
     "method": "Use the supplied VEST/RDH 2016-on-2020-block file only where a normal election-day precinct retained the same distinctive code or name from 2012 through 2016.",
-    "precincts": 361,
+    "precincts": 662,
     "counties": {
       "davidson": {
-        "precincts": 13,
-        "presidential_votes_removed_from_fallback": 10528,
-        "fallback_before": 17352,
+        "precincts": 160,
+        "presidential_votes_assigned_by_proxy": 238049,
+        "fallback_before": 244873,
         "fallback_after": 6824
       },
       "hamilton": {
@@ -128,6 +128,11 @@
         "match_basis": "Seven polling-place identities persist. West Hills/Parkview Baptist and Courthouse/McKnight Center remain historical because their continuity is not explicit.",
         "house_92_us_senate_change_before_proxy_pp": -10.7635,
         "house_92_us_senate_change_after_proxy_pp": -8.8098
+      },
+      "shelby": {
+        "precincts": 154,
+        "presidential_votes_assigned_by_proxy": 293596,
+        "match_basis": "Exact normalized 2012 precinct names that persist in the 2016 VEST/RDH block file; renamed or consolidated labels retain their historical geometry or constrained fallback."
       }
     },
     "comparison_to_live": {
@@ -135,8 +140,8 @@
       "state_house_president_flip": null,
       "state_house_us_senate_max_change_pp": 28.1875,
       "state_house_us_senate_flip": "80",
-      "state_senate_president_max_change_pp": 8.6777,
-      "state_senate_us_senate_max_change_pp": 10.6737
+      "state_senate_president_max_change_pp": 4.2171,
+      "state_senate_us_senate_max_change_pp": 4.2545
     },
     "excluded_buckets": [
       "Davidson safety precinct",
@@ -148,7 +153,7 @@
     ]
   },
   "house_ballot_constrained_fallback_pilot": {
-    "status": "implemented_in_pilot_not_published",
+    "status": "published_in_review_branch",
     "method": "Allocate each fallback bucket among 2012 State House districts in proportion to that bucket's State House votes, then distribute within each old-plan district using block VAP.",
     "old_plan_assignment_source": "Data/BlockAssign_ST47_TN.zip:BlockAssign_ST47_TN_SLDL.txt",
     "constrained_president_and_senate_rows": 923,
@@ -171,14 +176,14 @@
     }
   },
   "near_whole_county_residual_rule": {
-    "status": "implemented_for_state_house_and_state_senate_not_published",
+    "status": "published_in_review_branch_for_state_house_and_state_senate",
     "threshold": 0.999,
     "measure": "2020-block VAP_MOD share of each county in its dominant current-plan district",
     "method": "Estimate only votes in non-dominant district slivers, subtract them from each certified county-party total, and assign the exact residual to the dominant district.",
     "result": "The audit found 142 chamber-specific county/dominant-district pairs meeting the threshold. Every adjustment delta was zero because the existing source allocation already conserves certified totals independently within each county; the rule therefore validates and documents those whole-county assignments without changing votes."
   },
   "hamilton_hybrid_early_vote_pilot": {
-    "status": "implemented_in_pilot_not_published",
+    "status": "published_in_review_branch",
     "method": "For Hamilton non-geographic buckets, iterative proportional fitting preserves each bucket's certified presidential or U.S. Senate party totals and its 2012 State House ballot totals by old district. Stable ordinary precincts supply old-district partisan priors; the fitted old-district totals are then distributed to blocks within that district.",
     "groups": 14,
     "ordinary_reference_votes": 202515,
@@ -191,6 +196,32 @@
       "30": {"live": 24.7417, "pre_hybrid": 15.98, "hybrid": 25.1285}
     },
     "finding": "The hybrid moves all five Hamilton House presidential margins toward the published results except HD28, where it passes the published D+58.63 to D+63.73. This confirms that equal-party allocation of early votes was the main Hamilton distortion. Senate-plan effects are small because current SD10 and SD11 each combine several old House districts."
+  },
+  "hamilton_sensitivity_and_2016_validation": {
+    "status": "passed_with_estimation_caveat",
+    "total_cvap_max_house_difference_from_vap_pp": 1.1504,
+    "demographic_cvap_largest_hamilton_difference": "HD28; presidential D+69.2649 versus VAP D+63.7328",
+    "2016_direct_block_rebuild_matches_published": true,
+    "2016_hamilton_house_president_margins": {
+      "26": 30.68,
+      "27": 29.5945,
+      "28": -56.7879,
+      "29": 38.3597,
+      "30": 25.1722
+    },
+    "finding": "The VAP Hamilton hybrid is stable against total CVAP and its five-district partisan pattern closely resembles the independently block-disaggregated 2016 election. Race-specific CVAP is treated as a sensitivity bound rather than the publication weight."
+  },
+  "davidson_shelby_exact_proxy_extension": {
+    "status": "published_in_review_branch",
+    "davidson_exact_precincts": 160,
+    "davidson_presidential_votes": 238049,
+    "davidson_remaining_non_geographic_presidential_votes": 6824,
+    "shelby_exact_precincts": 154,
+    "shelby_presidential_votes": 293596,
+    "sd31_president_margin_live": 39.1184,
+    "sd31_president_margin_repaired": 41.7771,
+    "sd31_us_senate_margin_live": 52.2736,
+    "sd31_us_senate_margin_repaired": 55.3105
   },
   "publication_blockers": [
     "Fallback votes outside Hamilton are ballot-constrained to the 2012 House plan, but the district shares use State House votes as a turnout proxy rather than presidential ballot counts.",
