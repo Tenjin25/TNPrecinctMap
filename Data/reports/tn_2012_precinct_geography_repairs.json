@@ -64,7 +64,7 @@
   "stable_2016_block_proxy_pilot": {
     "status": "optional_medium_confidence_not_published",
     "method": "Use the supplied VEST/RDH 2016-on-2020-block file only where a normal election-day precinct retained the same distinctive code or name from 2012 through 2016.",
-    "precincts": 109,
+    "precincts": 354,
     "counties": {
       "davidson": {
         "precincts": 13,
@@ -73,11 +73,11 @@
         "fallback_after": 6824
       },
       "hamilton": {
-        "precincts": 2,
-        "labels": ["Signal Mountain 1", "Signal Mountain 2"],
-        "presidential_votes_removed_from_fallback": 2652,
+        "precincts": 123,
+        "presidential_votes_assigned_by_proxy": 70880,
         "fallback_before": 41528,
-        "fallback_after": 38876
+        "fallback_after": 38876,
+        "match_basis": "All ordinary 2012 precinct names match unique 2016 names after expanding only E, N, and Mtn abbreviations; seven new 2016 precincts are excluded."
       },
       "sullivan": {
         "precincts": 8,
@@ -86,11 +86,11 @@
         "fallback_after": 0
       },
       "washington": {
-        "precincts": 2,
-        "labels": ["09 B C CITY", "30 GRACE"],
-        "presidential_votes_removed_from_fallback": 3623,
+        "precincts": 40,
+        "presidential_votes_assigned_by_proxy": 46376,
         "fallback_before": 8260,
-        "fallback_after": 4637
+        "fallback_after": 3211,
+        "match_basis": "All 40 ordinary precinct numbers persist; Early/Absentee remains ballot-constrained fallback."
       },
       "madison": {
         "precincts": 33,
@@ -111,10 +111,20 @@
         "precincts": 29,
         "presidential_votes_assigned_by_proxy": 55584,
         "match_basis": "Every 2012 precinct code persists in the 2016 VEST/RDH block file; suffix-level block footprints replace the earlier grouped-leading-number VTD unions."
+      },
+      "rutherford": {
+        "precincts": 46,
+        "presidential_votes_assigned_by_proxy": 98848,
+        "match_basis": "All 46 2012 precinct codes persist in the 2016 VEST/RDH block file; four new/cross-county 2016 records are excluded."
+      },
+      "williamson": {
+        "precincts": 40,
+        "presidential_votes_assigned_by_proxy": 96225,
+        "match_basis": "All 40 2012 precinct codes persist in the 2016 VEST/RDH block file; three new 2016 precincts are excluded."
       }
     },
     "comparison_to_live": {
-      "state_house_president_max_change_pp": 21.2079,
+      "state_house_president_max_change_pp": 19.977,
       "state_house_president_flip": null,
       "state_house_us_senate_max_change_pp": 20.1296,
       "state_house_us_senate_flip": "80",
@@ -134,7 +144,7 @@
     "status": "implemented_in_pilot_not_published",
     "method": "Allocate each fallback bucket among 2012 State House districts in proportion to that bucket's State House votes, then distribute within each old-plan district using block VAP.",
     "old_plan_assignment_source": "Data/BlockAssign_ST47_TN.zip:BlockAssign_ST47_TN_SLDL.txt",
-    "constrained_president_and_senate_rows": 971,
+    "constrained_president_and_senate_rows": 929,
     "unconstrained_rows": 0,
     "statewide_vote_conservation": true,
     "sensitivity_findings": {
@@ -157,6 +167,6 @@
     "Fallback votes are now ballot-constrained to the 2012 House plan, but the district shares use State House votes as a turnout proxy rather than presidential ballot counts.",
     "The largest presidential House change remains concentrated in Hamilton-area district 28; most unresolved Hamilton votes are non-geographic early, absentee, military, nursing-home, or provisional totals.",
     "Historical Davidson precinct polygons for the new 2012 precinct labels have not been recovered.",
-    "Publishing now would introduce House margin changes as large as 21.2079 percentage points for president and 20.1296 points for U.S. Senate."
+    "Publishing now would introduce House margin changes as large as 19.977 percentage points for president and 20.1296 points for U.S. Senate."
   ]
 }

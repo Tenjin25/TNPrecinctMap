@@ -316,7 +316,9 @@ def precinct_to_vtd10(data_dir: Path, crosswalk_data_dir: Path) -> tuple[pd.Data
     return frame, county_map
 
 
-def load_2016_proxy_block_membership(proxy_zip: Path | None) -> pd.DataFrame:
+def load_2016_proxy_block_membership(
+    proxy_zip: Path | None, election_csv: Path | None = None
+) -> pd.DataFrame:
     """Load conservative 2016 block proxies for unresolved 2012 precincts.
 
     These labels are present in both election vintages with the same precinct code
@@ -337,6 +339,38 @@ def load_2016_proxy_block_membership(proxy_zip: Path | None) -> pd.DataFrame:
     blocks["COUNTYFP"] = blocks["COUNTYFP"].astype(str).str.zfill(3)
     blocks["GEOID20"] = blocks["GEOID20"].astype(str).str.zfill(15)
     blocks["precinct_id"] = blocks["PRECINCTID"].map(norm_text)
+
+    def hamilton_name(value: str) -> str:
+        value = re.sub(r"^\d+\s+", "", norm_text(value))
+        replacements = {"E": "EAST", "N": "NORTH", "MTN": "MOUNTAIN"}
+        return " ".join(replacements.get(token, token) for token in value.split())
+
+    hamilton_labels = {}
+    stable_code_labels = {"RUTHERFORD": {}, "WASHINGTON": {}, "WILLIAMSON": {}}
+    if election_csv is not None and election_csv.exists():
+        election_labels = pd.read_csv(
+            election_csv, usecols=["county", "precinct", "office"]
+        )
+        election_labels = election_labels[
+            election_labels["county"].map(norm_county).eq("HAMILTON")
+            & election_labels["office"].eq("President")
+            & election_labels["precinct"].astype(str).str.match(r"^\d")
+        ]
+        for label in election_labels["precinct"].map(norm_text).unique():
+            hamilton_labels[hamilton_name(label)] = label
+        all_labels = pd.read_csv(election_csv, usecols=["county", "precinct", "office"])
+        all_labels = all_labels[all_labels["office"].eq("President")]
+        for county, lookup in stable_code_labels.items():
+            labels = all_labels[all_labels["county"].map(norm_county).eq(county)]["precinct"].map(norm_text)
+            for label in labels.unique():
+                if county in {"RUTHERFORD", "WILLIAMSON"}:
+                    match = re.match(r"^(\d+)\s+(\d+)$", label)
+                    code = f"{int(match.group(1))} {int(match.group(2))}" if match else ""
+                else:
+                    match = re.match(r"^(\d+)", label)
+                    code = str(int(match.group(1))) if match else ""
+                if code:
+                    lookup[code] = label
 
     davidson_codes = {
         "25 3", "26 2", "18 4", "28 2", "07 6", "16 1", "03 3",
@@ -400,6 +434,10 @@ def load_2016_proxy_block_membership(proxy_zip: Path | None) -> pd.DataFrame:
             code = match.group(1) if match else ""
             if code in sullivan_codes:
                 target = ("SULLIVAN", code)
+        elif row.COUNTYFP == "065":
+            label = hamilton_labels.get(hamilton_name(row.precinct_id))
+            if label:
+                target = ("HAMILTON", label)
         elif row.COUNTYFP == "113":
             match = re.search(r"^\d+\s+(\d{1,2})\s+(\d+)\s+", row.precinct_id)
             code = f"{int(match.group(1))} {int(match.group(2))}" if match else ""
@@ -420,6 +458,19 @@ def load_2016_proxy_block_membership(proxy_zip: Path | None) -> pd.DataFrame:
             code = match.group(1) if match else ""
             if code in montgomery_labels:
                 target = ("MONTGOMERY", montgomery_labels[code])
+        elif row.COUNTYFP in {"149", "187"}:
+            county = "RUTHERFORD" if row.COUNTYFP == "149" else "WILLIAMSON"
+            match = re.match(r"^\d+\s+(\d+)\s+(\d+)\s+", row.precinct_id)
+            code = f"{int(match.group(1))} {int(match.group(2))}" if match else ""
+            label = stable_code_labels[county].get(code)
+            if label:
+                target = (county, label)
+        elif row.COUNTYFP == "179":
+            match = re.match(r"^\d+\s+(\d+)\s+", row.precinct_id)
+            code = str(int(match.group(1))) if match else ""
+            label = stable_code_labels["WASHINGTON"].get(code)
+            if label:
+                target = ("WASHINGTON", label)
         if target:
             rows.append({
                 "county_norm": target[0],
@@ -592,7 +643,9 @@ def allocate_votes_to_blocks(
         ["county_norm", "from_precinct_norm", "contest", "field"], as_index=False
     )["votes"].sum()
     source_vote_rows["source_vote_id"] = range(len(source_vote_rows))
-    direct_membership = load_2016_proxy_block_membership(proxy_block_zip)
+    direct_membership = load_2016_proxy_block_membership(
+        proxy_block_zip, data_dir / "20121106__tn__general__precinct.csv"
+    )
     direct_keys = direct_membership[["county_norm", "from_precinct_norm"]].drop_duplicates()
     direct_votes = source_vote_rows.merge(
         direct_keys, on=["county_norm", "from_precinct_norm"], how="inner"
@@ -863,7 +916,13 @@ def main() -> None:
             source_joined = source_allocated.merge(
                 assignment, on="GEOID20", how="inner", validate="many_to_one"
             )
-            for target_district, target_contest in (("75", "president"), ("80", "us_senate")):
+            sensitivity_targets = (
+                ("6", "president"), ("13", "president"), ("28", "president"),
+                ("61", "president"), ("65", "president"), ("75", "president"),
+                ("28", "us_senate"), ("30", "us_senate"), ("61", "us_senate"),
+                ("80", "us_senate"), ("92", "us_senate"),
+            )
+            for target_district, target_contest in sensitivity_targets:
                 focus = source_joined[
                     source_joined["district"].eq(target_district)
                     & source_joined["contest"].eq(target_contest)
@@ -984,6 +1043,9 @@ def main() -> None:
     }
     (args.output_dir / "pilot_report.json").write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
     (args.output_dir / "state_house_75_80_source_attribution.json").write_text(
+        json.dumps(sensitivity_attribution, indent=2) + "\n", encoding="utf-8"
+    )
+    (args.output_dir / "state_house_sensitivity_source_attribution.json").write_text(
         json.dumps(sensitivity_attribution, indent=2) + "\n", encoding="utf-8"
     )
     print(json.dumps(report, indent=2))
