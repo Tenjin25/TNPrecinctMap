@@ -315,6 +315,67 @@ def precinct_to_vtd10(data_dir: Path, crosswalk_data_dir: Path) -> tuple[pd.Data
     return frame, county_map
 
 
+def load_2016_proxy_block_membership(proxy_zip: Path | None) -> pd.DataFrame:
+    """Load conservative 2016 block proxies for unresolved 2012 precincts.
+
+    These labels are present in both election vintages with the same precinct code
+    (or, for Hamilton/Washington, the same distinctive name).  The proxy is kept
+    separate from the VTD10 crosswalk so its medium-confidence vintage assumption
+    remains visible in the audit.
+    """
+    columns = ["county_norm", "from_precinct_norm", "GEOID20", "proxy_source"]
+    if proxy_zip is None or not proxy_zip.exists():
+        return pd.DataFrame(columns=columns)
+    shp_name = proxy_zip.stem + ".shp"
+    uri = f"/vsizip/{proxy_zip.as_posix()}/{shp_name}"
+    blocks = pyogrio.read_dataframe(
+        uri,
+        columns=["GEOID20", "COUNTYFP", "PRECINCTID"],
+        read_geometry=False,
+    )
+    blocks["COUNTYFP"] = blocks["COUNTYFP"].astype(str).str.zfill(3)
+    blocks["GEOID20"] = blocks["GEOID20"].astype(str).str.zfill(15)
+    blocks["precinct_id"] = blocks["PRECINCTID"].map(norm_text)
+
+    davidson_codes = {
+        "25 3", "26 2", "18 4", "28 2", "07 6", "16 1", "03 3",
+        "20 1", "14 4", "18 5", "23 5", "19 6", "12 5",
+    }
+    sullivan_codes = {
+        "1A", "2A", "2B", "2C", "3A", "4A", "4B", "4C", "5A", "5B",
+        "5C", "6A", "6B", "6C", "7A", "7B", "7C", "8A", "8B", "9A",
+        "9B", "10A", "10B", "11A", "11B",
+    }
+    exact_ids = {
+        ("065", "3365 SIGNAL MOUNTAIN 1"): ("HAMILTON", "207 SIGNAL MTN 1"),
+        ("065", "3402 SIGNAL MOUNTAIN 2"): ("HAMILTON", "200 SIGNAL MTN 2"),
+        ("179", "9334 9 BOONES CREEK CITY"): ("WASHINGTON", "09 B C CITY"),
+        ("179", "9317 30 GRACE FELLOWSHIP CHURCH"): ("WASHINGTON", "30 GRACE"),
+    }
+    rows = []
+    for row in blocks.itertuples(index=False):
+        key = (row.COUNTYFP, row.precinct_id)
+        target = exact_ids.get(key)
+        if row.COUNTYFP == "037":
+            match = re.search(r"(\d{2})\s+(\d+)$", row.precinct_id)
+            code = f"{match.group(1)} {match.group(2)}" if match else ""
+            if code in davidson_codes:
+                target = ("DAVIDSON", code)
+        elif row.COUNTYFP == "163":
+            match = re.search(r"(\d{1,2}[A-Z])$", row.precinct_id)
+            code = match.group(1) if match else ""
+            if code in sullivan_codes:
+                target = ("SULLIVAN", code)
+        if target:
+            rows.append({
+                "county_norm": target[0],
+                "from_precinct_norm": target[1],
+                "GEOID20": row.GEOID20,
+                "proxy_source": "vest_rdh_2016_block_assignment",
+            })
+    return pd.DataFrame(rows, columns=columns).drop_duplicates()
+
+
 def load_allocation_weights(
     data_dir: Path, weight_scheme: str, cvap_csv: Path | None
 ) -> pd.DataFrame:
@@ -416,6 +477,7 @@ def allocate_votes_to_blocks(
     crosswalk_data_dir: Path,
     weight_scheme: str = "vap_mod",
     cvap_csv: Path | None = None,
+    proxy_block_zip: Path | None = None,
 ) -> tuple[pd.DataFrame, dict]:
     membership, audit = build_target_block_to_vtd10(data_dir)
     precinct_map, county_map = precinct_to_vtd10(data_dir, crosswalk_data_dir)
@@ -428,15 +490,38 @@ def allocate_votes_to_blocks(
     election["contest"] = election["office"].map(CONTEST_OFFICES)
     election["field"] = election["party"].map(party_field)
     election["votes"] = pd.to_numeric(election["votes"], errors="coerce").fillna(0)
-    votes = election.groupby(
+    source_vote_rows = election.groupby(
         ["county_norm", "from_precinct_norm", "contest", "field"], as_index=False
     )["votes"].sum()
-    votes["source_vote_id"] = range(len(votes))
-    votes = votes.merge(
+    source_vote_rows["source_vote_id"] = range(len(source_vote_rows))
+    direct_membership = load_2016_proxy_block_membership(proxy_block_zip)
+    direct_keys = direct_membership[["county_norm", "from_precinct_norm"]].drop_duplicates()
+    direct_votes = source_vote_rows.merge(
+        direct_keys, on=["county_norm", "from_precinct_norm"], how="inner"
+    ).merge(
+        direct_membership,
+        on=["county_norm", "from_precinct_norm"],
+        how="inner",
+        validate="many_to_many",
+    )
+    direct_ids = set(direct_votes["source_vote_id"])
+    votes = source_vote_rows[~source_vote_rows["source_vote_id"].isin(direct_ids)].merge(
         precinct_map,
         on=["county_norm", "from_precinct_norm"],
         how="left",
         validate="many_to_many",
+    )
+    mapped_audit_rows = votes.drop_duplicates("source_vote_id")[
+        ["source_vote_id", "confidence_tier"]
+    ]
+    direct_audit_rows = direct_votes.drop_duplicates("source_vote_id")[["source_vote_id"]].assign(
+        confidence_tier="medium"
+    )
+    confidence_rows = source_vote_rows.merge(
+        pd.concat([mapped_audit_rows, direct_audit_rows], ignore_index=True),
+        on="source_vote_id",
+        how="left",
+        validate="one_to_one",
     )
     coefficient_audit = None
     if weight_scheme == "cvap_demographic":
@@ -458,6 +543,17 @@ def allocate_votes_to_blocks(
     membership["COUNTYFP10"] = membership["COUNTYFP10"].fillna(membership["COUNTYFP"])
     membership["vtd_membership"] = membership["vtd_membership"].fillna(1.0)
     membership["allocation_mass"] = membership["allocation_weight"] * membership["vtd_membership"]
+
+    direct_weight_keys = ["GEOID20"]
+    if weight_scheme == "cvap_demographic":
+        direct_weight_keys += ["contest", "field"]
+    direct_join = direct_votes.merge(block_weights, on=direct_weight_keys, how="left")
+    direct_mass = direct_join.groupby("source_vote_id")["allocation_weight"].transform("sum")
+    direct_count = direct_join.groupby("source_vote_id")["GEOID20"].transform("count")
+    direct_join["share"] = (direct_join["allocation_weight"] / direct_mass).where(
+        direct_mass > 0, 1.0 / direct_count
+    )
+    direct_join["block_votes"] = direct_join["votes"] * direct_join["share"]
     geographic = votes[votes["src_vtdst"].notna()].copy()
     non_geo = votes[votes["src_vtdst"].isna()].copy()
 
@@ -518,13 +614,13 @@ def allocate_votes_to_blocks(
 
     allocated = pd.concat(
         [
+            direct_join[["GEOID20", "contest", "field", "block_votes"]],
             geo_join[["GEOID20", "contest", "field", "block_votes"]],
             non_join[["GEOID20", "contest", "field", "block_votes"]],
         ],
         ignore_index=True,
     )
     allocated = allocated.groupby(["GEOID20", "contest", "field"], as_index=False)["block_votes"].sum()
-    source_vote_rows = votes.drop_duplicates("source_vote_id")
     source_totals = source_vote_rows.groupby(["contest", "field"])["votes"].sum().sort_index()
     allocated_totals = allocated.groupby(["contest", "field"])["block_votes"].sum().sort_index()
     deltas = source_totals.subtract(allocated_totals, fill_value=0)
@@ -538,10 +634,20 @@ def allocate_votes_to_blocks(
         "geographic_vote_rows": int(len(geographic)),
         "countywide_non_geographic_vote_rows": int(len(non_geo)),
         "mapped_vote_rows_requiring_county_fallback": int(len(failed_geo)),
+        "direct_2016_proxy_vote_rows": int(direct_votes["source_vote_id"].nunique()),
+        "direct_2016_proxy_precincts": int(
+            direct_votes[["county_norm", "from_precinct_norm"]].drop_duplicates().shape[0]
+        ),
+        "direct_2016_proxy_votes_by_county": {
+            f"{contest}:{county}": round(float(value), 6)
+            for (contest, county), value in direct_votes.drop_duplicates("source_vote_id").groupby(
+                ["contest", "county_norm"]
+            )["votes"].sum().items()
+        },
         "confidence_vote_totals": {
             f"{contest}:{tier}": round(float(value), 6)
-            for (contest, tier), value in source_vote_rows.assign(
-                confidence_tier=source_vote_rows["confidence_tier"].fillna("unmatched")
+            for (contest, tier), value in confidence_rows.assign(
+                confidence_tier=confidence_rows["confidence_tier"].fillna("unmatched")
             ).groupby(["contest", "confidence_tier"])["votes"].sum().items()
         },
         "fallback_vote_totals_by_county": {
@@ -577,6 +683,11 @@ def main() -> None:
         "--weight-scheme", choices=("vap_mod", "cvap", "cvap_demographic"), default="vap_mod"
     )
     parser.add_argument("--cvap-csv", type=Path)
+    parser.add_argument(
+        "--proxy-block-zip",
+        type=Path,
+        help="Optional RDH/VEST 2016-on-2020-block ZIP for conservative stable-precinct proxies.",
+    )
     args = parser.parse_args()
     args.output_dir.mkdir(parents=True, exist_ok=True)
 
@@ -584,7 +695,11 @@ def main() -> None:
     from build_tn_legislative_from_blocks import current_plan_assignment
 
     allocated, audit = allocate_votes_to_blocks(
-        args.data_dir, args.published_data_dir, args.weight_scheme, args.cvap_csv
+        args.data_dir,
+        args.published_data_dir,
+        args.weight_scheme,
+        args.cvap_csv,
+        args.proxy_block_zip,
     )
     specs = (
         ("state_house", 2022, "district_contests"),

@@ -7,7 +7,9 @@
     "hamilton_2012_election_archive": "https://elect.hamiltontn.gov/ElectionArchives/2012.aspx",
     "hamilton_precinct_gis": "https://mapsdev.hamiltontn.gov/hcwa03/rest/services/Live_Political2/MapServer/0",
     "sullivan_precinct_directory": "https://www.scelect.org/2026votingprecincts.pdf",
-    "washington_precinct_directory": "https://www.wcecoffice.com/precincts-numbered/"
+    "washington_precinct_directory": "https://www.wcecoffice.com/precincts-numbered/",
+    "davidson_2012_precinct_line_approval": "https://www.nashville.gov/sites/default/files/2021-10/election-120510m.pdf",
+    "vest_rdh_2016_block_file": "Data/tn_2016_gen_2020_blocks.zip (local source file supplied by the project owner)"
   },
   "implemented_repairs": {
     "montgomery": "2012 labels are assigned to the union of all 2010 Census VTDs sharing the same leading precinct number.",
@@ -58,6 +60,55 @@
       "rep_votes": 1506443,
       "other_votes": 109152
     }
+  },
+  "stable_2016_block_proxy_pilot": {
+    "status": "optional_medium_confidence_not_published",
+    "method": "Use the supplied VEST/RDH 2016-on-2020-block file only where a normal election-day precinct retained the same distinctive code or name from 2012 through 2016.",
+    "precincts": 42,
+    "counties": {
+      "davidson": {
+        "precincts": 13,
+        "presidential_votes_removed_from_fallback": 10528,
+        "fallback_before": 17352,
+        "fallback_after": 6824
+      },
+      "hamilton": {
+        "precincts": 2,
+        "labels": ["Signal Mountain 1", "Signal Mountain 2"],
+        "presidential_votes_removed_from_fallback": 2652,
+        "fallback_before": 41528,
+        "fallback_after": 38876
+      },
+      "sullivan": {
+        "precincts": 25,
+        "presidential_votes_assigned_by_proxy": 59887,
+        "fallback_before": 19320,
+        "fallback_after": 0
+      },
+      "washington": {
+        "precincts": 2,
+        "labels": ["09 B C CITY", "30 GRACE"],
+        "presidential_votes_removed_from_fallback": 3623,
+        "fallback_before": 8260,
+        "fallback_after": 4637
+      }
+    },
+    "comparison_to_live": {
+      "state_house_president_max_change_pp": 19.3769,
+      "state_house_president_flip": "75",
+      "state_house_us_senate_max_change_pp": 23.5567,
+      "state_house_us_senate_flip": "80",
+      "state_senate_president_max_change_pp": 8.9599,
+      "state_senate_us_senate_max_change_pp": 10.6737
+    },
+    "excluded_buckets": [
+      "Davidson safety precinct",
+      "early voting totals",
+      "absentee totals",
+      "military/overseas totals",
+      "nursing-home totals",
+      "provisional totals"
+    ]
   },
   "publication_blockers": [
     "State House still has 154541 presidential votes allocated by countywide fallback inside split counties.",
