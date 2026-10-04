@@ -1,0 +1,68 @@
+{
+  "status": "pilot_only_not_published",
+  "purpose": "Document the 2012 precinct-geography repairs used by the NHGIS block-disaggregation pilot.",
+  "sources": {
+    "montgomery_precinct_gis": "https://gis.mcgtn.org/arcgis/rest/services/VotingPrecincts/MapServer/0",
+    "montgomery_2012_election_archive": "https://montgomerytn.gov/election/archive",
+    "hamilton_2012_election_archive": "https://elect.hamiltontn.gov/ElectionArchives/2012.aspx",
+    "hamilton_precinct_gis": "https://mapsdev.hamiltontn.gov/hcwa03/rest/services/Live_Political2/MapServer/0",
+    "sullivan_precinct_directory": "https://www.scelect.org/2026votingprecincts.pdf",
+    "washington_precinct_directory": "https://www.wcecoffice.com/precincts-numbered/"
+  },
+  "implemented_repairs": {
+    "montgomery": "2012 labels are assigned to the union of all 2010 Census VTDs sharing the same leading precinct number.",
+    "wilson": "2012 labels are assigned to the union of all 2010 Census VTDs sharing the same leading precinct number; this replaces an erroneous trailing-token match for precinct 9-3.",
+    "sullivan": "17 lettered precinct codes with unambiguous polling-place matches are assigned to 2010 VTDs; nine uncertain renamed locations remain on county fallback.",
+    "washington": "12 unique polling-place or city-side matches are assigned to 2010 VTDs; unresolved labels remain on county fallback.",
+    "knox": "Five exact polling-place/code matches are assigned to single VTDs or explicit VTD unions.",
+    "madison": "Eight exact 2010 VTD-code and polling-place matches are assigned to VTDs."
+  },
+  "presidential_fallback_votes_before_after": {
+    "montgomery": [49751, 0],
+    "sullivan": [59887, 19320],
+    "washington": [20392, 8260],
+    "knox": [9710, 3],
+    "madison": [13525, 884],
+    "wilson": [14922, 1140]
+  },
+  "split_district_fallback_before_after": {
+    "state_house": {
+      "before_share_pct": 11.92,
+      "after_votes": 154541,
+      "after_share_pct": 6.29
+    },
+    "state_senate": {
+      "before_share_pct": 6.41,
+      "after_votes": 84246,
+      "after_share_pct": 3.43
+    },
+    "congressional_2022_lines": {
+      "before_share_pct": 2.0,
+      "after_votes": 35305,
+      "after_share_pct": 1.44
+    },
+    "congressional_2026_lines": {
+      "before_share_pct": 3.87,
+      "after_votes": 45456,
+      "after_share_pct": 1.85
+    }
+  },
+  "statewide_vote_conservation": {
+    "president": {
+      "dem_votes": 960709,
+      "rep_votes": 1462330,
+      "other_votes": 35538
+    },
+    "us_senate": {
+      "dem_votes": 705882,
+      "rep_votes": 1506443,
+      "other_votes": 109152
+    }
+  },
+  "publication_blockers": [
+    "State House still has 154541 presidential votes allocated by countywide fallback inside split counties.",
+    "The largest House changes are concentrated in Hamilton-area districts 27-30; most unresolved Hamilton votes are non-geographic early, absentee, military, nursing-home, or provisional totals.",
+    "Historical Davidson precinct polygons for the new 2012 precinct labels have not been recovered.",
+    "Publishing now would introduce House margin changes as large as 21.5432 percentage points for president and 24.1614 points for U.S. Senate."
+  ]
+}

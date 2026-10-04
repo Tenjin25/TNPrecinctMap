@@ -151,6 +151,167 @@ def precinct_to_vtd10(data_dir: Path, crosswalk_data_dir: Path) -> tuple[pd.Data
         for row in counties.itertuples()
     }
     frame["COUNTYFP10"] = frame["county_norm"].map(county_map)
+    # Montgomery County's official GIS precinct service exposes the same numbered
+    # 2010 VTDs as Census, while the 2012 result export subdivides those numbers
+    # with A/B suffixes and polling-place labels.  Represent each 2012 label as the
+    # union of every Census VTD sharing its leading number (not a forced single VTD).
+    election = pd.read_csv(data_dir / "20121106__tn__general__precinct.csv", usecols=["county", "precinct"])
+    montgomery_labels = election[election["county"].map(norm_county).eq("MONTGOMERY")]["precinct"].map(norm_text).unique()
+    vtd10 = pyogrio.read_dataframe(
+        data_dir / "tn_vtd_2010_census_county_merged.geojson",
+        columns=["COUNTYFP10", "VTDST10", "NAME10"],
+        read_geometry=False,
+    )
+    montgomery_vtds = vtd10[vtd10["COUNTYFP10"].astype(str).str.zfill(3).eq("125")].copy()
+    montgomery_vtds["primary"] = montgomery_vtds["NAME10"].astype(str).str.extract(r"^(\d+)")[0].map(
+        lambda value: str(int(value)) if pd.notna(value) else ""
+    )
+    additions = []
+    for label in montgomery_labels:
+        match = re.match(r"^(\d+)", label)
+        if not match:
+            continue
+        primary = str(int(match.group(1)))
+        for row in montgomery_vtds[montgomery_vtds["primary"].eq(primary)].itertuples():
+            additions.append({
+                "county_norm": "MONTGOMERY",
+                "from_precinct_norm": label,
+                "src_vtdst": str(row.VTDST10).zfill(4),
+                "match_method": "montgomery_official_numeric_vtd_group",
+                "confidence_tier": "high",
+                "COUNTYFP10": "125",
+            })
+    if additions:
+        frame = frame[frame["county_norm"].ne("MONTGOMERY")]
+        frame = pd.concat([frame, pd.DataFrame(additions)], ignore_index=True)
+    wilson_labels = election[election["county"].map(norm_county).eq("WILSON")]["precinct"].map(norm_text).unique()
+    wilson_vtds = vtd10[vtd10["COUNTYFP10"].astype(str).str.zfill(3).eq("189")].copy()
+    wilson_vtds["primary"] = wilson_vtds["NAME10"].astype(str).str.extract(r"^(\d+)")[0].map(
+        lambda value: str(int(value)) if pd.notna(value) else ""
+    )
+    wilson_additions = []
+    for label in wilson_labels:
+        match = re.match(r"^(\d+)", label)
+        if not match:
+            continue
+        primary = str(int(match.group(1)))
+        for row in wilson_vtds[wilson_vtds["primary"].eq(primary)].itertuples():
+            wilson_additions.append({
+                "county_norm": "WILSON",
+                "from_precinct_norm": label,
+                "src_vtdst": str(row.VTDST10).zfill(4),
+                "match_method": "wilson_numeric_vtd_group",
+                "confidence_tier": "high",
+                "COUNTYFP10": "189",
+            })
+    if wilson_additions:
+        frame = frame[frame["county_norm"].ne("WILSON")]
+        frame = pd.concat([frame, pd.DataFrame(wilson_additions)], ignore_index=True)
+    # Sullivan's official precinct list retains the 2012 lettered codes and names
+    # polling locations that unambiguously match these 2010 Census VTD names.
+    # Keep uncertain renamed locations on county fallback rather than guessing.
+    sullivan_aliases = {
+        "1A": "8696",   # South Holston Ruritan
+        "2B": "8700",   # Holston View School
+        "2C": "8712",   # Avoca School
+        "3A": "8864",   # Anderson School
+        "4A": "8720",   # Sullivan County Offices
+        "4B": "8884",   # East High School
+        "4C": "8740",   # Buffalo Ruritan
+        "5C": "8708",   # Hickory Tree Firehall
+        "6A": "8732",   # Indian Springs School
+        "6C": "8728",   # Central Heights School
+        "7A": "8828",   # Colonial Heights
+        "7B": "8832",   # Miller Perry
+        "7C": "8868",   # Holston School
+        "9B": "8800",   # Clouds Bend UMC
+        "10A": "8768",  # Traders Village
+        "11A": "8788",  # Civic Auditorium
+        "11B": "8792",  # Kingsport core
+    }
+    frame = frame[
+        ~(
+            frame["county_norm"].eq("SULLIVAN")
+            & frame["from_precinct_norm"].isin(sullivan_aliases)
+        )
+    ]
+    sullivan_rows = [{
+        "county_norm": "SULLIVAN",
+        "from_precinct_norm": label,
+        "src_vtdst": vtd,
+        "match_method": "sullivan_official_polling_place_vtd",
+        "confidence_tier": "high",
+        "COUNTYFP10": "163",
+    } for label, vtd in sullivan_aliases.items()]
+    frame = pd.concat([frame, pd.DataFrame(sullivan_rows)], ignore_index=True)
+    # Washington County's official precinct directory and linked maps preserve
+    # these polling-place names.  Match only unique names/city-side variants.
+    washington_aliases = {
+        "03 GRAY EAST": "9516",
+        "05 B C EAST": "9508",
+        "07 GRAY WEST": "9518",
+        "08 B C WEST": "9515",
+        "10 LAKERIDGE": "9513",
+        "14 BOWMANTOWN": "9540",
+        "19 LEESBURG": "9536",
+        "21 ASBURY": "9464",
+        "23 WOODLAND": "9468",
+        "31 CHEROKEE CITY": "9432",
+        "35 LIMESTONE": "9544",
+        "39 CONKLIN": "9396",
+    }
+    frame = frame[
+        ~(
+            frame["county_norm"].eq("WASHINGTON")
+            & frame["from_precinct_norm"].isin(washington_aliases)
+        )
+    ]
+    washington_rows = [{
+        "county_norm": "WASHINGTON",
+        "from_precinct_norm": label,
+        "src_vtdst": vtd,
+        "match_method": "washington_official_polling_place_vtd",
+        "confidence_tier": "high",
+        "COUNTYFP10": "179",
+    } for label, vtd in washington_aliases.items()]
+    frame = pd.concat([frame, pd.DataFrame(washington_rows)], ignore_index=True)
+    grouped_aliases = {
+        # Knox: exact polling-place matches, plus code-defined VTD unions.
+        ("KNOX", "72 DANTE"): ("4732", "4733", "4734"),
+        ("KNOX", "16 LARRY COX SR CTR"): ("4552", "4556"),
+        ("KNOX", "25 SOUTH KNOX CC"): ("4828",),
+        ("KNOX", "11 CENTRAL UMC"): ("4544",),
+        ("KNOX", "34 FOUNT CITY LIB"): ("4748",),
+        # Madison: exact 2010 VTD code and polling-place matches.
+        ("MADISON", "10 3 NORTH SIDE"): ("5520",),
+        ("MADISON", "4 1 MASONIC LODGE"): ("5476",),
+        ("MADISON", "10 2 NORTH EAST"): ("5532",),
+        ("MADISON", "3 3 J CIL"): ("5528",),
+        ("MADISON", "1 2 MT MORIAH"): ("5442",),
+        ("MADISON", "7 2 TN TECH CTR"): ("5502",),
+        ("MADISON", "8 2 BROWNS"): ("5512",),
+        ("MADISON", "3 2 OLD BELLS RD 10"): ("5462",),
+    }
+    grouped_keys = set(grouped_aliases)
+    frame = frame[
+        ~frame.apply(
+            lambda row: (row["county_norm"], row["from_precinct_norm"]) in grouped_keys,
+            axis=1,
+        )
+    ]
+    grouped_rows = []
+    for (county, label), vtds in grouped_aliases.items():
+        fips = county_map[county]
+        for vtd in vtds:
+            grouped_rows.append({
+                "county_norm": county,
+                "from_precinct_norm": label,
+                "src_vtdst": vtd,
+                "match_method": "official_code_polling_place_vtd_group",
+                "confidence_tier": "high",
+                "COUNTYFP10": fips,
+            })
+    frame = pd.concat([frame, pd.DataFrame(grouped_rows)], ignore_index=True)
     return frame, county_map
 
 
@@ -206,7 +367,8 @@ def build_demographic_party_weights(
     for column in CVAP_FEATURES:
         member_features[column] *= member_features["vtd_membership"]
     vtd_features = member_features.groupby(["COUNTYFP10", "VTDST10"], as_index=False)[list(CVAP_FEATURES)].sum()
-    training = votes[votes["confidence_tier"].eq("high")].merge(
+    unique_training = votes[~votes["source_vote_id"].duplicated(keep=False)]
+    training = unique_training[unique_training["confidence_tier"].eq("high")].merge(
         vtd_features,
         left_on=["COUNTYFP10", "src_vtdst"],
         right_on=["COUNTYFP10", "VTDST10"],
@@ -269,13 +431,13 @@ def allocate_votes_to_blocks(
     votes = election.groupby(
         ["county_norm", "from_precinct_norm", "contest", "field"], as_index=False
     )["votes"].sum()
+    votes["source_vote_id"] = range(len(votes))
     votes = votes.merge(
         precinct_map,
         on=["county_norm", "from_precinct_norm"],
         how="left",
-        validate="many_to_one",
+        validate="many_to_many",
     )
-    votes["source_vote_id"] = range(len(votes))
     coefficient_audit = None
     if weight_scheme == "cvap_demographic":
         if cvap_csv is None:
@@ -320,7 +482,9 @@ def allocate_votes_to_blocks(
     geo_fallback = geo_join.groupby("source_vote_id")["vtd_membership"].transform("sum")
     successful_geo = geo_join[geo_join["GEOID20"].notna() & ((geo_mass > 0) | (geo_fallback > 0))].copy()
     failed_geo_ids = set(geographic["source_vote_id"]) - set(successful_geo["source_vote_id"])
-    failed_geo = geographic[geographic["source_vote_id"].isin(failed_geo_ids)].copy()
+    failed_geo = geographic[geographic["source_vote_id"].isin(failed_geo_ids)].drop_duplicates(
+        "source_vote_id"
+    ).copy()
     geo_join = successful_geo
     geo_mass = geo_join.groupby("source_vote_id")["allocation_mass"].transform("sum")
     geo_fallback = geo_join.groupby("source_vote_id")["vtd_membership"].transform("sum")
@@ -360,7 +524,8 @@ def allocate_votes_to_blocks(
         ignore_index=True,
     )
     allocated = allocated.groupby(["GEOID20", "contest", "field"], as_index=False)["block_votes"].sum()
-    source_totals = votes.groupby(["contest", "field"])["votes"].sum().sort_index()
+    source_vote_rows = votes.drop_duplicates("source_vote_id")
+    source_totals = source_vote_rows.groupby(["contest", "field"])["votes"].sum().sort_index()
     allocated_totals = allocated.groupby(["contest", "field"])["block_votes"].sum().sort_index()
     deltas = source_totals.subtract(allocated_totals, fill_value=0)
     if (deltas.abs() > 1e-6).any():
@@ -369,14 +534,14 @@ def allocate_votes_to_blocks(
         "weight_scheme": weight_scheme,
         "cvap_source": str(cvap_csv) if cvap_csv else None,
         "demographic_coefficients": coefficient_audit,
-        "source_precinct_labels": int(votes[["county_norm", "from_precinct_norm"]].drop_duplicates().shape[0]),
+        "source_precinct_labels": int(source_vote_rows[["county_norm", "from_precinct_norm"]].drop_duplicates().shape[0]),
         "geographic_vote_rows": int(len(geographic)),
         "countywide_non_geographic_vote_rows": int(len(non_geo)),
         "mapped_vote_rows_requiring_county_fallback": int(len(failed_geo)),
         "confidence_vote_totals": {
             f"{contest}:{tier}": round(float(value), 6)
-            for (contest, tier), value in votes.assign(
-                confidence_tier=votes["confidence_tier"].fillna("unmatched")
+            for (contest, tier), value in source_vote_rows.assign(
+                confidence_tier=source_vote_rows["confidence_tier"].fillna("unmatched")
             ).groupby(["contest", "confidence_tier"])["votes"].sum().items()
         },
         "fallback_vote_totals_by_county": {
@@ -386,7 +551,7 @@ def allocate_votes_to_blocks(
         "allocated_2020_blocks": int(allocated["GEOID20"].nunique()),
         "raw_source_totals": {
             f"{contest}:{field}": round(float(value), 6)
-            for (contest, field), value in votes.groupby(["contest", "field"])["votes"].sum().items()
+            for (contest, field), value in source_vote_rows.groupby(["contest", "field"])["votes"].sum().items()
         },
         "allocated_totals": {
             f"{contest}:{field}": round(float(value), 6)
