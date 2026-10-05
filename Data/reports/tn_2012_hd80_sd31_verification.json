@@ -1,0 +1,68 @@
+{
+  "status": "verified_no_result_revision_required",
+  "house_80": {
+    "official_source": "https://sharetngov.tnsosfiles.com/sos/election/results/2012-11/TNHousePrecinctTotals.pdf",
+    "official_2012_footprint": {
+      "state_house_votes": 17697,
+      "hardeman_precincts": 13,
+      "madison_precincts": 14,
+      "us_senate_votes_reconstructed_from_official_precinct_list": {
+        "dem_votes": 12091,
+        "rep_votes": 9704,
+        "other_votes": 947,
+        "total_votes": 22742,
+        "margin_pct": -10.496
+      }
+    },
+    "current_plan_vap_by_2012_house_district": {
+      "80": {"vap": 36406, "share": 0.771461},
+      "82": {"vap": 9418, "share": 0.199572},
+      "73": {"vap": 1367, "share": 0.028967}
+    },
+    "current_plan_vap_by_county": {
+      "Madison": 22559,
+      "Hardeman": 15214,
+      "Haywood": 9418
+    },
+    "repaired_us_senate_result": {
+      "dem_votes": 13000,
+      "rep_votes": 9266,
+      "other_votes": 913,
+      "total_votes": 23179,
+      "margin_pct": -16.1094
+    },
+    "finding": "The official 2012 HD80 footprint itself voted Democratic by 10.496 points for U.S. Senate. The current district retains 77.1461% of that footprint and adds 19.9572% from Democratic-leaning old HD82 in Haywood County. The repaired D+16.1094 result is geographically and electorally consistent; the former published R+4.0202 result is not."
+  },
+  "senate_31": {
+    "president": {
+      "raw_allocated_votes": 95672.102,
+      "stable_2016_block_proxy_votes": 83279.796,
+      "stable_share": 0.870452,
+      "historical_vtd_geometry_votes": 12392.306,
+      "historical_share": 0.129548,
+      "published_margin_pct": 39.1184,
+      "repaired_margin_pct": 41.7771
+    },
+    "us_senate": {
+      "raw_allocated_votes": 92487.719,
+      "stable_2016_block_proxy_votes": 80512.736,
+      "stable_share": 0.870525,
+      "historical_vtd_geometry_votes": 11974.983,
+      "historical_share": 0.129475,
+      "published_margin_pct": 52.2736,
+      "repaired_margin_pct": 55.3105
+    },
+    "largest_historical_sources": [
+      "Cordova 09",
+      "Germantown 01",
+      "Germantown 09",
+      "Memphis 44-2",
+      "Memphis 55-1",
+      "Memphis 81-2",
+      "Memphis 44-3",
+      "Memphis 56-3",
+      "Memphis 56-1"
+    ],
+    "finding": "About 87.05% of SD31's allocated vote is supported by exact 2012-to-2016 precinct block continuity. Most of the remaining historical-geometry vote comes from Republican-leaning eastern Shelby precincts, so the repaired movement toward Republicans is directionally supported rather than caused by an unrestricted county fallback."
+  }
+}

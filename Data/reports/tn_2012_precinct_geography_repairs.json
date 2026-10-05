@@ -5,6 +5,7 @@
     "montgomery_precinct_gis": "https://gis.mcgtn.org/arcgis/rest/services/VotingPrecincts/MapServer/0",
     "montgomery_2012_election_archive": "https://montgomerytn.gov/election/archive",
     "hamilton_2012_election_archive": "https://elect.hamiltontn.gov/ElectionArchives/2012.aspx",
+    "tennessee_2012_house_precinct_totals": "https://sharetngov.tnsosfiles.com/sos/election/results/2012-11/TNHousePrecinctTotals.pdf",
     "hamilton_precinct_gis": "https://mapsdev.hamiltontn.gov/hcwa03/rest/services/Live_Political2/MapServer/0",
     "sullivan_precinct_directory": "https://www.scelect.org/2026votingprecincts.pdf",
     "washington_precinct_directory": "https://www.wcecoffice.com/precincts-numbered/",
@@ -222,6 +223,12 @@
     "sd31_president_margin_repaired": 41.7771,
     "sd31_us_senate_margin_live": 52.2736,
     "sd31_us_senate_margin_repaired": 55.3105
+  },
+  "hd80_sd31_independent_verification": {
+    "status": "verified_no_result_revision_required",
+    "report": "Data/reports/tn_2012_hd80_sd31_verification.json",
+    "hd80_finding": "The official 2012 HD80 precinct footprint voted D+10.496 for U.S. Senate. The current district retains 77.1461% of that footprint by VAP and adds Democratic-leaning Haywood geography, supporting the repaired D+16.1094 result over the former R+4.0202 result.",
+    "sd31_finding": "Exact 2012-to-2016 block proxies account for 87.0452% of presidential and 87.0525% of U.S. Senate raw allocated votes. The remaining historical VTD sources are concentrated in Republican-leaning eastern Shelby precincts, supporting the repaired Republican shift."
   },
   "publication_blockers": [
     "Fallback votes outside Hamilton are ballot-constrained to the 2012 House plan, but the district shares use State House votes as a turnout proxy rather than presidential ballot counts.",

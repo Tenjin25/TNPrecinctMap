@@ -1096,6 +1096,7 @@ def main() -> None:
     )
     comparisons = []
     sensitivity_attribution = []
+    shelby_sd31_attribution = []
     whole_county_audit = []
     for scope, lines_year, subdir in specs:
         assignment, assignment_audit = current_plan_assignment(
@@ -1154,6 +1155,45 @@ def main() -> None:
                         method: round(float(value), 3) for method, value in method_totals.items()
                     },
                     "top_sources": top_sources,
+                })
+        if scope == "state_senate" and lines_year == 2022:
+            for target_contest in CONTEST_OFFICES.values():
+                focus = source_joined[
+                    source_joined["district"].eq("31")
+                    & source_joined["contest"].eq(target_contest)
+                    & source_joined["county_norm"].eq("SHELBY")
+                ].copy()
+                pivot = focus.pivot_table(
+                    index=["from_precinct_norm", "allocation_method"],
+                    columns="field",
+                    values="block_votes",
+                    aggfunc="sum",
+                    fill_value=0,
+                ).reset_index()
+                for field in FIELDS:
+                    if field not in pivot:
+                        pivot[field] = 0.0
+                pivot["total_votes"] = pivot[list(FIELDS)].sum(axis=1)
+                pivot["margin"] = pivot["rep_votes"] - pivot["dem_votes"]
+                shelby_sd31_attribution.append({
+                    "contest": target_contest,
+                    "raw_allocated_votes": round(float(focus["block_votes"].sum()), 3),
+                    "allocation_method_votes": {
+                        method: round(float(value), 3)
+                        for method, value in focus.groupby("allocation_method")["block_votes"].sum().items()
+                    },
+                    "sources": [
+                        {
+                            "precinct": row["from_precinct_norm"],
+                            "allocation_method": row["allocation_method"],
+                            "dem_votes": round(float(row["dem_votes"]), 3),
+                            "rep_votes": round(float(row["rep_votes"]), 3),
+                            "other_votes": round(float(row["other_votes"]), 3),
+                            "total_votes": round(float(row["total_votes"]), 3),
+                            "margin": round(float(row["margin"]), 3),
+                        }
+                        for row in pivot.sort_values("total_votes", ascending=False).to_dict("records")
+                    ],
                 })
         for contest in CONTEST_OFFICES.values():
             template_path = args.published_data_dir / subdir / f"{scope}_{contest}_2012.json"
@@ -1250,6 +1290,7 @@ def main() -> None:
         "allocation_audit": audit,
         "comparisons": comparisons,
         "sensitivity_attribution": sensitivity_attribution,
+        "shelby_sd31_attribution": shelby_sd31_attribution,
         "near_whole_county_audit": whole_county_audit,
     }
     (args.output_dir / "pilot_report.json").write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
