@@ -198,6 +198,21 @@
     },
     "finding": "The hybrid moves all five Hamilton House presidential margins toward the published results except HD28, where it passes the published D+58.63 to D+63.73. This confirms that equal-party allocation of early votes was the main Hamilton distortion. Senate-plan effects are small because current SD10 and SD11 each combine several old House districts."
   },
+  "statewide_split_county_hybrid": {
+    "status": "published_in_review_branch",
+    "method": "Generalize Hamilton's iterative proportional fitting to every non-geographic bucket with State House ballot district shares. Each fit preserves the bucket's certified party totals and old-district ballot totals, while ordinary precincts provide county/district partisan priors.",
+    "groups": 313,
+    "unconstrained_rows": 0,
+    "statewide_vote_conservation": true,
+    "winner_changes_from_hamilton_only_hybrid": 0,
+    "maximum_additional_change_pp": {
+      "state_house_president": 1.171,
+      "state_house_us_senate": 1.1382,
+      "state_senate_president": 0.9249,
+      "state_senate_us_senate": 0.9453
+    },
+    "finding": "The additional effects are controlled and concentrated in Davidson's non-geographic Safety Precinct. HD80 and SD31 are unchanged."
+  },
   "hamilton_sensitivity_and_2016_validation": {
     "status": "passed_with_estimation_caveat",
     "total_cvap_max_house_difference_from_vap_pp": 1.1504,
@@ -230,10 +245,9 @@
     "hd80_finding": "The official 2012 HD80 precinct footprint voted D+10.496 for U.S. Senate. The current district retains 77.1461% of that footprint by VAP and adds Democratic-leaning Haywood geography, supporting the repaired D+16.1094 result over the former R+4.0202 result.",
     "sd31_finding": "Exact 2012-to-2016 block proxies account for 87.0452% of presidential and 87.0525% of U.S. Senate raw allocated votes. The remaining historical VTD sources are concentrated in Republican-leaning eastern Shelby precincts, supporting the repaired Republican shift."
   },
-  "publication_blockers": [
-    "Fallback votes outside Hamilton are ballot-constrained to the 2012 House plan, but the district shares use State House votes as a turnout proxy rather than presidential ballot counts.",
-    "Hamilton now uses a two-margin IPF hybrid for non-geographic votes, but its old-district partisan priors are estimates from ordinary precincts and should remain labeled estimated.",
-    "Historical Davidson precinct polygons for the new 2012 precinct labels have not been recovered.",
-    "Publishing now would introduce House margin changes as large as 13.4881 percentage points for president and 28.1875 points for U.S. Senate."
+  "remaining_limitations": [
+    "Split-county IPF uses State House ballot totals as district margins and ordinary precinct federal voting as partisan priors; these remain estimates rather than reported district-level federal totals.",
+    "Historical Davidson geometry for the non-geographic Safety Precinct does not exist; its 6,824 presidential votes are constrained by its reported House ballot composition instead.",
+    "Race-specific CVAP remains a sensitivity bound rather than the publication weight because it is less stable than VAP and total CVAP in Hamilton HD28."
   ]
 }

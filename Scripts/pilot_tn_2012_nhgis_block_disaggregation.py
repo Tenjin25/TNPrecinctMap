@@ -640,35 +640,34 @@ def build_demographic_party_weights(
     return pd.concat(outputs, ignore_index=True), coefficient_audit
 
 
-def hamilton_hybrid_district_shares(
+def split_county_hybrid_district_shares(
     constrained: pd.DataFrame,
     direct_join: pd.DataFrame,
     geo_join: pd.DataFrame,
     old_house_assignment: pd.DataFrame,
 ) -> tuple[pd.DataFrame, dict]:
-    """Differentiate Hamilton early-vote party shares while preserving ballot district totals."""
+    """Differentiate split-county fallback party shares while preserving ballot district totals."""
     reference = pd.concat([direct_join, geo_join], ignore_index=True)[
         ["GEOID20", "county_norm", "contest", "field", "block_votes"]
     ].merge(old_house_assignment, on="GEOID20", how="left")
-    reference = reference[
-        reference["county_norm"].eq("HAMILTON") & reference["old_house_district"].notna()
-    ]
+    reference = reference[reference["old_house_district"].notna()]
     priors = reference.groupby(
-        ["contest", "old_house_district", "field"], as_index=False
+        ["county_norm", "contest", "old_house_district", "field"], as_index=False
     )["block_votes"].sum()
     priors["district_total"] = priors.groupby(
-        ["contest", "old_house_district"]
+        ["county_norm", "contest", "old_house_district"]
     )["block_votes"].transform("sum")
     priors["party_rate"] = (priors["block_votes"] / priors["district_total"]).fillna(0)
     prior_lookup = {
-        (row.contest, row.old_house_district, row.field): float(row.party_rate)
+        (row.county_norm, row.contest, row.old_house_district, row.field): float(row.party_rate)
         for row in priors.itertuples(index=False)
     }
 
     output = constrained.copy()
     audit_groups = []
-    hamilton = output[output["county_norm"].eq("HAMILTON")]
-    for (precinct, contest), group in hamilton.groupby(["from_precinct_norm", "contest"]):
+    for (county, precinct, contest), group in output.groupby(
+        ["county_norm", "from_precinct_norm", "contest"]
+    ):
         row_targets = group.drop_duplicates("source_vote_id").set_index("field")["votes"].to_dict()
         district_shares = group.drop_duplicates("old_house_district").set_index(
             "old_house_district"
@@ -681,7 +680,7 @@ def hamilton_hybrid_district_shares(
         matrix = np.array([
             [
                 max(district_shares[district] * total, 0.0)
-                * max(prior_lookup.get((contest, district, field), 0.0), 1e-9)
+                * max(prior_lookup.get((county, contest, district, field), 0.0), 1e-9)
                 for district in districts
             ]
             for field in fields
@@ -699,7 +698,7 @@ def hamilton_hybrid_district_shares(
             target = row_targets[field]
             for district_index, district in enumerate(districts):
                 mask = (
-                    output["county_norm"].eq("HAMILTON")
+                    output["county_norm"].eq(county)
                     & output["from_precinct_norm"].eq(precinct)
                     & output["contest"].eq(contest)
                     & output["field"].eq(field)
@@ -707,13 +706,14 @@ def hamilton_hybrid_district_shares(
                 )
                 output.loc[mask, "district_share"] = matrix[field_index, district_index] / target if target else 0
         audit_groups.append({
+            "county": county,
             "precinct": precinct,
             "contest": contest,
             "votes": round(total, 3),
             "old_house_districts": districts,
         })
     return output, {
-        "method": "IPF preserving early-vote party totals and State House ballot district totals",
+        "method": "IPF preserving non-geographic bucket party totals and State House ballot district totals",
         "groups": audit_groups,
         "reference_votes": round(float(reference["block_votes"].sum()), 3),
     }
@@ -863,7 +863,7 @@ def allocate_votes_to_blocks(
     )
     constrained_ids = set(constrained["source_vote_id"])
     unconstrained = fallback[~fallback["source_vote_id"].isin(constrained_ids)].copy()
-    constrained, hamilton_hybrid_audit = hamilton_hybrid_district_shares(
+    constrained, split_county_hybrid_audit = split_county_hybrid_district_shares(
         constrained, direct_join, geo_join, old_house_assignment
     )
     constrained_keys_left = [*fallback_keys_left, "old_house_district"]
@@ -917,7 +917,7 @@ def allocate_votes_to_blocks(
         raise RuntimeError(f"Vote allocation failed conservation check: {deltas.to_dict()}")
     audit.update({
         "county_fips": county_map,
-        "hamilton_hybrid": hamilton_hybrid_audit,
+        "split_county_hybrid": split_county_hybrid_audit,
         "weight_scheme": weight_scheme,
         "cvap_source": str(cvap_csv) if cvap_csv else None,
         "demographic_coefficients": coefficient_audit,
@@ -1250,7 +1250,7 @@ def main() -> None:
                     else "RDH VAP_MOD from Tennessee 2016 2020-block file"
                 ),
                 "non_geographic_method": (
-                    f"2012 State House ballot-constrained {args.weight_scheme} allocation within the prior-plan district; Hamilton party/district margins fitted by IPF"
+                    f"2012 State House ballot-constrained {args.weight_scheme} allocation within the prior-plan district; split-county party/district margins fitted by IPF"
                 ),
                 "reconciliation": "party-specific certified statewide largest remainder",
                 "near_whole_county_rule": (

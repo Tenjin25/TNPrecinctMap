@@ -25,7 +25,7 @@
       "source_geography": "2010 Census VTD",
       "block_crosswalk": "NHGIS 2010 block to 2020 block",
       "disaggregator": "RDH VAP_MOD from Tennessee 2016 2020-block file",
-      "non_geographic_method": "2012 State House ballot-constrained vap_mod allocation within the prior-plan district; Hamilton party/district margins fitted by IPF",
+      "non_geographic_method": "2012 State House ballot-constrained vap_mod allocation within the prior-plan district; split-county party/district margins fitted by IPF",
       "reconciliation": "party-specific certified statewide largest remainder",
       "near_whole_county_rule": "certified county residual assigned to dominant legislative district at >= 99.9000% VAP overlap",
       "target_lines_year": 2022,
@@ -92,13 +92,13 @@
       },
       "5": {
         "dem_votes": 23392,
-        "rep_votes": 49339,
+        "rep_votes": 49340,
         "other_votes": 1378,
-        "total_votes": 74109,
+        "total_votes": 74110,
         "dem_candidate": "Barack Obama",
         "rep_candidate": "Mitt Romney",
-        "margin": 25947,
-        "margin_pct": 35.0119,
+        "margin": 25948,
+        "margin_pct": 35.0128,
         "winner": "REP"
       },
       "6": {
@@ -192,12 +192,12 @@
       "14": {
         "dem_votes": 23340,
         "rep_votes": 37332,
-        "other_votes": 1033,
-        "total_votes": 61705,
+        "other_votes": 1034,
+        "total_votes": 61706,
         "dem_candidate": "Barack Obama",
         "rep_candidate": "Mitt Romney",
         "margin": 13992,
-        "margin_pct": 22.6756,
+        "margin_pct": 22.6753,
         "winner": "REP"
       },
       "15": {
@@ -223,14 +223,14 @@
         "winner": "REP"
       },
       "17": {
-        "dem_votes": 25936,
-        "rep_votes": 46175,
-        "other_votes": 1031,
-        "total_votes": 73142,
+        "dem_votes": 25906,
+        "rep_votes": 46205,
+        "other_votes": 1030,
+        "total_votes": 73141,
         "dem_candidate": "Barack Obama",
         "rep_candidate": "Mitt Romney",
-        "margin": 20239,
-        "margin_pct": 27.6708,
+        "margin": 20299,
+        "margin_pct": 27.7532,
         "winner": "REP"
       },
       "18": {
@@ -245,36 +245,36 @@
         "winner": "REP"
       },
       "19": {
-        "dem_votes": 52553,
-        "rep_votes": 12056,
-        "other_votes": 802,
+        "dem_votes": 52857,
+        "rep_votes": 11755,
+        "other_votes": 799,
         "total_votes": 65411,
         "dem_candidate": "Barack Obama",
         "rep_candidate": "Mitt Romney",
-        "margin": -40497,
-        "margin_pct": -61.9116,
+        "margin": -41102,
+        "margin_pct": -62.8365,
         "winner": "DEM"
       },
       "20": {
-        "dem_votes": 43652,
-        "rep_votes": 50247,
-        "other_votes": 1689,
-        "total_votes": 95588,
+        "dem_votes": 43371,
+        "rep_votes": 50529,
+        "other_votes": 1687,
+        "total_votes": 95587,
         "dem_candidate": "Barack Obama",
         "rep_candidate": "Mitt Romney",
-        "margin": 6595,
-        "margin_pct": 6.8994,
+        "margin": 7158,
+        "margin_pct": 7.4885,
         "winner": "REP"
       },
       "21": {
-        "dem_votes": 35673,
-        "rep_votes": 25254,
-        "other_votes": 1305,
-        "total_votes": 62232,
+        "dem_votes": 35680,
+        "rep_votes": 25242,
+        "other_votes": 1309,
+        "total_votes": 62231,
         "dem_candidate": "Barack Obama",
         "rep_candidate": "Mitt Romney",
-        "margin": -10419,
-        "margin_pct": -16.7422,
+        "margin": -10438,
+        "margin_pct": -16.773,
         "winner": "DEM"
       },
       "22": {
@@ -357,12 +357,12 @@
       "29": {
         "dem_votes": 74833,
         "rep_votes": 11596,
-        "other_votes": 615,
-        "total_votes": 87044,
+        "other_votes": 616,
+        "total_votes": 87045,
         "dem_candidate": "Barack Obama",
         "rep_candidate": "Mitt Romney",
         "margin": -63237,
-        "margin_pct": -72.6495,
+        "margin_pct": -72.6486,
         "winner": "DEM"
       },
       "30": {
