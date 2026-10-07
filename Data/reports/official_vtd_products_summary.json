@@ -1,0 +1,194 @@
+{
+  "generated_by": "build_official_vtd_products.py",
+  "authoritative_source": "Tennessee Comptroller of the Treasury and county election commissions",
+  "nhgis_role": "historical block translation only",
+  "district_assignment_sources": [
+    "47_TN_SLDL22.txt",
+    "47_TN_SLDU22.txt",
+    "47_TN_CD118.txt",
+    "CD120_47.txt"
+  ],
+  "years": [
+    {
+      "year": 2008,
+      "layer": "VTD_2008_November_State_General",
+      "matched": 1857,
+      "unmatched": 394,
+      "non_geographic": 40,
+      "invalid_before": 0,
+      "repaired": 0,
+      "invalid_after": 0,
+      "empty_or_null_removed": 0,
+      "vintage": 2000,
+      "source_blocks": 182203,
+      "joined_blocks": 182198,
+      "unlinked_blocks": 27,
+      "features": 2168
+    },
+    {
+      "year": 2012,
+      "layer": "VTD_2012_November_State_General",
+      "matched": 1649,
+      "unmatched": 418,
+      "non_geographic": 32,
+      "invalid_before": 5,
+      "repaired": 5,
+      "invalid_after": 0,
+      "empty_or_null_removed": 0,
+      "vintage": 2010,
+      "source_blocks": 241758,
+      "joined_blocks": 241754,
+      "unlinked_blocks": 2792,
+      "features": 2068
+    },
+    {
+      "year": 2014,
+      "layer": "VTD_2014_November_State_General",
+      "matched": 1750,
+      "unmatched": 314,
+      "non_geographic": 8,
+      "invalid_before": 4,
+      "repaired": 4,
+      "invalid_after": 0,
+      "empty_or_null_removed": 0,
+      "vintage": 2010,
+      "source_blocks": 241758,
+      "joined_blocks": 241754,
+      "unlinked_blocks": 2792,
+      "features": 2050
+    },
+    {
+      "year": 2016,
+      "layer": "VTD_2016_November_State_General",
+      "matched": 1692,
+      "unmatched": 296,
+      "non_geographic": 34,
+      "invalid_before": 4,
+      "repaired": 4,
+      "invalid_after": 0,
+      "empty_or_null_removed": 0,
+      "vintage": 2010,
+      "source_blocks": 241758,
+      "joined_blocks": 241754,
+      "unlinked_blocks": 2792,
+      "features": 1979
+    },
+    {
+      "year": 2018,
+      "layer": "VTD_2018_November_State_General",
+      "matched": 1674,
+      "unmatched": 311,
+      "non_geographic": 3,
+      "invalid_before": 4,
+      "repaired": 4,
+      "invalid_after": 0,
+      "empty_or_null_removed": 0,
+      "vintage": 2010,
+      "source_blocks": 241758,
+      "joined_blocks": 241754,
+      "unlinked_blocks": 2792,
+      "features": 1959
+    },
+    {
+      "year": 2020,
+      "layer": "VTD_2020_November_State_General",
+      "matched": 1665,
+      "unmatched": 296,
+      "non_geographic": 4,
+      "invalid_before": 5,
+      "repaired": 5,
+      "invalid_after": 0,
+      "empty_or_null_removed": 0,
+      "vintage": 2020,
+      "source_blocks": 179717,
+      "joined_blocks": 179705,
+      "unlinked_blocks": 0,
+      "features": 1954
+    },
+    {
+      "year": 2022,
+      "layer": "VTD_2022_November_State_General",
+      "matched": 1161,
+      "unmatched": 688,
+      "non_geographic": 1,
+      "invalid_before": 2,
+      "repaired": 2,
+      "invalid_after": 0,
+      "empty_or_null_removed": 0,
+      "vintage": 2020,
+      "source_blocks": 179717,
+      "joined_blocks": 179717,
+      "unlinked_blocks": 0,
+      "features": 1835
+    },
+    {
+      "year": 2024,
+      "layer": "VTD_2024_November_State_General",
+      "matched": 1520,
+      "unmatched": 343,
+      "non_geographic": 1,
+      "invalid_before": 2,
+      "repaired": 2,
+      "invalid_after": 0,
+      "empty_or_null_removed": 0,
+      "vintage": 2020,
+      "source_blocks": 179717,
+      "joined_blocks": 179717,
+      "unlinked_blocks": 0,
+      "features": 1870
+    }
+  ],
+  "geometry_files": [
+    {
+      "year": 2008,
+      "file": "tn_official_vtd_2008.geojson",
+      "features": 2168,
+      "bytes": 12819497
+    },
+    {
+      "year": 2012,
+      "file": "tn_official_vtd_2012.geojson",
+      "features": 2068,
+      "bytes": 12288214
+    },
+    {
+      "year": 2014,
+      "file": "tn_official_vtd_2014.geojson",
+      "features": 2050,
+      "bytes": 12221276
+    },
+    {
+      "year": 2016,
+      "file": "tn_official_vtd_2016.geojson",
+      "features": 1979,
+      "bytes": 12085414
+    },
+    {
+      "year": 2018,
+      "file": "tn_official_vtd_2018.geojson",
+      "features": 1959,
+      "bytes": 11972759
+    },
+    {
+      "year": 2020,
+      "file": "tn_official_vtd_2020.geojson",
+      "features": 1954,
+      "bytes": 11957772
+    },
+    {
+      "year": 2022,
+      "file": "tn_official_vtd_2022.geojson",
+      "features": 1844,
+      "bytes": 11633474
+    },
+    {
+      "year": 2024,
+      "file": "tn_official_vtd_2024.geojson",
+      "features": 1879,
+      "bytes": 11672742
+    }
+  ],
+  "historical_contest_files": 14,
+  "direct_district_rows": 69682,
+  "lineage_rows": 19759
+}

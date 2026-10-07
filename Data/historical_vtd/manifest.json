@@ -1,0 +1,52 @@
+{
+  "files": [
+    {
+      "year": 2008,
+      "file": "tn_official_vtd_2008.geojson",
+      "features": 2168,
+      "bytes": 12819497
+    },
+    {
+      "year": 2012,
+      "file": "tn_official_vtd_2012.geojson",
+      "features": 2068,
+      "bytes": 12288214
+    },
+    {
+      "year": 2014,
+      "file": "tn_official_vtd_2014.geojson",
+      "features": 2050,
+      "bytes": 12221276
+    },
+    {
+      "year": 2016,
+      "file": "tn_official_vtd_2016.geojson",
+      "features": 1979,
+      "bytes": 12085414
+    },
+    {
+      "year": 2018,
+      "file": "tn_official_vtd_2018.geojson",
+      "features": 1959,
+      "bytes": 11972759
+    },
+    {
+      "year": 2020,
+      "file": "tn_official_vtd_2020.geojson",
+      "features": 1954,
+      "bytes": 11957772
+    },
+    {
+      "year": 2022,
+      "file": "tn_official_vtd_2022.geojson",
+      "features": 1844,
+      "bytes": 11633474
+    },
+    {
+      "year": 2024,
+      "file": "tn_official_vtd_2024.geojson",
+      "features": 1879,
+      "bytes": 11672742
+    }
+  ]
+}

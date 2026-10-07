@@ -45,19 +45,22 @@
         "2": 24.5236
       }
     },
-    "geographic_audit_method": "independent_county_constrained_spatial_precinct_overlay"
+    "geographic_audit_method": "independent_county_constrained_spatial_precinct_overlay",
+    "identical_bef_districts_synced": [
+      "1"
+    ]
   },
   "general": {
     "results": {
       "1": {
-        "dem_votes": 59136,
+        "dem_votes": 59135,
         "rep_votes": 121468,
         "other_votes": 3418,
-        "total_votes": 184022,
+        "total_votes": 184021,
         "dem_candidate": "Bob Clement",
         "rep_candidate": "Lamar Alexander",
-        "margin": 62332,
-        "margin_pct": 33.872,
+        "margin": 62333,
+        "margin_pct": 33.8728,
         "winner": "REP"
       },
       "2": {
@@ -105,14 +108,14 @@
         "winner": "DEM"
       },
       "6": {
-        "dem_votes": 120032,
+        "dem_votes": 120033,
         "rep_votes": 106066,
         "other_votes": 2824,
-        "total_votes": 228922,
+        "total_votes": 228923,
         "dem_candidate": "Bob Clement",
         "rep_candidate": "Lamar Alexander",
-        "margin": -13966,
-        "margin_pct": -6.1008,
+        "margin": -13967,
+        "margin_pct": -6.1012,
         "winner": "DEM"
       },
       "7": {

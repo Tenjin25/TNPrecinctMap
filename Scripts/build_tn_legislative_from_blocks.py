@@ -309,10 +309,23 @@ def main() -> None:
             }
             results = district_payload.get("general", {}).get("results", {})
             if args.scope == "congressional" and args.lines_year == 2026:
-                anchors = {district for district in ("1", "2") if district in results}
+                # The official CD118/CD120 BEFs show CD-01 is block-for-block
+                # identical. Anchor it to the corresponding 2022-line output so
+                # both modes cannot drift merely because they were built by
+                # different allocation passes. CD-02 is not an anchor: 15
+                # Campbell County blocks (POP20 290) genuinely change plans.
+                current_path = (
+                    args.published_data_dir / "district_contests" /
+                    f"{args.scope}_{contest_type}_{year}.json"
+                )
+                current_results = (
+                    load_json(current_path).get("general", {}).get("results", {})
+                    if current_path.exists() else {}
+                )
+                anchors = {"1"} if "1" in current_results else set()
                 for field in FIELDS:
                     anchor_votes = {
-                        district: int(results[district].get(field, 0) or 0)
+                        district: int(current_results[district].get(field, 0) or 0)
                         for district in anchors
                     }
                     remaining_target = targets[field] - sum(anchor_votes.values())
@@ -346,7 +359,8 @@ def main() -> None:
             district_payload["meta"]["block_disaggregated_source"] = source_path.name
             district_payload["meta"]["block_assignment_audit"] = assignment_diagnostic
             if args.scope == "congressional" and args.lines_year == 2026:
-                district_payload["meta"]["preserved_districts"] = ["1", "2"]
+                district_payload["meta"]["preserved_identical_districts"] = ["1"]
+                district_payload["meta"].pop("preserved_districts", None)
             out_path = args.output_dir / district_path.name
             out_path.write_text(json.dumps(district_payload, indent=2) + "\n", encoding="utf-8")
             report.append({

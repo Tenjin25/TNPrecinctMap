@@ -10349,8 +10349,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Cache destroyer token for static data requests.
     // Bump this value when you want browsers/CDNs to fetch fresh files immediately.
-    const DATA_CACHE_BUSTER = '2026-10-07-official-vtd-bef-v4';
-    const APP_BUILD_ID = '2026-10-07-official-vtd-bef-v4';
+    const DATA_CACHE_BUSTER = '2026-10-07-official-vtd-direct-v5';
+    const APP_BUILD_ID = '2026-10-07-official-vtd-direct-v5';
 
     function withCacheBuster(path) {
       const p = (path || '').toString().trim();
@@ -10388,6 +10388,17 @@ document.addEventListener('DOMContentLoaded', function() {
         counties: withBase('./Data/tl_2020_47_county20.geojson'),
         precincts: withBase('./Data/tn_voting_precincts_dra_v07.geojson'),
         precincts_fallback_vtd20: withBase('./Data/tn_voting_precincts_dra_v07.geojson'),
+        historical_precincts: {
+          '2008': withBase('./Data/historical_vtd/tn_official_vtd_2008.geojson'),
+          '2012': withBase('./Data/historical_vtd/tn_official_vtd_2012.geojson'),
+          '2014': withBase('./Data/historical_vtd/tn_official_vtd_2014.geojson'),
+          '2016': withBase('./Data/historical_vtd/tn_official_vtd_2016.geojson'),
+          '2018': withBase('./Data/historical_vtd/tn_official_vtd_2018.geojson'),
+          '2020': withBase('./Data/historical_vtd/tn_official_vtd_2020.geojson'),
+          '2022': withBase('./Data/historical_vtd/tn_official_vtd_2022.geojson'),
+          '2024': withBase('./Data/historical_vtd/tn_official_vtd_2024.geojson')
+        },
+        historical_precinct_contests_dir: withBase('./Data/historical_precinct_contests'),
         precinct_centroids: withBase('./Data/tn_precinct_centroids_dra_v07.geojson'),
         precinct_aliases: withBase('./Data/crosswalks/tn_precinct_aliases.csv'),
         precinct_friendly_names: withCacheBuster(withBase('./Data/crosswalks/tn_precinct_friendly_names_2020.json')),
@@ -10931,6 +10942,8 @@ document.addEventListener('DOMContentLoaded', function() {
     let congressionalData = []; // Optional legacy district-level table
     let candidateNameCache = new Map();
     let contestSliceCache = new Map();
+    const historicalPrecinctSliceCache = new Map();
+    const historicalPrecinctSliceInflight = new Map();
     let districtSliceCache = new Map();
     // In-flight request dedupe (promise reuse) for atlas-wide loads.
     const jsonInflightByPath = new Map(); // requestPath -> Promise<any>
@@ -18461,6 +18474,53 @@ document.addEventListener('DOMContentLoaded', function() {
           contestSliceInflight.delete(key);
         }
 	    }
+
+      const OFFICIAL_HISTORICAL_PRECINCT_CONTESTS = new Set([
+        'president_2008', 'us_senate_2008',
+        'president_2012', 'us_senate_2012',
+        'governor_2014', 'us_senate_2014',
+        'president_2016',
+        'governor_2018', 'us_senate_2018',
+        'president_2020', 'us_senate_2020',
+        'governor_2022',
+        'president_2024', 'us_senate_2024'
+      ]);
+
+      function hasOfficialHistoricalPrecinctSlice(contestType, year) {
+        return OFFICIAL_HISTORICAL_PRECINCT_CONTESTS.has(`${String(contestType || '').trim()}_${Number(year)}`);
+      }
+
+      async function loadOfficialHistoricalPrecinctSlice(contestType, year) {
+        const key = `${String(contestType || '').trim()}_${Number(year)}`;
+        if (!hasOfficialHistoricalPrecinctSlice(contestType, year)) return null;
+        if (historicalPrecinctSliceCache.has(key)) return historicalPrecinctSliceCache.get(key);
+        if (historicalPrecinctSliceInflight.has(key)) return historicalPrecinctSliceInflight.get(key);
+        const pending = atlasPerf(`slice.historicalPrecinct:${key}`, async () => {
+          const payload = await loadJSON(`${CONFIG.paths.historical_precinct_contests_dir}/${key}.json`);
+          const rows = (payload.rows || []).map(r => ({
+            year: Number(year),
+            county: r.county,
+            [`${contestType}_dem`]: Number(r.dem_votes) || 0,
+            [`${contestType}_rep`]: Number(r.rep_votes) || 0,
+            [`${contestType}_other`]: Number(r.other_votes) || 0,
+            [`${contestType}_total`]: Number(r.total_votes) || 0,
+            [`${contestType}_dem_candidate`]: r.dem_candidate || '',
+            [`${contestType}_rep_candidate`]: r.rep_candidate || '',
+            [`${contestType}_margin`]: Number(r.margin) || 0,
+            [`${contestType}_margin_pct`]: Number(r.margin_pct) || 0,
+            [`${contestType}_winner`]: r.winner || '',
+            [`${contestType}_color`]: r.color || ''
+          }));
+          historicalPrecinctSliceCache.set(key, rows);
+          return rows;
+        });
+        historicalPrecinctSliceInflight.set(key, pending);
+        try {
+          return await pending;
+        } finally {
+          historicalPrecinctSliceInflight.delete(key);
+        }
+      }
 
       // Candidate labels are sometimes blank in older district contest slices (notably US Senate pre-2008).
       // Pull the names from the precinct-level contest slice as a lightweight fallback for hovers/sidebars.
@@ -28685,6 +28745,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function getDesiredPrecinctGeometryMode() {
       const year = Number(currentContestMeta?.year);
+      const contestType = String(currentContestMeta?.contestType || '').trim();
+      if (Number.isFinite(year) && hasOfficialHistoricalPrecinctSlice(contestType, year) && CONFIG.paths?.historical_precincts?.[String(year)]) {
+        return `official-${year}`;
+      }
       // VTD20 is only useful for truly legacy cycles; modern precinct-level contest keys (2014+)
       // are aligned to the current Tennessee precinct geometry IDs (including split precinct suffixes).
       if (Number.isFinite(year) && year <= 2012) return 'vtd20';
@@ -28702,9 +28766,12 @@ document.addEventListener('DOMContentLoaded', function() {
       let usedVtdFallback = desiredMode === 'vtd20';
       let precincts = null;
       try {
-        const primaryPath = desiredMode === 'vtd20'
-          ? (CONFIG.paths?.precincts_fallback_vtd20 || CONFIG.paths.precincts)
-          : CONFIG.paths.precincts;
+        const officialYear = desiredMode.startsWith('official-') ? desiredMode.slice('official-'.length) : '';
+        const primaryPath = officialYear
+          ? CONFIG.paths?.historical_precincts?.[officialYear]
+          : desiredMode === 'vtd20'
+            ? (CONFIG.paths?.precincts_fallback_vtd20 || CONFIG.paths.precincts)
+            : CONFIG.paths.precincts;
         precincts = await loadJSON(primaryPath);
       } catch (err) {
         const fallbackPath = CONFIG.paths?.precincts_fallback_vtd20;
@@ -28780,7 +28847,7 @@ document.addEventListener('DOMContentLoaded', function() {
         map.addSource('precincts', { type: 'geojson', data: precincts, generateId: true });
       }
       precinctSourceLoaded = true;
-      precinctGeometryMode = usedVtdFallback ? 'vtd20' : 'precinct';
+      precinctGeometryMode = usedVtdFallback ? 'vtd20' : desiredMode;
       precinctLoadInFlight = false;
       addPrecinctLayers();
       ensureSplitTicketOverlayLayers();
@@ -28810,7 +28877,7 @@ document.addEventListener('DOMContentLoaded', function() {
           applyContest(contestKey).catch(() => {});
         }
       } catch (_) {}
-      setStatus(usedVtdFallback ? 'Precinct geometry ready (VTD20)' : 'Precinct geometry ready');
+      setStatus(usedVtdFallback ? 'Precinct geometry ready (VTD20)' : desiredMode.startsWith('official-') ? `Official ${desiredMode.slice(9)} precinct geometry ready` : 'Precinct geometry ready');
       return true;
     }
 
@@ -33143,6 +33210,15 @@ document.addEventListener('DOMContentLoaded', function() {
       if (needsPrecinctDetail && shouldDeferPrecinctDetail()) {
         needsPrecinctDetail = false;
       }
+      let historicalPrecinctData = null;
+      if (needsPrecinctDetail && hasOfficialHistoricalPrecinctSlice(contestType, year)) {
+        try {
+          historicalPrecinctData = await loadOfficialHistoricalPrecinctSlice(contestType, year);
+        } catch (err) {
+          historicalPrecinctData = null;
+          console.warn('Official historical precinct result load failed:', err?.message || err);
+        }
+      }
 
       // Precinct key matching needs to tolerate (a) non-geographic buckets in results
       // (absentee/one-stop/etc) and (b) modern precinct splits where historical results
@@ -33350,7 +33426,7 @@ document.addEventListener('DOMContentLoaded', function() {
       currentPrecinctResults = needsPrecinctDetail ? new Map() : null;
       if (needsPrecinctDetail) {
         const matchSig = `code:${precinctIdx ? 1 : 0}|alias:${precinctAliasIdx ? 1 : 0}|var:${precinctVariantOverridesByCounty ? 1 : 0}`;
-        precinctCacheKey = `${aggCacheKey}|precinctMatch:${matchSig}`;
+        precinctCacheKey = `${aggCacheKey}|geom:${getDesiredPrecinctGeometryMode()}|precinctMatch:${matchSig}`;
         if (precinctAdjustedRowCache.has(precinctCacheKey)) {
           currentPrecinctResults = precinctAdjustedRowCache.get(precinctCacheKey) || new Map();
           skipPrecinctRowBuild = true;
@@ -33396,7 +33472,7 @@ document.addEventListener('DOMContentLoaded', function() {
           const demCand = (row[`${contestType}_dem_candidate`] || '').toString();
           const repCand = (row[`${contestType}_rep_candidate`] || '').toString();
 
-          if (needsPrecinctDetail && !skipPrecinctRowBuild) {
+          if (needsPrecinctDetail && !skipPrecinctRowBuild && !historicalPrecinctData) {
             const norms = precinctNormVariants(rowName);
             const adjustedSigned = signedMarginPctFromVotes(demVotes, repVotes, totalVotes);
             const adjustedWinner = adjustedSigned > 0 ? 'REPUBLICAN' : (adjustedSigned < 0 ? 'DEMOCRAT' : 'TIE');
@@ -33501,6 +33577,42 @@ document.addEventListener('DOMContentLoaded', function() {
             countyAgg[countyNorm][`${contestType}_rep`] += repVotes;
             countyAgg[countyNorm][`${contestType}_other`] += otherVotes;
             countyAgg[countyNorm][`${contestType}_total`] += totalVotes;
+          }
+        }
+
+        // Official election-date VTD rows are keyed directly to the matching
+        // official geometry (HYYYY-NNNN). They color the precinct overlay only;
+        // county totals continue to come from the canonical contest slice above.
+        if (needsPrecinctDetail && !skipPrecinctRowBuild && historicalPrecinctData) {
+          for (const row of historicalPrecinctData) {
+            if (staleCheck()) return;
+            const rowName = String(row.county || '');
+            const expectedPrefix = `H${Number(year)}-`;
+            const precinctCode = rowName.includes(' - ') ? rowName.split(' - ', 2)[1] : '';
+            if (!precinctCode.startsWith(expectedPrefix)) continue;
+            const countyOnly = rowName.split(' - ', 1)[0];
+            const countyNorm = normalizeCountyName(countyOnly);
+            const normalizedKey = normalizeCountyName(rowName);
+            if (!countyNorm || !normalizedKey) continue;
+            const rawDemVotes = Number(row[`${contestType}_dem`] || 0);
+            const rawRepVotes = Number(row[`${contestType}_rep`] || 0);
+            const rawOtherVotes = Number(row[`${contestType}_other`] || 0);
+            const rawTotalVotes = Number(row[`${contestType}_total`] || 0);
+            const adjusted = applyScenarioShiftToVotes(countyNorm, rawDemVotes, rawRepVotes, rawOtherVotes, rawTotalVotes);
+            const demVotes = Number(adjusted.dem || 0);
+            const repVotes = Number(adjusted.rep || 0);
+            const otherVotes = Number(adjusted.other || 0);
+            const totalVotes = Number(adjusted.total || 0);
+            const adjustedSigned = signedMarginPctFromVotes(demVotes, repVotes, totalVotes);
+            currentPrecinctResults.set(normalizedKey, {
+              ...row,
+              [`${contestType}_dem`]: demVotes,
+              [`${contestType}_rep`]: repVotes,
+              [`${contestType}_other`]: otherVotes,
+              [`${contestType}_total`]: totalVotes,
+              [`${contestType}_margin_pct`]: adjustedSigned,
+              [`${contestType}_winner`]: adjustedSigned > 0 ? 'REPUBLICAN' : (adjustedSigned < 0 ? 'DEMOCRAT' : 'TIE')
+            });
           }
         }
 

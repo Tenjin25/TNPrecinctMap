@@ -1,0 +1,102 @@
+{
+  "files": [
+    {
+      "year": 2008,
+      "contest_type": "president",
+      "file": "president_2008.json",
+      "rows": 2274,
+      "total_votes": 2599749
+    },
+    {
+      "year": 2008,
+      "contest_type": "us_senate",
+      "file": "us_senate_2008.json",
+      "rows": 2274,
+      "total_votes": 2424585
+    },
+    {
+      "year": 2012,
+      "contest_type": "president",
+      "file": "president_2012.json",
+      "rows": 2083,
+      "total_votes": 2458577
+    },
+    {
+      "year": 2012,
+      "contest_type": "us_senate",
+      "file": "us_senate_2012.json",
+      "rows": 2084,
+      "total_votes": 2321477
+    },
+    {
+      "year": 2014,
+      "contest_type": "governor",
+      "file": "governor_2014.json",
+      "rows": 2059,
+      "total_votes": 1353728
+    },
+    {
+      "year": 2014,
+      "contest_type": "us_senate",
+      "file": "us_senate_2014.json",
+      "rows": 2057,
+      "total_votes": 1374065
+    },
+    {
+      "year": 2016,
+      "contest_type": "president",
+      "file": "president_2016.json",
+      "rows": 2012,
+      "total_votes": 2508027
+    },
+    {
+      "year": 2018,
+      "contest_type": "governor",
+      "file": "governor_2018.json",
+      "rows": 1978,
+      "total_votes": 2242029
+    },
+    {
+      "year": 2018,
+      "contest_type": "us_senate",
+      "file": "us_senate_2018.json",
+      "rows": 1978,
+      "total_votes": 2243740
+    },
+    {
+      "year": 2020,
+      "contest_type": "president",
+      "file": "president_2020.json",
+      "rows": 1956,
+      "total_votes": 3053850
+    },
+    {
+      "year": 2020,
+      "contest_type": "us_senate",
+      "file": "us_senate_2020.json",
+      "rows": 1953,
+      "total_votes": 2950163
+    },
+    {
+      "year": 2022,
+      "contest_type": "governor",
+      "file": "governor_2022.json",
+      "rows": 1845,
+      "total_votes": 1739882
+    },
+    {
+      "year": 2024,
+      "contest_type": "president",
+      "file": "president_2024.json",
+      "rows": 1860,
+      "total_votes": 3063942
+    },
+    {
+      "year": 2024,
+      "contest_type": "us_senate",
+      "file": "us_senate_2024.json",
+      "rows": 1860,
+      "total_votes": 3007608
+    }
+  ]
+}

@@ -45,30 +45,33 @@
         "2": 62.2004
       }
     },
-    "geographic_audit_method": "independent_county_constrained_spatial_precinct_overlay"
+    "geographic_audit_method": "independent_county_constrained_spatial_precinct_overlay",
+    "identical_bef_districts_synced": [
+      "1"
+    ]
   },
   "general": {
     "results": {
       "1": {
         "dem_votes": 35330,
-        "rep_votes": 135479,
+        "rep_votes": 135478,
         "other_votes": 3018,
-        "total_votes": 173827,
+        "total_votes": 173826,
         "dem_candidate": "Mike McWherter",
         "rep_candidate": "Bill Haslam",
-        "margin": 100149,
-        "margin_pct": 57.6142,
+        "margin": 100148,
+        "margin_pct": 57.6139,
         "winner": "REP"
       },
       "2": {
         "dem_votes": 30587,
-        "rep_votes": 136653,
+        "rep_votes": 136654,
         "other_votes": 3526,
-        "total_votes": 170766,
+        "total_votes": 170767,
         "dem_candidate": "Mike McWherter",
         "rep_candidate": "Bill Haslam",
-        "margin": 106066,
-        "margin_pct": 62.1119,
+        "margin": 106067,
+        "margin_pct": 62.1121,
         "winner": "REP"
       },
       "3": {

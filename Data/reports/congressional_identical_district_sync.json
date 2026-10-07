@@ -1,0 +1,232 @@
+{
+  "identical_districts": [
+    "1"
+  ],
+  "changed_files": 7,
+  "changes": [
+    {
+      "file": "congressional_governor_2006.json",
+      "identical_districts": [
+        "1"
+      ],
+      "before": {
+        "1": {
+          "dem_votes": 120291,
+          "rep_votes": 77577,
+          "other_votes": 3741,
+          "total_votes": 201609,
+          "dem_candidate": "Phil Bredesen",
+          "rep_candidate": "Jim Bryson",
+          "margin": -42714,
+          "margin_pct": -21.1866,
+          "winner": "DEM"
+        }
+      },
+      "after": {
+        "1": {
+          "dem_votes": 120291,
+          "rep_votes": 77576,
+          "other_votes": 3741,
+          "total_votes": 201608,
+          "dem_candidate": "Phil Bredesen",
+          "rep_candidate": "Jim Bryson",
+          "margin": -42715,
+          "margin_pct": -21.1872,
+          "winner": "DEM"
+        }
+      }
+    },
+    {
+      "file": "congressional_governor_2010.json",
+      "identical_districts": [
+        "1"
+      ],
+      "before": {
+        "1": {
+          "dem_votes": 35330,
+          "rep_votes": 135479,
+          "other_votes": 3018,
+          "total_votes": 173827,
+          "dem_candidate": "Mike McWherter",
+          "rep_candidate": "Bill Haslam",
+          "margin": 100149,
+          "margin_pct": 57.6142,
+          "winner": "REP"
+        }
+      },
+      "after": {
+        "1": {
+          "dem_votes": 35330,
+          "rep_votes": 135478,
+          "other_votes": 3018,
+          "total_votes": 173826,
+          "dem_candidate": "Mike McWherter",
+          "rep_candidate": "Bill Haslam",
+          "margin": 100148,
+          "margin_pct": 57.6139,
+          "winner": "REP"
+        }
+      }
+    },
+    {
+      "file": "congressional_president_2000.json",
+      "identical_districts": [
+        "1"
+      ],
+      "before": {
+        "1": {
+          "dem_votes": 86922,
+          "rep_votes": 142166,
+          "other_votes": 3720,
+          "total_votes": 232808,
+          "dem_candidate": "Al Gore",
+          "rep_candidate": "George W. Bush",
+          "margin": 55244,
+          "margin_pct": 23.7294,
+          "winner": "REP"
+        }
+      },
+      "after": {
+        "1": {
+          "dem_votes": 86921,
+          "rep_votes": 142166,
+          "other_votes": 3720,
+          "total_votes": 232807,
+          "dem_candidate": "Al Gore",
+          "rep_candidate": "George W. Bush",
+          "margin": 55245,
+          "margin_pct": 23.73,
+          "winner": "REP"
+        }
+      }
+    },
+    {
+      "file": "congressional_president_2004.json",
+      "identical_districts": [
+        "1"
+      ],
+      "before": {
+        "1": {
+          "dem_votes": 85461,
+          "rep_votes": 185642,
+          "other_votes": 1858,
+          "total_votes": 272961,
+          "dem_candidate": "John F. Kerry",
+          "rep_candidate": "George W. Bush",
+          "margin": 100181,
+          "margin_pct": 36.7016,
+          "winner": "REP"
+        }
+      },
+      "after": {
+        "1": {
+          "dem_votes": 85461,
+          "rep_votes": 185641,
+          "other_votes": 1858,
+          "total_votes": 272960,
+          "dem_candidate": "John F. Kerry",
+          "rep_candidate": "George W. Bush",
+          "margin": 100180,
+          "margin_pct": 36.7013,
+          "winner": "REP"
+        }
+      }
+    },
+    {
+      "file": "congressional_us_senate_2000.json",
+      "identical_districts": [
+        "1"
+      ],
+      "before": {
+        "1": {
+          "dem_votes": 51187,
+          "rep_votes": 159230,
+          "other_votes": 5719,
+          "total_votes": 216136,
+          "dem_candidate": "Jeff Clark",
+          "rep_candidate": "Bill Frist",
+          "margin": 108043,
+          "margin_pct": 49.9884,
+          "winner": "REP"
+        }
+      },
+      "after": {
+        "1": {
+          "dem_votes": 51187,
+          "rep_votes": 159227,
+          "other_votes": 5719,
+          "total_votes": 216133,
+          "dem_candidate": "Jeff Clark",
+          "rep_candidate": "Bill Frist",
+          "margin": 108040,
+          "margin_pct": 49.9877,
+          "winner": "REP"
+        }
+      }
+    },
+    {
+      "file": "congressional_us_senate_2002.json",
+      "identical_districts": [
+        "1"
+      ],
+      "before": {
+        "1": {
+          "dem_votes": 59136,
+          "rep_votes": 121468,
+          "other_votes": 3418,
+          "total_votes": 184022,
+          "dem_candidate": "Bob Clement",
+          "rep_candidate": "Lamar Alexander",
+          "margin": 62332,
+          "margin_pct": 33.872,
+          "winner": "REP"
+        }
+      },
+      "after": {
+        "1": {
+          "dem_votes": 59135,
+          "rep_votes": 121468,
+          "other_votes": 3418,
+          "total_votes": 184021,
+          "dem_candidate": "Bob Clement",
+          "rep_candidate": "Lamar Alexander",
+          "margin": 62333,
+          "margin_pct": 33.8728,
+          "winner": "REP"
+        }
+      }
+    },
+    {
+      "file": "congressional_us_senate_2006.json",
+      "identical_districts": [
+        "1"
+      ],
+      "before": {
+        "1": {
+          "dem_votes": 74035,
+          "rep_votes": 127252,
+          "other_votes": 3154,
+          "total_votes": 204441,
+          "dem_candidate": "Harold Ford, Jr.",
+          "rep_candidate": "Bob Corker",
+          "margin": 53217,
+          "margin_pct": 26.0305,
+          "winner": "REP"
+        }
+      },
+      "after": {
+        "1": {
+          "dem_votes": 74034,
+          "rep_votes": 127251,
+          "other_votes": 3154,
+          "total_votes": 204439,
+          "dem_candidate": "Harold Ford, Jr.",
+          "rep_candidate": "Bob Corker",
+          "margin": 53217,
+          "margin_pct": 26.0307,
+          "winner": "REP"
+        }
+      }
+    }
+  ]
+}
