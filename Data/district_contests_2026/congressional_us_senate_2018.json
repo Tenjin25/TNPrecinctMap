@@ -44,7 +44,20 @@
         "2": 15.2279,
         "1": 42.441
       }
-    }
+    },
+    "block_disaggregated_method": "RDH statewide votes disaggregated to 2020 Census blocks; district assignments taken from the official Census block equivalency file when available, otherwise inferred from 2022/2024 district contest columns with enacted TIGER representative-point fallback; party-specifically reconciled to certified statewide totals",
+    "block_disaggregated_source": "tn_2018_gen_2020_blocks.zip",
+    "block_assignment_audit": {
+      "assignment_source": "CD120_47.txt",
+      "assignment_authority": "U.S. Census Bureau 120th Congress Block Equivalency File",
+      "lines_year": 2026,
+      "blocks": 179717,
+      "districts": 9
+    },
+    "preserved_districts": [
+      "1",
+      "2"
+    ]
   },
   "general": {
     "results": {
@@ -71,81 +84,81 @@
         "winner": "REP"
       },
       "3": {
-        "dem_votes": 103957,
-        "rep_votes": 154087,
-        "other_votes": 3707,
-        "total_votes": 261751,
+        "dem_votes": 104147,
+        "rep_votes": 154366,
+        "other_votes": 3720,
+        "total_votes": 262233,
         "dem_candidate": "Phil Bredesen",
         "rep_candidate": "Marsha Blackburn",
-        "margin": 50130,
-        "margin_pct": 19.1518,
+        "margin": 50219,
+        "margin_pct": 19.1505,
         "winner": "REP"
       },
       "4": {
-        "dem_votes": 111567,
-        "rep_votes": 113615,
-        "other_votes": 2962,
-        "total_votes": 228144,
+        "dem_votes": 111926,
+        "rep_votes": 112507,
+        "other_votes": 2939,
+        "total_votes": 227372,
         "dem_candidate": "Phil Bredesen",
         "rep_candidate": "Marsha Blackburn",
-        "margin": 2048,
-        "margin_pct": 0.8977,
+        "margin": 581,
+        "margin_pct": 0.2555,
         "winner": "REP"
       },
       "5": {
-        "dem_votes": 137920,
-        "rep_votes": 148260,
-        "other_votes": 3565,
-        "total_votes": 289745,
+        "dem_votes": 116583,
+        "rep_votes": 116867,
+        "other_votes": 3230,
+        "total_votes": 236680,
         "dem_candidate": "Phil Bredesen",
         "rep_candidate": "Marsha Blackburn",
-        "margin": 10340,
-        "margin_pct": 3.5687,
+        "margin": 284,
+        "margin_pct": 0.12,
         "winner": "REP"
       },
       "6": {
-        "dem_votes": 126648,
-        "rep_votes": 138058,
-        "other_votes": 3646,
-        "total_votes": 268352,
+        "dem_votes": 123134,
+        "rep_votes": 133288,
+        "other_votes": 3582,
+        "total_votes": 260004,
         "dem_candidate": "Phil Bredesen",
         "rep_candidate": "Marsha Blackburn",
-        "margin": 11410,
-        "margin_pct": 4.2519,
+        "margin": 10154,
+        "margin_pct": 3.9053,
         "winner": "REP"
       },
       "7": {
-        "dem_votes": 117028,
-        "rep_votes": 123798,
-        "other_votes": 2984,
-        "total_votes": 243810,
+        "dem_votes": 117903,
+        "rep_votes": 127841,
+        "other_votes": 2999,
+        "total_votes": 248743,
         "dem_candidate": "Phil Bredesen",
         "rep_candidate": "Marsha Blackburn",
-        "margin": 6770,
-        "margin_pct": 2.7768,
+        "margin": 9938,
+        "margin_pct": 3.9953,
         "winner": "REP"
       },
       "8": {
-        "dem_votes": 114766,
-        "rep_votes": 139848,
-        "other_votes": 3814,
-        "total_votes": 258428,
+        "dem_votes": 116508,
+        "rep_votes": 143346,
+        "other_votes": 3880,
+        "total_votes": 263734,
         "dem_candidate": "Phil Bredesen",
         "rep_candidate": "Marsha Blackburn",
-        "margin": 25082,
-        "margin_pct": 9.7056,
+        "margin": 26838,
+        "margin_pct": 10.1762,
         "winner": "REP"
       },
       "9": {
-        "dem_votes": 96597,
-        "rep_votes": 89611,
-        "other_votes": 2485,
-        "total_votes": 188693,
+        "dem_votes": 118282,
+        "rep_votes": 119062,
+        "other_votes": 2813,
+        "total_votes": 240157,
         "dem_candidate": "Phil Bredesen",
         "rep_candidate": "Marsha Blackburn",
-        "margin": -6986,
-        "margin_pct": -3.7023,
-        "winner": "DEM"
+        "margin": 780,
+        "margin_pct": 0.3248,
+        "winner": "REP"
       }
     }
   }

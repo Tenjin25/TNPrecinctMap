@@ -25,6 +25,22 @@
       "other_votes": 3623
     },
     {
+      "file": "congressional_us_senate_2018.json",
+      "district": "5",
+      "margin_pct": 0.0377,
+      "dem_votes": 133814,
+      "rep_votes": 133916,
+      "other_votes": 2595
+    },
+    {
+      "file": "congressional_us_senate_2018.json",
+      "district": "7",
+      "margin_pct": 0.4867,
+      "dem_votes": 115354,
+      "rep_votes": 116498,
+      "other_votes": 3183
+    },
+    {
       "file": "state_house_governor_2002.json",
       "district": "37",
       "margin_pct": 0.681,
@@ -113,12 +129,20 @@
       "other_votes": 703
     },
     {
+      "file": "state_house_governor_2018.json",
+      "district": "59",
+      "margin_pct": 0.8336,
+      "dem_votes": 14404,
+      "rep_votes": 14652,
+      "other_votes": 693
+    },
+    {
       "file": "state_house_governor_2022.json",
-      "district": "96",
-      "margin_pct": -0.2031,
-      "dem_votes": 968,
-      "rep_votes": 964,
-      "other_votes": 37
+      "district": "59",
+      "margin_pct": 0.9302,
+      "dem_votes": 14263,
+      "rep_votes": 14534,
+      "other_votes": 336
     },
     {
       "file": "state_house_president_2000.json",
@@ -183,6 +207,14 @@
       "dem_votes": 9687,
       "rep_votes": 9806,
       "other_votes": 572
+    },
+    {
+      "file": "state_house_president_2016.json",
+      "district": "67",
+      "margin_pct": 0.5628,
+      "dem_votes": 7952,
+      "rep_votes": 8049,
+      "other_votes": 1233
     },
     {
       "file": "state_house_state_house_2004.json",
@@ -321,12 +353,12 @@
       "other_votes": 1059
     },
     {
-      "file": "state_house_us_senate_2018.json",
-      "district": "34",
-      "margin_pct": 0.8332,
-      "dem_votes": 8755,
-      "rep_votes": 8904,
-      "other_votes": 223
+      "file": "state_house_us_senate_2020.json",
+      "district": "50",
+      "margin_pct": -0.727,
+      "dem_votes": 15806,
+      "rep_votes": 15571,
+      "other_votes": 947
     },
     {
       "file": "state_senate_governor_2002.json",
@@ -351,14 +383,6 @@
       "dem_votes": 14928,
       "rep_votes": 15095,
       "other_votes": 914
-    },
-    {
-      "file": "state_senate_governor_2022.json",
-      "district": "32",
-      "margin_pct": 0.0951,
-      "dem_votes": 66642,
-      "rep_votes": 66772,
-      "other_votes": 3297
     },
     {
       "file": "state_senate_president_2000.json",
