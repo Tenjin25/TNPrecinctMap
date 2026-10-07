@@ -192,12 +192,14 @@ def main() -> None:
     observations = election.groupby(
         ["county_norm", "from_precinct_norm", "contest", "field"], as_index=False
     )["votes"].sum()
+    observations["source_vote_id"] = range(len(observations))
     observations = observations.merge(
         precinct_map,
         on=["county_norm", "from_precinct_norm"],
         how="inner",
-        validate="many_to_one",
+        validate="many_to_many",
     )
+    observations = observations[~observations["source_vote_id"].duplicated(keep=False)].copy()
 
     report = {
         "method": "within-county high-confidence 2012 VTD distribution backtest",
