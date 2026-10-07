@@ -28,6 +28,9 @@ Data/tn_vtd_2010_census_county_merged.geojson
 Data/tn_vtd_2000_build_summary.json
 Data/tn_cvap_2024_2020_b_csv/
 Data/tn_cvap_2024_2020_b_csv.zip
+Data/VTD_Shamar.zip
+.tmp_official_rebuild/
+.tmp_block_authoritative/
 
 # Local server / scratch logs
 tmp_*.log

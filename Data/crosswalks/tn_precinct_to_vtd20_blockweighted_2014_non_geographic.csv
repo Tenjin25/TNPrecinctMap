@@ -1,0 +1,9 @@
+bucket_type,county,prctseq,precinct,precinct_norm
+absentee_write_ins,DAVIDSON,,Absentee/Write-Ins,ABSENTEE WRITE INS
+absentee,GILES,,Absentee,ABSENTEE
+absentee,JACKSON,,Absentee,ABSENTEE
+election_commission,MONROE,,Election Commission,ELECTION COMMISSION
+absentee_write_in,RUTHERFORD,,Absentee - Write-In,ABSENTEE WRITE IN
+early_absentee,WASHINGTON,,Early/Absentee,EARLY ABSENTEE
+absentee,WILSON,,Absentee,ABSENTEE
+provisional,WILSON,,Provisional,PROVISIONAL

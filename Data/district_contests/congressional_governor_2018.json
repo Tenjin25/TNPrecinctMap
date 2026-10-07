@@ -4,32 +4,26 @@
   "year": 2018,
   "meta": {
     "source": "tn_precinct_csv_district_aggregation",
-    "match_coverage_pct": 92.8976,
-    "direct_precinct_row_pct": 70.7817,
-    "overlap_precinct_row_pct": 16.4442,
-    "non_geo_row_pct": 0.143,
-    "county_fallback_row_pct": 9.8665,
-    "dropped_row_pct": 2.7645,
-    "direct_precinct_vote_pct": 65.0898,
-    "overlap_precinct_vote_pct": 18.1448,
-    "non_geo_vote_pct": 2.1473,
-    "county_fallback_vote_pct": 7.5157,
-    "dropped_vote_pct": 7.1024,
+    "match_coverage_pct": 100.0,
+    "direct_precinct_row_pct": 99.3348,
+    "overlap_precinct_row_pct": 0.0,
+    "non_geo_row_pct": 0.2772,
+    "county_fallback_row_pct": 0.388,
+    "dropped_row_pct": 0.0,
+    "direct_precinct_vote_pct": 97.7952,
+    "overlap_precinct_vote_pct": 0.0,
+    "non_geo_vote_pct": 2.1765,
+    "county_fallback_vote_pct": 0.0283,
+    "dropped_vote_pct": 0.0,
     "districts": 9,
-    "geographic_audit_method": "independent_county_constrained_spatial_precinct_overlay",
-    "block_disaggregated_method": "RDH statewide votes disaggregated to 2020 Census blocks; district assignments inferred from 2022/2024 district contest columns when applicable, with enacted 2022 TIGER representative-point assignment as fallback; party-specifically reconciled to certified statewide totals",
+    "block_disaggregated_method": "RDH statewide votes disaggregated to 2020 Census blocks; district assignments taken from the official Census block equivalency file when available, otherwise inferred from 2022/2024 district contest columns with enacted TIGER representative-point fallback; party-specifically reconciled to certified statewide totals",
     "block_disaggregated_source": "tn_2018_gen_2020_blocks.zip",
     "block_assignment_audit": {
-      "race_prefix": "GCON",
-      "election_years": [
-        2024
-      ],
+      "assignment_source": "47_TN_CD118.txt",
+      "assignment_authority": "U.S. Census Bureau 118th Congress Block Equivalency File",
       "lines_year": 2022,
       "blocks": 179717,
-      "explicit_race_assignment_blocks": 129032,
-      "geometry_fallback_blocks": 50685,
-      "explicit_geometry_agreements": 129029,
-      "explicit_geometry_disagreements": 3
+      "districts": 9
     }
   },
   "general": {
@@ -58,13 +52,13 @@
       },
       "3": {
         "dem_votes": 90344,
-        "rep_votes": 167590,
+        "rep_votes": 167591,
         "other_votes": 2508,
-        "total_votes": 260442,
+        "total_votes": 260443,
         "dem_candidate": "Karl Dean",
         "rep_candidate": "Bill Lee",
-        "margin": 77246,
-        "margin_pct": 29.6596,
+        "margin": 77247,
+        "margin_pct": 29.6598,
         "winner": "REP"
       },
       "4": {
@@ -79,36 +73,36 @@
         "winner": "REP"
       },
       "5": {
-        "dem_votes": 116008,
-        "rep_votes": 147138,
+        "dem_votes": 116006,
+        "rep_votes": 147135,
         "other_votes": 7778,
-        "total_votes": 270924,
+        "total_votes": 270919,
         "dem_candidate": "Karl Dean",
         "rep_candidate": "Bill Lee",
-        "margin": 31130,
-        "margin_pct": 11.4903,
+        "margin": 31129,
+        "margin_pct": 11.4902,
         "winner": "REP"
       },
       "6": {
-        "dem_votes": 101404,
-        "rep_votes": 155458,
+        "dem_votes": 101405,
+        "rep_votes": 155461,
         "other_votes": 5727,
-        "total_votes": 262589,
+        "total_votes": 262593,
         "dem_candidate": "Karl Dean",
         "rep_candidate": "Bill Lee",
-        "margin": 54054,
-        "margin_pct": 20.585,
+        "margin": 54056,
+        "margin_pct": 20.5855,
         "winner": "REP"
       },
       "7": {
         "dem_votes": 101288,
-        "rep_votes": 126887,
+        "rep_votes": 126886,
         "other_votes": 6848,
-        "total_votes": 235023,
+        "total_votes": 235022,
         "dem_candidate": "Karl Dean",
         "rep_candidate": "Bill Lee",
-        "margin": 25599,
-        "margin_pct": 10.8921,
+        "margin": 25598,
+        "margin_pct": 10.8917,
         "winner": "REP"
       },
       "8": {
@@ -123,14 +117,14 @@
         "winner": "REP"
       },
       "9": {
-        "dem_votes": 150655,
+        "dem_votes": 150656,
         "rep_votes": 55662,
         "other_votes": 7139,
-        "total_votes": 213456,
+        "total_votes": 213457,
         "dem_candidate": "Karl Dean",
         "rep_candidate": "Bill Lee",
-        "margin": -94993,
-        "margin_pct": -44.5024,
+        "margin": -94994,
+        "margin_pct": -44.5026,
         "winner": "DEM"
       }
     }

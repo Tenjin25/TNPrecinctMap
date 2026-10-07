@@ -1,26 +1,18 @@
 {
+  "year": 2022,
   "source_csv": "20221108__tn__general__precinct.csv",
-  "source_year": 2022,
-  "source_vintage": 2020,
-  "overlap_csv": "tn_precinct_to_2024.csv",
-  "input_precinct_keys": 1841,
-  "crosswalk_rows": 2662,
-  "strict_crosswalk_rows": 2644,
-  "low_confidence_crosswalk_rows": 0,
-  "unmatched_rows": 0,
-  "method_counts": {
-    "code_token_name": 231,
-    "core_exact_name": 4,
-    "exact_name": 1576,
-    "knox_alias_name": 7,
-    "manual_override": 2,
-    "prefix_name": 21
-  },
-  "outputs": {
-    "crosswalk_csv": "tn_precinct_to_vtd20_blockweighted_2022.csv",
-    "strict_crosswalk_csv": "tn_precinct_to_vtd20_blockweighted_2022_strict.csv",
-    "low_confidence_crosswalk_csv": "tn_precinct_to_vtd20_blockweighted_2022_low_confidence.csv",
-    "unmatched_csv": "tn_precinct_to_vtd20_blockweighted_2022_unmatched.csv",
-    "summary_json": "tn_precinct_to_vtd20_blockweighted_2022_summary.json"
-  }
+  "official_layer": "VTD_2022_November_State_General",
+  "source_precincts": 1850,
+  "matched": 1018,
+  "unmatched": 831,
+  "non_geographic": 1,
+  "low_confidence": 74,
+  "official_crosswalk_rows": 2174,
+  "legacy_fallback_rows": 1313,
+  "crosswalk_rows": 3487,
+  "block_vintage": 2020,
+  "blocks": 179717,
+  "blocks_joined": 180569,
+  "joined_blocks_without_nhgis_link": 0,
+  "features_with_block_weights": 1844
 }

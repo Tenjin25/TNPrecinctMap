@@ -215,6 +215,10 @@ def is_non_geographic_precinct_name(precinct_raw: str) -> bool:
     p = norm_space(precinct_raw).upper()
     if not p:
         return True
+    # Davidson's historical AIS rows are countywide alternate/in-person voting
+    # buckets, not mappable election-day precincts.
+    if p == "AIS":
+        return True
     checks = (
         "ABSENTEE",
         "ABS ",

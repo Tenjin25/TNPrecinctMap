@@ -1,0 +1,66 @@
+[
+  {
+    "year": 2008,
+    "block_vintage": 2000,
+    "blocks": 182203,
+    "blocks_joined": 182198,
+    "joined_blocks_without_nhgis_link": 27,
+    "features_with_block_weights": 2168
+  },
+  {
+    "year": 2012,
+    "block_vintage": 2010,
+    "blocks": 241758,
+    "blocks_joined": 241754,
+    "joined_blocks_without_nhgis_link": 2792,
+    "features_with_block_weights": 2068
+  },
+  {
+    "year": 2014,
+    "block_vintage": 2010,
+    "blocks": 241758,
+    "blocks_joined": 241754,
+    "joined_blocks_without_nhgis_link": 2792,
+    "features_with_block_weights": 2050
+  },
+  {
+    "year": 2016,
+    "block_vintage": 2010,
+    "blocks": 241758,
+    "blocks_joined": 241754,
+    "joined_blocks_without_nhgis_link": 2792,
+    "features_with_block_weights": 1979
+  },
+  {
+    "year": 2018,
+    "block_vintage": 2010,
+    "blocks": 241758,
+    "blocks_joined": 241754,
+    "joined_blocks_without_nhgis_link": 2792,
+    "features_with_block_weights": 1959
+  },
+  {
+    "year": 2020,
+    "block_vintage": 2020,
+    "blocks": 179717,
+    "blocks_joined": 179722,
+    "joined_blocks_without_nhgis_link": 0,
+    "features_with_block_weights": 1954
+  },
+  {
+    "year": 2022,
+    "block_vintage": 2020,
+    "blocks": 179717,
+    "blocks_joined": 180569,
+    "joined_blocks_without_nhgis_link": 0,
+    "features_with_block_weights": 1844
+  },
+  {
+    "year": 2024,
+    "block_vintage": 2020,
+    "blocks": 179717,
+    "blocks_joined": 180566,
+    "joined_blocks_without_nhgis_link": 0,
+    "features_with_block_weights": 1879
+  }
+]

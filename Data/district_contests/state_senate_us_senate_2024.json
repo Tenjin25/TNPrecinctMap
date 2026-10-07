@@ -16,23 +16,14 @@
     "county_fallback_vote_pct": 0.0,
     "dropped_vote_pct": 0.0,
     "districts": 33,
-    "geographic_audit_method": "independent_county_constrained_spatial_precinct_overlay",
-    "legislative_hybrid_method": "exact whole-county components; block/CVAP split overrides; county-clipped precinct overlay; party-specific within-county residual reconciliation",
-    "full_plan_benchmark_method": "nearest presidential district/party geographic correction factors with party-specific statewide rebalance",
-    "full_plan_benchmark_reference_year": 2024,
-    "block_disaggregated_method": "RDH statewide votes disaggregated to 2020 Census blocks; current-plan district assignments inferred from 2022/2024 legislative contest columns with enacted 2022 TIGER representative-point fallback for zero-vote blocks; party-specifically reconciled to certified statewide totals",
+    "block_disaggregated_method": "RDH statewide votes disaggregated to 2020 Census blocks; district assignments taken from the official Census block equivalency file when available, otherwise inferred from 2022/2024 district contest columns with enacted TIGER representative-point fallback; party-specifically reconciled to certified statewide totals",
     "block_disaggregated_source": "tn_2024_gen_2020_blocks_csv.zip",
     "block_assignment_audit": {
-      "race_prefix": "GSU",
-      "election_years": [
-        2022,
-        2024
-      ],
+      "assignment_source": "47_TN_SLDU22.txt",
+      "assignment_authority": "U.S. Census Bureau 2022 State Legislative District Upper Chamber Block Equivalency File",
+      "lines_year": 2022,
       "blocks": 179717,
-      "explicit_race_assignment_blocks": 127765,
-      "geometry_fallback_blocks": 51952,
-      "explicit_geometry_agreements": 127765,
-      "explicit_geometry_disagreements": 0
+      "districts": 33
     }
   },
   "general": {
