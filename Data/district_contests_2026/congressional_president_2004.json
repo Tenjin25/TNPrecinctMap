@@ -45,19 +45,22 @@
         "2": 28.1533
       }
     },
-    "geographic_audit_method": "independent_county_constrained_spatial_precinct_overlay"
+    "geographic_audit_method": "independent_county_constrained_spatial_precinct_overlay",
+    "identical_bef_districts_synced": [
+      "1"
+    ]
   },
   "general": {
     "results": {
       "1": {
         "dem_votes": 85461,
-        "rep_votes": 185642,
+        "rep_votes": 185641,
         "other_votes": 1858,
-        "total_votes": 272961,
+        "total_votes": 272960,
         "dem_candidate": "John F. Kerry",
         "rep_candidate": "George W. Bush",
-        "margin": 100181,
-        "margin_pct": 36.7016,
+        "margin": 100180,
+        "margin_pct": 36.7013,
         "winner": "REP"
       },
       "2": {
@@ -106,13 +109,13 @@
       },
       "6": {
         "dem_votes": 172030,
-        "rep_votes": 182643,
+        "rep_votes": 182644,
         "other_votes": 2345,
-        "total_votes": 357018,
+        "total_votes": 357019,
         "dem_candidate": "John F. Kerry",
         "rep_candidate": "George W. Bush",
-        "margin": 10613,
-        "margin_pct": 2.9727,
+        "margin": 10614,
+        "margin_pct": 2.973,
         "winner": "REP"
       },
       "7": {

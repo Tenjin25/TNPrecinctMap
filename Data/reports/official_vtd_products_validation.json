@@ -1,0 +1,307 @@
+{
+  "valid": true,
+  "errors": [],
+  "geometry_checks": [
+    {
+      "year": 2008,
+      "expected": 2168,
+      "actual": 2168
+    },
+    {
+      "year": 2012,
+      "expected": 2068,
+      "actual": 2068
+    },
+    {
+      "year": 2014,
+      "expected": 2050,
+      "actual": 2050
+    },
+    {
+      "year": 2016,
+      "expected": 1979,
+      "actual": 1979
+    },
+    {
+      "year": 2018,
+      "expected": 1959,
+      "actual": 1959
+    },
+    {
+      "year": 2020,
+      "expected": 1954,
+      "actual": 1954
+    },
+    {
+      "year": 2022,
+      "expected": 1844,
+      "actual": 1844
+    },
+    {
+      "year": 2024,
+      "expected": 1879,
+      "actual": 1879
+    }
+  ],
+  "contest_total_checks": [
+    {
+      "year": 2008,
+      "contest_type": "president",
+      "historical": {
+        "dem_votes": 1087437,
+        "rep_votes": 1479178,
+        "other_votes": 33134
+      },
+      "canonical": {
+        "dem_votes": 1087437,
+        "rep_votes": 1479178,
+        "other_votes": 33134
+      }
+    },
+    {
+      "year": 2008,
+      "contest_type": "us_senate",
+      "historical": {
+        "dem_votes": 767236,
+        "rep_votes": 1579477,
+        "other_votes": 77872
+      },
+      "canonical": {
+        "dem_votes": 767236,
+        "rep_votes": 1579477,
+        "other_votes": 77872
+      }
+    },
+    {
+      "year": 2012,
+      "contest_type": "president",
+      "historical": {
+        "dem_votes": 960709,
+        "rep_votes": 1462330,
+        "other_votes": 35538
+      },
+      "canonical": {
+        "dem_votes": 960709,
+        "rep_votes": 1462330,
+        "other_votes": 35538
+      }
+    },
+    {
+      "year": 2012,
+      "contest_type": "us_senate",
+      "historical": {
+        "dem_votes": 705882,
+        "rep_votes": 1506443,
+        "other_votes": 109152
+      },
+      "canonical": {
+        "dem_votes": 705882,
+        "rep_votes": 1506443,
+        "other_votes": 109152
+      }
+    },
+    {
+      "year": 2014,
+      "contest_type": "governor",
+      "historical": {
+        "dem_votes": 309237,
+        "rep_votes": 951796,
+        "other_votes": 92695
+      },
+      "canonical": {
+        "dem_votes": 309237,
+        "rep_votes": 951796,
+        "other_votes": 92695
+      }
+    },
+    {
+      "year": 2014,
+      "contest_type": "us_senate",
+      "historical": {
+        "dem_votes": 437848,
+        "rep_votes": 850087,
+        "other_votes": 86130
+      },
+      "canonical": {
+        "dem_votes": 437848,
+        "rep_votes": 850087,
+        "other_votes": 86130
+      }
+    },
+    {
+      "year": 2016,
+      "contest_type": "president",
+      "historical": {
+        "dem_votes": 870695,
+        "rep_votes": 1522925,
+        "other_votes": 114407
+      },
+      "canonical": {
+        "dem_votes": 870695,
+        "rep_votes": 1522925,
+        "other_votes": 114407
+      }
+    },
+    {
+      "year": 2018,
+      "contest_type": "governor",
+      "historical": {
+        "dem_votes": 864863,
+        "rep_votes": 1336106,
+        "other_votes": 41060
+      },
+      "canonical": {
+        "dem_votes": 864863,
+        "rep_votes": 1336106,
+        "other_votes": 41060
+      }
+    },
+    {
+      "year": 2018,
+      "contest_type": "us_senate",
+      "historical": {
+        "dem_votes": 985450,
+        "rep_votes": 1227483,
+        "other_votes": 30807
+      },
+      "canonical": {
+        "dem_votes": 985450,
+        "rep_votes": 1227483,
+        "other_votes": 30807
+      }
+    },
+    {
+      "year": 2020,
+      "contest_type": "president",
+      "historical": {
+        "dem_votes": 1143711,
+        "rep_votes": 1852475,
+        "other_votes": 57664
+      },
+      "canonical": {
+        "dem_votes": 1143711,
+        "rep_votes": 1852475,
+        "other_votes": 57664
+      }
+    },
+    {
+      "year": 2020,
+      "contest_type": "us_senate",
+      "historical": {
+        "dem_votes": 1040691,
+        "rep_votes": 1840926,
+        "other_votes": 68546
+      },
+      "canonical": {
+        "dem_votes": 1040691,
+        "rep_votes": 1840926,
+        "other_votes": 68546
+      }
+    },
+    {
+      "year": 2022,
+      "contest_type": "governor",
+      "historical": {
+        "dem_votes": 572818,
+        "rep_votes": 1129390,
+        "other_votes": 37674
+      },
+      "canonical": {
+        "dem_votes": 572818,
+        "rep_votes": 1129390,
+        "other_votes": 37674
+      }
+    },
+    {
+      "year": 2024,
+      "contest_type": "president",
+      "historical": {
+        "dem_votes": 1056265,
+        "rep_votes": 1966865,
+        "other_votes": 40812
+      },
+      "canonical": {
+        "dem_votes": 1056265,
+        "rep_votes": 1966865,
+        "other_votes": 40812
+      }
+    },
+    {
+      "year": 2024,
+      "contest_type": "us_senate",
+      "historical": {
+        "dem_votes": 1027461,
+        "rep_votes": 1918743,
+        "other_votes": 61404
+      },
+      "canonical": {
+        "dem_votes": 1027461,
+        "rep_votes": 1918743,
+        "other_votes": 61404
+      }
+    }
+  ],
+  "district_weight_groups": 63532,
+  "bad_district_weight_groups": [],
+  "congressional_2022_vs_2026": {
+    "cd_1": {
+      "blocks_2022": 24386,
+      "blocks_2026": 24386,
+      "changed_blocks": 0,
+      "identical": true,
+      "changed_block_population_2020": 0
+    },
+    "cd_2": {
+      "blocks_2022": 16713,
+      "blocks_2026": 16720,
+      "changed_blocks": 15,
+      "identical": false,
+      "changed_block_population_2020": 290,
+      "transfers": [
+        {
+          "from": "2",
+          "to": "6",
+          "blocks": 4,
+          "population_2020": 145
+        },
+        {
+          "from": "3",
+          "to": "2",
+          "blocks": 11,
+          "population_2020": 145
+        }
+      ]
+    }
+  },
+  "congressional_result_mode_comparison": {
+    "cd_1": {
+      "differing_contest_files": 0,
+      "files": []
+    },
+    "cd_2": {
+      "differing_contest_files": 20,
+      "files": [
+        "congressional_governor_2002.json",
+        "congressional_governor_2006.json",
+        "congressional_governor_2014.json",
+        "congressional_governor_2022.json",
+        "congressional_president_2000.json",
+        "congressional_president_2004.json",
+        "congressional_president_2008.json",
+        "congressional_president_2012.json",
+        "congressional_president_2016.json",
+        "congressional_president_2020.json",
+        "congressional_president_2024.json",
+        "congressional_us_senate_2000.json",
+        "congressional_us_senate_2002.json",
+        "congressional_us_senate_2006.json",
+        "congressional_us_senate_2008.json",
+        "congressional_us_senate_2012.json",
+        "congressional_us_senate_2014.json",
+        "congressional_us_senate_2018.json",
+        "congressional_us_senate_2020.json",
+        "congressional_us_senate_2024.json"
+      ]
+    }
+  }
+}

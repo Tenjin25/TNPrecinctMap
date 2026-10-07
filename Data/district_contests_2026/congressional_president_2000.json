@@ -45,19 +45,22 @@
         "2": 19.1865
       }
     },
-    "geographic_audit_method": "independent_county_constrained_spatial_precinct_overlay"
+    "geographic_audit_method": "independent_county_constrained_spatial_precinct_overlay",
+    "identical_bef_districts_synced": [
+      "1"
+    ]
   },
   "general": {
     "results": {
       "1": {
-        "dem_votes": 86922,
+        "dem_votes": 86921,
         "rep_votes": 142166,
         "other_votes": 3720,
-        "total_votes": 232808,
+        "total_votes": 232807,
         "dem_candidate": "Al Gore",
         "rep_candidate": "George W. Bush",
-        "margin": 55244,
-        "margin_pct": 23.7294,
+        "margin": 55245,
+        "margin_pct": 23.73,
         "winner": "REP"
       },
       "2": {
@@ -105,14 +108,14 @@
         "winner": "DEM"
       },
       "6": {
-        "dem_votes": 144660,
+        "dem_votes": 144661,
         "rep_votes": 120236,
         "other_votes": 4358,
-        "total_votes": 269254,
+        "total_votes": 269255,
         "dem_candidate": "Al Gore",
         "rep_candidate": "George W. Bush",
-        "margin": -24424,
-        "margin_pct": -9.071,
+        "margin": -24425,
+        "margin_pct": -9.0713,
         "winner": "DEM"
       },
       "7": {

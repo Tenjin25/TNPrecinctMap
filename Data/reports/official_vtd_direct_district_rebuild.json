@@ -1,0 +1,597 @@
+{
+  "generated_by": "apply_official_vtd_direct_districts.py",
+  "files": [
+    {
+      "file": "congressional_president_2008.json",
+      "scope": "congressional",
+      "year": 2008,
+      "contest_type": "president",
+      "lines_year": 2022,
+      "matched_rows": 1841,
+      "unmatched_rows": 394,
+      "non_geographic_rows": 39,
+      "county_errors": [],
+      "target_totals": {
+        "dem_votes": 1087437,
+        "rep_votes": 1479178,
+        "other_votes": 33134
+      },
+      "output_totals": {
+        "dem_votes": 1087437,
+        "rep_votes": 1479178,
+        "other_votes": 33134
+      },
+      "before_hd28": null,
+      "after_hd28": null
+    },
+    {
+      "file": "state_house_president_2008.json",
+      "scope": "state_house",
+      "year": 2008,
+      "contest_type": "president",
+      "lines_year": 2022,
+      "matched_rows": 1841,
+      "unmatched_rows": 394,
+      "non_geographic_rows": 39,
+      "county_errors": [],
+      "target_totals": {
+        "dem_votes": 1087437,
+        "rep_votes": 1479178,
+        "other_votes": 33134
+      },
+      "output_totals": {
+        "dem_votes": 1087437,
+        "rep_votes": 1479178,
+        "other_votes": 33134
+      },
+      "before_hd28": null,
+      "after_hd28": null
+    },
+    {
+      "file": "state_senate_president_2008.json",
+      "scope": "state_senate",
+      "year": 2008,
+      "contest_type": "president",
+      "lines_year": 2022,
+      "matched_rows": 1841,
+      "unmatched_rows": 394,
+      "non_geographic_rows": 39,
+      "county_errors": [],
+      "target_totals": {
+        "dem_votes": 1087437,
+        "rep_votes": 1479178,
+        "other_votes": 33134
+      },
+      "output_totals": {
+        "dem_votes": 1087437,
+        "rep_votes": 1479178,
+        "other_votes": 33134
+      },
+      "before_hd28": null,
+      "after_hd28": null
+    },
+    {
+      "file": "congressional_president_2008.json",
+      "scope": "congressional",
+      "year": 2008,
+      "contest_type": "president",
+      "lines_year": 2026,
+      "matched_rows": 1841,
+      "unmatched_rows": 394,
+      "non_geographic_rows": 39,
+      "county_errors": [],
+      "target_totals": {
+        "dem_votes": 1087437,
+        "rep_votes": 1479178,
+        "other_votes": 33134
+      },
+      "output_totals": {
+        "dem_votes": 1087437,
+        "rep_votes": 1479178,
+        "other_votes": 33134
+      },
+      "before_hd28": null,
+      "after_hd28": null
+    },
+    {
+      "file": "congressional_us_senate_2008.json",
+      "scope": "congressional",
+      "year": 2008,
+      "contest_type": "us_senate",
+      "lines_year": 2022,
+      "matched_rows": 1841,
+      "unmatched_rows": 394,
+      "non_geographic_rows": 39,
+      "county_errors": [],
+      "target_totals": {
+        "dem_votes": 767236,
+        "rep_votes": 1579477,
+        "other_votes": 77872
+      },
+      "output_totals": {
+        "dem_votes": 767236,
+        "rep_votes": 1579477,
+        "other_votes": 77872
+      },
+      "before_hd28": null,
+      "after_hd28": null
+    },
+    {
+      "file": "state_house_us_senate_2008.json",
+      "scope": "state_house",
+      "year": 2008,
+      "contest_type": "us_senate",
+      "lines_year": 2022,
+      "matched_rows": 1841,
+      "unmatched_rows": 394,
+      "non_geographic_rows": 39,
+      "county_errors": [],
+      "target_totals": {
+        "dem_votes": 767236,
+        "rep_votes": 1579477,
+        "other_votes": 77872
+      },
+      "output_totals": {
+        "dem_votes": 767236,
+        "rep_votes": 1579477,
+        "other_votes": 77872
+      },
+      "before_hd28": null,
+      "after_hd28": null
+    },
+    {
+      "file": "state_senate_us_senate_2008.json",
+      "scope": "state_senate",
+      "year": 2008,
+      "contest_type": "us_senate",
+      "lines_year": 2022,
+      "matched_rows": 1841,
+      "unmatched_rows": 394,
+      "non_geographic_rows": 39,
+      "county_errors": [],
+      "target_totals": {
+        "dem_votes": 767236,
+        "rep_votes": 1579477,
+        "other_votes": 77872
+      },
+      "output_totals": {
+        "dem_votes": 767236,
+        "rep_votes": 1579477,
+        "other_votes": 77872
+      },
+      "before_hd28": null,
+      "after_hd28": null
+    },
+    {
+      "file": "congressional_us_senate_2008.json",
+      "scope": "congressional",
+      "year": 2008,
+      "contest_type": "us_senate",
+      "lines_year": 2026,
+      "matched_rows": 1841,
+      "unmatched_rows": 394,
+      "non_geographic_rows": 39,
+      "county_errors": [],
+      "target_totals": {
+        "dem_votes": 767236,
+        "rep_votes": 1579477,
+        "other_votes": 77872
+      },
+      "output_totals": {
+        "dem_votes": 767236,
+        "rep_votes": 1579477,
+        "other_votes": 77872
+      },
+      "before_hd28": null,
+      "after_hd28": null
+    },
+    {
+      "file": "congressional_president_2012.json",
+      "scope": "congressional",
+      "year": 2012,
+      "contest_type": "president",
+      "lines_year": 2022,
+      "matched_rows": 1634,
+      "unmatched_rows": 417,
+      "non_geographic_rows": 32,
+      "county_errors": [],
+      "target_totals": {
+        "dem_votes": 960709,
+        "rep_votes": 1462330,
+        "other_votes": 35538
+      },
+      "output_totals": {
+        "dem_votes": 960709,
+        "rep_votes": 1462330,
+        "other_votes": 35538
+      },
+      "before_hd28": null,
+      "after_hd28": null
+    },
+    {
+      "file": "state_house_president_2012.json",
+      "scope": "state_house",
+      "year": 2012,
+      "contest_type": "president",
+      "lines_year": 2022,
+      "matched_rows": 1634,
+      "unmatched_rows": 417,
+      "non_geographic_rows": 32,
+      "county_errors": [],
+      "target_totals": {
+        "dem_votes": 960709,
+        "rep_votes": 1462330,
+        "other_votes": 35538
+      },
+      "output_totals": {
+        "dem_votes": 960709,
+        "rep_votes": 1462330,
+        "other_votes": 35538
+      },
+      "before_hd28": {
+        "dem_votes": 9552,
+        "rep_votes": 2468,
+        "other_votes": 0,
+        "total_votes": 12020,
+        "dem_candidate": "Barack Obama",
+        "rep_candidate": "Mitt Romney",
+        "margin": -7084,
+        "margin_pct": -58.9351,
+        "winner": "DEM"
+      },
+      "after_hd28": {
+        "dem_votes": 18050,
+        "rep_votes": 4644,
+        "other_votes": 267,
+        "total_votes": 22961,
+        "dem_candidate": "Barack Obama",
+        "rep_candidate": "Mitt Romney",
+        "margin": -13406,
+        "margin_pct": -58.386,
+        "winner": "DEM"
+      }
+    },
+    {
+      "file": "state_senate_president_2012.json",
+      "scope": "state_senate",
+      "year": 2012,
+      "contest_type": "president",
+      "lines_year": 2022,
+      "matched_rows": 1634,
+      "unmatched_rows": 417,
+      "non_geographic_rows": 32,
+      "county_errors": [],
+      "target_totals": {
+        "dem_votes": 960709,
+        "rep_votes": 1462330,
+        "other_votes": 35538
+      },
+      "output_totals": {
+        "dem_votes": 960709,
+        "rep_votes": 1462330,
+        "other_votes": 35538
+      },
+      "before_hd28": null,
+      "after_hd28": null
+    },
+    {
+      "file": "congressional_president_2012.json",
+      "scope": "congressional",
+      "year": 2012,
+      "contest_type": "president",
+      "lines_year": 2026,
+      "matched_rows": 1634,
+      "unmatched_rows": 417,
+      "non_geographic_rows": 32,
+      "county_errors": [],
+      "target_totals": {
+        "dem_votes": 960709,
+        "rep_votes": 1462330,
+        "other_votes": 35538
+      },
+      "output_totals": {
+        "dem_votes": 960709,
+        "rep_votes": 1462330,
+        "other_votes": 35538
+      },
+      "before_hd28": null,
+      "after_hd28": null
+    },
+    {
+      "file": "congressional_us_senate_2012.json",
+      "scope": "congressional",
+      "year": 2012,
+      "contest_type": "us_senate",
+      "lines_year": 2022,
+      "matched_rows": 1634,
+      "unmatched_rows": 418,
+      "non_geographic_rows": 32,
+      "county_errors": [],
+      "target_totals": {
+        "dem_votes": 705882,
+        "rep_votes": 1506443,
+        "other_votes": 109152
+      },
+      "output_totals": {
+        "dem_votes": 705882,
+        "rep_votes": 1506443,
+        "other_votes": 109152
+      },
+      "before_hd28": null,
+      "after_hd28": null
+    },
+    {
+      "file": "state_house_us_senate_2012.json",
+      "scope": "state_house",
+      "year": 2012,
+      "contest_type": "us_senate",
+      "lines_year": 2022,
+      "matched_rows": 1634,
+      "unmatched_rows": 418,
+      "non_geographic_rows": 32,
+      "county_errors": [],
+      "target_totals": {
+        "dem_votes": 705882,
+        "rep_votes": 1506443,
+        "other_votes": 109152
+      },
+      "output_totals": {
+        "dem_votes": 705882,
+        "rep_votes": 1506443,
+        "other_votes": 109152
+      },
+      "before_hd28": {
+        "dem_votes": 7100,
+        "rep_votes": 4186,
+        "other_votes": 445,
+        "total_votes": 11731,
+        "dem_candidate": "Mark E. Clayton",
+        "rep_candidate": "Bob Corker",
+        "margin": -2914,
+        "margin_pct": -24.8402,
+        "winner": "DEM"
+      },
+      "after_hd28": {
+        "dem_votes": 14768,
+        "rep_votes": 6680,
+        "other_votes": 695,
+        "total_votes": 22143,
+        "dem_candidate": "Mark E. Clayton",
+        "rep_candidate": "Bob Corker",
+        "margin": -8088,
+        "margin_pct": -36.5262,
+        "winner": "DEM"
+      }
+    },
+    {
+      "file": "state_senate_us_senate_2012.json",
+      "scope": "state_senate",
+      "year": 2012,
+      "contest_type": "us_senate",
+      "lines_year": 2022,
+      "matched_rows": 1634,
+      "unmatched_rows": 418,
+      "non_geographic_rows": 32,
+      "county_errors": [],
+      "target_totals": {
+        "dem_votes": 705882,
+        "rep_votes": 1506443,
+        "other_votes": 109152
+      },
+      "output_totals": {
+        "dem_votes": 705882,
+        "rep_votes": 1506443,
+        "other_votes": 109152
+      },
+      "before_hd28": null,
+      "after_hd28": null
+    },
+    {
+      "file": "congressional_us_senate_2012.json",
+      "scope": "congressional",
+      "year": 2012,
+      "contest_type": "us_senate",
+      "lines_year": 2026,
+      "matched_rows": 1634,
+      "unmatched_rows": 418,
+      "non_geographic_rows": 32,
+      "county_errors": [],
+      "target_totals": {
+        "dem_votes": 705882,
+        "rep_votes": 1506443,
+        "other_votes": 109152
+      },
+      "output_totals": {
+        "dem_votes": 705882,
+        "rep_votes": 1506443,
+        "other_votes": 109152
+      },
+      "before_hd28": null,
+      "after_hd28": null
+    },
+    {
+      "file": "congressional_governor_2014.json",
+      "scope": "congressional",
+      "year": 2014,
+      "contest_type": "governor",
+      "lines_year": 2022,
+      "matched_rows": 1738,
+      "unmatched_rows": 314,
+      "non_geographic_rows": 7,
+      "county_errors": [],
+      "target_totals": {
+        "dem_votes": 309237,
+        "rep_votes": 951796,
+        "other_votes": 92695
+      },
+      "output_totals": {
+        "dem_votes": 309237,
+        "rep_votes": 951796,
+        "other_votes": 92695
+      },
+      "before_hd28": null,
+      "after_hd28": null
+    },
+    {
+      "file": "state_house_governor_2014.json",
+      "scope": "state_house",
+      "year": 2014,
+      "contest_type": "governor",
+      "lines_year": 2022,
+      "matched_rows": 1738,
+      "unmatched_rows": 314,
+      "non_geographic_rows": 7,
+      "county_errors": [],
+      "target_totals": {
+        "dem_votes": 309237,
+        "rep_votes": 951796,
+        "other_votes": 92695
+      },
+      "output_totals": {
+        "dem_votes": 309237,
+        "rep_votes": 951796,
+        "other_votes": 92695
+      },
+      "before_hd28": null,
+      "after_hd28": null
+    },
+    {
+      "file": "state_senate_governor_2014.json",
+      "scope": "state_senate",
+      "year": 2014,
+      "contest_type": "governor",
+      "lines_year": 2022,
+      "matched_rows": 1738,
+      "unmatched_rows": 314,
+      "non_geographic_rows": 7,
+      "county_errors": [],
+      "target_totals": {
+        "dem_votes": 309237,
+        "rep_votes": 951796,
+        "other_votes": 92695
+      },
+      "output_totals": {
+        "dem_votes": 309237,
+        "rep_votes": 951796,
+        "other_votes": 92695
+      },
+      "before_hd28": null,
+      "after_hd28": null
+    },
+    {
+      "file": "congressional_governor_2014.json",
+      "scope": "congressional",
+      "year": 2014,
+      "contest_type": "governor",
+      "lines_year": 2026,
+      "matched_rows": 1738,
+      "unmatched_rows": 314,
+      "non_geographic_rows": 7,
+      "county_errors": [],
+      "target_totals": {
+        "dem_votes": 309237,
+        "rep_votes": 951796,
+        "other_votes": 92695
+      },
+      "output_totals": {
+        "dem_votes": 309237,
+        "rep_votes": 951796,
+        "other_votes": 92695
+      },
+      "before_hd28": null,
+      "after_hd28": null
+    },
+    {
+      "file": "congressional_us_senate_2014.json",
+      "scope": "congressional",
+      "year": 2014,
+      "contest_type": "us_senate",
+      "lines_year": 2022,
+      "matched_rows": 1738,
+      "unmatched_rows": 313,
+      "non_geographic_rows": 6,
+      "county_errors": [],
+      "target_totals": {
+        "dem_votes": 437848,
+        "rep_votes": 850087,
+        "other_votes": 86130
+      },
+      "output_totals": {
+        "dem_votes": 437848,
+        "rep_votes": 850087,
+        "other_votes": 86130
+      },
+      "before_hd28": null,
+      "after_hd28": null
+    },
+    {
+      "file": "state_house_us_senate_2014.json",
+      "scope": "state_house",
+      "year": 2014,
+      "contest_type": "us_senate",
+      "lines_year": 2022,
+      "matched_rows": 1738,
+      "unmatched_rows": 313,
+      "non_geographic_rows": 6,
+      "county_errors": [],
+      "target_totals": {
+        "dem_votes": 437848,
+        "rep_votes": 850087,
+        "other_votes": 86130
+      },
+      "output_totals": {
+        "dem_votes": 437848,
+        "rep_votes": 850087,
+        "other_votes": 86130
+      },
+      "before_hd28": null,
+      "after_hd28": null
+    },
+    {
+      "file": "state_senate_us_senate_2014.json",
+      "scope": "state_senate",
+      "year": 2014,
+      "contest_type": "us_senate",
+      "lines_year": 2022,
+      "matched_rows": 1738,
+      "unmatched_rows": 313,
+      "non_geographic_rows": 6,
+      "county_errors": [],
+      "target_totals": {
+        "dem_votes": 437848,
+        "rep_votes": 850087,
+        "other_votes": 86130
+      },
+      "output_totals": {
+        "dem_votes": 437848,
+        "rep_votes": 850087,
+        "other_votes": 86130
+      },
+      "before_hd28": null,
+      "after_hd28": null
+    },
+    {
+      "file": "congressional_us_senate_2014.json",
+      "scope": "congressional",
+      "year": 2014,
+      "contest_type": "us_senate",
+      "lines_year": 2026,
+      "matched_rows": 1738,
+      "unmatched_rows": 313,
+      "non_geographic_rows": 6,
+      "county_errors": [],
+      "target_totals": {
+        "dem_votes": 437848,
+        "rep_votes": 850087,
+        "other_votes": 86130
+      },
+      "output_totals": {
+        "dem_votes": 437848,
+        "rep_votes": 850087,
+        "other_votes": 86130
+      },
+      "before_hd28": null,
+      "after_hd28": null
+    }
+  ]
+}

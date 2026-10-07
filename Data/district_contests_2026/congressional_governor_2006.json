@@ -45,19 +45,22 @@
         "2": -39.3455
       }
     },
-    "geographic_audit_method": "independent_county_constrained_spatial_precinct_overlay"
+    "geographic_audit_method": "independent_county_constrained_spatial_precinct_overlay",
+    "identical_bef_districts_synced": [
+      "1"
+    ]
   },
   "general": {
     "results": {
       "1": {
         "dem_votes": 120291,
-        "rep_votes": 77577,
+        "rep_votes": 77576,
         "other_votes": 3741,
-        "total_votes": 201609,
+        "total_votes": 201608,
         "dem_candidate": "Phil Bredesen",
         "rep_candidate": "Jim Bryson",
-        "margin": -42714,
-        "margin_pct": -21.1866,
+        "margin": -42715,
+        "margin_pct": -21.1872,
         "winner": "DEM"
       },
       "2": {
@@ -128,13 +131,13 @@
       },
       "8": {
         "dem_votes": 152584,
-        "rep_votes": 77739,
+        "rep_votes": 77740,
         "other_votes": 3080,
-        "total_votes": 233403,
+        "total_votes": 233404,
         "dem_candidate": "Phil Bredesen",
         "rep_candidate": "Jim Bryson",
-        "margin": -74845,
-        "margin_pct": -32.0669,
+        "margin": -74844,
+        "margin_pct": -32.0663,
         "winner": "DEM"
       },
       "9": {

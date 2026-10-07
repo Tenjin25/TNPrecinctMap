@@ -25,6 +25,14 @@
       "other_votes": 3623
     },
     {
+      "file": "congressional_governor_2014.json",
+      "district": "9",
+      "margin_pct": -0.4057,
+      "dem_votes": 62374,
+      "rep_votes": 61841,
+      "other_votes": 7155
+    },
+    {
       "file": "congressional_us_senate_2018.json",
       "district": "5",
       "margin_pct": 0.0377,
@@ -121,14 +129,6 @@
       "other_votes": 0
     },
     {
-      "file": "state_house_governor_2014.json",
-      "district": "86",
-      "margin_pct": 0.6452,
-      "dem_votes": 6501,
-      "rep_votes": 6590,
-      "other_votes": 703
-    },
-    {
       "file": "state_house_governor_2018.json",
       "district": "59",
       "margin_pct": 0.8303,
@@ -179,26 +179,58 @@
     {
       "file": "state_house_president_2008.json",
       "district": "75",
-      "margin_pct": -0.7812,
-      "dem_votes": 6879,
-      "rep_votes": 6771,
+      "margin_pct": 0.6099,
+      "dem_votes": 8060,
+      "rep_votes": 8160,
       "other_votes": 175
     },
     {
+      "file": "state_house_president_2008.json",
+      "district": "90",
+      "margin_pct": -0.706,
+      "dem_votes": 11190,
+      "rep_votes": 11030,
+      "other_votes": 443
+    },
+    {
       "file": "state_house_president_2012.json",
-      "district": "75",
-      "margin_pct": -0.5217,
-      "dem_votes": 8189,
-      "rep_votes": 8104,
+      "district": "14",
+      "margin_pct": 0.0,
+      "dem_votes": 0,
+      "rep_votes": 0,
       "other_votes": 0
     },
     {
       "file": "state_house_president_2012.json",
-      "district": "90",
-      "margin_pct": 0.1337,
-      "dem_votes": 9786,
-      "rep_votes": 9813,
-      "other_votes": 601
+      "district": "18",
+      "margin_pct": 0.0,
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0
+    },
+    {
+      "file": "state_house_president_2012.json",
+      "district": "19",
+      "margin_pct": 0.0,
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0
+    },
+    {
+      "file": "state_house_president_2012.json",
+      "district": "75",
+      "margin_pct": -0.466,
+      "dem_votes": 7947,
+      "rep_votes": 7872,
+      "other_votes": 274
+    },
+    {
+      "file": "state_house_president_2012.json",
+      "district": "89",
+      "margin_pct": 0.0,
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0
     },
     {
       "file": "state_house_president_2016.json",
@@ -322,11 +354,43 @@
     },
     {
       "file": "state_house_us_senate_2008.json",
-      "district": "96",
-      "margin_pct": 0.317,
-      "dem_votes": 13012,
-      "rep_votes": 13097,
-      "other_votes": 706
+      "district": "98",
+      "margin_pct": -0.1992,
+      "dem_votes": 13959,
+      "rep_votes": 13902,
+      "other_votes": 758
+    },
+    {
+      "file": "state_house_us_senate_2012.json",
+      "district": "14",
+      "margin_pct": 0.0,
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0
+    },
+    {
+      "file": "state_house_us_senate_2012.json",
+      "district": "18",
+      "margin_pct": 0.0,
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0
+    },
+    {
+      "file": "state_house_us_senate_2012.json",
+      "district": "19",
+      "margin_pct": 0.0,
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0
+    },
+    {
+      "file": "state_house_us_senate_2012.json",
+      "district": "89",
+      "margin_pct": 0.0,
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0
     },
     {
       "file": "state_house_us_senate_2020.json",
@@ -367,6 +431,14 @@
       "dem_votes": 20077,
       "rep_votes": 20110,
       "other_votes": 885
+    },
+    {
+      "file": "state_senate_president_2012.json",
+      "district": "6",
+      "margin_pct": 0.0,
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0
     },
     {
       "file": "state_senate_state_senate_2010.json",
@@ -410,11 +482,19 @@
     },
     {
       "file": "state_senate_us_senate_2008.json",
-      "district": "21",
-      "margin_pct": 0.9463,
-      "dem_votes": 28203,
-      "rep_votes": 28763,
-      "other_votes": 2214
+      "district": "30",
+      "margin_pct": -0.5881,
+      "dem_votes": 36849,
+      "rep_votes": 36405,
+      "other_votes": 2241
+    },
+    {
+      "file": "state_senate_us_senate_2012.json",
+      "district": "6",
+      "margin_pct": 0.0,
+      "dem_votes": 0,
+      "rep_votes": 0,
+      "other_votes": 0
     }
   ],
   "district_files_with_fallback": [
