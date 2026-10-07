@@ -30,6 +30,7 @@ Data/tn_cvap_2024_2020_b_csv/
 Data/tn_cvap_2024_2020_b_csv.zip
 Data/VTD_Shamar.zip
 .tmp_official_rebuild/
+.tmp_official_rebuild*/
 .tmp_block_authoritative/
 
 # Local server / scratch logs

@@ -11,12 +11,19 @@ high,ANDERSON,000023,ROBERTSVILLE,2024,official_vtd_exact_name_nhgis_blocks,0.95
 high,ANDERSON,000024,ROSEDALE,2024,official_vtd_exact_name_nhgis_blocks,0.95,Rosedale,2020,1479,1.0
 high,ANDERSON,000025,SOUTH CLINTON,2024,official_vtd_exact_name_nhgis_blocks,0.95,South Clinton,2020,1489,1.0
 high,ANDERSON,000026,WEST HILLS,2024,official_vtd_exact_name_nhgis_blocks,0.95,West Hills,2020,1478,1.0
-high,BENTON,000204,1 HOLLADAY,2024,official_vtd_exact_code_nhgis_blocks,0.97,1 Holladay School,2020,12,1.0
-high,BENTON,000201,2 CAMDEN JR HIGH,2024,official_vtd_exact_code_nhgis_blocks,0.97,2 Camden High School,2020,15,1.0
-high,BENTON,000203,3 CAMDEN CITY HALL,2024,official_vtd_exact_code_nhgis_blocks,0.97,3 Benton Co. Courthouse,2020,11,1.0
-high,BENTON,000202,4 CAMDEN ELEMENTARY,2024,official_vtd_exact_code_nhgis_blocks,0.97,4 Camden Elementary School,2020,16,1.0
-high,BENTON,000205,5 LIBRARY,2024,official_vtd_exact_code_nhgis_blocks,0.97,5 Bemton Co. Courthouse,2020,13,1.0
-high,BENTON,000206,6 BIG SANDY,2024,official_vtd_exact_code_nhgis_blocks,0.97,6 Big Sandy School,2020,14,1.0
+high,BEDFORD,000101,1 1 WARTRACE,2024,official_vtd_equivalent_code_nhgis_blocks,0.97,101 Wartrace Baptist Church,2020,9,1.0
+high,BEDFORD,000104,3 3 UNIONVILLE,2024,official_vtd_equivalent_code_nhgis_blocks,0.97,303 Community Elementary School,2020,3,1.0
+high,BEDFORD,000105,4 3 BEDFORD,2024,official_vtd_equivalent_code_nhgis_blocks,0.97,403 Bedford Community Center,2020,2,1.0
+high,BEDFORD,000106,5 2 FLAT CREEK,2024,official_vtd_equivalent_code_nhgis_blocks,0.97,502 Flat Creek Community Center,2020,5,1.0
+high,BEDFORD,000108,6 1 EAST SIDE,2024,official_vtd_equivalent_code_nhgis_blocks,0.97,601 First Baptist Church,2020,0,1.0
+high,BEDFORD,000110,8 1 THOMAS,2024,official_vtd_equivalent_code_nhgis_blocks,0.97,801 Thomas School,2020,8,1.0
+high,BEDFORD,000111,9 2 SOUTHSIDE,2024,official_vtd_equivalent_code_nhgis_blocks,0.97,902 Southside School,2020,7,1.0
+high,BENTON,000204,1 HOLLADAY,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,1 Holladay School,2020,12,1.0
+high,BENTON,000201,2 CAMDEN JR HIGH,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,2 Camden High School,2020,15,1.0
+high,BENTON,000203,3 CAMDEN CITY HALL,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,3 Benton Co. Courthouse,2020,11,1.0
+high,BENTON,000202,4 CAMDEN ELEMENTARY,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,4 Camden Elementary School,2020,16,1.0
+high,BENTON,000205,5 LIBRARY,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,5 Bemton Co. Courthouse,2020,13,1.0
+high,BENTON,000206,6 BIG SANDY,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,6 Big Sandy School,2020,14,1.0
 high,BLEDSOE,000304,1 1 DILL,2024,official_vtd_code_and_name_nhgis_blocks,1.0,1-1 Dill,2020,17,1.0
 high,BLEDSOE,000305,1 2 GRIFFITH,2024,official_vtd_code_and_name_nhgis_blocks,1.0,1-2 Griffith,2020,18,1.0
 high,BLEDSOE,000307,2 2 LUMINARY,2024,official_vtd_code_and_name_nhgis_blocks,1.0,2-2 Luminary,2020,23,1.0
@@ -25,19 +32,22 @@ high,BLEDSOE,000312,3 2 RIGSBY,2024,official_vtd_code_and_name_nhgis_blocks,1.0,
 high,BLEDSOE,000301,5 1 BELLVIEW,2024,official_vtd_code_and_name_nhgis_blocks,1.0,5-1 Bellview,2020,20,1.0
 high,BLEDSOE,000310,5 2 NINE MILE,2024,official_vtd_code_and_name_nhgis_blocks,1.0,5-2 Nine Mile,2020,21,1.0
 high,BLEDSOE,000308,6 2 LUSK,2024,official_vtd_code_and_name_nhgis_blocks,1.0,6-2 Lusk,2020,26,1.0
-high,BRADLEY,000501,1 1 MCDONALD,2024,official_vtd_exact_name_nhgis_blocks,0.95,101 McDonald,2020,1407,1.0
-high,BRADLEY,000516,1 2 PROSPECT,2024,official_vtd_exact_name_nhgis_blocks,0.95,102 Prospect,2020,1406,1.0
-high,BRADLEY,000504,2 1 E L ROSS,2024,official_vtd_exact_name_nhgis_blocks,0.95,201 E.L. Ross,2020,1421,1.0
-high,BRADLEY,000505,2 2 WALKER VALLEY,2024,official_vtd_exact_name_nhgis_blocks,0.95,202 Walker Valley,2020,1422,1.0
-high,BRADLEY,000509,3 1 LEE UNIVERSITY,2024,official_vtd_exact_name_nhgis_blocks,0.95,301 Lee University,2020,1416,1.0
-high,BRADLEY,000506,3 2 SENIOR CENTER,2024,official_vtd_exact_name_nhgis_blocks,0.95,302 Senior Center,2020,1419,1.0
-high,BRADLEY,000512,4 1 OAK GROVE,2024,official_vtd_exact_name_nhgis_blocks,0.95,401 Oak Grove,2020,1415,1.0
-high,BRADLEY,000514,5 1 BLYTHE BOWER,2024,official_vtd_exact_name_nhgis_blocks,0.95,501 Blythe/Bower,2020,1413,1.0
-high,BRADLEY,000515,6 2 BLUE SPRINGS,2024,official_vtd_exact_name_nhgis_blocks,0.95,602 Blue Springs,2020,1409,1.0
-high,BRADLEY,000513,6 3 WATERVILLE,2024,official_vtd_exact_name_nhgis_blocks,0.95,603 Waterville,2020,1412,1.0
-high,BRADLEY,000503,6 4 BLACK FOX,2024,official_vtd_exact_name_nhgis_blocks,0.95,604 Black Fox,2020,1408,1.0
-high,BRADLEY,000502,7 1 STUART,2024,official_vtd_exact_name_nhgis_blocks,0.95,701 Stuart,2020,1417,1.0
-high,BRADLEY,000507,7 2 CLEVELAND HIGH,2024,official_vtd_exact_name_nhgis_blocks,0.95,702 Cleveland High,2020,1420,1.0
+high,BRADLEY,000501,1 1 MCDONALD,2024,official_vtd_code_and_name_nhgis_blocks,0.99,101 McDonald,2020,1407,1.0
+high,BRADLEY,000516,1 2 PROSPECT,2024,official_vtd_code_and_name_nhgis_blocks,0.99,102 Prospect,2020,1406,1.0
+high,BRADLEY,000517,1 3 HOPEWELL,2024,official_vtd_equivalent_code_nhgis_blocks,0.97,103 Hopwell,2020,1405,1.0
+high,BRADLEY,000504,2 1 E L ROSS,2024,official_vtd_code_and_name_nhgis_blocks,0.99,201 E.L. Ross,2020,1421,1.0
+high,BRADLEY,000505,2 2 WALKER VALLEY,2024,official_vtd_code_and_name_nhgis_blocks,0.99,202 Walker Valley,2020,1422,1.0
+high,BRADLEY,000509,3 1 LEE UNIVERSITY,2024,official_vtd_code_and_name_nhgis_blocks,0.99,301 Lee University,2020,1416,1.0
+high,BRADLEY,000506,3 2 SENIOR CENTER,2024,official_vtd_code_and_name_nhgis_blocks,0.99,302 Senior Center,2020,1419,1.0
+high,BRADLEY,000512,4 1 OAK GROVE,2024,official_vtd_code_and_name_nhgis_blocks,0.99,401 Oak Grove,2020,1415,1.0
+high,BRADLEY,000514,5 1 BLYTHE BOWER,2024,official_vtd_code_and_name_nhgis_blocks,0.99,501 Blythe/Bower,2020,1413,1.0
+high,BRADLEY,000511,6 1 VALLEY VIEW,2024,official_vtd_equivalent_code_nhgis_blocks,0.97,601 Valley View A,2020,1411,1.0
+high,BRADLEY,000515,6 2 BLUE SPRINGS,2024,official_vtd_code_and_name_nhgis_blocks,0.99,602 Blue Springs,2020,1409,1.0
+high,BRADLEY,000513,6 3 WATERVILLE,2024,official_vtd_code_and_name_nhgis_blocks,0.99,603 Waterville,2020,1412,1.0
+high,BRADLEY,000503,6 4 BLACK FOX,2024,official_vtd_code_and_name_nhgis_blocks,0.99,604 Black Fox,2020,1408,1.0
+high,BRADLEY,000511,6 5 VALLEY VIEW,2024,official_vtd_equivalent_code_nhgis_blocks,0.97,605 Valley View B,2020,1410,1.0
+high,BRADLEY,000502,7 1 STUART,2024,official_vtd_code_and_name_nhgis_blocks,0.99,701 Stuart,2020,1417,1.0
+high,BRADLEY,000507,7 2 CLEVELAND HIGH,2024,official_vtd_code_and_name_nhgis_blocks,0.99,702 Cleveland High,2020,1420,1.0
 high,CANNON,000701,1 1 WESTSIDE,2024,official_vtd_exact_name_nhgis_blocks,0.95,Westside,2020,957,1.0
 high,CANNON,000706,2 1 AUBURNTOWN,2024,official_vtd_exact_name_nhgis_blocks,0.95,Auburntown,2020,962,1.0
 high,CANNON,000707,2 3 PLEASANT RIDGE,2024,official_vtd_exact_name_nhgis_blocks,0.95,Pleasant Ridge,2020,960,1.0
@@ -47,7 +57,7 @@ high,CARROLL,000804,1 2 CEDAR GROVE,2024,official_vtd_code_and_name_nhgis_blocks
 high,CARROLL,000817,1 3 ATWOOD,2024,official_vtd_code_and_name_nhgis_blocks,1.0,1-3 Atwood,2020,67,1.0
 high,CARROLL,000805,5 1 CIVIC CENTER,2024,official_vtd_code_and_name_nhgis_blocks,1.0,5-1 Civic Center,2020,61,1.0
 high,CARROLL,000807,7 1 POLICE STATION HUNT,2024,official_vtd_code_and_name_nhgis_blocks,1.0,7-1 Police Station - Hunt.,2020,63,1.0
-high,CARROLL,000808,8 1 SENIOR CITIZENS,2024,official_vtd_exact_code_nhgis_blocks,0.97,8-1 Senior Citizens Center,2020,64,1.0
+high,CARROLL,000808,8 1 SENIOR CITIZENS,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,8-1 Senior Citizens Center,2020,64,1.0
 high,CARROLL,000809,9 1 CHURCH OF CHRIST,2024,official_vtd_code_and_name_nhgis_blocks,1.0,9-1 Church of Christ,2020,65,1.0
 high,CARTER,000921,MIDWAY,2024,official_vtd_exact_name_nhgis_blocks,0.95,Midway,2020,75,1.0
 high,CARTER,000919,UNAKA,2024,official_vtd_exact_name_nhgis_blocks,0.95,Unaka,2020,76,1.0
@@ -59,8 +69,8 @@ high,CARTER,000914,ELK MILLS,2024,official_vtd_exact_name_nhgis_blocks,0.95,Elk 
 high,CARTER,000916,HAMPTON,2024,official_vtd_exact_name_nhgis_blocks,0.95,Hampton,2020,72,1.0
 high,CARTER,000913,LITTLE MILLIGAN,2024,official_vtd_exact_name_nhgis_blocks,0.95,Little Milligan,2020,90,1.0
 high,CARTER,000912,HAROLD MCCORMICK,2024,official_vtd_exact_name_nhgis_blocks,0.95,Harold McCormick,2020,74,1.0
-high,CHEATHAM,001001,2 1 EAST CHEATHAM,2024,official_vtd_exact_code_nhgis_blocks,0.97,2-1 East Cheatham Elementary,2020,901,1.0
-high,CHEATHAM,001003,3 1 PLEASANT VIEW,2024,official_vtd_exact_code_nhgis_blocks,0.97,3-1 Pleasant View First Baptist Church,2020,903,1.0
+high,CHEATHAM,001001,2 1 EAST CHEATHAM,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,2-1 East Cheatham Elementary,2020,901,1.0
+high,CHEATHAM,001003,3 1 PLEASANT VIEW,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,3-1 Pleasant View First Baptist Church,2020,903,1.0
 high,CHESTER,001107,2 1 BEECH SPRINGS,2024,official_vtd_code_and_name_nhgis_blocks,1.0,2-1 Beech Springs,2020,102,1.0
 high,CHESTER,001101,2 2 FRIENDSHIP,2024,official_vtd_code_and_name_nhgis_blocks,1.0,2-2 Friendship,2020,96,1.0
 high,CHESTER,001105,5 1 CHRIST COMMUNITY,2024,official_vtd_code_and_name_nhgis_blocks,1.0,5-1 Christ Community,2020,94,1.0
@@ -87,34 +97,43 @@ high,COCKE,001413,RANKIN,2024,official_vtd_exact_name_nhgis_blocks,0.95,Rankin,2
 high,COCKE,001411,ARMORY,2024,official_vtd_exact_name_nhgis_blocks,0.95,Armory,2020,1268,1.0
 high,COCKE,001410,COSBY,2024,official_vtd_exact_name_nhgis_blocks,0.95,Cosby,2020,1262,1.0
 high,COCKE,001407,NORTHPORT,2024,official_vtd_exact_name_nhgis_blocks,0.95,Northport,2020,1266,1.0
-high,DAVIDSON,001811,10 2,2024,official_vtd_exact_name_nhgis_blocks,0.95,10-2,2020,1557,1.0
-high,DAVIDSON,001849,10 6,2024,official_vtd_exact_name_nhgis_blocks,0.95,10-6,2020,1561,1.0
-high,DAVIDSON,001847,10 8,2024,official_vtd_exact_name_nhgis_blocks,0.95,10-8,2020,1563,1.0
-high,DAVIDSON,001801,10 9,2024,official_vtd_exact_name_nhgis_blocks,0.95,10-9,2020,1564,1.0
-high,DAVIDSON,001850,11 1,2024,official_vtd_exact_name_nhgis_blocks,0.95,11-1,2020,1565,1.0
-high,DAVIDSON,001850,11 2,2024,official_vtd_exact_name_nhgis_blocks,0.95,11-2,2020,1566,1.0
-high,DAVIDSON,001948,12 4,2024,official_vtd_exact_name_nhgis_blocks,0.95,12-4,2020,1572,1.0
-high,DAVIDSON,001864,14 2,2024,official_vtd_exact_name_nhgis_blocks,0.95,14-2,2020,1579,1.0
-high,DAVIDSON,001863,14 4,2024,official_vtd_exact_name_nhgis_blocks,0.95,14-4,2020,1581,1.0
-high,DAVIDSON,001867,14 5,2024,official_vtd_exact_name_nhgis_blocks,0.95,14-5,2020,1582,1.0
-high,DAVIDSON,001868,15 1,2024,official_vtd_exact_name_nhgis_blocks,0.95,15-1,2020,1583,1.0
-high,DAVIDSON,001869,15 3,2024,official_vtd_exact_name_nhgis_blocks,0.95,15-3,2020,1585,1.0
-high,DAVIDSON,001870,15 6,2024,official_vtd_exact_name_nhgis_blocks,0.95,15-6,2020,1588,1.0
-high,DAVIDSON,001883,17 5,2024,official_vtd_exact_name_nhgis_blocks,0.95,17-5,2020,1597,1.0
-high,DAVIDSON,001894,17 6,2024,official_vtd_exact_name_nhgis_blocks,0.95,17-6,2020,1598,1.0
-high,DAVIDSON,001891,19 2,2024,official_vtd_exact_name_nhgis_blocks,0.95,19-2,2020,1605,1.0
-high,DAVIDSON,001896,20 1,2024,official_vtd_exact_name_nhgis_blocks,0.95,20-1,2020,1614,1.0
-high,DAVIDSON,001902,21 1,2024,official_vtd_exact_name_nhgis_blocks,0.95,21-1,2020,1619,1.0
-high,DAVIDSON,001899,21 4,2024,official_vtd_exact_name_nhgis_blocks,0.95,21-4,2020,1622,1.0
-high,DAVIDSON,001910,23 1,2024,official_vtd_exact_name_nhgis_blocks,0.95,23-1,2020,1627,1.0
-high,DAVIDSON,001917,23 5,2024,official_vtd_exact_name_nhgis_blocks,0.95,23-5,2020,1631,1.0
-high,DAVIDSON,001901,24 1,2024,official_vtd_exact_name_nhgis_blocks,0.95,24-1,2020,1632,1.0
-high,DAVIDSON,001941,31 1,2024,official_vtd_exact_name_nhgis_blocks,0.95,31-1,2020,1668,1.0
-high,DAVIDSON,001942,31 2,2024,official_vtd_exact_name_nhgis_blocks,0.95,31-2,2020,1669,1.0
-high,DAVIDSON,001946,33 3,2024,official_vtd_exact_name_nhgis_blocks,0.95,33-3,2020,1678,1.0
-high,DAVIDSON,001940,33 5,2024,official_vtd_exact_name_nhgis_blocks,0.95,33-5,2020,1680,1.0
-high,DAVIDSON,001955,34 1,2024,official_vtd_exact_name_nhgis_blocks,0.95,34-1,2020,1682,1.0
-high,DAVIDSON,001959,35 1,2024,official_vtd_exact_name_nhgis_blocks,0.95,35-1,2020,1688,1.0
+high,DAVIDSON,001809,02 4,2024,official_vtd_code_and_name_nhgis_blocks,1.0,2-4,2020,1612,1.0
+high,DAVIDSON,001812,03 1,2024,official_vtd_code_and_name_nhgis_blocks,1.0,3-1,2020,1659,1.0
+high,DAVIDSON,001814,03 6,2024,official_vtd_code_and_name_nhgis_blocks,1.0,3-6,2020,1664,1.0
+high,DAVIDSON,001838,05 2,2024,official_vtd_code_and_name_nhgis_blocks,1.0,5-2,2020,1697,1.0
+high,DAVIDSON,001838,05 3,2024,official_vtd_code_and_name_nhgis_blocks,1.0,5-3,2020,1698,1.0
+high,DAVIDSON,001950,08 1,2024,official_vtd_code_and_name_nhgis_blocks,1.0,8-1,2020,1719,1.0
+high,DAVIDSON,001811,10 2,2024,official_vtd_code_and_name_nhgis_blocks,1.0,10-2,2020,1557,1.0
+high,DAVIDSON,001849,10 6,2024,official_vtd_code_and_name_nhgis_blocks,1.0,10-6,2020,1561,1.0
+high,DAVIDSON,001847,10 8,2024,official_vtd_code_and_name_nhgis_blocks,1.0,10-8,2020,1563,1.0
+high,DAVIDSON,001801,10 9,2024,official_vtd_code_and_name_nhgis_blocks,1.0,10-9,2020,1564,1.0
+high,DAVIDSON,001850,11 1,2024,official_vtd_code_and_name_nhgis_blocks,1.0,11-1,2020,1565,1.0
+high,DAVIDSON,001850,11 2,2024,official_vtd_code_and_name_nhgis_blocks,1.0,11-2,2020,1566,1.0
+high,DAVIDSON,001948,12 4,2024,official_vtd_code_and_name_nhgis_blocks,1.0,12-4,2020,1572,1.0
+high,DAVIDSON,001864,14 2,2024,official_vtd_code_and_name_nhgis_blocks,1.0,14-2,2020,1579,1.0
+high,DAVIDSON,001863,14 4,2024,official_vtd_code_and_name_nhgis_blocks,1.0,14-4,2020,1581,1.0
+high,DAVIDSON,001867,14 5,2024,official_vtd_code_and_name_nhgis_blocks,1.0,14-5,2020,1582,1.0
+high,DAVIDSON,001868,15 1,2024,official_vtd_code_and_name_nhgis_blocks,1.0,15-1,2020,1583,1.0
+high,DAVIDSON,001869,15 3,2024,official_vtd_code_and_name_nhgis_blocks,1.0,15-3,2020,1585,1.0
+high,DAVIDSON,001870,15 6,2024,official_vtd_code_and_name_nhgis_blocks,1.0,15-6,2020,1588,1.0
+high,DAVIDSON,001883,17 5,2024,official_vtd_code_and_name_nhgis_blocks,1.0,17-5,2020,1597,1.0
+high,DAVIDSON,001894,17 6,2024,official_vtd_code_and_name_nhgis_blocks,1.0,17-6,2020,1598,1.0
+high,DAVIDSON,001891,19 2,2024,official_vtd_code_and_name_nhgis_blocks,1.0,19-2,2020,1605,1.0
+high,DAVIDSON,001896,20 1,2024,official_vtd_code_and_name_nhgis_blocks,1.0,20-1,2020,1614,1.0
+high,DAVIDSON,001902,21 1,2024,official_vtd_code_and_name_nhgis_blocks,1.0,21-1,2020,1619,1.0
+high,DAVIDSON,001899,21 4,2024,official_vtd_code_and_name_nhgis_blocks,1.0,21-4,2020,1622,1.0
+high,DAVIDSON,001910,23 1,2024,official_vtd_code_and_name_nhgis_blocks,1.0,23-1,2020,1627,1.0
+high,DAVIDSON,001917,23 5,2024,official_vtd_code_and_name_nhgis_blocks,1.0,23-5,2020,1631,1.0
+high,DAVIDSON,001901,24 1,2024,official_vtd_code_and_name_nhgis_blocks,1.0,24-1,2020,1632,1.0
+high,DAVIDSON,001941,31 1,2024,official_vtd_code_and_name_nhgis_blocks,1.0,31-1,2020,1668,1.0
+high,DAVIDSON,001942,31 2,2024,official_vtd_code_and_name_nhgis_blocks,1.0,31-2,2020,1669,1.0
+high,DAVIDSON,001946,33 3,2024,official_vtd_code_and_name_nhgis_blocks,1.0,33-3,2020,1678,1.0
+high,DAVIDSON,001940,33 5,2024,official_vtd_code_and_name_nhgis_blocks,1.0,33-5,2020,1680,1.0
+high,DAVIDSON,001955,34 1,2024,official_vtd_code_and_name_nhgis_blocks,1.0,34-1,2020,1682,1.0
+high,DAVIDSON,001959,35 1,2024,official_vtd_code_and_name_nhgis_blocks,1.0,35-1,2020,1688,1.0
+high,DECATUR,002054,1 1 DUNBAR,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,1-1,2020,1383,1.0
+high,DECATUR,002052,4 1 DECATURVILLE,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,4-1,2020,1376,1.0
+high,DECATUR,002055,5 1 PARSONS,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,5-1,2020,1377,1.0
 high,DEKALB,002158,1 1 ALEXANDRIA,2024,official_vtd_code_and_name_nhgis_blocks,1.0,1-1 Alexandria,2020,154,1.0
 high,DEKALB,002161,2 3 SNOWS HILL,2024,official_vtd_code_and_name_nhgis_blocks,1.0,2-3 Snows Hill,2020,155,1.0
 high,DEKALB,002153,3 1 CHURCH OF GOD,2024,official_vtd_exact_name_nhgis_blocks,0.95,3 Church of God,2020,149,1.0
@@ -123,6 +142,8 @@ high,DEKALB,002155,4 3 COURTHOUSE,2024,official_vtd_code_and_name_nhgis_blocks,1
 high,DEKALB,002164,5 1 JOHNSON CHAPEL,2024,official_vtd_code_and_name_nhgis_blocks,1.0,5-1 Johnson Chapel,2020,157,1.0
 high,DEKALB,002157,5 2 COUNTY COMPLEX,2024,official_vtd_code_and_name_nhgis_blocks,1.0,5-2 County Complex,2020,151,1.0
 high,DEKALB,002154,6 3 BLUE SPRINGS,2024,official_vtd_code_and_name_nhgis_blocks,1.0,6-3 Blue Springs,2020,156,1.0
+high,DICKSON,002261,5 1,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,5-1 Bibb Center,2020,1530,1.0
+high,DICKSON,002266,11 1,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,11-1 Tennesco Community Center,2020,1528,1.0
 high,DYER,002353,B NEWBERN,2024,official_vtd_exact_name_nhgis_blocks,0.95,B-Newbern,2020,165,1.0
 high,DYER,002362,G COURTHOUSE,2024,official_vtd_exact_name_nhgis_blocks,0.95,G - Courthouse,2020,161,1.0
 high,DYER,002363,H E DYERSBURG,2024,official_vtd_exact_name_nhgis_blocks,0.95,H-E. Dyersburg,2020,162,1.0
@@ -130,17 +151,17 @@ high,FAYETTE,002463,GALLAWAY,2024,official_vtd_exact_name_nhgis_blocks,0.95,5 Ga
 high,FAYETTE,002453,ELBA,2024,official_vtd_exact_name_nhgis_blocks,0.95,8 Elba,2020,180,1.0
 high,FAYETTE,002455,ROSSVILLE,2024,official_vtd_exact_name_nhgis_blocks,0.95,10 Rossville,2020,182,1.0
 high,FAYETTE,002456,MACON,2024,official_vtd_exact_name_nhgis_blocks,0.95,11 Macon,2020,185,1.0
-high,FRANKLIN,002652,2 1 CLARK MEMORIAL,2024,official_vtd_exact_code_nhgis_blocks,0.97,2-1 Clark Memorial School,2020,206,1.0
-high,FRANKLIN,002653,3 1 BROADVIEW,2024,official_vtd_exact_code_nhgis_blocks,0.97,3-1 Broadview School,2020,211,1.0
-high,FRANKLIN,002654,3 2 HUNTLAND,2024,official_vtd_exact_code_nhgis_blocks,0.97,3-2 Huntland Community Center,2020,212,1.0
-high,FRANKLIN,002656,4 1 BELVIDERE,2024,official_vtd_exact_code_nhgis_blocks,0.97,4-1 Belvidere Community Center,2020,213,1.0
-high,FRANKLIN,002657,4 2 COWAN,2024,official_vtd_exact_code_nhgis_blocks,0.97,4-2 Cowan Elementary School,2020,214,1.0
-high,FRANKLIN,002658,4 3 LIBERTY,2024,official_vtd_exact_code_nhgis_blocks,0.97,4-3 Liberty Community Center,2020,210,1.0
-high,FRANKLIN,002659,5 1 KEITH SPRINGS,2024,official_vtd_exact_code_nhgis_blocks,0.97,5-1 Keith Springs Community Center,2020,215,1.0
-high,FRANKLIN,002662,6 1 ALTO OAK GROVE,2024,official_vtd_exact_code_nhgis_blocks,0.97,6-1 Alto/Oak Grove Fire Department,2020,217,1.0
-high,FRANKLIN,002664,6 3 UTSI,2024,official_vtd_exact_code_nhgis_blocks,0.97,6-3 UTSI Main Campus,2020,218,1.0
-high,FRANKLIN,002666,7 2 CG WINCHESTER SPRINGS,2024,official_vtd_exact_code_nhgis_blocks,0.97,7-2 Center Grove/Winchester Springs Water District,2020,219,1.0
-high,FRANKLIN,002668,8 2 ESTILL SPRINGS,2024,official_vtd_exact_code_nhgis_blocks,0.97,8-2 Estill Springs Community Center,2020,220,1.0
+high,FRANKLIN,002652,2 1 CLARK MEMORIAL,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,2-1 Clark Memorial School,2020,206,1.0
+high,FRANKLIN,002653,3 1 BROADVIEW,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,3-1 Broadview School,2020,211,1.0
+high,FRANKLIN,002654,3 2 HUNTLAND,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,3-2 Huntland Community Center,2020,212,1.0
+high,FRANKLIN,002656,4 1 BELVIDERE,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,4-1 Belvidere Community Center,2020,213,1.0
+high,FRANKLIN,002657,4 2 COWAN,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,4-2 Cowan Elementary School,2020,214,1.0
+high,FRANKLIN,002658,4 3 LIBERTY,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,4-3 Liberty Community Center,2020,210,1.0
+high,FRANKLIN,002659,5 1 KEITH SPRINGS,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,5-1 Keith Springs Community Center,2020,215,1.0
+high,FRANKLIN,002662,6 1 ALTO OAK GROVE,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,6-1 Alto/Oak Grove Fire Department,2020,217,1.0
+high,FRANKLIN,002664,6 3 UTSI,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,6-3 UTSI Main Campus,2020,218,1.0
+high,FRANKLIN,002666,7 2 CG WINCHESTER SPRINGS,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,7-2 Center Grove/Winchester Springs Water District,2020,219,1.0
+high,FRANKLIN,002668,8 2 ESTILL SPRINGS,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,8-2 Estill Springs Community Center,2020,220,1.0
 high,GIBSON,002752,6 2 SITKA,2024,official_vtd_exact_name_nhgis_blocks,0.95,2 Sitka,2020,237,1.0
 high,GIBSON,002766,11 27 SKULLBONE,2024,official_vtd_exact_name_nhgis_blocks,0.95,27 Skullbone,2020,228,1.0
 high,GIBSON,002770,15 31 MILAN MUNICIPAL,2024,official_vtd_exact_name_nhgis_blocks,0.95,31 Milan Municipal,2020,231,1.0
@@ -152,6 +173,15 @@ high,GILES,002853,2A MINOR HILL,2024,official_vtd_exact_name_nhgis_blocks,0.95,M
 high,GILES,002856,3B CAMPBELLSVILLE,2024,official_vtd_exact_name_nhgis_blocks,0.95,Campbellsville,2020,247,1.0
 high,GILES,002861,6A UTS,2024,official_vtd_exact_name_nhgis_blocks,0.95,UTS,2020,248,1.0
 high,GILES,002863,7A GCHS,2024,official_vtd_exact_name_nhgis_blocks,0.95,GCHS,2020,244,1.0
+high,GRAINGER,002953,1 1,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,1-1 Rutledge Middle School,2020,1201,1.0
+high,GRAINGER,002952,1 2,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,1-2 Old Central Point School,2020,1202,1.0
+high,GRAINGER,002957,2 1,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,2-1 Bean Station Ele. School,2020,1203,1.0
+high,GRAINGER,002958,2 2,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,2-2 Grainger High School,2020,1204,1.0
+high,GRAINGER,002955,3 1,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,3-1 Blaine City Hall,2020,1205,1.0
+high,GRAINGER,002954,3 2,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,3-2 Indian Ridge Comm. Blg.,2020,1206,1.0
+high,GRAINGER,002951,4 2,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,4-2 Washburn Ele. School,2020,1210,1.0
+high,GRAINGER,002960,5 1,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,5-1 Bean Station Library,2020,1208,1.0
+high,GRAINGER,002959,5 2,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,5-2 Senior Citizens Center,2020,1207,1.0
 high,GRUNDY,003152,BEERSHEBA SPRINGS,2024,official_vtd_exact_name_nhgis_blocks,0.95,Beersheba Springs,2020,260,1.0
 high,GRUNDY,003155,CENTRAL,2024,official_vtd_exact_name_nhgis_blocks,0.95,Central,2020,262,1.0
 high,GRUNDY,003154,COLLINS,2024,official_vtd_exact_name_nhgis_blocks,0.95,Collins,2020,261,1.0
@@ -159,9 +189,13 @@ high,GRUNDY,003157,PELHAM VALLEY,2024,official_vtd_exact_name_nhgis_blocks,0.95,
 high,GRUNDY,003162,PALMER,2024,official_vtd_exact_name_nhgis_blocks,0.95,Palmer,2020,264,1.0
 high,GRUNDY,003161,MONTEAGLE,2024,official_vtd_exact_name_nhgis_blocks,0.95,Monteagle,2020,266,1.0
 high,GRUNDY,003156,TRACY CITY,2024,official_vtd_exact_name_nhgis_blocks,0.95,Tracy City,2020,258,1.0
-high,HAMBLEN,003266,11 2,2024,official_vtd_exact_name_nhgis_blocks,0.95,11-2,2020,277,1.0
-high,HAMBLEN,003264,13 1,2024,official_vtd_exact_name_nhgis_blocks,0.95,13-1,2020,281,1.0
-high,HAMBLEN,003265,14 1,2024,official_vtd_exact_name_nhgis_blocks,0.95,14-1,2020,282,1.0
+high,HAMBLEN,003254,03 1,2024,official_vtd_code_and_name_nhgis_blocks,1.0,3-1,2020,280,1.0
+high,HAMBLEN,003256,06 1,2024,official_vtd_code_and_name_nhgis_blocks,1.0,6-1,2020,273,1.0
+high,HAMBLEN,003259,09 1,2024,official_vtd_code_and_name_nhgis_blocks,1.0,9-1,2020,272,1.0
+high,HAMBLEN,003260,09 2,2024,official_vtd_code_and_name_nhgis_blocks,1.0,9-2,2020,268,1.0
+high,HAMBLEN,003266,11 2,2024,official_vtd_code_and_name_nhgis_blocks,1.0,11-2,2020,277,1.0
+high,HAMBLEN,003264,13 1,2024,official_vtd_code_and_name_nhgis_blocks,1.0,13-1,2020,281,1.0
+high,HAMBLEN,003265,14 1,2024,official_vtd_code_and_name_nhgis_blocks,1.0,14-1,2020,282,1.0
 high,HAMILTON,003355,APISON A,2024,official_vtd_exact_name_nhgis_blocks,0.95,Apison A,2020,1728,1.0
 high,HAMILTON,003361,BIRCHWOOD,2024,official_vtd_exact_name_nhgis_blocks,0.95,Birchwood,2020,1731,1.0
 high,HAMILTON,003364,BRAINERD HILLS,2024,official_vtd_exact_name_nhgis_blocks,0.95,Brainerd Hills,2020,1734,1.0
@@ -171,11 +205,11 @@ high,HAMILTON,003432,MURRAY HILLS,2024,official_vtd_exact_name_nhgis_blocks,0.95
 high,HAMILTON,003427,NORTH CHATTANOOGA B,2024,official_vtd_exact_name_nhgis_blocks,0.95,North Chattanooga B,2020,1777,1.0
 high,HAMILTON,003469,TYNER,2024,official_vtd_exact_name_nhgis_blocks,0.95,Tyner,2020,1805,1.0
 high,HAMILTON,003476,WOODMORE,2024,official_vtd_exact_name_nhgis_blocks,0.95,Woodmore,2020,1812,1.0
-high,HANCOCK,000001,1ST,2024,official_vtd_exact_name_nhgis_blocks,0.95,1st,2020,286,1.0
-high,HANCOCK,000002,2ND,2024,official_vtd_exact_name_nhgis_blocks,0.95,2nd,2020,283,1.0
-high,HANCOCK,000003,3RD,2024,official_vtd_exact_name_nhgis_blocks,0.95,3rd,2020,285,1.0
-high,HANCOCK,000005,5TH,2024,official_vtd_exact_name_nhgis_blocks,0.95,5th,2020,287,1.0
-high,HANCOCK,000007,7TH,2024,official_vtd_exact_name_nhgis_blocks,0.95,7th,2020,289,1.0
+high,HANCOCK,000001,1ST,2024,official_vtd_code_and_name_nhgis_blocks,1.0,1st,2020,286,1.0
+high,HANCOCK,000002,2ND,2024,official_vtd_code_and_name_nhgis_blocks,1.0,2nd,2020,283,1.0
+high,HANCOCK,000003,3RD,2024,official_vtd_code_and_name_nhgis_blocks,1.0,3rd,2020,285,1.0
+high,HANCOCK,000005,5TH,2024,official_vtd_code_and_name_nhgis_blocks,1.0,5th,2020,287,1.0
+high,HANCOCK,000007,7TH,2024,official_vtd_code_and_name_nhgis_blocks,1.0,7th,2020,289,1.0
 high,HARDEMAN,003613,GRAND JUNCTION,2024,official_vtd_exact_name_nhgis_blocks,0.95,Grand Junction,2020,298,1.0
 high,HARDEMAN,003612,SAULSBURY,2024,official_vtd_exact_name_nhgis_blocks,0.95,Saulsbury,2020,301,1.0
 high,HARDEMAN,003607,SILERTON,2024,official_vtd_exact_name_nhgis_blocks,0.95,Silerton,2020,297,1.0
@@ -199,17 +233,15 @@ high,HAWKINS,003811,3 WALLACE,2024,official_vtd_code_and_name_nhgis_blocks,1.0,3
 high,HAWKINS,003819,3 WATTERSON,2024,official_vtd_code_and_name_nhgis_blocks,1.0,3 Watterson,2020,319,1.0
 high,HENDERSON,004003,8 BROAD STREET,2024,official_vtd_exact_name_nhgis_blocks,0.95,6-8 Broad Street,2020,344,1.0
 high,HENDERSON,004006,10 FIRE STATION 10,2024,official_vtd_exact_name_nhgis_blocks,0.95,3-10 Fire Station #10,2020,354,1.0
-high,HENDERSON,004010,11 REAGAN,2024,official_vtd_exact_name_nhgis_blocks,0.95,7-11 Reagan,2020,350,1.0
-high,HENDERSON,004015,12 SARDIS,2024,official_vtd_exact_name_nhgis_blocks,0.95,7-12 Sardis,2020,349,1.0
 high,HENDERSON,004013,14 SOUTH HAVEN,2024,official_vtd_exact_name_nhgis_blocks,0.95,2-14 South Haven,2020,352,1.0
 high,HENDERSON,004005,15 WESTOVER,2024,official_vtd_exact_name_nhgis_blocks,0.95,2-15 Westover,2020,343,1.0
-high,HENRY,004106,1 2,2024,official_vtd_exact_name_nhgis_blocks,0.95,1-2,2020,360,1.0
-high,HENRY,004108,2 1,2024,official_vtd_exact_name_nhgis_blocks,0.95,2-1,2020,355,1.0
-high,HENRY,004112,3 1,2024,official_vtd_exact_name_nhgis_blocks,0.95,3-1,2020,357,1.0
+high,HENRY,004106,1 2,2024,official_vtd_code_and_name_nhgis_blocks,1.0,1-2,2020,360,1.0
+high,HENRY,004108,2 1,2024,official_vtd_code_and_name_nhgis_blocks,1.0,2-1,2020,355,1.0
+high,HENRY,004112,3 1,2024,official_vtd_code_and_name_nhgis_blocks,1.0,3-1,2020,357,1.0
 high,HICKMAN,004205,2 2 FAIRFIELD,2024,official_vtd_code_and_name_nhgis_blocks,1.0,02-2 Fairfield,2020,920,1.0
 high,HICKMAN,004204,2 3 EAST BANK,2024,official_vtd_code_and_name_nhgis_blocks,1.0,02-3 East Bank,2020,910,1.0
-high,HICKMAN,004202,3 1 EAST CC,2024,official_vtd_exact_code_nhgis_blocks,0.97,03-1 East Community Center,2020,911,1.0
-high,HICKMAN,004203,4 1 LAKE BENSON,2024,official_vtd_exact_code_nhgis_blocks,0.97,04-1 Lake Benson Camp,2020,912,1.0
+high,HICKMAN,004202,3 1 EAST CC,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,03-1 East Community Center,2020,911,1.0
+high,HICKMAN,004203,4 1 LAKE BENSON,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,04-1 Lake Benson Camp,2020,912,1.0
 high,HICKMAN,004206,5 1 MT PLEASANT,2024,official_vtd_code_and_name_nhgis_blocks,1.0,05-1 Mt. Pleasant,2020,921,1.0
 high,HICKMAN,004207,5 2 MIDDLE SCHOOL,2024,official_vtd_code_and_name_nhgis_blocks,1.0,05-2 Middle School,2020,913,1.0
 high,HICKMAN,004213,7 1 NUNNELLY,2024,official_vtd_code_and_name_nhgis_blocks,1.0,07-1 Nunnelly,2020,916,1.0
@@ -218,34 +250,118 @@ high,HICKMAN,004210,7 3 BRUSHY,2024,official_vtd_code_and_name_nhgis_blocks,1.0,
 high,HICKMAN,004214,7 4 COBLE,2024,official_vtd_code_and_name_nhgis_blocks,1.0,07-4 Coble,2020,917,1.0
 high,HOUSTON,004304,STEWART,2024,official_vtd_exact_name_nhgis_blocks,0.95,Stewart,2020,366,1.0
 high,HOUSTON,004305,ERIN ELEMENTARY,2024,official_vtd_exact_name_nhgis_blocks,0.95,Erin Elementary,2020,367,1.0
-high,HUMPHREYS,004408,1 1 JERA,2024,official_vtd_exact_code_nhgis_blocks,0.97,1-1 Jera Building,2020,377,1.0
+high,HUMPHREYS,004408,1 1 JERA,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,1-1 Jera Building,2020,377,1.0
 high,HUMPHREYS,004404,1 2 COMPASSION CHURCH,2024,official_vtd_code_and_name_nhgis_blocks,1.0,1-2 Compassion Church,2020,370,1.0
-high,HUMPHREYS,004401,2 3 WFS,2024,official_vtd_exact_code_nhgis_blocks,0.97,2-3 WFCN,2020,373,1.0
+high,HUMPHREYS,004401,2 3 WFS,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,2-3 WFCN,2020,373,1.0
 high,HUMPHREYS,004403,3 4 MLEC,2024,official_vtd_code_and_name_nhgis_blocks,1.0,3-4 MLEC,2020,374,1.0
-high,HUMPHREYS,004402,4 5 WOODLAND,2024,official_vtd_exact_code_nhgis_blocks,0.97,4-5 Woodland Fellowship Church,2020,372,1.0
+high,HUMPHREYS,004402,4 5 WOODLAND,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,4-5 Woodland Fellowship Church,2020,372,1.0
 high,HUMPHREYS,004405,5 6 WILDWOOD,2024,official_vtd_code_and_name_nhgis_blocks,1.0,5-6 Wildwood,2020,376,1.0
 high,HUMPHREYS,004406,6 7 SOUTH MCEWEN,2024,official_vtd_code_and_name_nhgis_blocks,1.0,6-7 South McEwen,2020,375,1.0
-high,HUMPHREYS,004407,7 8 NORTH MCEWEN,2024,official_vtd_exact_code_nhgis_blocks,0.97,7-8 CCC,2020,371,1.0
-high,JACKSON,004507,1 1,2024,official_vtd_exact_name_nhgis_blocks,0.95,1-1,2020,1214,1.0
-high,JACKSON,004509,2 1,2024,official_vtd_exact_name_nhgis_blocks,0.95,2-1,2020,1211,1.0
-high,JACKSON,004502,2 2,2024,official_vtd_exact_name_nhgis_blocks,0.95,2-2,2020,1218,1.0
-high,JACKSON,004510,3 2,2024,official_vtd_exact_name_nhgis_blocks,0.95,3-2,2020,1219,1.0
-high,JACKSON,004511,4 1,2024,official_vtd_exact_name_nhgis_blocks,0.95,4-1,2020,1212,1.0
-high,JACKSON,004512,4 2,2024,official_vtd_exact_name_nhgis_blocks,0.95,4-2,2020,1220,1.0
-high,JACKSON,004505,5 2,2024,official_vtd_exact_name_nhgis_blocks,0.95,5-2,2020,1221,1.0
-high,JACKSON,004503,6 1,2024,official_vtd_exact_name_nhgis_blocks,0.95,6-1,2020,1216,1.0
-high,JACKSON,004501,6 2,2024,official_vtd_exact_name_nhgis_blocks,0.95,6-2,2020,1222,1.0
-high,JEFFERSON,004609,8 1 CHESTNUT HILL,2024,official_vtd_exact_code_nhgis_blocks,0.97,8-1 Old Chestnut Hill School,2020,387,1.0
-high,JEFFERSON,004611,8 2 SWANNSYLVANIA,2024,official_vtd_exact_code_nhgis_blocks,0.97,8-2 Swannsylvania Baptist Church,2020,388,1.0
+high,HUMPHREYS,004407,7 8 NORTH MCEWEN,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,7-8 CCC,2020,371,1.0
+high,JACKSON,004507,1 1,2024,official_vtd_code_and_name_nhgis_blocks,1.0,1-1,2020,1214,1.0
+high,JACKSON,004509,2 1,2024,official_vtd_code_and_name_nhgis_blocks,1.0,2-1,2020,1211,1.0
+high,JACKSON,004502,2 2,2024,official_vtd_code_and_name_nhgis_blocks,1.0,2-2,2020,1218,1.0
+high,JACKSON,004510,3 2,2024,official_vtd_code_and_name_nhgis_blocks,1.0,3-2,2020,1219,1.0
+high,JACKSON,004511,4 1,2024,official_vtd_code_and_name_nhgis_blocks,1.0,4-1,2020,1212,1.0
+high,JACKSON,004512,4 2,2024,official_vtd_code_and_name_nhgis_blocks,1.0,4-2,2020,1220,1.0
+high,JACKSON,004505,5 2,2024,official_vtd_code_and_name_nhgis_blocks,1.0,5-2,2020,1221,1.0
+high,JACKSON,004503,6 1,2024,official_vtd_code_and_name_nhgis_blocks,1.0,6-1,2020,1216,1.0
+high,JACKSON,004501,6 2,2024,official_vtd_code_and_name_nhgis_blocks,1.0,6-2,2020,1222,1.0
+high,JEFFERSON,004609,8 1 CHESTNUT HILL,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,8-1 Old Chestnut Hill School,2020,387,1.0
+high,JEFFERSON,004611,8 2 SWANNSYLVANIA,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,8-2 Swannsylvania Baptist Church,2020,388,1.0
 high,JOHNSON,004708,1B COLD SPRINGS,2024,official_vtd_code_and_name_nhgis_blocks,1.0,1B Cold Springs,2020,396,1.0
 high,JOHNSON,004701,2 FORGE SHOUNS,2024,official_vtd_code_and_name_nhgis_blocks,1.0,2 Forge/Shouns,2020,389,1.0
 high,JOHNSON,004709,4A DRY RUN,2024,official_vtd_code_and_name_nhgis_blocks,1.0,4A Dry Run,2020,395,1.0
 high,JOHNSON,004705,5 DOE,2024,official_vtd_code_and_name_nhgis_blocks,1.0,5 Doe,2020,393,1.0
 high,JOHNSON,004706,6 SHADY,2024,official_vtd_code_and_name_nhgis_blocks,1.0,6 Shady,2020,392,1.0
 high,JOHNSON,004707,7 CITY,2024,official_vtd_code_and_name_nhgis_blocks,1.0,7 City,2020,391,1.0
-high,LAKE,004951,1 TIPTONVILLE SR CITIZENS,2024,official_vtd_exact_code_nhgis_blocks,0.97,1 Tiptonville Senior Center,2020,401,1.0
-high,LAKE,004952,2 COURTHOUSE,2024,official_vtd_exact_code_nhgis_blocks,0.97,2 Lake County Courthouse,2020,400,1.0
-high,LAKE,004953,3 LAKE CO MIDDLE,2024,official_vtd_exact_code_nhgis_blocks,0.97,3 Lake County Middle School,2020,399,1.0
+high,KNOX,004861,09 ETERNAL LIFE HARVEST,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,09,2020,1274,1.0
+high,KNOX,004893,10A HOWARD BAKER CENTER,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,10A,2020,1275,1.0
+high,KNOX,004862,10N FORT SANDERS,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,10N,2020,1277,1.0
+high,KNOX,004832,10S HOWARD BAKER CENTER,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,10S,2020,1278,1.0
+high,KNOX,004893,10W HOWARD BAKER CENTER,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,10W,2020,1276,1.0
+high,KNOX,004875,11 CENTRAL UMC,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,11,2020,1279,1.0
+high,KNOX,004871,13 FAIR GARDEN,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,13,2020,1281,1.0
+high,KNOX,004873,14 AUSTIN EAST,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,14,2020,1282,1.0
+high,KNOX,004867,15E JOHN T O CONNOR,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,15E,2020,1283,1.0
+high,KNOX,004883,16W LARRY COX SR CENTER,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,16W,2020,1286,1.0
+high,KNOX,004883,16X LARRY COX SR CENTER,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,16X,2020,1287,1.0
+high,KNOX,004876,17 CHRISTENBERRY,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,17,2020,1288,1.0
+high,KNOX,004877,18 LINCOLN PARK,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,18,2020,1289,1.0
+high,KNOX,004859,23 WESTVIEW,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,23,2020,1292,1.0
+high,KNOX,004833,24Q SEQUOYAH HILLS,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,24Q,2020,1293,1.0
+high,KNOX,004809,26 DOGWOOD,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,26,2020,1295,1.0
+high,KNOX,004827,27 SOUTH KNOX,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,27,2020,1296,1.0
+high,KNOX,004868,30 SARAH MOORE GREENE,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,30,2020,1298,1.0
+high,KNOX,004872,32 SPRING HILL,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,32,2020,1300,1.0
+high,KNOX,004884,33N RICHARD YOAKLEY,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,33N,2020,1301,1.0
+high,KNOX,004884,33S RICHARD YOAKLEY,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,33S,2020,1302,1.0
+high,KNOX,004884,33X RICHARD YOAKLEY,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,33X,2020,1303,1.0
+high,KNOX,004882,34 CENTRAL,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,34,2020,1304,1.0
+high,KNOX,004879,37 INSKIP ELEMENTARY,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,37,2020,1307,1.0
+high,KNOX,004802,39W INSKIP REC CENTER,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,39W,2020,1309,1.0
+high,KNOX,004806,40 NORWOOD,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,40,2020,1310,1.0
+high,KNOX,004803,41 NORWOOD,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,41,2020,1311,1.0
+high,KNOX,004856,42 PLEASANT RIDGE,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,42,2020,1312,1.0
+high,KNOX,004857,43 WEST HAVEN,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,43,2020,1313,1.0
+high,KNOX,004855,44 RIDGEDALE,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,44,2020,1314,1.0
+high,KNOX,004854,45 BEARDEN MIDDLE,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,45,2020,1315,1.0
+high,KNOX,004838,46 1ST NAZARENE,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,46,2020,1316,1.0
+high,KNOX,004837,47N BEARDEN HIGH,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,47N,2020,1317,1.0
+high,KNOX,004837,47S BEARDEN HIGH,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,47S,2020,1318,1.0
+high,KNOX,004801,48 POND GAP,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,48,2020,1319,1.0
+high,KNOX,004834,49N BEARDEN ELEMENTARY,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,49N,2020,1320,1.0
+high,KNOX,004834,49S BEARDEN ELEMENTARY,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,49S,2020,1321,1.0
+high,KNOX,004858,50N WEST HIGH,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,50N,2020,1322,1.0
+high,KNOX,004860,50S WEST HIGH,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,50S,2020,1323,1.0
+high,KNOX,004890,56 HEISKELL,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,56,2020,1326,1.0
+high,KNOX,004810,57 HILLS,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,57,2020,1327,1.0
+high,KNOX,004811,60 FORT SUMTER,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,60,2020,1330,1.0
+high,KNOX,004886,61E HALLS,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,61E,2020,1331,1.0
+high,KNOX,004886,61W HALLS,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,61W,2020,1332,1.0
+high,KNOX,004844,62 HARDIN VALLEY,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,62,2020,1333,1.0
+high,KNOX,004848,63 KARNS,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,63,2020,1334,1.0
+high,KNOX,004849,63N KARNS NORTH,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,63N,2020,1335,1.0
+high,KNOX,004846,64 SOLWAY,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,64,2020,1336,1.0
+high,KNOX,004845,65N CONCORD NORTH,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,65N,2020,1341,1.0
+high,KNOX,004896,65S CONCORD SOUTH,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,65S,2020,1338,1.0
+high,KNOX,004841,65SW CONCORD SOUTHWEST,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,65SW,2020,1339,1.0
+high,KNOX,004841,65W CONCORD WEST,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,65W,2020,1340,1.0
+high,KNOX,004805,66NE E FARRAGUT MIDDLE,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,66NE,2020,1342,1.0
+high,KNOX,004805,66NW W FARRAGUT MIDDLE,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,66NW,2020,1343,1.0
+high,KNOX,004842,66SE E FARRAGUT HIGH,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,66SE,2020,1344,1.0
+high,KNOX,004842,66SW W FARRAGUT HIGH,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,66SW,2020,1345,1.0
+high,KNOX,004852,67 NORTH CEDAR BLUFF,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,67,2020,1346,1.0
+high,KNOX,004850,68 SOUTH CEDAR BLUFF,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,68,2020,1347,1.0
+high,KNOX,004851,68E EAST CEDAR BLUFF,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,68E,2020,1348,1.0
+high,KNOX,004807,69E BLUEGRASS,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,69E,2020,1349,1.0
+high,KNOX,004840,69N WEST VALLEY,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,69N,2020,1350,1.0
+high,KNOX,004839,69S NORTHSHORE,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,69S,2020,1351,1.0
+high,KNOX,004897,69W A L LOTTS,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,69W,2020,1352,1.0
+high,KNOX,004828,70E AMHERST,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,70E,2020,1353,1.0
+high,KNOX,004847,70W BALL CAMP,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,70W,2020,1354,1.0
+high,KNOX,004888,72E DANTE EAST,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,72E,2020,1356,1.0
+high,KNOX,004888,72W DANTE WEST,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,72W,2020,1357,1.0
+high,KNOX,004892,73W POWELL WEST,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,73W,2020,1359,1.0
+high,KNOX,004885,74 SHANNONDALE,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,74,2020,1360,1.0
+high,KNOX,004818,76 SUNNYVIEW,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,76,2020,1361,1.0
+high,KNOX,004821,77 RAMSEY,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,77,2020,1362,1.0
+high,KNOX,004819,78 RIVERDALE,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,78,2020,1363,1.0
+high,KNOX,004820,79 DORA KENNEDY,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,79,2020,1364,1.0
+high,KNOX,004813,80 CORRYTON,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,80,2020,1365,1.0
+high,KNOX,004812,81 GIBBS,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,81,2020,1366,1.0
+high,KNOX,004816,82 ELLISTOWN,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,82,2020,1367,1.0
+high,KNOX,004808,84 RITTA,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,84,2020,1368,1.0
+high,KNOX,004814,85 SKAGGSTON,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,85,2020,1369,1.0
+high,KNOX,004815,86 CARTER,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,86,2020,1370,1.0
+high,KNOX,004817,87 THORNGROVE,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,87,2020,1371,1.0
+high,KNOX,004829,89 MT OLIVE,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,89,2020,1372,1.0
+high,KNOX,004824,90 BONNY KATE,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,90,2020,1373,1.0
+high,KNOX,004822,92 GAP CREEK,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,92,2020,1374,1.0
+high,KNOX,004823,93 HOPEWELL,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,93,2020,1375,1.0
+high,LAKE,004951,1 TIPTONVILLE SR CITIZENS,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,1 Tiptonville Senior Center,2020,401,1.0
+high,LAKE,004952,2 COURTHOUSE,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,2 Lake County Courthouse,2020,400,1.0
+high,LAKE,004953,3 LAKE CO MIDDLE,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,3 Lake County Middle School,2020,399,1.0
 high,LAUDERDALE,005054,RIPLEY 2,2024,official_vtd_exact_name_nhgis_blocks,0.95,Ripley 2,2020,406,1.0
 high,LAUDERDALE,005057,RIPLEY 3,2024,official_vtd_exact_name_nhgis_blocks,0.95,Ripley 3,2020,402,1.0
 high,LAUDERDALE,005063,HALLS 8,2024,official_vtd_exact_name_nhgis_blocks,0.95,Halls 8,2020,407,1.0
@@ -262,9 +378,9 @@ high,LAWRENCE,005174,12 1 CENTER,2024,official_vtd_exact_name_nhgis_blocks,0.95,
 high,LAWRENCE,005163,13 1 WEST END,2024,official_vtd_exact_name_nhgis_blocks,0.95,West End,2020,424,1.0
 high,LAWRENCE,005164,14 1 CRAWFISH VALLEY,2024,official_vtd_exact_name_nhgis_blocks,0.95,Crawfish Valley,2020,428,1.0
 high,LAWRENCE,005166,16 1 ROTARY PARK,2024,official_vtd_exact_name_nhgis_blocks,0.95,Rotary Park,2020,414,1.0
-high,LEWIS,005254,1 1,2024,official_vtd_exact_name_nhgis_blocks,0.95,1-1,2020,440,1.0
-high,LEWIS,005253,3 1,2024,official_vtd_exact_name_nhgis_blocks,0.95,3-1,2020,438,1.0
-high,LEWIS,005252,4 1,2024,official_vtd_exact_name_nhgis_blocks,0.95,4-1,2020,444,1.0
+high,LEWIS,005254,1 1,2024,official_vtd_code_and_name_nhgis_blocks,1.0,1-1,2020,440,1.0
+high,LEWIS,005253,3 1,2024,official_vtd_code_and_name_nhgis_blocks,1.0,3-1,2020,438,1.0
+high,LEWIS,005252,4 1,2024,official_vtd_code_and_name_nhgis_blocks,1.0,4-1,2020,444,1.0
 high,LINCOLN,000003,1 1 CASH POINT,2024,official_vtd_exact_name_nhgis_blocks,0.95,Cash Point,2020,933,1.0
 high,LINCOLN,000020,1 3 TAFT,2024,official_vtd_exact_name_nhgis_blocks,0.95,Taft,2020,934,1.0
 high,LINCOLN,000004,2 1 MCBURG,2024,official_vtd_exact_name_nhgis_blocks,0.95,McBurg,2020,935,1.0
@@ -278,15 +394,14 @@ high,LOUDON,005455,DAVIS,2024,official_vtd_exact_name_nhgis_blocks,0.95,Davis,20
 high,LOUDON,005451,LUTTRELL,2024,official_vtd_exact_name_nhgis_blocks,0.95,Luttrell,2020,450,1.0
 high,LOUDON,005463,NORTH,2024,official_vtd_exact_name_nhgis_blocks,0.95,North,2020,446,1.0
 high,LOUDON,005458,HIGHLAND PARK,2024,official_vtd_exact_name_nhgis_blocks,0.95,Highland Park,2020,447,1.0
-high,MADISON,005671,2 1 LIGHT OF LIFE,2024,official_vtd_exact_code_nhgis_blocks,0.97,2-1 Light of Life Ministries,2020,502,1.0
-high,MADISON,005676,4 1 MASONIC LODGE,2024,official_vtd_exact_code_nhgis_blocks,0.97,4-1 Masonic Temple Lodge #45,2020,507,1.0
-high,MADISON,005655,5 2 NEW ST LUKE,2024,official_vtd_exact_code_nhgis_blocks,0.97,5-2 New St. Luke MB Church,2020,511,1.0
-high,MADISON,005662,6 2 MC FIRE STATION 13,2024,official_vtd_exact_code_nhgis_blocks,0.97,6-2 Madison County Fire Station #13,2020,513,1.0
-high,MADISON,005661,6 4 MEDON,2024,official_vtd_exact_code_nhgis_blocks,0.97,6-4 Medon City Hall,2020,515,1.0
-high,MADISON,005659,7 3 MERCER,2024,official_vtd_exact_code_nhgis_blocks,0.97,7-3 Mercer Fire Station #8,2020,518,1.0
-high,MADISON,005667,8 2 BROWNS,2024,official_vtd_exact_code_nhgis_blocks,0.97,8-2 Browns Fire Station #12,2020,519,1.0
-high,MADISON,005665,8 3 MIFFLIN,2024,official_vtd_exact_code_nhgis_blocks,0.97,8-3 Mifflin Road Fire Station #15,2020,520,1.0
-high,MADISON,005683,10 1 LEDGE,2024,official_vtd_exact_code_nhgis_blocks,0.97,10-1 The Ledge,2020,526,1.0
+high,MADISON,005671,2 1 LIGHT OF LIFE,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,2-1 Light of Life Ministries,2020,502,1.0
+high,MADISON,005676,4 1 MASONIC LODGE,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,4-1 Masonic Temple Lodge #45,2020,507,1.0
+high,MADISON,005655,5 2 NEW ST LUKE,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,5-2 New St. Luke MB Church,2020,511,1.0
+high,MADISON,005662,6 2 MC FIRE STATION 13,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,6-2 Madison County Fire Station #13,2020,513,1.0
+high,MADISON,005661,6 4 MEDON,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,6-4 Medon City Hall,2020,515,1.0
+high,MADISON,005659,7 3 MERCER,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,7-3 Mercer Fire Station #8,2020,518,1.0
+high,MADISON,005667,8 2 BROWNS,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,8-2 Browns Fire Station #12,2020,519,1.0
+high,MADISON,005665,8 3 MIFFLIN,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,8-3 Mifflin Road Fire Station #15,2020,520,1.0
 high,MARION,005758,NEW HOPE,2024,official_vtd_exact_name_nhgis_blocks,0.95,2 New Hope,2020,535,1.0
 high,MARION,005759,ORME,2024,official_vtd_exact_name_nhgis_blocks,0.95,3 Orme,2020,536,1.0
 high,MARION,005756,LODGE,2024,official_vtd_exact_name_nhgis_blocks,0.95,4 Lodge,2020,537,1.0
@@ -308,68 +423,69 @@ high,MEIGS,006251,2 MEIGS SOUTH,2024,official_vtd_exact_name_nhgis_blocks,0.95,M
 high,MEIGS,006252,3 2 COURTHOUSE,2024,official_vtd_code_and_name_nhgis_blocks,1.0,3-2 Courthouse,2020,559,1.0
 high,MEIGS,006255,4 MEIGS NORTH,2024,official_vtd_exact_name_nhgis_blocks,0.95,Meigs North,2020,555,1.0
 high,MEIGS,006256,5 TEN MILE,2024,official_vtd_exact_name_nhgis_blocks,0.95,Ten Mile,2020,557,1.0
-high,MONTGOMERY,006463,9A HAZELWOOD,2024,official_vtd_exact_code_nhgis_blocks,0.97,9A Hazelwood Elementary School,2020,1464,1.0
-high,MONTGOMERY,006457,16A RINGGOLD,2024,official_vtd_exact_code_nhgis_blocks,0.97,16A Ringgold Elementary School,2020,1452,1.0
-high,MONTGOMERY,006466,18B PISGAH,2024,official_vtd_exact_code_nhgis_blocks,0.97,18B Pisgah Elementary School,2020,1454,1.0
-high,MONTGOMERY,006471,19B SOUTH GUTHRIE,2024,official_vtd_exact_code_nhgis_blocks,0.97,19B South Guthrie Community Center,2020,1455,1.0
-high,MONTGOMERY,006471,20A NORTHEAST,2024,official_vtd_exact_code_nhgis_blocks,0.97,20A Northeast High School,2020,1473,1.0
-high,MONTGOMERY,006471,20B OAKLAND,2024,official_vtd_exact_code_nhgis_blocks,0.97,20B Oakland Elementary School,2020,1456,1.0
-high,MOORE,006554,1 MASONIC LODGE,2024,official_vtd_exact_code_nhgis_blocks,0.97,1 Courthouse,2020,565,1.0
-high,MOORE,006551,2 HIGH SCHOOL,2024,official_vtd_exact_code_nhgis_blocks,0.97,2 Moore County High School,2020,561,1.0
-high,MOORE,006553,3 MOORE COUNTY BLDG,2024,official_vtd_exact_code_nhgis_blocks,0.97,3 Moore County Building,2020,562,1.0
-high,MOORE,006552,4 PUBLIC LIBRARY,2024,official_vtd_exact_code_nhgis_blocks,0.97,4 Elementary School,2020,563,1.0
+high,MONTGOMERY,006463,9A HAZELWOOD,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,9A Hazelwood Elementary School,2020,1464,1.0
+high,MONTGOMERY,006457,16A RINGGOLD,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,16A Ringgold Elementary School,2020,1452,1.0
+high,MONTGOMERY,006466,18B PISGAH,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,18B Pisgah Elementary School,2020,1454,1.0
+high,MONTGOMERY,006471,19B SOUTH GUTHRIE,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,19B South Guthrie Community Center,2020,1455,1.0
+high,MONTGOMERY,006471,20A NORTHEAST,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,20A Northeast High School,2020,1473,1.0
+high,MONTGOMERY,006471,20B OAKLAND,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,20B Oakland Elementary School,2020,1456,1.0
+high,MOORE,006554,1 MASONIC LODGE,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,1 Courthouse,2020,565,1.0
+high,MOORE,006551,2 HIGH SCHOOL,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,2 Moore County High School,2020,561,1.0
+high,MOORE,006553,3 MOORE COUNTY BLDG,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,3 Moore County Building,2020,562,1.0
+high,MOORE,006552,4 PUBLIC LIBRARY,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,4 Elementary School,2020,563,1.0
 high,MOORE,006555,5 MOTLOW COLLEGE,2024,official_vtd_code_and_name_nhgis_blocks,1.0,5 Motlow College,2020,564,1.0
-high,MORGAN,006651,1 1 COALFIELD,2024,official_vtd_exact_code_nhgis_blocks,0.97,1-1 CF,2020,567,1.0
-high,MORGAN,006655,4 3 CHESTNUT RIDGE,2024,official_vtd_exact_code_nhgis_blocks,0.97,4-3 CR,2020,576,1.0
-high,MORGAN,006659,5 2 BURRVILLE,2024,official_vtd_exact_code_nhgis_blocks,0.97,5-2 BV,2020,574,1.0
-high,MORGAN,006653,6 2 PETROS,2024,official_vtd_exact_code_nhgis_blocks,0.97,6-2 PT,2020,573,1.0
+high,MORGAN,006651,1 1 COALFIELD,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,1-1 CF,2020,567,1.0
+high,MORGAN,006655,4 3 CHESTNUT RIDGE,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,4-3 CR,2020,576,1.0
+high,MORGAN,006659,5 2 BURRVILLE,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,5-2 BV,2020,574,1.0
+high,MORGAN,006653,6 2 PETROS,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,6-2 PT,2020,573,1.0
 high,OBION,006751,1 1 SOUTH FULTON,2024,official_vtd_code_and_name_nhgis_blocks,1.0,1-1 South Fulton,2020,581,1.0
 high,OBION,006759,5 2 CLOVERDALE,2024,official_vtd_code_and_name_nhgis_blocks,1.0,5-2 Cloverdale,2020,579,1.0
 high,OBION,006755,5 5 SAMBURG,2024,official_vtd_code_and_name_nhgis_blocks,1.0,5-5 Samburg,2020,587,1.0
-high,OBION,006760,6 1 TROY SR CTR,2024,official_vtd_exact_code_nhgis_blocks,0.97,6-1 Troy Senior Center,2020,580,1.0
-high,OBION,006758,6 2 OBION SR CTR,2024,official_vtd_exact_code_nhgis_blocks,0.97,6-2 Obion,2020,589,1.0
-high,PERRY,006954,1 1 CEDAR CREEK,2024,official_vtd_exact_name_nhgis_blocks,0.95,101 Cedar Creek,2020,609,1.0
-high,PERRY,006958,1 2 MARSH CREEK,2024,official_vtd_exact_name_nhgis_blocks,0.95,102 Marsh Creek,2020,617,1.0
-high,PERRY,006951,2 1 PINEVIEW,2024,official_vtd_exact_name_nhgis_blocks,0.95,201 Pineview,2020,613,1.0
-high,PERRY,006960,2 2 POPE,2024,official_vtd_exact_name_nhgis_blocks,0.95,202 Pope,2020,614,1.0
-high,PERRY,006953,3 1 COON CREEK,2024,official_vtd_exact_name_nhgis_blocks,0.95,301 Coon Creek,2020,608,1.0
-high,PERRY,006959,3 2 FLATWOODS,2024,official_vtd_exact_name_nhgis_blocks,0.95,302 Flatwoods,2020,616,1.0
+high,OBION,006760,6 1 TROY SR CTR,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,6-1 Troy Senior Center,2020,580,1.0
+high,OBION,006758,6 2 OBION SR CTR,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,6-2 Obion,2020,589,1.0
+high,PERRY,006954,1 1 CEDAR CREEK,2024,official_vtd_code_and_name_nhgis_blocks,0.99,101 Cedar Creek,2020,609,1.0
+high,PERRY,006958,1 2 MARSH CREEK,2024,official_vtd_code_and_name_nhgis_blocks,0.99,102 Marsh Creek,2020,617,1.0
+high,PERRY,006951,2 1 PINEVIEW,2024,official_vtd_code_and_name_nhgis_blocks,0.99,201 Pineview,2020,613,1.0
+high,PERRY,006960,2 2 POPE,2024,official_vtd_code_and_name_nhgis_blocks,0.99,202 Pope,2020,614,1.0
+high,PERRY,006953,3 1 COON CREEK,2024,official_vtd_code_and_name_nhgis_blocks,0.99,301 Coon Creek,2020,608,1.0
+high,PERRY,006959,3 2 FLATWOODS,2024,official_vtd_code_and_name_nhgis_blocks,0.99,302 Flatwoods,2020,616,1.0
+high,PERRY,006952,4 3 LOBELVILLE,2024,official_vtd_equivalent_code_nhgis_blocks,0.97,403 Lobelville Public Works,2020,611,1.0
+high,PERRY,006955,5 1 LINDEN,2024,official_vtd_equivalent_code_nhgis_blocks,0.97,501 Azbill Community Center,2020,612,1.0
 high,POLK,007161,TURTLETOWN,2024,official_vtd_exact_name_nhgis_blocks,0.95,5 Turtletown,2020,632,1.0
 high,PUTNAM,007266,1A CAPSHAW,2024,official_vtd_code_and_name_nhgis_blocks,1.0,01A Capshaw,2020,1227,1.0
-high,PUTNAM,007262,4A BURKS MS,2024,official_vtd_exact_code_nhgis_blocks,0.97,04A Burks Middle School,2020,1240,1.0
+high,PUTNAM,007262,4A BURKS MS,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,04A Burks Middle School,2020,1240,1.0
 high,PUTNAM,007273,4B MONTEREY CITY,2024,official_vtd_code_and_name_nhgis_blocks,1.0,04B Monterey City,2020,1232,1.0
 high,PUTNAM,007264,6A CANE CREEK,2024,official_vtd_code_and_name_nhgis_blocks,1.0,06A Cane Creek,2020,1226,1.0
 high,PUTNAM,007268,7D TWIN OAK,2024,official_vtd_code_and_name_nhgis_blocks,1.0,07D Twin Oak,2020,1237,1.0
 high,PUTNAM,007253,11A BANGHAM,2024,official_vtd_code_and_name_nhgis_blocks,1.0,11A Bangham,2020,1234,1.0
-high,RHEA,007351,1 1 SPRING CITY NORTH,2024,official_vtd_exact_code_nhgis_blocks,0.97,1-1 Spring City North Penecostal Worship Center,2020,645,1.0
-high,RHEA,007352,1 2 GRANDVIEW,2024,official_vtd_exact_code_nhgis_blocks,0.97,1-2 Grandview/Grandview Community Center,2020,639,1.0
-high,RHEA,007354,3 1 WOLF CREEK,2024,official_vtd_exact_code_nhgis_blocks,0.97,3-1 Wolf Creek/Wolf Creek Baptist Church,2020,646,1.0
-high,RHEA,007355,3 2 EVENSVILLE NORTH,2024,official_vtd_exact_code_nhgis_blocks,0.97,3-2 Evensville North/Sheriff Training Center,2020,636,1.0
-high,RHEA,007361,9 1 GRAYSVILLE,2024,official_vtd_exact_code_nhgis_blocks,0.97,9-1 Graysville/City Hall,2020,647,1.0
-high,RHEA,007362,9 2 WALDENS RIDGE,2024,official_vtd_exact_code_nhgis_blocks,0.97,9-2 Walden's Ridge/Community Center,2020,642,1.0
+high,RHEA,007351,1 1 SPRING CITY NORTH,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,1-1 Spring City North Penecostal Worship Center,2020,645,1.0
+high,RHEA,007352,1 2 GRANDVIEW,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,1-2 Grandview/Grandview Community Center,2020,639,1.0
+high,RHEA,007354,3 1 WOLF CREEK,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,3-1 Wolf Creek/Wolf Creek Baptist Church,2020,646,1.0
+high,RHEA,007355,3 2 EVENSVILLE NORTH,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,3-2 Evensville North/Sheriff Training Center,2020,636,1.0
+high,RHEA,007361,9 1 GRAYSVILLE,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,9-1 Graysville/City Hall,2020,647,1.0
+high,RHEA,007362,9 2 WALDENS RIDGE,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,9-2 Walden's Ridge/Community Center,2020,642,1.0
 high,ROANE,007451,CAVE CREEK,2024,official_vtd_exact_name_nhgis_blocks,0.95,Cave Creek,2020,1401,1.0
 high,ROANE,007460,EMORY HEIGHTS,2024,official_vtd_exact_name_nhgis_blocks,0.95,Emory Heights,2020,1391,1.0
 high,ROANE,007453,PAW PAW,2024,official_vtd_exact_name_nhgis_blocks,0.95,Paw Paw,2020,1397,1.0
 high,ROANE,007464,SOUTH HARRIMAN,2024,official_vtd_exact_name_nhgis_blocks,0.95,South Harriman,2020,1390,1.0
 high,ROANE,007456,KINGSTON WARD 1,2024,official_vtd_exact_name_nhgis_blocks,0.95,Kingston Ward 1,2020,1396,1.0
 high,ROANE,007468,RENFRO,2024,official_vtd_exact_name_nhgis_blocks,0.95,Renfro,2020,1402,1.0
-high,ROBERTSON,007551,01 1 EAST ROBERTSON,2024,official_vtd_exact_code_nhgis_blocks,0.97,1-1 East Robertson Elementary School,2020,650,1.0
-high,ROBERTSON,007552,02 1 WOODALL,2024,official_vtd_exact_code_nhgis_blocks,0.97,2-1 Robert F. Woodall Elementary School,2020,649,1.0
-high,ROBERTSON,007560,03 1 EBENEZER,2024,official_vtd_exact_code_nhgis_blocks,0.97,3-1 Ebenezer Baptist Church,2020,665,1.0
-high,ROBERTSON,007554,04 1 WATAUGA,2024,official_vtd_exact_code_nhgis_blocks,0.97,4-1 Watauga Elementary School,2020,648,1.0
-high,ROBERTSON,007555,05 1 GREENBRIER,2024,official_vtd_exact_code_nhgis_blocks,0.97,5-1 Greenbrier High School,2020,659,1.0
-high,ROBERTSON,007558,07 2 STROUDSVILLE,2024,official_vtd_exact_code_nhgis_blocks,0.97,7-2 Stroudsville Church of Christ,2020,662,1.0
-high,ROBERTSON,007562,08 1 KRISLE,2024,official_vtd_exact_code_nhgis_blocks,0.97,8-1 Krisle School,2020,661,1.0
-high,ROBERTSON,007561,08 2 HATS,2024,official_vtd_exact_code_nhgis_blocks,0.97,8-2 H.A.T.S,2020,653,1.0
-high,ROBERTSON,007564,09 1 FAIR ASSOC,2024,official_vtd_exact_code_nhgis_blocks,0.97,9-1 Robertson County Fair Assoc.,2020,655,1.0
-high,ROBERTSON,007568,12 1 BRANSFORD,2024,official_vtd_exact_code_nhgis_blocks,0.97,12-1 Bransford School,2020,654,1.0
-high,RUTHERFORD,007654,3 1,2024,official_vtd_exact_name_nhgis_blocks,0.95,3-1,2020,1026,1.0
-high,RUTHERFORD,007700,4 2,2024,official_vtd_exact_name_nhgis_blocks,0.95,4-2,2020,1054,1.0
-high,RUTHERFORD,007661,6 1,2024,official_vtd_exact_name_nhgis_blocks,0.95,6-1,2020,1056,1.0
-high,RUTHERFORD,007673,11 1,2024,official_vtd_exact_name_nhgis_blocks,0.95,11-1,2020,1031,1.0
-high,RUTHERFORD,007655,12 2,2024,official_vtd_exact_name_nhgis_blocks,0.95,12-2,2020,1042,1.0
-high,RUTHERFORD,007683,14 1,2024,official_vtd_exact_name_nhgis_blocks,0.95,14-1,2020,1047,1.0
-high,RUTHERFORD,007683,16 1,2024,official_vtd_exact_name_nhgis_blocks,0.95,16-1,2020,1048,1.0
+high,ROBERTSON,007552,02 1 WOODALL,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,2-1 Robert F. Woodall Elementary School,2020,649,1.0
+high,ROBERTSON,007560,03 1 EBENEZER,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,3-1 Ebenezer Baptist Church,2020,665,1.0
+high,ROBERTSON,007554,04 1 WATAUGA,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,4-1 Watauga Elementary School,2020,648,1.0
+high,ROBERTSON,007555,05 1 GREENBRIER,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,5-1 Greenbrier High School,2020,659,1.0
+high,ROBERTSON,007558,07 2 STROUDSVILLE,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,7-2 Stroudsville Church of Christ,2020,662,1.0
+high,ROBERTSON,007562,08 1 KRISLE,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,8-1 Krisle School,2020,661,1.0
+high,ROBERTSON,007561,08 2 HATS,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,8-2 H.A.T.S,2020,653,1.0
+high,ROBERTSON,007564,09 1 FAIR ASSOC,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,9-1 Robertson County Fair Assoc.,2020,655,1.0
+high,ROBERTSON,007568,12 1 BRANSFORD,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,12-1 Bransford School,2020,654,1.0
+high,RUTHERFORD,007654,3 1,2024,official_vtd_code_and_name_nhgis_blocks,1.0,3-1,2020,1026,1.0
+high,RUTHERFORD,007700,4 2,2024,official_vtd_code_and_name_nhgis_blocks,1.0,4-2,2020,1054,1.0
+high,RUTHERFORD,007661,6 1,2024,official_vtd_code_and_name_nhgis_blocks,1.0,6-1,2020,1056,1.0
+high,RUTHERFORD,007673,11 1,2024,official_vtd_code_and_name_nhgis_blocks,1.0,11-1,2020,1031,1.0
+high,RUTHERFORD,007655,12 2,2024,official_vtd_code_and_name_nhgis_blocks,1.0,12-2,2020,1042,1.0
+high,RUTHERFORD,007683,14 1,2024,official_vtd_code_and_name_nhgis_blocks,1.0,14-1,2020,1047,1.0
+high,RUTHERFORD,007683,16 1,2024,official_vtd_code_and_name_nhgis_blocks,1.0,16-1,2020,1048,1.0
 high,SCOTT,007754,1 1 FAIRVIEW,2024,official_vtd_code_and_name_nhgis_blocks,1.0,1-1 Fairview,2020,669,1.0
 high,SCOTT,007758,2 1 ELGIN,2024,official_vtd_code_and_name_nhgis_blocks,1.0,2-1 Elgin,2020,666,1.0
 high,SCOTT,007751,2 2 ROBBINS,2024,official_vtd_code_and_name_nhgis_blocks,1.0,2-2 Robbins,2020,673,1.0
@@ -382,6 +498,45 @@ high,SEQUATCHIE,007853,5 CHAPEL HILL,2024,official_vtd_exact_name_nhgis_blocks,0
 high,SEQUATCHIE,007854,6 DAUS,2024,official_vtd_exact_name_nhgis_blocks,0.95,Daus,2020,678,1.0
 high,SEQUATCHIE,007852,8 LONE OAK,2024,official_vtd_exact_name_nhgis_blocks,0.95,Lone Oak,2020,679,1.0
 high,SEQUATCHIE,007856,9 FREDONIA,2024,official_vtd_exact_name_nhgis_blocks,0.95,Fredonia,2020,684,1.0
+high,SHELBY,008100,01 04,2024,official_vtd_code_and_name_nhgis_blocks,1.0,0104,2020,1081,1.0
+high,SHELBY,008051,01 07,2024,official_vtd_code_and_name_nhgis_blocks,1.0,0107,2020,1157,1.0
+high,SHELBY,008252,01 08,2024,official_vtd_code_and_name_nhgis_blocks,1.0,0108,2020,1099,1.0
+high,SHELBY,008259,01 11,2024,official_vtd_code_and_name_nhgis_blocks,1.0,0111,2020,1098,1.0
+high,SHELBY,008080,02 02,2024,official_vtd_code_and_name_nhgis_blocks,1.0,0202,2020,1105,1.0
+high,SHELBY,008071,02 07,2024,official_vtd_code_and_name_nhgis_blocks,1.0,0207,2020,1092,1.0
+high,SHELBY,008069,02 11,2024,official_vtd_code_and_name_nhgis_blocks,1.0,0211,2020,1161,1.0
+high,SHELBY,008074,02 14,2024,official_vtd_code_and_name_nhgis_blocks,1.0,0214,2020,1086,1.0
+high,SHELBY,008263,02 15,2024,official_vtd_code_and_name_nhgis_blocks,1.0,0215,2020,1085,1.0
+high,SHELBY,008063,03 01,2024,official_vtd_code_and_name_nhgis_blocks,1.0,0301,2020,1083,1.0
+high,SHELBY,008058,03 05,2024,official_vtd_code_and_name_nhgis_blocks,1.0,0305,2020,1194,1.0
+high,SHELBY,008065,03 07,2024,official_vtd_code_and_name_nhgis_blocks,1.0,0307,2020,1198,1.0
+high,SHELBY,008057,03 09,2024,official_vtd_code_and_name_nhgis_blocks,1.0,0309,2020,1082,1.0
+high,SHELBY,008180,04 02,2024,official_vtd_code_and_name_nhgis_blocks,1.0,0402,2020,1080,1.0
+high,SHELBY,008089,04 05,2024,official_vtd_code_and_name_nhgis_blocks,1.0,0405,2020,1060,1.0
+high,SHELBY,008236,05 01,2024,official_vtd_code_and_name_nhgis_blocks,1.0,0501,2020,1195,1.0
+high,SHELBY,008076,05 10,2024,official_vtd_code_and_name_nhgis_blocks,1.0,0510,2020,1191,1.0
+high,SHELBY,008262,05 12,2024,official_vtd_code_and_name_nhgis_blocks,1.0,0512,2020,1185,1.0
+high,SHELBY,008064,06 02,2024,official_vtd_code_and_name_nhgis_blocks,1.0,0602,2020,1132,1.0
+high,SHELBY,008239,06 03,2024,official_vtd_code_and_name_nhgis_blocks,1.0,0603,2020,1177,1.0
+high,SHELBY,008233,06 09,2024,official_vtd_code_and_name_nhgis_blocks,1.0,0609,2020,1128,1.0
+high,SHELBY,008187,07 01,2024,official_vtd_code_and_name_nhgis_blocks,1.0,0701,2020,1119,1.0
+high,SHELBY,008189,07 03,2024,official_vtd_code_and_name_nhgis_blocks,1.0,0703,2020,1121,1.0
+high,SHELBY,008190,07 04,2024,official_vtd_code_and_name_nhgis_blocks,1.0,0704,2020,1122,1.0
+high,SHELBY,008149,07 07,2024,official_vtd_code_and_name_nhgis_blocks,1.0,0707,2020,1127,1.0
+high,SHELBY,008109,07 10,2024,official_vtd_code_and_name_nhgis_blocks,1.0,0710,2020,1174,1.0
+high,SHELBY,008182,08 02,2024,official_vtd_code_and_name_nhgis_blocks,1.0,0802,2020,1173,1.0
+high,SHELBY,008101,08 03,2024,official_vtd_code_and_name_nhgis_blocks,1.0,0803,2020,1071,1.0
+high,SHELBY,008106,08 10,2024,official_vtd_code_and_name_nhgis_blocks,1.0,0810,2020,1170,1.0
+high,SHELBY,008145,09 01,2024,official_vtd_code_and_name_nhgis_blocks,1.0,0901,2020,1070,1.0
+high,SHELBY,008168,11 07,2024,official_vtd_code_and_name_nhgis_blocks,1.0,1107,2020,1116,1.0
+high,SHELBY,008266,12 07,2024,official_vtd_code_and_name_nhgis_blocks,1.0,1207,2020,1109,1.0
+high,SHELBY,008269,12 08,2024,official_vtd_code_and_name_nhgis_blocks,1.0,1208,2020,1110,1.0
+high,SHELBY,008267,12 10,2024,official_vtd_code_and_name_nhgis_blocks,1.0,1210,2020,1111,1.0
+high,SHELBY,008152,13 02,2024,official_vtd_code_and_name_nhgis_blocks,1.0,1302,2020,1181,1.0
+high,SHELBY,008136,13 04,2024,official_vtd_code_and_name_nhgis_blocks,1.0,1304,2020,1179,1.0
+high,SHELBY,008133,13 05,2024,official_vtd_code_and_name_nhgis_blocks,1.0,1305,2020,1183,1.0
+high,SHELBY,008141,13 10,2024,official_vtd_code_and_name_nhgis_blocks,1.0,1310,2020,1193,1.0
+high,SHELBY,008179,13 12,2024,official_vtd_code_and_name_nhgis_blocks,1.0,1312,2020,1180,1.0
 high,SMITH,008303,01 DEFEATED,2024,official_vtd_code_and_name_nhgis_blocks,1.0,01 Defeated,2020,690,1.0
 high,SMITH,008308,02 TANGLEWOOD,2024,official_vtd_code_and_name_nhgis_blocks,1.0,02 Tanglewood,2020,691,1.0
 high,SMITH,008302,03 NEW MIDDLETON,2024,official_vtd_code_and_name_nhgis_blocks,1.0,03 New Middleton,2020,688,1.0
@@ -390,29 +545,31 @@ high,SMITH,008306,07 SOUTH CARTHAGE,2024,official_vtd_code_and_name_nhgis_blocks
 high,STEWART,008404,1 1 INDIAN MOUND,2024,official_vtd_exact_name_nhgis_blocks,0.95,Indian Mound,2020,953,1.0
 high,STEWART,008403,3 1 BUMPUS MILLS,2024,official_vtd_exact_name_nhgis_blocks,0.95,Bumpus Mills,2020,952,1.0
 high,STEWART,008407,7 1 CUMBERLAND CITY,2024,official_vtd_exact_name_nhgis_blocks,0.95,Cumberland City,2020,956,1.0
-high,SULLIVAN,008504,1A,2024,official_vtd_exact_name_nhgis_blocks,0.95,1A,2020,693,1.0
-high,SULLIVAN,008517,2B,2024,official_vtd_exact_name_nhgis_blocks,0.95,2B,2020,694,1.0
-high,SULLIVAN,008516,2C,2024,official_vtd_exact_name_nhgis_blocks,0.95,2C,2020,696,1.0
-high,SULLIVAN,008503,3A,2024,official_vtd_exact_name_nhgis_blocks,0.95,3A,2020,700,1.0
-high,SULLIVAN,008502,4A,2024,official_vtd_exact_name_nhgis_blocks,0.95,4A,2020,698,1.0
-high,SULLIVAN,008515,4B,2024,official_vtd_exact_name_nhgis_blocks,0.95,4B,2020,716,1.0
-high,SULLIVAN,008514,4C,2024,official_vtd_exact_name_nhgis_blocks,0.95,4C,2020,715,1.0
-high,SULLIVAN,008513,5A,2024,official_vtd_exact_name_nhgis_blocks,0.95,5A,2020,701,1.0
-high,SULLIVAN,008512,5B,2024,official_vtd_exact_name_nhgis_blocks,0.95,5B,2020,703,1.0
-high,SULLIVAN,008507,5C,2024,official_vtd_exact_name_nhgis_blocks,0.95,5C,2020,717,1.0
-high,SULLIVAN,008520,6A,2024,official_vtd_exact_name_nhgis_blocks,0.95,6A,2020,704,1.0
-high,SULLIVAN,008508,6C,2024,official_vtd_exact_name_nhgis_blocks,0.95,6C,2020,705,1.0
-high,SULLIVAN,008519,7A,2024,official_vtd_exact_name_nhgis_blocks,0.95,7A,2020,706,1.0
-high,SULLIVAN,008518,7B,2024,official_vtd_exact_name_nhgis_blocks,0.95,7B,2020,710,1.0
-high,SULLIVAN,008509,7C,2024,official_vtd_exact_name_nhgis_blocks,0.95,7C,2020,711,1.0
-high,SULLIVAN,008510,8A,2024,official_vtd_exact_name_nhgis_blocks,0.95,8A,2020,707,1.0
-high,SULLIVAN,008525,8B,2024,official_vtd_exact_name_nhgis_blocks,0.95,8B,2020,708,1.0
-high,SULLIVAN,008511,9A,2024,official_vtd_exact_name_nhgis_blocks,0.95,9A,2020,709,1.0
-high,SULLIVAN,008524,9B,2024,official_vtd_exact_name_nhgis_blocks,0.95,9B,2020,712,1.0
-high,SULLIVAN,008522,10A,2024,official_vtd_exact_name_nhgis_blocks,0.95,10A,2020,714,1.0
-high,SULLIVAN,008505,10B,2024,official_vtd_exact_name_nhgis_blocks,0.95,10B,2020,713,1.0
-high,SULLIVAN,008506,11A,2024,official_vtd_exact_name_nhgis_blocks,0.95,11A,2020,699,1.0
-high,SULLIVAN,008523,11B,2024,official_vtd_exact_name_nhgis_blocks,0.95,11B,2020,697,1.0
+high,SULLIVAN,008504,1A,2024,official_vtd_code_and_name_nhgis_blocks,1.0,1A,2020,693,1.0
+high,SULLIVAN,008517,2B,2024,official_vtd_code_and_name_nhgis_blocks,1.0,2B,2020,694,1.0
+high,SULLIVAN,008516,2C,2024,official_vtd_code_and_name_nhgis_blocks,1.0,2C,2020,696,1.0
+high,SULLIVAN,008503,3A,2024,official_vtd_code_and_name_nhgis_blocks,1.0,3A,2020,700,1.0
+high,SULLIVAN,008502,4A,2024,official_vtd_code_and_name_nhgis_blocks,1.0,4A,2020,698,1.0
+high,SULLIVAN,008515,4B,2024,official_vtd_code_and_name_nhgis_blocks,1.0,4B,2020,716,1.0
+high,SULLIVAN,008514,4C,2024,official_vtd_code_and_name_nhgis_blocks,1.0,4C,2020,715,1.0
+high,SULLIVAN,008513,5A,2024,official_vtd_code_and_name_nhgis_blocks,1.0,5A,2020,701,1.0
+high,SULLIVAN,008512,5B,2024,official_vtd_code_and_name_nhgis_blocks,1.0,5B,2020,703,1.0
+high,SULLIVAN,008507,5C,2024,official_vtd_code_and_name_nhgis_blocks,1.0,5C,2020,717,1.0
+high,SULLIVAN,008520,6A,2024,official_vtd_code_and_name_nhgis_blocks,1.0,6A,2020,704,1.0
+high,SULLIVAN,008508,6C,2024,official_vtd_code_and_name_nhgis_blocks,1.0,6C,2020,705,1.0
+high,SULLIVAN,008519,7A,2024,official_vtd_code_and_name_nhgis_blocks,1.0,7A,2020,706,1.0
+high,SULLIVAN,008518,7B,2024,official_vtd_code_and_name_nhgis_blocks,1.0,7B,2020,710,1.0
+high,SULLIVAN,008509,7C,2024,official_vtd_code_and_name_nhgis_blocks,1.0,7C,2020,711,1.0
+high,SULLIVAN,008510,8A,2024,official_vtd_code_and_name_nhgis_blocks,1.0,8A,2020,707,1.0
+high,SULLIVAN,008525,8B,2024,official_vtd_code_and_name_nhgis_blocks,1.0,8B,2020,708,1.0
+high,SULLIVAN,008511,9A,2024,official_vtd_code_and_name_nhgis_blocks,1.0,9A,2020,709,1.0
+high,SULLIVAN,008524,9B,2024,official_vtd_code_and_name_nhgis_blocks,1.0,9B,2020,712,1.0
+high,SULLIVAN,008522,10A,2024,official_vtd_code_and_name_nhgis_blocks,1.0,10A,2020,714,1.0
+high,SULLIVAN,008505,10B,2024,official_vtd_code_and_name_nhgis_blocks,1.0,10B,2020,713,1.0
+high,SULLIVAN,008506,11A,2024,official_vtd_code_and_name_nhgis_blocks,1.0,11A,2020,699,1.0
+high,SULLIVAN,008523,11B,2024,official_vtd_code_and_name_nhgis_blocks,1.0,11B,2020,697,1.0
+high,SUMNER,008611,12 1 HOWARD,2024,official_vtd_equivalent_code_nhgis_blocks,0.97,1201 Howard Elementary School,2020,742,1.0
+high,TIPTON,008709,1 1 NE COVINGTON,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,11 Atoka,2020,747,1.0
 high,TIPTON,008709,4 11 ATOKA,2024,official_vtd_exact_name_nhgis_blocks,0.95,11 Atoka,2020,747,1.0
 high,TIPTON,008703,7 19 AUSTIN PEAY,2024,official_vtd_exact_name_nhgis_blocks,0.95,19 Austin Peay,2020,755,1.0
 high,TROUSDALE,008801,01 SENIOR CENTER,2024,official_vtd_code_and_name_nhgis_blocks,1.0,1 Senior Center,2020,759,1.0
@@ -420,50 +577,55 @@ high,TROUSDALE,008802,02 CATO,2024,official_vtd_code_and_name_nhgis_blocks,1.0,2
 high,TROUSDALE,008803,03 BEECH GROVE,2024,official_vtd_code_and_name_nhgis_blocks,1.0,3 Beech Grove,2020,758,1.0
 high,TROUSDALE,008804,04 HALLTOWN,2024,official_vtd_code_and_name_nhgis_blocks,1.0,4 Halltown,2020,757,1.0
 high,TROUSDALE,008805,05 TEMPLOW,2024,official_vtd_code_and_name_nhgis_blocks,1.0,5 Templow,2020,761,1.0
-high,TROUSDALE,008806,06 ROCKY CREEK,2024,official_vtd_exact_code_nhgis_blocks,0.97,6 Walnut Grove,2020,762,1.0
+high,TROUSDALE,008806,06 ROCKY CREEK,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,6 Walnut Grove,2020,762,1.0
 high,TROUSDALE,008809,09 CITY,2024,official_vtd_code_and_name_nhgis_blocks,1.0,9 City,2020,765,1.0
 high,TROUSDALE,008810,10 PROVIDENCE,2024,official_vtd_code_and_name_nhgis_blocks,1.0,10 Providence,2020,760,1.0
 high,UNICOI,008903,TEMPLE HILL,2024,official_vtd_exact_name_nhgis_blocks,0.95,Temple Hill,2020,767,1.0
 high,UNICOI,008902,LOVE CHAPEL,2024,official_vtd_exact_name_nhgis_blocks,0.95,Love Chapel,2020,766,1.0
 high,UNICOI,008907,LIMESTONE COVE,2024,official_vtd_exact_name_nhgis_blocks,0.95,Limestone Cove,2020,771,1.0
 high,UNICOI,008904,UNICOI,2024,official_vtd_exact_name_nhgis_blocks,0.95,Unicoi,2020,773,1.0
-high,UNION,009003,1 1 HMMS,2024,official_vtd_exact_code_nhgis_blocks,0.97,1-1 Horace Maynard Middle School,2020,779,1.0
-high,UNION,009007,7 1 PLAINVIEW,2024,official_vtd_exact_code_nhgis_blocks,0.97,7-1 Plainview Community Center,2020,780,1.0
+high,UNION,009003,1 1 HMMS,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,1-1 Horace Maynard Middle School,2020,779,1.0
+high,UNION,009007,7 1 PLAINVIEW,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,7-1 Plainview Community Center,2020,780,1.0
 high,WARREN,009209,6 1 REDEMPTION CENTER,2024,official_vtd_code_and_name_nhgis_blocks,1.0,06-1 Redemption Center,2020,788,1.0
-high,WARREN,009213,8 3 BONNER,2024,official_vtd_exact_code_nhgis_blocks,0.97,08-3 Bonner Church of Christ,2020,797,1.0
-high,WARREN,009214,9 1 MORRISON,2024,official_vtd_exact_code_nhgis_blocks,0.97,09-1 Morrison Ruritan Club,2020,791,1.0
-high,WARREN,009215,9 2 VIOLA,2024,official_vtd_exact_code_nhgis_blocks,0.97,09-2 Viola Valley Community Center,2020,798,1.0
-high,WARREN,009216,10 1 CENTERTOWN UMC,2024,official_vtd_exact_code_nhgis_blocks,0.97,10-1 Centertown United Methodist Church,2020,792,1.0
-high,WARREN,009218,11 1 MIDWAY,2024,official_vtd_exact_code_nhgis_blocks,0.97,11-1 Midway Community Center,2020,793,1.0
-high,WARREN,009220,12 1 HIGHWAY DEPT,2024,official_vtd_exact_code_nhgis_blocks,0.97,12-1 Highway Department,2020,795,1.0
+high,WARREN,009213,8 3 BONNER,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,08-3 Bonner Church of Christ,2020,797,1.0
+high,WARREN,009214,9 1 MORRISON,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,09-1 Morrison Ruritan Club,2020,791,1.0
+high,WARREN,009215,9 2 VIOLA,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,09-2 Viola Valley Community Center,2020,798,1.0
+high,WARREN,009218,11 1 MIDWAY,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,11-1 Midway Community Center,2020,793,1.0
+high,WARREN,009220,12 1 HIGHWAY DEPT,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,12-1 Highway Department,2020,795,1.0
 high,WAYNE,009401,2 1 CLIFTON,2024,official_vtd_exact_name_nhgis_blocks,0.95,Clifton,2020,1428,1.0
 high,WAYNE,009402,3 1 BEECH CREEK,2024,official_vtd_exact_name_nhgis_blocks,0.95,Beech Creek,2020,1434,1.0
 high,WAYNE,009409,3 2 CRAZY HORSE,2024,official_vtd_exact_name_nhgis_blocks,0.95,Crazy Horse,2020,1423,1.0
 high,WAYNE,009403,4 2 SHAWNETTEE,2024,official_vtd_exact_name_nhgis_blocks,0.95,Shawnettee,2020,1429,1.0
 high,WAYNE,009414,5 3 WOODMEN,2024,official_vtd_exact_name_nhgis_blocks,0.95,Woodmen,2020,1432,1.0
 high,WAYNE,009406,6 1 HOLLY CREEK,2024,official_vtd_exact_name_nhgis_blocks,0.95,Holly Creek,2020,1426,1.0
-high,WHITE,009608,1 1 SPARTA CIVIC,2024,official_vtd_exact_code_nhgis_blocks,0.97,"1-1 Sparta Civic Center, City",2020,993,1.0
-high,WHITE,009611,2 1 AG FAIR COMPLEX,2024,official_vtd_exact_code_nhgis_blocks,0.97,"2-1 Ag Fair Complex, City",2020,994,1.0
-high,WHITE,009607,3 1 AG FAIR COMPLEX,2024,official_vtd_exact_code_nhgis_blocks,0.97,"3-1 Ag Fair Complex, County",2020,986,1.0
-high,WHITE,009605,4 1 WOODLAND PARK,2024,official_vtd_exact_code_nhgis_blocks,0.97,"4-1 Woodland Park School, County",2020,987,1.0
-high,WHITE,009606,4 2 BONDECROFT,2024,official_vtd_exact_code_nhgis_blocks,0.97,"4-2 Bondecraft School, County",2020,995,1.0
-high,WHITE,009603,5 1 DOYLE CIVIC,2024,official_vtd_exact_code_nhgis_blocks,0.97,"5-1 Doyle Civic Center Hall, County",2020,989,1.0
-high,WHITE,009602,6 1 CENTRAL VIEW,2024,official_vtd_exact_code_nhgis_blocks,0.97,6-1 Gum Springs Baptist Church,2020,996,1.0
-high,WILLIAMSON,009709,1 2,2024,official_vtd_exact_name_nhgis_blocks,0.95,1-2,2020,1826,1.0
-high,WILLIAMSON,009742,1 3,2024,official_vtd_exact_name_nhgis_blocks,0.95,1-3,2020,1827,1.0
-high,WILLIAMSON,009999,2 2,2024,official_vtd_exact_name_nhgis_blocks,0.95,2-2,2020,1823,1.0
-high,WILLIAMSON,009711,3 2,2024,official_vtd_exact_name_nhgis_blocks,0.95,3-2,2020,1855,1.0
-high,WILLIAMSON,009709,3 3,2024,official_vtd_exact_name_nhgis_blocks,0.95,3-3,2020,1856,1.0
-high,WILLIAMSON,009716,5 2,2024,official_vtd_exact_name_nhgis_blocks,0.95,5-2,2020,1858,1.0
-high,WILLIAMSON,009717,5 4,2024,official_vtd_exact_name_nhgis_blocks,0.95,5-4,2020,1872,1.0
-high,WILLIAMSON,009715,6 4,2024,official_vtd_exact_name_nhgis_blocks,0.95,6-4,2020,1871,1.0
-high,WILLIAMSON,009726,7 2,2024,official_vtd_exact_name_nhgis_blocks,0.95,7-2,2020,1844,1.0
-high,WILLIAMSON,009726,8 2,2024,official_vtd_exact_name_nhgis_blocks,0.95,8-2,2020,1870,1.0
-high,WILLIAMSON,009730,9 2,2024,official_vtd_exact_name_nhgis_blocks,0.95,9-2,2020,1853,1.0
-high,WILLIAMSON,009730,9 3,2024,official_vtd_exact_name_nhgis_blocks,0.95,9-3,2020,1864,1.0
-high,WILLIAMSON,009739,10 3,2024,official_vtd_exact_name_nhgis_blocks,0.95,10-3,2020,1839,1.0
-high,WILLIAMSON,009738,10 4,2024,official_vtd_exact_name_nhgis_blocks,0.95,10-4,2020,1865,1.0
-high,WILSON,009806,5 1,2024,official_vtd_exact_name_nhgis_blocks,0.95,5-1,2020,839,1.0
+high,WHITE,009608,1 1 SPARTA CIVIC,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,"1-1 Sparta Civic Center, City",2020,993,1.0
+high,WHITE,009611,2 1 AG FAIR COMPLEX,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,"2-1 Ag Fair Complex, City",2020,994,1.0
+high,WHITE,009607,3 1 AG FAIR COMPLEX,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,"3-1 Ag Fair Complex, County",2020,986,1.0
+high,WHITE,009605,4 1 WOODLAND PARK,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,"4-1 Woodland Park School, County",2020,987,1.0
+high,WHITE,009606,4 2 BONDECROFT,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,"4-2 Bondecraft School, County",2020,995,1.0
+high,WHITE,009603,5 1 DOYLE CIVIC,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,"5-1 Doyle Civic Center Hall, County",2020,989,1.0
+high,WHITE,009602,6 1 CENTRAL VIEW,2024,official_vtd_exact_label_code_nhgis_blocks,0.97,6-1 Gum Springs Baptist Church,2020,996,1.0
+high,WILLIAMSON,009709,1 2,2024,official_vtd_code_and_name_nhgis_blocks,1.0,1-2,2020,1826,1.0
+high,WILLIAMSON,009742,1 3,2024,official_vtd_code_and_name_nhgis_blocks,1.0,1-3,2020,1827,1.0
+high,WILLIAMSON,009999,2 2,2024,official_vtd_code_and_name_nhgis_blocks,1.0,2-2,2020,1823,1.0
+high,WILLIAMSON,009711,3 2,2024,official_vtd_code_and_name_nhgis_blocks,1.0,3-2,2020,1855,1.0
+high,WILLIAMSON,009709,3 3,2024,official_vtd_code_and_name_nhgis_blocks,1.0,3-3,2020,1856,1.0
+high,WILLIAMSON,009716,5 2,2024,official_vtd_code_and_name_nhgis_blocks,1.0,5-2,2020,1858,1.0
+high,WILLIAMSON,009717,5 4,2024,official_vtd_code_and_name_nhgis_blocks,1.0,5-4,2020,1872,1.0
+high,WILLIAMSON,009715,6 4,2024,official_vtd_code_and_name_nhgis_blocks,1.0,6-4,2020,1871,1.0
+high,WILLIAMSON,009726,7 2,2024,official_vtd_code_and_name_nhgis_blocks,1.0,7-2,2020,1844,1.0
+high,WILLIAMSON,009726,8 2,2024,official_vtd_code_and_name_nhgis_blocks,1.0,8-2,2020,1870,1.0
+high,WILLIAMSON,009730,9 2,2024,official_vtd_code_and_name_nhgis_blocks,1.0,9-2,2020,1853,1.0
+high,WILLIAMSON,009730,9 3,2024,official_vtd_code_and_name_nhgis_blocks,1.0,9-3,2020,1864,1.0
+high,WILLIAMSON,009739,10 3,2024,official_vtd_code_and_name_nhgis_blocks,1.0,10-3,2020,1839,1.0
+high,WILLIAMSON,009738,10 4,2024,official_vtd_code_and_name_nhgis_blocks,1.0,10-4,2020,1865,1.0
+high,WILSON,009806,5 1,2024,official_vtd_code_and_name_nhgis_blocks,1.0,5-1,2020,839,1.0
+high,DICKSON,002265,10 1,2024,legacy_fallback_pending_official_review,0.97,10-1 Dickson County Library,2020,1539,1.0
+high,MADISON,005683,10 1 LEDGE,2024,legacy_fallback_pending_official_review,0.97,10-1 The Ledge,2020,526,1.0
+high,ROBERTSON,007551,01 1 EAST ROBERTSON,2024,legacy_fallback_pending_official_review,0.97,1-1 East Robertson Elementary School,2020,650,1.0
+high,WARREN,009216,10 1 CENTERTOWN UMC,2024,legacy_fallback_pending_official_review,0.97,10-1 Centertown United Methodist Church,2020,792,1.0
+high,HENDERSON,004010,11 REAGAN,2024,legacy_fallback_pending_official_review,0.95,7-11 Reagan,2020,350,1.0
+high,HENDERSON,004015,12 SARDIS,2024,legacy_fallback_pending_official_review,0.95,7-12 Sardis,2020,349,1.0
 high,ANDERSON,000007,CLINTON MIDDLE,2024,legacy_fallback_pending_official_review,1.0,,2020,0008,0.90007601
 high,ANDERSON,000001,CLINTON MIDDLE,2024,legacy_fallback_pending_official_review,1.0,,2020,0008,0.09805552
 high,ANDERSON,000018,CLINTON MIDDLE,2024,legacy_fallback_pending_official_review,1.0,,2020,0008,0.00182875
@@ -475,17 +637,6 @@ high,ANDERSON,000021,LAKE CITY MS,2024,legacy_fallback_pending_official_review,1
 high,ANDERSON,000026,LAKE CITY MS,2024,legacy_fallback_pending_official_review,1.0,,2020,0016,0.00054754
 high,ANDERSON,000023,LAKE CITY MS,2024,legacy_fallback_pending_official_review,1.0,,2020,0016,4.83e-06
 high,ANDERSON,000021,OR SENIOR CENTER,2024,legacy_fallback_pending_official_review,1.0,,2020,0021,1.0
-high,BEDFORD,000101,1 1 WARTRACE,2024,legacy_fallback_pending_official_review,1.0,,2020,0001,1.0
-high,BEDFORD,000102,1 2 BELL BUCKLE,2024,legacy_fallback_pending_official_review,1.0,,2020,0002,1.0
-high,BEDFORD,000103,2 3 DEASON,2024,legacy_fallback_pending_official_review,1.0,,2020,0003,1.0
-high,BEDFORD,000104,3 3 UNIONVILLE,2024,legacy_fallback_pending_official_review,1.0,,2020,0004,1.0
-high,BEDFORD,000105,4 3 BEDFORD,2024,legacy_fallback_pending_official_review,1.0,,2020,0005,1.0
-high,BEDFORD,000106,5 2 FLAT CREEK,2024,legacy_fallback_pending_official_review,1.0,,2020,0006,1.0
-high,BEDFORD,000107,5 5 NORMANDY,2024,legacy_fallback_pending_official_review,1.0,,2020,0007,1.0
-high,BEDFORD,000108,6 1 EAST SIDE,2024,legacy_fallback_pending_official_review,1.0,,2020,0008,1.0
-high,BEDFORD,000109,7 1 DEERY EAKIN,2024,legacy_fallback_pending_official_review,1.0,,2020,0009,1.0
-high,BEDFORD,000110,8 1 THOMAS,2024,legacy_fallback_pending_official_review,1.0,,2020,0010,1.0
-high,BEDFORD,000111,9 2 SOUTHSIDE,2024,legacy_fallback_pending_official_review,1.0,,2020,0011,1.0
 high,BLOUNT,000408,ALCOA,2024,legacy_fallback_pending_official_review,1.0,,2020,0001,1.0
 high,BLOUNT,000403,BOARD OF EDUCATION,2024,legacy_fallback_pending_official_review,1.0,,2020,0002,1.0
 high,BLOUNT,000434,CARPENTERS,2024,legacy_fallback_pending_official_review,1.0,,2020,0003,1.0
@@ -513,8 +664,6 @@ high,BLOUNT,000406,ROCKFORD,2024,legacy_fallback_pending_official_review,1.0,,20
 high,BLOUNT,000401,TOWNSEND,2024,legacy_fallback_pending_official_review,1.0,,2020,000401,1.0
 high,BLOUNT,000417,WILLIAM BLOUNT HS,2024,legacy_fallback_pending_official_review,1.0,,2020,0026,1.0
 high,BLOUNT,000435,WM BLOUNT ACADEMY,2024,legacy_fallback_pending_official_review,1.0,,2020,0027,1.0
-high,BRADLEY,000511,6 1 VALLEY VIEW,2024,legacy_fallback_pending_official_review,1.0,,2020,0012,1.0
-high,BRADLEY,000510,6 5 VALLEY VIEW,2024,legacy_fallback_pending_official_review,1.0,,2020,0016,1.0
 high,CAMPBELL,000616,1 1 ALDER SPRINGS,2024,legacy_fallback_pending_official_review,1.0,,2020,0001,1.0
 high,CAMPBELL,000615,1 2 DEMORY,2024,legacy_fallback_pending_official_review,1.0,,2020,0002,1.0
 high,CAMPBELL,000612,1 3 PINECREST,2024,legacy_fallback_pending_official_review,1.0,,2020,0003,1.0
@@ -585,148 +734,7 @@ high,CUMBERLAND,001718,8 PLEASANT HILL,2024,legacy_fallback_pending_official_rev
 high,CUMBERLAND,001719,8 POMONA,2024,legacy_fallback_pending_official_review,1.0,,2020,0021,1.0
 high,CUMBERLAND,001709,9 FAIRFIELD NORTH,2024,legacy_fallback_pending_official_review,1.0,,2020,0023,1.0
 high,CUMBERLAND,001708,9 FAIRFIELD SOUTH,2024,legacy_fallback_pending_official_review,1.0,,2020,0024,1.0
-high,DAVIDSON,001801,01 1,2024,legacy_fallback_pending_official_review,1.0,,2020,0001,0.751679
-high,DAVIDSON,001812,01 1,2024,legacy_fallback_pending_official_review,1.0,,2020,0001,0.172687
-high,DAVIDSON,001802,01 1,2024,legacy_fallback_pending_official_review,1.0,,2020,0001,0.075634
-high,DAVIDSON,001804,01 2,2024,legacy_fallback_pending_official_review,1.0,,2020,0002,0.561582
-high,DAVIDSON,001802,01 2,2024,legacy_fallback_pending_official_review,1.0,,2020,0002,0.438418
-high,DAVIDSON,001803,01 3,2024,legacy_fallback_pending_official_review,1.0,,2020,0003,0.741064
-high,DAVIDSON,001813,01 3,2024,legacy_fallback_pending_official_review,1.0,,2020,0003,0.258936
-high,DAVIDSON,001814,01 4,2024,legacy_fallback_pending_official_review,1.0,,2020,0004,0.45011
-high,DAVIDSON,001813,01 4,2024,legacy_fallback_pending_official_review,1.0,,2020,0004,0.401913
-high,DAVIDSON,001815,01 4,2024,legacy_fallback_pending_official_review,1.0,,2020,0004,0.147977
-high,DAVIDSON,001805,01 5,2024,legacy_fallback_pending_official_review,1.0,,2020,0005,0.822861
-high,DAVIDSON,001810,01 5,2024,legacy_fallback_pending_official_review,1.0,,2020,0005,0.177139
-high,DAVIDSON,001803,01 6,2024,legacy_fallback_pending_official_review,1.0,,2020,0006,0.497244
-high,DAVIDSON,001810,01 6,2024,legacy_fallback_pending_official_review,1.0,,2020,0006,0.31717
-high,DAVIDSON,001805,01 6,2024,legacy_fallback_pending_official_review,1.0,,2020,0006,0.185586
-high,DAVIDSON,001803,01 7,2024,legacy_fallback_pending_official_review,1.0,,2020,0007,0.942643
-high,DAVIDSON,001805,01 7,2024,legacy_fallback_pending_official_review,1.0,,2020,0007,0.057357
-high,DAVIDSON,001807,02 1,2024,legacy_fallback_pending_official_review,1.0,,2020,0008,1.0
-high,DAVIDSON,001807,02 2,2024,legacy_fallback_pending_official_review,1.0,,2020,0009,0.943809
-high,DAVIDSON,001815,02 2,2024,legacy_fallback_pending_official_review,1.0,,2020,0009,0.056191
-high,DAVIDSON,001808,02 3,2024,legacy_fallback_pending_official_review,1.0,,2020,0010,0.78575
-high,DAVIDSON,001821,02 3,2024,legacy_fallback_pending_official_review,1.0,,2020,0010,0.21425
-high,DAVIDSON,001809,02 4,2024,legacy_fallback_pending_official_review,1.0,,2020,0011,1.0
-high,DAVIDSON,001806,02 5,2024,legacy_fallback_pending_official_review,1.0,,2020,0012,0.505057
-high,DAVIDSON,001810,02 5,2024,legacy_fallback_pending_official_review,1.0,,2020,0012,0.325181
-high,DAVIDSON,001803,02 5,2024,legacy_fallback_pending_official_review,1.0,,2020,0012,0.088295
-high,DAVIDSON,001815,02 5,2024,legacy_fallback_pending_official_review,1.0,,2020,0012,0.081467
-high,DAVIDSON,001812,03 1,2024,legacy_fallback_pending_official_review,1.0,,2020,0013,1.0
-high,DAVIDSON,001814,03 2,2024,legacy_fallback_pending_official_review,1.0,,2020,0014,0.607911
-high,DAVIDSON,001816,03 2,2024,legacy_fallback_pending_official_review,1.0,,2020,0014,0.392089
-high,DAVIDSON,001816,03 3,2024,legacy_fallback_pending_official_review,1.0,,2020,0015,1.0
-high,DAVIDSON,001839,03 4,2024,legacy_fallback_pending_official_review,1.0,,2020,0016,1.0
-high,DAVIDSON,001840,03 5,2024,legacy_fallback_pending_official_review,1.0,,2020,0017,0.923654
-high,DAVIDSON,001839,03 5,2024,legacy_fallback_pending_official_review,1.0,,2020,0017,0.076346
-high,DAVIDSON,001814,03 6,2024,legacy_fallback_pending_official_review,1.0,,2020,0018,1.0
-high,DAVIDSON,001840,03 7,2024,legacy_fallback_pending_official_review,1.0,,2020,0019,0.950578
-high,DAVIDSON,001839,03 7,2024,legacy_fallback_pending_official_review,1.0,,2020,0019,0.049422
-high,DAVIDSON,001815,03 8,2024,legacy_fallback_pending_official_review,1.0,,2020,0020,0.492799
-high,DAVIDSON,001814,03 8,2024,legacy_fallback_pending_official_review,1.0,,2020,0020,0.425081
-high,DAVIDSON,001807,03 8,2024,legacy_fallback_pending_official_review,1.0,,2020,0020,0.08212
-high,DAVIDSON,001818,04 1,2024,legacy_fallback_pending_official_review,1.0,,2020,0021,0.568949
-high,DAVIDSON,001927,04 1,2024,legacy_fallback_pending_official_review,1.0,,2020,0021,0.431051
-high,DAVIDSON,001820,04 2,2024,legacy_fallback_pending_official_review,1.0,,2020,0022,0.941765
-high,DAVIDSON,001819,04 2,2024,legacy_fallback_pending_official_review,1.0,,2020,0022,0.058235
-high,DAVIDSON,001817,04 3,2024,legacy_fallback_pending_official_review,1.0,,2020,0023,0.564386
-high,DAVIDSON,001819,04 3,2024,legacy_fallback_pending_official_review,1.0,,2020,0023,0.435614
-high,DAVIDSON,001837,05 1,2024,legacy_fallback_pending_official_review,1.0,,2020,0024,0.835356
-high,DAVIDSON,001839,05 1,2024,legacy_fallback_pending_official_review,1.0,,2020,0024,0.164644
-high,DAVIDSON,001838,05 2,2024,legacy_fallback_pending_official_review,1.0,,2020,0025,1.0
-high,DAVIDSON,001838,05 3,2024,legacy_fallback_pending_official_review,1.0,,2020,0026,1.0
-high,DAVIDSON,001837,05 4,2024,legacy_fallback_pending_official_review,1.0,,2020,0027,0.375332
-high,DAVIDSON,001821,05 4,2024,legacy_fallback_pending_official_review,1.0,,2020,0027,0.371731
-high,DAVIDSON,001838,05 4,2024,legacy_fallback_pending_official_review,1.0,,2020,0027,0.170729
-high,DAVIDSON,001823,05 4,2024,legacy_fallback_pending_official_review,1.0,,2020,0027,0.082208
-high,DAVIDSON,001824,05 5,2024,legacy_fallback_pending_official_review,1.0,,2020,0028,0.66535867
-high,DAVIDSON,001822,05 5,2024,legacy_fallback_pending_official_review,1.0,,2020,0028,0.28447828
-high,DAVIDSON,001825,05 5,2024,legacy_fallback_pending_official_review,1.0,,2020,0028,0.05016305
-high,DAVIDSON,001822,05 6,2024,legacy_fallback_pending_official_review,1.0,,2020,0029,0.65016865
-high,DAVIDSON,001825,05 6,2024,legacy_fallback_pending_official_review,1.0,,2020,0029,0.09309009
-high,DAVIDSON,001821,05 6,2024,legacy_fallback_pending_official_review,1.0,,2020,0029,0.09288709
-high,DAVIDSON,001823,05 6,2024,legacy_fallback_pending_official_review,1.0,,2020,0029,0.09244909
-high,DAVIDSON,001824,05 6,2024,legacy_fallback_pending_official_review,1.0,,2020,0029,0.07140507
-high,DAVIDSON,001825,05 7,2024,legacy_fallback_pending_official_review,1.0,,2020,0030,0.966524
-high,DAVIDSON,001826,05 7,2024,legacy_fallback_pending_official_review,1.0,,2020,0030,0.033476
-high,DAVIDSON,001823,05 8,2024,legacy_fallback_pending_official_review,1.0,,2020,0031,0.730693
-high,DAVIDSON,001839,05 8,2024,legacy_fallback_pending_official_review,1.0,,2020,0031,0.212191
-high,DAVIDSON,001837,05 8,2024,legacy_fallback_pending_official_review,1.0,,2020,0031,0.057116
-high,DAVIDSON,001833,06 1,2024,legacy_fallback_pending_official_review,1.0,,2020,0032,0.753685
-high,DAVIDSON,001834,06 1,2024,legacy_fallback_pending_official_review,1.0,,2020,0032,0.246315
-high,DAVIDSON,001833,06 2,2024,legacy_fallback_pending_official_review,1.0,,2020,0033,0.64631
-high,DAVIDSON,001830,06 2,2024,legacy_fallback_pending_official_review,1.0,,2020,0033,0.35369
-high,DAVIDSON,001830,06 3,2024,legacy_fallback_pending_official_review,1.0,,2020,0034,0.64630035
-high,DAVIDSON,001833,06 3,2024,legacy_fallback_pending_official_review,1.0,,2020,0034,0.24245876
-high,DAVIDSON,001827,06 3,2024,legacy_fallback_pending_official_review,1.0,,2020,0034,0.11124089
-high,DAVIDSON,001829,06 4,2024,legacy_fallback_pending_official_review,1.0,,2020,0035,0.911634
-high,DAVIDSON,001831,06 4,2024,legacy_fallback_pending_official_review,1.0,,2020,0035,0.088366
-high,DAVIDSON,001829,06 5,2024,legacy_fallback_pending_official_review,1.0,,2020,0036,0.729541
-high,DAVIDSON,001831,06 5,2024,legacy_fallback_pending_official_review,1.0,,2020,0036,0.270459
-high,DAVIDSON,001826,06 6,2024,legacy_fallback_pending_official_review,1.0,,2020,0037,0.486449
-high,DAVIDSON,001828,06 6,2024,legacy_fallback_pending_official_review,1.0,,2020,0037,0.259834
-high,DAVIDSON,001827,06 6,2024,legacy_fallback_pending_official_review,1.0,,2020,0037,0.207595
-high,DAVIDSON,001830,06 6,2024,legacy_fallback_pending_official_review,1.0,,2020,0037,0.046122
-high,DAVIDSON,001828,06 7,2024,legacy_fallback_pending_official_review,1.0,,2020,0038,0.642682
-high,DAVIDSON,001826,06 7,2024,legacy_fallback_pending_official_review,1.0,,2020,0038,0.357318
-high,DAVIDSON,001827,06 8,2024,legacy_fallback_pending_official_review,1.0,,2020,0039,0.88469712
-high,DAVIDSON,001826,06 8,2024,legacy_fallback_pending_official_review,1.0,,2020,0039,0.07157293
-high,DAVIDSON,001828,06 8,2024,legacy_fallback_pending_official_review,1.0,,2020,0039,0.04372996
-high,DAVIDSON,001833,07 1,2024,legacy_fallback_pending_official_review,1.0,,2020,0040,1.0
-high,DAVIDSON,001838,07 2,2024,legacy_fallback_pending_official_review,1.0,,2020,0041,0.806352
-high,DAVIDSON,001839,07 2,2024,legacy_fallback_pending_official_review,1.0,,2020,0041,0.193648
-high,DAVIDSON,001836,07 3,2024,legacy_fallback_pending_official_review,1.0,,2020,0042,0.676243
-high,DAVIDSON,001839,07 3,2024,legacy_fallback_pending_official_review,1.0,,2020,0042,0.323757
-high,DAVIDSON,001835,07 4,2024,legacy_fallback_pending_official_review,1.0,,2020,0043,0.626088
-high,DAVIDSON,001839,07 4,2024,legacy_fallback_pending_official_review,1.0,,2020,0043,0.229772
-high,DAVIDSON,001838,07 4,2024,legacy_fallback_pending_official_review,1.0,,2020,0043,0.14414
-high,DAVIDSON,001834,07 5,2024,legacy_fallback_pending_official_review,1.0,,2020,0044,0.734932
-high,DAVIDSON,001839,07 5,2024,legacy_fallback_pending_official_review,1.0,,2020,0044,0.236472
-high,DAVIDSON,001833,07 5,2024,legacy_fallback_pending_official_review,1.0,,2020,0044,0.028596
-high,DAVIDSON,001831,07 6,2024,legacy_fallback_pending_official_review,1.0,,2020,0045,0.416195
-high,DAVIDSON,001833,07 6,2024,legacy_fallback_pending_official_review,1.0,,2020,0045,0.324244
-high,DAVIDSON,001832,07 6,2024,legacy_fallback_pending_official_review,1.0,,2020,0045,0.259561
-high,DAVIDSON,001832,07 7,2024,legacy_fallback_pending_official_review,1.0,,2020,0046,0.729314
-high,DAVIDSON,001831,07 7,2024,legacy_fallback_pending_official_review,1.0,,2020,0046,0.270686
-high,DAVIDSON,001950,08 1,2024,legacy_fallback_pending_official_review,1.0,,2020,0047,1.0
-high,DAVIDSON,001949,08 2,2024,legacy_fallback_pending_official_review,1.0,,2020,0048,0.878116
-high,DAVIDSON,001948,08 2,2024,legacy_fallback_pending_official_review,1.0,,2020,0048,0.07411
-high,DAVIDSON,001950,08 2,2024,legacy_fallback_pending_official_review,1.0,,2020,0048,0.047774
-high,DAVIDSON,001950,08 3,2024,legacy_fallback_pending_official_review,1.0,,2020,0049,0.626556
-high,DAVIDSON,001949,08 3,2024,legacy_fallback_pending_official_review,1.0,,2020,0049,0.373444
-high,DAVIDSON,001841,09 1,2024,legacy_fallback_pending_official_review,1.0,,2020,0050,0.87378487
-high,DAVIDSON,001848,09 1,2024,legacy_fallback_pending_official_review,1.0,,2020,0050,0.09410909
-high,DAVIDSON,001840,09 1,2024,legacy_fallback_pending_official_review,1.0,,2020,0050,0.03210603
-high,DAVIDSON,001843,09 2,2024,legacy_fallback_pending_official_review,1.0,,2020,0051,0.84937
-high,DAVIDSON,001842,09 2,2024,legacy_fallback_pending_official_review,1.0,,2020,0051,0.093203
-high,DAVIDSON,001841,09 2,2024,legacy_fallback_pending_official_review,1.0,,2020,0051,0.057427
-high,DAVIDSON,001843,09 3,2024,legacy_fallback_pending_official_review,1.0,,2020,0052,0.80564281
-high,DAVIDSON,001842,09 3,2024,legacy_fallback_pending_official_review,1.0,,2020,0052,0.14545615
-high,DAVIDSON,001841,09 3,2024,legacy_fallback_pending_official_review,1.0,,2020,0052,0.02682503
-high,DAVIDSON,001839,09 3,2024,legacy_fallback_pending_official_review,1.0,,2020,0052,0.02207602
-high,DECATUR,002054,1 1 DUNBAR,2024,legacy_fallback_pending_official_review,1.0,,2020,0001,1.0
-high,DECATUR,002051,2 1 SCOTTS HILL,2024,legacy_fallback_pending_official_review,1.0,,2020,0002,1.0
-high,DECATUR,002053,3 1 DECATURVILLE,2024,legacy_fallback_pending_official_review,1.0,,2020,0003,1.0
-high,DECATUR,002052,4 1 DECATURVILLE,2024,legacy_fallback_pending_official_review,1.0,,2020,0004,1.0
-high,DECATUR,002055,5 1 PARSONS,2024,legacy_fallback_pending_official_review,1.0,,2020,0005,1.0
-high,DECATUR,002056,6 1 PARSONS,2024,legacy_fallback_pending_official_review,1.0,,2020,0006,1.0
-high,DECATUR,002057,7 1 CROSSROADS,2024,legacy_fallback_pending_official_review,1.0,,2020,0007,1.0
-high,DECATUR,002058,8 1 PARSONS,2024,legacy_fallback_pending_official_review,1.0,,2020,0008,1.0
-high,DECATUR,002059,9 1 BEACON,2024,legacy_fallback_pending_official_review,1.0,,2020,0009,1.0
 high,DEKALB,002156,7 1 CHURCH OF CHRIST,2024,legacy_fallback_pending_official_review,1.0,,2020,0012,1.0
-high,DICKSON,002263,1 1,2024,legacy_fallback_pending_official_review,1.0,,2020,0001,1.0
-high,DICKSON,002265,10 1,2024,legacy_fallback_pending_official_review,1.0,,2020,0011,1.0
-high,DICKSON,002266,11 1,2024,legacy_fallback_pending_official_review,1.0,,2020,0012,1.0
-high,DICKSON,002254,12 1,2024,legacy_fallback_pending_official_review,1.0,,2020,0013,1.0
-high,DICKSON,002256,2 1,2024,legacy_fallback_pending_official_review,1.0,,2020,0002,1.0
-high,DICKSON,002258,3 1,2024,legacy_fallback_pending_official_review,1.0,,2020,0003,1.0
-high,DICKSON,002260,4 1,2024,legacy_fallback_pending_official_review,1.0,,2020,0004,1.0
-high,DICKSON,002261,5 1,2024,legacy_fallback_pending_official_review,1.0,,2020,0005,1.0
-high,DICKSON,002252,6 1,2024,legacy_fallback_pending_official_review,1.0,,2020,0006,1.0
-high,DICKSON,002251,6 2,2024,legacy_fallback_pending_official_review,1.0,,2020,0007,1.0
-high,DICKSON,002255,7 1,2024,legacy_fallback_pending_official_review,1.0,,2020,0008,1.0
-high,DICKSON,002267,8 1,2024,legacy_fallback_pending_official_review,1.0,,2020,0009,1.0
-high,DICKSON,002264,9 1,2024,legacy_fallback_pending_official_review,1.0,,2020,0010,1.0
 high,DYER,002361,F PILGRIM REST,2024,legacy_fallback_pending_official_review,1.0,,2020,0010,1.0
 high,FENTRESS,002553,ALLARDT,2024,legacy_fallback_pending_official_review,1.0,,2020,0001,1.0
 high,FENTRESS,002551,ARMATHWAITE,2024,legacy_fallback_pending_official_review,1.0,,2020,0002,1.0
@@ -744,16 +752,6 @@ high,FENTRESS,002560,WEST FENTRESS,2024,legacy_fallback_pending_official_review,
 high,GIBSON,002767,12 28 CPC,2024,legacy_fallback_pending_official_review,1.0,,2020,0013,1.0
 high,GILES,002855,3A RICHLAND TRACE,2024,legacy_fallback_pending_official_review,1.0,,2020,0005,1.0
 high,GILES,002862,6B BRIDGEFORTH,2024,legacy_fallback_pending_official_review,1.0,,2020,0012,1.0
-high,GRAINGER,002953,1 1,2024,legacy_fallback_pending_official_review,1.0,,2020,0001,1.0
-high,GRAINGER,002952,1 2,2024,legacy_fallback_pending_official_review,1.0,,2020,0002,1.0
-high,GRAINGER,002957,2 1,2024,legacy_fallback_pending_official_review,1.0,,2020,0003,1.0
-high,GRAINGER,002958,2 2,2024,legacy_fallback_pending_official_review,1.0,,2020,0004,1.0
-high,GRAINGER,002955,3 1,2024,legacy_fallback_pending_official_review,1.0,,2020,0005,1.0
-high,GRAINGER,002954,3 2,2024,legacy_fallback_pending_official_review,1.0,,2020,0006,1.0
-high,GRAINGER,002956,4 1,2024,legacy_fallback_pending_official_review,1.0,,2020,0007,1.0
-high,GRAINGER,002951,4 2,2024,legacy_fallback_pending_official_review,1.0,,2020,0008,1.0
-high,GRAINGER,002960,5 1,2024,legacy_fallback_pending_official_review,1.0,,2020,0009,1.0
-high,GRAINGER,002959,5 2,2024,legacy_fallback_pending_official_review,1.0,,2020,0010,1.0
 high,GREENE,003067,1 BAILEYTON,2024,legacy_fallback_pending_official_review,1.0,,2020,0001,1.0
 high,GREENE,003080,1 OTTWAY,2024,legacy_fallback_pending_official_review,1.0,,2020,0014,1.0
 high,GREENE,003053,2 CHUCKEY,2024,legacy_fallback_pending_official_review,1.0,,2020,0005,1.0
@@ -762,16 +760,6 @@ high,GREENE,003059,5 DEBUSK,2024,legacy_fallback_pending_official_review,1.0,,20
 high,GREENE,003054,6 MCDONALD,2024,legacy_fallback_pending_official_review,1.0,,2020,0010,1.0
 high,GREENE,003082,6 MOSHEIM,2024,legacy_fallback_pending_official_review,1.0,,2020,0011,1.0
 high,GREENE,003084,7 GLENWOOD,2024,legacy_fallback_pending_official_review,1.0,,2020,0008,1.0
-high,HAMBLEN,003252,01 1,2024,legacy_fallback_pending_official_review,1.0,,2020,0001,1.0
-high,HAMBLEN,003253,02 1,2024,legacy_fallback_pending_official_review,1.0,,2020,0002,1.0
-high,HAMBLEN,003254,03 1,2024,legacy_fallback_pending_official_review,1.0,,2020,0003,1.0
-high,HAMBLEN,003251,04 1,2024,legacy_fallback_pending_official_review,1.0,,2020,0004,1.0
-high,HAMBLEN,003255,05 1,2024,legacy_fallback_pending_official_review,1.0,,2020,0005,1.0
-high,HAMBLEN,003256,06 1,2024,legacy_fallback_pending_official_review,1.0,,2020,0006,1.0
-high,HAMBLEN,003257,07 1,2024,legacy_fallback_pending_official_review,1.0,,2020,0007,1.0
-high,HAMBLEN,003258,08 1,2024,legacy_fallback_pending_official_review,1.0,,2020,0008,1.0
-high,HAMBLEN,003259,09 1,2024,legacy_fallback_pending_official_review,1.0,,2020,0009,1.0
-high,HAMBLEN,003260,09 2,2024,legacy_fallback_pending_official_review,1.0,,2020,0010,1.0
 high,HARDEMAN,003606,LACY,2024,legacy_fallback_pending_official_review,1.0,,2020,0008,1.0
 high,HARDIN,003706,CERRO GORDO 6 1,2024,legacy_fallback_pending_official_review,1.0,,2020,0007,1.0
 high,HARDIN,003714,COUNCE 3 1,2024,legacy_fallback_pending_official_review,1.0,,2020,0003,1.0
@@ -810,124 +798,8 @@ high,JEFFERSON,004606,5 JEFFERSON HIGH,2024,legacy_fallback_pending_official_rev
 high,JEFFERSON,004607,6 RUSH STRONG,2024,legacy_fallback_pending_official_review,1.0,,2020,0006,1.0
 high,JEFFERSON,004608,7 NEW MARKET,2024,legacy_fallback_pending_official_review,1.0,,2020,0007,1.0
 high,JEFFERSON,004610,9 TALBOTT SCHOOL,2024,legacy_fallback_pending_official_review,1.0,,2020,0010,1.0
-high,KNOX,004864,06 GREEN SCHOOL,2024,legacy_fallback_pending_official_review,1.0,,2020,0001,1.0
-high,KNOX,004861,09 ETERNAL LIFE HARVEST,2024,legacy_fallback_pending_official_review,1.0,,2020,0002,1.0
-high,KNOX,004893,10A HOWARD BAKER CENTER,2024,legacy_fallback_pending_official_review,1.0,,2020,0003,1.0
-high,KNOX,004862,10N FORT SANDERS,2024,legacy_fallback_pending_official_review,1.0,,2020,0004,1.0
-high,KNOX,004832,10S HOWARD BAKER CENTER,2024,legacy_fallback_pending_official_review,1.0,,2020,0005,1.0
-high,KNOX,004893,10W HOWARD BAKER CENTER,2024,legacy_fallback_pending_official_review,1.0,,2020,0006,1.0
-high,KNOX,004875,11 CENTRAL UMC,2024,legacy_fallback_pending_official_review,1.0,,2020,0007,1.0
-high,KNOX,004865,12 YWCA,2024,legacy_fallback_pending_official_review,1.0,,2020,0008,1.0
-high,KNOX,004871,13 FAIR GARDEN,2024,legacy_fallback_pending_official_review,1.0,,2020,0009,1.0
-high,KNOX,004873,14 AUSTIN EAST,2024,legacy_fallback_pending_official_review,1.0,,2020,0010,1.0
-high,KNOX,004867,15E JOHN T O CONNOR,2024,legacy_fallback_pending_official_review,1.0,,2020,0011,1.0
-high,KNOX,004867,15W JOHN T O CONNOR,2024,legacy_fallback_pending_official_review,1.0,,2020,0012,0.819943
-high,KNOX,004865,15W JOHN T O CONNOR,2024,legacy_fallback_pending_official_review,1.0,,2020,0012,0.180057
-high,KNOX,004883,16E LARRY COX SR CENTER,2024,legacy_fallback_pending_official_review,1.0,,2020,0013,0.860487
-high,KNOX,004884,16E LARRY COX SR CENTER,2024,legacy_fallback_pending_official_review,1.0,,2020,0013,0.118312
-high,KNOX,004872,16E LARRY COX SR CENTER,2024,legacy_fallback_pending_official_review,1.0,,2020,0013,0.021201
-high,KNOX,004883,16W LARRY COX SR CENTER,2024,legacy_fallback_pending_official_review,1.0,,2020,0014,1.0
-high,KNOX,004883,16X LARRY COX SR CENTER,2024,legacy_fallback_pending_official_review,1.0,,2020,0015,1.0
-high,KNOX,004876,17 CHRISTENBERRY,2024,legacy_fallback_pending_official_review,1.0,,2020,0016,1.0
-high,KNOX,004877,18 LINCOLN PARK,2024,legacy_fallback_pending_official_review,1.0,,2020,0017,1.0
-high,KNOX,004804,19 THRIVE LONSDALE,2024,legacy_fallback_pending_official_review,1.0,,2020,0018,0.734496
-high,KNOX,004894,19 THRIVE LONSDALE,2024,legacy_fallback_pending_official_review,1.0,,2020,0018,0.265504
-high,KNOX,004863,20 BEAUMONT,2024,legacy_fallback_pending_official_review,1.0,,2020,0019,0.658478
-high,KNOX,004861,20 BEAUMONT,2024,legacy_fallback_pending_official_review,1.0,,2020,0019,0.341522
-high,KNOX,004859,23 WESTVIEW,2024,legacy_fallback_pending_official_review,1.0,,2020,0020,1.0
-high,KNOX,004833,24Q SEQUOYAH HILLS,2024,legacy_fallback_pending_official_review,1.0,,2020,0021,1.0
-high,KNOX,004831,25 SOUTH KNOX CC,2024,legacy_fallback_pending_official_review,1.0,,2020,0022,0.897783
-high,KNOX,004826,25 SOUTH KNOX CC,2024,legacy_fallback_pending_official_review,1.0,,2020,0022,0.102217
-high,KNOX,004809,26 DOGWOOD,2024,legacy_fallback_pending_official_review,1.0,,2020,0023,1.0
-high,KNOX,004827,27 SOUTH KNOX,2024,legacy_fallback_pending_official_review,1.0,,2020,0024,1.0
-high,KNOX,004826,29 ANDERSON,2024,legacy_fallback_pending_official_review,1.0,,2020,0025,0.831492
-high,KNOX,004809,29 ANDERSON,2024,legacy_fallback_pending_official_review,1.0,,2020,0025,0.168508
-high,KNOX,004868,30 SARAH MOORE GREENE,2024,legacy_fallback_pending_official_review,1.0,,2020,0026,1.0
-high,KNOX,004870,31 CHILHOWEE,2024,legacy_fallback_pending_official_review,1.0,,2020,0027,1.0
-high,KNOX,004872,32 SPRING HILL,2024,legacy_fallback_pending_official_review,1.0,,2020,0028,1.0
-high,KNOX,004884,33N RICHARD YOAKLEY,2024,legacy_fallback_pending_official_review,1.0,,2020,0029,1.0
-high,KNOX,004884,33S RICHARD YOAKLEY,2024,legacy_fallback_pending_official_review,1.0,,2020,0030,1.0
-high,KNOX,004884,33X RICHARD YOAKLEY,2024,legacy_fallback_pending_official_review,1.0,,2020,0031,1.0
-high,KNOX,004882,34 CENTRAL,2024,legacy_fallback_pending_official_review,1.0,,2020,0032,1.0
-high,KNOX,004881,35 SHANNONDALE,2024,legacy_fallback_pending_official_review,1.0,,2020,0033,0.766867
-high,KNOX,004882,35 SHANNONDALE,2024,legacy_fallback_pending_official_review,1.0,,2020,0033,0.233133
-high,KNOX,004880,36 GRESHAM,2024,legacy_fallback_pending_official_review,1.0,,2020,0034,0.666485
-high,KNOX,004879,36 GRESHAM,2024,legacy_fallback_pending_official_review,1.0,,2020,0034,0.333515
-high,KNOX,004879,37 INSKIP ELEMENTARY,2024,legacy_fallback_pending_official_review,1.0,,2020,0035,1.0
-high,KNOX,004803,39E INSKIP REC CENTER,2024,legacy_fallback_pending_official_review,1.0,,2020,0036,0.547998
-high,KNOX,004802,39E INSKIP REC CENTER,2024,legacy_fallback_pending_official_review,1.0,,2020,0036,0.452002
-high,KNOX,004802,39W INSKIP REC CENTER,2024,legacy_fallback_pending_official_review,1.0,,2020,0037,1.0
-high,KNOX,004806,40 NORWOOD,2024,legacy_fallback_pending_official_review,1.0,,2020,0038,1.0
-high,KNOX,004803,41 NORWOOD,2024,legacy_fallback_pending_official_review,1.0,,2020,0039,1.0
-high,KNOX,004856,42 PLEASANT RIDGE,2024,legacy_fallback_pending_official_review,1.0,,2020,0040,1.0
-high,KNOX,004857,43 WEST HAVEN,2024,legacy_fallback_pending_official_review,1.0,,2020,0041,1.0
-high,KNOX,004855,44 RIDGEDALE,2024,legacy_fallback_pending_official_review,1.0,,2020,0042,1.0
-high,KNOX,004854,45 BEARDEN MIDDLE,2024,legacy_fallback_pending_official_review,1.0,,2020,0043,1.0
-high,KNOX,004838,46 1ST NAZARENE,2024,legacy_fallback_pending_official_review,1.0,,2020,0044,1.0
-high,KNOX,004837,47N BEARDEN HIGH,2024,legacy_fallback_pending_official_review,1.0,,2020,0045,1.0
-high,KNOX,004837,47S BEARDEN HIGH,2024,legacy_fallback_pending_official_review,1.0,,2020,0046,1.0
-high,KNOX,004801,48 POND GAP,2024,legacy_fallback_pending_official_review,1.0,,2020,0047,1.0
-high,KNOX,004834,49N BEARDEN ELEMENTARY,2024,legacy_fallback_pending_official_review,1.0,,2020,0048,1.0
-high,KNOX,004834,49S BEARDEN ELEMENTARY,2024,legacy_fallback_pending_official_review,1.0,,2020,0049,1.0
-high,KNOX,004858,50N WEST HIGH,2024,legacy_fallback_pending_official_review,1.0,,2020,0050,1.0
-high,KNOX,004860,50S WEST HIGH,2024,legacy_fallback_pending_official_review,1.0,,2020,0051,1.0
-high,KNOX,004836,51 DEANE HILL REC CTR,2024,legacy_fallback_pending_official_review,1.0,,2020,0052,0.895993
-high,KNOX,004837,51 DEANE HILL REC CTR,2024,legacy_fallback_pending_official_review,1.0,,2020,0052,0.104007
-high,KNOX,004853,55 LONAS,2024,legacy_fallback_pending_official_review,1.0,,2020,0053,1.0
-high,KNOX,004890,56 HEISKELL,2024,legacy_fallback_pending_official_review,1.0,,2020,0054,1.0
-high,KNOX,004810,57 HILLS,2024,legacy_fallback_pending_official_review,1.0,,2020,0055,1.0
-high,KNOX,004891,58 PEDIGO,2024,legacy_fallback_pending_official_review,1.0,,2020,0056,0.585123
-high,KNOX,004895,58 PEDIGO,2024,legacy_fallback_pending_official_review,1.0,,2020,0056,0.414877
-high,KNOX,004887,59 BRICKEY,2024,legacy_fallback_pending_official_review,1.0,,2020,0057,1.0
-high,KNOX,004811,60 FORT SUMTER,2024,legacy_fallback_pending_official_review,1.0,,2020,0058,1.0
-high,KNOX,004886,61E HALLS,2024,legacy_fallback_pending_official_review,1.0,,2020,0059,1.0
-high,KNOX,004886,61W HALLS,2024,legacy_fallback_pending_official_review,1.0,,2020,0060,1.0
-high,KNOX,004844,62 HARDIN VALLEY,2024,legacy_fallback_pending_official_review,1.0,,2020,0061,1.0
-high,KNOX,004848,63 KARNS,2024,legacy_fallback_pending_official_review,1.0,,2020,0062,1.0
-high,KNOX,004849,63N KARNS NORTH,2024,legacy_fallback_pending_official_review,1.0,,2020,0063,1.0
-high,KNOX,004846,64 SOLWAY,2024,legacy_fallback_pending_official_review,1.0,,2020,0064,1.0
-high,KNOX,004896,65E CONCORD EAST,2024,legacy_fallback_pending_official_review,1.0,,2020,0065,1.0
-high,KNOX,004845,65N CONCORD NORTH,2024,legacy_fallback_pending_official_review,1.0,,2020,0066,1.0
-high,KNOX,004896,65S CONCORD SOUTH,2024,legacy_fallback_pending_official_review,1.0,,2020,0067,1.0
-high,KNOX,004841,65SW CONCORD SOUTHWEST,2024,legacy_fallback_pending_official_review,1.0,,2020,0068,1.0
-high,KNOX,004841,65W CONCORD WEST,2024,legacy_fallback_pending_official_review,1.0,,2020,0069,1.0
-high,KNOX,004805,66NE E FARRAGUT MIDDLE,2024,legacy_fallback_pending_official_review,1.0,,2020,0070,1.0
-high,KNOX,004805,66NW W FARRAGUT MIDDLE,2024,legacy_fallback_pending_official_review,1.0,,2020,0071,1.0
-high,KNOX,004842,66SE E FARRAGUT HIGH,2024,legacy_fallback_pending_official_review,1.0,,2020,0072,1.0
-high,KNOX,004842,66SW W FARRAGUT HIGH,2024,legacy_fallback_pending_official_review,1.0,,2020,0073,1.0
-high,KNOX,004852,67 NORTH CEDAR BLUFF,2024,legacy_fallback_pending_official_review,1.0,,2020,0074,1.0
-high,KNOX,004850,68 SOUTH CEDAR BLUFF,2024,legacy_fallback_pending_official_review,1.0,,2020,0075,1.0
-high,KNOX,004851,68E EAST CEDAR BLUFF,2024,legacy_fallback_pending_official_review,1.0,,2020,0076,1.0
-high,KNOX,004807,69E BLUEGRASS,2024,legacy_fallback_pending_official_review,1.0,,2020,0077,1.0
-high,KNOX,004840,69N WEST VALLEY,2024,legacy_fallback_pending_official_review,1.0,,2020,0078,1.0
-high,KNOX,004839,69S NORTHSHORE,2024,legacy_fallback_pending_official_review,1.0,,2020,0079,1.0
-high,KNOX,004897,69W A L LOTTS,2024,legacy_fallback_pending_official_review,1.0,,2020,0080,1.0
-high,KNOX,004828,70E AMHERST,2024,legacy_fallback_pending_official_review,1.0,,2020,0081,1.0
-high,KNOX,004847,70W BALL CAMP,2024,legacy_fallback_pending_official_review,1.0,,2020,0082,1.0
-high,KNOX,004835,71 ROCKY HILL,2024,legacy_fallback_pending_official_review,1.0,,2020,0083,1.0
-high,KNOX,004888,72E DANTE EAST,2024,legacy_fallback_pending_official_review,1.0,,2020,0084,1.0
-high,KNOX,004888,72W DANTE WEST,2024,legacy_fallback_pending_official_review,1.0,,2020,0085,1.0
-high,KNOX,004892,73E POWELL EAST,2024,legacy_fallback_pending_official_review,1.0,,2020,0086,1.0
-high,KNOX,004892,73W POWELL WEST,2024,legacy_fallback_pending_official_review,1.0,,2020,0087,1.0
-high,KNOX,004885,74 SHANNONDALE,2024,legacy_fallback_pending_official_review,1.0,,2020,0088,1.0
-high,KNOX,004818,76 SUNNYVIEW,2024,legacy_fallback_pending_official_review,1.0,,2020,0089,1.0
-high,KNOX,004821,77 RAMSEY,2024,legacy_fallback_pending_official_review,1.0,,2020,0090,1.0
-high,KNOX,004819,78 RIVERDALE,2024,legacy_fallback_pending_official_review,1.0,,2020,0091,1.0
-high,KNOX,004820,79 DORA KENNEDY,2024,legacy_fallback_pending_official_review,1.0,,2020,0092,1.0
-high,KNOX,004813,80 CORRYTON,2024,legacy_fallback_pending_official_review,1.0,,2020,0093,1.0
-high,KNOX,004812,81 GIBBS,2024,legacy_fallback_pending_official_review,1.0,,2020,0094,1.0
-high,KNOX,004816,82 ELLISTOWN,2024,legacy_fallback_pending_official_review,1.0,,2020,0095,1.0
-high,KNOX,004808,84 RITTA,2024,legacy_fallback_pending_official_review,1.0,,2020,0096,1.0
-high,KNOX,004814,85 SKAGGSTON,2024,legacy_fallback_pending_official_review,1.0,,2020,0097,1.0
-high,KNOX,004815,86 CARTER,2024,legacy_fallback_pending_official_review,1.0,,2020,0098,1.0
-high,KNOX,004817,87 THORNGROVE,2024,legacy_fallback_pending_official_review,1.0,,2020,0099,1.0
-high,KNOX,004829,89 MT OLIVE,2024,legacy_fallback_pending_official_review,1.0,,2020,0100,1.0
-high,KNOX,004824,90 BONNY KATE,2024,legacy_fallback_pending_official_review,1.0,,2020,0101,1.0
-high,KNOX,004822,92 GAP CREEK,2024,legacy_fallback_pending_official_review,1.0,,2020,0102,1.0
-high,KNOX,004823,93 HOPEWELL,2024,legacy_fallback_pending_official_review,1.0,,2020,0103,1.0
 high,LAUDERDALE,005053,EDITH 7,2024,legacy_fallback_pending_official_review,1.0,,2020,0008,1.0
 high,LAUDERDALE,005052,GATES 7,2024,legacy_fallback_pending_official_review,1.0,,2020,0009,1.0
-high,LAWRENCE,005151,02 1 LORETTO,2024,legacy_fallback_pending_official_review,1.0,,2020,0003,1.0
 high,LAWRENCE,005155,05 1 LEOMA,2024,legacy_fallback_pending_official_review,1.0,,2020,0007,1.0
 high,LAWRENCE,005165,15 1 SALEM,2024,legacy_fallback_pending_official_review,1.0,,2020,0021,1.0
 high,LAWRENCE,005167,17 1 FIRST BAPTIST,2024,legacy_fallback_pending_official_review,1.0,,2020,0023,1.0
@@ -1021,9 +893,6 @@ high,OVERTON,006857,3 4 RUSHING SPRINGS,2024,legacy_fallback_pending_official_re
 high,OVERTON,006857,4 2 RICKMAN,2024,legacy_fallback_pending_official_review,1.0,,2020,0007,1.0
 high,OVERTON,006858,5 1 HILHAM,2024,legacy_fallback_pending_official_review,1.0,,2020,0008,1.0
 high,OVERTON,006859,5 2 FAIRGROUNDS,2024,legacy_fallback_pending_official_review,1.0,,2020,0009,1.0
-high,PERRY,006956,4 3 LOBELVILLE,2024,legacy_fallback_pending_official_review,1.0,,2020,0008,1.0
-high,PERRY,006955,5 1 LINDEN,2024,legacy_fallback_pending_official_review,1.0,,2020,0009,1.0
-high,PERRY,006952,6 1 LOBELVILLE,2024,legacy_fallback_pending_official_review,1.0,,2020,0010,1.0
 high,PICKETT,007059,BARNES RIDGE 4 3,2024,legacy_fallback_pending_official_review,1.0,,2020,0008,1.0
 high,PICKETT,007057,BOLESTOWN 4 4,2024,legacy_fallback_pending_official_review,1.0,,2020,0009,1.0
 high,PICKETT,007058,BOOM 4 1,2024,legacy_fallback_pending_official_review,1.0,,2020,0006,1.0
@@ -1057,80 +926,6 @@ high,SEVIER,007952,7 1 CATLETTSBURG,2024,legacy_fallback_pending_official_review
 high,SEVIER,007955,7 2 CATLETTSBURG,2024,legacy_fallback_pending_official_review,1.0,,2020,0003,1.0
 high,SEVIER,007957,8 1 KODAK,2024,legacy_fallback_pending_official_review,1.0,,2020,0011,1.0
 high,STEWART,008405,5 1 VISITORS CENTER,2024,legacy_fallback_pending_official_review,1.0,,2020,0005,1.0
-high,SUMNER,008632,1 1 WESTMORELAND,2024,legacy_fallback_pending_official_review,1.0,,2020,0001,0.669647
-high,SUMNER,008636,1 1 WESTMORELAND,2024,legacy_fallback_pending_official_review,1.0,,2020,0001,0.330353
-high,SUMNER,008601,10 1 VOL STATE,2024,legacy_fallback_pending_official_review,1.0,,2020,0012,0.67296
-high,SUMNER,008602,10 1 VOL STATE,2024,legacy_fallback_pending_official_review,1.0,,2020,0012,0.32704
-high,SUMNER,008622,11 1 STATION CAMP MS,2024,legacy_fallback_pending_official_review,1.0,,2020,0013,0.486176
-high,SUMNER,008602,11 1 STATION CAMP MS,2024,legacy_fallback_pending_official_review,1.0,,2020,0013,0.321619
-high,SUMNER,008628,11 1 STATION CAMP MS,2024,legacy_fallback_pending_official_review,1.0,,2020,0013,0.148329
-high,SUMNER,008601,11 1 STATION CAMP MS,2024,legacy_fallback_pending_official_review,1.0,,2020,0013,0.043876
-high,SUMNER,008611,12 1 HOWARD,2024,legacy_fallback_pending_official_review,1.0,,2020,0014,1.0
-high,SUMNER,008611,12 2 STATION CAMP HS,2024,legacy_fallback_pending_official_review,1.0,,2020,0015,0.892749
-high,SUMNER,008627,12 2 STATION CAMP HS,2024,legacy_fallback_pending_official_review,1.0,,2020,0015,0.107251
-high,SUMNER,008611,13 1 UNION,2024,legacy_fallback_pending_official_review,1.0,,2020,0016,0.672555
-high,SUMNER,008610,13 1 UNION,2024,legacy_fallback_pending_official_review,1.0,,2020,0016,0.327445
-high,SUMNER,008624,14 1 BEECH,2024,legacy_fallback_pending_official_review,1.0,,2020,0017,0.43482643
-high,SUMNER,008627,14 1 BEECH,2024,legacy_fallback_pending_official_review,1.0,,2020,0017,0.38705339
-high,SUMNER,008626,14 1 BEECH,2024,legacy_fallback_pending_official_review,1.0,,2020,0017,0.07044707
-high,SUMNER,008625,14 1 BEECH,2024,legacy_fallback_pending_official_review,1.0,,2020,0017,0.06208106
-high,SUMNER,008628,14 1 BEECH,2024,legacy_fallback_pending_official_review,1.0,,2020,0017,0.04559205
-high,SUMNER,008627,14 2 BIRDWELL,2024,legacy_fallback_pending_official_review,1.0,,2020,0018,0.411302
-high,SUMNER,008612,14 2 BIRDWELL,2024,legacy_fallback_pending_official_review,1.0,,2020,0018,0.366339
-high,SUMNER,008626,14 2 BIRDWELL,2024,legacy_fallback_pending_official_review,1.0,,2020,0018,0.163537
-high,SUMNER,008611,14 2 BIRDWELL,2024,legacy_fallback_pending_official_review,1.0,,2020,0018,0.058822
-high,SUMNER,008626,15 1 WHITE HOUSE,2024,legacy_fallback_pending_official_review,1.0,,2020,0019,0.866572
-high,SUMNER,008612,15 1 WHITE HOUSE,2024,legacy_fallback_pending_official_review,1.0,,2020,0019,0.133428
-high,SUMNER,008625,16 1 MILLERSVILLE,2024,legacy_fallback_pending_official_review,1.0,,2020,0020,0.566014
-high,SUMNER,008623,16 1 MILLERSVILLE,2024,legacy_fallback_pending_official_review,1.0,,2020,0020,0.269407
-high,SUMNER,008624,16 1 MILLERSVILLE,2024,legacy_fallback_pending_official_review,1.0,,2020,0020,0.136856
-high,SUMNER,008626,16 1 MILLERSVILLE,2024,legacy_fallback_pending_official_review,1.0,,2020,0020,0.027723
-high,SUMNER,008623,17 1 GOODLETTSVILLE,2024,legacy_fallback_pending_official_review,1.0,,2020,0021,0.513917
-high,SUMNER,008633,17 1 GOODLETTSVILLE,2024,legacy_fallback_pending_official_review,1.0,,2020,0021,0.455652
-high,SUMNER,008624,17 1 GOODLETTSVILLE,2024,legacy_fallback_pending_official_review,1.0,,2020,0021,0.030431
-high,SUMNER,008633,18 1 MERROL HYDE,2024,legacy_fallback_pending_official_review,1.0,,2020,0022,0.653614
-high,SUMNER,008619,18 1 MERROL HYDE,2024,legacy_fallback_pending_official_review,1.0,,2020,0022,0.183121
-high,SUMNER,008621,18 1 MERROL HYDE,2024,legacy_fallback_pending_official_review,1.0,,2020,0022,0.163265
-high,SUMNER,008621,19 1 BROWN,2024,legacy_fallback_pending_official_review,1.0,,2020,0023,0.57016
-high,SUMNER,008619,19 1 BROWN,2024,legacy_fallback_pending_official_review,1.0,,2020,0023,0.42984
-high,SUMNER,008636,2 1 CORINTH,2024,legacy_fallback_pending_official_review,1.0,,2020,0002,0.580424
-high,SUMNER,008614,2 1 CORINTH,2024,legacy_fallback_pending_official_review,1.0,,2020,0002,0.264333
-high,SUMNER,008613,2 1 CORINTH,2024,legacy_fallback_pending_official_review,1.0,,2020,0002,0.155243
-high,SUMNER,008631,20 1 HAWKINS,2024,legacy_fallback_pending_official_review,1.0,,2020,0024,0.58751741
-high,SUMNER,008621,20 1 HAWKINS,2024,legacy_fallback_pending_official_review,1.0,,2020,0024,0.38162762
-high,SUMNER,008619,20 1 HAWKINS,2024,legacy_fallback_pending_official_review,1.0,,2020,0024,0.03085497
-high,SUMNER,008620,21 1 INDIAN LAKE,2024,legacy_fallback_pending_official_review,1.0,,2020,0025,0.813333
-high,SUMNER,008603,21 1 INDIAN LAKE,2024,legacy_fallback_pending_official_review,1.0,,2020,0025,0.186667
-high,SUMNER,008603,22 1 JACK ANDERSON,2024,legacy_fallback_pending_official_review,1.0,,2020,0026,0.586731
-high,SUMNER,008602,22 1 JACK ANDERSON,2024,legacy_fallback_pending_official_review,1.0,,2020,0026,0.413269
-high,SUMNER,008622,23 1 WHITTEN,2024,legacy_fallback_pending_official_review,1.0,,2020,0027,0.590103
-high,SUMNER,008628,23 1 WHITTEN,2024,legacy_fallback_pending_official_review,1.0,,2020,0027,0.409897
-high,SUMNER,008622,23 2 HENDERSONVILLE,2024,legacy_fallback_pending_official_review,1.0,,2020,0028,0.880965
-high,SUMNER,008603,23 2 HENDERSONVILLE,2024,legacy_fallback_pending_official_review,1.0,,2020,0028,0.119035
-high,SUMNER,008628,24 1 LONG HOLLOW,2024,legacy_fallback_pending_official_review,1.0,,2020,0029,0.67537932
-high,SUMNER,008624,24 1 LONG HOLLOW,2024,legacy_fallback_pending_official_review,1.0,,2020,0029,0.24767775
-high,SUMNER,008622,24 1 LONG HOLLOW,2024,legacy_fallback_pending_official_review,1.0,,2020,0029,0.07694292
-high,SUMNER,008614,3 1 PORTLAND,2024,legacy_fallback_pending_official_review,1.0,,2020,0003,0.844656
-high,SUMNER,008613,3 1 PORTLAND,2024,legacy_fallback_pending_official_review,1.0,,2020,0003,0.155344
-high,SUMNER,008612,4 1 OAKMONT,2024,legacy_fallback_pending_official_review,1.0,,2020,0004,0.876701
-high,SUMNER,008613,4 1 OAKMONT,2024,legacy_fallback_pending_official_review,1.0,,2020,0004,0.123299
-high,SUMNER,008627,4 2 COTTONTOWN,2024,legacy_fallback_pending_official_review,1.0,,2020,0005,0.513827
-high,SUMNER,008610,4 2 COTTONTOWN,2024,legacy_fallback_pending_official_review,1.0,,2020,0005,0.486173
-high,SUMNER,008632,5 1 BETHPAGE,2024,legacy_fallback_pending_official_review,1.0,,2020,0006,0.414473
-high,SUMNER,008635,5 1 BETHPAGE,2024,legacy_fallback_pending_official_review,1.0,,2020,0006,0.344854
-high,SUMNER,008636,5 1 BETHPAGE,2024,legacy_fallback_pending_official_review,1.0,,2020,0006,0.240673
-high,SUMNER,008636,5 2 HIGHLAND,2024,legacy_fallback_pending_official_review,1.0,,2020,0007,0.507328
-high,SUMNER,008635,5 2 HIGHLAND,2024,legacy_fallback_pending_official_review,1.0,,2020,0007,0.362844
-high,SUMNER,008613,5 2 HIGHLAND,2024,legacy_fallback_pending_official_review,1.0,,2020,0007,0.129828
-high,SUMNER,008607,6 1 CREEKSIDE,2024,legacy_fallback_pending_official_review,1.0,,2020,0008,0.747979
-high,SUMNER,008635,6 1 CREEKSIDE,2024,legacy_fallback_pending_official_review,1.0,,2020,0008,0.252021
-high,SUMNER,008635,7 1 CIVIC CENTER,2024,legacy_fallback_pending_official_review,1.0,,2020,0009,0.900637
-high,SUMNER,008609,7 1 CIVIC CENTER,2024,legacy_fallback_pending_official_review,1.0,,2020,0009,0.099363
-high,SUMNER,008608,8 1 GUILD,2024,legacy_fallback_pending_official_review,1.0,,2020,0010,0.731507
-high,SUMNER,008609,8 1 GUILD,2024,legacy_fallback_pending_official_review,1.0,,2020,0010,0.268493
-high,SUMNER,008618,9 1 GALLATIN HS,2024,legacy_fallback_pending_official_review,1.0,,2020,0011,0.760262
-high,SUMNER,008608,9 1 GALLATIN HS,2024,legacy_fallback_pending_official_review,1.0,,2020,0011,0.126118
-high,SUMNER,008601,9 1 GALLATIN HS,2024,legacy_fallback_pending_official_review,1.0,,2020,0011,0.11362
 high,TIPTON,008706,6 14 SW TIPTON,2024,legacy_fallback_pending_official_review,1.0,,2020,0006,1.0
 high,UNION,009002,2 1 LUTTRELL,2024,legacy_fallback_pending_official_review,1.0,,2020,0002,1.0
 high,UNION,009001,3 1 CEDAR GROVE,2024,legacy_fallback_pending_official_review,1.0,,2020,0003,1.0

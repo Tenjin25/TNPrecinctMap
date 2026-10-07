@@ -14,6 +14,7 @@ import csv
 import hashlib
 import json
 import re
+import warnings
 import zipfile
 from collections import Counter, defaultdict
 from datetime import datetime, timezone
@@ -45,9 +46,37 @@ def norm_county(value: object) -> str:
 def precinct_parts(value: object) -> tuple[str, str]:
     raw = str(value or "").strip()
     hit = re.match(r"^\s*([0-9]+(?:[-A-Z][0-9A-Z]*)?)\s+(.+)$", raw, re.I)
+    if not hit and re.fullmatch(r"[0-9]+(?:[-A-Z][0-9A-Z]*)*", raw, re.I):
+        token = norm(raw)
+        canonical_name = re.sub(r"[^A-Z0-9]", "", raw.upper()).lstrip("0")
+        return token, canonical_name
     code = norm(hit.group(1)) if hit else ""
     name = norm(hit.group(2) if hit else raw)
     return code, name
+
+
+def code_keys(value: object) -> set[str]:
+    """Return equivalent election-office renderings of a precinct code.
+
+    Several county result files render ward/precinct 101 as ``1-1`` (and 203
+    as ``2-3``), while the Comptroller layer stores the compact three-digit
+    form.  Retain the literal key too because other counties use the hyphen as
+    a meaningful separator without zero-padding.
+    """
+    raw = str(value or "").strip().upper()
+    keys = {re.sub(r"[^A-Z0-9]", "", raw).lstrip("0")}
+    # ``precinct_parts`` deliberately uses the shared normalizer, which turns
+    # punctuation into spaces, so accept both the source hyphen and that
+    # normalized representation here.
+    hit = re.fullmatch(r"0*(\d+)[ -]0*(\d+)", raw)
+    if hit:
+        ward, precinct = hit.groups()
+        keys.add(f"{int(ward)}{int(precinct):02d}")
+    return {key for key in keys if key}
+
+
+def literal_code_key(value: object) -> str:
+    return re.sub(r"[^A-Z0-9]", "", str(value or "").upper()).lstrip("0")
 
 
 def directional_alias(value: str) -> str:
@@ -78,7 +107,17 @@ def election_date(layer: str) -> str:
 
 
 def read_layer(archive: Path, layer: str) -> gpd.GeoDataFrame:
-    return gpd.read_file(archive, layer=layer)
+    # A few legacy layers encode unused percentage nulls as ``-nan(ind)``.
+    # GDAL safely converts those values to zero, but emits one warning per
+    # field on every read.  Keep the source archive untouched and suppress
+    # only that known conversion warning.
+    with warnings.catch_warnings():
+        warnings.filterwarnings(
+            "ignore",
+            message=r"Value '-nan\(ind\)' of field .* parsed incompletely to real 0\.",
+            category=RuntimeWarning,
+        )
+        return gpd.read_file(archive, layer=layer)
 
 
 def repair(gdf: gpd.GeoDataFrame) -> tuple[gpd.GeoDataFrame, dict]:
@@ -128,7 +167,7 @@ def official_catalog(gdf: gpd.GeoDataFrame, counties: gpd.GeoDataFrame, fips_nam
             if field in gdf.columns and pd.notna(row.get(field)) and str(row.get(field)).strip():
                 raw_code = str(row.get(field)); break
         parsed_code, parsed_name = precinct_parts(raw_name)
-        rows.append({"feature_id": int(idx), "county": county, "code": norm(raw_code) or parsed_code, "name": parsed_name, "raw_name": raw_name})
+        rows.append({"feature_id": int(idx), "county": county, "code": norm(raw_code) or parsed_code, "label_code": parsed_code, "name": parsed_name, "raw_name": raw_name})
         if not county:
             missing_county.append(int(idx))
     frame = pd.DataFrame(rows).set_index("feature_id", drop=False)
@@ -162,13 +201,39 @@ def match_results(rows: list[dict], catalog: pd.DataFrame) -> tuple[list[dict], 
             nongeo.append({**row, "bucket_type": norm(row["precinct"]).lower().replace(" ", "_")}); continue
         code, name = precinct_parts(row["precinct"])
         candidates = by_county.get(row["county"], [])
+        source_codes = code_keys(code)
+        source_literal = literal_code_key(code)
         scored = []
         for cand in candidates:
-            code_exact = bool(code and cand["code"] and (code.lstrip("0") == cand["code"].lstrip("0")))
+            # Prefer a code printed in the official precinct label.  Internal
+            # VTD identifiers can coincidentally equal another label's compact
+            # ward/precinct code within the same county.
+            label_code = cand.get("label_code", "")
+            vtd_code = cand.get("code", "")
+            label_codes = code_keys(label_code)
+            # Compact ward/precinct variants apply to human-readable label
+            # prefixes only.  Expanding opaque VTD IDs creates cross-code
+            # collisions (for example 0101 versus 10-1).
+            vtd_codes = {literal_code_key(vtd_code)} - {""}
+            label_literal = literal_code_key(label_code)
+            literal_label_exact = bool(source_literal and source_literal == label_literal)
+            any_code_match = bool(source_codes & (label_codes | vtd_codes))
             name_exact = bool(name and cand["name"] and name == cand["name"])
             ratio = SequenceMatcher(None, directional_alias(name), directional_alias(cand["name"])).ratio() if name and cand["name"] else 0.0
-            score = max(1.0 if code_exact and name_exact else 0, 0.97 if code_exact else 0, 0.95 if name_exact else 0, ratio * 0.9)
-            method = "code_and_name" if code_exact and name_exact else "exact_code" if code_exact else "exact_name" if name_exact else "fuzzy_name"
+            score = max(
+                1.0 if literal_label_exact and name_exact else 0,
+                0.99 if any_code_match and name_exact else 0,
+                0.97 if literal_label_exact or any_code_match else 0,
+                0.95 if name_exact else 0,
+                ratio * 0.9,
+            )
+            method = (
+                "code_and_name" if literal_label_exact and name_exact else
+                "code_and_name" if any_code_match and name_exact else
+                "exact_label_code" if literal_label_exact else
+                "equivalent_code" if any_code_match else
+                "exact_name" if name_exact else "fuzzy_name"
+            )
             scored.append((score, method, cand))
         scored.sort(key=lambda item: item[0], reverse=True)
         best = scored[0] if scored else None
@@ -346,6 +411,38 @@ def main() -> None:
     (reports / "official_vtd_geometry_repairs.json").write_text(json.dumps(repairs, indent=2), encoding="utf-8")
     (reports / "official_vtd_match_summary.json").write_text(json.dumps(all_match_summaries, indent=2), encoding="utf-8")
     (reports / "official_vtd_block_crosswalk_summary.json").write_text(json.dumps([{k: row[k] for k in ("year", "block_vintage", "blocks", "blocks_joined", "joined_blocks_without_nhgis_link", "features_with_block_weights") if k in row} for row in all_match_summaries], indent=2), encoding="utf-8")
+    county_match_rows = []
+    for summary in all_match_summaries:
+        summary_year = int(summary["year"])
+        source_path = args.output_root / summary["source_csv"]
+        source_counts = Counter(row["county"] for row in result_precincts(source_path))
+        category_counts = {}
+        for category in ("unmatched", "non_geographic", "low_confidence"):
+            review_path = (
+                args.output_root / "crosswalks" /
+                f"tn_precinct_to_vtd20_blockweighted_{summary_year}_{category}.csv"
+            )
+            counts = Counter()
+            if review_path.exists():
+                with review_path.open(encoding="utf-8-sig", newline="") as handle:
+                    counts.update(norm_county(row.get("county")) for row in csv.DictReader(handle))
+            category_counts[category] = counts
+        for county in sorted(source_counts):
+            unmatched_count = category_counts["unmatched"][county]
+            nongeo_count = category_counts["non_geographic"][county]
+            county_match_rows.append({
+                "year": summary_year,
+                "county": county,
+                "source_precincts": source_counts[county],
+                "matched": source_counts[county] - unmatched_count - nongeo_count,
+                "unmatched": unmatched_count,
+                "non_geographic": nongeo_count,
+                "low_confidence": category_counts["low_confidence"][county],
+            })
+    write_csv(reports / "official_vtd_match_by_county.csv", county_match_rows)
+    (reports / "official_vtd_match_by_county.json").write_text(
+        json.dumps(county_match_rows, indent=2), encoding="utf-8"
+    )
     print(json.dumps({"layers": len(inventory), "priority_layers_built": len(match_summary), "archive_sha256": payload["archive_sha256"]}, indent=2))
 
 
