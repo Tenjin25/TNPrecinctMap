@@ -46,9 +46,11 @@
       }
     },
     "geographic_audit_method": "independent_county_constrained_spatial_precinct_overlay",
-    "identical_bef_districts_synced": [
-      "1"
-    ]
+    "allocation_equivalent_bef_districts_synced": [
+      "1",
+      "2"
+    ],
+    "allocation_equivalent_overlap_threshold": 0.999
   },
   "general": {
     "results": {
@@ -64,91 +66,91 @@
         "winner": "REP"
       },
       "2": {
-        "dem_votes": 55340,
-        "rep_votes": 158795,
-        "other_votes": 6657,
-        "total_votes": 220792,
+        "dem_votes": 55292,
+        "rep_votes": 158722,
+        "other_votes": 6655,
+        "total_votes": 220669,
         "dem_candidate": "Jeff Clark",
         "rep_candidate": "Bill Frist",
-        "margin": 103455,
-        "margin_pct": 46.8563,
+        "margin": 103430,
+        "margin_pct": 46.8711,
         "winner": "REP"
       },
       "3": {
-        "dem_votes": 69882,
-        "rep_votes": 164143,
+        "dem_votes": 69888,
+        "rep_votes": 164156,
         "other_votes": 5122,
-        "total_votes": 239147,
+        "total_votes": 239166,
         "dem_candidate": "Jeff Clark",
         "rep_candidate": "Bill Frist",
-        "margin": 94261,
-        "margin_pct": 39.4155,
+        "margin": 94268,
+        "margin_pct": 39.4153,
         "winner": "REP"
       },
       "4": {
-        "dem_votes": 54161,
-        "rep_votes": 99555,
+        "dem_votes": 54166,
+        "rep_votes": 99563,
         "other_votes": 4660,
-        "total_votes": 158376,
+        "total_votes": 158389,
         "dem_candidate": "Jeff Clark",
         "rep_candidate": "Bill Frist",
-        "margin": 45394,
-        "margin_pct": 28.6622,
+        "margin": 45397,
+        "margin_pct": 28.6617,
         "winner": "REP"
       },
       "5": {
-        "dem_votes": 85155,
-        "rep_votes": 114115,
-        "other_votes": 6396,
-        "total_votes": 205666,
+        "dem_votes": 85163,
+        "rep_votes": 114124,
+        "other_votes": 6397,
+        "total_votes": 205684,
         "dem_candidate": "Jeff Clark",
         "rep_candidate": "Bill Frist",
-        "margin": 28960,
-        "margin_pct": 14.0811,
+        "margin": 28961,
+        "margin_pct": 14.0803,
         "winner": "REP"
       },
       "6": {
-        "dem_votes": 88063,
-        "rep_votes": 150180,
-        "other_votes": 8056,
-        "total_votes": 246299,
+        "dem_votes": 88071,
+        "rep_votes": 150192,
+        "other_votes": 8057,
+        "total_votes": 246320,
         "dem_candidate": "Jeff Clark",
         "rep_candidate": "Bill Frist",
-        "margin": 62117,
-        "margin_pct": 25.2202,
+        "margin": 62121,
+        "margin_pct": 25.2196,
         "winner": "REP"
       },
       "7": {
-        "dem_votes": 54492,
-        "rep_votes": 113491,
+        "dem_votes": 54497,
+        "rep_votes": 113500,
         "other_votes": 4563,
-        "total_votes": 172546,
+        "total_votes": 172560,
         "dem_candidate": "Jeff Clark",
         "rep_candidate": "Bill Frist",
-        "margin": 58999,
-        "margin_pct": 34.1932,
+        "margin": 59003,
+        "margin_pct": 34.1927,
         "winner": "REP"
       },
       "8": {
-        "dem_votes": 70245,
-        "rep_votes": 149113,
+        "dem_votes": 70252,
+        "rep_votes": 149124,
         "other_votes": 4417,
-        "total_votes": 223775,
+        "total_votes": 223793,
         "dem_candidate": "Jeff Clark",
         "rep_candidate": "Bill Frist",
-        "margin": 78868,
-        "margin_pct": 35.2443,
+        "margin": 78872,
+        "margin_pct": 35.2433,
         "winner": "REP"
       },
       "9": {
-        "dem_votes": 92493,
-        "rep_votes": 146262,
+        "dem_votes": 92502,
+        "rep_votes": 146273,
         "other_votes": 6300,
-        "total_votes": 245055,
+        "total_votes": 245075,
         "dem_candidate": "Jeff Clark",
         "rep_candidate": "Bill Frist",
-        "margin": 53769,
-        "margin_pct": 21.9416,
+        "margin": 53771,
+        "margin_pct": 21.9406,
         "winner": "REP"
       }
     }

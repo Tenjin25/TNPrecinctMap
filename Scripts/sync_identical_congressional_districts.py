@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Keep result modes identical where official congressional BEFs are identical."""
+"""Keep result modes equal where official congressional plans overlap at least 99.9%."""
 
 from __future__ import annotations
 
@@ -53,11 +53,13 @@ def main() -> None:
     new = assignments(args.data_root / "CD120_47.txt")
     common = set(old) & set(new)
     districts = sorted(set(old.values()) | set(new.values()), key=int)
-    identical = [
-        district for district in districts
-        if {geoid for geoid in common if old[geoid] == district}
-        == {geoid for geoid in common if new[geoid] == district}
-    ]
+    overlap = {}
+    for district in districts:
+        old_blocks = {geoid for geoid in common if old[geoid] == district}
+        new_blocks = {geoid for geoid in common if new[geoid] == district}
+        overlap[district] = len(old_blocks & new_blocks) / max(len(old_blocks), len(new_blocks), 1)
+    identical = [district for district in districts if overlap[district] == 1.0]
+    allocation_equivalent = [district for district in districts if overlap[district] >= 0.999]
     changes = []
     current_dir = args.data_root / "district_contests"
     future_dir = args.data_root / "district_contests_2026"
@@ -70,20 +72,20 @@ def main() -> None:
         future = load(future_path)
         current_results = current.get("general", {}).get("results", {})
         future_results = future.get("general", {}).get("results", {})
-        before = {district: dict(future_results.get(district, {})) for district in identical}
+        before = {district: dict(future_results.get(district, {})) for district in allocation_equivalent}
         if all(
             all(current_results.get(district, {}).get(field) == future_results.get(district, {}).get(field) for field in FIELDS)
-            for district in identical
+            for district in allocation_equivalent
         ):
             if args.output_root.resolve() != future_dir.resolve():
                 (args.output_root / current_path.name).write_text(json.dumps(future, indent=2) + "\n", encoding="utf-8")
             continue
-        mutable = [district for district in future_results if district not in identical]
+        mutable = [district for district in future_results if district not in allocation_equivalent]
         for field in FIELDS:
             target = sum(int(row.get(field, 0) or 0) for row in future_results.values())
-            for district in identical:
+            for district in allocation_equivalent:
                 future_results[district][field] = int(current_results[district].get(field, 0) or 0)
-            remaining = target - sum(int(future_results[d].get(field, 0) or 0) for d in identical)
+            remaining = target - sum(int(future_results[d].get(field, 0) or 0) for d in allocation_equivalent)
             allocated = largest_remainder(
                 remaining,
                 {district: int(future_results[district].get(field, 0) or 0) for district in mutable},
@@ -92,19 +94,32 @@ def main() -> None:
                 future_results[district][field] = votes
         for row in future_results.values():
             finalize(row)
-        future.setdefault("meta", {})["identical_bef_districts_synced"] = identical
+        future.setdefault("meta", {})["allocation_equivalent_bef_districts_synced"] = allocation_equivalent
+        future["meta"]["allocation_equivalent_overlap_threshold"] = 0.999
+        future["meta"].pop("identical_bef_districts_synced", None)
         out_path = args.output_root / current_path.name
         out_path.write_text(json.dumps(future, indent=2) + "\n", encoding="utf-8")
         changes.append({
             "file": current_path.name,
-            "identical_districts": identical,
+            "allocation_equivalent_districts": allocation_equivalent,
             "before": before,
-            "after": {district: future_results[district] for district in identical},
+            "after": {district: future_results[district] for district in allocation_equivalent},
         })
-    payload = {"identical_districts": identical, "changed_files": len(changes), "changes": changes}
+    payload = {
+        "exactly_identical_districts": identical,
+        "allocation_equivalent_districts": allocation_equivalent,
+        "overlap_ratio_by_district": overlap,
+        "overlap_threshold": 0.999,
+        "changed_files": len(changes),
+        "changes": changes,
+    }
     args.report.parent.mkdir(parents=True, exist_ok=True)
     args.report.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
-    print(json.dumps({"identical_districts": identical, "changed_files": len(changes)}, indent=2))
+    print(json.dumps({
+        "exactly_identical_districts": identical,
+        "allocation_equivalent_districts": allocation_equivalent,
+        "changed_files": len(changes),
+    }, indent=2))
 
 
 if __name__ == "__main__":

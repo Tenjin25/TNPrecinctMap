@@ -249,6 +249,8 @@
       "blocks_2026": 24386,
       "changed_blocks": 0,
       "identical": true,
+      "overlap_ratio": 1.0,
+      "allocation_equivalent": true,
       "changed_block_population_2020": 0
     },
     "cd_2": {
@@ -256,6 +258,8 @@
       "blocks_2026": 16720,
       "changed_blocks": 15,
       "identical": false,
+      "overlap_ratio": 0.9993421052631579,
+      "allocation_equivalent": true,
       "changed_block_population_2020": 290,
       "transfers": [
         {
@@ -279,29 +283,8 @@
       "files": []
     },
     "cd_2": {
-      "differing_contest_files": 20,
-      "files": [
-        "congressional_governor_2002.json",
-        "congressional_governor_2006.json",
-        "congressional_governor_2014.json",
-        "congressional_governor_2022.json",
-        "congressional_president_2000.json",
-        "congressional_president_2004.json",
-        "congressional_president_2008.json",
-        "congressional_president_2012.json",
-        "congressional_president_2016.json",
-        "congressional_president_2020.json",
-        "congressional_president_2024.json",
-        "congressional_us_senate_2000.json",
-        "congressional_us_senate_2002.json",
-        "congressional_us_senate_2006.json",
-        "congressional_us_senate_2008.json",
-        "congressional_us_senate_2012.json",
-        "congressional_us_senate_2014.json",
-        "congressional_us_senate_2018.json",
-        "congressional_us_senate_2020.json",
-        "congressional_us_senate_2024.json"
-      ]
+      "differing_contest_files": 0,
+      "files": []
     }
   }
 }

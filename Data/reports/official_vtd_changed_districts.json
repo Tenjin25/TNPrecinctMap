@@ -1,6 +1,6 @@
 {
   "baseline": "7502d40c13c4c23113e8d880f617ee9bcbe809d3",
-  "changed_district_rows": 1361,
+  "changed_district_rows": 1386,
   "winner_changes": 14,
   "rating_changes": 0,
   "rows": [
@@ -28020,6 +28020,75 @@
     },
     {
       "mode": "2026",
+      "file": "congressional_governor_2002.json",
+      "district": "2",
+      "before": {
+        "dem_votes": 88796,
+        "rep_votes": 95064,
+        "other_votes": 1302,
+        "total_votes": 185162,
+        "margin_pct": 3.3851,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 88794,
+        "rep_votes": 95064,
+        "other_votes": 1302,
+        "total_votes": 185160,
+        "margin_pct": 3.3863,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2026",
+      "file": "congressional_governor_2002.json",
+      "district": "5",
+      "before": {
+        "dem_votes": 107559,
+        "rep_votes": 68606,
+        "other_votes": 2521,
+        "total_votes": 178686,
+        "margin_pct": -21.7997,
+        "winner": "DEM",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 107560,
+        "rep_votes": 68606,
+        "other_votes": 2521,
+        "total_votes": 178687,
+        "margin_pct": -21.8001,
+        "winner": "DEM",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2026",
+      "file": "congressional_governor_2002.json",
+      "district": "6",
+      "before": {
+        "dem_votes": 127381,
+        "rep_votes": 98141,
+        "other_votes": 4807,
+        "total_votes": 230329,
+        "margin_pct": -12.6949,
+        "winner": "DEM",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 127382,
+        "rep_votes": 98141,
+        "other_votes": 4807,
+        "total_votes": 230330,
+        "margin_pct": -12.6953,
+        "winner": "DEM",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2026",
       "file": "congressional_governor_2006.json",
       "district": "1",
       "before": {
@@ -28044,22 +28113,68 @@
     {
       "mode": "2026",
       "file": "congressional_governor_2006.json",
-      "district": "8",
+      "district": "2",
       "before": {
-        "dem_votes": 152584,
-        "rep_votes": 77739,
-        "other_votes": 3080,
-        "total_votes": 233403,
-        "margin_pct": -32.0669,
+        "dem_votes": 136671,
+        "rep_votes": 58703,
+        "other_votes": 3029,
+        "total_votes": 198403,
+        "margin_pct": -39.2978,
         "winner": "DEM",
         "rating": null
       },
       "after": {
-        "dem_votes": 152584,
-        "rep_votes": 77740,
-        "other_votes": 3080,
-        "total_votes": 233404,
-        "margin_pct": -32.0663,
+        "dem_votes": 136670,
+        "rep_votes": 58705,
+        "other_votes": 3029,
+        "total_votes": 198404,
+        "margin_pct": -39.2961,
+        "winner": "DEM",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2026",
+      "file": "congressional_governor_2006.json",
+      "district": "3",
+      "before": {
+        "dem_votes": 144895,
+        "rep_votes": 68936,
+        "other_votes": 3222,
+        "total_votes": 217053,
+        "margin_pct": -34.9956,
+        "winner": "DEM",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 144895,
+        "rep_votes": 68935,
+        "other_votes": 3222,
+        "total_votes": 217052,
+        "margin_pct": -34.9962,
+        "winner": "DEM",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2026",
+      "file": "congressional_governor_2006.json",
+      "district": "5",
+      "before": {
+        "dem_votes": 161646,
+        "rep_votes": 48850,
+        "other_votes": 4457,
+        "total_votes": 214953,
+        "margin_pct": -52.4747,
+        "winner": "DEM",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 161647,
+        "rep_votes": 48850,
+        "other_votes": 4457,
+        "total_votes": 214954,
+        "margin_pct": -52.4749,
         "winner": "DEM",
         "rating": null
       }
@@ -28148,10 +28263,10 @@
       },
       "after": {
         "dem_votes": 24505,
-        "rep_votes": 126824,
+        "rep_votes": 126819,
         "other_votes": 10883,
-        "total_votes": 162212,
-        "margin_pct": 63.0773,
+        "total_votes": 162207,
+        "margin_pct": 63.0762,
         "winner": "REP",
         "rating": null
       }
@@ -28171,10 +28286,10 @@
       },
       "after": {
         "dem_votes": 32912,
-        "rep_votes": 121751,
+        "rep_votes": 121752,
         "other_votes": 7934,
-        "total_votes": 162597,
-        "margin_pct": 54.6375,
+        "total_votes": 162598,
+        "margin_pct": 54.6378,
         "winner": "REP",
         "rating": null
       }
@@ -28240,10 +28355,10 @@
       },
       "after": {
         "dem_votes": 36740,
-        "rep_votes": 96578,
+        "rep_votes": 96579,
         "other_votes": 13271,
-        "total_votes": 146589,
-        "margin_pct": 40.8203,
+        "total_votes": 146590,
+        "margin_pct": 40.8207,
         "winner": "REP",
         "rating": null
       }
@@ -28263,10 +28378,10 @@
       },
       "after": {
         "dem_votes": 35778,
-        "rep_votes": 101505,
+        "rep_votes": 101506,
         "other_votes": 12421,
-        "total_votes": 149704,
-        "margin_pct": 43.9046,
+        "total_votes": 149705,
+        "margin_pct": 43.905,
         "winner": "REP",
         "rating": null
       }
@@ -28286,10 +28401,10 @@
       },
       "after": {
         "dem_votes": 40110,
-        "rep_votes": 124387,
+        "rep_votes": 124388,
         "other_votes": 8699,
-        "total_votes": 173196,
-        "margin_pct": 48.6599,
+        "total_votes": 173197,
+        "margin_pct": 48.6602,
         "winner": "REP",
         "rating": null
       }
@@ -28309,10 +28424,10 @@
       },
       "after": {
         "dem_votes": 39835,
-        "rep_votes": 91364,
+        "rep_votes": 91365,
         "other_votes": 8125,
-        "total_votes": 139324,
-        "margin_pct": 36.985,
+        "total_votes": 139325,
+        "margin_pct": 36.9855,
         "winner": "REP",
         "rating": null
       }
@@ -28561,11 +28676,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 65254,
-        "rep_votes": 139084,
+        "dem_votes": 65255,
+        "rep_votes": 139083,
         "other_votes": 3924,
         "total_votes": 208262,
-        "margin_pct": 35.4505,
+        "margin_pct": 35.4496,
         "winner": "REP",
         "rating": null
       }
@@ -28585,10 +28700,10 @@
       },
       "after": {
         "dem_votes": 58966,
-        "rep_votes": 140578,
+        "rep_votes": 140579,
         "other_votes": 4256,
-        "total_votes": 203800,
-        "margin_pct": 40.0451,
+        "total_votes": 203801,
+        "margin_pct": 40.0454,
         "winner": "REP",
         "rating": null
       }
@@ -28676,11 +28791,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 77157,
+        "dem_votes": 77156,
         "rep_votes": 121730,
         "other_votes": 4838,
-        "total_votes": 203725,
-        "margin_pct": 21.879,
+        "total_votes": 203724,
+        "margin_pct": 21.8796,
         "winner": "REP",
         "rating": null
       }
@@ -28757,6 +28872,98 @@
     {
       "mode": "2026",
       "file": "congressional_president_2000.json",
+      "district": "2",
+      "before": {
+        "dem_votes": 94226,
+        "rep_votes": 137592,
+        "other_votes": 4081,
+        "total_votes": 235899,
+        "margin_pct": 18.3833,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 94157,
+        "rep_votes": 137548,
+        "other_votes": 4080,
+        "total_votes": 235785,
+        "margin_pct": 18.4028,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2026",
+      "file": "congressional_president_2000.json",
+      "district": "3",
+      "before": {
+        "dem_votes": 102879,
+        "rep_votes": 140998,
+        "other_votes": 4277,
+        "total_votes": 248154,
+        "margin_pct": 15.361,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 102888,
+        "rep_votes": 141006,
+        "other_votes": 4277,
+        "total_votes": 248171,
+        "margin_pct": 15.3596,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2026",
+      "file": "congressional_president_2000.json",
+      "district": "4",
+      "before": {
+        "dem_votes": 83607,
+        "rep_votes": 79693,
+        "other_votes": 3201,
+        "total_votes": 166501,
+        "margin_pct": -2.3507,
+        "winner": "DEM",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 83614,
+        "rep_votes": 79698,
+        "other_votes": 3201,
+        "total_votes": 166513,
+        "margin_pct": -2.3518,
+        "winner": "DEM",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2026",
+      "file": "congressional_president_2000.json",
+      "district": "5",
+      "before": {
+        "dem_votes": 129357,
+        "rep_votes": 91762,
+        "other_votes": 3335,
+        "total_votes": 224454,
+        "margin_pct": -16.7495,
+        "winner": "DEM",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 129368,
+        "rep_votes": 91767,
+        "other_votes": 3335,
+        "total_votes": 224470,
+        "margin_pct": -16.751,
+        "winner": "DEM",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2026",
+      "file": "congressional_president_2000.json",
       "district": "6",
       "before": {
         "dem_votes": 144660,
@@ -28768,11 +28975,80 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 144661,
-        "rep_votes": 120236,
-        "other_votes": 4358,
-        "total_votes": 269255,
-        "margin_pct": -9.0713,
+        "dem_votes": 144674,
+        "rep_votes": 120243,
+        "other_votes": 4359,
+        "total_votes": 269276,
+        "margin_pct": -9.0728,
+        "winner": "DEM",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2026",
+      "file": "congressional_president_2000.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 94250,
+        "rep_votes": 90339,
+        "other_votes": 3021,
+        "total_votes": 187610,
+        "margin_pct": -2.0846,
+        "winner": "DEM",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 94258,
+        "rep_votes": 90344,
+        "other_votes": 3021,
+        "total_votes": 187623,
+        "margin_pct": -2.0861,
+        "winner": "DEM",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2026",
+      "file": "congressional_president_2000.json",
+      "district": "8",
+      "before": {
+        "dem_votes": 106431,
+        "rep_votes": 131188,
+        "other_votes": 2992,
+        "total_votes": 240611,
+        "margin_pct": 10.2892,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 106440,
+        "rep_votes": 131195,
+        "other_votes": 2992,
+        "total_votes": 240627,
+        "margin_pct": 10.2877,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2026",
+      "file": "congressional_president_2000.json",
+      "district": "9",
+      "before": {
+        "dem_votes": 139092,
+        "rep_votes": 127406,
+        "other_votes": 3396,
+        "total_votes": 269894,
+        "margin_pct": -4.3298,
+        "winner": "DEM",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 139104,
+        "rep_votes": 127413,
+        "other_votes": 3396,
+        "total_votes": 269913,
+        "margin_pct": -4.3314,
         "winner": "DEM",
         "rating": null
       }
@@ -28803,6 +29079,75 @@
     {
       "mode": "2026",
       "file": "congressional_president_2004.json",
+      "district": "2",
+      "before": {
+        "dem_votes": 99702,
+        "rep_votes": 178523,
+        "other_votes": 2357,
+        "total_votes": 280582,
+        "margin_pct": 28.092,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 99696,
+        "rep_votes": 178519,
+        "other_votes": 2357,
+        "total_votes": 280572,
+        "margin_pct": 28.0937,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2026",
+      "file": "congressional_president_2004.json",
+      "district": "3",
+      "before": {
+        "dem_votes": 107400,
+        "rep_votes": 173010,
+        "other_votes": 2181,
+        "total_votes": 282591,
+        "margin_pct": 23.2173,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 107401,
+        "rep_votes": 173011,
+        "other_votes": 2181,
+        "total_votes": 282593,
+        "margin_pct": 23.2171,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2026",
+      "file": "congressional_president_2004.json",
+      "district": "5",
+      "before": {
+        "dem_votes": 129072,
+        "rep_votes": 128312,
+        "other_votes": 1678,
+        "total_votes": 259062,
+        "margin_pct": -0.2934,
+        "winner": "DEM",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 129073,
+        "rep_votes": 128312,
+        "other_votes": 1678,
+        "total_votes": 259063,
+        "margin_pct": -0.2938,
+        "winner": "DEM",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2026",
+      "file": "congressional_president_2004.json",
       "district": "6",
       "before": {
         "dem_votes": 172030,
@@ -28814,12 +29159,81 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 172030,
-        "rep_votes": 182644,
+        "dem_votes": 172031,
+        "rep_votes": 182645,
         "other_votes": 2345,
-        "total_votes": 357019,
-        "margin_pct": 2.973,
+        "total_votes": 357021,
+        "margin_pct": 2.9729,
         "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2026",
+      "file": "congressional_president_2004.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 81449,
+        "rep_votes": 115386,
+        "other_votes": 1207,
+        "total_votes": 198042,
+        "margin_pct": 17.1363,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 81450,
+        "rep_votes": 115386,
+        "other_votes": 1207,
+        "total_votes": 198043,
+        "margin_pct": 17.1357,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2026",
+      "file": "congressional_president_2004.json",
+      "district": "8",
+      "before": {
+        "dem_votes": 125921,
+        "rep_votes": 166977,
+        "other_votes": 1768,
+        "total_votes": 294666,
+        "margin_pct": 13.9331,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 125922,
+        "rep_votes": 166978,
+        "other_votes": 1768,
+        "total_votes": 294668,
+        "margin_pct": 13.933,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2026",
+      "file": "congressional_president_2004.json",
+      "district": "9",
+      "before": {
+        "dem_votes": 154201,
+        "rep_votes": 144434,
+        "other_votes": 1680,
+        "total_votes": 300315,
+        "margin_pct": -3.2523,
+        "winner": "DEM",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 154202,
+        "rep_votes": 144435,
+        "other_votes": 1680,
+        "total_votes": 300317,
+        "margin_pct": -3.2522,
+        "winner": "DEM",
         "rating": null
       }
     },
@@ -28860,11 +29274,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 100709,
-        "rep_votes": 186232,
-        "other_votes": 4522,
-        "total_votes": 291463,
-        "margin_pct": 29.3427,
+        "dem_votes": 100701,
+        "rep_votes": 186225,
+        "other_votes": 4521,
+        "total_votes": 291447,
+        "margin_pct": 29.3446,
         "winner": "REP",
         "rating": null
       }
@@ -28883,11 +29297,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 109148,
-        "rep_votes": 184862,
+        "dem_votes": 109149,
+        "rep_votes": 184863,
         "other_votes": 3799,
-        "total_votes": 297809,
-        "margin_pct": 25.4237,
+        "total_votes": 297811,
+        "margin_pct": 25.4235,
         "winner": "REP",
         "rating": null
       }
@@ -28906,11 +29320,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 112716,
-        "rep_votes": 136636,
+        "dem_votes": 112717,
+        "rep_votes": 136637,
         "other_votes": 3804,
-        "total_votes": 253156,
-        "margin_pct": 9.4487,
+        "total_votes": 253158,
+        "margin_pct": 9.4486,
         "winner": "REP",
         "rating": null
       }
@@ -28929,11 +29343,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 158573,
-        "rep_votes": 144256,
+        "dem_votes": 158575,
+        "rep_votes": 144257,
         "other_votes": 3314,
-        "total_votes": 306143,
-        "margin_pct": -4.6766,
+        "total_votes": 306146,
+        "margin_pct": -4.6769,
         "winner": "DEM",
         "rating": null
       }
@@ -28952,11 +29366,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 122009,
-        "rep_votes": 151324,
-        "other_votes": 4317,
-        "total_votes": 277650,
-        "margin_pct": 10.5583,
+        "dem_votes": 122010,
+        "rep_votes": 151325,
+        "other_votes": 4318,
+        "total_votes": 277653,
+        "margin_pct": 10.5581,
         "winner": "REP",
         "rating": null
       }
@@ -28975,10 +29389,10 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 118824,
-        "rep_votes": 154239,
+        "dem_votes": 118825,
+        "rep_votes": 154240,
         "other_votes": 3432,
-        "total_votes": 276495,
+        "total_votes": 276497,
         "margin_pct": 12.8085,
         "winner": "REP",
         "rating": null
@@ -28998,11 +29412,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 141657,
-        "rep_votes": 192828,
+        "dem_votes": 141658,
+        "rep_votes": 192829,
         "other_votes": 2976,
-        "total_votes": 337461,
-        "margin_pct": 15.1635,
+        "total_votes": 337463,
+        "margin_pct": 15.1634,
         "winner": "REP",
         "rating": null
       }
@@ -29021,10 +29435,10 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 142593,
-        "rep_votes": 130628,
+        "dem_votes": 142594,
+        "rep_votes": 130629,
         "other_votes": 2837,
-        "total_votes": 276058,
+        "total_votes": 276060,
         "margin_pct": -4.3342,
         "winner": "DEM",
         "rating": null
@@ -29067,11 +29481,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 84829,
-        "rep_votes": 184325,
-        "other_votes": 4971,
-        "total_votes": 274125,
-        "margin_pct": 36.2959,
+        "dem_votes": 84824,
+        "rep_votes": 184322,
+        "other_votes": 4970,
+        "total_votes": 274116,
+        "margin_pct": 36.2978,
         "winner": "REP",
         "rating": null
       }
@@ -29091,10 +29505,10 @@
       },
       "after": {
         "dem_votes": 97563,
-        "rep_votes": 180240,
-        "other_votes": 4646,
-        "total_votes": 282449,
-        "margin_pct": 29.2715,
+        "rep_votes": 180241,
+        "other_votes": 4647,
+        "total_votes": 282451,
+        "margin_pct": 29.2716,
         "winner": "REP",
         "rating": null
       }
@@ -29136,11 +29550,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 144002,
+        "dem_votes": 144003,
         "rep_votes": 139510,
         "other_votes": 3453,
-        "total_votes": 286965,
-        "margin_pct": -1.5653,
+        "total_votes": 286966,
+        "margin_pct": -1.5657,
         "winner": "DEM",
         "rating": null
       }
@@ -29159,11 +29573,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 105154,
+        "dem_votes": 105155,
         "rep_votes": 152541,
         "other_votes": 4350,
-        "total_votes": 262045,
-        "margin_pct": 18.0835,
+        "total_votes": 262046,
+        "margin_pct": 18.0831,
         "winner": "REP",
         "rating": null
       }
@@ -29182,11 +29596,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 108314,
-        "rep_votes": 154981,
+        "dem_votes": 108315,
+        "rep_votes": 154982,
         "other_votes": 3789,
-        "total_votes": 267084,
-        "margin_pct": 17.4728,
+        "total_votes": 267086,
+        "margin_pct": 17.4726,
         "winner": "REP",
         "rating": null
       }
@@ -29205,11 +29619,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 128322,
-        "rep_votes": 185128,
+        "dem_votes": 128323,
+        "rep_votes": 185129,
         "other_votes": 3193,
-        "total_votes": 316643,
-        "margin_pct": 17.9401,
+        "total_votes": 316645,
+        "margin_pct": 17.94,
         "winner": "REP",
         "rating": null
       }
@@ -29228,11 +29642,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 126215,
+        "dem_votes": 126216,
         "rep_votes": 139668,
         "other_votes": 2847,
-        "total_votes": 268730,
-        "margin_pct": 5.0061,
+        "total_votes": 268731,
+        "margin_pct": 5.0057,
         "winner": "REP",
         "rating": null
       }
@@ -29274,11 +29688,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 85251,
-        "rep_votes": 186909,
+        "dem_votes": 85250,
+        "rep_votes": 186912,
         "other_votes": 16537,
-        "total_votes": 288697,
-        "margin_pct": 35.2127,
+        "total_votes": 288699,
+        "margin_pct": 35.2138,
         "winner": "REP",
         "rating": null
       }
@@ -29298,10 +29712,10 @@
       },
       "after": {
         "dem_votes": 86969,
-        "rep_votes": 188699,
+        "rep_votes": 188698,
         "other_votes": 14636,
-        "total_votes": 290304,
-        "margin_pct": 35.0426,
+        "total_votes": 290303,
+        "margin_pct": 35.0424,
         "winner": "REP",
         "rating": null
       }
@@ -29367,10 +29781,10 @@
       },
       "after": {
         "dem_votes": 100334,
-        "rep_votes": 164774,
+        "rep_votes": 164773,
         "other_votes": 13724,
-        "total_votes": 278832,
-        "margin_pct": 23.1107,
+        "total_votes": 278831,
+        "margin_pct": 23.1104,
         "winner": "REP",
         "rating": null
       }
@@ -29413,10 +29827,10 @@
       },
       "after": {
         "dem_votes": 112688,
-        "rep_votes": 176904,
+        "rep_votes": 176903,
         "other_votes": 11772,
-        "total_votes": 301364,
-        "margin_pct": 21.3085,
+        "total_votes": 301363,
+        "margin_pct": 21.3082,
         "winner": "REP",
         "rating": null
       }
@@ -29435,11 +29849,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 121208,
+        "dem_votes": 121209,
         "rep_votes": 145247,
         "other_votes": 9144,
-        "total_votes": 275599,
-        "margin_pct": 8.7225,
+        "total_votes": 275600,
+        "margin_pct": 8.7221,
         "winner": "REP",
         "rating": null
       }
@@ -29481,11 +29895,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 122697,
-        "rep_votes": 226796,
+        "dem_votes": 122696,
+        "rep_votes": 226797,
         "other_votes": 6877,
         "total_votes": 356370,
-        "margin_pct": 29.2109,
+        "margin_pct": 29.2115,
         "winner": "REP",
         "rating": null
       }
@@ -29505,10 +29919,10 @@
       },
       "after": {
         "dem_votes": 116137,
-        "rep_votes": 226938,
+        "rep_votes": 226937,
         "other_votes": 6427,
-        "total_votes": 349502,
-        "margin_pct": 31.7025,
+        "total_votes": 349501,
+        "margin_pct": 31.7023,
         "winner": "REP",
         "rating": null
       }
@@ -29619,11 +30033,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 144775,
+        "dem_votes": 144776,
         "rep_votes": 199390,
         "other_votes": 5345,
-        "total_votes": 349510,
-        "margin_pct": 15.6262,
+        "total_votes": 349511,
+        "margin_pct": 15.6258,
         "winner": "REP",
         "rating": null
       }
@@ -29688,11 +30102,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 118777,
-        "rep_votes": 242966,
+        "dem_votes": 118780,
+        "rep_votes": 242970,
         "other_votes": 5049,
-        "total_votes": 366792,
-        "margin_pct": 33.8582,
+        "total_votes": 366799,
+        "margin_pct": 33.8578,
         "winner": "REP",
         "rating": null
       }
@@ -29712,10 +30126,10 @@
       },
       "after": {
         "dem_votes": 114325,
-        "rep_votes": 244093,
+        "rep_votes": 244092,
         "other_votes": 4785,
-        "total_votes": 363203,
-        "margin_pct": 35.7288,
+        "total_votes": 363202,
+        "margin_pct": 35.7286,
         "winner": "REP",
         "rating": null
       }
@@ -29780,11 +30194,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 130859,
-        "rep_votes": 226916,
+        "dem_votes": 130858,
+        "rep_votes": 226915,
         "other_votes": 4827,
-        "total_votes": 362602,
-        "margin_pct": 26.491,
+        "total_votes": 362600,
+        "margin_pct": 26.4912,
         "winner": "REP",
         "rating": null
       }
@@ -29803,11 +30217,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 137413,
-        "rep_votes": 218414,
+        "dem_votes": 137412,
+        "rep_votes": 218413,
         "other_votes": 5197,
-        "total_votes": 361024,
-        "margin_pct": 22.4365,
+        "total_votes": 361022,
+        "margin_pct": 22.4366,
         "winner": "REP",
         "rating": null
       }
@@ -29826,11 +30240,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 126051,
+        "dem_votes": 126050,
         "rep_votes": 190754,
         "other_votes": 4532,
-        "total_votes": 321337,
-        "margin_pct": 20.1356,
+        "total_votes": 321336,
+        "margin_pct": 20.1359,
         "winner": "REP",
         "rating": null
       }
@@ -29850,10 +30264,10 @@
       },
       "after": {
         "dem_votes": 124704,
-        "rep_votes": 192888,
+        "rep_votes": 192887,
         "other_votes": 4216,
-        "total_votes": 321808,
-        "margin_pct": 21.1878,
+        "total_votes": 321807,
+        "margin_pct": 21.1875,
         "winner": "REP",
         "rating": null
       }
@@ -29895,11 +30309,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 55340,
-        "rep_votes": 158795,
-        "other_votes": 6657,
-        "total_votes": 220792,
-        "margin_pct": 46.8563,
+        "dem_votes": 55292,
+        "rep_votes": 158722,
+        "other_votes": 6655,
+        "total_votes": 220669,
+        "margin_pct": 46.8711,
         "winner": "REP",
         "rating": null
       }
@@ -29918,11 +30332,57 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 69882,
-        "rep_votes": 164143,
+        "dem_votes": 69888,
+        "rep_votes": 164156,
         "other_votes": 5122,
-        "total_votes": 239147,
-        "margin_pct": 39.4155,
+        "total_votes": 239166,
+        "margin_pct": 39.4153,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2026",
+      "file": "congressional_us_senate_2000.json",
+      "district": "4",
+      "before": {
+        "dem_votes": 54161,
+        "rep_votes": 99555,
+        "other_votes": 4660,
+        "total_votes": 158376,
+        "margin_pct": 28.6622,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 54166,
+        "rep_votes": 99563,
+        "other_votes": 4660,
+        "total_votes": 158389,
+        "margin_pct": 28.6617,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2026",
+      "file": "congressional_us_senate_2000.json",
+      "district": "5",
+      "before": {
+        "dem_votes": 85155,
+        "rep_votes": 114115,
+        "other_votes": 6396,
+        "total_votes": 205666,
+        "margin_pct": 14.0811,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 85163,
+        "rep_votes": 114124,
+        "other_votes": 6397,
+        "total_votes": 205684,
+        "margin_pct": 14.0803,
         "winner": "REP",
         "rating": null
       }
@@ -29941,11 +30401,80 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 88063,
-        "rep_votes": 150180,
-        "other_votes": 8056,
-        "total_votes": 246299,
-        "margin_pct": 25.2202,
+        "dem_votes": 88071,
+        "rep_votes": 150192,
+        "other_votes": 8057,
+        "total_votes": 246320,
+        "margin_pct": 25.2196,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2026",
+      "file": "congressional_us_senate_2000.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 54492,
+        "rep_votes": 113491,
+        "other_votes": 4563,
+        "total_votes": 172546,
+        "margin_pct": 34.1932,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 54497,
+        "rep_votes": 113500,
+        "other_votes": 4563,
+        "total_votes": 172560,
+        "margin_pct": 34.1927,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2026",
+      "file": "congressional_us_senate_2000.json",
+      "district": "8",
+      "before": {
+        "dem_votes": 70245,
+        "rep_votes": 149113,
+        "other_votes": 4417,
+        "total_votes": 223775,
+        "margin_pct": 35.2443,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 70252,
+        "rep_votes": 149124,
+        "other_votes": 4417,
+        "total_votes": 223793,
+        "margin_pct": 35.2433,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2026",
+      "file": "congressional_us_senate_2000.json",
+      "district": "9",
+      "before": {
+        "dem_votes": 92493,
+        "rep_votes": 146262,
+        "other_votes": 6300,
+        "total_votes": 245055,
+        "margin_pct": 21.9416,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 92502,
+        "rep_votes": 146273,
+        "other_votes": 6300,
+        "total_votes": 245075,
+        "margin_pct": 21.9406,
         "winner": "REP",
         "rating": null
       }
@@ -29976,6 +30505,52 @@
     {
       "mode": "2026",
       "file": "congressional_us_senate_2002.json",
+      "district": "2",
+      "before": {
+        "dem_votes": 68079,
+        "rep_votes": 113080,
+        "other_votes": 2538,
+        "total_votes": 183697,
+        "margin_pct": 24.4974,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 68078,
+        "rep_votes": 113077,
+        "other_votes": 2537,
+        "total_votes": 183692,
+        "margin_pct": 24.497,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2026",
+      "file": "congressional_us_senate_2002.json",
+      "district": "3",
+      "before": {
+        "dem_votes": 72867,
+        "rep_votes": 115548,
+        "other_votes": 2637,
+        "total_votes": 191052,
+        "margin_pct": 22.34,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 72867,
+        "rep_votes": 115549,
+        "other_votes": 2637,
+        "total_votes": 191053,
+        "margin_pct": 22.3404,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2026",
+      "file": "congressional_us_senate_2002.json",
       "district": "6",
       "before": {
         "dem_votes": 120032,
@@ -29987,12 +30562,35 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 120033,
-        "rep_votes": 106066,
-        "other_votes": 2824,
-        "total_votes": 228923,
-        "margin_pct": -6.1012,
+        "dem_votes": 120034,
+        "rep_votes": 106067,
+        "other_votes": 2825,
+        "total_votes": 228926,
+        "margin_pct": -6.1011,
         "winner": "DEM",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2026",
+      "file": "congressional_us_senate_2002.json",
+      "district": "8",
+      "before": {
+        "dem_votes": 77273,
+        "rep_votes": 123268,
+        "other_votes": 2682,
+        "total_votes": 203223,
+        "margin_pct": 22.6328,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 77273,
+        "rep_votes": 123269,
+        "other_votes": 2682,
+        "total_votes": 203224,
+        "margin_pct": 22.6332,
+        "winner": "REP",
         "rating": null
       }
     },
@@ -30022,46 +30620,23 @@
     {
       "mode": "2026",
       "file": "congressional_us_senate_2006.json",
-      "district": "3",
+      "district": "2",
       "before": {
-        "dem_votes": 93544,
-        "rep_votes": 123302,
-        "other_votes": 2593,
-        "total_votes": 219439,
-        "margin_pct": 13.5609,
+        "dem_votes": 83318,
+        "rep_votes": 115532,
+        "other_votes": 2735,
+        "total_votes": 201585,
+        "margin_pct": 15.9804,
         "winner": "REP",
         "rating": null
       },
       "after": {
-        "dem_votes": 93544,
-        "rep_votes": 123303,
-        "other_votes": 2593,
-        "total_votes": 219440,
-        "margin_pct": 13.5613,
+        "dem_votes": 83319,
+        "rep_votes": 115533,
+        "other_votes": 2735,
+        "total_votes": 201587,
+        "margin_pct": 15.9802,
         "winner": "REP",
-        "rating": null
-      }
-    },
-    {
-      "mode": "2026",
-      "file": "congressional_us_senate_2006.json",
-      "district": "5",
-      "before": {
-        "dem_votes": 129905,
-        "rep_votes": 81844,
-        "other_votes": 2543,
-        "total_votes": 214292,
-        "margin_pct": -22.4278,
-        "winner": "DEM",
-        "rating": null
-      },
-      "after": {
-        "dem_votes": 129906,
-        "rep_votes": 81844,
-        "other_votes": 2543,
-        "total_votes": 214293,
-        "margin_pct": -22.4282,
-        "winner": "DEM",
         "rating": null
       }
     },
@@ -30102,11 +30677,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 64594,
-        "rep_votes": 204171,
+        "dem_votes": 64590,
+        "rep_votes": 204161,
         "other_votes": 8585,
-        "total_votes": 277350,
-        "margin_pct": 50.3252,
+        "total_votes": 277336,
+        "margin_pct": 50.3256,
         "winner": "REP",
         "rating": null
       }
@@ -30126,10 +30701,10 @@
       },
       "after": {
         "dem_votes": 79121,
-        "rep_votes": 198883,
+        "rep_votes": 198885,
         "other_votes": 7182,
-        "total_votes": 285186,
-        "margin_pct": 41.9943,
+        "total_votes": 285188,
+        "margin_pct": 41.9948,
         "winner": "REP",
         "rating": null
       }
@@ -30149,10 +30724,10 @@
       },
       "after": {
         "dem_votes": 84240,
-        "rep_votes": 141979,
+        "rep_votes": 141980,
         "other_votes": 9417,
-        "total_votes": 235636,
-        "margin_pct": 24.5035,
+        "total_votes": 235637,
+        "margin_pct": 24.5038,
         "winner": "REP",
         "rating": null
       }
@@ -30171,11 +30746,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 111282,
-        "rep_votes": 159457,
+        "dem_votes": 111283,
+        "rep_votes": 159458,
         "other_votes": 9490,
-        "total_votes": 280229,
-        "margin_pct": 17.1913,
+        "total_votes": 280231,
+        "margin_pct": 17.1912,
         "winner": "REP",
         "rating": null
       }
@@ -30194,11 +30769,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 88484,
-        "rep_votes": 155330,
+        "dem_votes": 88485,
+        "rep_votes": 155331,
         "other_votes": 10467,
-        "total_votes": 254281,
-        "margin_pct": 26.2882,
+        "total_votes": 254283,
+        "margin_pct": 26.288,
         "winner": "REP",
         "rating": null
       }
@@ -30218,10 +30793,10 @@
       },
       "after": {
         "dem_votes": 83831,
-        "rep_votes": 160539,
+        "rep_votes": 160541,
         "other_votes": 9282,
-        "total_votes": 253652,
-        "margin_pct": 30.2414,
+        "total_votes": 253654,
+        "margin_pct": 30.242,
         "winner": "REP",
         "rating": null
       }
@@ -30240,10 +30815,10 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 98900,
-        "rep_votes": 208306,
+        "dem_votes": 98901,
+        "rep_votes": 208308,
         "other_votes": 7825,
-        "total_votes": 315031,
+        "total_votes": 315034,
         "margin_pct": 34.7286,
         "winner": "REP",
         "rating": null
@@ -30263,11 +30838,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 103185,
-        "rep_votes": 143176,
+        "dem_votes": 103186,
+        "rep_votes": 143177,
         "other_votes": 8050,
-        "total_votes": 254411,
-        "margin_pct": 15.7191,
+        "total_votes": 254413,
+        "margin_pct": 15.7189,
         "winner": "REP",
         "rating": null
       }
@@ -30309,11 +30884,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 55384,
-        "rep_votes": 189299,
-        "other_votes": 15747,
-        "total_votes": 260430,
-        "margin_pct": 51.4207,
+        "dem_votes": 55382,
+        "rep_votes": 189294,
+        "other_votes": 15745,
+        "total_votes": 260421,
+        "margin_pct": 51.4214,
         "winner": "REP",
         "rating": null
       }
@@ -30333,10 +30908,10 @@
       },
       "after": {
         "dem_votes": 68069,
-        "rep_votes": 194405,
+        "rep_votes": 194406,
         "other_votes": 10211,
-        "total_votes": 272685,
-        "margin_pct": 46.3304,
+        "total_votes": 272686,
+        "margin_pct": 46.3306,
         "winner": "REP",
         "rating": null
       }
@@ -30378,11 +30953,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 111365,
-        "rep_votes": 143169,
-        "other_votes": 13621,
-        "total_votes": 268155,
-        "margin_pct": 11.8603,
+        "dem_votes": 111366,
+        "rep_votes": 143170,
+        "other_votes": 13622,
+        "total_votes": 268158,
+        "margin_pct": 11.8602,
         "winner": "REP",
         "rating": null
       }
@@ -30402,10 +30977,10 @@
       },
       "after": {
         "dem_votes": 75239,
-        "rep_votes": 155242,
-        "other_votes": 14577,
-        "total_votes": 245058,
-        "margin_pct": 32.6466,
+        "rep_votes": 155243,
+        "other_votes": 14578,
+        "total_votes": 245060,
+        "margin_pct": 32.6467,
         "winner": "REP",
         "rating": null
       }
@@ -30425,10 +31000,10 @@
       },
       "after": {
         "dem_votes": 75338,
-        "rep_votes": 162274,
+        "rep_votes": 162275,
         "other_votes": 13150,
-        "total_votes": 250762,
-        "margin_pct": 34.6687,
+        "total_votes": 250763,
+        "margin_pct": 34.669,
         "winner": "REP",
         "rating": null
       }
@@ -30447,11 +31022,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 98506,
-        "rep_votes": 191133,
+        "dem_votes": 98507,
+        "rep_votes": 191134,
         "other_votes": 9822,
-        "total_votes": 299461,
-        "margin_pct": 30.9312,
+        "total_votes": 299463,
+        "margin_pct": 30.931,
         "winner": "REP",
         "rating": null
       }
@@ -30516,11 +31091,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 44953,
-        "rep_votes": 108795,
+        "dem_votes": 44954,
+        "rep_votes": 108789,
         "other_votes": 10476,
-        "total_votes": 164224,
-        "margin_pct": 38.875,
+        "total_votes": 164219,
+        "margin_pct": 38.8719,
         "winner": "REP",
         "rating": null
       }
@@ -30540,10 +31115,10 @@
       },
       "after": {
         "dem_votes": 44649,
-        "rep_votes": 111388,
+        "rep_votes": 111389,
         "other_votes": 8053,
-        "total_votes": 164090,
-        "margin_pct": 40.6722,
+        "total_votes": 164091,
+        "margin_pct": 40.6726,
         "winner": "REP",
         "rating": null
       }
@@ -30585,11 +31160,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 58780,
-        "rep_votes": 78920,
+        "dem_votes": 58779,
+        "rep_votes": 78921,
         "other_votes": 9802,
         "total_votes": 147502,
-        "margin_pct": 13.6541,
+        "margin_pct": 13.6554,
         "winner": "REP",
         "rating": null
       }
@@ -30609,10 +31184,10 @@
       },
       "after": {
         "dem_votes": 53078,
-        "rep_votes": 85073,
+        "rep_votes": 85074,
         "other_votes": 11315,
-        "total_votes": 149466,
-        "margin_pct": 21.4062,
+        "total_votes": 149467,
+        "margin_pct": 21.4067,
         "winner": "REP",
         "rating": null
       }
@@ -30632,10 +31207,10 @@
       },
       "after": {
         "dem_votes": 53096,
-        "rep_votes": 90231,
+        "rep_votes": 90232,
         "other_votes": 9594,
-        "total_votes": 152921,
-        "margin_pct": 24.2838,
+        "total_votes": 152922,
+        "margin_pct": 24.2843,
         "winner": "REP",
         "rating": null
       }
@@ -30655,10 +31230,10 @@
       },
       "after": {
         "dem_votes": 52327,
-        "rep_votes": 112635,
+        "rep_votes": 112636,
         "other_votes": 9909,
-        "total_votes": 174871,
-        "margin_pct": 34.4871,
+        "total_votes": 174872,
+        "margin_pct": 34.4875,
         "winner": "REP",
         "rating": null
       }
@@ -30678,10 +31253,10 @@
       },
       "after": {
         "dem_votes": 52624,
-        "rep_votes": 81128,
+        "rep_votes": 81129,
         "other_votes": 7739,
-        "total_votes": 141491,
-        "margin_pct": 20.1455,
+        "total_votes": 141492,
+        "margin_pct": 20.146,
         "winner": "REP",
         "rating": null
       }
@@ -30724,10 +31299,10 @@
       },
       "after": {
         "dem_votes": 108540,
-        "rep_votes": 148361,
+        "rep_votes": 148362,
         "other_votes": 4207,
-        "total_votes": 261108,
-        "margin_pct": 15.2508,
+        "total_votes": 261109,
+        "margin_pct": 15.2511,
         "winner": "REP",
         "rating": null
       }
@@ -30747,10 +31322,10 @@
       },
       "after": {
         "dem_votes": 104152,
-        "rep_votes": 154381,
+        "rep_votes": 154380,
         "other_votes": 3721,
-        "total_votes": 262254,
-        "margin_pct": 19.1528,
+        "total_votes": 262253,
+        "margin_pct": 19.1525,
         "winner": "REP",
         "rating": null
       }
@@ -30930,11 +31505,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 112480,
-        "rep_votes": 229313,
+        "dem_votes": 112479,
+        "rep_votes": 229314,
         "other_votes": 5652,
         "total_votes": 347445,
-        "margin_pct": 33.6263,
+        "margin_pct": 33.6269,
         "winner": "REP",
         "rating": null
       }
@@ -30954,10 +31529,10 @@
       },
       "after": {
         "dem_votes": 107326,
-        "rep_votes": 226867,
+        "rep_votes": 226866,
         "other_votes": 6590,
-        "total_votes": 340783,
-        "margin_pct": 35.0783,
+        "total_votes": 340782,
+        "margin_pct": 35.0781,
         "winner": "REP",
         "rating": null
       }
@@ -31091,11 +31666,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 131605,
+        "dem_votes": 131606,
         "rep_votes": 177320,
         "other_votes": 7933,
-        "total_votes": 316858,
-        "margin_pct": 14.4276,
+        "total_votes": 316859,
+        "margin_pct": 14.4272,
         "winner": "REP",
         "rating": null
       }
@@ -31137,11 +31712,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 120387,
-        "rep_votes": 237890,
-        "other_votes": 5801,
-        "total_votes": 364078,
-        "margin_pct": 32.2741,
+        "dem_votes": 120389,
+        "rep_votes": 237893,
+        "other_votes": 5802,
+        "total_votes": 364084,
+        "margin_pct": 32.2739,
         "winner": "REP",
         "rating": null
       }
@@ -31161,10 +31736,10 @@
       },
       "after": {
         "dem_votes": 112034,
-        "rep_votes": 239036,
+        "rep_votes": 239035,
         "other_votes": 7282,
-        "total_votes": 358352,
-        "margin_pct": 35.4406,
+        "total_votes": 358351,
+        "margin_pct": 35.4404,
         "winner": "REP",
         "rating": null
       }
@@ -31229,11 +31804,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 130201,
-        "rep_votes": 217764,
+        "dem_votes": 130200,
+        "rep_votes": 217763,
         "other_votes": 7042,
-        "total_votes": 355007,
-        "margin_pct": 24.6651,
+        "total_votes": 355005,
+        "margin_pct": 24.6653,
         "winner": "REP",
         "rating": null
       }
@@ -31252,11 +31827,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 134094,
-        "rep_votes": 211505,
-        "other_votes": 7722,
-        "total_votes": 353321,
-        "margin_pct": 21.9095,
+        "dem_votes": 134093,
+        "rep_votes": 211504,
+        "other_votes": 7721,
+        "total_votes": 353318,
+        "margin_pct": 21.9097,
         "winner": "REP",
         "rating": null
       }

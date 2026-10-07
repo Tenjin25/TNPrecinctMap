@@ -47,7 +47,12 @@
     },
     "official_vtd_direct_method": "Tennessee Comptroller election-date VTDs translated through NHGIS blocks to official Census BEFs; residual county votes allocated over the complete official county block-population footprint; county and statewide totals preserved exactly",
     "official_vtd_source": "VTD_2014_November_State_General",
-    "district_lines_year": 2026
+    "district_lines_year": 2026,
+    "allocation_equivalent_bef_districts_synced": [
+      "1",
+      "2"
+    ],
+    "allocation_equivalent_overlap_threshold": 0.999
   },
   "general": {
     "results": {
@@ -63,25 +68,25 @@
         "winner": "REP"
       },
       "2": {
-        "dem_votes": 44953,
-        "rep_votes": 108795,
+        "dem_votes": 44954,
+        "rep_votes": 108789,
         "other_votes": 10476,
-        "total_votes": 164224,
+        "total_votes": 164219,
         "dem_candidate": "Gordon Ball",
         "rep_candidate": "Lamar Alexander",
-        "margin": 63842,
-        "margin_pct": 38.875,
+        "margin": 63835,
+        "margin_pct": 38.8719,
         "winner": "REP"
       },
       "3": {
         "dem_votes": 44649,
-        "rep_votes": 111388,
+        "rep_votes": 111389,
         "other_votes": 8053,
-        "total_votes": 164090,
+        "total_votes": 164091,
         "dem_candidate": "Gordon Ball",
         "rep_candidate": "Lamar Alexander",
-        "margin": 66739,
-        "margin_pct": 40.6722,
+        "margin": 66740,
+        "margin_pct": 40.6726,
         "winner": "REP"
       },
       "4": {
@@ -96,58 +101,58 @@
         "winner": "REP"
       },
       "5": {
-        "dem_votes": 58780,
-        "rep_votes": 78920,
+        "dem_votes": 58779,
+        "rep_votes": 78921,
         "other_votes": 9802,
         "total_votes": 147502,
         "dem_candidate": "Gordon Ball",
         "rep_candidate": "Lamar Alexander",
-        "margin": 20140,
-        "margin_pct": 13.6541,
+        "margin": 20142,
+        "margin_pct": 13.6554,
         "winner": "REP"
       },
       "6": {
         "dem_votes": 53078,
-        "rep_votes": 85073,
+        "rep_votes": 85074,
         "other_votes": 11315,
-        "total_votes": 149466,
+        "total_votes": 149467,
         "dem_candidate": "Gordon Ball",
         "rep_candidate": "Lamar Alexander",
-        "margin": 31995,
-        "margin_pct": 21.4062,
+        "margin": 31996,
+        "margin_pct": 21.4067,
         "winner": "REP"
       },
       "7": {
         "dem_votes": 53096,
-        "rep_votes": 90231,
+        "rep_votes": 90232,
         "other_votes": 9594,
-        "total_votes": 152921,
+        "total_votes": 152922,
         "dem_candidate": "Gordon Ball",
         "rep_candidate": "Lamar Alexander",
-        "margin": 37135,
-        "margin_pct": 24.2838,
+        "margin": 37136,
+        "margin_pct": 24.2843,
         "winner": "REP"
       },
       "8": {
         "dem_votes": 52327,
-        "rep_votes": 112635,
+        "rep_votes": 112636,
         "other_votes": 9909,
-        "total_votes": 174871,
+        "total_votes": 174872,
         "dem_candidate": "Gordon Ball",
         "rep_candidate": "Lamar Alexander",
-        "margin": 60308,
-        "margin_pct": 34.4871,
+        "margin": 60309,
+        "margin_pct": 34.4875,
         "winner": "REP"
       },
       "9": {
         "dem_votes": 52624,
-        "rep_votes": 81128,
+        "rep_votes": 81129,
         "other_votes": 7739,
-        "total_votes": 141491,
+        "total_votes": 141492,
         "dem_candidate": "Gordon Ball",
         "rep_candidate": "Lamar Alexander",
-        "margin": 28504,
-        "margin_pct": 20.1455,
+        "margin": 28505,
+        "margin_pct": 20.146,
         "winner": "REP"
       }
     }

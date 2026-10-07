@@ -46,9 +46,11 @@
       }
     },
     "geographic_audit_method": "independent_county_constrained_spatial_precinct_overlay",
-    "identical_bef_districts_synced": [
-      "1"
-    ]
+    "allocation_equivalent_bef_districts_synced": [
+      "1",
+      "2"
+    ],
+    "allocation_equivalent_overlap_threshold": 0.999
   },
   "general": {
     "results": {
@@ -64,25 +66,25 @@
         "winner": "REP"
       },
       "2": {
-        "dem_votes": 83318,
-        "rep_votes": 115532,
+        "dem_votes": 83319,
+        "rep_votes": 115533,
         "other_votes": 2735,
-        "total_votes": 201585,
+        "total_votes": 201587,
         "dem_candidate": "Harold Ford, Jr.",
         "rep_candidate": "Bob Corker",
         "margin": 32214,
-        "margin_pct": 15.9804,
+        "margin_pct": 15.9802,
         "winner": "REP"
       },
       "3": {
         "dem_votes": 93544,
-        "rep_votes": 123303,
+        "rep_votes": 123302,
         "other_votes": 2593,
-        "total_votes": 219440,
+        "total_votes": 219439,
         "dem_candidate": "Harold Ford, Jr.",
         "rep_candidate": "Bob Corker",
-        "margin": 29759,
-        "margin_pct": 13.5613,
+        "margin": 29758,
+        "margin_pct": 13.5609,
         "winner": "REP"
       },
       "4": {
@@ -97,14 +99,14 @@
         "winner": "REP"
       },
       "5": {
-        "dem_votes": 129906,
+        "dem_votes": 129905,
         "rep_votes": 81844,
         "other_votes": 2543,
-        "total_votes": 214293,
+        "total_votes": 214292,
         "dem_candidate": "Harold Ford, Jr.",
         "rep_candidate": "Bob Corker",
-        "margin": -48062,
-        "margin_pct": -22.4282,
+        "margin": -48061,
+        "margin_pct": -22.4278,
         "winner": "DEM"
       },
       "6": {

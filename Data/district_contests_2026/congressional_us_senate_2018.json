@@ -56,7 +56,12 @@
     },
     "preserved_identical_districts": [
       "1"
-    ]
+    ],
+    "allocation_equivalent_bef_districts_synced": [
+      "1",
+      "2"
+    ],
+    "allocation_equivalent_overlap_threshold": 0.999
   },
   "general": {
     "results": {
@@ -73,24 +78,24 @@
       },
       "2": {
         "dem_votes": 108540,
-        "rep_votes": 148361,
+        "rep_votes": 148362,
         "other_votes": 4207,
-        "total_votes": 261108,
+        "total_votes": 261109,
         "dem_candidate": "Phil Bredesen",
         "rep_candidate": "Marsha Blackburn",
-        "margin": 39821,
-        "margin_pct": 15.2508,
+        "margin": 39822,
+        "margin_pct": 15.2511,
         "winner": "REP"
       },
       "3": {
         "dem_votes": 104152,
-        "rep_votes": 154381,
+        "rep_votes": 154380,
         "other_votes": 3721,
-        "total_votes": 262254,
+        "total_votes": 262253,
         "dem_candidate": "Phil Bredesen",
         "rep_candidate": "Marsha Blackburn",
-        "margin": 50229,
-        "margin_pct": 19.1528,
+        "margin": 50228,
+        "margin_pct": 19.1525,
         "winner": "REP"
       },
       "4": {

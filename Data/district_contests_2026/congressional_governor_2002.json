@@ -45,7 +45,12 @@
         "2": 3.3985
       }
     },
-    "geographic_audit_method": "independent_county_constrained_spatial_precinct_overlay"
+    "geographic_audit_method": "independent_county_constrained_spatial_precinct_overlay",
+    "allocation_equivalent_bef_districts_synced": [
+      "1",
+      "2"
+    ],
+    "allocation_equivalent_overlap_threshold": 0.999
   },
   "general": {
     "results": {
@@ -61,14 +66,14 @@
         "winner": "REP"
       },
       "2": {
-        "dem_votes": 88796,
+        "dem_votes": 88794,
         "rep_votes": 95064,
         "other_votes": 1302,
-        "total_votes": 185162,
+        "total_votes": 185160,
         "dem_candidate": "Phil Bredesen",
         "rep_candidate": "Van Hilleary",
-        "margin": 6268,
-        "margin_pct": 3.3851,
+        "margin": 6270,
+        "margin_pct": 3.3863,
         "winner": "REP"
       },
       "3": {
@@ -94,25 +99,25 @@
         "winner": "DEM"
       },
       "5": {
-        "dem_votes": 107559,
+        "dem_votes": 107560,
         "rep_votes": 68606,
         "other_votes": 2521,
-        "total_votes": 178686,
+        "total_votes": 178687,
         "dem_candidate": "Phil Bredesen",
         "rep_candidate": "Van Hilleary",
-        "margin": -38953,
-        "margin_pct": -21.7997,
+        "margin": -38954,
+        "margin_pct": -21.8001,
         "winner": "DEM"
       },
       "6": {
-        "dem_votes": 127381,
+        "dem_votes": 127382,
         "rep_votes": 98141,
         "other_votes": 4807,
-        "total_votes": 230329,
+        "total_votes": 230330,
         "dem_candidate": "Phil Bredesen",
         "rep_candidate": "Van Hilleary",
-        "margin": -29240,
-        "margin_pct": -12.6949,
+        "margin": -29241,
+        "margin_pct": -12.6953,
         "winner": "DEM"
       },
       "7": {

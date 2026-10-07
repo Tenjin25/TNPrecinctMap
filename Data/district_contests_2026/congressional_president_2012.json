@@ -47,7 +47,12 @@
     },
     "official_vtd_direct_method": "Tennessee Comptroller election-date VTDs translated through NHGIS blocks to official Census BEFs; residual county votes allocated over the complete official county block-population footprint; county and statewide totals preserved exactly",
     "official_vtd_source": "VTD_2012_November_State_General",
-    "district_lines_year": 2026
+    "district_lines_year": 2026,
+    "allocation_equivalent_bef_districts_synced": [
+      "1",
+      "2"
+    ],
+    "allocation_equivalent_overlap_threshold": 0.999
   },
   "general": {
     "results": {
@@ -63,25 +68,25 @@
         "winner": "REP"
       },
       "2": {
-        "dem_votes": 84829,
-        "rep_votes": 184325,
-        "other_votes": 4971,
-        "total_votes": 274125,
+        "dem_votes": 84824,
+        "rep_votes": 184322,
+        "other_votes": 4970,
+        "total_votes": 274116,
         "dem_candidate": "Barack Obama",
         "rep_candidate": "Mitt Romney",
-        "margin": 99496,
-        "margin_pct": 36.2959,
+        "margin": 99498,
+        "margin_pct": 36.2978,
         "winner": "REP"
       },
       "3": {
         "dem_votes": 97563,
-        "rep_votes": 180240,
-        "other_votes": 4646,
-        "total_votes": 282449,
+        "rep_votes": 180241,
+        "other_votes": 4647,
+        "total_votes": 282451,
         "dem_candidate": "Barack Obama",
         "rep_candidate": "Mitt Romney",
-        "margin": 82677,
-        "margin_pct": 29.2715,
+        "margin": 82678,
+        "margin_pct": 29.2716,
         "winner": "REP"
       },
       "4": {
@@ -96,58 +101,58 @@
         "winner": "REP"
       },
       "5": {
-        "dem_votes": 144002,
+        "dem_votes": 144003,
         "rep_votes": 139510,
         "other_votes": 3453,
-        "total_votes": 286965,
+        "total_votes": 286966,
         "dem_candidate": "Barack Obama",
         "rep_candidate": "Mitt Romney",
-        "margin": -4492,
-        "margin_pct": -1.5653,
+        "margin": -4493,
+        "margin_pct": -1.5657,
         "winner": "DEM"
       },
       "6": {
-        "dem_votes": 105154,
+        "dem_votes": 105155,
         "rep_votes": 152541,
         "other_votes": 4350,
-        "total_votes": 262045,
+        "total_votes": 262046,
         "dem_candidate": "Barack Obama",
         "rep_candidate": "Mitt Romney",
-        "margin": 47387,
-        "margin_pct": 18.0835,
+        "margin": 47386,
+        "margin_pct": 18.0831,
         "winner": "REP"
       },
       "7": {
-        "dem_votes": 108314,
-        "rep_votes": 154981,
+        "dem_votes": 108315,
+        "rep_votes": 154982,
         "other_votes": 3789,
-        "total_votes": 267084,
+        "total_votes": 267086,
         "dem_candidate": "Barack Obama",
         "rep_candidate": "Mitt Romney",
         "margin": 46667,
-        "margin_pct": 17.4728,
+        "margin_pct": 17.4726,
         "winner": "REP"
       },
       "8": {
-        "dem_votes": 128322,
-        "rep_votes": 185128,
+        "dem_votes": 128323,
+        "rep_votes": 185129,
         "other_votes": 3193,
-        "total_votes": 316643,
+        "total_votes": 316645,
         "dem_candidate": "Barack Obama",
         "rep_candidate": "Mitt Romney",
         "margin": 56806,
-        "margin_pct": 17.9401,
+        "margin_pct": 17.94,
         "winner": "REP"
       },
       "9": {
-        "dem_votes": 126215,
+        "dem_votes": 126216,
         "rep_votes": 139668,
         "other_votes": 2847,
-        "total_votes": 268730,
+        "total_votes": 268731,
         "dem_candidate": "Barack Obama",
         "rep_candidate": "Mitt Romney",
-        "margin": 13453,
-        "margin_pct": 5.0061,
+        "margin": 13452,
+        "margin_pct": 5.0057,
         "winner": "REP"
       }
     }

@@ -47,7 +47,12 @@
     },
     "official_vtd_direct_method": "Tennessee Comptroller election-date VTDs translated through NHGIS blocks to official Census BEFs; residual county votes allocated over the complete official county block-population footprint; county and statewide totals preserved exactly",
     "official_vtd_source": "VTD_2008_November_State_General",
-    "district_lines_year": 2026
+    "district_lines_year": 2026,
+    "allocation_equivalent_bef_districts_synced": [
+      "1",
+      "2"
+    ],
+    "allocation_equivalent_overlap_threshold": 0.999
   },
   "general": {
     "results": {
@@ -63,91 +68,91 @@
         "winner": "REP"
       },
       "2": {
-        "dem_votes": 64594,
-        "rep_votes": 204171,
+        "dem_votes": 64590,
+        "rep_votes": 204161,
         "other_votes": 8585,
-        "total_votes": 277350,
+        "total_votes": 277336,
         "dem_candidate": "Robert DTuke",
         "rep_candidate": "Lamar Alexander",
-        "margin": 139577,
-        "margin_pct": 50.3252,
+        "margin": 139571,
+        "margin_pct": 50.3256,
         "winner": "REP"
       },
       "3": {
         "dem_votes": 79121,
-        "rep_votes": 198883,
+        "rep_votes": 198885,
         "other_votes": 7182,
-        "total_votes": 285186,
+        "total_votes": 285188,
         "dem_candidate": "Robert DTuke",
         "rep_candidate": "Lamar Alexander",
-        "margin": 119762,
-        "margin_pct": 41.9943,
+        "margin": 119764,
+        "margin_pct": 41.9948,
         "winner": "REP"
       },
       "4": {
         "dem_votes": 84240,
-        "rep_votes": 141979,
+        "rep_votes": 141980,
         "other_votes": 9417,
-        "total_votes": 235636,
+        "total_votes": 235637,
         "dem_candidate": "Robert DTuke",
         "rep_candidate": "Lamar Alexander",
-        "margin": 57739,
-        "margin_pct": 24.5035,
+        "margin": 57740,
+        "margin_pct": 24.5038,
         "winner": "REP"
       },
       "5": {
-        "dem_votes": 111282,
-        "rep_votes": 159457,
+        "dem_votes": 111283,
+        "rep_votes": 159458,
         "other_votes": 9490,
-        "total_votes": 280229,
+        "total_votes": 280231,
         "dem_candidate": "Robert DTuke",
         "rep_candidate": "Lamar Alexander",
         "margin": 48175,
-        "margin_pct": 17.1913,
+        "margin_pct": 17.1912,
         "winner": "REP"
       },
       "6": {
-        "dem_votes": 88484,
-        "rep_votes": 155330,
+        "dem_votes": 88485,
+        "rep_votes": 155331,
         "other_votes": 10467,
-        "total_votes": 254281,
+        "total_votes": 254283,
         "dem_candidate": "Robert DTuke",
         "rep_candidate": "Lamar Alexander",
         "margin": 66846,
-        "margin_pct": 26.2882,
+        "margin_pct": 26.288,
         "winner": "REP"
       },
       "7": {
         "dem_votes": 83831,
-        "rep_votes": 160539,
+        "rep_votes": 160541,
         "other_votes": 9282,
-        "total_votes": 253652,
+        "total_votes": 253654,
         "dem_candidate": "Robert DTuke",
         "rep_candidate": "Lamar Alexander",
-        "margin": 76708,
-        "margin_pct": 30.2414,
+        "margin": 76710,
+        "margin_pct": 30.242,
         "winner": "REP"
       },
       "8": {
-        "dem_votes": 98900,
-        "rep_votes": 208306,
+        "dem_votes": 98901,
+        "rep_votes": 208308,
         "other_votes": 7825,
-        "total_votes": 315031,
+        "total_votes": 315034,
         "dem_candidate": "Robert DTuke",
         "rep_candidate": "Lamar Alexander",
-        "margin": 109406,
+        "margin": 109407,
         "margin_pct": 34.7286,
         "winner": "REP"
       },
       "9": {
-        "dem_votes": 103185,
-        "rep_votes": 143176,
+        "dem_votes": 103186,
+        "rep_votes": 143177,
         "other_votes": 8050,
-        "total_votes": 254411,
+        "total_votes": 254413,
         "dem_candidate": "Robert DTuke",
         "rep_candidate": "Lamar Alexander",
         "margin": 39991,
-        "margin_pct": 15.7191,
+        "margin_pct": 15.7189,
         "winner": "REP"
       }
     }

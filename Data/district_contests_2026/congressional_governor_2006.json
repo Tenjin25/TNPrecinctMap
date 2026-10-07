@@ -46,9 +46,11 @@
       }
     },
     "geographic_audit_method": "independent_county_constrained_spatial_precinct_overlay",
-    "identical_bef_districts_synced": [
-      "1"
-    ]
+    "allocation_equivalent_bef_districts_synced": [
+      "1",
+      "2"
+    ],
+    "allocation_equivalent_overlap_threshold": 0.999
   },
   "general": {
     "results": {
@@ -64,25 +66,25 @@
         "winner": "DEM"
       },
       "2": {
-        "dem_votes": 136671,
-        "rep_votes": 58703,
+        "dem_votes": 136670,
+        "rep_votes": 58705,
         "other_votes": 3029,
-        "total_votes": 198403,
+        "total_votes": 198404,
         "dem_candidate": "Phil Bredesen",
         "rep_candidate": "Jim Bryson",
-        "margin": -77968,
-        "margin_pct": -39.2978,
+        "margin": -77965,
+        "margin_pct": -39.2961,
         "winner": "DEM"
       },
       "3": {
         "dem_votes": 144895,
-        "rep_votes": 68936,
+        "rep_votes": 68935,
         "other_votes": 3222,
-        "total_votes": 217053,
+        "total_votes": 217052,
         "dem_candidate": "Phil Bredesen",
         "rep_candidate": "Jim Bryson",
-        "margin": -75959,
-        "margin_pct": -34.9956,
+        "margin": -75960,
+        "margin_pct": -34.9962,
         "winner": "DEM"
       },
       "4": {
@@ -97,14 +99,14 @@
         "winner": "DEM"
       },
       "5": {
-        "dem_votes": 161646,
+        "dem_votes": 161647,
         "rep_votes": 48850,
         "other_votes": 4457,
-        "total_votes": 214953,
+        "total_votes": 214954,
         "dem_candidate": "Phil Bredesen",
         "rep_candidate": "Jim Bryson",
-        "margin": -112796,
-        "margin_pct": -52.4747,
+        "margin": -112797,
+        "margin_pct": -52.4749,
         "winner": "DEM"
       },
       "6": {
@@ -131,13 +133,13 @@
       },
       "8": {
         "dem_votes": 152584,
-        "rep_votes": 77740,
+        "rep_votes": 77739,
         "other_votes": 3080,
-        "total_votes": 233404,
+        "total_votes": 233403,
         "dem_candidate": "Phil Bredesen",
         "rep_candidate": "Jim Bryson",
-        "margin": -74844,
-        "margin_pct": -32.0663,
+        "margin": -74845,
+        "margin_pct": -32.0669,
         "winner": "DEM"
       },
       "9": {

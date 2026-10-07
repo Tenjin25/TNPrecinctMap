@@ -98,7 +98,9 @@ def main() -> None:
             "blocks_2026": len(membership26),
             "changed_blocks": len(changed),
             "identical": not changed,
+            "overlap_ratio": len(membership22 & membership26) / max(len(membership22), len(membership26), 1),
         }
+        comparison[f"cd_{district}"]["allocation_equivalent"] = comparison[f"cd_{district}"]["overlap_ratio"] >= 0.999
     if args.block_dir:
         block_path = args.block_dir / "tl_2020_47_tabblock20.zip"
         if block_path.exists() and changed_geoids:
@@ -138,8 +140,9 @@ def main() -> None:
             "differing_contest_files": len(differing),
             "files": differing,
         }
-    if comparison["cd_1"]["identical"] and result_mode_comparison["cd_1"]["differing_contest_files"]:
-        errors.append("CD-01 is block-identical but differs between result modes")
+    for district in ("1", "2"):
+        if comparison[f"cd_{district}"]["allocation_equivalent"] and result_mode_comparison[f"cd_{district}"]["differing_contest_files"]:
+            errors.append(f"CD-{district.zfill(2)} meets the 99.9% overlap rule but differs between result modes")
 
     payload = {
         "valid": not errors,
