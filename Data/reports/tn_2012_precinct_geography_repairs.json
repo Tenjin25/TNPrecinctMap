@@ -1,0 +1,253 @@
+{
+  "status": "published_in_review_branch_pending_deployment",
+  "purpose": "Document the 2012 precinct-geography repairs used by the NHGIS block-disaggregation pilot.",
+  "sources": {
+    "montgomery_precinct_gis": "https://gis.mcgtn.org/arcgis/rest/services/VotingPrecincts/MapServer/0",
+    "montgomery_2012_election_archive": "https://montgomerytn.gov/election/archive",
+    "hamilton_2012_election_archive": "https://elect.hamiltontn.gov/ElectionArchives/2012.aspx",
+    "tennessee_2012_house_precinct_totals": "https://sharetngov.tnsosfiles.com/sos/election/results/2012-11/TNHousePrecinctTotals.pdf",
+    "hamilton_precinct_gis": "https://mapsdev.hamiltontn.gov/hcwa03/rest/services/Live_Political2/MapServer/0",
+    "sullivan_precinct_directory": "https://www.scelect.org/2026votingprecincts.pdf",
+    "washington_precinct_directory": "https://www.wcecoffice.com/precincts-numbered/",
+    "davidson_2012_precinct_line_approval": "https://www.nashville.gov/sites/default/files/2021-10/election-120510m.pdf",
+    "vest_rdh_2016_block_file": "Data/tn_2016_gen_2020_blocks.zip (local source file supplied by the project owner)"
+  },
+  "implemented_repairs": {
+    "montgomery": "2012 labels are assigned to the union of all 2010 Census VTDs sharing the same leading precinct number.",
+    "wilson": "2012 labels are assigned to the union of all 2010 Census VTDs sharing the same leading precinct number; this replaces an erroneous trailing-token match for precinct 9-3.",
+    "sullivan": "17 lettered precinct codes with unambiguous polling-place matches are assigned to 2010 VTDs; nine uncertain renamed locations remain on county fallback.",
+    "washington": "12 unique polling-place or city-side matches are assigned to 2010 VTDs; unresolved labels remain on county fallback.",
+    "knox": "Five exact polling-place/code matches are assigned to single VTDs or explicit VTD unions.",
+    "madison": "Eight exact 2010 VTD-code and polling-place matches are assigned to VTDs."
+  },
+  "presidential_fallback_votes_before_after": {
+    "montgomery": [49751, 0],
+    "sullivan": [59887, 19320],
+    "washington": [20392, 8260],
+    "knox": [9710, 3],
+    "madison": [13525, 884],
+    "wilson": [14922, 1140]
+  },
+  "split_district_fallback_before_after": {
+    "state_house": {
+      "before_share_pct": 11.92,
+      "after_votes": 154541,
+      "after_share_pct": 6.29
+    },
+    "state_senate": {
+      "before_share_pct": 6.41,
+      "after_votes": 84246,
+      "after_share_pct": 3.43
+    },
+    "congressional_2022_lines": {
+      "before_share_pct": 2.0,
+      "after_votes": 35305,
+      "after_share_pct": 1.44
+    },
+    "congressional_2026_lines": {
+      "before_share_pct": 3.87,
+      "after_votes": 45456,
+      "after_share_pct": 1.85
+    }
+  },
+  "statewide_vote_conservation": {
+    "president": {
+      "dem_votes": 960709,
+      "rep_votes": 1462330,
+      "other_votes": 35538
+    },
+    "us_senate": {
+      "dem_votes": 705882,
+      "rep_votes": 1506443,
+      "other_votes": 109152
+    }
+  },
+  "stable_2016_block_proxy_pilot": {
+    "status": "published_in_review_branch_with_medium_confidence_label",
+    "method": "Use the supplied VEST/RDH 2016-on-2020-block file only where a normal election-day precinct retained the same distinctive code or name from 2012 through 2016.",
+    "precincts": 662,
+    "counties": {
+      "davidson": {
+        "precincts": 160,
+        "presidential_votes_assigned_by_proxy": 238049,
+        "fallback_before": 244873,
+        "fallback_after": 6824
+      },
+      "hamilton": {
+        "precincts": 123,
+        "presidential_votes_assigned_by_proxy": 70880,
+        "fallback_before": 41528,
+        "fallback_after": 38876,
+        "match_basis": "All ordinary 2012 precinct names match unique 2016 names after expanding only E, N, and Mtn abbreviations; seven new 2016 precincts are excluded."
+      },
+      "sullivan": {
+        "precincts": 8,
+        "presidential_votes_assigned_by_proxy": 19320,
+        "fallback_before": 19320,
+        "fallback_after": 0
+      },
+      "washington": {
+        "precincts": 40,
+        "presidential_votes_assigned_by_proxy": 46376,
+        "fallback_before": 8260,
+        "fallback_after": 3211,
+        "match_basis": "All 40 ordinary precinct numbers persist; Early/Absentee remains ballot-constrained fallback."
+      },
+      "madison": {
+        "precincts": 33,
+        "presidential_votes_assigned_by_proxy": 40702,
+        "match_basis": "Every 2012 precinct code and polling-place label persists in the 2016 VEST/RDH block file."
+      },
+      "hardeman": {
+        "precincts": 13,
+        "presidential_votes_assigned_by_proxy": 10439,
+        "match_basis": "Every 2012 polling-place name persists exactly in the 2016 VEST/RDH block file."
+      },
+      "haywood": {
+        "precincts": 9,
+        "presidential_votes_assigned_by_proxy": 6778,
+        "match_basis": "Unique precinct numbers 1-8 and 10 persist; ambiguous 2012 precincts 9-1 and 9-2 remain on historical VTD geometry."
+      },
+      "montgomery": {
+        "precincts": 29,
+        "presidential_votes_assigned_by_proxy": 55584,
+        "match_basis": "Every 2012 precinct code persists in the 2016 VEST/RDH block file; suffix-level block footprints replace the earlier grouped-leading-number VTD unions."
+      },
+      "rutherford": {
+        "precincts": 46,
+        "presidential_votes_assigned_by_proxy": 98848,
+        "match_basis": "All 46 2012 precinct codes persist in the 2016 VEST/RDH block file; four new/cross-county 2016 records are excluded."
+      },
+      "williamson": {
+        "precincts": 40,
+        "presidential_votes_assigned_by_proxy": 96225,
+        "match_basis": "All 40 2012 precinct codes persist in the 2016 VEST/RDH block file; three new 2016 precincts are excluded."
+      },
+      "marshall": {
+        "precincts": 7,
+        "presidential_votes_assigned_by_proxy": 8106,
+        "match_basis": "Seven polling-place identities persist. West Hills/Parkview Baptist and Courthouse/McKnight Center remain historical because their continuity is not explicit.",
+        "house_92_us_senate_change_before_proxy_pp": -10.7635,
+        "house_92_us_senate_change_after_proxy_pp": -8.8098
+      },
+      "shelby": {
+        "precincts": 154,
+        "presidential_votes_assigned_by_proxy": 293596,
+        "match_basis": "Exact normalized 2012 precinct names that persist in the 2016 VEST/RDH block file; renamed or consolidated labels retain their historical geometry or constrained fallback."
+      }
+    },
+    "comparison_to_live": {
+      "state_house_president_max_change_pp": 13.4881,
+      "state_house_president_flip": null,
+      "state_house_us_senate_max_change_pp": 28.1875,
+      "state_house_us_senate_flip": "80",
+      "state_senate_president_max_change_pp": 4.2171,
+      "state_senate_us_senate_max_change_pp": 4.2545
+    },
+    "excluded_buckets": [
+      "Davidson safety precinct",
+      "early voting totals",
+      "absentee totals",
+      "military/overseas totals",
+      "nursing-home totals",
+      "provisional totals"
+    ]
+  },
+  "house_ballot_constrained_fallback_pilot": {
+    "status": "published_in_review_branch",
+    "method": "Allocate each fallback bucket among 2012 State House districts in proportion to that bucket's State House votes, then distribute within each old-plan district using block VAP.",
+    "old_plan_assignment_source": "Data/BlockAssign_ST47_TN.zip:BlockAssign_ST47_TN_SLDL.txt",
+    "constrained_president_and_senate_rows": 923,
+    "unconstrained_rows": 0,
+    "statewide_vote_conservation": true,
+    "sensitivity_findings": {
+      "house_75_president": {
+        "live_margin_pct": -0.0432,
+        "pilot_margin_pct": -0.8037,
+        "allocation_methods": ["stable_2016_block_proxy"],
+        "finding": "The earlier R+5.59 pilot flip disappears when suffix-level Montgomery precincts use their stable 2016 block footprints. The live D+0.04 and revised D+0.80 results agree on the winner."
+      },
+      "house_80_us_senate": {
+        "live_margin_pct": 4.0202,
+        "pilot_margin_pct": -16.1094,
+        "raw_pilot_votes_from_stable_2016_block_proxy": 22612.601,
+        "raw_pilot_votes_from_remaining_historical_vtd_geometry": 567.271,
+        "finding": "The Democratic flip persists after replacing Madison, Hardeman, and unambiguous Haywood VTD footprints with stable 2016 block assignments. This strongly indicates the live R+4.02 result is a geography-allocation artifact rather than a fallback artifact."
+      }
+    }
+  },
+  "near_whole_county_residual_rule": {
+    "status": "published_in_review_branch_for_state_house_and_state_senate",
+    "threshold": 0.999,
+    "measure": "2020-block VAP_MOD share of each county in its dominant current-plan district",
+    "method": "Estimate only votes in non-dominant district slivers, subtract them from each certified county-party total, and assign the exact residual to the dominant district.",
+    "result": "The audit found 142 chamber-specific county/dominant-district pairs meeting the threshold. Every adjustment delta was zero because the existing source allocation already conserves certified totals independently within each county; the rule therefore validates and documents those whole-county assignments without changing votes."
+  },
+  "hamilton_hybrid_early_vote_pilot": {
+    "status": "published_in_review_branch",
+    "method": "For Hamilton non-geographic buckets, iterative proportional fitting preserves each bucket's certified presidential or U.S. Senate party totals and its 2012 State House ballot totals by old district. Stable ordinary precincts supply old-district partisan priors; the fitted old-district totals are then distributed to blocks within that district.",
+    "groups": 14,
+    "ordinary_reference_votes": 202515,
+    "statewide_vote_conservation": true,
+    "house_president_margins": {
+      "26": {"live": 31.5971, "pre_hybrid": 29.5119, "hybrid": 31.8955},
+      "27": {"live": 31.5736, "pre_hybrid": 23.313, "hybrid": 28.8401},
+      "28": {"live": -58.6276, "pre_hybrid": -38.6506, "hybrid": -63.7328},
+      "29": {"live": 44.2909, "pre_hybrid": 37.184, "hybrid": 43.4943},
+      "30": {"live": 24.7417, "pre_hybrid": 15.98, "hybrid": 25.1285}
+    },
+    "finding": "The hybrid moves all five Hamilton House presidential margins toward the published results except HD28, where it passes the published D+58.63 to D+63.73. This confirms that equal-party allocation of early votes was the main Hamilton distortion. Senate-plan effects are small because current SD10 and SD11 each combine several old House districts."
+  },
+  "statewide_split_county_hybrid": {
+    "status": "published_in_review_branch",
+    "method": "Generalize Hamilton's iterative proportional fitting to every non-geographic bucket with State House ballot district shares. Each fit preserves the bucket's certified party totals and old-district ballot totals, while ordinary precincts provide county/district partisan priors.",
+    "groups": 313,
+    "unconstrained_rows": 0,
+    "statewide_vote_conservation": true,
+    "winner_changes_from_hamilton_only_hybrid": 0,
+    "maximum_additional_change_pp": {
+      "state_house_president": 1.171,
+      "state_house_us_senate": 1.1382,
+      "state_senate_president": 0.9249,
+      "state_senate_us_senate": 0.9453
+    },
+    "finding": "The additional effects are controlled and concentrated in Davidson's non-geographic Safety Precinct. HD80 and SD31 are unchanged."
+  },
+  "hamilton_sensitivity_and_2016_validation": {
+    "status": "passed_with_estimation_caveat",
+    "total_cvap_max_house_difference_from_vap_pp": 1.1504,
+    "demographic_cvap_largest_hamilton_difference": "HD28; presidential D+69.2649 versus VAP D+63.7328",
+    "2016_direct_block_rebuild_matches_published": true,
+    "2016_hamilton_house_president_margins": {
+      "26": 30.68,
+      "27": 29.5945,
+      "28": -56.7879,
+      "29": 38.3597,
+      "30": 25.1722
+    },
+    "finding": "The VAP Hamilton hybrid is stable against total CVAP and its five-district partisan pattern closely resembles the independently block-disaggregated 2016 election. Race-specific CVAP is treated as a sensitivity bound rather than the publication weight."
+  },
+  "davidson_shelby_exact_proxy_extension": {
+    "status": "published_in_review_branch",
+    "davidson_exact_precincts": 160,
+    "davidson_presidential_votes": 238049,
+    "davidson_remaining_non_geographic_presidential_votes": 6824,
+    "shelby_exact_precincts": 154,
+    "shelby_presidential_votes": 293596,
+    "sd31_president_margin_live": 39.1184,
+    "sd31_president_margin_repaired": 41.7771,
+    "sd31_us_senate_margin_live": 52.2736,
+    "sd31_us_senate_margin_repaired": 55.3105
+  },
+  "hd80_sd31_independent_verification": {
+    "status": "verified_no_result_revision_required",
+    "report": "Data/reports/tn_2012_hd80_sd31_verification.json",
+    "hd80_finding": "The official 2012 HD80 precinct footprint voted D+10.496 for U.S. Senate. The current district retains 77.1461% of that footprint by VAP and adds Democratic-leaning Haywood geography, supporting the repaired D+16.1094 result over the former R+4.0202 result.",
+    "sd31_finding": "Exact 2012-to-2016 block proxies account for 87.0452% of presidential and 87.0525% of U.S. Senate raw allocated votes. The remaining historical VTD sources are concentrated in Republican-leaning eastern Shelby precincts, supporting the repaired Republican shift."
+  },
+  "remaining_limitations": [
+    "Split-county IPF uses State House ballot totals as district margins and ordinary precinct federal voting as partisan priors; these remain estimates rather than reported district-level federal totals.",
+    "Historical Davidson geometry for the non-geographic Safety Precinct does not exist; its 6,824 presidential votes are constrained by its reported House ballot composition instead.",
+    "Race-specific CVAP remains a sensitivity bound rather than the publication weight because it is less stable than VAP and total CVAP in Hamilton HD28."
+  ]
+}
