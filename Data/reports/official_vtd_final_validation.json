@@ -25,14 +25,6 @@
       "other_votes": 3623
     },
     {
-      "file": "congressional_governor_2014.json",
-      "district": "9",
-      "margin_pct": -0.4057,
-      "dem_votes": 62374,
-      "rep_votes": 61841,
-      "other_votes": 7155
-    },
-    {
       "file": "congressional_us_senate_2018.json",
       "district": "5",
       "margin_pct": 0.0377,
@@ -194,43 +186,11 @@
     },
     {
       "file": "state_house_president_2012.json",
-      "district": "14",
-      "margin_pct": 0.0,
-      "dem_votes": 0,
-      "rep_votes": 0,
-      "other_votes": 0
-    },
-    {
-      "file": "state_house_president_2012.json",
-      "district": "18",
-      "margin_pct": 0.0,
-      "dem_votes": 0,
-      "rep_votes": 0,
-      "other_votes": 0
-    },
-    {
-      "file": "state_house_president_2012.json",
-      "district": "19",
-      "margin_pct": 0.0,
-      "dem_votes": 0,
-      "rep_votes": 0,
-      "other_votes": 0
-    },
-    {
-      "file": "state_house_president_2012.json",
       "district": "75",
       "margin_pct": -0.466,
       "dem_votes": 7947,
       "rep_votes": 7872,
       "other_votes": 274
-    },
-    {
-      "file": "state_house_president_2012.json",
-      "district": "89",
-      "margin_pct": 0.0,
-      "dem_votes": 0,
-      "rep_votes": 0,
-      "other_votes": 0
     },
     {
       "file": "state_house_president_2016.json",
@@ -355,42 +315,10 @@
     {
       "file": "state_house_us_senate_2008.json",
       "district": "98",
-      "margin_pct": -0.1992,
-      "dem_votes": 13959,
-      "rep_votes": 13902,
-      "other_votes": 758
-    },
-    {
-      "file": "state_house_us_senate_2012.json",
-      "district": "14",
-      "margin_pct": 0.0,
-      "dem_votes": 0,
-      "rep_votes": 0,
-      "other_votes": 0
-    },
-    {
-      "file": "state_house_us_senate_2012.json",
-      "district": "18",
-      "margin_pct": 0.0,
-      "dem_votes": 0,
-      "rep_votes": 0,
-      "other_votes": 0
-    },
-    {
-      "file": "state_house_us_senate_2012.json",
-      "district": "19",
-      "margin_pct": 0.0,
-      "dem_votes": 0,
-      "rep_votes": 0,
-      "other_votes": 0
-    },
-    {
-      "file": "state_house_us_senate_2012.json",
-      "district": "89",
-      "margin_pct": 0.0,
-      "dem_votes": 0,
-      "rep_votes": 0,
-      "other_votes": 0
+      "margin_pct": 0.1982,
+      "dem_votes": 12257,
+      "rep_votes": 12307,
+      "other_votes": 665
     },
     {
       "file": "state_house_us_senate_2020.json",
@@ -431,14 +359,6 @@
       "dem_votes": 20077,
       "rep_votes": 20110,
       "other_votes": 885
-    },
-    {
-      "file": "state_senate_president_2012.json",
-      "district": "6",
-      "margin_pct": 0.0,
-      "dem_votes": 0,
-      "rep_votes": 0,
-      "other_votes": 0
     },
     {
       "file": "state_senate_state_senate_2010.json",
@@ -483,18 +403,10 @@
     {
       "file": "state_senate_us_senate_2008.json",
       "district": "30",
-      "margin_pct": -0.5881,
-      "dem_votes": 36849,
-      "rep_votes": 36405,
-      "other_votes": 2241
-    },
-    {
-      "file": "state_senate_us_senate_2012.json",
-      "district": "6",
-      "margin_pct": 0.0,
-      "dem_votes": 0,
-      "rep_votes": 0,
-      "other_votes": 0
+      "margin_pct": -0.0893,
+      "dem_votes": 32632,
+      "rep_votes": 32572,
+      "other_votes": 1957
     }
   ],
   "district_files_with_fallback": [

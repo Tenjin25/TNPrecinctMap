@@ -3,7 +3,7 @@
 
 Matched geographic precinct votes use official-VTD -> NHGIS block -> Census BEF
 weights. Residual unmatched and administrative votes stay within their certified
-county and are distributed by that county's matched geographic voting pattern.
+county and are distributed over its complete official block-population footprint.
 County and statewide party totals are preserved exactly.
 """
 
@@ -122,12 +122,21 @@ def rebuild_file(
             raise RuntimeError(f"No official block district footprint for {county} {year} {scope}")
         for field in FIELDS:
             geographic = county_geo[county][field]
-            allocation_basis = (
-                dict(geographic) if sum(geographic.values()) > 0
-                else dict(combined) if sum(combined.values()) > 0
-                else dict(neutral_footprint)
-            )
-            allocated = largest_remainder(int(targets[field]), allocation_basis)
+            matched_total = sum(geographic.values())
+            target = int(targets[field])
+            # Preserve safely matched precinct votes in their direct districts.
+            # Spread only the unresolved remainder across the county's complete
+            # official block footprint. Using the matched subset alone can erase
+            # districts when a county (notably 2012 Knox) has few matched labels.
+            allocation_basis = Counter(geographic)
+            residual = max(0.0, target - matched_total)
+            neutral_total = sum(neutral_footprint.values())
+            if residual > 0 and neutral_total > 0:
+                for district, mass in neutral_footprint.items():
+                    allocation_basis[district] += residual * float(mass) / neutral_total
+            elif not allocation_basis:
+                allocation_basis.update(combined or neutral_footprint)
+            allocated = largest_remainder(target, dict(allocation_basis))
             for district, votes in allocated.items():
                 county_output[county][district][field] += votes
 
@@ -147,8 +156,8 @@ def rebuild_file(
     published["general"] = {"results": results}
     published.setdefault("meta", {})["official_vtd_direct_method"] = (
         "Tennessee Comptroller election-date VTDs translated through NHGIS blocks "
-        "to official Census BEFs; residual county votes allocated by matched geographic "
-        "party distribution; county and statewide totals preserved exactly"
+        "to official Census BEFs; residual county votes allocated over the complete "
+        "official county block-population footprint; county and statewide totals preserved exactly"
     )
     published["meta"]["official_vtd_source"] = source.get("meta", {}).get("geography", "")
     published["meta"]["district_lines_year"] = lines_year
