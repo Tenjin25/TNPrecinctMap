@@ -19,17 +19,11 @@
     "block_disaggregated_method": "RDH statewide votes disaggregated to 2020 Census blocks; district assignments taken from the official Census block equivalency file when available, otherwise inferred from 2022/2024 district contest columns with enacted TIGER representative-point fallback; party-specifically reconciled to certified statewide totals",
     "block_disaggregated_source": "tn_2018_gen_2020_blocks.zip",
     "block_assignment_audit": {
-      "race_prefix": "GSU",
-      "election_years": [
-        2022,
-        2024
-      ],
+      "assignment_source": "47_TN_SLDU22.txt",
+      "assignment_authority": "U.S. Census Bureau 2022 State Legislative District Upper Chamber Block Equivalency File",
       "lines_year": 2022,
       "blocks": 179717,
-      "explicit_race_assignment_blocks": 127765,
-      "geometry_fallback_blocks": 51952,
-      "explicit_geometry_agreements": 127765,
-      "explicit_geometry_disagreements": 0
+      "districts": 33
     }
   },
   "general": {

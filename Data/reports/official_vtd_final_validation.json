@@ -28,16 +28,16 @@
       "file": "congressional_us_senate_2018.json",
       "district": "5",
       "margin_pct": 0.0377,
-      "dem_votes": 133814,
-      "rep_votes": 133916,
+      "dem_votes": 133812,
+      "rep_votes": 133914,
       "other_votes": 2595
     },
     {
       "file": "congressional_us_senate_2018.json",
       "district": "7",
       "margin_pct": 0.4867,
-      "dem_votes": 115354,
-      "rep_votes": 116498,
+      "dem_votes": 115353,
+      "rep_votes": 116497,
       "other_votes": 3183
     },
     {
@@ -131,8 +131,8 @@
     {
       "file": "state_house_governor_2018.json",
       "district": "59",
-      "margin_pct": 0.8336,
-      "dem_votes": 14404,
+      "margin_pct": 0.8303,
+      "dem_votes": 14405,
       "rep_votes": 14652,
       "other_votes": 693
     },
@@ -212,8 +212,8 @@
       "file": "state_house_president_2016.json",
       "district": "67",
       "margin_pct": 0.5628,
-      "dem_votes": 7952,
-      "rep_votes": 8049,
+      "dem_votes": 7953,
+      "rep_votes": 8050,
       "other_votes": 1233
     },
     {
@@ -355,10 +355,10 @@
     {
       "file": "state_house_us_senate_2020.json",
       "district": "50",
-      "margin_pct": -0.727,
-      "dem_votes": 15806,
-      "rep_votes": 15571,
-      "other_votes": 947
+      "margin_pct": -0.7123,
+      "dem_votes": 15788,
+      "rep_votes": 15558,
+      "other_votes": 945
     },
     {
       "file": "state_senate_governor_2002.json",

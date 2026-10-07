@@ -1,6 +1,6 @@
 {
   "baseline": "7502d40",
-  "changed_district_rows": 1024,
+  "changed_district_rows": 1263,
   "winner_changes": 15,
   "rating_changes": 0,
   "rows": [
@@ -207,6 +207,213 @@
         "other_votes": 7258,
         "total_votes": 134333,
         "margin_pct": 1.3615,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "congressional_governor_2018.json",
+      "district": "3",
+      "before": {
+        "dem_votes": 90344,
+        "rep_votes": 167590,
+        "other_votes": 2508,
+        "total_votes": 260442,
+        "margin_pct": 29.6596,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 90344,
+        "rep_votes": 167591,
+        "other_votes": 2508,
+        "total_votes": 260443,
+        "margin_pct": 29.6598,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "congressional_governor_2018.json",
+      "district": "5",
+      "before": {
+        "dem_votes": 116008,
+        "rep_votes": 147138,
+        "other_votes": 7778,
+        "total_votes": 270924,
+        "margin_pct": 11.4903,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 116006,
+        "rep_votes": 147135,
+        "other_votes": 7778,
+        "total_votes": 270919,
+        "margin_pct": 11.4902,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "congressional_governor_2018.json",
+      "district": "6",
+      "before": {
+        "dem_votes": 101404,
+        "rep_votes": 155458,
+        "other_votes": 5727,
+        "total_votes": 262589,
+        "margin_pct": 20.585,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 101405,
+        "rep_votes": 155461,
+        "other_votes": 5727,
+        "total_votes": 262593,
+        "margin_pct": 20.5855,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "congressional_governor_2018.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 101288,
+        "rep_votes": 126887,
+        "other_votes": 6848,
+        "total_votes": 235023,
+        "margin_pct": 10.8921,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 101288,
+        "rep_votes": 126886,
+        "other_votes": 6848,
+        "total_votes": 235022,
+        "margin_pct": 10.8917,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "congressional_governor_2018.json",
+      "district": "9",
+      "before": {
+        "dem_votes": 150655,
+        "rep_votes": 55662,
+        "other_votes": 7139,
+        "total_votes": 213456,
+        "margin_pct": -44.5024,
+        "winner": "DEM",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 150656,
+        "rep_votes": 55662,
+        "other_votes": 7139,
+        "total_votes": 213457,
+        "margin_pct": -44.5026,
+        "winner": "DEM",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "congressional_governor_2022.json",
+      "district": "3",
+      "before": {
+        "dem_votes": 58749,
+        "rep_votes": 138951,
+        "other_votes": 4267,
+        "total_votes": 201967,
+        "margin_pct": 39.7104,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 58749,
+        "rep_votes": 138952,
+        "other_votes": 4267,
+        "total_votes": 201968,
+        "margin_pct": 39.7107,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "congressional_governor_2022.json",
+      "district": "5",
+      "before": {
+        "dem_votes": 88065,
+        "rep_votes": 130502,
+        "other_votes": 4068,
+        "total_votes": 222635,
+        "margin_pct": 19.0612,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 88064,
+        "rep_votes": 130503,
+        "other_votes": 4068,
+        "total_votes": 222635,
+        "margin_pct": 19.0621,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "congressional_governor_2022.json",
+      "district": "6",
+      "before": {
+        "dem_votes": 64415,
+        "rep_votes": 132808,
+        "other_votes": 4746,
+        "total_votes": 201969,
+        "margin_pct": 33.8631,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 64416,
+        "rep_votes": 132810,
+        "other_votes": 4746,
+        "total_votes": 201972,
+        "margin_pct": 33.8631,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "congressional_governor_2022.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 69891,
+        "rep_votes": 110010,
+        "other_votes": 4709,
+        "total_votes": 184610,
+        "margin_pct": 21.7318,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 69891,
+        "rep_votes": 110006,
+        "other_votes": 4709,
+        "total_votes": 184606,
+        "margin_pct": 21.7301,
         "winner": "REP",
         "rating": null
       }
@@ -622,6 +829,328 @@
         "total_votes": 292855,
         "margin_pct": -46.2608,
         "winner": "DEM",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "congressional_president_2016.json",
+      "district": "2",
+      "before": {
+        "dem_votes": 85250,
+        "rep_votes": 186912,
+        "other_votes": 16536,
+        "total_votes": 288698,
+        "margin_pct": 35.214,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 85250,
+        "rep_votes": 186912,
+        "other_votes": 16537,
+        "total_votes": 288699,
+        "margin_pct": 35.2138,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "congressional_president_2016.json",
+      "district": "3",
+      "before": {
+        "dem_votes": 86554,
+        "rep_votes": 188419,
+        "other_votes": 14518,
+        "total_votes": 289491,
+        "margin_pct": 35.1876,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 86554,
+        "rep_votes": 188420,
+        "other_votes": 14518,
+        "total_votes": 289492,
+        "margin_pct": 35.1878,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "congressional_president_2016.json",
+      "district": "5",
+      "before": {
+        "dem_votes": 111330,
+        "rep_votes": 160676,
+        "other_votes": 16938,
+        "total_votes": 288944,
+        "margin_pct": 17.078,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 111329,
+        "rep_votes": 160674,
+        "other_votes": 16938,
+        "total_votes": 288941,
+        "margin_pct": 17.0779,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "congressional_president_2016.json",
+      "district": "6",
+      "before": {
+        "dem_votes": 88453,
+        "rep_votes": 176620,
+        "other_votes": 12168,
+        "total_votes": 277241,
+        "margin_pct": 31.8016,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 88454,
+        "rep_votes": 176622,
+        "other_votes": 12168,
+        "total_votes": 277244,
+        "margin_pct": 31.8016,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "congressional_president_2016.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 99355,
+        "rep_votes": 143593,
+        "other_votes": 13431,
+        "total_votes": 256379,
+        "margin_pct": 17.2549,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 99355,
+        "rep_votes": 143592,
+        "other_votes": 13430,
+        "total_votes": 256377,
+        "margin_pct": 17.2547,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "congressional_president_2020.json",
+      "district": "2",
+      "before": {
+        "dem_votes": 122696,
+        "rep_votes": 226798,
+        "other_votes": 6877,
+        "total_votes": 356371,
+        "margin_pct": 29.2117,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 122696,
+        "rep_votes": 226797,
+        "other_votes": 6877,
+        "total_votes": 356370,
+        "margin_pct": 29.2115,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "congressional_president_2020.json",
+      "district": "3",
+      "before": {
+        "dem_votes": 115371,
+        "rep_votes": 226466,
+        "other_votes": 6415,
+        "total_votes": 348252,
+        "margin_pct": 31.9008,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 115371,
+        "rep_votes": 226468,
+        "other_votes": 6415,
+        "total_votes": 348254,
+        "margin_pct": 31.9011,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "congressional_president_2020.json",
+      "district": "5",
+      "before": {
+        "dem_votes": 157575,
+        "rep_votes": 198769,
+        "other_votes": 8421,
+        "total_votes": 364765,
+        "margin_pct": 11.2933,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 157573,
+        "rep_votes": 198765,
+        "other_votes": 8421,
+        "total_votes": 364759,
+        "margin_pct": 11.2929,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "congressional_president_2020.json",
+      "district": "6",
+      "before": {
+        "dem_votes": 120214,
+        "rep_votes": 221696,
+        "other_votes": 6614,
+        "total_votes": 348524,
+        "margin_pct": 29.1177,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 120217,
+        "rep_votes": 221700,
+        "other_votes": 6614,
+        "total_votes": 348531,
+        "margin_pct": 29.1174,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "congressional_president_2020.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 135632,
+        "rep_votes": 185343,
+        "other_votes": 7649,
+        "total_votes": 328624,
+        "margin_pct": 15.127,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 135631,
+        "rep_votes": 185342,
+        "other_votes": 7649,
+        "total_votes": 328622,
+        "margin_pct": 15.1271,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "congressional_president_2024.json",
+      "district": "3",
+      "before": {
+        "dem_votes": 113483,
+        "rep_votes": 243149,
+        "other_votes": 4735,
+        "total_votes": 361367,
+        "margin_pct": 35.8821,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 113483,
+        "rep_votes": 243151,
+        "other_votes": 4735,
+        "total_votes": 361369,
+        "margin_pct": 35.8824,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "congressional_president_2024.json",
+      "district": "5",
+      "before": {
+        "dem_votes": 150018,
+        "rep_votes": 216624,
+        "other_votes": 5956,
+        "total_votes": 372598,
+        "margin_pct": 17.8761,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 150015,
+        "rep_votes": 216620,
+        "other_votes": 5956,
+        "total_votes": 372591,
+        "margin_pct": 17.8762,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "congressional_president_2024.json",
+      "district": "6",
+      "before": {
+        "dem_votes": 114151,
+        "rep_votes": 240344,
+        "other_votes": 4455,
+        "total_votes": 358950,
+        "margin_pct": 35.1561,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 114154,
+        "rep_votes": 240347,
+        "other_votes": 4455,
+        "total_votes": 358956,
+        "margin_pct": 35.1556,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "congressional_president_2024.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 128013,
+        "rep_votes": 202514,
+        "other_votes": 4872,
+        "total_votes": 335399,
+        "margin_pct": 22.2126,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 128013,
+        "rep_votes": 202513,
+        "other_votes": 4872,
+        "total_votes": 335398,
+        "margin_pct": 22.2124,
+        "winner": "REP",
         "rating": null
       }
     },
@@ -1243,6 +1772,328 @@
         "total_votes": 134989,
         "margin_pct": -20.9884,
         "winner": "DEM",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "congressional_us_senate_2018.json",
+      "district": "2",
+      "before": {
+        "dem_votes": 108539,
+        "rep_votes": 148362,
+        "other_votes": 4207,
+        "total_votes": 261108,
+        "margin_pct": 15.2515,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 108540,
+        "rep_votes": 148362,
+        "other_votes": 4207,
+        "total_votes": 261109,
+        "margin_pct": 15.2511,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "congressional_us_senate_2018.json",
+      "district": "3",
+      "before": {
+        "dem_votes": 103864,
+        "rep_votes": 153351,
+        "other_votes": 3743,
+        "total_votes": 260958,
+        "margin_pct": 18.9636,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 103864,
+        "rep_votes": 153352,
+        "other_votes": 3743,
+        "total_votes": 260959,
+        "margin_pct": 18.9639,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "congressional_us_senate_2018.json",
+      "district": "5",
+      "before": {
+        "dem_votes": 133814,
+        "rep_votes": 133916,
+        "other_votes": 2595,
+        "total_votes": 270325,
+        "margin_pct": 0.0377,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 133812,
+        "rep_votes": 133914,
+        "other_votes": 2595,
+        "total_votes": 270321,
+        "margin_pct": 0.0377,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "congressional_us_senate_2018.json",
+      "district": "6",
+      "before": {
+        "dem_votes": 114831,
+        "rep_votes": 143906,
+        "other_votes": 3492,
+        "total_votes": 262229,
+        "margin_pct": 11.0876,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 114833,
+        "rep_votes": 143908,
+        "other_votes": 3492,
+        "total_votes": 262233,
+        "margin_pct": 11.0875,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "congressional_us_senate_2018.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 115354,
+        "rep_votes": 116498,
+        "other_votes": 3183,
+        "total_votes": 235035,
+        "margin_pct": 0.4867,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 115353,
+        "rep_votes": 116497,
+        "other_votes": 3183,
+        "total_votes": 235033,
+        "margin_pct": 0.4867,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "congressional_us_senate_2020.json",
+      "district": "3",
+      "before": {
+        "dem_votes": 106712,
+        "rep_votes": 226385,
+        "other_votes": 6542,
+        "total_votes": 339639,
+        "margin_pct": 35.2354,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 106712,
+        "rep_votes": 226386,
+        "other_votes": 6542,
+        "total_votes": 339640,
+        "margin_pct": 35.2355,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "congressional_us_senate_2020.json",
+      "district": "5",
+      "before": {
+        "dem_votes": 142129,
+        "rep_votes": 205896,
+        "other_votes": 9298,
+        "total_votes": 357323,
+        "margin_pct": 17.8458,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 142127,
+        "rep_votes": 205892,
+        "other_votes": 9298,
+        "total_votes": 357317,
+        "margin_pct": 17.8455,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "congressional_us_senate_2020.json",
+      "district": "6",
+      "before": {
+        "dem_votes": 108941,
+        "rep_votes": 215886,
+        "other_votes": 7925,
+        "total_votes": 332752,
+        "margin_pct": 32.1396,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 108943,
+        "rep_votes": 215890,
+        "other_votes": 7925,
+        "total_votes": 332758,
+        "margin_pct": 32.1396,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "congressional_us_senate_2020.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 122334,
+        "rep_votes": 184301,
+        "other_votes": 9239,
+        "total_votes": 315874,
+        "margin_pct": 19.6176,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 122333,
+        "rep_votes": 184300,
+        "other_votes": 9239,
+        "total_votes": 315872,
+        "margin_pct": 19.6178,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "congressional_us_senate_2020.json",
+      "district": "9",
+      "before": {
+        "dem_votes": 196486,
+        "rep_votes": 72693,
+        "other_votes": 8152,
+        "total_votes": 277331,
+        "margin_pct": -44.6373,
+        "winner": "DEM",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 196487,
+        "rep_votes": 72693,
+        "other_votes": 8152,
+        "total_votes": 277332,
+        "margin_pct": -44.6375,
+        "winner": "DEM",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "congressional_us_senate_2024.json",
+      "district": "3",
+      "before": {
+        "dem_votes": 111509,
+        "rep_votes": 237817,
+        "other_votes": 7201,
+        "total_votes": 356527,
+        "margin_pct": 35.4273,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 111509,
+        "rep_votes": 237818,
+        "other_votes": 7201,
+        "total_votes": 356528,
+        "margin_pct": 35.4275,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "congressional_us_senate_2024.json",
+      "district": "5",
+      "before": {
+        "dem_votes": 147848,
+        "rep_votes": 213400,
+        "other_votes": 7142,
+        "total_votes": 368390,
+        "margin_pct": 17.7942,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 147845,
+        "rep_votes": 213396,
+        "other_votes": 7142,
+        "total_votes": 368383,
+        "margin_pct": 17.7943,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "congressional_us_senate_2024.json",
+      "district": "6",
+      "before": {
+        "dem_votes": 113165,
+        "rep_votes": 229536,
+        "other_votes": 7120,
+        "total_votes": 349821,
+        "margin_pct": 33.2659,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 113168,
+        "rep_votes": 229540,
+        "other_votes": 7120,
+        "total_votes": 349828,
+        "margin_pct": 33.2655,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "congressional_us_senate_2024.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 124512,
+        "rep_votes": 196451,
+        "other_votes": 7414,
+        "total_votes": 328377,
+        "margin_pct": 21.9074,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 124512,
+        "rep_votes": 196450,
+        "other_votes": 7414,
+        "total_votes": 328376,
+        "margin_pct": 21.9072,
+        "winner": "REP",
         "rating": null
       }
     },
@@ -2691,6 +3542,1271 @@
         "other_votes": 586,
         "total_votes": 15662,
         "margin_pct": 65.1386,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_governor_2018.json",
+      "district": "2",
+      "before": {
+        "dem_votes": 5646,
+        "rep_votes": 18436,
+        "other_votes": 194,
+        "total_votes": 24276,
+        "margin_pct": 52.6858,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 5645,
+        "rep_votes": 18436,
+        "other_votes": 194,
+        "total_votes": 24275,
+        "margin_pct": 52.6921,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_governor_2018.json",
+      "district": "3",
+      "before": {
+        "dem_votes": 4317,
+        "rep_votes": 18378,
+        "other_votes": 184,
+        "total_votes": 22879,
+        "margin_pct": 61.4581,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 4318,
+        "rep_votes": 18379,
+        "other_votes": 184,
+        "total_votes": 22881,
+        "margin_pct": 61.4527,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_governor_2018.json",
+      "district": "7",
+      "before": {
+        "dem_votes": 6512,
+        "rep_votes": 14002,
+        "other_votes": 165,
+        "total_votes": 20679,
+        "margin_pct": 36.2203,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 6512,
+        "rep_votes": 14001,
+        "other_votes": 165,
+        "total_votes": 20678,
+        "margin_pct": 36.2172,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_governor_2018.json",
+      "district": "15",
+      "before": {
+        "dem_votes": 10811,
+        "rep_votes": 4341,
+        "other_votes": 366,
+        "total_votes": 15518,
+        "margin_pct": -41.6935,
+        "winner": "DEM",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 10810,
+        "rep_votes": 4341,
+        "other_votes": 366,
+        "total_votes": 15517,
+        "margin_pct": -41.6898,
+        "winner": "DEM",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_governor_2018.json",
+      "district": "18",
+      "before": {
+        "dem_votes": 12597,
+        "rep_votes": 15570,
+        "other_votes": 274,
+        "total_votes": 28441,
+        "margin_pct": 10.4532,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 12596,
+        "rep_votes": 15569,
+        "other_votes": 274,
+        "total_votes": 28439,
+        "margin_pct": 10.454,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_governor_2018.json",
+      "district": "19",
+      "before": {
+        "dem_votes": 5528,
+        "rep_votes": 15541,
+        "other_votes": 250,
+        "total_votes": 21319,
+        "margin_pct": 46.9675,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 5528,
+        "rep_votes": 15540,
+        "other_votes": 250,
+        "total_votes": 21318,
+        "margin_pct": 46.965,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_governor_2018.json",
+      "district": "21",
+      "before": {
+        "dem_votes": 5828,
+        "rep_votes": 18441,
+        "other_votes": 240,
+        "total_votes": 24509,
+        "margin_pct": 51.4627,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 5828,
+        "rep_votes": 18443,
+        "other_votes": 240,
+        "total_votes": 24511,
+        "margin_pct": 51.4667,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_governor_2018.json",
+      "district": "22",
+      "before": {
+        "dem_votes": 4528,
+        "rep_votes": 18213,
+        "other_votes": 207,
+        "total_votes": 22948,
+        "margin_pct": 59.6348,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 4527,
+        "rep_votes": 18206,
+        "other_votes": 207,
+        "total_votes": 22940,
+        "margin_pct": 59.6295,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_governor_2018.json",
+      "district": "24",
+      "before": {
+        "dem_votes": 5027,
+        "rep_votes": 15190,
+        "other_votes": 227,
+        "total_votes": 20444,
+        "margin_pct": 49.7114,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 5028,
+        "rep_votes": 15196,
+        "other_votes": 227,
+        "total_votes": 20451,
+        "margin_pct": 49.7188,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_governor_2018.json",
+      "district": "27",
+      "before": {
+        "dem_votes": 11127,
+        "rep_votes": 18249,
+        "other_votes": 236,
+        "total_votes": 29612,
+        "margin_pct": 24.0511,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 11124,
+        "rep_votes": 18248,
+        "other_votes": 236,
+        "total_votes": 29608,
+        "margin_pct": 24.0611,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_governor_2018.json",
+      "district": "28",
+      "before": {
+        "dem_votes": 17002,
+        "rep_votes": 4409,
+        "other_votes": 283,
+        "total_votes": 21694,
+        "margin_pct": -58.0483,
+        "winner": "DEM",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 17006,
+        "rep_votes": 4410,
+        "other_votes": 283,
+        "total_votes": 21699,
+        "margin_pct": -58.0488,
+        "winner": "DEM",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_governor_2018.json",
+      "district": "32",
+      "before": {
+        "dem_votes": 6688,
+        "rep_votes": 18387,
+        "other_votes": 273,
+        "total_votes": 25348,
+        "margin_pct": 46.1535,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 6687,
+        "rep_votes": 18386,
+        "other_votes": 273,
+        "total_votes": 25346,
+        "margin_pct": 46.1572,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_governor_2018.json",
+      "district": "33",
+      "before": {
+        "dem_votes": 8449,
+        "rep_votes": 13649,
+        "other_votes": 265,
+        "total_votes": 22363,
+        "margin_pct": 23.2527,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 8448,
+        "rep_votes": 13645,
+        "other_votes": 265,
+        "total_votes": 22358,
+        "margin_pct": 23.2445,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_governor_2018.json",
+      "district": "41",
+      "before": {
+        "dem_votes": 5355,
+        "rep_votes": 15329,
+        "other_votes": 216,
+        "total_votes": 20900,
+        "margin_pct": 47.7225,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 5357,
+        "rep_votes": 15333,
+        "other_votes": 216,
+        "total_votes": 20906,
+        "margin_pct": 47.7184,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_governor_2018.json",
+      "district": "50",
+      "before": {
+        "dem_votes": 14161,
+        "rep_votes": 13106,
+        "other_votes": 1023,
+        "total_votes": 28290,
+        "margin_pct": -3.7292,
+        "winner": "DEM",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 14144,
+        "rep_votes": 13095,
+        "other_votes": 1021,
+        "total_votes": 28260,
+        "margin_pct": -3.712,
+        "winner": "DEM",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_governor_2018.json",
+      "district": "54",
+      "before": {
+        "dem_votes": 21067,
+        "rep_votes": 4729,
+        "other_votes": 2513,
+        "total_votes": 28309,
+        "margin_pct": -57.7131,
+        "winner": "DEM",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 21079,
+        "rep_votes": 4740,
+        "other_votes": 2514,
+        "total_votes": 28333,
+        "margin_pct": -57.6677,
+        "winner": "DEM",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_governor_2018.json",
+      "district": "58",
+      "before": {
+        "dem_votes": 15769,
+        "rep_votes": 2177,
+        "other_votes": 1885,
+        "total_votes": 19831,
+        "margin_pct": -68.5392,
+        "winner": "DEM",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 15773,
+        "rep_votes": 2177,
+        "other_votes": 1885,
+        "total_votes": 19835,
+        "margin_pct": -68.5455,
+        "winner": "DEM",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_governor_2018.json",
+      "district": "59",
+      "before": {
+        "dem_votes": 14404,
+        "rep_votes": 14652,
+        "other_votes": 693,
+        "total_votes": 29749,
+        "margin_pct": 0.8336,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 14405,
+        "rep_votes": 14652,
+        "other_votes": 693,
+        "total_votes": 29750,
+        "margin_pct": 0.8303,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_governor_2018.json",
+      "district": "61",
+      "before": {
+        "dem_votes": 11865,
+        "rep_votes": 22107,
+        "other_votes": 757,
+        "total_votes": 34729,
+        "margin_pct": 29.4912,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 11865,
+        "rep_votes": 22106,
+        "other_votes": 757,
+        "total_votes": 34728,
+        "margin_pct": 29.4892,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_governor_2018.json",
+      "district": "65",
+      "before": {
+        "dem_votes": 9690,
+        "rep_votes": 19711,
+        "other_votes": 917,
+        "total_votes": 30318,
+        "margin_pct": 33.053,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 9690,
+        "rep_votes": 19712,
+        "other_votes": 917,
+        "total_votes": 30319,
+        "margin_pct": 33.0552,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_governor_2018.json",
+      "district": "67",
+      "before": {
+        "dem_votes": 8096,
+        "rep_votes": 6411,
+        "other_votes": 389,
+        "total_votes": 14896,
+        "margin_pct": -11.3118,
+        "winner": "DEM",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 8097,
+        "rep_votes": 6412,
+        "other_votes": 389,
+        "total_votes": 14898,
+        "margin_pct": -11.3102,
+        "winner": "DEM",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_governor_2018.json",
+      "district": "69",
+      "before": {
+        "dem_votes": 5682,
+        "rep_votes": 13882,
+        "other_votes": 142,
+        "total_votes": 19706,
+        "margin_pct": 41.6117,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 5684,
+        "rep_votes": 13889,
+        "other_votes": 142,
+        "total_votes": 19715,
+        "margin_pct": 41.6181,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_governor_2018.json",
+      "district": "75",
+      "before": {
+        "dem_votes": 6330,
+        "rep_votes": 6641,
+        "other_votes": 398,
+        "total_votes": 13369,
+        "margin_pct": 2.3263,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 6329,
+        "rep_votes": 6641,
+        "other_votes": 398,
+        "total_votes": 13368,
+        "margin_pct": 2.3339,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_governor_2018.json",
+      "district": "76",
+      "before": {
+        "dem_votes": 5578,
+        "rep_votes": 14855,
+        "other_votes": 244,
+        "total_votes": 20677,
+        "margin_pct": 44.8663,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 5577,
+        "rep_votes": 14851,
+        "other_votes": 244,
+        "total_votes": 20672,
+        "margin_pct": 44.8626,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_governor_2018.json",
+      "district": "78",
+      "before": {
+        "dem_votes": 7010,
+        "rep_votes": 15359,
+        "other_votes": 114,
+        "total_votes": 22483,
+        "margin_pct": 37.1347,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 7008,
+        "rep_votes": 15353,
+        "other_votes": 114,
+        "total_votes": 22475,
+        "margin_pct": 37.1301,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_governor_2018.json",
+      "district": "79",
+      "before": {
+        "dem_votes": 5395,
+        "rep_votes": 15456,
+        "other_votes": 237,
+        "total_votes": 21088,
+        "margin_pct": 47.7096,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 5396,
+        "rep_votes": 15460,
+        "other_votes": 237,
+        "total_votes": 21093,
+        "margin_pct": 47.7125,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_governor_2018.json",
+      "district": "80",
+      "before": {
+        "dem_votes": 10874,
+        "rep_votes": 7165,
+        "other_votes": 304,
+        "total_votes": 18343,
+        "margin_pct": -20.2202,
+        "winner": "DEM",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 10874,
+        "rep_votes": 7164,
+        "other_votes": 304,
+        "total_votes": 18342,
+        "margin_pct": -20.2268,
+        "winner": "DEM",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_governor_2018.json",
+      "district": "83",
+      "before": {
+        "dem_votes": 12403,
+        "rep_votes": 18656,
+        "other_votes": 356,
+        "total_votes": 31415,
+        "margin_pct": 19.9045,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 12406,
+        "rep_votes": 18656,
+        "other_votes": 357,
+        "total_votes": 31419,
+        "margin_pct": 19.8924,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_governor_2018.json",
+      "district": "84",
+      "before": {
+        "dem_votes": 12576,
+        "rep_votes": 1207,
+        "other_votes": 645,
+        "total_votes": 14428,
+        "margin_pct": -78.7982,
+        "winner": "DEM",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 12573,
+        "rep_votes": 1207,
+        "other_votes": 645,
+        "total_votes": 14425,
+        "margin_pct": -78.7938,
+        "winner": "DEM",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_governor_2018.json",
+      "district": "87",
+      "before": {
+        "dem_votes": 13269,
+        "rep_votes": 2008,
+        "other_votes": 757,
+        "total_votes": 16034,
+        "margin_pct": -70.232,
+        "winner": "DEM",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 13268,
+        "rep_votes": 2007,
+        "other_votes": 757,
+        "total_votes": 16032,
+        "margin_pct": -70.2408,
+        "winner": "DEM",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_governor_2018.json",
+      "district": "88",
+      "before": {
+        "dem_votes": 14358,
+        "rep_votes": 5531,
+        "other_votes": 691,
+        "total_votes": 20580,
+        "margin_pct": -42.8912,
+        "winner": "DEM",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 14358,
+        "rep_votes": 5530,
+        "other_votes": 691,
+        "total_votes": 20579,
+        "margin_pct": -42.8981,
+        "winner": "DEM",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_governor_2018.json",
+      "district": "89",
+      "before": {
+        "dem_votes": 8493,
+        "rep_votes": 15613,
+        "other_votes": 252,
+        "total_votes": 24358,
+        "margin_pct": 29.2306,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 8494,
+        "rep_votes": 15615,
+        "other_votes": 252,
+        "total_votes": 24361,
+        "margin_pct": 29.2311,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_governor_2018.json",
+      "district": "91",
+      "before": {
+        "dem_votes": 16806,
+        "rep_votes": 2975,
+        "other_votes": 831,
+        "total_votes": 20612,
+        "margin_pct": -67.1017,
+        "winner": "DEM",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 16807,
+        "rep_votes": 2976,
+        "other_votes": 831,
+        "total_votes": 20614,
+        "margin_pct": -67.0952,
+        "winner": "DEM",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_governor_2022.json",
+      "district": "18",
+      "before": {
+        "dem_votes": 9300,
+        "rep_votes": 12080,
+        "other_votes": 312,
+        "total_votes": 21692,
+        "margin_pct": 12.8158,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 9299,
+        "rep_votes": 12080,
+        "other_votes": 312,
+        "total_votes": 21691,
+        "margin_pct": 12.821,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_governor_2022.json",
+      "district": "19",
+      "before": {
+        "dem_votes": 4162,
+        "rep_votes": 13328,
+        "other_votes": 287,
+        "total_votes": 17777,
+        "margin_pct": 51.561,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 4162,
+        "rep_votes": 13327,
+        "other_votes": 287,
+        "total_votes": 17776,
+        "margin_pct": 51.5583,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_governor_2022.json",
+      "district": "21",
+      "before": {
+        "dem_votes": 3870,
+        "rep_votes": 17116,
+        "other_votes": 520,
+        "total_votes": 21506,
+        "margin_pct": 61.5921,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 3870,
+        "rep_votes": 17117,
+        "other_votes": 520,
+        "total_votes": 21507,
+        "margin_pct": 61.5939,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_governor_2022.json",
+      "district": "22",
+      "before": {
+        "dem_votes": 2440,
+        "rep_votes": 15444,
+        "other_votes": 352,
+        "total_votes": 18236,
+        "margin_pct": 71.3095,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 2439,
+        "rep_votes": 15440,
+        "other_votes": 352,
+        "total_votes": 18231,
+        "margin_pct": 71.3126,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_governor_2022.json",
+      "district": "24",
+      "before": {
+        "dem_votes": 2859,
+        "rep_votes": 11914,
+        "other_votes": 278,
+        "total_votes": 15051,
+        "margin_pct": 60.1621,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 2860,
+        "rep_votes": 11918,
+        "other_votes": 278,
+        "total_votes": 15056,
+        "margin_pct": 60.1621,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_governor_2022.json",
+      "district": "27",
+      "before": {
+        "dem_votes": 8523,
+        "rep_votes": 14898,
+        "other_votes": 373,
+        "total_votes": 23794,
+        "margin_pct": 26.7925,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 8521,
+        "rep_votes": 14896,
+        "other_votes": 373,
+        "total_votes": 23790,
+        "margin_pct": 26.797,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_governor_2022.json",
+      "district": "28",
+      "before": {
+        "dem_votes": 9967,
+        "rep_votes": 3717,
+        "other_votes": 299,
+        "total_votes": 13983,
+        "margin_pct": -44.6971,
+        "winner": "DEM",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 9969,
+        "rep_votes": 3719,
+        "other_votes": 299,
+        "total_votes": 13987,
+        "margin_pct": -44.6843,
+        "winner": "DEM",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_governor_2022.json",
+      "district": "32",
+      "before": {
+        "dem_votes": 4436,
+        "rep_votes": 15874,
+        "other_votes": 699,
+        "total_votes": 21009,
+        "margin_pct": 54.4433,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 4436,
+        "rep_votes": 15873,
+        "other_votes": 699,
+        "total_votes": 21008,
+        "margin_pct": 54.4412,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_governor_2022.json",
+      "district": "33",
+      "before": {
+        "dem_votes": 6170,
+        "rep_votes": 11627,
+        "other_votes": 391,
+        "total_votes": 18188,
+        "margin_pct": 30.0033,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 6170,
+        "rep_votes": 11624,
+        "other_votes": 391,
+        "total_votes": 18185,
+        "margin_pct": 29.9918,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_governor_2022.json",
+      "district": "41",
+      "before": {
+        "dem_votes": 2860,
+        "rep_votes": 14156,
+        "other_votes": 421,
+        "total_votes": 17437,
+        "margin_pct": 64.7818,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 2860,
+        "rep_votes": 14159,
+        "other_votes": 421,
+        "total_votes": 17440,
+        "margin_pct": 64.7878,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_governor_2022.json",
+      "district": "50",
+      "before": {
+        "dem_votes": 10803,
+        "rep_votes": 9347,
+        "other_votes": 379,
+        "total_votes": 20529,
+        "margin_pct": -7.0924,
+        "winner": "DEM",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 10792,
+        "rep_votes": 9339,
+        "other_votes": 379,
+        "total_votes": 20510,
+        "margin_pct": -7.0843,
+        "winner": "DEM",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_governor_2022.json",
+      "district": "54",
+      "before": {
+        "dem_votes": 12944,
+        "rep_votes": 2855,
+        "other_votes": 785,
+        "total_votes": 16584,
+        "margin_pct": -60.8357,
+        "winner": "DEM",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 12951,
+        "rep_votes": 2862,
+        "other_votes": 785,
+        "total_votes": 16598,
+        "margin_pct": -60.7844,
+        "winner": "DEM",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_governor_2022.json",
+      "district": "58",
+      "before": {
+        "dem_votes": 9784,
+        "rep_votes": 2060,
+        "other_votes": 541,
+        "total_votes": 12385,
+        "margin_pct": -62.3658,
+        "winner": "DEM",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 9788,
+        "rep_votes": 2061,
+        "other_votes": 541,
+        "total_votes": 12390,
+        "margin_pct": -62.3648,
+        "winner": "DEM",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_governor_2022.json",
+      "district": "61",
+      "before": {
+        "dem_votes": 8587,
+        "rep_votes": 17046,
+        "other_votes": 299,
+        "total_votes": 25932,
+        "margin_pct": 32.6199,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 8587,
+        "rep_votes": 17045,
+        "other_votes": 299,
+        "total_votes": 25931,
+        "margin_pct": 32.6173,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_governor_2022.json",
+      "district": "65",
+      "before": {
+        "dem_votes": 7285,
+        "rep_votes": 16860,
+        "other_votes": 392,
+        "total_votes": 24537,
+        "margin_pct": 39.0227,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 7285,
+        "rep_votes": 16861,
+        "other_votes": 392,
+        "total_votes": 24538,
+        "margin_pct": 39.0252,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_governor_2022.json",
+      "district": "69",
+      "before": {
+        "dem_votes": 3364,
+        "rep_votes": 12581,
+        "other_votes": 330,
+        "total_votes": 16275,
+        "margin_pct": 56.6329,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 3365,
+        "rep_votes": 12586,
+        "other_votes": 330,
+        "total_votes": 16281,
+        "margin_pct": 56.6366,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_governor_2022.json",
+      "district": "76",
+      "before": {
+        "dem_votes": 3135,
+        "rep_votes": 13275,
+        "other_votes": 439,
+        "total_votes": 16849,
+        "margin_pct": 60.1816,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 3134,
+        "rep_votes": 13272,
+        "other_votes": 439,
+        "total_votes": 16845,
+        "margin_pct": 60.184,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_governor_2022.json",
+      "district": "78",
+      "before": {
+        "dem_votes": 4770,
+        "rep_votes": 12998,
+        "other_votes": 348,
+        "total_votes": 18116,
+        "margin_pct": 45.4184,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 4769,
+        "rep_votes": 12993,
+        "other_votes": 348,
+        "total_votes": 18110,
+        "margin_pct": 45.4114,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_governor_2022.json",
+      "district": "79",
+      "before": {
+        "dem_votes": 3039,
+        "rep_votes": 12872,
+        "other_votes": 338,
+        "total_votes": 16249,
+        "margin_pct": 60.5145,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 3040,
+        "rep_votes": 12875,
+        "other_votes": 338,
+        "total_votes": 16253,
+        "margin_pct": 60.5119,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_governor_2022.json",
+      "district": "83",
+      "before": {
+        "dem_votes": 9094,
+        "rep_votes": 14911,
+        "other_votes": 331,
+        "total_votes": 24336,
+        "margin_pct": 23.9029,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 9095,
+        "rep_votes": 14911,
+        "other_votes": 331,
+        "total_votes": 24337,
+        "margin_pct": 23.8978,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_governor_2022.json",
+      "district": "84",
+      "before": {
+        "dem_votes": 6632,
+        "rep_votes": 1190,
+        "other_votes": 313,
+        "total_votes": 8135,
+        "margin_pct": -66.8961,
+        "winner": "DEM",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 6631,
+        "rep_votes": 1190,
+        "other_votes": 313,
+        "total_votes": 8134,
+        "margin_pct": -66.8921,
+        "winner": "DEM",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_governor_2022.json",
+      "district": "89",
+      "before": {
+        "dem_votes": 6520,
+        "rep_votes": 12738,
+        "other_votes": 315,
+        "total_votes": 19573,
+        "margin_pct": 31.7683,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 6521,
+        "rep_votes": 12739,
+        "other_votes": 315,
+        "total_votes": 19575,
+        "margin_pct": 31.765,
         "winner": "REP",
         "rating": null
       }
@@ -6952,6 +9068,1685 @@
     },
     {
       "mode": "2022_current",
+      "file": "state_house_president_2016.json",
+      "district": "2",
+      "before": {
+        "dem_votes": 5840,
+        "rep_votes": 20366,
+        "other_votes": 1258,
+        "total_votes": 27464,
+        "margin_pct": 52.8911,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 5840,
+        "rep_votes": 20365,
+        "other_votes": 1258,
+        "total_votes": 27463,
+        "margin_pct": 52.8893,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_president_2016.json",
+      "district": "3",
+      "before": {
+        "dem_votes": 4285,
+        "rep_votes": 21006,
+        "other_votes": 892,
+        "total_votes": 26183,
+        "margin_pct": 63.862,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 4285,
+        "rep_votes": 21007,
+        "other_votes": 892,
+        "total_votes": 26184,
+        "margin_pct": 63.8634,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_president_2016.json",
+      "district": "15",
+      "before": {
+        "dem_votes": 10699,
+        "rep_votes": 5036,
+        "other_votes": 1208,
+        "total_votes": 16943,
+        "margin_pct": -33.4238,
+        "winner": "DEM",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 10698,
+        "rep_votes": 5036,
+        "other_votes": 1208,
+        "total_votes": 16942,
+        "margin_pct": -33.4199,
+        "winner": "DEM",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_president_2016.json",
+      "district": "18",
+      "before": {
+        "dem_votes": 11488,
+        "rep_votes": 16556,
+        "other_votes": 2264,
+        "total_votes": 30308,
+        "margin_pct": 16.7217,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 11487,
+        "rep_votes": 16556,
+        "other_votes": 2264,
+        "total_votes": 30307,
+        "margin_pct": 16.7255,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_president_2016.json",
+      "district": "19",
+      "before": {
+        "dem_votes": 5001,
+        "rep_votes": 18052,
+        "other_votes": 1168,
+        "total_votes": 24221,
+        "margin_pct": 53.883,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 5001,
+        "rep_votes": 18051,
+        "other_votes": 1168,
+        "total_votes": 24220,
+        "margin_pct": 53.8811,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_president_2016.json",
+      "district": "21",
+      "before": {
+        "dem_votes": 5677,
+        "rep_votes": 20651,
+        "other_votes": 896,
+        "total_votes": 27224,
+        "margin_pct": 55.0029,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 5678,
+        "rep_votes": 20652,
+        "other_votes": 896,
+        "total_votes": 27226,
+        "margin_pct": 54.9989,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_president_2016.json",
+      "district": "22",
+      "before": {
+        "dem_votes": 4282,
+        "rep_votes": 20920,
+        "other_votes": 883,
+        "total_votes": 26085,
+        "margin_pct": 63.7838,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 4280,
+        "rep_votes": 20913,
+        "other_votes": 882,
+        "total_votes": 26075,
+        "margin_pct": 63.7891,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_president_2016.json",
+      "district": "24",
+      "before": {
+        "dem_votes": 4895,
+        "rep_votes": 17287,
+        "other_votes": 1237,
+        "total_votes": 23419,
+        "margin_pct": 52.9143,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 4897,
+        "rep_votes": 17294,
+        "other_votes": 1237,
+        "total_votes": 23428,
+        "margin_pct": 52.9153,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_president_2016.json",
+      "district": "26",
+      "before": {
+        "dem_votes": 10008,
+        "rep_votes": 19744,
+        "other_votes": 1982,
+        "total_votes": 31734,
+        "margin_pct": 30.68,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 10007,
+        "rep_votes": 19745,
+        "other_votes": 1983,
+        "total_votes": 31735,
+        "margin_pct": 30.6854,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_president_2016.json",
+      "district": "27",
+      "before": {
+        "dem_votes": 9923,
+        "rep_votes": 19155,
+        "other_votes": 2117,
+        "total_votes": 31195,
+        "margin_pct": 29.5945,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 9921,
+        "rep_votes": 19153,
+        "other_votes": 2116,
+        "total_votes": 31190,
+        "margin_pct": 29.5992,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_president_2016.json",
+      "district": "28",
+      "before": {
+        "dem_votes": 17889,
+        "rep_votes": 4541,
+        "other_votes": 1075,
+        "total_votes": 23505,
+        "margin_pct": -56.7879,
+        "winner": "DEM",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 17892,
+        "rep_votes": 4542,
+        "other_votes": 1075,
+        "total_votes": 23509,
+        "margin_pct": -56.7868,
+        "winner": "DEM",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_president_2016.json",
+      "district": "32",
+      "before": {
+        "dem_votes": 6274,
+        "rep_votes": 20851,
+        "other_votes": 1261,
+        "total_votes": 28386,
+        "margin_pct": 51.3528,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 6273,
+        "rep_votes": 20849,
+        "other_votes": 1261,
+        "total_votes": 28383,
+        "margin_pct": 51.3547,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_president_2016.json",
+      "district": "33",
+      "before": {
+        "dem_votes": 8060,
+        "rep_votes": 16060,
+        "other_votes": 1491,
+        "total_votes": 25611,
+        "margin_pct": 31.2366,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 8058,
+        "rep_votes": 16054,
+        "other_votes": 1490,
+        "total_votes": 25602,
+        "margin_pct": 31.2319,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_president_2016.json",
+      "district": "41",
+      "before": {
+        "dem_votes": 4742,
+        "rep_votes": 18847,
+        "other_votes": 773,
+        "total_votes": 24362,
+        "margin_pct": 57.8975,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 4743,
+        "rep_votes": 18852,
+        "other_votes": 773,
+        "total_votes": 24368,
+        "margin_pct": 57.8997,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_president_2016.json",
+      "district": "43",
+      "before": {
+        "dem_votes": 5380,
+        "rep_votes": 17211,
+        "other_votes": 845,
+        "total_votes": 23436,
+        "margin_pct": 50.4822,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 5380,
+        "rep_votes": 17211,
+        "other_votes": 846,
+        "total_votes": 23437,
+        "margin_pct": 50.48,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_president_2016.json",
+      "district": "46",
+      "before": {
+        "dem_votes": 6602,
+        "rep_votes": 17795,
+        "other_votes": 1290,
+        "total_votes": 25687,
+        "margin_pct": 43.5746,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 6603,
+        "rep_votes": 17795,
+        "other_votes": 1290,
+        "total_votes": 25688,
+        "margin_pct": 43.569,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_president_2016.json",
+      "district": "50",
+      "before": {
+        "dem_votes": 12140,
+        "rep_votes": 12952,
+        "other_votes": 1608,
+        "total_votes": 26700,
+        "margin_pct": 3.0412,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 12126,
+        "rep_votes": 12941,
+        "other_votes": 1606,
+        "total_votes": 26673,
+        "margin_pct": 3.0555,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_president_2016.json",
+      "district": "53",
+      "before": {
+        "dem_votes": 11726,
+        "rep_votes": 7939,
+        "other_votes": 1805,
+        "total_votes": 21470,
+        "margin_pct": -17.6386,
+        "winner": "DEM",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 11726,
+        "rep_votes": 7938,
+        "other_votes": 1805,
+        "total_votes": 21469,
+        "margin_pct": -17.644,
+        "winner": "DEM",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_president_2016.json",
+      "district": "54",
+      "before": {
+        "dem_votes": 20024,
+        "rep_votes": 4557,
+        "other_votes": 922,
+        "total_votes": 25503,
+        "margin_pct": -60.6478,
+        "winner": "DEM",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 20035,
+        "rep_votes": 4568,
+        "other_votes": 923,
+        "total_votes": 25526,
+        "margin_pct": -60.5931,
+        "winner": "DEM",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_president_2016.json",
+      "district": "56",
+      "before": {
+        "dem_votes": 17901,
+        "rep_votes": 9013,
+        "other_votes": 2487,
+        "total_votes": 29401,
+        "margin_pct": -30.2303,
+        "winner": "DEM",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 17901,
+        "rep_votes": 9014,
+        "other_votes": 2487,
+        "total_votes": 29402,
+        "margin_pct": -30.2258,
+        "winner": "DEM",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_president_2016.json",
+      "district": "58",
+      "before": {
+        "dem_votes": 15626,
+        "rep_votes": 1772,
+        "other_votes": 934,
+        "total_votes": 18332,
+        "margin_pct": -75.5728,
+        "winner": "DEM",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 15629,
+        "rep_votes": 1772,
+        "other_votes": 934,
+        "total_votes": 18335,
+        "margin_pct": -75.5768,
+        "winner": "DEM",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_president_2016.json",
+      "district": "59",
+      "before": {
+        "dem_votes": 16314,
+        "rep_votes": 17843,
+        "other_votes": 2432,
+        "total_votes": 36589,
+        "margin_pct": 4.1789,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 16314,
+        "rep_votes": 17844,
+        "other_votes": 2432,
+        "total_votes": 36590,
+        "margin_pct": 4.1815,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_president_2016.json",
+      "district": "61",
+      "before": {
+        "dem_votes": 10952,
+        "rep_votes": 22386,
+        "other_votes": 2319,
+        "total_votes": 35657,
+        "margin_pct": 32.0666,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 10951,
+        "rep_votes": 22386,
+        "other_votes": 2318,
+        "total_votes": 35655,
+        "margin_pct": 32.0712,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_president_2016.json",
+      "district": "64",
+      "before": {
+        "dem_votes": 7486,
+        "rep_votes": 16551,
+        "other_votes": 1165,
+        "total_votes": 25202,
+        "margin_pct": 35.9694,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 7487,
+        "rep_votes": 16551,
+        "other_votes": 1165,
+        "total_votes": 25203,
+        "margin_pct": 35.964,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_president_2016.json",
+      "district": "65",
+      "before": {
+        "dem_votes": 9070,
+        "rep_votes": 19524,
+        "other_votes": 2093,
+        "total_votes": 30687,
+        "margin_pct": 34.0665,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 9070,
+        "rep_votes": 19525,
+        "other_votes": 2093,
+        "total_votes": 30688,
+        "margin_pct": 34.0687,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_president_2016.json",
+      "district": "67",
+      "before": {
+        "dem_votes": 7952,
+        "rep_votes": 8049,
+        "other_votes": 1233,
+        "total_votes": 17234,
+        "margin_pct": 0.5628,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 7953,
+        "rep_votes": 8050,
+        "other_votes": 1233,
+        "total_votes": 17236,
+        "margin_pct": 0.5628,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_president_2016.json",
+      "district": "69",
+      "before": {
+        "dem_votes": 5161,
+        "rep_votes": 16231,
+        "other_votes": 810,
+        "total_votes": 22202,
+        "margin_pct": 49.8604,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 5163,
+        "rep_votes": 16238,
+        "other_votes": 811,
+        "total_votes": 22212,
+        "margin_pct": 49.8604,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_president_2016.json",
+      "district": "73",
+      "before": {
+        "dem_votes": 8740,
+        "rep_votes": 18733,
+        "other_votes": 1060,
+        "total_votes": 28533,
+        "margin_pct": 35.0226,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 8741,
+        "rep_votes": 18733,
+        "other_votes": 1060,
+        "total_votes": 28534,
+        "margin_pct": 35.0179,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_president_2016.json",
+      "district": "76",
+      "before": {
+        "dem_votes": 5868,
+        "rep_votes": 18490,
+        "other_votes": 776,
+        "total_votes": 25134,
+        "margin_pct": 50.2188,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 5866,
+        "rep_votes": 18485,
+        "other_votes": 776,
+        "total_votes": 25127,
+        "margin_pct": 50.2209,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_president_2016.json",
+      "district": "78",
+      "before": {
+        "dem_votes": 6153,
+        "rep_votes": 17579,
+        "other_votes": 1122,
+        "total_votes": 24854,
+        "margin_pct": 45.9725,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 6151,
+        "rep_votes": 17572,
+        "other_votes": 1121,
+        "total_votes": 24844,
+        "margin_pct": 45.9709,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_president_2016.json",
+      "district": "79",
+      "before": {
+        "dem_votes": 6016,
+        "rep_votes": 18500,
+        "other_votes": 709,
+        "total_votes": 25225,
+        "margin_pct": 49.4906,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 6017,
+        "rep_votes": 18505,
+        "other_votes": 710,
+        "total_votes": 25232,
+        "margin_pct": 49.4927,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_president_2016.json",
+      "district": "81",
+      "before": {
+        "dem_votes": 6783,
+        "rep_votes": 18096,
+        "other_votes": 819,
+        "total_votes": 25698,
+        "margin_pct": 44.0229,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 6783,
+        "rep_votes": 18095,
+        "other_votes": 819,
+        "total_votes": 25697,
+        "margin_pct": 44.0207,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_president_2016.json",
+      "district": "83",
+      "before": {
+        "dem_votes": 12875,
+        "rep_votes": 19607,
+        "other_votes": 1611,
+        "total_votes": 34093,
+        "margin_pct": 19.746,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 12878,
+        "rep_votes": 19607,
+        "other_votes": 1612,
+        "total_votes": 34097,
+        "margin_pct": 19.7349,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_president_2016.json",
+      "district": "84",
+      "before": {
+        "dem_votes": 16955,
+        "rep_votes": 1358,
+        "other_votes": 302,
+        "total_votes": 18615,
+        "margin_pct": -83.7873,
+        "winner": "DEM",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 16951,
+        "rep_votes": 1357,
+        "other_votes": 302,
+        "total_votes": 18610,
+        "margin_pct": -83.7937,
+        "winner": "DEM",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_president_2016.json",
+      "district": "87",
+      "before": {
+        "dem_votes": 17474,
+        "rep_votes": 2177,
+        "other_votes": 449,
+        "total_votes": 20100,
+        "margin_pct": -76.1045,
+        "winner": "DEM",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 17472,
+        "rep_votes": 2177,
+        "other_votes": 449,
+        "total_votes": 20098,
+        "margin_pct": -76.1021,
+        "winner": "DEM",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_president_2016.json",
+      "district": "89",
+      "before": {
+        "dem_votes": 7634,
+        "rep_votes": 17165,
+        "other_votes": 1828,
+        "total_votes": 26627,
+        "margin_pct": 35.7945,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 7635,
+        "rep_votes": 17167,
+        "other_votes": 1829,
+        "total_votes": 26631,
+        "margin_pct": 35.7929,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_president_2016.json",
+      "district": "91",
+      "before": {
+        "dem_votes": 21211,
+        "rep_votes": 2916,
+        "other_votes": 733,
+        "total_votes": 24860,
+        "margin_pct": -73.5921,
+        "winner": "DEM",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 21213,
+        "rep_votes": 2916,
+        "other_votes": 733,
+        "total_votes": 24862,
+        "margin_pct": -73.5942,
+        "winner": "DEM",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_president_2016.json",
+      "district": "99",
+      "before": {
+        "dem_votes": 9047,
+        "rep_votes": 21556,
+        "other_votes": 1377,
+        "total_votes": 31980,
+        "margin_pct": 39.1151,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 9048,
+        "rep_votes": 21556,
+        "other_votes": 1377,
+        "total_votes": 31981,
+        "margin_pct": 39.1107,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_president_2020.json",
+      "district": "3",
+      "before": {
+        "dem_votes": 5664,
+        "rep_votes": 25153,
+        "other_votes": 420,
+        "total_votes": 31237,
+        "margin_pct": 62.3908,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 5664,
+        "rep_votes": 25154,
+        "other_votes": 420,
+        "total_votes": 31238,
+        "margin_pct": 62.392,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_president_2020.json",
+      "district": "15",
+      "before": {
+        "dem_votes": 14321,
+        "rep_votes": 6014,
+        "other_votes": 552,
+        "total_votes": 20887,
+        "margin_pct": -39.7711,
+        "winner": "DEM",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 14320,
+        "rep_votes": 6014,
+        "other_votes": 552,
+        "total_votes": 20886,
+        "margin_pct": -39.7683,
+        "winner": "DEM",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_president_2020.json",
+      "district": "17",
+      "before": {
+        "dem_votes": 5603,
+        "rep_votes": 22681,
+        "other_votes": 546,
+        "total_votes": 28830,
+        "margin_pct": 59.2369,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 5603,
+        "rep_votes": 22680,
+        "other_votes": 546,
+        "total_votes": 28829,
+        "margin_pct": 59.2355,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_president_2020.json",
+      "district": "18",
+      "before": {
+        "dem_votes": 16372,
+        "rep_votes": 18660,
+        "other_votes": 749,
+        "total_votes": 35781,
+        "margin_pct": 6.3945,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 16370,
+        "rep_votes": 18659,
+        "other_votes": 749,
+        "total_votes": 35778,
+        "margin_pct": 6.3978,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_president_2020.json",
+      "district": "19",
+      "before": {
+        "dem_votes": 7591,
+        "rep_votes": 22425,
+        "other_votes": 501,
+        "total_votes": 30517,
+        "margin_pct": 48.609,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 7591,
+        "rep_votes": 22424,
+        "other_votes": 501,
+        "total_votes": 30516,
+        "margin_pct": 48.6073,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_president_2020.json",
+      "district": "21",
+      "before": {
+        "dem_votes": 7471,
+        "rep_votes": 25871,
+        "other_votes": 624,
+        "total_votes": 33966,
+        "margin_pct": 54.1718,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 7471,
+        "rep_votes": 25873,
+        "other_votes": 624,
+        "total_votes": 33968,
+        "margin_pct": 54.1745,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_president_2020.json",
+      "district": "22",
+      "before": {
+        "dem_votes": 5379,
+        "rep_votes": 26292,
+        "other_votes": 428,
+        "total_votes": 32099,
+        "margin_pct": 65.1516,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 5376,
+        "rep_votes": 26284,
+        "other_votes": 428,
+        "total_votes": 32088,
+        "margin_pct": 65.1583,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_president_2020.json",
+      "district": "24",
+      "before": {
+        "dem_votes": 6972,
+        "rep_votes": 20171,
+        "other_votes": 513,
+        "total_votes": 27656,
+        "margin_pct": 47.7256,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 6975,
+        "rep_votes": 20179,
+        "other_votes": 513,
+        "total_votes": 27667,
+        "margin_pct": 47.7247,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_president_2020.json",
+      "district": "27",
+      "before": {
+        "dem_votes": 14894,
+        "rep_votes": 22061,
+        "other_votes": 812,
+        "total_votes": 37767,
+        "margin_pct": 18.9769,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 14889,
+        "rep_votes": 22059,
+        "other_votes": 812,
+        "total_votes": 37760,
+        "margin_pct": 18.9883,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_president_2020.json",
+      "district": "28",
+      "before": {
+        "dem_votes": 21219,
+        "rep_votes": 5765,
+        "other_votes": 549,
+        "total_votes": 27533,
+        "margin_pct": -56.129,
+        "winner": "DEM",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 21224,
+        "rep_votes": 5768,
+        "other_votes": 549,
+        "total_votes": 27541,
+        "margin_pct": -56.12,
+        "winner": "DEM",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_president_2020.json",
+      "district": "32",
+      "before": {
+        "dem_votes": 8141,
+        "rep_votes": 25297,
+        "other_votes": 869,
+        "total_votes": 34307,
+        "margin_pct": 50.0073,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 8141,
+        "rep_votes": 25295,
+        "other_votes": 869,
+        "total_votes": 34305,
+        "margin_pct": 50.0044,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_president_2020.json",
+      "district": "33",
+      "before": {
+        "dem_votes": 10537,
+        "rep_votes": 19261,
+        "other_votes": 581,
+        "total_votes": 30379,
+        "margin_pct": 28.7172,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 10535,
+        "rep_votes": 19255,
+        "other_votes": 581,
+        "total_votes": 30371,
+        "margin_pct": 28.7116,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_president_2020.json",
+      "district": "41",
+      "before": {
+        "dem_votes": 5271,
+        "rep_votes": 24018,
+        "other_votes": 351,
+        "total_votes": 29640,
+        "margin_pct": 63.249,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 5273,
+        "rep_votes": 24025,
+        "other_votes": 351,
+        "total_votes": 29649,
+        "margin_pct": 63.2467,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_president_2020.json",
+      "district": "45",
+      "before": {
+        "dem_votes": 11301,
+        "rep_votes": 22547,
+        "other_votes": 589,
+        "total_votes": 34437,
+        "margin_pct": 32.6567,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 11301,
+        "rep_votes": 22546,
+        "other_votes": 589,
+        "total_votes": 34436,
+        "margin_pct": 32.6548,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_president_2020.json",
+      "district": "50",
+      "before": {
+        "dem_votes": 17152,
+        "rep_votes": 15090,
+        "other_votes": 942,
+        "total_votes": 33184,
+        "margin_pct": -6.2138,
+        "winner": "DEM",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 17133,
+        "rep_votes": 15077,
+        "other_votes": 941,
+        "total_votes": 33151,
+        "margin_pct": -6.2019,
+        "winner": "DEM",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_president_2020.json",
+      "district": "53",
+      "before": {
+        "dem_votes": 16939,
+        "rep_votes": 8994,
+        "other_votes": 928,
+        "total_votes": 26861,
+        "margin_pct": -29.5782,
+        "winner": "DEM",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 16938,
+        "rep_votes": 8994,
+        "other_votes": 928,
+        "total_votes": 26860,
+        "margin_pct": -29.5756,
+        "winner": "DEM",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_president_2020.json",
+      "district": "54",
+      "before": {
+        "dem_votes": 24612,
+        "rep_votes": 5335,
+        "other_votes": 1174,
+        "total_votes": 31121,
+        "margin_pct": -61.9421,
+        "winner": "DEM",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 24627,
+        "rep_votes": 5347,
+        "other_votes": 1175,
+        "total_votes": 31149,
+        "margin_pct": -61.896,
+        "winner": "DEM",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_president_2020.json",
+      "district": "56",
+      "before": {
+        "dem_votes": 24045,
+        "rep_votes": 11410,
+        "other_votes": 791,
+        "total_votes": 36246,
+        "margin_pct": -34.859,
+        "winner": "DEM",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 24046,
+        "rep_votes": 11410,
+        "other_votes": 791,
+        "total_votes": 36247,
+        "margin_pct": -34.8608,
+        "winner": "DEM",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_president_2020.json",
+      "district": "58",
+      "before": {
+        "dem_votes": 20691,
+        "rep_votes": 3940,
+        "other_votes": 1056,
+        "total_votes": 25687,
+        "margin_pct": -65.212,
+        "winner": "DEM",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 20695,
+        "rep_votes": 3940,
+        "other_votes": 1056,
+        "total_votes": 25691,
+        "margin_pct": -65.2174,
+        "winner": "DEM",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_president_2020.json",
+      "district": "59",
+      "before": {
+        "dem_votes": 20839,
+        "rep_votes": 19814,
+        "other_votes": 934,
+        "total_votes": 41587,
+        "margin_pct": -2.4647,
+        "winner": "DEM",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 20840,
+        "rep_votes": 19814,
+        "other_votes": 934,
+        "total_votes": 41588,
+        "margin_pct": -2.4671,
+        "winner": "DEM",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_president_2020.json",
+      "district": "61",
+      "before": {
+        "dem_votes": 16659,
+        "rep_votes": 25593,
+        "other_votes": 704,
+        "total_votes": 42956,
+        "margin_pct": 20.798,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 16658,
+        "rep_votes": 25592,
+        "other_votes": 704,
+        "total_votes": 42954,
+        "margin_pct": 20.799,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_president_2020.json",
+      "district": "65",
+      "before": {
+        "dem_votes": 13842,
+        "rep_votes": 24967,
+        "other_votes": 700,
+        "total_votes": 39509,
+        "margin_pct": 28.1581,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 13842,
+        "rep_votes": 24968,
+        "other_votes": 700,
+        "total_votes": 39510,
+        "margin_pct": 28.16,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_president_2020.json",
+      "district": "67",
+      "before": {
+        "dem_votes": 12021,
+        "rep_votes": 10463,
+        "other_votes": 749,
+        "total_votes": 23233,
+        "margin_pct": -6.706,
+        "winner": "DEM",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 12022,
+        "rep_votes": 10464,
+        "other_votes": 749,
+        "total_votes": 23235,
+        "margin_pct": -6.7054,
+        "winner": "DEM",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_president_2020.json",
+      "district": "69",
+      "before": {
+        "dem_votes": 6279,
+        "rep_votes": 21388,
+        "other_votes": 507,
+        "total_votes": 28174,
+        "margin_pct": 53.6275,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 6282,
+        "rep_votes": 21398,
+        "other_votes": 507,
+        "total_votes": 28187,
+        "margin_pct": 53.6276,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_president_2020.json",
+      "district": "74",
+      "before": {
+        "dem_votes": 6912,
+        "rep_votes": 23447,
+        "other_votes": 460,
+        "total_votes": 30819,
+        "margin_pct": 53.652,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 6912,
+        "rep_votes": 23446,
+        "other_votes": 460,
+        "total_votes": 30818,
+        "margin_pct": 53.6505,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_president_2020.json",
+      "district": "75",
+      "before": {
+        "dem_votes": 9361,
+        "rep_votes": 10448,
+        "other_votes": 677,
+        "total_votes": 20486,
+        "margin_pct": 5.3061,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 9360,
+        "rep_votes": 10447,
+        "other_votes": 677,
+        "total_votes": 20484,
+        "margin_pct": 5.3066,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_president_2020.json",
+      "district": "76",
+      "before": {
+        "dem_votes": 6450,
+        "rep_votes": 21697,
+        "other_votes": 551,
+        "total_votes": 28698,
+        "margin_pct": 53.1291,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 6448,
+        "rep_votes": 21690,
+        "other_votes": 551,
+        "total_votes": 28689,
+        "margin_pct": 53.1284,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_president_2020.json",
+      "district": "78",
+      "before": {
+        "dem_votes": 8543,
+        "rep_votes": 22744,
+        "other_votes": 577,
+        "total_votes": 31864,
+        "margin_pct": 44.5675,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 8540,
+        "rep_votes": 22734,
+        "other_votes": 577,
+        "total_votes": 31851,
+        "margin_pct": 44.5637,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_president_2020.json",
+      "district": "79",
+      "before": {
+        "dem_votes": 6795,
+        "rep_votes": 21792,
+        "other_votes": 367,
+        "total_votes": 28954,
+        "margin_pct": 51.796,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 6796,
+        "rep_votes": 21799,
+        "other_votes": 368,
+        "total_votes": 28963,
+        "margin_pct": 51.8006,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_president_2020.json",
+      "district": "83",
+      "before": {
+        "dem_votes": 18020,
+        "rep_votes": 20925,
+        "other_votes": 582,
+        "total_votes": 39527,
+        "margin_pct": 7.3494,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 18024,
+        "rep_votes": 20925,
+        "other_votes": 582,
+        "total_votes": 39531,
+        "margin_pct": 7.3385,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_president_2020.json",
+      "district": "84",
+      "before": {
+        "dem_votes": 17789,
+        "rep_votes": 1703,
+        "other_votes": 285,
+        "total_votes": 19777,
+        "margin_pct": -81.3369,
+        "winner": "DEM",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 17786,
+        "rep_votes": 1703,
+        "other_votes": 285,
+        "total_votes": 19774,
+        "margin_pct": -81.3341,
+        "winner": "DEM",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_president_2020.json",
+      "district": "87",
+      "before": {
+        "dem_votes": 18573,
+        "rep_votes": 2570,
+        "other_votes": 362,
+        "total_votes": 21505,
+        "margin_pct": -74.4153,
+        "winner": "DEM",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 18572,
+        "rep_votes": 2570,
+        "other_votes": 362,
+        "total_votes": 21504,
+        "margin_pct": -74.4141,
+        "winner": "DEM",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_president_2020.json",
+      "district": "89",
+      "before": {
+        "dem_votes": 11959,
+        "rep_votes": 20652,
+        "other_votes": 692,
+        "total_votes": 33303,
+        "margin_pct": 26.1028,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 11961,
+        "rep_votes": 20654,
+        "other_votes": 692,
+        "total_votes": 33307,
+        "margin_pct": 26.0996,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_president_2020.json",
+      "district": "90",
+      "before": {
+        "dem_votes": 15069,
+        "rep_votes": 10682,
+        "other_votes": 672,
+        "total_votes": 26423,
+        "margin_pct": -16.603,
+        "winner": "DEM",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 15070,
+        "rep_votes": 10683,
+        "other_votes": 671,
+        "total_votes": 26424,
+        "margin_pct": -16.6023,
+        "winner": "DEM",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_president_2020.json",
+      "district": "91",
+      "before": {
+        "dem_votes": 22394,
+        "rep_votes": 3463,
+        "other_votes": 456,
+        "total_votes": 26313,
+        "margin_pct": -71.9454,
+        "winner": "DEM",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 22395,
+        "rep_votes": 3463,
+        "other_votes": 456,
+        "total_votes": 26314,
+        "margin_pct": -71.9465,
+        "winner": "DEM",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
       "file": "state_house_president_2024.json",
       "district": "1",
       "before": {
@@ -6988,10 +10783,10 @@
       },
       "after": {
         "dem_votes": 7590,
-        "rep_votes": 24651,
+        "rep_votes": 24650,
         "other_votes": 325,
-        "total_votes": 32566,
-        "margin_pct": 52.389,
+        "total_votes": 32565,
+        "margin_pct": 52.3875,
         "winner": "REP",
         "rating": null
       }
@@ -7011,10 +10806,10 @@
       },
       "after": {
         "dem_votes": 5552,
-        "rep_votes": 26912,
+        "rep_votes": 26913,
         "other_votes": 277,
-        "total_votes": 32741,
-        "margin_pct": 65.2393,
+        "total_votes": 32742,
+        "margin_pct": 65.2404,
         "winner": "REP",
         "rating": null
       }
@@ -7240,11 +11035,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 12014,
+        "dem_votes": 12013,
         "rep_votes": 5931,
         "other_votes": 401,
-        "total_votes": 18346,
-        "margin_pct": -33.1571,
+        "total_votes": 18345,
+        "margin_pct": -33.1534,
         "winner": "DEM",
         "rating": null
       }
@@ -7286,11 +11081,34 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 15474,
-        "rep_votes": 18800,
+        "dem_votes": 15472,
+        "rep_votes": 18799,
         "other_votes": 606,
-        "total_votes": 34880,
-        "margin_pct": 9.5356,
+        "total_votes": 34877,
+        "margin_pct": 9.5392,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_president_2024.json",
+      "district": "19",
+      "before": {
+        "dem_votes": 8032,
+        "rep_votes": 25062,
+        "other_votes": 396,
+        "total_votes": 33490,
+        "margin_pct": 50.851,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 8032,
+        "rep_votes": 25061,
+        "other_votes": 396,
+        "total_votes": 33489,
+        "margin_pct": 50.8495,
         "winner": "REP",
         "rating": null
       }
@@ -7332,11 +11150,34 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 7796,
-        "rep_votes": 29480,
+        "dem_votes": 7797,
+        "rep_votes": 29482,
         "other_votes": 366,
-        "total_votes": 37642,
-        "margin_pct": 57.6059,
+        "total_votes": 37645,
+        "margin_pct": 57.6039,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_president_2024.json",
+      "district": "22",
+      "before": {
+        "dem_votes": 5316,
+        "rep_votes": 29225,
+        "other_votes": 316,
+        "total_votes": 34857,
+        "margin_pct": 68.5917,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 5315,
+        "rep_votes": 29215,
+        "other_votes": 316,
+        "total_votes": 34846,
+        "margin_pct": 68.5875,
         "winner": "REP",
         "rating": null
       }
@@ -7360,6 +11201,29 @@
         "other_votes": 247,
         "total_votes": 30742,
         "margin_pct": 66.5116,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_president_2024.json",
+      "district": "24",
+      "before": {
+        "dem_votes": 6860,
+        "rep_votes": 21998,
+        "other_votes": 357,
+        "total_votes": 29215,
+        "margin_pct": 51.8158,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 6861,
+        "rep_votes": 22008,
+        "other_votes": 357,
+        "total_votes": 29226,
+        "margin_pct": 51.8271,
         "winner": "REP",
         "rating": null
       }
@@ -7401,11 +11265,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 14681,
-        "rep_votes": 24206,
+        "dem_votes": 14680,
+        "rep_votes": 24205,
         "other_votes": 628,
-        "total_votes": 39515,
-        "margin_pct": 24.1048,
+        "total_votes": 39513,
+        "margin_pct": 24.106,
         "winner": "REP",
         "rating": null
       }
@@ -7424,11 +11288,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 15372,
-        "rep_votes": 23122,
+        "dem_votes": 15370,
+        "rep_votes": 23121,
         "other_votes": 654,
-        "total_votes": 39148,
-        "margin_pct": 19.7967,
+        "total_votes": 39145,
+        "margin_pct": 19.8007,
         "winner": "REP",
         "rating": null
       }
@@ -7447,11 +11311,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 18944,
-        "rep_votes": 6377,
+        "dem_votes": 18947,
+        "rep_votes": 6379,
         "other_votes": 446,
-        "total_votes": 25767,
-        "margin_pct": -48.7717,
+        "total_votes": 25772,
+        "margin_pct": -48.7661,
         "winner": "DEM",
         "rating": null
       }
@@ -7516,11 +11380,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 8417,
-        "rep_votes": 28006,
+        "dem_votes": 8416,
+        "rep_votes": 28004,
         "other_votes": 442,
-        "total_votes": 36865,
-        "margin_pct": 53.1371,
+        "total_votes": 36862,
+        "margin_pct": 53.1387,
         "winner": "REP",
         "rating": null
       }
@@ -7539,11 +11403,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 10396,
-        "rep_votes": 20311,
+        "dem_votes": 10394,
+        "rep_votes": 20306,
         "other_votes": 400,
-        "total_votes": 31107,
-        "margin_pct": 31.8739,
+        "total_votes": 31100,
+        "margin_pct": 31.8714,
         "winner": "REP",
         "rating": null
       }
@@ -7677,11 +11541,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 4914,
-        "rep_votes": 26708,
+        "dem_votes": 4916,
+        "rep_votes": 26713,
         "other_votes": 264,
-        "total_votes": 31886,
-        "margin_pct": 68.3497,
+        "total_votes": 31893,
+        "margin_pct": 68.3442,
         "winner": "REP",
         "rating": null
       }
@@ -7838,11 +11702,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 16784,
-        "rep_votes": 15331,
+        "dem_votes": 16765,
+        "rep_votes": 15317,
         "other_votes": 672,
-        "total_votes": 32787,
-        "margin_pct": -4.4316,
+        "total_votes": 32754,
+        "margin_pct": -4.4208,
         "winner": "DEM",
         "rating": null
       }
@@ -7907,11 +11771,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 13808,
-        "rep_votes": 8594,
+        "dem_votes": 13807,
+        "rep_votes": 8593,
         "other_votes": 533,
-        "total_votes": 22935,
-        "margin_pct": -22.7338,
+        "total_votes": 22933,
+        "margin_pct": -22.7358,
         "winner": "DEM",
         "rating": null
       }
@@ -7930,11 +11794,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 22542,
-        "rep_votes": 5238,
+        "dem_votes": 22556,
+        "rep_votes": 5250,
         "other_votes": 552,
-        "total_votes": 28332,
-        "margin_pct": -61.0758,
+        "total_votes": 28358,
+        "margin_pct": -61.0269,
         "winner": "DEM",
         "rating": null
       }
@@ -7976,11 +11840,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 22169,
+        "dem_votes": 22170,
         "rep_votes": 11934,
         "other_votes": 642,
-        "total_votes": 34745,
-        "margin_pct": -29.4575,
+        "total_votes": 34746,
+        "margin_pct": -29.4595,
         "winner": "DEM",
         "rating": null
       }
@@ -8022,11 +11886,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 17802,
-        "rep_votes": 5057,
+        "dem_votes": 17806,
+        "rep_votes": 5059,
         "other_votes": 516,
-        "total_votes": 23375,
-        "margin_pct": -54.5241,
+        "total_votes": 23381,
+        "margin_pct": -54.5186,
         "winner": "DEM",
         "rating": null
       }
@@ -8045,11 +11909,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 20918,
-        "rep_votes": 19927,
+        "dem_votes": 20919,
+        "rep_votes": 19928,
         "other_votes": 882,
-        "total_votes": 41727,
-        "margin_pct": -2.375,
+        "total_votes": 41729,
+        "margin_pct": -2.3748,
         "winner": "DEM",
         "rating": null
       }
@@ -8091,11 +11955,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 15062,
-        "rep_votes": 25756,
+        "dem_votes": 15061,
+        "rep_votes": 25755,
         "other_votes": 740,
-        "total_votes": 41558,
-        "margin_pct": 25.7327,
+        "total_votes": 41556,
+        "margin_pct": 25.7339,
         "winner": "REP",
         "rating": null
       }
@@ -8183,11 +12047,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 13322,
-        "rep_votes": 27575,
+        "dem_votes": 13323,
+        "rep_votes": 27576,
         "other_votes": 653,
-        "total_votes": 41550,
-        "margin_pct": 34.3032,
+        "total_votes": 41552,
+        "margin_pct": 34.3016,
         "winner": "REP",
         "rating": null
       }
@@ -8206,11 +12070,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 11645,
-        "rep_votes": 12084,
+        "dem_votes": 11646,
+        "rep_votes": 12085,
         "other_votes": 404,
-        "total_votes": 24133,
-        "margin_pct": 1.8191,
+        "total_votes": 24135,
+        "margin_pct": 1.8189,
         "winner": "REP",
         "rating": null
       }
@@ -8252,11 +12116,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 5899,
-        "rep_votes": 23200,
+        "dem_votes": 5901,
+        "rep_votes": 23209,
         "other_votes": 260,
-        "total_votes": 29359,
-        "margin_pct": 58.9291,
+        "total_votes": 29370,
+        "margin_pct": 58.9309,
         "winner": "REP",
         "rating": null
       }
@@ -8390,11 +12254,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 9217,
-        "rep_votes": 11924,
+        "dem_votes": 9216,
+        "rep_votes": 11923,
         "other_votes": 338,
-        "total_votes": 21479,
-        "margin_pct": 12.603,
+        "total_votes": 21477,
+        "margin_pct": 12.6042,
         "winner": "REP",
         "rating": null
       }
@@ -8413,11 +12277,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 5815,
-        "rep_votes": 22229,
+        "dem_votes": 5813,
+        "rep_votes": 22223,
         "other_votes": 273,
-        "total_votes": 28317,
-        "margin_pct": 57.9652,
+        "total_votes": 28309,
+        "margin_pct": 57.9674,
         "winner": "REP",
         "rating": null
       }
@@ -8459,11 +12323,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 8437,
-        "rep_votes": 23906,
+        "dem_votes": 8435,
+        "rep_votes": 23897,
         "other_votes": 442,
-        "total_votes": 32785,
-        "margin_pct": 47.1832,
+        "total_votes": 32774,
+        "margin_pct": 47.1776,
         "winner": "REP",
         "rating": null
       }
@@ -8482,11 +12346,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 5984,
-        "rep_votes": 21994,
+        "dem_votes": 5986,
+        "rep_votes": 22000,
         "other_votes": 232,
-        "total_votes": 28210,
-        "margin_pct": 56.7529,
+        "total_votes": 28218,
+        "margin_pct": 56.751,
         "winner": "REP",
         "rating": null
       }
@@ -8574,11 +12438,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 15785,
+        "dem_votes": 15788,
         "rep_votes": 18596,
         "other_votes": 703,
-        "total_votes": 35084,
-        "margin_pct": 8.0122,
+        "total_votes": 35087,
+        "margin_pct": 8.003,
         "winner": "REP",
         "rating": null
       }
@@ -8597,11 +12461,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 13669,
+        "dem_votes": 13666,
         "rep_votes": 1770,
         "other_votes": 255,
-        "total_votes": 15694,
-        "margin_pct": -75.8188,
+        "total_votes": 15691,
+        "margin_pct": -75.8142,
         "winner": "DEM",
         "rating": null
       }
@@ -8666,11 +12530,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 14851,
+        "dem_votes": 14850,
         "rep_votes": 2762,
         "other_votes": 348,
-        "total_votes": 17961,
-        "margin_pct": -67.3069,
+        "total_votes": 17960,
+        "margin_pct": -67.3051,
         "winner": "DEM",
         "rating": null
       }
@@ -8712,11 +12576,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 12635,
-        "rep_votes": 22892,
+        "dem_votes": 12637,
+        "rep_votes": 22894,
         "other_votes": 541,
-        "total_votes": 36068,
-        "margin_pct": 28.438,
+        "total_votes": 36072,
+        "margin_pct": 28.4348,
         "winner": "REP",
         "rating": null
       }
@@ -8735,11 +12599,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 13628,
+        "dem_votes": 13629,
         "rep_votes": 10300,
         "other_votes": 507,
-        "total_votes": 24435,
-        "margin_pct": -13.6198,
+        "total_votes": 24436,
+        "margin_pct": -13.6233,
         "winner": "DEM",
         "rating": null
       }
@@ -8758,11 +12622,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 17686,
+        "dem_votes": 17687,
         "rep_votes": 2959,
         "other_votes": 429,
-        "total_votes": 21074,
-        "margin_pct": -69.8823,
+        "total_votes": 21075,
+        "margin_pct": -69.8837,
         "winner": "DEM",
         "rating": null
       }
@@ -14749,6 +18613,1570 @@
     },
     {
       "mode": "2022_current",
+      "file": "state_house_us_senate_2018.json",
+      "district": "2",
+      "before": {
+        "dem_votes": 7022,
+        "rep_votes": 17043,
+        "other_votes": 242,
+        "total_votes": 24307,
+        "margin_pct": 41.2268,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 7022,
+        "rep_votes": 17042,
+        "other_votes": 242,
+        "total_votes": 24306,
+        "margin_pct": 41.2244,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_us_senate_2018.json",
+      "district": "3",
+      "before": {
+        "dem_votes": 5453,
+        "rep_votes": 17252,
+        "other_votes": 245,
+        "total_votes": 22950,
+        "margin_pct": 51.4118,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 5454,
+        "rep_votes": 17253,
+        "other_votes": 245,
+        "total_votes": 22952,
+        "margin_pct": 51.4073,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_us_senate_2018.json",
+      "district": "15",
+      "before": {
+        "dem_votes": 11751,
+        "rep_votes": 3543,
+        "other_votes": 281,
+        "total_votes": 15575,
+        "margin_pct": -52.6998,
+        "winner": "DEM",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 11750,
+        "rep_votes": 3543,
+        "other_votes": 281,
+        "total_votes": 15574,
+        "margin_pct": -52.6968,
+        "winner": "DEM",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_us_senate_2018.json",
+      "district": "18",
+      "before": {
+        "dem_votes": 14543,
+        "rep_votes": 13474,
+        "other_votes": 364,
+        "total_votes": 28381,
+        "margin_pct": -3.7666,
+        "winner": "DEM",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 14541,
+        "rep_votes": 13473,
+        "other_votes": 364,
+        "total_votes": 28378,
+        "margin_pct": -3.7635,
+        "winner": "DEM",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_us_senate_2018.json",
+      "district": "19",
+      "before": {
+        "dem_votes": 6718,
+        "rep_votes": 14151,
+        "other_votes": 385,
+        "total_votes": 21254,
+        "margin_pct": 34.9722,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 6718,
+        "rep_votes": 14150,
+        "other_votes": 385,
+        "total_votes": 21253,
+        "margin_pct": 34.9692,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_us_senate_2018.json",
+      "district": "21",
+      "before": {
+        "dem_votes": 7121,
+        "rep_votes": 16858,
+        "other_votes": 503,
+        "total_votes": 24482,
+        "margin_pct": 39.7721,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 7121,
+        "rep_votes": 16859,
+        "other_votes": 503,
+        "total_votes": 24483,
+        "margin_pct": 39.7745,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_us_senate_2018.json",
+      "district": "22",
+      "before": {
+        "dem_votes": 5408,
+        "rep_votes": 17238,
+        "other_votes": 343,
+        "total_votes": 22989,
+        "margin_pct": 51.4594,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 5406,
+        "rep_votes": 17233,
+        "other_votes": 343,
+        "total_votes": 22982,
+        "margin_pct": 51.462,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_us_senate_2018.json",
+      "district": "24",
+      "before": {
+        "dem_votes": 6246,
+        "rep_votes": 14016,
+        "other_votes": 316,
+        "total_votes": 20578,
+        "margin_pct": 37.7588,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 6249,
+        "rep_votes": 14022,
+        "other_votes": 316,
+        "total_votes": 20587,
+        "margin_pct": 37.7568,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_us_senate_2018.json",
+      "district": "26",
+      "before": {
+        "dem_votes": 12724,
+        "rep_votes": 16897,
+        "other_votes": 313,
+        "total_votes": 29934,
+        "margin_pct": 13.9407,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 12724,
+        "rep_votes": 16896,
+        "other_votes": 313,
+        "total_votes": 29933,
+        "margin_pct": 13.9378,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_us_senate_2018.json",
+      "district": "27",
+      "before": {
+        "dem_votes": 13060,
+        "rep_votes": 16238,
+        "other_votes": 317,
+        "total_votes": 29615,
+        "margin_pct": 10.731,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 13057,
+        "rep_votes": 16238,
+        "other_votes": 317,
+        "total_votes": 29612,
+        "margin_pct": 10.7423,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_us_senate_2018.json",
+      "district": "28",
+      "before": {
+        "dem_votes": 17861,
+        "rep_votes": 3775,
+        "other_votes": 243,
+        "total_votes": 21879,
+        "margin_pct": -64.3814,
+        "winner": "DEM",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 17865,
+        "rep_votes": 3777,
+        "other_votes": 243,
+        "total_votes": 21885,
+        "margin_pct": -64.3729,
+        "winner": "DEM",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_us_senate_2018.json",
+      "district": "32",
+      "before": {
+        "dem_votes": 8049,
+        "rep_votes": 16840,
+        "other_votes": 492,
+        "total_votes": 25381,
+        "margin_pct": 34.6361,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 8049,
+        "rep_votes": 16839,
+        "other_votes": 492,
+        "total_votes": 25380,
+        "margin_pct": 34.6336,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_us_senate_2018.json",
+      "district": "33",
+      "before": {
+        "dem_votes": 9639,
+        "rep_votes": 12292,
+        "other_votes": 410,
+        "total_votes": 22341,
+        "margin_pct": 11.875,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 9638,
+        "rep_votes": 12288,
+        "other_votes": 410,
+        "total_votes": 22336,
+        "margin_pct": 11.8643,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_us_senate_2018.json",
+      "district": "41",
+      "before": {
+        "dem_votes": 6111,
+        "rep_votes": 14367,
+        "other_votes": 391,
+        "total_votes": 20869,
+        "margin_pct": 39.5611,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 6113,
+        "rep_votes": 14371,
+        "other_votes": 391,
+        "total_votes": 20875,
+        "margin_pct": 39.5593,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_us_senate_2018.json",
+      "district": "50",
+      "before": {
+        "dem_votes": 15969,
+        "rep_votes": 11953,
+        "other_votes": 235,
+        "total_votes": 28157,
+        "margin_pct": -14.2629,
+        "winner": "DEM",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 15950,
+        "rep_votes": 11943,
+        "other_votes": 234,
+        "total_votes": 28127,
+        "margin_pct": -14.2461,
+        "winner": "DEM",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_us_senate_2018.json",
+      "district": "53",
+      "before": {
+        "dem_votes": 16118,
+        "rep_votes": 7285,
+        "other_votes": 265,
+        "total_votes": 23668,
+        "margin_pct": -37.3204,
+        "winner": "DEM",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 16117,
+        "rep_votes": 7285,
+        "other_votes": 265,
+        "total_votes": 23667,
+        "margin_pct": -37.3178,
+        "winner": "DEM",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_us_senate_2018.json",
+      "district": "54",
+      "before": {
+        "dem_votes": 23906,
+        "rep_votes": 4203,
+        "other_votes": 256,
+        "total_votes": 28365,
+        "margin_pct": -69.4624,
+        "winner": "DEM",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 23921,
+        "rep_votes": 4213,
+        "other_votes": 256,
+        "total_votes": 28390,
+        "margin_pct": -69.4188,
+        "winner": "DEM",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_us_senate_2018.json",
+      "district": "58",
+      "before": {
+        "dem_votes": 17956,
+        "rep_votes": 1763,
+        "other_votes": 196,
+        "total_votes": 19915,
+        "margin_pct": -81.3106,
+        "winner": "DEM",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 17960,
+        "rep_votes": 1763,
+        "other_votes": 196,
+        "total_votes": 19919,
+        "margin_pct": -81.3143,
+        "winner": "DEM",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_us_senate_2018.json",
+      "district": "59",
+      "before": {
+        "dem_votes": 16444,
+        "rep_votes": 12944,
+        "other_votes": 168,
+        "total_votes": 29556,
+        "margin_pct": -11.8419,
+        "winner": "DEM",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 16445,
+        "rep_votes": 12944,
+        "other_votes": 168,
+        "total_votes": 29557,
+        "margin_pct": -11.8449,
+        "winner": "DEM",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_us_senate_2018.json",
+      "district": "61",
+      "before": {
+        "dem_votes": 14660,
+        "rep_votes": 19831,
+        "other_votes": 179,
+        "total_votes": 34670,
+        "margin_pct": 14.9149,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 14659,
+        "rep_votes": 19830,
+        "other_votes": 179,
+        "total_votes": 34668,
+        "margin_pct": 14.9158,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_us_senate_2018.json",
+      "district": "65",
+      "before": {
+        "dem_votes": 12128,
+        "rep_votes": 17868,
+        "other_votes": 242,
+        "total_votes": 30238,
+        "margin_pct": 18.9827,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 12128,
+        "rep_votes": 17869,
+        "other_votes": 242,
+        "total_votes": 30239,
+        "margin_pct": 18.9854,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_us_senate_2018.json",
+      "district": "69",
+      "before": {
+        "dem_votes": 6467,
+        "rep_votes": 12936,
+        "other_votes": 306,
+        "total_votes": 19709,
+        "margin_pct": 32.8226,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 6470,
+        "rep_votes": 12941,
+        "other_votes": 306,
+        "total_votes": 19717,
+        "margin_pct": 32.8194,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_us_senate_2018.json",
+      "district": "74",
+      "before": {
+        "dem_votes": 7798,
+        "rep_votes": 14175,
+        "other_votes": 327,
+        "total_votes": 22300,
+        "margin_pct": 28.5964,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 7798,
+        "rep_votes": 14176,
+        "other_votes": 327,
+        "total_votes": 22301,
+        "margin_pct": 28.5996,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_us_senate_2018.json",
+      "district": "75",
+      "before": {
+        "dem_votes": 6797,
+        "rep_votes": 6255,
+        "other_votes": 397,
+        "total_votes": 13449,
+        "margin_pct": -4.03,
+        "winner": "DEM",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 6796,
+        "rep_votes": 6255,
+        "other_votes": 397,
+        "total_votes": 13448,
+        "margin_pct": -4.0229,
+        "winner": "DEM",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_us_senate_2018.json",
+      "district": "76",
+      "before": {
+        "dem_votes": 6490,
+        "rep_votes": 13892,
+        "other_votes": 318,
+        "total_votes": 20700,
+        "margin_pct": 35.7585,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 6489,
+        "rep_votes": 13888,
+        "other_votes": 318,
+        "total_votes": 20695,
+        "margin_pct": 35.7526,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_us_senate_2018.json",
+      "district": "78",
+      "before": {
+        "dem_votes": 8138,
+        "rep_votes": 14064,
+        "other_votes": 278,
+        "total_votes": 22480,
+        "margin_pct": 26.3612,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 8135,
+        "rep_votes": 14058,
+        "other_votes": 278,
+        "total_votes": 22471,
+        "margin_pct": 26.3584,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_us_senate_2018.json",
+      "district": "79",
+      "before": {
+        "dem_votes": 6419,
+        "rep_votes": 14291,
+        "other_votes": 425,
+        "total_votes": 21135,
+        "margin_pct": 37.2463,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 6421,
+        "rep_votes": 14295,
+        "other_votes": 426,
+        "total_votes": 21142,
+        "margin_pct": 37.2434,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_us_senate_2018.json",
+      "district": "83",
+      "before": {
+        "dem_votes": 14255,
+        "rep_votes": 16859,
+        "other_votes": 293,
+        "total_votes": 31407,
+        "margin_pct": 8.2911,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 14257,
+        "rep_votes": 16859,
+        "other_votes": 293,
+        "total_votes": 31409,
+        "margin_pct": 8.2842,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_us_senate_2018.json",
+      "district": "84",
+      "before": {
+        "dem_votes": 13213,
+        "rep_votes": 1069,
+        "other_votes": 201,
+        "total_votes": 14483,
+        "margin_pct": -83.85,
+        "winner": "DEM",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 13210,
+        "rep_votes": 1068,
+        "other_votes": 201,
+        "total_votes": 14479,
+        "margin_pct": -83.8594,
+        "winner": "DEM",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_us_senate_2018.json",
+      "district": "87",
+      "before": {
+        "dem_votes": 14209,
+        "rep_votes": 1692,
+        "other_votes": 244,
+        "total_votes": 16145,
+        "margin_pct": -77.5286,
+        "winner": "DEM",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 14208,
+        "rep_votes": 1692,
+        "other_votes": 244,
+        "total_votes": 16144,
+        "margin_pct": -77.5273,
+        "winner": "DEM",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_us_senate_2018.json",
+      "district": "89",
+      "before": {
+        "dem_votes": 10153,
+        "rep_votes": 13774,
+        "other_votes": 387,
+        "total_votes": 24314,
+        "margin_pct": 14.8927,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 10154,
+        "rep_votes": 13775,
+        "other_votes": 387,
+        "total_votes": 24316,
+        "margin_pct": 14.8914,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_us_senate_2018.json",
+      "district": "91",
+      "before": {
+        "dem_votes": 18067,
+        "rep_votes": 2433,
+        "other_votes": 291,
+        "total_votes": 20791,
+        "margin_pct": -75.196,
+        "winner": "DEM",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 18068,
+        "rep_votes": 2433,
+        "other_votes": 291,
+        "total_votes": 20792,
+        "margin_pct": -75.1972,
+        "winner": "DEM",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_us_senate_2020.json",
+      "district": "3",
+      "before": {
+        "dem_votes": 5072,
+        "rep_votes": 24226,
+        "other_votes": 539,
+        "total_votes": 29837,
+        "margin_pct": 64.1955,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 5072,
+        "rep_votes": 24227,
+        "other_votes": 539,
+        "total_votes": 29838,
+        "margin_pct": 64.1967,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_us_senate_2020.json",
+      "district": "18",
+      "before": {
+        "dem_votes": 15100,
+        "rep_votes": 19709,
+        "other_votes": 485,
+        "total_votes": 35294,
+        "margin_pct": 13.0589,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 15098,
+        "rep_votes": 19708,
+        "other_votes": 485,
+        "total_votes": 35291,
+        "margin_pct": 13.0628,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_us_senate_2020.json",
+      "district": "19",
+      "before": {
+        "dem_votes": 7086,
+        "rep_votes": 22454,
+        "other_votes": 352,
+        "total_votes": 29892,
+        "margin_pct": 51.4117,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 7085,
+        "rep_votes": 22453,
+        "other_votes": 352,
+        "total_votes": 29890,
+        "margin_pct": 51.4152,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_us_senate_2020.json",
+      "district": "21",
+      "before": {
+        "dem_votes": 6631,
+        "rep_votes": 25776,
+        "other_votes": 647,
+        "total_votes": 33054,
+        "margin_pct": 57.9204,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 6631,
+        "rep_votes": 25778,
+        "other_votes": 647,
+        "total_votes": 33056,
+        "margin_pct": 57.9229,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_us_senate_2020.json",
+      "district": "22",
+      "before": {
+        "dem_votes": 4846,
+        "rep_votes": 25354,
+        "other_votes": 581,
+        "total_votes": 30781,
+        "margin_pct": 66.6255,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 4844,
+        "rep_votes": 25346,
+        "other_votes": 581,
+        "total_votes": 30771,
+        "margin_pct": 66.6277,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_us_senate_2020.json",
+      "district": "24",
+      "before": {
+        "dem_votes": 6153,
+        "rep_votes": 19727,
+        "other_votes": 685,
+        "total_votes": 26565,
+        "margin_pct": 51.0973,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 6155,
+        "rep_votes": 19735,
+        "other_votes": 685,
+        "total_votes": 26575,
+        "margin_pct": 51.1007,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_us_senate_2020.json",
+      "district": "26",
+      "before": {
+        "dem_votes": 13125,
+        "rep_votes": 24234,
+        "other_votes": 591,
+        "total_votes": 37950,
+        "margin_pct": 29.2727,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 13126,
+        "rep_votes": 24234,
+        "other_votes": 591,
+        "total_votes": 37951,
+        "margin_pct": 29.2693,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_us_senate_2020.json",
+      "district": "27",
+      "before": {
+        "dem_votes": 13673,
+        "rep_votes": 23018,
+        "other_votes": 635,
+        "total_votes": 37326,
+        "margin_pct": 25.0362,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 13669,
+        "rep_votes": 23015,
+        "other_votes": 635,
+        "total_votes": 37319,
+        "margin_pct": 25.0435,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_us_senate_2020.json",
+      "district": "28",
+      "before": {
+        "dem_votes": 20350,
+        "rep_votes": 5989,
+        "other_votes": 579,
+        "total_votes": 26918,
+        "margin_pct": -53.3509,
+        "winner": "DEM",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 20355,
+        "rep_votes": 5992,
+        "other_votes": 580,
+        "total_votes": 26927,
+        "margin_pct": -53.3405,
+        "winner": "DEM",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_us_senate_2020.json",
+      "district": "30",
+      "before": {
+        "dem_votes": 12876,
+        "rep_votes": 19025,
+        "other_votes": 565,
+        "total_votes": 32466,
+        "margin_pct": 18.9398,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 12876,
+        "rep_votes": 19024,
+        "other_votes": 565,
+        "total_votes": 32465,
+        "margin_pct": 18.9373,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_us_senate_2020.json",
+      "district": "32",
+      "before": {
+        "dem_votes": 7297,
+        "rep_votes": 25121,
+        "other_votes": 884,
+        "total_votes": 33302,
+        "margin_pct": 53.5223,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 7297,
+        "rep_votes": 25120,
+        "other_votes": 884,
+        "total_votes": 33301,
+        "margin_pct": 53.5209,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_us_senate_2020.json",
+      "district": "33",
+      "before": {
+        "dem_votes": 9735,
+        "rep_votes": 19118,
+        "other_votes": 581,
+        "total_votes": 29434,
+        "margin_pct": 31.8781,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 9733,
+        "rep_votes": 19112,
+        "other_votes": 580,
+        "total_votes": 29425,
+        "margin_pct": 31.8743,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_us_senate_2020.json",
+      "district": "41",
+      "before": {
+        "dem_votes": 4639,
+        "rep_votes": 22957,
+        "other_votes": 509,
+        "total_votes": 28105,
+        "margin_pct": 65.177,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 4640,
+        "rep_votes": 22964,
+        "other_votes": 509,
+        "total_votes": 28113,
+        "margin_pct": 65.1798,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_us_senate_2020.json",
+      "district": "47",
+      "before": {
+        "dem_votes": 6103,
+        "rep_votes": 21980,
+        "other_votes": 833,
+        "total_votes": 28916,
+        "margin_pct": 54.9073,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 6102,
+        "rep_votes": 21980,
+        "other_votes": 833,
+        "total_votes": 28915,
+        "margin_pct": 54.9127,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_us_senate_2020.json",
+      "district": "50",
+      "before": {
+        "dem_votes": 15806,
+        "rep_votes": 15571,
+        "other_votes": 947,
+        "total_votes": 32324,
+        "margin_pct": -0.727,
+        "winner": "DEM",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 15788,
+        "rep_votes": 15558,
+        "other_votes": 945,
+        "total_votes": 32291,
+        "margin_pct": -0.7123,
+        "winner": "DEM",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_us_senate_2020.json",
+      "district": "53",
+      "before": {
+        "dem_votes": 15617,
+        "rep_votes": 9468,
+        "other_votes": 1014,
+        "total_votes": 26099,
+        "margin_pct": -23.5603,
+        "winner": "DEM",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 15616,
+        "rep_votes": 9467,
+        "other_votes": 1014,
+        "total_votes": 26097,
+        "margin_pct": -23.5621,
+        "winner": "DEM",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_us_senate_2020.json",
+      "district": "54",
+      "before": {
+        "dem_votes": 23325,
+        "rep_votes": 5389,
+        "other_votes": 1224,
+        "total_votes": 29938,
+        "margin_pct": -59.9105,
+        "winner": "DEM",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 23338,
+        "rep_votes": 5401,
+        "other_votes": 1225,
+        "total_votes": 29964,
+        "margin_pct": -59.8618,
+        "winner": "DEM",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_us_senate_2020.json",
+      "district": "55",
+      "before": {
+        "dem_votes": 14270,
+        "rep_votes": 4568,
+        "other_votes": 963,
+        "total_votes": 19801,
+        "margin_pct": -48.9975,
+        "winner": "DEM",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 14270,
+        "rep_votes": 4568,
+        "other_votes": 964,
+        "total_votes": 19802,
+        "margin_pct": -48.9951,
+        "winner": "DEM",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_us_senate_2020.json",
+      "district": "56",
+      "before": {
+        "dem_votes": 21649,
+        "rep_votes": 13360,
+        "other_votes": 687,
+        "total_votes": 35696,
+        "margin_pct": -23.2211,
+        "winner": "DEM",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 21649,
+        "rep_votes": 13361,
+        "other_votes": 687,
+        "total_votes": 35697,
+        "margin_pct": -23.2176,
+        "winner": "DEM",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_us_senate_2020.json",
+      "district": "58",
+      "before": {
+        "dem_votes": 19392,
+        "rep_votes": 4407,
+        "other_votes": 984,
+        "total_votes": 24783,
+        "margin_pct": -60.4648,
+        "winner": "DEM",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 19396,
+        "rep_votes": 4408,
+        "other_votes": 984,
+        "total_votes": 24788,
+        "margin_pct": -60.4647,
+        "winner": "DEM",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_us_senate_2020.json",
+      "district": "59",
+      "before": {
+        "dem_votes": 18154,
+        "rep_votes": 22017,
+        "other_votes": 817,
+        "total_votes": 40988,
+        "margin_pct": 9.4247,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 18155,
+        "rep_votes": 22018,
+        "other_votes": 817,
+        "total_votes": 40990,
+        "margin_pct": 9.4242,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_us_senate_2020.json",
+      "district": "61",
+      "before": {
+        "dem_votes": 14252,
+        "rep_votes": 27563,
+        "other_votes": 791,
+        "total_votes": 42606,
+        "margin_pct": 31.2421,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 14252,
+        "rep_votes": 27562,
+        "other_votes": 791,
+        "total_votes": 42605,
+        "margin_pct": 31.2405,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_us_senate_2020.json",
+      "district": "64",
+      "before": {
+        "dem_votes": 10198,
+        "rep_votes": 21879,
+        "other_votes": 617,
+        "total_votes": 32694,
+        "margin_pct": 35.7283,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 10198,
+        "rep_votes": 21878,
+        "other_votes": 617,
+        "total_votes": 32693,
+        "margin_pct": 35.7263,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_us_senate_2020.json",
+      "district": "65",
+      "before": {
+        "dem_votes": 12110,
+        "rep_votes": 26026,
+        "other_votes": 870,
+        "total_votes": 39006,
+        "margin_pct": 35.6766,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 12111,
+        "rep_votes": 26027,
+        "other_votes": 871,
+        "total_votes": 39009,
+        "margin_pct": 35.6738,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_us_senate_2020.json",
+      "district": "67",
+      "before": {
+        "dem_votes": 10696,
+        "rep_votes": 10273,
+        "other_votes": 913,
+        "total_votes": 21882,
+        "margin_pct": -1.9331,
+        "winner": "DEM",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 10697,
+        "rep_votes": 10274,
+        "other_votes": 913,
+        "total_votes": 21884,
+        "margin_pct": -1.9329,
+        "winner": "DEM",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_us_senate_2020.json",
+      "district": "69",
+      "before": {
+        "dem_votes": 5729,
+        "rep_votes": 20585,
+        "other_votes": 739,
+        "total_votes": 27053,
+        "margin_pct": 54.9144,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 5731,
+        "rep_votes": 20595,
+        "other_votes": 739,
+        "total_votes": 27065,
+        "margin_pct": 54.9196,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_us_senate_2020.json",
+      "district": "75",
+      "before": {
+        "dem_votes": 8351,
+        "rep_votes": 10124,
+        "other_votes": 874,
+        "total_votes": 19349,
+        "margin_pct": 9.1633,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 8351,
+        "rep_votes": 10123,
+        "other_votes": 874,
+        "total_votes": 19348,
+        "margin_pct": 9.1586,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_us_senate_2020.json",
+      "district": "76",
+      "before": {
+        "dem_votes": 5671,
+        "rep_votes": 20883,
+        "other_votes": 847,
+        "total_votes": 27401,
+        "margin_pct": 55.5162,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 5670,
+        "rep_votes": 20876,
+        "other_votes": 847,
+        "total_votes": 27393,
+        "margin_pct": 55.5105,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_us_senate_2020.json",
+      "district": "78",
+      "before": {
+        "dem_votes": 7700,
+        "rep_votes": 22241,
+        "other_votes": 746,
+        "total_votes": 30687,
+        "margin_pct": 47.3849,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 7697,
+        "rep_votes": 22231,
+        "other_votes": 745,
+        "total_votes": 30673,
+        "margin_pct": 47.3837,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_us_senate_2020.json",
+      "district": "79",
+      "before": {
+        "dem_votes": 5824,
+        "rep_votes": 20973,
+        "other_votes": 715,
+        "total_votes": 27512,
+        "margin_pct": 55.0632,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 5825,
+        "rep_votes": 20979,
+        "other_votes": 715,
+        "total_votes": 27519,
+        "margin_pct": 55.0674,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_us_senate_2020.json",
+      "district": "83",
+      "before": {
+        "dem_votes": 15887,
+        "rep_votes": 22393,
+        "other_votes": 629,
+        "total_votes": 38909,
+        "margin_pct": 16.7211,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 15891,
+        "rep_votes": 22393,
+        "other_votes": 629,
+        "total_votes": 38913,
+        "margin_pct": 16.7091,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_us_senate_2020.json",
+      "district": "84",
+      "before": {
+        "dem_votes": 17015,
+        "rep_votes": 1611,
+        "other_votes": 587,
+        "total_votes": 19213,
+        "margin_pct": -80.1749,
+        "winner": "DEM",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 17012,
+        "rep_votes": 1610,
+        "other_votes": 587,
+        "total_votes": 19209,
+        "margin_pct": -80.1812,
+        "winner": "DEM",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_us_senate_2020.json",
+      "district": "87",
+      "before": {
+        "dem_votes": 17453,
+        "rep_votes": 2562,
+        "other_votes": 792,
+        "total_votes": 20807,
+        "margin_pct": -71.5673,
+        "winner": "DEM",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 17451,
+        "rep_votes": 2562,
+        "other_votes": 792,
+        "total_votes": 20805,
+        "margin_pct": -71.5645,
+        "winner": "DEM",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_us_senate_2020.json",
+      "district": "89",
+      "before": {
+        "dem_votes": 10958,
+        "rep_votes": 21331,
+        "other_votes": 480,
+        "total_votes": 32769,
+        "margin_pct": 31.6549,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 10960,
+        "rep_votes": 21333,
+        "other_votes": 480,
+        "total_votes": 32773,
+        "margin_pct": 31.6511,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_us_senate_2020.json",
+      "district": "90",
+      "before": {
+        "dem_votes": 14326,
+        "rep_votes": 11117,
+        "other_votes": 508,
+        "total_votes": 25951,
+        "margin_pct": -12.3656,
+        "winner": "DEM",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 14327,
+        "rep_votes": 11117,
+        "other_votes": 508,
+        "total_votes": 25952,
+        "margin_pct": -12.369,
+        "winner": "DEM",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_us_senate_2020.json",
+      "district": "91",
+      "before": {
+        "dem_votes": 20811,
+        "rep_votes": 3690,
+        "other_votes": 919,
+        "total_votes": 25420,
+        "margin_pct": -67.3525,
+        "winner": "DEM",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 20812,
+        "rep_votes": 3690,
+        "other_votes": 919,
+        "total_votes": 25421,
+        "margin_pct": -67.3538,
+        "winner": "DEM",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
       "file": "state_house_us_senate_2024.json",
       "district": "1",
       "before": {
@@ -14785,10 +20213,10 @@
       },
       "after": {
         "dem_votes": 7066,
-        "rep_votes": 24694,
+        "rep_votes": 24693,
         "other_votes": 560,
-        "total_votes": 32320,
-        "margin_pct": 54.5421,
+        "total_votes": 32319,
+        "margin_pct": 54.5407,
         "winner": "REP",
         "rating": null
       }
@@ -14808,10 +20236,10 @@
       },
       "after": {
         "dem_votes": 5174,
-        "rep_votes": 26422,
+        "rep_votes": 26423,
         "other_votes": 483,
-        "total_votes": 32079,
-        "margin_pct": 66.2365,
+        "total_votes": 32080,
+        "margin_pct": 66.2375,
         "winner": "REP",
         "rating": null
       }
@@ -15037,11 +20465,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 12158,
+        "dem_votes": 12157,
         "rep_votes": 5777,
         "other_votes": 334,
-        "total_votes": 18269,
-        "margin_pct": -34.928,
+        "total_votes": 18268,
+        "margin_pct": -34.9245,
         "winner": "DEM",
         "rating": null
       }
@@ -15083,11 +20511,34 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 15699,
-        "rep_votes": 18721,
+        "dem_votes": 15697,
+        "rep_votes": 18720,
         "other_votes": 517,
-        "total_votes": 34937,
-        "margin_pct": 8.6499,
+        "total_votes": 34934,
+        "margin_pct": 8.6535,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_us_senate_2024.json",
+      "district": "19",
+      "before": {
+        "dem_votes": 8424,
+        "rep_votes": 24478,
+        "other_votes": 470,
+        "total_votes": 33372,
+        "margin_pct": 48.1062,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 8424,
+        "rep_votes": 24477,
+        "other_votes": 470,
+        "total_votes": 33371,
+        "margin_pct": 48.1046,
         "winner": "REP",
         "rating": null
       }
@@ -15129,11 +20580,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 7723,
-        "rep_votes": 28792,
+        "dem_votes": 7724,
+        "rep_votes": 28794,
         "other_votes": 599,
-        "total_votes": 37114,
-        "margin_pct": 56.7683,
+        "total_votes": 37117,
+        "margin_pct": 56.7664,
         "winner": "REP",
         "rating": null
       }
@@ -15152,11 +20603,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 5321,
-        "rep_votes": 28154,
+        "dem_votes": 5320,
+        "rep_votes": 28145,
         "other_votes": 654,
-        "total_votes": 34129,
-        "margin_pct": 66.902,
+        "total_votes": 34119,
+        "margin_pct": 66.8982,
         "winner": "REP",
         "rating": null
       }
@@ -15180,6 +20631,29 @@
         "other_votes": 660,
         "total_votes": 30176,
         "margin_pct": 64.4154,
+        "winner": "REP",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_us_senate_2024.json",
+      "district": "24",
+      "before": {
+        "dem_votes": 6587,
+        "rep_votes": 21320,
+        "other_votes": 615,
+        "total_votes": 28522,
+        "margin_pct": 51.6549,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 6588,
+        "rep_votes": 21329,
+        "other_votes": 615,
+        "total_votes": 28532,
+        "margin_pct": 51.6648,
         "winner": "REP",
         "rating": null
       }
@@ -15221,11 +20695,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 14439,
-        "rep_votes": 24074,
+        "dem_votes": 14438,
+        "rep_votes": 24073,
         "other_votes": 744,
-        "total_votes": 39257,
-        "margin_pct": 24.5434,
+        "total_votes": 39255,
+        "margin_pct": 24.5446,
         "winner": "REP",
         "rating": null
       }
@@ -15244,11 +20718,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 15045,
-        "rep_votes": 23274,
+        "dem_votes": 15043,
+        "rep_votes": 23273,
         "other_votes": 738,
-        "total_votes": 39057,
-        "margin_pct": 21.0692,
+        "total_votes": 39054,
+        "margin_pct": 21.0734,
         "winner": "REP",
         "rating": null
       }
@@ -15267,11 +20741,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 18089,
-        "rep_votes": 6492,
+        "dem_votes": 18092,
+        "rep_votes": 6494,
         "other_votes": 698,
-        "total_votes": 25279,
-        "margin_pct": -45.876,
+        "total_votes": 25284,
+        "margin_pct": -45.8709,
         "winner": "DEM",
         "rating": null
       }
@@ -15336,11 +20810,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 8511,
-        "rep_votes": 27071,
+        "dem_votes": 8510,
+        "rep_votes": 27069,
         "other_votes": 701,
-        "total_votes": 36283,
-        "margin_pct": 51.1534,
+        "total_votes": 36280,
+        "margin_pct": 51.1549,
         "winner": "REP",
         "rating": null
       }
@@ -15359,11 +20833,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 10422,
-        "rep_votes": 19579,
+        "dem_votes": 10420,
+        "rep_votes": 19574,
         "other_votes": 660,
-        "total_votes": 30661,
-        "margin_pct": 29.8653,
+        "total_votes": 30654,
+        "margin_pct": 29.8623,
         "winner": "REP",
         "rating": null
       }
@@ -15497,11 +20971,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 5206,
-        "rep_votes": 25267,
+        "dem_votes": 5208,
+        "rep_votes": 25272,
         "other_votes": 520,
-        "total_votes": 30993,
-        "margin_pct": 64.7275,
+        "total_votes": 31000,
+        "margin_pct": 64.7226,
         "winner": "REP",
         "rating": null
       }
@@ -15681,11 +21155,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 16637,
-        "rep_votes": 14970,
+        "dem_votes": 16618,
+        "rep_votes": 14958,
         "other_votes": 645,
-        "total_votes": 32252,
-        "margin_pct": -5.1687,
+        "total_votes": 32221,
+        "margin_pct": -5.1519,
         "winner": "DEM",
         "rating": null
       }
@@ -15750,11 +21224,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 13715,
+        "dem_votes": 13714,
         "rep_votes": 8161,
         "other_votes": 591,
-        "total_votes": 22467,
-        "margin_pct": -24.7207,
+        "total_votes": 22466,
+        "margin_pct": -24.7174,
         "winner": "DEM",
         "rating": null
       }
@@ -15773,11 +21247,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 21865,
-        "rep_votes": 5230,
+        "dem_votes": 21879,
+        "rep_votes": 5241,
         "other_votes": 603,
-        "total_votes": 27698,
-        "margin_pct": -60.0585,
+        "total_votes": 27723,
+        "margin_pct": -60.0151,
         "winner": "DEM",
         "rating": null
       }
@@ -15819,11 +21293,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 22037,
+        "dem_votes": 22038,
         "rep_votes": 12005,
         "other_votes": 565,
-        "total_votes": 34607,
-        "margin_pct": -28.9884,
+        "total_votes": 34608,
+        "margin_pct": -28.9904,
         "winner": "DEM",
         "rating": null
       }
@@ -15865,11 +21339,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 17247,
-        "rep_votes": 5071,
+        "dem_votes": 17251,
+        "rep_votes": 5072,
         "other_votes": 551,
-        "total_votes": 22869,
-        "margin_pct": -53.2424,
+        "total_votes": 22874,
+        "margin_pct": -53.2439,
         "winner": "DEM",
         "rating": null
       }
@@ -15888,11 +21362,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 20662,
+        "dem_votes": 20663,
         "rep_votes": 20150,
         "other_votes": 685,
-        "total_votes": 41497,
-        "margin_pct": -1.2338,
+        "total_votes": 41498,
+        "margin_pct": -1.2362,
         "winner": "DEM",
         "rating": null
       }
@@ -15917,6 +21391,29 @@
         "total_votes": 31616,
         "margin_pct": -11.5827,
         "winner": "DEM",
+        "rating": null
+      }
+    },
+    {
+      "mode": "2022_current",
+      "file": "state_house_us_senate_2024.json",
+      "district": "61",
+      "before": {
+        "dem_votes": 14746,
+        "rep_votes": 26110,
+        "other_votes": 719,
+        "total_votes": 41575,
+        "margin_pct": 27.3337,
+        "winner": "REP",
+        "rating": null
+      },
+      "after": {
+        "dem_votes": 14745,
+        "rep_votes": 26109,
+        "other_votes": 719,
+        "total_votes": 41573,
+        "margin_pct": 27.335,
+        "winner": "REP",
         "rating": null
       }
     },
@@ -15980,11 +21477,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 13031,
-        "rep_votes": 27536,
+        "dem_votes": 13032,
+        "rep_votes": 27537,
         "other_votes": 731,
-        "total_votes": 41298,
-        "margin_pct": 35.1228,
+        "total_votes": 41300,
+        "margin_pct": 35.1211,
         "winner": "REP",
         "rating": null
       }
@@ -16026,11 +21523,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 10868,
-        "rep_votes": 11618,
+        "dem_votes": 10869,
+        "rep_votes": 11619,
         "other_votes": 736,
-        "total_votes": 23222,
-        "margin_pct": 3.2297,
+        "total_votes": 23224,
+        "margin_pct": 3.2294,
         "winner": "REP",
         "rating": null
       }
@@ -16072,11 +21569,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 5914,
-        "rep_votes": 22272,
+        "dem_votes": 5916,
+        "rep_votes": 22281,
         "other_votes": 619,
-        "total_votes": 28805,
-        "margin_pct": 56.7888,
+        "total_votes": 28816,
+        "margin_pct": 56.7914,
         "winner": "REP",
         "rating": null
       }
@@ -16210,11 +21707,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 8495,
-        "rep_votes": 11412,
+        "dem_votes": 8494,
+        "rep_votes": 11411,
         "other_votes": 710,
-        "total_votes": 20617,
-        "margin_pct": 14.1485,
+        "total_votes": 20615,
+        "margin_pct": 14.1499,
         "winner": "REP",
         "rating": null
       }
@@ -16233,11 +21730,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 5382,
-        "rep_votes": 21643,
+        "dem_votes": 5381,
+        "rep_votes": 21637,
         "other_votes": 505,
-        "total_votes": 27530,
-        "margin_pct": 59.0665,
+        "total_votes": 27523,
+        "margin_pct": 59.0633,
         "winner": "REP",
         "rating": null
       }
@@ -16279,11 +21776,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 8565,
-        "rep_votes": 23063,
+        "dem_votes": 8563,
+        "rep_votes": 23054,
         "other_votes": 709,
-        "total_votes": 32337,
-        "margin_pct": 44.8341,
+        "total_votes": 32326,
+        "margin_pct": 44.8277,
         "winner": "REP",
         "rating": null
       }
@@ -16302,11 +21799,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 5264,
-        "rep_votes": 21702,
+        "dem_votes": 5265,
+        "rep_votes": 21708,
         "other_votes": 509,
-        "total_votes": 27475,
-        "margin_pct": 59.8289,
+        "total_votes": 27482,
+        "margin_pct": 59.8319,
         "winner": "REP",
         "rating": null
       }
@@ -16394,11 +21891,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 15205,
+        "dem_votes": 15208,
         "rep_votes": 18913,
         "other_votes": 657,
-        "total_votes": 34775,
-        "margin_pct": 10.6628,
+        "total_votes": 34778,
+        "margin_pct": 10.6533,
         "winner": "REP",
         "rating": null
       }
@@ -16417,11 +21914,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 12438,
+        "dem_votes": 12435,
         "rep_votes": 1976,
         "other_votes": 694,
-        "total_votes": 15108,
-        "margin_pct": -69.2481,
+        "total_votes": 15105,
+        "margin_pct": -69.242,
         "winner": "DEM",
         "rating": null
       }
@@ -16486,11 +21983,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 13645,
+        "dem_votes": 13644,
         "rep_votes": 2990,
         "other_votes": 578,
-        "total_votes": 17213,
-        "margin_pct": -61.9009,
+        "total_votes": 17212,
+        "margin_pct": -61.8987,
         "winner": "DEM",
         "rating": null
       }
@@ -16532,11 +22029,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 12709,
-        "rep_votes": 22712,
+        "dem_votes": 12711,
+        "rep_votes": 22714,
         "other_votes": 554,
-        "total_votes": 35975,
-        "margin_pct": 27.8054,
+        "total_votes": 35979,
+        "margin_pct": 27.8023,
         "winner": "REP",
         "rating": null
       }
@@ -16555,11 +22052,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 13938,
+        "dem_votes": 13939,
         "rep_votes": 9982,
         "other_votes": 449,
-        "total_votes": 24369,
-        "margin_pct": -16.2337,
+        "total_votes": 24370,
+        "margin_pct": -16.2372,
         "winner": "DEM",
         "rating": null
       }
@@ -16578,11 +22075,11 @@
         "rating": null
       },
       "after": {
-        "dem_votes": 16464,
+        "dem_votes": 16465,
         "rep_votes": 3284,
         "other_votes": 623,
-        "total_votes": 20371,
-        "margin_pct": -64.6998,
+        "total_votes": 20372,
+        "margin_pct": -64.7016,
         "winner": "DEM",
         "rating": null
       }

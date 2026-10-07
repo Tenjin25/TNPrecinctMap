@@ -100,6 +100,36 @@ def current_plan_assignment(
         }
         return frame[["GEOID20", "district"]], diagnostic
 
+    bef_by_scope = {
+        "congressional": ("47_TN_CD118.txt", "CDFP", "118th Congress"),
+        "state_house": ("47_TN_SLDL22.txt", "SLDLST", "2022 State Legislative District Lower Chamber"),
+        "state_senate": ("47_TN_SLDU22.txt", "SLDUST", "2022 State Legislative District Upper Chamber"),
+    }
+    if lines_year == 2022 and scope in bef_by_scope:
+        filename, district_column, plan_name = bef_by_scope[scope]
+        bef_path = published_data_dir / filename
+        if bef_path.exists():
+            frame = pd.read_csv(bef_path, dtype=str, skipinitialspace=True)
+            required = {"GEOID", district_column}
+            if not required.issubset(frame.columns):
+                raise RuntimeError(f"Missing required columns in {bef_path}: {sorted(required)}")
+            frame = frame.rename(columns={"GEOID": "GEOID20", district_column: "district"})
+            frame["GEOID20"] = frame["GEOID20"].astype(str).str.zfill(15)
+            frame["district"] = pd.to_numeric(frame["district"]).astype(int).astype(str)
+            if len(frame) != 179717 or len(frame) != frame["GEOID20"].nunique():
+                raise RuntimeError(
+                    f"Expected 179,717 unique Tennessee blocks in {bef_path}, found "
+                    f"{len(frame)} rows and {frame['GEOID20'].nunique()} unique blocks"
+                )
+            diagnostic = {
+                "assignment_source": filename,
+                "assignment_authority": f"U.S. Census Bureau {plan_name} Block Equivalency File",
+                "lines_year": lines_year,
+                "blocks": int(len(frame)),
+                "districts": int(frame["district"].nunique()),
+            }
+            return frame[["GEOID20", "district"]], diagnostic
+
     if scope == "state_house":
         election_years = (2024,)
         race_prefix = "GSL"
