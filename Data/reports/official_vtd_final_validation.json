@@ -179,34 +179,26 @@
     {
       "file": "state_house_president_2008.json",
       "district": "75",
-      "margin_pct": 0.974,
-      "dem_votes": 8444,
-      "rep_votes": 8612,
-      "other_votes": 193
-    },
-    {
-      "file": "state_house_president_2008.json",
-      "district": "90",
-      "margin_pct": -0.4426,
-      "dem_votes": 11239,
-      "rep_votes": 11138,
-      "other_votes": 445
+      "margin_pct": -0.7812,
+      "dem_votes": 6879,
+      "rep_votes": 6771,
+      "other_votes": 175
     },
     {
       "file": "state_house_president_2012.json",
-      "district": "30",
-      "margin_pct": -0.0254,
-      "dem_votes": 21332,
-      "rep_votes": 21321,
-      "other_votes": 615
+      "district": "75",
+      "margin_pct": -0.5217,
+      "dem_votes": 8189,
+      "rep_votes": 8104,
+      "other_votes": 0
     },
     {
       "file": "state_house_president_2012.json",
       "district": "90",
-      "margin_pct": 0.5931,
-      "dem_votes": 9687,
-      "rep_votes": 9806,
-      "other_votes": 572
+      "margin_pct": 0.1337,
+      "dem_votes": 9786,
+      "rep_votes": 9813,
+      "other_votes": 601
     },
     {
       "file": "state_house_president_2016.json",
@@ -330,27 +322,11 @@
     },
     {
       "file": "state_house_us_senate_2008.json",
-      "district": "56",
-      "margin_pct": 0.7425,
-      "dem_votes": 2652,
-      "rep_votes": 2693,
-      "other_votes": 177
-    },
-    {
-      "file": "state_house_us_senate_2008.json",
       "district": "96",
       "margin_pct": 0.317,
       "dem_votes": 13012,
       "rep_votes": 13097,
       "other_votes": 706
-    },
-    {
-      "file": "state_house_us_senate_2012.json",
-      "district": "80",
-      "margin_pct": -0.1036,
-      "dem_votes": 13477,
-      "rep_votes": 13448,
-      "other_votes": 1059
     },
     {
       "file": "state_house_us_senate_2020.json",
@@ -431,6 +407,14 @@
       "dem_votes": 25953,
       "rep_votes": 25695,
       "other_votes": 890
+    },
+    {
+      "file": "state_senate_us_senate_2008.json",
+      "district": "21",
+      "margin_pct": 0.9463,
+      "dem_votes": 28203,
+      "rep_votes": 28763,
+      "other_votes": 2214
     }
   ],
   "district_files_with_fallback": [
@@ -464,11 +448,11 @@
     },
     {
       "file": "congressional_president_2008.json",
-      "county_fallback_vote_pct": 0.4097
+      "county_fallback_vote_pct": 0.3856
     },
     {
       "file": "congressional_president_2012.json",
-      "county_fallback_vote_pct": 0.1245
+      "county_fallback_vote_pct": 0.1246
     },
     {
       "file": "congressional_president_2016.json",
@@ -488,15 +472,15 @@
     },
     {
       "file": "congressional_us_senate_2008.json",
-      "county_fallback_vote_pct": 0.4086
+      "county_fallback_vote_pct": 0.3852
     },
     {
       "file": "congressional_us_senate_2012.json",
-      "county_fallback_vote_pct": 0.1211
+      "county_fallback_vote_pct": 0.1213
     },
     {
       "file": "congressional_us_senate_2014.json",
-      "county_fallback_vote_pct": 0.0514
+      "county_fallback_vote_pct": 0.0515
     },
     {
       "file": "congressional_us_senate_2018.json",
@@ -516,7 +500,7 @@
     },
     {
       "file": "state_house_governor_2014.json",
-      "county_fallback_vote_pct": 0.0044
+      "county_fallback_vote_pct": 0.0045
     },
     {
       "file": "state_house_governor_2018.json",
@@ -532,11 +516,11 @@
     },
     {
       "file": "state_house_president_2008.json",
-      "county_fallback_vote_pct": 0.0107
+      "county_fallback_vote_pct": 0.0094
     },
     {
       "file": "state_house_president_2012.json",
-      "county_fallback_vote_pct": 0.0039
+      "county_fallback_vote_pct": 0.004
     },
     {
       "file": "state_house_president_2016.json",
@@ -556,15 +540,15 @@
     },
     {
       "file": "state_house_us_senate_2008.json",
-      "county_fallback_vote_pct": 0.0108
+      "county_fallback_vote_pct": 0.0096
     },
     {
       "file": "state_house_us_senate_2012.json",
-      "county_fallback_vote_pct": 0.004
+      "county_fallback_vote_pct": 0.0041
     },
     {
       "file": "state_house_us_senate_2014.json",
-      "county_fallback_vote_pct": 0.0046
+      "county_fallback_vote_pct": 0.0047
     },
     {
       "file": "state_house_us_senate_2018.json",
@@ -584,7 +568,7 @@
     },
     {
       "file": "state_senate_governor_2014.json",
-      "county_fallback_vote_pct": 0.0044
+      "county_fallback_vote_pct": 0.0045
     },
     {
       "file": "state_senate_governor_2018.json",
@@ -600,11 +584,11 @@
     },
     {
       "file": "state_senate_president_2008.json",
-      "county_fallback_vote_pct": 0.1796
+      "county_fallback_vote_pct": 0.1783
     },
     {
       "file": "state_senate_president_2012.json",
-      "county_fallback_vote_pct": 0.1245
+      "county_fallback_vote_pct": 0.1246
     },
     {
       "file": "state_senate_president_2016.json",
@@ -624,15 +608,15 @@
     },
     {
       "file": "state_senate_us_senate_2008.json",
-      "county_fallback_vote_pct": 0.1787
+      "county_fallback_vote_pct": 0.1775
     },
     {
       "file": "state_senate_us_senate_2012.json",
-      "county_fallback_vote_pct": 0.1211
+      "county_fallback_vote_pct": 0.1213
     },
     {
       "file": "state_senate_us_senate_2014.json",
-      "county_fallback_vote_pct": 0.0046
+      "county_fallback_vote_pct": 0.0047
     },
     {
       "file": "state_senate_us_senate_2018.json",

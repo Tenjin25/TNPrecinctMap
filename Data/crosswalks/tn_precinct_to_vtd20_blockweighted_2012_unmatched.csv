@@ -3,21 +3,7 @@ best_score,county,prctseq,precinct,precinct_norm,reason
 0.7714,ANDERSON,,Lake City CC,LAKE CITY CC,ambiguous
 0.7714,ANDERSON,,Lake City MS,LAKE CITY MS,ambiguous
 0.5786,ANDERSON,,Oak Ridge,OAK RIDGE,ambiguous
-0.4645,BEDFORD,,1-1 Wartrace,1 1 WARTRACE,ambiguous
-0.5824,BEDFORD,,1-2 Bell Buckle,1 2 BELL BUCKLE,ambiguous
-0.4765,BEDFORD,,2-3 Fair Haven,2 3 FAIR HAVEN,ambiguous
-0.6,BEDFORD,,3-3 Unionville,3 3 UNIONVILLE,ambiguous
-0.4065,BEDFORD,,4-3 Bedford,4 3 BEDFORD,ambiguous
-0.4865,BEDFORD,,5-2 Flat Creek,5 2 FLAT CREEK,ambiguous
-0.4645,BEDFORD,,5-5 Normandy,5 5 NORMANDY,ambiguous
-0.648,BEDFORD,,6-1 East Side,6 1 EAST SIDE,ambiguous
-0.6828,BEDFORD,,7-1 Deery Eakin,7 1 DEERY EAKIN,ambiguous
-0.5684,BEDFORD,,8-1 Thomas,8 1 THOMAS,ambiguous
-0.6188,BENTON,,2 Camden Jr High,2 CAMDEN JR HIGH,ambiguous
-0.6324,BENTON,,3 County Courthouse,3 COUNTY COURTHOUSE,ambiguous
-0.7463,BENTON,,4 Camden Elementary,4 CAMDEN ELEMENTARY,ambiguous
-0.6324,BENTON,,5 County Courthouse,5 COUNTY COURTHOUSE,ambiguous
-0.648,BLEDSOE,,4-1 Pikeville,4 1 PIKEVILLE,ambiguous
+0.97,BEDFORD,,1-2 Bell Buckle,1 2 BELL BUCKLE,ambiguous
 0.45,BLOUNT,,Alcoa,ALCOA,ambiguous
 0.648,BLOUNT,,Board of Education,BOARD OF EDUCATION,ambiguous
 0.6667,BLOUNT,,Eagleton MS Café,EAGLETON MS CAF,ambiguous
@@ -30,14 +16,12 @@ best_score,county,prctseq,precinct,precinct_norm,reason
 0.7548,BRADLEY,,2-2 Walker Valley,2 2 WALKER VALLEY,ambiguous
 0.648,BRADLEY,,4-1 Oak Grove,4 1 OAK GROVE,ambiguous
 0.6968,BRADLEY,,4-2 Michigan Ave,4 2 MICHIGAN AVE,ambiguous
-0.6968,BRADLEY,,5-1 Blythe/Bower,5 1 BLYTHE BOWER,ambiguous
-0.72,BRADLEY,,5-2 Community SC,5 2 COMMUNITY SC,ambiguous
 0.6828,BRADLEY,,6-1 Valley View,6 1 VALLEY VIEW,ambiguous
 0.6968,BRADLEY,,6-2 Blue Springs,6 2 BLUE SPRINGS,ambiguous
 0.6667,BRADLEY,,6-3 Waterville,6 3 WATERVILLE,ambiguous
 0.648,BRADLEY,,6-4 Black Fox,6 4 BLACK FOX,ambiguous
 0.5684,BRADLEY,,7-1 Stuart,7 1 STUART,ambiguous
-0.6429,CAMPBELL,,2-4 LaFollette ES,2 4 LAFOLLETTE ES,ambiguous
+0.72,CAMPBELL,,2-4 LaFollette ES,2 4 LAFOLLETTE ES,ambiguous
 0.3857,CAMPBELL,,3-1 CCHS,3 1 CCHS,ambiguous
 0.95,CANNON,,2-4 Short Mountain,2 4 SHORT MOUNTAIN,ambiguous
 0.95,CANNON,,4-2 Short Mountain,4 2 SHORT MOUNTAIN,ambiguous
@@ -45,97 +29,16 @@ best_score,county,prctseq,precinct,precinct_norm,reason
 0.54,CARROLL,,Bethel College,BETHEL COLLEGE,ambiguous
 0.5538,CARROLL,,McKenzie,MCKENZIE,ambiguous
 0.72,CARTER,,National Guard,NATIONAL GUARD,ambiguous
-0.5455,CHEATHAM,,1-1 County Library,1 1 COUNTY LIBRARY,ambiguous
-0.6324,CHEATHAM,,2-2 East Cheatham,2 2 EAST CHEATHAM,ambiguous
-0.65,CHEATHAM,,3-1 Pleasant View,3 1 PLEASANT VIEW,ambiguous
-0.6324,CHEATHAM,,4-1 West Cheatham,4 1 WEST CHEATHAM,ambiguous
-0.4364,CHEATHAM,,4-2 New Hope,4 2 NEW HOPE,ambiguous
-0.48,CHEATHAM,,4-3 Sycamore,4 3 SYCAMORE,ambiguous
-0.6,CHEATHAM,,5-1 Two Rivers,5 1 TWO RIVERS,ambiguous
-0.4909,CHEATHAM,,5-2 Pegram,5 2 PEGRAM,ambiguous
-0.4846,CHEATHAM,,6-1 Harpeth,6 1 HARPETH,ambiguous
-0.6968,CHESTER,,4-1 West Chester,4 1 WEST CHESTER,ambiguous
-0.6968,CHESTER,,5-1 East Chester,5 1 EAST CHESTER,ambiguous
+0.5806,CHEATHAM,,2-2 East Cheatham,2 2 EAST CHEATHAM,ambiguous
 0.7463,COCKE,,Cocke County High,COCKE COUNTY HIGH,ambiguous
 0.6811,COCKE,,Newport Grammer,NEWPORT GRAMMER,ambiguous
-0.44,COFFEE,,2 St Paul UMC,2 ST PAUL UMC,ambiguous
-0.4345,COFFEE,,3 Trinity,3 TRINITY,ambiguous
-0.7091,COFFEE,,4 First Baptist,4 FIRST BAPTIST,ambiguous
-0.4629,COFFEE,,5 Hillsboro,5 HILLSBORO,ambiguous
-0.6955,COFFEE,,6 Tennessee Voc Ctr,6 TENNESSEE VOC CTR,ambiguous
-0.36,COFFEE,,7 Forest Mill,7 FOREST MILL,ambiguous
-0.5786,COFFEE,,8 New Union,8 NEW UNION,ambiguous
-0.4865,COFFEE,,9-1 Pocahontas,9 1 POCAHONTAS,ambiguous
-0.5077,COFFEE,,9-2 Summitville,9 2 SUMMITVILLE,ambiguous
 0.2842,COFFEE,,10-1 Goosepond,10 1 GOOSEPOND,ambiguous
-0.4235,COFFEE,,11 Fredonia,11 FREDONIA,ambiguous
-0.5143,COFFEE,,12 North Coffee,12 NORTH COFFEE,ambiguous
-0.5362,COFFEE,,13-1 Blanton's Chap,13 1 BLANTON S CHAP,ambiguous
-0.7091,COFFEE,,13-2 Grace Baptist,13 2 GRACE BAPTIST,ambiguous
-0.5786,COFFEE,,14 Hickerson,14 HICKERSON,ambiguous
-0.7091,COFFEE,,15 Grace Baptist,15 GRACE BAPTIST,ambiguous
-0.7385,COFFEE,,17 Hands On Science,17 HANDS ON SCIENCE,ambiguous
-0.7297,COFFEE,,18 First Christian,18 FIRST CHRISTIAN,ambiguous
-0.4865,COFFEE,,20 Sr Citizens Ctr,20 SR CITIZENS CTR,ambiguous
-0.6511,COFFEE,,21 Wilson Ave C of C,21 WILSON AVE C OF C,ambiguous
-0.6,CROCKETT,,01,01,ambiguous
-0.6,CROCKETT,,02,02,ambiguous
-0.6,CROCKETT,,03,03,ambiguous
-0.6,CROCKETT,,04,04,ambiguous
-0.6,CROCKETT,,05,05,ambiguous
-0.6,CROCKETT,,06,06,ambiguous
-0.6,CROCKETT,,07,07,ambiguous
-0.6,CROCKETT,,08,08,ambiguous
-0.6,CROCKETT,,09,09,ambiguous
 0.5351,CUMBERLAND,,1 Cornerstone,1 CORNERSTONE,ambiguous
 0.4846,CUMBERLAND,,2 Community Complex,2 COMMUNITY COMPLEX,ambiguous
 0.6353,CUMBERLAND,,6 Crab Orchard,6 CRAB ORCHARD,ambiguous
-0.7105,CUMBERLAND,,9 N Fairfield Glade,9 N FAIRFIELD GLADE,ambiguous
-0.7105,CUMBERLAND,,9 S Fairfield Glade,9 S FAIRFIELD GLADE,ambiguous
-0.7714,DAVIDSON,,01-1,01 1,ambiguous
-0.7714,DAVIDSON,,01-2,01 2,ambiguous
-0.7714,DAVIDSON,,01-3,01 3,ambiguous
-0.7714,DAVIDSON,,01-4,01 4,ambiguous
-0.7714,DAVIDSON,,01-5,01 5,ambiguous
-0.7714,DAVIDSON,,02-1,02 1,ambiguous
-0.7714,DAVIDSON,,02-2,02 2,ambiguous
-0.7714,DAVIDSON,,02-3,02 3,ambiguous
-0.7714,DAVIDSON,,02-4,02 4,ambiguous
-0.7714,DAVIDSON,,02-5,02 5,ambiguous
-0.7714,DAVIDSON,,03-1,03 1,ambiguous
-0.7714,DAVIDSON,,03-2,03 2,ambiguous
-0.7714,DAVIDSON,,03-3,03 3,ambiguous
-0.7714,DAVIDSON,,03-4,03 4,ambiguous
-0.7714,DAVIDSON,,03-5,03 5,ambiguous
-0.7714,DAVIDSON,,03-6,03 6,ambiguous
-0.7714,DAVIDSON,,04-1,04 1,ambiguous
-0.7714,DAVIDSON,,04-2,04 2,ambiguous
-0.7714,DAVIDSON,,04-3,04 3,ambiguous
-0.7714,DAVIDSON,,04-4,04 4,ambiguous
-0.7714,DAVIDSON,,05-1,05 1,ambiguous
-0.7714,DAVIDSON,,05-2,05 2,ambiguous
-0.7714,DAVIDSON,,05-3,05 3,ambiguous
-0.7714,DAVIDSON,,05-4,05 4,ambiguous
-0.7714,DAVIDSON,,05-5,05 5,ambiguous
-0.7714,DAVIDSON,,06-1,06 1,ambiguous
-0.7714,DAVIDSON,,06-2,06 2,ambiguous
-0.7714,DAVIDSON,,06-3,06 3,ambiguous
-0.7714,DAVIDSON,,06-4,06 4,ambiguous
-0.7714,DAVIDSON,,06-5,06 5,ambiguous
-0.7714,DAVIDSON,,07-1,07 1,ambiguous
-0.7714,DAVIDSON,,07-2,07 2,ambiguous
-0.7714,DAVIDSON,,07-3,07 3,ambiguous
-0.7714,DAVIDSON,,07-4,07 4,ambiguous
-0.7714,DAVIDSON,,07-5,07 5,ambiguous
-0.7714,DAVIDSON,,07-6,07 6,ambiguous
-0.7714,DAVIDSON,,08-1,08 1,ambiguous
-0.7714,DAVIDSON,,08-2,08 2,ambiguous
-0.7714,DAVIDSON,,08-3,08 3,ambiguous
-0.7714,DAVIDSON,,08-4,08 4,ambiguous
-0.7714,DAVIDSON,,09-1,09 1,ambiguous
-0.7714,DAVIDSON,,09-2,09 2,ambiguous
-0.7714,DAVIDSON,,09-3,09 3,ambiguous
-0.1,DAVIDSON,,Safety Precinct,SAFETY PRECINCT,ambiguous
+0.7941,CUMBERLAND,,9 N Fairfield Glade,9 N FAIRFIELD GLADE,ambiguous
+0.7941,CUMBERLAND,,9 S Fairfield Glade,9 S FAIRFIELD GLADE,ambiguous
+0,DAVIDSON,,Safety Precinct,SAFETY PRECINCT,ambiguous
 0.95,DECATUR,,3-1 Beacon,3 1 BEACON,ambiguous
 0.95,DECATUR,,3-2 Decaturville,3 2 DECATURVILLE,ambiguous
 0.95,DECATUR,,4-1 Decaturville,4 1 DECATURVILLE,ambiguous
@@ -143,86 +46,23 @@ best_score,county,prctseq,precinct,precinct_norm,reason
 0.95,DECATUR,,6-1 Parsons,6 1 PARSONS,ambiguous
 0.95,DECATUR,,8-1 Parsons,8 1 PARSONS,ambiguous
 0.95,DECATUR,,9-1 Beacon,9 1 BEACON,ambiguous
-0.7579,DEKALB,,1-3 Edgar Evins Park,1 3 EDGAR EVINS PARK,ambiguous
 0.2842,DEKALB,,3-1 DeKalb MS,3 1 DEKALB MS,ambiguous
-0.1385,DEKALB,,5-2,5 2,ambiguous
 0.7579,DEKALB,,7-1 Church of Christ,7 1 CHURCH OF CHRIST,ambiguous
-0.1125,DICKSON,,1-1,1 1,ambiguous
-0.1125,DICKSON,,1-2,1 2,ambiguous
-0.1125,DICKSON,,2-1,2 1,ambiguous
-0.1125,DICKSON,,2-2,2 2,ambiguous
-0.1125,DICKSON,,3-1,3 1,ambiguous
-0.1125,DICKSON,,3-2,3 2,ambiguous
-0.1125,DICKSON,,4-1,4 1,ambiguous
-0.1125,DICKSON,,5-1,5 1,ambiguous
-0.1125,DICKSON,,6-1,6 1,ambiguous
-0.1125,DICKSON,,6-2,6 2,ambiguous
-0.1125,DICKSON,,7-1,7 1,ambiguous
-0.1125,DICKSON,,8-1,8 1,ambiguous
-0.1125,DICKSON,,9-1,9 1,ambiguous
-0.1059,DICKSON,,10-1,10 1,ambiguous
-0.1059,DICKSON,,11-1,11 1,ambiguous
-0.1059,DICKSON,,12-1,12 1,ambiguous
-0.1059,DICKSON,,12-2,12 2,ambiguous
+0.97,DICKSON,,1-1,1 1,ambiguous
+0.97,DICKSON,,10-1,10 1,ambiguous
 0.72,FAYETTE,,Somerville City,SOMERVILLE CITY,ambiguous
 0.54,FENTRESS,,Banner Springs,BANNER SPRINGS,ambiguous
-0.6923,FRANKLIN,,1-1 Annex,1 1 ANNEX,ambiguous
-0.4979,FRANKLIN,,7-2 CG/Winchester Sp,7 2 CG WINCHESTER SP,ambiguous
-0.3857,GIBSON,,1-2 Sitka,1 2 SITKA,ambiguous
-0.7091,GIBSON,,2 Humboldt Church,2 HUMBOLDT CHURCH,ambiguous
-0.7385,GIBSON,,4 St James Baptist,4 ST JAMES BAPTIST,ambiguous
+0.97,GIBSON,,1-1 Medina,1 1 MEDINA,ambiguous
 0.5268,GIBSON,,5 Lane Chapel Church,5 LANE CHAPEL CHURCH,ambiguous
-0.7636,GIBSON,,6 Humboldt Armory,6 HUMBOLDT ARMORY,ambiguous
-0.6923,GIBSON,,10 Trenton,10 TRENTON,ambiguous
-0.7548,GIBSON,,12 Milan Express,12 MILAN EXPRESS,ambiguous
-0.72,GIBSON,,14 Milan 1stAssembly,14 MILAN 1STASSEMBLY,ambiguous
+0.97,GIBSON,,9 Courthouse,9 COURTHOUSE,ambiguous
+0.97,GIBSON,,13 Milan Polk Clark,13 MILAN POLK CLARK,ambiguous
 0.66,GIBSON,,15 Milan Municipal,15 MILAN MUNICIPAL,ambiguous
-0.72,GILES,,3A Richland Trace,3A RICHLAND TRACE,ambiguous
-0.6,GILES,,5A TN Tech Center,5A TN TECH CENTER,ambiguous
-0.45,GILES,,5B Agri Park,5B AGRI PARK,ambiguous
-0.225,GILES,,6A MMC,6A MMC,ambiguous
-0.2118,GILES,,6B BMS,6B BMS,ambiguous
-0.3273,GILES,,7A GCHS,7A GCHS,ambiguous
-0.6,GILES,,7B Rec Center,7B REC CENTER,ambiguous
-0.0947,GRAINGER,,1-1,1 1,ambiguous
-0.0947,GRAINGER,,1-2,1 2,ambiguous
-0.0947,GRAINGER,,2-1,2 1,ambiguous
-0.0947,GRAINGER,,2-2,2 2,ambiguous
-0.0947,GRAINGER,,3-1,3 1,ambiguous
-0.0947,GRAINGER,,3-2,3 2,ambiguous
-0.0947,GRAINGER,,4-1,4 1,ambiguous
-0.0947,GRAINGER,,4-2,4 2,ambiguous
-0.0947,GRAINGER,,5-1,5 1,ambiguous
-0.0947,GRAINGER,,5-2,5 2,ambiguous
-0.5143,GREENE,,4 McDonald,4 MCDONALD,ambiguous
-0.6387,GREENE,,4 Warrensburg,4 WARRENSBURG,ambiguous
-0.5,GREENE,,11 Baileyton,11 BAILEYTON,ambiguous
-0.5362,GREENE,,11 Baileyton Corp,11 BAILEYTON CORP,ambiguous
-0.45,GREENE,,11 Woodlawn,11 WOODLAWN,ambiguous
-0.6,GREENE,,15 Chuckey,15 CHUCKEY,ambiguous
-0.54,GREENE,,15 Jockey,15 JOCKEY,ambiguous
-0.4667,GREENE,,23 Mosheim,23 MOSHEIM,ambiguous
-0.675,GREENE,,23 Mosheim Corp,23 MOSHEIM CORP,ambiguous
+0.97,GREENE,,10-2 Courthouse,10 2 COURTHOUSE,ambiguous
 0.6231,GRUNDY,,Beersheba Springs,BEERSHEBA SPRINGS,ambiguous
 0.6,GRUNDY,,Gruetli-Laager,GRUETLI LAAGER,ambiguous
 0.6,GRUNDY,,Tracy City,TRACY CITY,ambiguous
-0,HAMBLEN,,01-1 Courthouse,01 1 COURTHOUSE,ambiguous
-0.1125,HAMBLEN,,02-1 Meadowview MS,02 1 MEADOWVIEW MS,ambiguous
-0.15,HAMBLEN,,03-1 East High,03 1 EAST HIGH,ambiguous
-0.15,HAMBLEN,,04-1 West High,04 1 WEST HIGH,ambiguous
-0.15,HAMBLEN,,05-1 Manley IS,05 1 MANLEY IS,ambiguous
-0.1125,HAMBLEN,,06-1 Fairview Marg,06 1 FAIRVIEW MARG,ambiguous
-0.1125,HAMBLEN,,07-1 Cherokee Park,07 1 CHEROKEE PARK,ambiguous
-0.1059,HAMBLEN,,08-1 National Guard,08 1 NATIONAL GUARD,ambiguous
-0.1,HAMBLEN,,09-1 Russellville PS,09 1 RUSSELLVILLE PS,ambiguous
-0.1125,HAMBLEN,,09-2 Whitesburg ES,09 2 WHITESBURG ES,ambiguous
-0.1125,HAMBLEN,,10-1 Fish Hatchery,10 1 FISH HATCHERY,ambiguous
-0.1125,HAMBLEN,,10-2 Union Heights,10 2 UNION HEIGHTS,ambiguous
-0,HAMBLEN,,11-1 Westview,11 1 WESTVIEW,ambiguous
-0.1286,HAMBLEN,,11-2 Witt School,11 2 WITT SCHOOL,ambiguous
-0.12,HAMBLEN,,12-1 Alpha School,12 1 ALPHA SCHOOL,ambiguous
-0.1385,HAMBLEN,,13-1 Cedar Hill,13 1 CEDAR HILL,ambiguous
-0.1059,HAMBLEN,,14-1 Manley Primary,14 1 MANLEY PRIMARY,ambiguous
+0.97,HAMBLEN,,01-1 Courthouse,01 1 COURTHOUSE,ambiguous
+0.97,HAMBLEN,,10-1 Fish Hatchery,10 1 FISH HATCHERY,ambiguous
 0.7448,HAMILTON,,069 Flat Top Mtn,069 FLAT TOP MTN,ambiguous
 0.7333,HAMILTON,,213 Lookout Mtn,213 LOOKOUT MTN,ambiguous
 0.7448,HAMILTON,,207 Signal Mtn 1,207 SIGNAL MTN 1,ambiguous
@@ -246,36 +86,32 @@ best_score,county,prctseq,precinct,precinct_norm,reason
 0.75,HARDIN,,Olive Hill 6-3,OLIVE HILL 6 3,ambiguous
 0.675,HARDIN,,Whites 7-1,WHITES 7 1,ambiguous
 0.7714,HARDIN,,Walnut Grove 7-2,WALNUT GROVE 7 2,ambiguous
-0.6429,HARDIN,,North 8-1,NORTH 8 1,ambiguous
+0.3,HARDIN,,North 8-1,NORTH 8 1,ambiguous
 0.75,HARDIN,,Courthouse 9-1,COURTHOUSE 9 1,ambiguous
 0.72,HARDIN,,Fairground 10-1,FAIRGROUND 10 1,ambiguous
-0.75,HAWKINS,,4 Keplar,4 KEPLAR,ambiguous
-0.7463,HAWKINS,,5 Rogersville No In,5 ROGERSVILLE NO IN,ambiguous
-0.7535,HAWKINS,,4 Rogersville No Out,4 ROGERSVILLE NO OUT,ambiguous
-0.7463,HAWKINS,,5 Rogersville So In,5 ROGERSVILLE SO IN,ambiguous
-0.7535,HAWKINS,,5 Rogersville So Out,5 ROGERSVILLE SO OUT,ambiguous
-0.6261,HAWKINS,,7 Strahl/Cherokee,7 STRAHL CHEROKEE,ambiguous
-0.15,HAYWOOD,,1-1,1 1,ambiguous
-0.15,HAYWOOD,,2-1,2 1,ambiguous
-0.15,HAYWOOD,,3-1,3 1,ambiguous
-0.15,HAYWOOD,,4-1,4 1,ambiguous
-0.15,HAYWOOD,,5-1,5 1,ambiguous
-0.15,HAYWOOD,,6-1,6 1,ambiguous
-0.15,HAYWOOD,,7-1,7 1,ambiguous
-0.15,HAYWOOD,,8-1,8 1,ambiguous
-0.15,HAYWOOD,,9-1,9 1,ambiguous
-0.15,HAYWOOD,,9-2,9 2,ambiguous
-0.1385,HAYWOOD,,10-1,10 1,ambiguous
+0.97,HAWKINS,,6 Alum Well,6 ALUM WELL,ambiguous
+0.97,HAWKINS,,2 Church Hill Outsid,2 CHURCH HILL OUTSID,ambiguous
+0.97,HAWKINS,,4 Keplar,4 KEPLAR,ambiguous
+0.97,HAWKINS,,5 Rogersville No In,5 ROGERSVILLE NO IN,ambiguous
+0.97,HAWKINS,,4 Rogersville No Out,4 ROGERSVILLE NO OUT,ambiguous
+0.97,HAWKINS,,5 Rogersville So In,5 ROGERSVILLE SO IN,ambiguous
+0.97,HAWKINS,,5 Rogersville So Out,5 ROGERSVILLE SO OUT,ambiguous
+0.97,HAWKINS,,7 Strahl/Cherokee,7 STRAHL CHEROKEE,ambiguous
+0.97,HAWKINS,,4 Surgoinsville In,4 SURGOINSVILLE IN,ambiguous
+0.97,HAWKINS,,4 Surgoinsville Out,4 SURGOINSVILLE OUT,ambiguous
+0,HAYWOOD,,2-1,2 1,ambiguous
+0.1125,HAYWOOD,,3-1,3 1,ambiguous
+0,HAYWOOD,,4-1,4 1,ambiguous
+0,HAYWOOD,,5-1,5 1,ambiguous
+0,HAYWOOD,,6-1,6 1,ambiguous
+0,HAYWOOD,,7-1,7 1,ambiguous
+0,HAYWOOD,,8-1,8 1,ambiguous
+0,HAYWOOD,,9-1,9 1,ambiguous
+0,HAYWOOD,,9-2,9 2,ambiguous
+0,HAYWOOD,,10-1,10 1,ambiguous
+0.97,HENDERSON,,3-4 Christian Chapel,3 4 CHRISTIAN CHAPEL,ambiguous
 0.7412,HENDERSON,,5-5 TN Tech Center,5 5 TN TECH CENTER,ambiguous
 0.7615,HENDERSON,,3-10 Fire Sta #10,3 10 FIRE STA 10,ambiguous
-0.45,HENRY,,3-3 Lakewood,3 3 LAKEWOOD,ambiguous
-0.5,HENRY,,5-1 Henry Co High,5 1 HENRY CO HIGH,ambiguous
-0.4286,HENRY,,5-2 TN Tech Center,5 2 TN TECH CENTER,ambiguous
-0.45,HICKMAN,,1-1 Only,1 1 ONLY,ambiguous
-0.5625,HICKMAN,,3-1 East CC,3 1 EAST CC,ambiguous
-0.7333,HICKMAN,,4-1 Lake Benson,4 1 LAKE BENSON,ambiguous
-0.5143,HICKMAN,,6-1 Justice Center,6 1 JUSTICE CENTER,ambiguous
-0.95,HICKMAN,,7-1 Nunnelly,7 1 NUNNELLY,ambiguous
 0.4065,HOUSTON,,Stewart,STEWART,ambiguous
 0.2769,HOUSTON,,Tennessee Ridge,TENNESSEE RIDGE,ambiguous
 0.4,HOUSTON,,Erin,ERIN,ambiguous
@@ -283,11 +119,7 @@ best_score,county,prctseq,precinct,precinct_norm,reason
 0.7297,HOUSTON,,Erin Elementary,ERIN ELEMENTARY,ambiguous
 0.7463,HOUSTON,,Houston Co Middle,HOUSTON CO MIDDLE,ambiguous
 0.7,HOUSTON,,Griffins Chapel,GRIFFINS CHAPEL,ambiguous
-0.4235,HUMPHREYS,,1-1 Jera,1 1 JERA,ambiguous
-0.5143,HUMPHREYS,,1-2 FWOC,1 2 FWOC,ambiguous
-0.3375,HUMPHREYS,,6-7 South McEwen,6 7 SOUTH MCEWEN,ambiguous
-0.2455,HUMPHREYS,,7-8 North McEwen,7 8 NORTH MCEWEN,ambiguous
-0.6,JACKSON,,1-2,1 2,ambiguous
+0.45,JACKSON,,1-2,1 2,ambiguous
 0.6146,JEFFERSON,,1 Dandridge Elem,1 DANDRIDGE ELEM,ambiguous
 0.4235,JEFFERSON,,2 Piedmont,2 PIEDMONT,ambiguous
 0.6667,JEFFERSON,,3 White Pine,3 WHITE PINE,ambiguous
@@ -299,15 +131,13 @@ best_score,county,prctseq,precinct,precinct_norm,reason
 0.5294,JEFFERSON,,8-2 Old Swanny,8 2 OLD SWANNY,ambiguous
 0.6462,JEFFERSON,,9 Talbott School,9 TALBOTT SCHOOL,ambiguous
 0.7463,JEFFERSON,,10 Jeff City Fire Dp,10 JEFF CITY FIRE DP,ambiguous
-0.45,JOHNSON,,5 Doe,5 DOE,ambiguous
-0.3913,JOHNSON,,7 High School,7 HIGH SCHOOL,ambiguous
 0.5143,KNOX,,10N Fort Sanders,10N FORT SANDERS,ambiguous
 0.8129,KNOX,,10S University Ctr,10S UNIVERSITY CTR,ambiguous
 0.8129,KNOX,,10W University Ctr,10W UNIVERSITY CTR,ambiguous
 0.4714,KNOX,,11 Central UMC,11 CENTRAL UMC,ambiguous
 0.6261,KNOX,,12 Eastport,12 EASTPORT,ambiguous
 0.4737,KNOX,,13 Fair Garden,13 FAIR GARDEN,ambiguous
-0.5824,KNOX,,14 Austin-East,14 AUSTIN EAST,ambiguous
+0.5143,KNOX,,14 Austin-East,14 AUSTIN EAST,ambiguous
 0.7297,KNOX,,15 John T. O'Connor,15 JOHN T O CONNOR,ambiguous
 0.6698,KNOX,,16 Larry Cox Sr Ctr,16 LARRY COX SR CTR,ambiguous
 0.5442,KNOX,,17 Christenberry,17 CHRISTENBERRY,ambiguous
@@ -315,11 +145,11 @@ best_score,county,prctseq,precinct,precinct_norm,reason
 0.3273,KNOX,,19E SOAR,19E SOAR,ambiguous
 0.3273,KNOX,,19W SOAR,19W SOAR,ambiguous
 0.6261,KNOX,,20 Beaumont,20 BEAUMONT,ambiguous
-0.6,KNOX,,23 Westview,23 WESTVIEW,ambiguous
+0.4286,KNOX,,23 Westview,23 WESTVIEW,ambiguous
 0.72,KNOX,,24Q Sequoyah Hills,24Q SEQUOYAH HILLS,ambiguous
-0.52,KNOX,,25 South Knox CC,25 SOUTH KNOX CC,ambiguous
+0.4378,KNOX,,25 South Knox CC,25 SOUTH KNOX CC,ambiguous
 0.6,KNOX,,26 Dogwood,26 DOGWOOD,ambiguous
-0.64,KNOX,,27 So Knox Optimist,27 SO KNOX OPTIMIST,ambiguous
+0.6585,KNOX,,27 So Knox Optimist,27 SO KNOX OPTIMIST,ambiguous
 0.5538,KNOX,,29 Anderson,29 ANDERSON,ambiguous
 0.6462,KNOX,,30 S Moore Greene,30 S MOORE GREENE,ambiguous
 0.648,KNOX,,31 Chilhowee,31 CHILHOWEE,ambiguous
@@ -332,19 +162,19 @@ best_score,county,prctseq,precinct,precinct_norm,reason
 0.5727,KNOX,,40 Norwood,40 NORWOOD,ambiguous
 0.5727,KNOX,,41 Norwood,41 NORWOOD,ambiguous
 0.5478,KNOX,,42 Pleasant Ridge,42 PLEASANT RIDGE,ambiguous
-0.4737,KNOX,,43 West Haven,43 WEST HAVEN,ambiguous
+0.3937,KNOX,,43 West Haven,43 WEST HAVEN,ambiguous
 0.648,KNOX,,44 Ridgedale,44 RIDGEDALE,ambiguous
 0.72,KNOX,,45 Bearden Middle,45 BEARDEN MIDDLE,ambiguous
-0.6667,KNOX,,46 West Hills,46 WEST HILLS,ambiguous
+0.6,KNOX,,46 West Hills,46 WEST HILLS,ambiguous
 0.6968,KNOX,,47 Bearden High,47 BEARDEN HIGH,ambiguous
 0.6261,KNOX,,48 Pond Gap,48 POND GAP,ambiguous
 0.5838,KNOX,,49 Bearden Elem,49 BEARDEN ELEM,ambiguous
-0.648,KNOX,,50N West High,50N WEST HIGH,ambiguous
-0.648,KNOX,,50S West High,50S WEST HIGH,ambiguous
+0.5684,KNOX,,50N West High,50N WEST HIGH,ambiguous
+0.5684,KNOX,,50S West High,50S WEST HIGH,ambiguous
 0.75,KNOX,,51 Deane Hill Recr,51 DEANE HILL RECR,ambiguous
 0.375,KNOX,,55 Lonas,55 LONAS,ambiguous
 0.3913,KNOX,,56 Heiskell,56 HEISKELL,ambiguous
-0.4091,KNOX,,57 Hills,57 HILLS,ambiguous
+0.4737,KNOX,,57 Hills,57 HILLS,ambiguous
 0.375,KNOX,,58N Pedigo,58N PEDIGO,ambiguous
 0.375,KNOX,,58S Pedigo,58S PEDIGO,ambiguous
 0.6,KNOX,,59 Brickey,59 BRICKEY,ambiguous
@@ -352,15 +182,15 @@ best_score,county,prctseq,precinct,precinct_norm,reason
 0.4091,KNOX,,61 Halls,61 HALLS,ambiguous
 0.7091,KNOX,,62 Hardin Valley,62 HARDIN VALLEY,ambiguous
 0.375,KNOX,,63 Karns,63 KARNS,ambiguous
-0.42,KNOX,,63N Karns North,63N KARNS NORTH,ambiguous
+0.4154,KNOX,,63N Karns North,63N KARNS NORTH,ambiguous
 0.4154,KNOX,,64 Solway,64 SOLWAY,ambiguous
 0.3273,KNOX,,65 Concord,65 CONCORD,ambiguous
-0.36,KNOX,,65N Concord North,65N CONCORD NORTH,ambiguous
+0.4065,KNOX,,65N Concord North,65N CONCORD NORTH,ambiguous
 0.6,KNOX,,66N Farragut I,66N FARRAGUT I,ambiguous
 0.5806,KNOX,,66S Farragut II,66S FARRAGUT II,ambiguous
-0.4714,KNOX,,67 North Cedar Bluff,67 NORTH CEDAR BLUFF,ambiguous
-0.4714,KNOX,,68 South Cedar Bluff,68 SOUTH CEDAR BLUFF,ambiguous
-0.4829,KNOX,,68E East Cedar Bluff,68E EAST CEDAR BLUFF,ambiguous
+0.5211,KNOX,,67 North Cedar Bluff,67 NORTH CEDAR BLUFF,ambiguous
+0.5211,KNOX,,68 South Cedar Bluff,68 SOUTH CEDAR BLUFF,ambiguous
+0.5211,KNOX,,68E East Cedar Bluff,68E EAST CEDAR BLUFF,ambiguous
 0.45,KNOX,,69N A L Lotts,69N A L LOTTS,ambiguous
 0.648,KNOX,,69S Bluegrass,69S BLUEGRASS,ambiguous
 0.3462,KNOX,,70 Ball Camp,70 BALL CAMP,ambiguous
@@ -383,20 +213,12 @@ best_score,county,prctseq,precinct,precinct_norm,reason
 0.36,KNOX,,90 Bonny Kate,90 BONNY KATE,ambiguous
 0.648,KNOX,,92 Gap Creek,92 GAP CREEK,ambiguous
 0.6261,KNOX,,93 Hopewell,93 HOPEWELL,ambiguous
-0.72,LAKE,,1 Tiptonville SR Cit,1 TIPTONVILLE SR CIT,ambiguous
-0.5684,LAKE,,3 Lake Co Jr High,3 LAKE CO JR HIGH,ambiguous
+0.97,LAKE,,2 Courthouse,2 COURTHOUSE,ambiguous
 0.7714,LAUDERDALE,,Conner 2,CONNER 2,ambiguous
 0.75,LAUDERDALE,,Price 5,PRICE 5,ambiguous
 0.675,LAUDERDALE,,Arp 6,ARP 6,ambiguous
 0.75,LAUDERDALE,,Edith 7,EDITH 7,ambiguous
 0.75,LAUDERDALE,,Gates 7,GATES 7,ambiguous
-0.7714,LAWRENCE,,02-1 Loretto Civ Ctr,02 1 LORETTO CIV CTR,ambiguous
-0.66,LAWRENCE,,03-1 SE Lawrence,03 1 SE LAWRENCE,ambiguous
-0.6,LAWRENCE,,04-1 Crossroads,04 1 CROSSROADS,ambiguous
-0.45,LAWRENCE,,05-1 Leoma,05 1 LEOMA,ambiguous
-0.6968,LAWRENCE,,07-1 Lawrenceburg,07 1 LAWRENCEBURG,ambiguous
-0.6353,LAWRENCE,,12-1 Center,12 1 CENTER,ambiguous
-0.5143,LAWRENCE,,12-2 Henryville,12 2 HENRYVILLE,ambiguous
 0.6,LINCOLN,,1-1 Blanche,1 1 BLANCHE,ambiguous
 0.4235,LINCOLN,,1-3 Taft,1 3 TAFT,ambiguous
 0.4629,LINCOLN,,2-1 Boonshill,2 1 BOONSHILL,ambiguous
@@ -409,9 +231,8 @@ best_score,county,prctseq,precinct,precinct_norm,reason
 0.3333,LINCOLN,,7-1 Elora,7 1 ELORA,ambiguous
 0.6,LINCOLN,,7-2 Flintville,7 2 FLINTVILLE,ambiguous
 0.3273,LINCOLN,,7-3 Kelso,7 3 KELSO,ambiguous
-0.63,LINCOLN,,8-1 Lincoln,8 1 LINCOLN,ambiguous
-0.75,LOUDON,,Tellico V. North,TELLICO V NORTH,ambiguous
-0.75,LOUDON,,Tellico V. South,TELLICO V SOUTH,ambiguous
+0.7071,LOUDON,,Tellico V. North,TELLICO V NORTH,ambiguous
+0.7071,LOUDON,,Tellico V. South,TELLICO V SOUTH,ambiguous
 0.684,MACON,,Red Boiling Springs,RED BOILING SPRINGS,ambiguous
 0.4364,MACON,,Willette,WILLETTE,ambiguous
 0.375,MACON,,Galen,GALEN,ambiguous
@@ -422,46 +243,18 @@ best_score,county,prctseq,precinct,precinct_norm,reason
 0.3706,MACON,,Welcome,WELCOME,ambiguous
 0.7535,MACON,,Central Elementary,CENTRAL ELEMENTARY,ambiguous
 0.766,MACON,,Lafayette Elementary,LAFAYETTE ELEMENTARY,ambiguous
-0.5838,MADISON,,1-1 Civic Center,1 1 CIVIC CENTER,ambiguous
-0.4909,MADISON,,1-2 Mt Moriah,1 2 MT MORIAH,ambiguous
-0.45,MADISON,,2-1 Alexander,2 1 ALEXANDER,ambiguous
-0.4091,MADISON,,2-2 Aldersgate,2 2 ALDERSGATE,ambiguous
-0.5786,MADISON,,2-3 Tigrett Middle,2 3 TIGRETT MIDDLE,ambiguous
-0.5657,MADISON,,3-1 Board of Educ,3 1 BOARD OF EDUC,ambiguous
-0.5838,MADISON,,3-2 Old Bells Rd #10,3 2 OLD BELLS RD 10,ambiguous
-0.36,MADISON,,3-3 J-CIL,3 3 J CIL,ambiguous
-0.65,MADISON,,4-1 Masonic Lodge,4 1 MASONIC LODGE,ambiguous
-0.72,MADISON,,4-2 Andrew Jackson,4 2 ANDREW JACKSON,ambiguous
-0.5657,MADISON,,4-3 Festivities,4 3 FESTIVITIES,ambiguous
-0.45,MADISON,,5-1 Whitehall,5 1 WHITEHALL,ambiguous
-0.525,MADISON,,5-2 Macedonia,5 2 MACEDONIA,ambiguous
-0.7091,MADISON,,5-3 North Parkway,5 3 NORTH PARKWAY,ambiguous
-0.5226,MADISON,,6-1 Southside,6 1 SOUTHSIDE,ambiguous
-0.3333,MADISON,,6-2 South,6 2 SOUTH,ambiguous
-0.4065,MADISON,,6-3 Malesus,6 3 MALESUS,ambiguous
-0.45,MADISON,,6-4 Medon,6 4 MEDON,ambiguous
-0.4979,MADISON,,7-1 UT Experiment,7 1 UT EXPERIMENT,ambiguous
-0.6387,MADISON,,7-2 TN Tech Ctr,7 2 TN TECH CTR,ambiguous
-0.35,MADISON,,7-3 Denmark,7 3 DENMARK,ambiguous
-0.432,MADISON,,7-4 Mercer,7 4 MERCER,ambiguous
-0.5657,MADISON,,8-1 Beech Bluff,8 1 BEECH BLUFF,ambiguous
-0.3,MADISON,,8-2 Browns,8 2 BROWNS,ambiguous
-0.3937,MADISON,,8-3 Mifflin,8 3 MIFFLIN,ambiguous
-0.5143,MADISON,,8-4 East Union,8 4 EAST UNION,ambiguous
-0.4667,MADISON,,8-5 Lesters,8 5 LESTERS,ambiguous
-0.2769,MADISON,,9-2 Pope,9 2 POPE,ambiguous
-0.45,MADISON,,9-3 Three Way,9 3 THREE WAY,ambiguous
-0.5538,MADISON,,10-1 Spring Creek,10 1 SPRING CREEK,ambiguous
-0.6667,MADISON,,10-2 North East,10 2 NORTH EAST,ambiguous
-0.5625,MADISON,,10-3 North Side,10 3 NORTH SIDE,ambiguous
+0.97,MADISON,,1-1 Civic Center,1 1 CIVIC CENTER,ambiguous
+0.97,MADISON,,1-2 Mt Moriah,1 2 MT MORIAH,ambiguous
+0.97,MADISON,,10-1 Spring Creek,10 1 SPRING CREEK,ambiguous
+0.97,MADISON,,10-2 North East,10 2 NORTH EAST,ambiguous
 0.6387,MARION,,Whitwell Mountain,WHITWELL MOUNTAIN,ambiguous
 0.765,MARSHALL,,2 Henry Horton Park,2 HENRY HORTON PARK,ambiguous
 0.3913,MARSHALL,,4 Cornersville,4 CORNERSVILLE,ambiguous
-0.5806,MARSHALL,,6 West Hills,6 WEST HILLS,ambiguous
+0.504,MARSHALL,,6 West Hills,6 WEST HILLS,ambiguous
 0.6261,MARSHALL,,7 Hardison,7 HARDISON,ambiguous
 0.7548,MARSHALL,,8 Lewisburg Gas,8 LEWISBURG GAS,ambiguous
 0.7364,MAURY,,Riverside 1-1,RIVERSIDE 1 1,ambiguous
-0.72,MAURY,,West End 1-2,WEST END 1 2,ambiguous
+0.6429,MAURY,,West End 1-2,WEST END 1 2,ambiguous
 0.7714,MAURY,,First Family 2-1,FIRST FAMILY 2 1,ambiguous
 0.72,MAURY,,Highland 2-2,HIGHLAND 2 2,ambiguous
 0.7714,MAURY,,College Hill 3-1,COLLEGE HILL 3 1,ambiguous
@@ -491,7 +284,7 @@ best_score,county,prctseq,precinct,precinct_norm,reason
 0.648,MCMINN,,Ingleside,INGLESIDE,ambiguous
 0.6632,MCMINN,,TN Tech Center,TN TECH CENTER,ambiguous
 0.6667,MCMINN,,Courthouse,COURTHOUSE,ambiguous
-0.6667,MCMINN,,North City,NORTH CITY,ambiguous
+0.5684,MCMINN,,North City,NORTH CITY,ambiguous
 0.525,MCMINN,,Claxton,CLAXTON,ambiguous
 0.6,MCMINN,,E K Baker,E K BAKER,ambiguous
 0.7091,MCMINN,,Mountain View,MOUNTAIN VIEW,ambiguous
@@ -500,12 +293,12 @@ best_score,county,prctseq,precinct,precinct_norm,reason
 0.75,MCNAIRY,,Adamsville 2-1,ADAMSVILLE 2 1,ambiguous
 0.675,MCNAIRY,,Lawton 2-2,LAWTON 2 2,ambiguous
 0.72,MCNAIRY,,Leapwood 3-1,LEAPWOOD 3 1,ambiguous
-0.6,MCNAIRY,,Northeast 3-2,NORTHEAST 3 2,ambiguous
+0.4154,MCNAIRY,,Northeast 3-2,NORTHEAST 3 2,ambiguous
 0.6429,MCNAIRY,,Purdy 3-3,PURDY 3 3,ambiguous
-0.7714,MCNAIRY,,North Selmer 4-1,NORTH SELMER 4 1,ambiguous
+0.72,MCNAIRY,,North Selmer 4-1,NORTH SELMER 4 1,ambiguous
 0.75,MCNAIRY,,Rose Creek 4-2,ROSE CREEK 4 2,ambiguous
 0.7,MCNAIRY,,Cypress 5-1,CYPRESS 5 1,ambiguous
-0.7364,MCNAIRY,,East View 5-2,EAST VIEW 5 2,ambiguous
+0.675,MCNAIRY,,East View 5-2,EAST VIEW 5 2,ambiguous
 0.6,MCNAIRY,,Guys 5-3,GUYS 5 3,ambiguous
 0.6429,MCNAIRY,,Ramer 5-4,RAMER 5 4,ambiguous
 0.675,MCNAIRY,,Michie 7-1,MICHIE 7 1,ambiguous
@@ -522,38 +315,7 @@ best_score,county,prctseq,precinct,precinct_norm,reason
 0.4065,MONROE,,Tellico,TELLICO,ambiguous
 0.6828,MONROE,,Coker Creek,COKER CREEK,ambiguous
 0.216,MONROE,,Toqua,TOQUA,ambiguous
-0.2,MONTGOMERY,,1A St B ES,1A ST B ES,ambiguous
-0.18,MONTGOMERY,,1B Emmanuel,1B EMMANUEL,ambiguous
-0.18,MONTGOMERY,,2A St B UMC,2A ST B UMC,ambiguous
-0.2,MONTGOMERY,,2B St B CC,2B ST B CC,ambiguous
-0.1059,MONTGOMERY,,3 East Montgomery,3 EAST MONTGOMERY,ambiguous
-0,MONTGOMERY,,4A MCMS,4A MCMS,ambiguous
-0,MONTGOMERY,,4B Jostens,4B JOSTENS,ambiguous
-0,MONTGOMERY,,5A Smith,5A SMITH,ambiguous
-0.2,MONTGOMERY,,5B Madison,5B MADISON,ambiguous
-0.15,MONTGOMERY,,6A Cumberland,6A CUMBERLAND,ambiguous
-0.225,MONTGOMERY,,6B Bethel,6B BETHEL,ambiguous
-0.18,MONTGOMERY,,7 Woodlawn,7 WOODLAWN,ambiguous
-0.225,MONTGOMERY,,8A Bethel,8A BETHEL,ambiguous
-0.1286,MONTGOMERY,,8B Barkers Mill,8B BARKERS MILL,ambiguous
-0.225,MONTGOMERY,,9 Outlaw,9 OUTLAW,ambiguous
-0,MONTGOMERY,,10 Minglewood,10 MINGLEWOOD,ambiguous
-0,MONTGOMERY,,11 Northwest,11 NORTHWEST,ambiguous
-0,MONTGOMERY,,12 Ringgold,12 RINGGOLD,ambiguous
-0.1286,MONTGOMERY,,13 Byrns Darden,13 BYRNS DARDEN,ambiguous
-0,MONTGOMERY,,14 Glenellen,14 GLENELLEN,ambiguous
-0.2571,MONTGOMERY,,15 Sango,15 SANGO,ambiguous
-0,MONTGOMERY,,16 New Providence,16 NEW PROVIDENCE,ambiguous
-0.2571,MONTGOMERY,,17 Grace,17 GRACE,ambiguous
-0.1636,MONTGOMERY,,18 Hazelwood,18 HAZELWOOD,ambiguous
-0.18,MONTGOMERY,,19 Lutheran,19 LUTHERAN,ambiguous
-0.1385,MONTGOMERY,,20A Clarksville,20A CLARKSVILLE,ambiguous
-0.1636,MONTGOMERY,,20B Barksdale,20B BARKSDALE,ambiguous
-0.15,MONTGOMERY,,21A Cumberland,21A CUMBERLAND,ambiguous
-0.18,MONTGOMERY,,21B Hilldale,21B HILLDALE,ambiguous
 0,MONTGOMERY,,EV,EV,ambiguous
-0.7463,MOORE,,2 Moore County High,2 MOORE COUNTY HIGH,ambiguous
-0.2842,MOORE,,4 Lynchburg,4 LYNCHBURG,ambiguous
 0.7364,MORGAN,,1-1 Coalfield,1 1 COALFIELD,ambiguous
 0.7714,MORGAN,,2-1 Oakdale High,2 1 OAKDALE HIGH,ambiguous
 0.7615,MORGAN,,2-2 Mossy Grove,2 2 MOSSY GROVE,ambiguous
@@ -564,9 +326,6 @@ best_score,county,prctseq,precinct,precinct_norm,reason
 0.7364,MORGAN,,5-2 Burrville,5 2 BURRVILLE,ambiguous
 0.6353,MORGAN,,6-1 Kellys,6 1 KELLYS,ambiguous
 0.675,MORGAN,,6-2 Petros,6 2 PETROS,ambiguous
-0.6828,OBION,,6-1 Troy Sr Ctr,6 1 TROY SR CTR,ambiguous
-0.5294,OBION,,6-2 Obion Sr Ctr,6 2 OBION SR CTR,ambiguous
-0.6,PERRY,,4-3 Lobelville,4 3 LOBELVILLE,ambiguous
 0.3857,PERRY,,5-2 Linden,5 2 LINDEN,ambiguous
 0.6,PERRY,,6-2 Lobelville,6 2 LOBELVILLE,ambiguous
 0.75,PICKETT,,Moodyville 1-2,MOODYVILLE 1 2,ambiguous
@@ -577,47 +336,10 @@ best_score,county,prctseq,precinct,precinct_norm,reason
 0.72,PICKETT,,Oak Hill 4-2,OAK HILL 4 2,ambiguous
 0.7714,PICKETT,,Barnes Ridge 4-3,BARNES RIDGE 4 3,ambiguous
 0.7364,PICKETT,,Bolestown 4-4,BOLESTOWN 4 4,ambiguous
-0.4696,POLK,,1 Delano,1 DELANO,ambiguous
-0.6171,POLK,,1A Polk Co High,1A POLK CO HIGH,ambiguous
-0.4909,POLK,,1B Chilhowee,1B CHILHOWEE,ambiguous
-0.6353,POLK,,2 Greasy Creek,2 GREASY CREEK,ambiguous
-0.6207,POLK,,2A Springtown,2A SPRINGTOWN,ambiguous
-0.6667,POLK,,2C South Polk,2C SOUTH POLK,ambiguous
-0.6146,POLK,,2D Shiloh Baptist,2D SHILOH BAPTIST,ambiguous
-0.5333,POLK,,3 Ducktown,3 DUCKTOWN,ambiguous
-0.55,POLK,,3A Copper Basin,3A COPPER BASIN,ambiguous
-0.5586,PUTNAM,,2A Northeast,2A NORTHEAST,ambiguous
 0.4,PUTNAM,,4A Burks,4A BURKS,ambiguous
-0.5538,PUTNAM,,4B Monterey,4B MONTEREY,ambiguous
-0.6171,PUTNAM,,5A Cookeville CC,5A COOKEVILLE CC,ambiguous
-0.6828,PUTNAM,,8F Cornerstone,8F CORNERSTONE,ambiguous
-0.7714,PUTNAM,,9A D Springs North,9A D SPRINGS NORTH,ambiguous
-0.7714,PUTNAM,,9B D Springs South,9B D SPRINGS SOUTH,ambiguous
-0.7297,PUTNAM,,11B Cookeville High,11B COOKEVILLE HIGH,ambiguous
-0.4091,RHEA,,1-1 S.C.N.,1 1 S C N,ambiguous
-0.4091,RHEA,,2-1 S.C.S.,2 1 S C S,ambiguous
-0.7714,RHEA,,3-2 Evensville N.,3 2 EVENSVILLE N,ambiguous
-0.7714,RHEA,,4-1 Evensville S.,4 1 EVENSVILLE S,ambiguous
-0.5478,ROBERTSON,,01-1 East Robertson,01 1 EAST ROBERTSON,ambiguous
-0.6,ROBERTSON,,02-1 Grace Park,02 1 GRACE PARK,ambiguous
-0.4645,ROBERTSON,,03-1 Ebenezer,03 1 EBENEZER,ambiguous
-0.4645,ROBERTSON,,03-2 Heritage,03 2 HERITAGE,ambiguous
-0.3937,ROBERTSON,,04-1 Watauga,04 1 WATAUGA,ambiguous
-0.5625,ROBERTSON,,05-1 Greenbrier,05 1 GREENBRIER,ambiguous
-0.5294,ROBERTSON,,06-1 Coopertown,06 1 COOPERTOWN,ambiguous
-0.5586,ROBERTSON,,06-2 Mt. Sharon,06 2 MT SHARON,ambiguous
-0.4235,ROBERTSON,,07-1 Jo Byrns,07 1 JO BYRNS,ambiguous
-0.5268,ROBERTSON,,07-2 Stroudsville,07 2 STROUDSVILLE,ambiguous
-0.5684,ROBERTSON,,08-1 Krisle,08 1 KRISLE,ambiguous
-0.6545,ROBERTSON,,08-2 HATS,08 2 HATS,ambiguous
-0.54,ROBERTSON,,08-3 Owens Chapel,08 3 OWENS CHAPEL,ambiguous
-0.4865,ROBERTSON,,09-1 Fair Assoc.,09 1 FAIR ASSOC,ambiguous
-0.5077,ROBERTSON,,10-1 South Haven,10 1 SOUTH HAVEN,ambiguous
-0.6261,ROBERTSON,,11-1 Westside,11 1 WESTSIDE,ambiguous
-0.45,ROBERTSON,,11-2 Heads,11 2 HEADS,ambiguous
-0.648,ROBERTSON,,12-1 Bransford,12 1 BRANSFORD,ambiguous
-0.7714,RUTHERFORD,,16-1,16 1,ambiguous
-0.7714,SEQUATCHIE,,7 Training Center,7 TRAINING CENTER,ambiguous
+0.97,ROBERTSON,,01-1 East Robertson,01 1 EAST ROBERTSON,ambiguous
+0.97,ROBERTSON,,10-1 South Haven,10 1 SOUTH HAVEN,ambiguous
+0.72,RUTHERFORD,,16-1,16 1,ambiguous
 0.8182,SEVIER,,1-3 Jones Cove,1 3 JONES COVE,ambiguous
 0.8182,SEVIER,,1-4 Jones Cove,1 4 JONES COVE,ambiguous
 0.648,SEVIER,,2-1 Wearwood School,2 1 WEARWOOD SCHOOL,ambiguous
@@ -655,8 +377,6 @@ best_score,county,prctseq,precinct,precinct_norm,reason
 0.63,SHELBY,,Ross 14,ROSS 14,ambiguous
 0.63,SHELBY,,Ross 15,ROSS 15,ambiguous
 0.63,SHELBY,,Ross 16,ROSS 16,ambiguous
-0.3214,STEWART,,4-1 Church Street,4 1 CHURCH STREET,ambiguous
-0.5786,STEWART,,6-1 Public Library,6 1 PUBLIC LIBRARY,ambiguous
 0.5684,SUMNER,,4A Howard,4A HOWARD,ambiguous
 0.4286,SUMNER,,4D Union,4D UNION,ambiguous
 0.5538,SUMNER,,5A Gallatin,5A GALLATIN,ambiguous
@@ -667,116 +387,33 @@ best_score,county,prctseq,precinct,precinct_norm,reason
 0.1636,SUMNER,,12B,12B,ambiguous
 0.6188,SUMNER,,12C White House,12C WHITE HOUSE,ambiguous
 0.648,TIPTON,,6-14 SW Tipton,6 14 SW TIPTON,ambiguous
-0.3913,TROUSDALE,,01 Elementary,01 ELEMENTARY,ambiguous
-0.2571,TROUSDALE,,07 Courthouse,07 COURTHOUSE,ambiguous
 0.5625,UNICOI,,Intermediate School,INTERMEDIATE SCHOOL,ambiguous
-0.5657,UNION,,1-1 Union Co HS,1 1 UNION CO HS,ambiguous
 0.4235,UNION,,2-1 Luttrell,2 1 LUTTRELL,ambiguous
 0.55,UNION,,3-1 Cedar Grove,3 1 CEDAR GROVE,ambiguous
-0.3333,UNION,,3-2 Brock,3 2 BROCK,ambiguous
 0.4909,UNION,,4-1 Big Ridge,4 1 BIG RIDGE,ambiguous
 0.6,UNION,,5-1 Sharp Chapel,5 1 SHARP CHAPEL,ambiguous
 0.7091,UNION,,5-2 Braden Chapel,5 2 BRADEN CHAPEL,ambiguous
 0.4235,UNION,,6-1 Paulette,6 1 PAULETTE,ambiguous
-0.4629,UNION,,7-1 Plainview,7 1 PLAINVIEW,ambiguous
 0.5707,VAN BUREN,,Cummingsville,CUMMINGSVILLE,ambiguous
 0.5351,VAN BUREN,,Cedar Grove,CEDAR GROVE,ambiguous
 0.6545,VAN BUREN,,Fall Creek Falls,FALL CREEK FALLS,ambiguous
 0.45,VAN BUREN,,Piney,PINEY,ambiguous
 0.5143,VAN BUREN,,White Hill,WHITE HILL,ambiguous
 0.3913,WARREN,,1 McMinnville,1 MCMINNVILLE,ambiguous
-0.72,WARREN,,2-2 Warren Airport,2 2 WARREN AIRPORT,ambiguous
-0.4364,WARREN,,3-1 Westwood,3 1 WESTWOOD,ambiguous
-0.4909,WARREN,,3-2 Smartt,3 2 SMARTT,ambiguous
 0.6,WARREN,,4 TSU Nursery,4 TSU NURSERY,ambiguous
-0.72,WARREN,,5-1 Three Star,5 1 THREE STAR,ambiguous
 0.7385,WARREN,,6 Warren Co Middle,6 WARREN CO MIDDLE,ambiguous
-0.6,WARREN,,7 Eastside,7 EASTSIDE,ambiguous
-0.4364,WARREN,,8-1 Fairview,8 1 FAIRVIEW,ambiguous
-0.72,WARREN,,8-2 Irving College,8 2 IRVING COLLEGE,ambiguous
-0.72,WARREN,,8-3 LBJ & C Head,8 3 LBJ C HEAD,ambiguous
-0.4966,WARREN,,9-1 Morrison,9 1 MORRISON,ambiguous
-0.6,WARREN,,9-2 Viola Valley,9 2 VIOLA VALLEY,ambiguous
-0.7091,WARREN,,10-2 Centertown CIC,10 2 CENTERTOWN CIC,ambiguous
-0.3724,WARREN,,11-1 Midway,11 1 MIDWAY,ambiguous
-0.5351,WARREN,,11-2 Hwy 56 North,11 2 HWY 56 NORTH,ambiguous
-0.5684,WARREN,,12-1 Northside,12 1 NORTHSIDE,ambiguous
-0.3333,WARREN,,12-2 Lucky,12 2 LUCKY,ambiguous
-0.576,WASHINGTON,,05 B.C. East,05 B C EAST,ambiguous
-0.576,WASHINGTON,,08 B.C. West,08 B C WEST,ambiguous
-0.576,WASHINGTON,,09 B.C. City,09 B C CITY,ambiguous
-0.6667,WASHINGTON,,25 Millennium,25 MILLENNIUM,ambiguous
-0.63,WASHINGTON,,29 Midway City,29 MIDWAY CITY,ambiguous
-0.5143,WASHINGTON,,30 Grace,30 GRACE,ambiguous
-0.7714,WASHINGTON,,32 Cherokee Out,32 CHEROKEE OUT,ambiguous
-0.6828,WASHINGTON,,34 New Victory,34 NEW VICTORY,ambiguous
-0.72,WAYNE,,1 Waynesboro,1 WAYNESBORO,ambiguous
+0.4286,WARREN,,7 Eastside,7 EASTSIDE,ambiguous
 0.6188,WAYNE,,3-1 Beech Creek,3 1 BEECH CREEK,ambiguous
 0.6188,WAYNE,,3-3 Eagle Creek,3 3 EAGLE CREEK,ambiguous
 0.72,WAYNE,,4-1 Collinwood,4 1 COLLINWOOD,ambiguous
 0.7091,WAYNE,,5-3 Wayne Co High,5 3 WAYNE CO HIGH,ambiguous
 0.6188,WAYNE,,6-1 Holly Creek,6 1 HOLLY CREEK,ambiguous
-0.5586,WAYNE,,6-2 South Gate,6 2 SOUTH GATE,ambiguous
+0.48,WAYNE,,6-2 South Gate,6 2 SOUTH GATE,ambiguous
 0.65,WAYNE,,7-1 Buffalo River,7 1 BUFFALO RIVER,ambiguous
 0.4909,WAYNE,,7-2 Ovilla,7 2 OVILLA,ambiguous
-0.4909,WEAKLEY,,1A Palmersville,1A PALMERSVILLE,ambiguous
-0.4154,WEAKLEY,,1B Latham,1B LATHAM,ambiguous
-0.3818,WEAKLEY,,2 Gleason,2 GLEASON,ambiguous
-0.6923,WEAKLEY,,3 Greenfield Park,3 GREENFIELD PARK,ambiguous
-0.432,WEAKLEY,,4 Sharon,4 SHARON,ambiguous
-0.3724,WEAKLEY,,5 Martin,5 MARTIN,ambiguous
-0.3073,WEAKLEY,,6 Trinity,6 TRINITY,ambiguous
-0.3724,WEAKLEY,,7 Martin,7 MARTIN,ambiguous
-0.3724,WEAKLEY,,8 Martin,8 MARTIN,ambiguous
-0.36,WEAKLEY,,9 Dresden,9 DRESDEN,ambiguous
-0.6,WHITE,,1-1 Sparta Civic,1 1 SPARTA CIVIC,ambiguous
-0.6,WHITE,,1-2 Sparta Civic,1 2 SPARTA CIVIC,ambiguous
-0.7714,WHITE,,2-1 Ag Fair Complex,2 1 AG FAIR COMPLEX,ambiguous
-0.3,WHITE,,2-2 Thomas Union,2 2 THOMAS UNION,ambiguous
-0.7714,WHITE,,3-1 Ag Fair Complex,3 1 AG FAIR COMPLEX,ambiguous
-0.585,WHITE,,4-1 Woodland Park,4 1 WOODLAND PARK,ambiguous
-0.5294,WHITE,,4-2 Bondecroft,4 2 BONDECROFT,ambiguous
-0.4829,WHITE,,5-1 Doyle Civic,5 1 DOYLE CIVIC,ambiguous
-0.5684,WHITE,,6-1 Central View,6 1 CENTRAL VIEW,ambiguous
-0.5062,WHITE,,6-2 Cassville,6 2 CASSVILLE,ambiguous
-0.5294,WHITE,,7-1 Northfield,7 1 NORTHFIELD,ambiguous
-0.0947,WILLIAMSON,,1-1,1 1,ambiguous
-0.0947,WILLIAMSON,,1-2,1 2,ambiguous
-0.0947,WILLIAMSON,,1-3,1 3,ambiguous
-0.0947,WILLIAMSON,,1-4,1 4,ambiguous
-0.0947,WILLIAMSON,,2-1,2 1,ambiguous
-0.0947,WILLIAMSON,,2-2,2 2,ambiguous
-0.0947,WILLIAMSON,,2-3,2 3,ambiguous
-0.0947,WILLIAMSON,,2-4,2 4,ambiguous
-0.0947,WILLIAMSON,,3-1,3 1,ambiguous
-0.0947,WILLIAMSON,,3-2,3 2,ambiguous
-0.0947,WILLIAMSON,,3-3,3 3,ambiguous
-0.0947,WILLIAMSON,,4-1,4 1,ambiguous
-0.0947,WILLIAMSON,,4-2,4 2,ambiguous
-0.0947,WILLIAMSON,,4-3,4 3,ambiguous
-0.0947,WILLIAMSON,,5-1,5 1,ambiguous
-0.0947,WILLIAMSON,,5-2,5 2,ambiguous
-0.0947,WILLIAMSON,,5-3,5 3,ambiguous
-0.0947,WILLIAMSON,,5-4,5 4,ambiguous
-0.0947,WILLIAMSON,,6-1,6 1,ambiguous
-0.0947,WILLIAMSON,,6-2,6 2,ambiguous
-0.0947,WILLIAMSON,,6-3,6 3,ambiguous
-0.0947,WILLIAMSON,,7-1,7 1,ambiguous
-0.0947,WILLIAMSON,,7-2,7 2,ambiguous
-0.0947,WILLIAMSON,,7-3,7 3,ambiguous
-0.0947,WILLIAMSON,,8-1,8 1,ambiguous
-0.0947,WILLIAMSON,,8-2,8 2,ambiguous
-0.0947,WILLIAMSON,,8-3,8 3,ambiguous
-0.0947,WILLIAMSON,,9-1,9 1,ambiguous
-0.0947,WILLIAMSON,,9-2,9 2,ambiguous
-0.0947,WILLIAMSON,,9-3,9 3,ambiguous
-0.0947,WILLIAMSON,,9-4,9 4,ambiguous
-0.09,WILLIAMSON,,10-1,10 1,ambiguous
-0.09,WILLIAMSON,,10-2,10 2,ambiguous
-0.09,WILLIAMSON,,10-3,10 3,ambiguous
-0.09,WILLIAMSON,,11-1,11 1,ambiguous
-0.09,WILLIAMSON,,11-2,11 2,ambiguous
-0.09,WILLIAMSON,,11-3,11 3,ambiguous
-0.09,WILLIAMSON,,12-1,12 1,ambiguous
-0.09,WILLIAMSON,,12-2,12 2,ambiguous
-0.09,WILLIAMSON,,12-3,12 3,ambiguous
+0.97,WILLIAMSON,,1-1,1 1,ambiguous
+0.97,WILLIAMSON,,1-2,1 2,ambiguous
+0.97,WILLIAMSON,,1-3,1 3,ambiguous
+0.97,WILLIAMSON,,10-1,10 1,ambiguous
+0.97,WILLIAMSON,,10-2,10 2,ambiguous
+0.97,WILLIAMSON,,10-3,10 3,ambiguous

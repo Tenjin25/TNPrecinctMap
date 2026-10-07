@@ -6,11 +6,6 @@ confidence,county,feature_id,match_method,official_name,prctseq,precinct,precinc
 0.78,CAMPBELL,122,fuzzy_name,Jacksboro Station,,3-2 Jacksboro Sta,3 2 JACKSBORO STA,True
 0.8471,CAMPBELL,120,fuzzy_name,Jcksboro,,4-3 Jacksboro,4 3 JACKSBORO,True
 0.8571,CARTER,166,fuzzy_name,Court House,,Courthouse,COURTHOUSE,True
-0.8727,CLAIBORNE,210,fuzzy_name,8-2 Vanbebber Springs,,8-2 Vanbebber Sprngs,8 2 VANBEBBER SPRNGS,True
-0.8757,CLAY,222,fuzzy_name,1 Dentons Cross Roads,,1 Dentons Cross Road,1 DENTONS CROSS ROAD,True
-0.8229,CLAY,221,fuzzy_name,5-3 Arcot/Beech Bethany,,5-1 Arcot/Beech Beth,5 1 ARCOT BEECH BETH,True
-0.8727,COFFEE,251,fuzzy_name,01 Ada Right Center,,1 Ada Wright Center,1 ADA WRIGHT CENTER,True
-0.8571,COFFEE,258,fuzzy_name,16 Lions Club,,16 Lion's Club,16 LION S CLUB,True
 0.8571,DYER,526,fuzzy_name,A - Bonicord,,A1- Bonicord,A1 BONICORD,True
 0.8526,DYER,521,fuzzy_name,A - Fowlkes,,A2- Fowlkes,A2 FOWLKES,True
 0.864,DYER,525,fuzzy_name,C-Tatumville,,C1- Tatumville,C1 TATUMVILLE,True
@@ -23,29 +18,17 @@ confidence,county,feature_id,match_method,official_name,prctseq,precinct,precinc
 0.8053,DYER,524,fuzzy_name,F - Dyer County Central,,F- Dyer Co Central,F DYER CO CENTRAL,True
 0.8757,DYER,523,fuzzy_name,I - Community Center,,I1- Community Center,I1 COMMUNITY CENTER,True
 0.8727,DYER,513,fuzzy_name,I - Hurricane Hill,,I2- Hurricane Hill,I2 HURRICANE HILL,True
-0.78,DYER,515,fuzzy_name,J-N Dyersburg,,J- North Dyersburg,J NORTH DYERSBURG,True
 0.8308,FAYETTE,530,fuzzy_name,7 Hickory White,,Hickory Withe,HICKORY WITHE,True
 0.8471,FAYETTE,537,fuzzy_name,15 La Grange,,LaGrange,LAGRANGE,True
 0.8526,FENTRESS,551,fuzzy_name,Crossroad,,Crossroads,CROSSROADS,True
-0.8727,GILES,610,fuzzy_name,4B Odds Fellows Hall,,4B Odd Fellows Hall,4B ODD FELLOWS HALL,True
-0.8571,GREENE,651,fuzzy_name,10-2 Court House,,10-2 Courthouse,10 2 COURTHOUSE,True
-0.8609,GREENE,645,fuzzy_name,14 Chucky Doak,,14 Chuckey Doak,14 CHUCKEY DOAK,True
-0.8182,HAMILTON,781,fuzzy_name,East Chattanooga 1,,018 E Chattanooga 1,018 E CHATTANOOGA 1,True
-0.8182,HAMILTON,774,fuzzy_name,East Chattanooga 2,,192 E Chattanooga 2,192 E CHATTANOOGA 2,True
-0.7941,HAMILTON,773,fuzzy_name,North Chattanooga 1,,035 N. Chattanooga 1,035 N CHATTANOOGA 1,True
-0.7941,HAMILTON,787,fuzzy_name,North Chattanooga 2,,139 N. Chattanooga 2,139 N CHATTANOOGA 2,True
 0.78,HARDIN,852,fuzzy_name,5 Morris Chapel,,Morris Chapel 5-2,MORRIS CHAPEL 5 2,True
-0.8471,HAWKINS,865,fuzzy_name,6 Alumwell,,6 Alum Well,6 ALUM WELL,True
-0.8757,HAWKINS,863,fuzzy_name,2 Church Hill Outside,,2 Church Hill Outsid,2 CHURCH HILL OUTSID,True
-0.8,HAWKINS,879,fuzzy_name,4 Surgoinsville Inside,,4 Surgoinsville In,4 SURGOINSVILLE IN,True
-0.8053,HAWKINS,874,fuzzy_name,4 Surgoinsville Outside,,4 Surgoinsville Out,4 SURGOINSVILLE OUT,True
-0.8069,HENDERSON,900,fuzzy_name,3-2 Fire Station #10,,3-3 Fire Station #4,3 3 FIRE STATION 4,True
 0.7875,LAUDERDALE,1085,fuzzy_name,Henning,,Henning 1,HENNING 1,True
 0.7875,LAUDERDALE,1079,fuzzy_name,McBride,,McBride 1,MCBRIDE 1,True
 0.81,LAUDERDALE,1081,fuzzy_name,Lightfoot,,Lightfoot 5,LIGHTFOOT 5,True
 0.7875,LAUDERDALE,1072,fuzzy_name,Central,,Central 6,CENTRAL 6,True
 0.8,LAUDERDALE,1083,fuzzy_name,Nankipoo,,Nankipoo 7,NANKIPOO 7,True
 0.8129,LINCOLN,1125,fuzzy_name,Recreation Center,,3-1 Recreation Ctr,3 1 RECREATION CTR,True
+0.7875,LINCOLN,1138,fuzzy_name,South Lincoln,,8-1 Lincoln,8 1 LINCOLN,True
 0.8182,LOUDON,1151,fuzzy_name,Eatons,,Eaton,EATON,True
 0.8667,MARION,1206,fuzzy_name,Haletown-Ladds,,Haletown-Ladd,HALETOWN LADD,True
 0.8667,MARION,1214,fuzzy_name,Waldens Ridge,,Walden's Ridge,WALDEN S RIDGE,True
@@ -53,11 +36,8 @@ confidence,county,feature_id,match_method,official_name,prctseq,precinct,precinc
 0.8,MAURY,1239,fuzzy_name,Pleasant Heights,,Pleasant Heights 9-2,PLEASANT HEIGHTS 9 2,True
 0.7875,MCNAIRY,1269,fuzzy_name,1 Bethel Springs,,Bethel Springs 1-1,BETHEL SPRINGS 1 1,True
 0.78,MCNAIRY,1267,fuzzy_name,6 Courthouse SE,,Courthouse SE 6-1,COURTHOUSE SE 6 1,True
-0.8053,MOORE,1329,fuzzy_name,3 Moore County Building,,3 Moore County Bldg,3 MOORE COUNTY BLDG,True
-0.8229,OBION,1347,fuzzy_name,2-1 EDDIE COX SR. CENTER,,2-1 Eddie Cox Sr Ctr,2 1 EDDIE COX SR CTR,True
 0.8,PICKETT,1376,fuzzy_name,Community Center,,Community Center 1-1,COMMUNITY CENTER 1 1,True
 0.827,ROANE,1452,fuzzy_name,Johnson School House,,Johnson Sch House,JOHNSON SCH HOUSE,True
-0.8571,SEQUATCHIE,1535,fuzzy_name,3 Court House,,3 Courthouse,3 COURTHOUSE,True
 0.84,SEVIER,2046,fuzzy_name,Caton's Chapel 1,,1-1 Caton's Chapel,1 1 CATON S CHAPEL,True
 0.84,SEVIER,2046,fuzzy_name,Caton's Chapel 1,,1-2 Caton's Chapel,1 2 CATON S CHAPEL,True
 0.8357,SEVIER,2052,fuzzy_name,Waldens Creek 2,,2-2 Waldens Creek,2 2 WALDENS CREEK,True
@@ -86,9 +66,7 @@ confidence,county,feature_id,match_method,official_name,prctseq,precinct,precinc
 0.864,SHELBY,1538,fuzzy_name,Millington 2,,Millington 02,MILLINGTON 02,True
 0.8129,SUMNER,1802,fuzzy_name,03 Castalian Springs,,3C Castalian Spgs,3C CASTALIAN SPGS,True
 0.8308,SUMNER,1811,fuzzy_name,03 Bushes Chapel,,3E Bush's Chapel,3E BUSH S CHAPEL,True
-0.864,TIPTON,1839,fuzzy_name,01 N. E. Covington,,1-1 NE Covington,1 1 NE COVINGTON,True
 0.864,TIPTON,1836,fuzzy_name,03 S.E. Covington,,2-3 SE Covington,2 3 SE COVINGTON,True
 0.8308,TIPTON,1832,fuzzy_name,21 W. Wilkinsville,,8-21 Wilkinsville,8 21 WILKINSVILLE,True
 0.8,VAN BUREN,1872,fuzzy_name,Spencer 5,,Spencer 1,SPENCER 1,True
-0.8571,WASHINGTON,1924,fuzzy_name,17 Towne Acres,,17 Town Acres,17 TOWN ACRES,True
 0.8,WAYNE,1938,fuzzy_name,4 Shawnatee,,4-2 Shawnatte,4 2 SHAWNATTE,True

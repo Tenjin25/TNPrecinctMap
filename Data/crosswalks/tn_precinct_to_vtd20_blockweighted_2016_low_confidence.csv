@@ -6,9 +6,6 @@ confidence,county,feature_id,match_method,official_name,prctseq,precinct,precinc
 0.7846,BLOUNT,11,fuzzy_name,William Blount Academy,,Wm Blount Academy,WM BLOUNT ACADEMY,True
 0.78,CAMPBELL,276,fuzzy_name,Jacksboro Station,,3-2 Jacksboro Sta,3 2 JACKSBORO STA,True
 0.8571,CARTER,186,fuzzy_name,Court House,,Courthouse,COURTHOUSE,True
-0.8727,CLAIBORNE,116,fuzzy_name,8-2 Vanbebber Springs,,8-2 Vanbebber Sprngs,8 2 VANBEBBER SPRNGS,True
-0.8757,CLAY,154,fuzzy_name,1 Dentons Cross Roads,,1 Dentons Cross Road,1 DENTONS CROSS ROAD,True
-0.8571,COFFEE,223,fuzzy_name,16 Lions Club,,16 Lion's Club,16 LION S CLUB,True
 0.8571,DYER,597,fuzzy_name,A - Bonicord,,A1- Bonicord,A1 BONICORD,True
 0.8526,DYER,585,fuzzy_name,A - Fowlkes,,A2- Fowlkes,A2 FOWLKES,True
 0.864,DYER,596,fuzzy_name,C-Tatumville,,C1- Tatumville,C1 TATUMVILLE,True
@@ -21,23 +18,17 @@ confidence,county,feature_id,match_method,official_name,prctseq,precinct,precinc
 0.8053,DYER,617,fuzzy_name,F - Dyer County Central,,F- Dyer Co Central,F DYER CO CENTRAL,True
 0.8757,DYER,587,fuzzy_name,I - Community Center,,I1- Community Center,I1 COMMUNITY CENTER,True
 0.8727,DYER,578,fuzzy_name,I - Hurricane Hill,,I2- Hurricane Hill,I2 HURRICANE HILL,True
-0.78,DYER,580,fuzzy_name,J-N Dyersburg,,J- North Dyersburg,J NORTH DYERSBURG,True
 0.8308,FAYETTE,658,fuzzy_name,7 Hickory White,,Hickory Withe,HICKORY WITHE,True
 0.8471,FAYETTE,655,fuzzy_name,15 La Grange,,LaGrange,LAGRANGE,True
 0.8526,FENTRESS,662,fuzzy_name,Crossroad,,Crossroads,CROSSROADS,True
-0.8727,GILES,443,fuzzy_name,4B Odds Fellows Hall,,4B Odd Fellows Hall,4B ODD FELLOWS HALL,True
 0.8571,GREENE,519,fuzzy_name,Court House,,4 Courthouse,4 COURTHOUSE,True
 0.78,HARDIN,890,fuzzy_name,5 Morris Chapel,,Morris Chapel 5-2,MORRIS CHAPEL 5 2,True
-0.8471,HAWKINS,943,fuzzy_name,6 Alumwell,,6 Alum Well,6 ALUM WELL,True
-0.8757,HAWKINS,922,fuzzy_name,2 Church Hill Outside,,2 Church Hill Outsid,2 CHURCH HILL OUTSID,True
-0.8,HAWKINS,946,fuzzy_name,4 Surgoinsville Inside,,4 Surgoinsville In,4 SURGOINSVILLE IN,True
-0.8053,HAWKINS,938,fuzzy_name,4 Surgoinsville Outside,,4 Surgoinsville Out,4 SURGOINSVILLE OUT,True
-0.8069,HENDERSON,985,fuzzy_name,3-2 Fire Station #10,,3-3 Fire Station #4,3 3 FIRE STATION 4,True
 0.7875,LAUDERDALE,1256,fuzzy_name,Henning,,Henning 1,HENNING 1,True
 0.7875,LAUDERDALE,1251,fuzzy_name,McBride,,McBride 1,MCBRIDE 1,True
 0.81,LAUDERDALE,1253,fuzzy_name,Lightfoot,,Lightfoot 5,LIGHTFOOT 5,True
 0.7875,LAUDERDALE,1247,fuzzy_name,Central,,Central 6,CENTRAL 6,True
 0.8,LAUDERDALE,1254,fuzzy_name,Nankipoo,,Nankipoo 7,NANKIPOO 7,True
+0.7875,LINCOLN,1425,fuzzy_name,South Lincoln,,8-1 Lincoln,8 1 LINCOLN,True
 0.8182,LOUDON,1049,fuzzy_name,Eatons,,Eaton,EATON,True
 0.8667,MARION,1382,fuzzy_name,Haletown-Ladds,,Haletown-Ladd,HALETOWN LADD,True
 0.8667,MARION,1385,fuzzy_name,Waldens Ridge,,Walden's Ridge,WALDEN S RIDGE,True
@@ -45,12 +36,9 @@ confidence,county,feature_id,match_method,official_name,prctseq,precinct,precinc
 0.8,MAURY,1481,fuzzy_name,Pleasant Heights,,Pleasant Heights 9-2,PLEASANT HEIGHTS 9 2,True
 0.7875,MCNAIRY,1125,fuzzy_name,1 Bethel Springs,,Bethel Springs 1-1,BETHEL SPRINGS 1 1,True
 0.78,MCNAIRY,1123,fuzzy_name,6 Courthouse SE,,Courthouse SE 6-1,COURTHOUSE SE 6 1,True
-0.8053,MOORE,1368,fuzzy_name,3 Moore County Building,,3 Moore County Bldg,3 MOORE COUNTY BLDG,True
 0.7875,MORGAN,1371,fuzzy_name,Chestnut Ridge 4-3,,4-3 Chestnut Ridge,4 3 CHESTNUT RIDGE,True
-0.8229,OBION,1415,fuzzy_name,2-1 EDDIE COX SR. CENTER,,2-1 Eddie Cox Sr Ctr,2 1 EDDIE COX SR CTR,True
 0.8,PICKETT,1064,fuzzy_name,Community Center,,Community Center 1-1,COMMUNITY CENTER 1 1,True
 0.827,ROANE,1236,fuzzy_name,Johnson School House,,Johnson Sch House,JOHNSON SCH HOUSE,True
-0.8571,SEQUATCHIE,1649,fuzzy_name,3 Court House,,3 Courthouse,3 COURTHOUSE,True
 0.84,SEVIER,1663,fuzzy_name,Caton's Chapel 1,,1-1 Caton's Chapel,1 1 CATON S CHAPEL,True
 0.84,SEVIER,1663,fuzzy_name,Caton's Chapel 1,,1-2 Caton's Chapel,1 2 CATON S CHAPEL,True
 0.8,SEVIER,1668,fuzzy_name,Wearwood 2,,2-1 Wearwood,2 1 WEARWOOD,True
@@ -86,7 +74,5 @@ confidence,county,feature_id,match_method,official_name,prctseq,precinct,precinc
 0.8571,SHELBY,1704,fuzzy_name,McConnells,,McConnell's,MCCONNELL S,True
 0.864,SHELBY,1488,fuzzy_name,Millington 1,,Millington 01,MILLINGTON 01,True
 0.864,SHELBY,1489,fuzzy_name,Millington 2,,Millington 02,MILLINGTON 02,True
-0.864,TIPTON,1863,fuzzy_name,01 N. E. Covington,,1-1 NE Covington,1 1 NE COVINGTON,True
 0.864,TIPTON,1862,fuzzy_name,03 S.E. Covington,,2-3 SE Covington,2 3 SE COVINGTON,True
 0.8308,TIPTON,1865,fuzzy_name,21 W. Wilkinsville,,8-21 Wilkinsville,8 21 WILKINSVILLE,True
-0.8571,WASHINGTON,1778,fuzzy_name,17 Towne Acres,,17 Town Acres,17 TOWN ACRES,True

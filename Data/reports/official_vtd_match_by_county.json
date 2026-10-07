@@ -1,0 +1,6842 @@
+[
+  {
+    "year": 2008,
+    "county": "ANDERSON",
+    "source_precincts": 29,
+    "matched": 27,
+    "unmatched": 2,
+    "non_geographic": 0,
+    "low_confidence": 1
+  },
+  {
+    "year": 2008,
+    "county": "BEDFORD",
+    "source_precincts": 19,
+    "matched": 18,
+    "unmatched": 0,
+    "non_geographic": 1,
+    "low_confidence": 0
+  },
+  {
+    "year": 2008,
+    "county": "BENTON",
+    "source_precincts": 6,
+    "matched": 6,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2008,
+    "county": "BLEDSOE",
+    "source_precincts": 15,
+    "matched": 15,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2008,
+    "county": "BLOUNT",
+    "source_precincts": 52,
+    "matched": 41,
+    "unmatched": 11,
+    "non_geographic": 0,
+    "low_confidence": 5
+  },
+  {
+    "year": 2008,
+    "county": "BRADLEY",
+    "source_precincts": 17,
+    "matched": 15,
+    "unmatched": 2,
+    "non_geographic": 0,
+    "low_confidence": 1
+  },
+  {
+    "year": 2008,
+    "county": "CAMPBELL",
+    "source_precincts": 21,
+    "matched": 21,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 1
+  },
+  {
+    "year": 2008,
+    "county": "CANNON",
+    "source_precincts": 9,
+    "matched": 7,
+    "unmatched": 2,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2008,
+    "county": "CARROLL",
+    "source_precincts": 22,
+    "matched": 20,
+    "unmatched": 2,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2008,
+    "county": "CARTER",
+    "source_precincts": 21,
+    "matched": 21,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 1
+  },
+  {
+    "year": 2008,
+    "county": "CHEATHAM",
+    "source_precincts": 9,
+    "matched": 9,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2008,
+    "county": "CHESTER",
+    "source_precincts": 11,
+    "matched": 9,
+    "unmatched": 2,
+    "non_geographic": 0,
+    "low_confidence": 2
+  },
+  {
+    "year": 2008,
+    "county": "CLAIBORNE",
+    "source_precincts": 18,
+    "matched": 18,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 1
+  },
+  {
+    "year": 2008,
+    "county": "CLAY",
+    "source_precincts": 8,
+    "matched": 7,
+    "unmatched": 0,
+    "non_geographic": 1,
+    "low_confidence": 0
+  },
+  {
+    "year": 2008,
+    "county": "COCKE",
+    "source_precincts": 20,
+    "matched": 19,
+    "unmatched": 0,
+    "non_geographic": 1,
+    "low_confidence": 2
+  },
+  {
+    "year": 2008,
+    "county": "COFFEE",
+    "source_precincts": 24,
+    "matched": 24,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2008,
+    "county": "CROCKETT",
+    "source_precincts": 12,
+    "matched": 12,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2008,
+    "county": "CUMBERLAND",
+    "source_precincts": 27,
+    "matched": 24,
+    "unmatched": 3,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2008,
+    "county": "DAVIDSON",
+    "source_precincts": 173,
+    "matched": 143,
+    "unmatched": 30,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2008,
+    "county": "DECATUR",
+    "source_precincts": 13,
+    "matched": 6,
+    "unmatched": 7,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2008,
+    "county": "DEKALB",
+    "source_precincts": 17,
+    "matched": 14,
+    "unmatched": 2,
+    "non_geographic": 1,
+    "low_confidence": 0
+  },
+  {
+    "year": 2008,
+    "county": "DICKSON",
+    "source_precincts": 18,
+    "matched": 16,
+    "unmatched": 2,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2008,
+    "county": "DYER",
+    "source_precincts": 16,
+    "matched": 16,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 16
+  },
+  {
+    "year": 2008,
+    "county": "FAYETTE",
+    "source_precincts": 17,
+    "matched": 17,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2008,
+    "county": "FENTRESS",
+    "source_precincts": 14,
+    "matched": 13,
+    "unmatched": 0,
+    "non_geographic": 1,
+    "low_confidence": 0
+  },
+  {
+    "year": 2008,
+    "county": "FRANKLIN",
+    "source_precincts": 20,
+    "matched": 18,
+    "unmatched": 0,
+    "non_geographic": 2,
+    "low_confidence": 0
+  },
+  {
+    "year": 2008,
+    "county": "GIBSON",
+    "source_precincts": 36,
+    "matched": 26,
+    "unmatched": 10,
+    "non_geographic": 0,
+    "low_confidence": 2
+  },
+  {
+    "year": 2008,
+    "county": "GILES",
+    "source_precincts": 15,
+    "matched": 14,
+    "unmatched": 1,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2008,
+    "county": "GRAINGER",
+    "source_precincts": 10,
+    "matched": 10,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2008,
+    "county": "GREENE",
+    "source_precincts": 41,
+    "matched": 33,
+    "unmatched": 8,
+    "non_geographic": 0,
+    "low_confidence": 3
+  },
+  {
+    "year": 2008,
+    "county": "GRUNDY",
+    "source_precincts": 14,
+    "matched": 10,
+    "unmatched": 3,
+    "non_geographic": 1,
+    "low_confidence": 0
+  },
+  {
+    "year": 2008,
+    "county": "HAMBLEN",
+    "source_precincts": 18,
+    "matched": 17,
+    "unmatched": 0,
+    "non_geographic": 1,
+    "low_confidence": 1
+  },
+  {
+    "year": 2008,
+    "county": "HAMILTON",
+    "source_precincts": 131,
+    "matched": 123,
+    "unmatched": 4,
+    "non_geographic": 4,
+    "low_confidence": 0
+  },
+  {
+    "year": 2008,
+    "county": "HANCOCK",
+    "source_precincts": 7,
+    "matched": 7,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2008,
+    "county": "HARDEMAN",
+    "source_precincts": 13,
+    "matched": 13,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2008,
+    "county": "HARDIN",
+    "source_precincts": 18,
+    "matched": 1,
+    "unmatched": 17,
+    "non_geographic": 0,
+    "low_confidence": 1
+  },
+  {
+    "year": 2008,
+    "county": "HAWKINS",
+    "source_precincts": 26,
+    "matched": 11,
+    "unmatched": 15,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2008,
+    "county": "HAYWOOD",
+    "source_precincts": 15,
+    "matched": 12,
+    "unmatched": 3,
+    "non_geographic": 0,
+    "low_confidence": 2
+  },
+  {
+    "year": 2008,
+    "county": "HENDERSON",
+    "source_precincts": 15,
+    "matched": 12,
+    "unmatched": 3,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2008,
+    "county": "HENRY",
+    "source_precincts": 13,
+    "matched": 11,
+    "unmatched": 2,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2008,
+    "county": "HICKMAN",
+    "source_precincts": 18,
+    "matched": 18,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2008,
+    "county": "HOUSTON",
+    "source_precincts": 7,
+    "matched": 1,
+    "unmatched": 6,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2008,
+    "county": "HUMPHREYS",
+    "source_precincts": 9,
+    "matched": 9,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2008,
+    "county": "JACKSON",
+    "source_precincts": 18,
+    "matched": 16,
+    "unmatched": 1,
+    "non_geographic": 1,
+    "low_confidence": 0
+  },
+  {
+    "year": 2008,
+    "county": "JEFFERSON",
+    "source_precincts": 11,
+    "matched": 9,
+    "unmatched": 2,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2008,
+    "county": "JOHNSON",
+    "source_precincts": 13,
+    "matched": 12,
+    "unmatched": 0,
+    "non_geographic": 1,
+    "low_confidence": 0
+  },
+  {
+    "year": 2008,
+    "county": "KNOX",
+    "source_precincts": 94,
+    "matched": 94,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2008,
+    "county": "LAKE",
+    "source_precincts": 4,
+    "matched": 4,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2008,
+    "county": "LAUDERDALE",
+    "source_precincts": 16,
+    "matched": 9,
+    "unmatched": 7,
+    "non_geographic": 0,
+    "low_confidence": 5
+  },
+  {
+    "year": 2008,
+    "county": "LAWRENCE",
+    "source_precincts": 30,
+    "matched": 23,
+    "unmatched": 6,
+    "non_geographic": 1,
+    "low_confidence": 0
+  },
+  {
+    "year": 2008,
+    "county": "LEWIS",
+    "source_precincts": 9,
+    "matched": 9,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2008,
+    "county": "LINCOLN",
+    "source_precincts": 20,
+    "matched": 9,
+    "unmatched": 11,
+    "non_geographic": 0,
+    "low_confidence": 4
+  },
+  {
+    "year": 2008,
+    "county": "LOUDON",
+    "source_precincts": 14,
+    "matched": 14,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2008,
+    "county": "MACON",
+    "source_precincts": 11,
+    "matched": 5,
+    "unmatched": 5,
+    "non_geographic": 1,
+    "low_confidence": 2
+  },
+  {
+    "year": 2008,
+    "county": "MADISON",
+    "source_precincts": 33,
+    "matched": 29,
+    "unmatched": 4,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2008,
+    "county": "MARION",
+    "source_precincts": 20,
+    "matched": 19,
+    "unmatched": 1,
+    "non_geographic": 0,
+    "low_confidence": 3
+  },
+  {
+    "year": 2008,
+    "county": "MARSHALL",
+    "source_precincts": 10,
+    "matched": 9,
+    "unmatched": 0,
+    "non_geographic": 1,
+    "low_confidence": 0
+  },
+  {
+    "year": 2008,
+    "county": "MAURY",
+    "source_precincts": 21,
+    "matched": 2,
+    "unmatched": 19,
+    "non_geographic": 0,
+    "low_confidence": 2
+  },
+  {
+    "year": 2008,
+    "county": "MCMINN",
+    "source_precincts": 15,
+    "matched": 11,
+    "unmatched": 4,
+    "non_geographic": 0,
+    "low_confidence": 1
+  },
+  {
+    "year": 2008,
+    "county": "MCNAIRY",
+    "source_precincts": 18,
+    "matched": 2,
+    "unmatched": 15,
+    "non_geographic": 1,
+    "low_confidence": 2
+  },
+  {
+    "year": 2008,
+    "county": "MEIGS",
+    "source_precincts": 7,
+    "matched": 6,
+    "unmatched": 0,
+    "non_geographic": 1,
+    "low_confidence": 0
+  },
+  {
+    "year": 2008,
+    "county": "MONROE",
+    "source_precincts": 13,
+    "matched": 2,
+    "unmatched": 10,
+    "non_geographic": 1,
+    "low_confidence": 1
+  },
+  {
+    "year": 2008,
+    "county": "MONTGOMERY",
+    "source_precincts": 25,
+    "matched": 24,
+    "unmatched": 0,
+    "non_geographic": 1,
+    "low_confidence": 0
+  },
+  {
+    "year": 2008,
+    "county": "MOORE",
+    "source_precincts": 5,
+    "matched": 5,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2008,
+    "county": "MORGAN",
+    "source_precincts": 12,
+    "matched": 7,
+    "unmatched": 5,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2008,
+    "county": "OBION",
+    "source_precincts": 15,
+    "matched": 12,
+    "unmatched": 1,
+    "non_geographic": 2,
+    "low_confidence": 0
+  },
+  {
+    "year": 2008,
+    "county": "OVERTON",
+    "source_precincts": 14,
+    "matched": 13,
+    "unmatched": 0,
+    "non_geographic": 1,
+    "low_confidence": 1
+  },
+  {
+    "year": 2008,
+    "county": "PERRY",
+    "source_precincts": 11,
+    "matched": 10,
+    "unmatched": 0,
+    "non_geographic": 1,
+    "low_confidence": 0
+  },
+  {
+    "year": 2008,
+    "county": "PICKETT",
+    "source_precincts": 9,
+    "matched": 1,
+    "unmatched": 8,
+    "non_geographic": 0,
+    "low_confidence": 1
+  },
+  {
+    "year": 2008,
+    "county": "POLK",
+    "source_precincts": 11,
+    "matched": 11,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2008,
+    "county": "PUTNAM",
+    "source_precincts": 46,
+    "matched": 25,
+    "unmatched": 19,
+    "non_geographic": 2,
+    "low_confidence": 0
+  },
+  {
+    "year": 2008,
+    "county": "RHEA",
+    "source_precincts": 15,
+    "matched": 10,
+    "unmatched": 5,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2008,
+    "county": "ROANE",
+    "source_precincts": 25,
+    "matched": 24,
+    "unmatched": 1,
+    "non_geographic": 0,
+    "low_confidence": 1
+  },
+  {
+    "year": 2008,
+    "county": "ROBERTSON",
+    "source_precincts": 20,
+    "matched": 17,
+    "unmatched": 2,
+    "non_geographic": 1,
+    "low_confidence": 0
+  },
+  {
+    "year": 2008,
+    "county": "RUTHERFORD",
+    "source_precincts": 48,
+    "matched": 40,
+    "unmatched": 8,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2008,
+    "county": "SCOTT",
+    "source_precincts": 11,
+    "matched": 10,
+    "unmatched": 0,
+    "non_geographic": 1,
+    "low_confidence": 0
+  },
+  {
+    "year": 2008,
+    "county": "SEQUATCHIE",
+    "source_precincts": 10,
+    "matched": 10,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2008,
+    "county": "SEVIER",
+    "source_precincts": 20,
+    "matched": 15,
+    "unmatched": 5,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2008,
+    "county": "SHELBY",
+    "source_precincts": 274,
+    "matched": 209,
+    "unmatched": 65,
+    "non_geographic": 0,
+    "low_confidence": 20
+  },
+  {
+    "year": 2008,
+    "county": "SMITH",
+    "source_precincts": 8,
+    "matched": 8,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2008,
+    "county": "STEWART",
+    "source_precincts": 10,
+    "matched": 9,
+    "unmatched": 0,
+    "non_geographic": 1,
+    "low_confidence": 0
+  },
+  {
+    "year": 2008,
+    "county": "SULLIVAN",
+    "source_precincts": 29,
+    "matched": 29,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2008,
+    "county": "SUMNER",
+    "source_precincts": 37,
+    "matched": 28,
+    "unmatched": 8,
+    "non_geographic": 1,
+    "low_confidence": 3
+  },
+  {
+    "year": 2008,
+    "county": "TIPTON",
+    "source_precincts": 10,
+    "matched": 10,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 4
+  },
+  {
+    "year": 2008,
+    "county": "TROUSDALE",
+    "source_precincts": 12,
+    "matched": 9,
+    "unmatched": 1,
+    "non_geographic": 2,
+    "low_confidence": 2
+  },
+  {
+    "year": 2008,
+    "county": "UNICOI",
+    "source_precincts": 9,
+    "matched": 8,
+    "unmatched": 0,
+    "non_geographic": 1,
+    "low_confidence": 0
+  },
+  {
+    "year": 2008,
+    "county": "UNION",
+    "source_precincts": 10,
+    "matched": 8,
+    "unmatched": 1,
+    "non_geographic": 1,
+    "low_confidence": 0
+  },
+  {
+    "year": 2008,
+    "county": "VAN BUREN",
+    "source_precincts": 8,
+    "matched": 3,
+    "unmatched": 4,
+    "non_geographic": 1,
+    "low_confidence": 1
+  },
+  {
+    "year": 2008,
+    "county": "WARREN",
+    "source_precincts": 22,
+    "matched": 17,
+    "unmatched": 4,
+    "non_geographic": 1,
+    "low_confidence": 0
+  },
+  {
+    "year": 2008,
+    "county": "WASHINGTON",
+    "source_precincts": 42,
+    "matched": 36,
+    "unmatched": 4,
+    "non_geographic": 2,
+    "low_confidence": 1
+  },
+  {
+    "year": 2008,
+    "county": "WAYNE",
+    "source_precincts": 14,
+    "matched": 7,
+    "unmatched": 7,
+    "non_geographic": 0,
+    "low_confidence": 1
+  },
+  {
+    "year": 2008,
+    "county": "WEAKLEY",
+    "source_precincts": 10,
+    "matched": 10,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2008,
+    "county": "WHITE",
+    "source_precincts": 11,
+    "matched": 11,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2008,
+    "county": "WILLIAMSON",
+    "source_precincts": 41,
+    "matched": 35,
+    "unmatched": 6,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2008,
+    "county": "WILSON",
+    "source_precincts": 36,
+    "matched": 18,
+    "unmatched": 18,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2012,
+    "county": "ANDERSON",
+    "source_precincts": 27,
+    "matched": 23,
+    "unmatched": 4,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2012,
+    "county": "BEDFORD",
+    "source_precincts": 12,
+    "matched": 10,
+    "unmatched": 1,
+    "non_geographic": 1,
+    "low_confidence": 0
+  },
+  {
+    "year": 2012,
+    "county": "BENTON",
+    "source_precincts": 6,
+    "matched": 6,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2012,
+    "county": "BLEDSOE",
+    "source_precincts": 12,
+    "matched": 12,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2012,
+    "county": "BLOUNT",
+    "source_precincts": 35,
+    "matched": 30,
+    "unmatched": 5,
+    "non_geographic": 0,
+    "low_confidence": 3
+  },
+  {
+    "year": 2012,
+    "county": "BRADLEY",
+    "source_precincts": 17,
+    "matched": 5,
+    "unmatched": 12,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2012,
+    "county": "CAMPBELL",
+    "source_precincts": 21,
+    "matched": 19,
+    "unmatched": 2,
+    "non_geographic": 0,
+    "low_confidence": 3
+  },
+  {
+    "year": 2012,
+    "county": "CANNON",
+    "source_precincts": 9,
+    "matched": 7,
+    "unmatched": 2,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2012,
+    "county": "CARROLL",
+    "source_precincts": 19,
+    "matched": 16,
+    "unmatched": 3,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2012,
+    "county": "CARTER",
+    "source_precincts": 22,
+    "matched": 21,
+    "unmatched": 1,
+    "non_geographic": 0,
+    "low_confidence": 1
+  },
+  {
+    "year": 2012,
+    "county": "CHEATHAM",
+    "source_precincts": 9,
+    "matched": 8,
+    "unmatched": 1,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2012,
+    "county": "CHESTER",
+    "source_precincts": 11,
+    "matched": 11,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2012,
+    "county": "CLAIBORNE",
+    "source_precincts": 17,
+    "matched": 17,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2012,
+    "county": "CLAY",
+    "source_precincts": 8,
+    "matched": 7,
+    "unmatched": 0,
+    "non_geographic": 1,
+    "low_confidence": 0
+  },
+  {
+    "year": 2012,
+    "county": "COCKE",
+    "source_precincts": 20,
+    "matched": 17,
+    "unmatched": 2,
+    "non_geographic": 1,
+    "low_confidence": 0
+  },
+  {
+    "year": 2012,
+    "county": "COFFEE",
+    "source_precincts": 23,
+    "matched": 22,
+    "unmatched": 1,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2012,
+    "county": "CROCKETT",
+    "source_precincts": 12,
+    "matched": 12,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2012,
+    "county": "CUMBERLAND",
+    "source_precincts": 25,
+    "matched": 19,
+    "unmatched": 5,
+    "non_geographic": 1,
+    "low_confidence": 0
+  },
+  {
+    "year": 2012,
+    "county": "DAVIDSON",
+    "source_precincts": 162,
+    "matched": 161,
+    "unmatched": 1,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2012,
+    "county": "DECATUR",
+    "source_precincts": 13,
+    "matched": 6,
+    "unmatched": 7,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2012,
+    "county": "DEKALB",
+    "source_precincts": 17,
+    "matched": 14,
+    "unmatched": 2,
+    "non_geographic": 1,
+    "low_confidence": 0
+  },
+  {
+    "year": 2012,
+    "county": "DICKSON",
+    "source_precincts": 17,
+    "matched": 15,
+    "unmatched": 2,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2012,
+    "county": "DYER",
+    "source_precincts": 16,
+    "matched": 16,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 12
+  },
+  {
+    "year": 2012,
+    "county": "FAYETTE",
+    "source_precincts": 15,
+    "matched": 14,
+    "unmatched": 1,
+    "non_geographic": 0,
+    "low_confidence": 2
+  },
+  {
+    "year": 2012,
+    "county": "FENTRESS",
+    "source_precincts": 14,
+    "matched": 12,
+    "unmatched": 1,
+    "non_geographic": 1,
+    "low_confidence": 1
+  },
+  {
+    "year": 2012,
+    "county": "FRANKLIN",
+    "source_precincts": 18,
+    "matched": 18,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2012,
+    "county": "GIBSON",
+    "source_precincts": 28,
+    "matched": 23,
+    "unmatched": 5,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2012,
+    "county": "GILES",
+    "source_precincts": 15,
+    "matched": 14,
+    "unmatched": 0,
+    "non_geographic": 1,
+    "low_confidence": 0
+  },
+  {
+    "year": 2012,
+    "county": "GRAINGER",
+    "source_precincts": 10,
+    "matched": 10,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2012,
+    "county": "GREENE",
+    "source_precincts": 39,
+    "matched": 38,
+    "unmatched": 1,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2012,
+    "county": "GRUNDY",
+    "source_precincts": 14,
+    "matched": 10,
+    "unmatched": 3,
+    "non_geographic": 1,
+    "low_confidence": 0
+  },
+  {
+    "year": 2012,
+    "county": "HAMBLEN",
+    "source_precincts": 17,
+    "matched": 15,
+    "unmatched": 2,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2012,
+    "county": "HAMILTON",
+    "source_precincts": 132,
+    "matched": 118,
+    "unmatched": 9,
+    "non_geographic": 5,
+    "low_confidence": 0
+  },
+  {
+    "year": 2012,
+    "county": "HANCOCK",
+    "source_precincts": 7,
+    "matched": 7,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2012,
+    "county": "HARDEMAN",
+    "source_precincts": 13,
+    "matched": 13,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2012,
+    "county": "HARDIN",
+    "source_precincts": 18,
+    "matched": 1,
+    "unmatched": 17,
+    "non_geographic": 0,
+    "low_confidence": 1
+  },
+  {
+    "year": 2012,
+    "county": "HAWKINS",
+    "source_precincts": 26,
+    "matched": 16,
+    "unmatched": 10,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2012,
+    "county": "HAYWOOD",
+    "source_precincts": 11,
+    "matched": 1,
+    "unmatched": 10,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2012,
+    "county": "HENDERSON",
+    "source_precincts": 15,
+    "matched": 12,
+    "unmatched": 3,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2012,
+    "county": "HENRY",
+    "source_precincts": 13,
+    "matched": 13,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2012,
+    "county": "HICKMAN",
+    "source_precincts": 13,
+    "matched": 13,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2012,
+    "county": "HOUSTON",
+    "source_precincts": 7,
+    "matched": 0,
+    "unmatched": 7,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2012,
+    "county": "HUMPHREYS",
+    "source_precincts": 8,
+    "matched": 8,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2012,
+    "county": "JACKSON",
+    "source_precincts": 13,
+    "matched": 11,
+    "unmatched": 1,
+    "non_geographic": 1,
+    "low_confidence": 0
+  },
+  {
+    "year": 2012,
+    "county": "JEFFERSON",
+    "source_precincts": 11,
+    "matched": 0,
+    "unmatched": 11,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2012,
+    "county": "JOHNSON",
+    "source_precincts": 11,
+    "matched": 10,
+    "unmatched": 0,
+    "non_geographic": 1,
+    "low_confidence": 0
+  },
+  {
+    "year": 2012,
+    "county": "KNOX",
+    "source_precincts": 85,
+    "matched": 3,
+    "unmatched": 82,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2012,
+    "county": "LAKE",
+    "source_precincts": 3,
+    "matched": 2,
+    "unmatched": 1,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2012,
+    "county": "LAUDERDALE",
+    "source_precincts": 14,
+    "matched": 9,
+    "unmatched": 5,
+    "non_geographic": 0,
+    "low_confidence": 5
+  },
+  {
+    "year": 2012,
+    "county": "LAWRENCE",
+    "source_precincts": 24,
+    "matched": 24,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2012,
+    "county": "LEWIS",
+    "source_precincts": 9,
+    "matched": 9,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2012,
+    "county": "LINCOLN",
+    "source_precincts": 20,
+    "matched": 8,
+    "unmatched": 12,
+    "non_geographic": 0,
+    "low_confidence": 2
+  },
+  {
+    "year": 2012,
+    "county": "LOUDON",
+    "source_precincts": 15,
+    "matched": 13,
+    "unmatched": 2,
+    "non_geographic": 0,
+    "low_confidence": 1
+  },
+  {
+    "year": 2012,
+    "county": "MACON",
+    "source_precincts": 11,
+    "matched": 0,
+    "unmatched": 10,
+    "non_geographic": 1,
+    "low_confidence": 0
+  },
+  {
+    "year": 2012,
+    "county": "MADISON",
+    "source_precincts": 33,
+    "matched": 29,
+    "unmatched": 4,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2012,
+    "county": "MARION",
+    "source_precincts": 20,
+    "matched": 19,
+    "unmatched": 1,
+    "non_geographic": 0,
+    "low_confidence": 3
+  },
+  {
+    "year": 2012,
+    "county": "MARSHALL",
+    "source_precincts": 10,
+    "matched": 4,
+    "unmatched": 5,
+    "non_geographic": 1,
+    "low_confidence": 0
+  },
+  {
+    "year": 2012,
+    "county": "MAURY",
+    "source_precincts": 21,
+    "matched": 1,
+    "unmatched": 20,
+    "non_geographic": 0,
+    "low_confidence": 1
+  },
+  {
+    "year": 2012,
+    "county": "MCMINN",
+    "source_precincts": 15,
+    "matched": 0,
+    "unmatched": 15,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2012,
+    "county": "MCNAIRY",
+    "source_precincts": 17,
+    "matched": 2,
+    "unmatched": 15,
+    "non_geographic": 0,
+    "low_confidence": 2
+  },
+  {
+    "year": 2012,
+    "county": "MEIGS",
+    "source_precincts": 7,
+    "matched": 6,
+    "unmatched": 0,
+    "non_geographic": 1,
+    "low_confidence": 0
+  },
+  {
+    "year": 2012,
+    "county": "MONROE",
+    "source_precincts": 13,
+    "matched": 0,
+    "unmatched": 12,
+    "non_geographic": 1,
+    "low_confidence": 0
+  },
+  {
+    "year": 2012,
+    "county": "MONTGOMERY",
+    "source_precincts": 30,
+    "matched": 29,
+    "unmatched": 1,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2012,
+    "county": "MOORE",
+    "source_precincts": 5,
+    "matched": 5,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2012,
+    "county": "MORGAN",
+    "source_precincts": 10,
+    "matched": 0,
+    "unmatched": 10,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2012,
+    "county": "OBION",
+    "source_precincts": 12,
+    "matched": 12,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2012,
+    "county": "OVERTON",
+    "source_precincts": 10,
+    "matched": 9,
+    "unmatched": 0,
+    "non_geographic": 1,
+    "low_confidence": 0
+  },
+  {
+    "year": 2012,
+    "county": "PERRY",
+    "source_precincts": 11,
+    "matched": 8,
+    "unmatched": 2,
+    "non_geographic": 1,
+    "low_confidence": 0
+  },
+  {
+    "year": 2012,
+    "county": "PICKETT",
+    "source_precincts": 9,
+    "matched": 1,
+    "unmatched": 8,
+    "non_geographic": 0,
+    "low_confidence": 1
+  },
+  {
+    "year": 2012,
+    "county": "POLK",
+    "source_precincts": 11,
+    "matched": 11,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2012,
+    "county": "PUTNAM",
+    "source_precincts": 24,
+    "matched": 23,
+    "unmatched": 1,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2012,
+    "county": "RHEA",
+    "source_precincts": 12,
+    "matched": 12,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2012,
+    "county": "ROANE",
+    "source_precincts": 24,
+    "matched": 24,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 1
+  },
+  {
+    "year": 2012,
+    "county": "ROBERTSON",
+    "source_precincts": 19,
+    "matched": 16,
+    "unmatched": 2,
+    "non_geographic": 1,
+    "low_confidence": 0
+  },
+  {
+    "year": 2012,
+    "county": "RUTHERFORD",
+    "source_precincts": 46,
+    "matched": 45,
+    "unmatched": 1,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2012,
+    "county": "SCOTT",
+    "source_precincts": 11,
+    "matched": 10,
+    "unmatched": 0,
+    "non_geographic": 1,
+    "low_confidence": 0
+  },
+  {
+    "year": 2012,
+    "county": "SEQUATCHIE",
+    "source_precincts": 9,
+    "matched": 9,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2012,
+    "county": "SEVIER",
+    "source_precincts": 24,
+    "matched": 9,
+    "unmatched": 15,
+    "non_geographic": 0,
+    "low_confidence": 9
+  },
+  {
+    "year": 2012,
+    "county": "SHELBY",
+    "source_precincts": 220,
+    "matched": 198,
+    "unmatched": 22,
+    "non_geographic": 0,
+    "low_confidence": 17
+  },
+  {
+    "year": 2012,
+    "county": "SMITH",
+    "source_precincts": 9,
+    "matched": 8,
+    "unmatched": 0,
+    "non_geographic": 1,
+    "low_confidence": 0
+  },
+  {
+    "year": 2012,
+    "county": "STEWART",
+    "source_precincts": 8,
+    "matched": 7,
+    "unmatched": 0,
+    "non_geographic": 1,
+    "low_confidence": 0
+  },
+  {
+    "year": 2012,
+    "county": "SULLIVAN",
+    "source_precincts": 25,
+    "matched": 25,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2012,
+    "county": "SUMNER",
+    "source_precincts": 36,
+    "matched": 27,
+    "unmatched": 9,
+    "non_geographic": 0,
+    "low_confidence": 2
+  },
+  {
+    "year": 2012,
+    "county": "TIPTON",
+    "source_precincts": 9,
+    "matched": 8,
+    "unmatched": 1,
+    "non_geographic": 0,
+    "low_confidence": 2
+  },
+  {
+    "year": 2012,
+    "county": "TROUSDALE",
+    "source_precincts": 11,
+    "matched": 10,
+    "unmatched": 0,
+    "non_geographic": 1,
+    "low_confidence": 0
+  },
+  {
+    "year": 2012,
+    "county": "UNICOI",
+    "source_precincts": 9,
+    "matched": 7,
+    "unmatched": 1,
+    "non_geographic": 1,
+    "low_confidence": 0
+  },
+  {
+    "year": 2012,
+    "county": "UNION",
+    "source_precincts": 10,
+    "matched": 3,
+    "unmatched": 6,
+    "non_geographic": 1,
+    "low_confidence": 0
+  },
+  {
+    "year": 2012,
+    "county": "VAN BUREN",
+    "source_precincts": 7,
+    "matched": 2,
+    "unmatched": 5,
+    "non_geographic": 0,
+    "low_confidence": 1
+  },
+  {
+    "year": 2012,
+    "county": "WARREN",
+    "source_precincts": 22,
+    "matched": 17,
+    "unmatched": 4,
+    "non_geographic": 1,
+    "low_confidence": 0
+  },
+  {
+    "year": 2012,
+    "county": "WASHINGTON",
+    "source_precincts": 41,
+    "matched": 40,
+    "unmatched": 0,
+    "non_geographic": 1,
+    "low_confidence": 0
+  },
+  {
+    "year": 2012,
+    "county": "WAYNE",
+    "source_precincts": 14,
+    "matched": 6,
+    "unmatched": 8,
+    "non_geographic": 0,
+    "low_confidence": 1
+  },
+  {
+    "year": 2012,
+    "county": "WEAKLEY",
+    "source_precincts": 10,
+    "matched": 10,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2012,
+    "county": "WHITE",
+    "source_precincts": 11,
+    "matched": 11,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2012,
+    "county": "WILLIAMSON",
+    "source_precincts": 40,
+    "matched": 34,
+    "unmatched": 6,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2012,
+    "county": "WILSON",
+    "source_precincts": 35,
+    "matched": 33,
+    "unmatched": 0,
+    "non_geographic": 2,
+    "low_confidence": 0
+  },
+  {
+    "year": 2014,
+    "county": "ANDERSON",
+    "source_precincts": 27,
+    "matched": 23,
+    "unmatched": 4,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2014,
+    "county": "BEDFORD",
+    "source_precincts": 11,
+    "matched": 11,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2014,
+    "county": "BENTON",
+    "source_precincts": 6,
+    "matched": 6,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2014,
+    "county": "BLEDSOE",
+    "source_precincts": 12,
+    "matched": 10,
+    "unmatched": 2,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2014,
+    "county": "BLOUNT",
+    "source_precincts": 35,
+    "matched": 31,
+    "unmatched": 4,
+    "non_geographic": 0,
+    "low_confidence": 4
+  },
+  {
+    "year": 2014,
+    "county": "BRADLEY",
+    "source_precincts": 17,
+    "matched": 15,
+    "unmatched": 2,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2014,
+    "county": "CAMPBELL",
+    "source_precincts": 21,
+    "matched": 19,
+    "unmatched": 2,
+    "non_geographic": 0,
+    "low_confidence": 1
+  },
+  {
+    "year": 2014,
+    "county": "CANNON",
+    "source_precincts": 9,
+    "matched": 7,
+    "unmatched": 2,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2014,
+    "county": "CARROLL",
+    "source_precincts": 19,
+    "matched": 16,
+    "unmatched": 3,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2014,
+    "county": "CARTER",
+    "source_precincts": 22,
+    "matched": 21,
+    "unmatched": 1,
+    "non_geographic": 0,
+    "low_confidence": 1
+  },
+  {
+    "year": 2014,
+    "county": "CHEATHAM",
+    "source_precincts": 8,
+    "matched": 7,
+    "unmatched": 1,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2014,
+    "county": "CHESTER",
+    "source_precincts": 11,
+    "matched": 11,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2014,
+    "county": "CLAIBORNE",
+    "source_precincts": 17,
+    "matched": 17,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2014,
+    "county": "CLAY",
+    "source_precincts": 7,
+    "matched": 7,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2014,
+    "county": "COCKE",
+    "source_precincts": 19,
+    "matched": 17,
+    "unmatched": 2,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2014,
+    "county": "COFFEE",
+    "source_precincts": 24,
+    "matched": 23,
+    "unmatched": 1,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2014,
+    "county": "CROCKETT",
+    "source_precincts": 12,
+    "matched": 12,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2014,
+    "county": "CUMBERLAND",
+    "source_precincts": 24,
+    "matched": 20,
+    "unmatched": 4,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2014,
+    "county": "DAVIDSON",
+    "source_precincts": 162,
+    "matched": 161,
+    "unmatched": 0,
+    "non_geographic": 1,
+    "low_confidence": 0
+  },
+  {
+    "year": 2014,
+    "county": "DECATUR",
+    "source_precincts": 13,
+    "matched": 6,
+    "unmatched": 7,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2014,
+    "county": "DEKALB",
+    "source_precincts": 16,
+    "matched": 15,
+    "unmatched": 1,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2014,
+    "county": "DICKSON",
+    "source_precincts": 17,
+    "matched": 15,
+    "unmatched": 2,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2014,
+    "county": "DYER",
+    "source_precincts": 16,
+    "matched": 16,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 12
+  },
+  {
+    "year": 2014,
+    "county": "FAYETTE",
+    "source_precincts": 15,
+    "matched": 14,
+    "unmatched": 1,
+    "non_geographic": 0,
+    "low_confidence": 2
+  },
+  {
+    "year": 2014,
+    "county": "FENTRESS",
+    "source_precincts": 13,
+    "matched": 12,
+    "unmatched": 1,
+    "non_geographic": 0,
+    "low_confidence": 1
+  },
+  {
+    "year": 2014,
+    "county": "FRANKLIN",
+    "source_precincts": 18,
+    "matched": 18,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2014,
+    "county": "GIBSON",
+    "source_precincts": 28,
+    "matched": 23,
+    "unmatched": 5,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2014,
+    "county": "GILES",
+    "source_precincts": 15,
+    "matched": 14,
+    "unmatched": 0,
+    "non_geographic": 1,
+    "low_confidence": 0
+  },
+  {
+    "year": 2014,
+    "county": "GRAINGER",
+    "source_precincts": 10,
+    "matched": 10,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2014,
+    "county": "GREENE",
+    "source_precincts": 39,
+    "matched": 38,
+    "unmatched": 1,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2014,
+    "county": "GRUNDY",
+    "source_precincts": 14,
+    "matched": 10,
+    "unmatched": 4,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2014,
+    "county": "HAMBLEN",
+    "source_precincts": 17,
+    "matched": 17,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2014,
+    "county": "HAMILTON",
+    "source_precincts": 130,
+    "matched": 125,
+    "unmatched": 5,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2014,
+    "county": "HANCOCK",
+    "source_precincts": 7,
+    "matched": 7,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2014,
+    "county": "HARDEMAN",
+    "source_precincts": 13,
+    "matched": 13,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2014,
+    "county": "HARDIN",
+    "source_precincts": 18,
+    "matched": 1,
+    "unmatched": 17,
+    "non_geographic": 0,
+    "low_confidence": 1
+  },
+  {
+    "year": 2014,
+    "county": "HAWKINS",
+    "source_precincts": 26,
+    "matched": 16,
+    "unmatched": 10,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2014,
+    "county": "HAYWOOD",
+    "source_precincts": 11,
+    "matched": 0,
+    "unmatched": 11,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2014,
+    "county": "HENDERSON",
+    "source_precincts": 15,
+    "matched": 12,
+    "unmatched": 3,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2014,
+    "county": "HENRY",
+    "source_precincts": 13,
+    "matched": 13,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2014,
+    "county": "HICKMAN",
+    "source_precincts": 14,
+    "matched": 14,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2014,
+    "county": "HOUSTON",
+    "source_precincts": 7,
+    "matched": 0,
+    "unmatched": 7,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2014,
+    "county": "HUMPHREYS",
+    "source_precincts": 8,
+    "matched": 8,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2014,
+    "county": "JACKSON",
+    "source_precincts": 13,
+    "matched": 12,
+    "unmatched": 0,
+    "non_geographic": 1,
+    "low_confidence": 0
+  },
+  {
+    "year": 2014,
+    "county": "JEFFERSON",
+    "source_precincts": 11,
+    "matched": 2,
+    "unmatched": 9,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2014,
+    "county": "JOHNSON",
+    "source_precincts": 10,
+    "matched": 10,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2014,
+    "county": "KNOX",
+    "source_precincts": 85,
+    "matched": 85,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2014,
+    "county": "LAKE",
+    "source_precincts": 3,
+    "matched": 3,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2014,
+    "county": "LAUDERDALE",
+    "source_precincts": 14,
+    "matched": 9,
+    "unmatched": 5,
+    "non_geographic": 0,
+    "low_confidence": 5
+  },
+  {
+    "year": 2014,
+    "county": "LAWRENCE",
+    "source_precincts": 24,
+    "matched": 24,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2014,
+    "county": "LEWIS",
+    "source_precincts": 9,
+    "matched": 9,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2014,
+    "county": "LINCOLN",
+    "source_precincts": 20,
+    "matched": 7,
+    "unmatched": 13,
+    "non_geographic": 0,
+    "low_confidence": 1
+  },
+  {
+    "year": 2014,
+    "county": "LOUDON",
+    "source_precincts": 15,
+    "matched": 13,
+    "unmatched": 2,
+    "non_geographic": 0,
+    "low_confidence": 1
+  },
+  {
+    "year": 2014,
+    "county": "MACON",
+    "source_precincts": 10,
+    "matched": 0,
+    "unmatched": 10,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2014,
+    "county": "MADISON",
+    "source_precincts": 33,
+    "matched": 29,
+    "unmatched": 4,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2014,
+    "county": "MARION",
+    "source_precincts": 20,
+    "matched": 19,
+    "unmatched": 1,
+    "non_geographic": 0,
+    "low_confidence": 3
+  },
+  {
+    "year": 2014,
+    "county": "MARSHALL",
+    "source_precincts": 9,
+    "matched": 5,
+    "unmatched": 4,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2014,
+    "county": "MAURY",
+    "source_precincts": 21,
+    "matched": 1,
+    "unmatched": 20,
+    "non_geographic": 0,
+    "low_confidence": 1
+  },
+  {
+    "year": 2014,
+    "county": "MCMINN",
+    "source_precincts": 15,
+    "matched": 0,
+    "unmatched": 15,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2014,
+    "county": "MCNAIRY",
+    "source_precincts": 17,
+    "matched": 2,
+    "unmatched": 15,
+    "non_geographic": 0,
+    "low_confidence": 2
+  },
+  {
+    "year": 2014,
+    "county": "MEIGS",
+    "source_precincts": 6,
+    "matched": 6,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2014,
+    "county": "MONROE",
+    "source_precincts": 13,
+    "matched": 0,
+    "unmatched": 12,
+    "non_geographic": 1,
+    "low_confidence": 0
+  },
+  {
+    "year": 2014,
+    "county": "MONTGOMERY",
+    "source_precincts": 29,
+    "matched": 29,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2014,
+    "county": "MOORE",
+    "source_precincts": 5,
+    "matched": 5,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2014,
+    "county": "MORGAN",
+    "source_precincts": 12,
+    "matched": 1,
+    "unmatched": 11,
+    "non_geographic": 0,
+    "low_confidence": 1
+  },
+  {
+    "year": 2014,
+    "county": "OBION",
+    "source_precincts": 12,
+    "matched": 12,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2014,
+    "county": "OVERTON",
+    "source_precincts": 9,
+    "matched": 9,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2014,
+    "county": "PERRY",
+    "source_precincts": 10,
+    "matched": 10,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2014,
+    "county": "PICKETT",
+    "source_precincts": 9,
+    "matched": 1,
+    "unmatched": 8,
+    "non_geographic": 0,
+    "low_confidence": 1
+  },
+  {
+    "year": 2014,
+    "county": "POLK",
+    "source_precincts": 10,
+    "matched": 10,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2014,
+    "county": "PUTNAM",
+    "source_precincts": 24,
+    "matched": 24,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2014,
+    "county": "RHEA",
+    "source_precincts": 12,
+    "matched": 12,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2014,
+    "county": "ROANE",
+    "source_precincts": 24,
+    "matched": 24,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 1
+  },
+  {
+    "year": 2014,
+    "county": "ROBERTSON",
+    "source_precincts": 19,
+    "matched": 16,
+    "unmatched": 3,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2014,
+    "county": "RUTHERFORD",
+    "source_precincts": 49,
+    "matched": 42,
+    "unmatched": 6,
+    "non_geographic": 1,
+    "low_confidence": 0
+  },
+  {
+    "year": 2014,
+    "county": "SCOTT",
+    "source_precincts": 10,
+    "matched": 10,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2014,
+    "county": "SEQUATCHIE",
+    "source_precincts": 9,
+    "matched": 9,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2014,
+    "county": "SEVIER",
+    "source_precincts": 24,
+    "matched": 0,
+    "unmatched": 24,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2014,
+    "county": "SHELBY",
+    "source_precincts": 219,
+    "matched": 209,
+    "unmatched": 10,
+    "non_geographic": 0,
+    "low_confidence": 24
+  },
+  {
+    "year": 2014,
+    "county": "SMITH",
+    "source_precincts": 8,
+    "matched": 8,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2014,
+    "county": "STEWART",
+    "source_precincts": 8,
+    "matched": 7,
+    "unmatched": 1,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2014,
+    "county": "SULLIVAN",
+    "source_precincts": 25,
+    "matched": 25,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2014,
+    "county": "SUMNER",
+    "source_precincts": 27,
+    "matched": 26,
+    "unmatched": 1,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2014,
+    "county": "TIPTON",
+    "source_precincts": 9,
+    "matched": 8,
+    "unmatched": 1,
+    "non_geographic": 0,
+    "low_confidence": 2
+  },
+  {
+    "year": 2014,
+    "county": "TROUSDALE",
+    "source_precincts": 11,
+    "matched": 10,
+    "unmatched": 1,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2014,
+    "county": "UNICOI",
+    "source_precincts": 8,
+    "matched": 8,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2014,
+    "county": "UNION",
+    "source_precincts": 10,
+    "matched": 3,
+    "unmatched": 7,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2014,
+    "county": "VAN BUREN",
+    "source_precincts": 7,
+    "matched": 2,
+    "unmatched": 5,
+    "non_geographic": 0,
+    "low_confidence": 1
+  },
+  {
+    "year": 2014,
+    "county": "WARREN",
+    "source_precincts": 20,
+    "matched": 19,
+    "unmatched": 1,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2014,
+    "county": "WASHINGTON",
+    "source_precincts": 41,
+    "matched": 40,
+    "unmatched": 0,
+    "non_geographic": 1,
+    "low_confidence": 0
+  },
+  {
+    "year": 2014,
+    "county": "WAYNE",
+    "source_precincts": 14,
+    "matched": 6,
+    "unmatched": 8,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2014,
+    "county": "WEAKLEY",
+    "source_precincts": 10,
+    "matched": 2,
+    "unmatched": 8,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2014,
+    "county": "WHITE",
+    "source_precincts": 11,
+    "matched": 11,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2014,
+    "county": "WILLIAMSON",
+    "source_precincts": 40,
+    "matched": 34,
+    "unmatched": 6,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2014,
+    "county": "WILSON",
+    "source_precincts": 33,
+    "matched": 31,
+    "unmatched": 0,
+    "non_geographic": 2,
+    "low_confidence": 0
+  },
+  {
+    "year": 2016,
+    "county": "ANDERSON",
+    "source_precincts": 27,
+    "matched": 23,
+    "unmatched": 4,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2016,
+    "county": "BEDFORD",
+    "source_precincts": 12,
+    "matched": 11,
+    "unmatched": 0,
+    "non_geographic": 1,
+    "low_confidence": 0
+  },
+  {
+    "year": 2016,
+    "county": "BENTON",
+    "source_precincts": 6,
+    "matched": 6,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2016,
+    "county": "BLEDSOE",
+    "source_precincts": 12,
+    "matched": 10,
+    "unmatched": 2,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2016,
+    "county": "BLOUNT",
+    "source_precincts": 34,
+    "matched": 31,
+    "unmatched": 3,
+    "non_geographic": 0,
+    "low_confidence": 5
+  },
+  {
+    "year": 2016,
+    "county": "BRADLEY",
+    "source_precincts": 18,
+    "matched": 15,
+    "unmatched": 2,
+    "non_geographic": 1,
+    "low_confidence": 0
+  },
+  {
+    "year": 2016,
+    "county": "CAMPBELL",
+    "source_precincts": 20,
+    "matched": 18,
+    "unmatched": 2,
+    "non_geographic": 0,
+    "low_confidence": 1
+  },
+  {
+    "year": 2016,
+    "county": "CANNON",
+    "source_precincts": 10,
+    "matched": 7,
+    "unmatched": 2,
+    "non_geographic": 1,
+    "low_confidence": 0
+  },
+  {
+    "year": 2016,
+    "county": "CARROLL",
+    "source_precincts": 19,
+    "matched": 16,
+    "unmatched": 3,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2016,
+    "county": "CARTER",
+    "source_precincts": 23,
+    "matched": 21,
+    "unmatched": 1,
+    "non_geographic": 1,
+    "low_confidence": 1
+  },
+  {
+    "year": 2016,
+    "county": "CHEATHAM",
+    "source_precincts": 8,
+    "matched": 7,
+    "unmatched": 1,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2016,
+    "county": "CHESTER",
+    "source_precincts": 13,
+    "matched": 13,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2016,
+    "county": "CLAIBORNE",
+    "source_precincts": 17,
+    "matched": 17,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2016,
+    "county": "CLAY",
+    "source_precincts": 7,
+    "matched": 7,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2016,
+    "county": "COCKE",
+    "source_precincts": 19,
+    "matched": 17,
+    "unmatched": 2,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2016,
+    "county": "COFFEE",
+    "source_precincts": 23,
+    "matched": 23,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2016,
+    "county": "CROCKETT",
+    "source_precincts": 12,
+    "matched": 12,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2016,
+    "county": "CUMBERLAND",
+    "source_precincts": 25,
+    "matched": 20,
+    "unmatched": 4,
+    "non_geographic": 1,
+    "low_confidence": 0
+  },
+  {
+    "year": 2016,
+    "county": "DAVIDSON",
+    "source_precincts": 163,
+    "matched": 160,
+    "unmatched": 0,
+    "non_geographic": 3,
+    "low_confidence": 0
+  },
+  {
+    "year": 2016,
+    "county": "DECATUR",
+    "source_precincts": 13,
+    "matched": 6,
+    "unmatched": 7,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2016,
+    "county": "DEKALB",
+    "source_precincts": 16,
+    "matched": 14,
+    "unmatched": 1,
+    "non_geographic": 1,
+    "low_confidence": 0
+  },
+  {
+    "year": 2016,
+    "county": "DICKSON",
+    "source_precincts": 17,
+    "matched": 15,
+    "unmatched": 2,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2016,
+    "county": "DYER",
+    "source_precincts": 17,
+    "matched": 16,
+    "unmatched": 0,
+    "non_geographic": 1,
+    "low_confidence": 12
+  },
+  {
+    "year": 2016,
+    "county": "FAYETTE",
+    "source_precincts": 16,
+    "matched": 14,
+    "unmatched": 1,
+    "non_geographic": 1,
+    "low_confidence": 2
+  },
+  {
+    "year": 2016,
+    "county": "FENTRESS",
+    "source_precincts": 14,
+    "matched": 12,
+    "unmatched": 1,
+    "non_geographic": 1,
+    "low_confidence": 1
+  },
+  {
+    "year": 2016,
+    "county": "FRANKLIN",
+    "source_precincts": 19,
+    "matched": 18,
+    "unmatched": 0,
+    "non_geographic": 1,
+    "low_confidence": 0
+  },
+  {
+    "year": 2016,
+    "county": "GIBSON",
+    "source_precincts": 28,
+    "matched": 22,
+    "unmatched": 6,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2016,
+    "county": "GILES",
+    "source_precincts": 14,
+    "matched": 14,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2016,
+    "county": "GRAINGER",
+    "source_precincts": 10,
+    "matched": 10,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2016,
+    "county": "GREENE",
+    "source_precincts": 17,
+    "matched": 17,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 1
+  },
+  {
+    "year": 2016,
+    "county": "GRUNDY",
+    "source_precincts": 13,
+    "matched": 10,
+    "unmatched": 3,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2016,
+    "county": "HAMBLEN",
+    "source_precincts": 17,
+    "matched": 17,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2016,
+    "county": "HAMILTON",
+    "source_precincts": 130,
+    "matched": 125,
+    "unmatched": 5,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2016,
+    "county": "HANCOCK",
+    "source_precincts": 7,
+    "matched": 7,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2016,
+    "county": "HARDEMAN",
+    "source_precincts": 13,
+    "matched": 13,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2016,
+    "county": "HARDIN",
+    "source_precincts": 18,
+    "matched": 1,
+    "unmatched": 17,
+    "non_geographic": 0,
+    "low_confidence": 1
+  },
+  {
+    "year": 2016,
+    "county": "HAWKINS",
+    "source_precincts": 26,
+    "matched": 16,
+    "unmatched": 10,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2016,
+    "county": "HAYWOOD",
+    "source_precincts": 11,
+    "matched": 0,
+    "unmatched": 11,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2016,
+    "county": "HENDERSON",
+    "source_precincts": 15,
+    "matched": 12,
+    "unmatched": 3,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2016,
+    "county": "HENRY",
+    "source_precincts": 14,
+    "matched": 13,
+    "unmatched": 0,
+    "non_geographic": 1,
+    "low_confidence": 0
+  },
+  {
+    "year": 2016,
+    "county": "HICKMAN",
+    "source_precincts": 14,
+    "matched": 14,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2016,
+    "county": "HOUSTON",
+    "source_precincts": 7,
+    "matched": 0,
+    "unmatched": 7,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2016,
+    "county": "HUMPHREYS",
+    "source_precincts": 8,
+    "matched": 8,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2016,
+    "county": "JACKSON",
+    "source_precincts": 13,
+    "matched": 12,
+    "unmatched": 0,
+    "non_geographic": 1,
+    "low_confidence": 0
+  },
+  {
+    "year": 2016,
+    "county": "JEFFERSON",
+    "source_precincts": 11,
+    "matched": 2,
+    "unmatched": 9,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2016,
+    "county": "JOHNSON",
+    "source_precincts": 11,
+    "matched": 10,
+    "unmatched": 0,
+    "non_geographic": 1,
+    "low_confidence": 0
+  },
+  {
+    "year": 2016,
+    "county": "KNOX",
+    "source_precincts": 89,
+    "matched": 89,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2016,
+    "county": "LAKE",
+    "source_precincts": 3,
+    "matched": 3,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2016,
+    "county": "LAUDERDALE",
+    "source_precincts": 14,
+    "matched": 9,
+    "unmatched": 4,
+    "non_geographic": 1,
+    "low_confidence": 5
+  },
+  {
+    "year": 2016,
+    "county": "LAWRENCE",
+    "source_precincts": 24,
+    "matched": 24,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2016,
+    "county": "LEWIS",
+    "source_precincts": 9,
+    "matched": 9,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2016,
+    "county": "LINCOLN",
+    "source_precincts": 20,
+    "matched": 11,
+    "unmatched": 9,
+    "non_geographic": 0,
+    "low_confidence": 1
+  },
+  {
+    "year": 2016,
+    "county": "LOUDON",
+    "source_precincts": 15,
+    "matched": 13,
+    "unmatched": 2,
+    "non_geographic": 0,
+    "low_confidence": 1
+  },
+  {
+    "year": 2016,
+    "county": "MACON",
+    "source_precincts": 11,
+    "matched": 0,
+    "unmatched": 10,
+    "non_geographic": 1,
+    "low_confidence": 0
+  },
+  {
+    "year": 2016,
+    "county": "MADISON",
+    "source_precincts": 33,
+    "matched": 29,
+    "unmatched": 4,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2016,
+    "county": "MARION",
+    "source_precincts": 17,
+    "matched": 16,
+    "unmatched": 1,
+    "non_geographic": 0,
+    "low_confidence": 3
+  },
+  {
+    "year": 2016,
+    "county": "MARSHALL",
+    "source_precincts": 10,
+    "matched": 5,
+    "unmatched": 4,
+    "non_geographic": 1,
+    "low_confidence": 0
+  },
+  {
+    "year": 2016,
+    "county": "MAURY",
+    "source_precincts": 20,
+    "matched": 1,
+    "unmatched": 19,
+    "non_geographic": 0,
+    "low_confidence": 1
+  },
+  {
+    "year": 2016,
+    "county": "MCMINN",
+    "source_precincts": 15,
+    "matched": 0,
+    "unmatched": 15,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2016,
+    "county": "MCNAIRY",
+    "source_precincts": 17,
+    "matched": 2,
+    "unmatched": 15,
+    "non_geographic": 0,
+    "low_confidence": 2
+  },
+  {
+    "year": 2016,
+    "county": "MEIGS",
+    "source_precincts": 6,
+    "matched": 6,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2016,
+    "county": "MONROE",
+    "source_precincts": 13,
+    "matched": 0,
+    "unmatched": 13,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2016,
+    "county": "MONTGOMERY",
+    "source_precincts": 30,
+    "matched": 29,
+    "unmatched": 0,
+    "non_geographic": 1,
+    "low_confidence": 0
+  },
+  {
+    "year": 2016,
+    "county": "MOORE",
+    "source_precincts": 5,
+    "matched": 5,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2016,
+    "county": "MORGAN",
+    "source_precincts": 12,
+    "matched": 1,
+    "unmatched": 11,
+    "non_geographic": 0,
+    "low_confidence": 1
+  },
+  {
+    "year": 2016,
+    "county": "OBION",
+    "source_precincts": 12,
+    "matched": 12,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2016,
+    "county": "OVERTON",
+    "source_precincts": 10,
+    "matched": 9,
+    "unmatched": 0,
+    "non_geographic": 1,
+    "low_confidence": 0
+  },
+  {
+    "year": 2016,
+    "county": "PERRY",
+    "source_precincts": 10,
+    "matched": 10,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2016,
+    "county": "PICKETT",
+    "source_precincts": 9,
+    "matched": 1,
+    "unmatched": 8,
+    "non_geographic": 0,
+    "low_confidence": 1
+  },
+  {
+    "year": 2016,
+    "county": "POLK",
+    "source_precincts": 10,
+    "matched": 10,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2016,
+    "county": "PUTNAM",
+    "source_precincts": 25,
+    "matched": 24,
+    "unmatched": 0,
+    "non_geographic": 1,
+    "low_confidence": 0
+  },
+  {
+    "year": 2016,
+    "county": "RHEA",
+    "source_precincts": 12,
+    "matched": 12,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2016,
+    "county": "ROANE",
+    "source_precincts": 24,
+    "matched": 24,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 1
+  },
+  {
+    "year": 2016,
+    "county": "ROBERTSON",
+    "source_precincts": 20,
+    "matched": 16,
+    "unmatched": 3,
+    "non_geographic": 1,
+    "low_confidence": 0
+  },
+  {
+    "year": 2016,
+    "county": "RUTHERFORD",
+    "source_precincts": 50,
+    "matched": 42,
+    "unmatched": 7,
+    "non_geographic": 1,
+    "low_confidence": 0
+  },
+  {
+    "year": 2016,
+    "county": "SCOTT",
+    "source_precincts": 10,
+    "matched": 10,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2016,
+    "county": "SEQUATCHIE",
+    "source_precincts": 10,
+    "matched": 9,
+    "unmatched": 0,
+    "non_geographic": 1,
+    "low_confidence": 0
+  },
+  {
+    "year": 2016,
+    "county": "SEVIER",
+    "source_precincts": 24,
+    "matched": 11,
+    "unmatched": 13,
+    "non_geographic": 0,
+    "low_confidence": 11
+  },
+  {
+    "year": 2016,
+    "county": "SHELBY",
+    "source_precincts": 166,
+    "matched": 157,
+    "unmatched": 9,
+    "non_geographic": 0,
+    "low_confidence": 24
+  },
+  {
+    "year": 2016,
+    "county": "SMITH",
+    "source_precincts": 9,
+    "matched": 8,
+    "unmatched": 0,
+    "non_geographic": 1,
+    "low_confidence": 0
+  },
+  {
+    "year": 2016,
+    "county": "STEWART",
+    "source_precincts": 8,
+    "matched": 7,
+    "unmatched": 1,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2016,
+    "county": "SULLIVAN",
+    "source_precincts": 25,
+    "matched": 25,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2016,
+    "county": "SUMNER",
+    "source_precincts": 27,
+    "matched": 25,
+    "unmatched": 2,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2016,
+    "county": "TIPTON",
+    "source_precincts": 10,
+    "matched": 8,
+    "unmatched": 1,
+    "non_geographic": 1,
+    "low_confidence": 2
+  },
+  {
+    "year": 2016,
+    "county": "TROUSDALE",
+    "source_precincts": 11,
+    "matched": 10,
+    "unmatched": 0,
+    "non_geographic": 1,
+    "low_confidence": 0
+  },
+  {
+    "year": 2016,
+    "county": "UNICOI",
+    "source_precincts": 8,
+    "matched": 8,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2016,
+    "county": "UNION",
+    "source_precincts": 10,
+    "matched": 3,
+    "unmatched": 7,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2016,
+    "county": "VAN BUREN",
+    "source_precincts": 8,
+    "matched": 2,
+    "unmatched": 5,
+    "non_geographic": 1,
+    "low_confidence": 0
+  },
+  {
+    "year": 2016,
+    "county": "WARREN",
+    "source_precincts": 21,
+    "matched": 19,
+    "unmatched": 1,
+    "non_geographic": 1,
+    "low_confidence": 0
+  },
+  {
+    "year": 2016,
+    "county": "WASHINGTON",
+    "source_precincts": 41,
+    "matched": 40,
+    "unmatched": 0,
+    "non_geographic": 1,
+    "low_confidence": 0
+  },
+  {
+    "year": 2016,
+    "county": "WAYNE",
+    "source_precincts": 15,
+    "matched": 5,
+    "unmatched": 9,
+    "non_geographic": 1,
+    "low_confidence": 0
+  },
+  {
+    "year": 2016,
+    "county": "WEAKLEY",
+    "source_precincts": 10,
+    "matched": 2,
+    "unmatched": 8,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2016,
+    "county": "WHITE",
+    "source_precincts": 11,
+    "matched": 11,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2016,
+    "county": "WILLIAMSON",
+    "source_precincts": 43,
+    "matched": 37,
+    "unmatched": 6,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2016,
+    "county": "WILSON",
+    "source_precincts": 33,
+    "matched": 31,
+    "unmatched": 0,
+    "non_geographic": 2,
+    "low_confidence": 0
+  },
+  {
+    "year": 2018,
+    "county": "ANDERSON",
+    "source_precincts": 27,
+    "matched": 23,
+    "unmatched": 4,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2018,
+    "county": "BEDFORD",
+    "source_precincts": 11,
+    "matched": 11,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2018,
+    "county": "BENTON",
+    "source_precincts": 6,
+    "matched": 6,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2018,
+    "county": "BLEDSOE",
+    "source_precincts": 12,
+    "matched": 10,
+    "unmatched": 2,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2018,
+    "county": "BLOUNT",
+    "source_precincts": 33,
+    "matched": 30,
+    "unmatched": 3,
+    "non_geographic": 0,
+    "low_confidence": 5
+  },
+  {
+    "year": 2018,
+    "county": "BRADLEY",
+    "source_precincts": 17,
+    "matched": 15,
+    "unmatched": 2,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2018,
+    "county": "CAMPBELL",
+    "source_precincts": 20,
+    "matched": 18,
+    "unmatched": 2,
+    "non_geographic": 0,
+    "low_confidence": 1
+  },
+  {
+    "year": 2018,
+    "county": "CANNON",
+    "source_precincts": 9,
+    "matched": 7,
+    "unmatched": 2,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2018,
+    "county": "CARROLL",
+    "source_precincts": 19,
+    "matched": 16,
+    "unmatched": 3,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2018,
+    "county": "CARTER",
+    "source_precincts": 22,
+    "matched": 21,
+    "unmatched": 1,
+    "non_geographic": 0,
+    "low_confidence": 1
+  },
+  {
+    "year": 2018,
+    "county": "CHEATHAM",
+    "source_precincts": 8,
+    "matched": 7,
+    "unmatched": 1,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2018,
+    "county": "CHESTER",
+    "source_precincts": 11,
+    "matched": 11,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2018,
+    "county": "CLAIBORNE",
+    "source_precincts": 16,
+    "matched": 16,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2018,
+    "county": "CLAY",
+    "source_precincts": 7,
+    "matched": 7,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2018,
+    "county": "COCKE",
+    "source_precincts": 19,
+    "matched": 17,
+    "unmatched": 2,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2018,
+    "county": "COFFEE",
+    "source_precincts": 23,
+    "matched": 23,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2018,
+    "county": "CROCKETT",
+    "source_precincts": 12,
+    "matched": 12,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2018,
+    "county": "CUMBERLAND",
+    "source_precincts": 24,
+    "matched": 20,
+    "unmatched": 4,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2018,
+    "county": "DAVIDSON",
+    "source_precincts": 161,
+    "matched": 160,
+    "unmatched": 0,
+    "non_geographic": 1,
+    "low_confidence": 0
+  },
+  {
+    "year": 2018,
+    "county": "DECATUR",
+    "source_precincts": 13,
+    "matched": 6,
+    "unmatched": 7,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2018,
+    "county": "DEKALB",
+    "source_precincts": 15,
+    "matched": 14,
+    "unmatched": 1,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2018,
+    "county": "DICKSON",
+    "source_precincts": 17,
+    "matched": 15,
+    "unmatched": 2,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2018,
+    "county": "DYER",
+    "source_precincts": 16,
+    "matched": 16,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 12
+  },
+  {
+    "year": 2018,
+    "county": "FAYETTE",
+    "source_precincts": 15,
+    "matched": 14,
+    "unmatched": 1,
+    "non_geographic": 0,
+    "low_confidence": 2
+  },
+  {
+    "year": 2018,
+    "county": "FENTRESS",
+    "source_precincts": 13,
+    "matched": 13,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 1
+  },
+  {
+    "year": 2018,
+    "county": "FRANKLIN",
+    "source_precincts": 18,
+    "matched": 18,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2018,
+    "county": "GIBSON",
+    "source_precincts": 28,
+    "matched": 22,
+    "unmatched": 6,
+    "non_geographic": 0,
+    "low_confidence": 1
+  },
+  {
+    "year": 2018,
+    "county": "GILES",
+    "source_precincts": 14,
+    "matched": 14,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2018,
+    "county": "GRAINGER",
+    "source_precincts": 10,
+    "matched": 10,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2018,
+    "county": "GREENE",
+    "source_precincts": 17,
+    "matched": 17,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 1
+  },
+  {
+    "year": 2018,
+    "county": "GRUNDY",
+    "source_precincts": 10,
+    "matched": 6,
+    "unmatched": 4,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2018,
+    "county": "HAMBLEN",
+    "source_precincts": 17,
+    "matched": 17,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2018,
+    "county": "HAMILTON",
+    "source_precincts": 149,
+    "matched": 128,
+    "unmatched": 21,
+    "non_geographic": 0,
+    "low_confidence": 5
+  },
+  {
+    "year": 2018,
+    "county": "HANCOCK",
+    "source_precincts": 7,
+    "matched": 7,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2018,
+    "county": "HARDEMAN",
+    "source_precincts": 13,
+    "matched": 13,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2018,
+    "county": "HARDIN",
+    "source_precincts": 18,
+    "matched": 1,
+    "unmatched": 17,
+    "non_geographic": 0,
+    "low_confidence": 1
+  },
+  {
+    "year": 2018,
+    "county": "HAWKINS",
+    "source_precincts": 20,
+    "matched": 19,
+    "unmatched": 1,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2018,
+    "county": "HAYWOOD",
+    "source_precincts": 11,
+    "matched": 0,
+    "unmatched": 11,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2018,
+    "county": "HENDERSON",
+    "source_precincts": 15,
+    "matched": 12,
+    "unmatched": 3,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2018,
+    "county": "HENRY",
+    "source_precincts": 13,
+    "matched": 13,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2018,
+    "county": "HICKMAN",
+    "source_precincts": 14,
+    "matched": 14,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2018,
+    "county": "HOUSTON",
+    "source_precincts": 7,
+    "matched": 0,
+    "unmatched": 7,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2018,
+    "county": "HUMPHREYS",
+    "source_precincts": 8,
+    "matched": 8,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2018,
+    "county": "JACKSON",
+    "source_precincts": 12,
+    "matched": 12,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2018,
+    "county": "JEFFERSON",
+    "source_precincts": 11,
+    "matched": 2,
+    "unmatched": 9,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2018,
+    "county": "JOHNSON",
+    "source_precincts": 10,
+    "matched": 10,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2018,
+    "county": "KNOX",
+    "source_precincts": 89,
+    "matched": 89,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2018,
+    "county": "LAKE",
+    "source_precincts": 3,
+    "matched": 3,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2018,
+    "county": "LAUDERDALE",
+    "source_precincts": 10,
+    "matched": 8,
+    "unmatched": 2,
+    "non_geographic": 0,
+    "low_confidence": 4
+  },
+  {
+    "year": 2018,
+    "county": "LAWRENCE",
+    "source_precincts": 24,
+    "matched": 24,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2018,
+    "county": "LEWIS",
+    "source_precincts": 9,
+    "matched": 9,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2018,
+    "county": "LINCOLN",
+    "source_precincts": 20,
+    "matched": 11,
+    "unmatched": 9,
+    "non_geographic": 0,
+    "low_confidence": 1
+  },
+  {
+    "year": 2018,
+    "county": "LOUDON",
+    "source_precincts": 15,
+    "matched": 13,
+    "unmatched": 2,
+    "non_geographic": 0,
+    "low_confidence": 1
+  },
+  {
+    "year": 2018,
+    "county": "MACON",
+    "source_precincts": 10,
+    "matched": 0,
+    "unmatched": 10,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2018,
+    "county": "MADISON",
+    "source_precincts": 33,
+    "matched": 29,
+    "unmatched": 4,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2018,
+    "county": "MARION",
+    "source_precincts": 17,
+    "matched": 16,
+    "unmatched": 1,
+    "non_geographic": 0,
+    "low_confidence": 3
+  },
+  {
+    "year": 2018,
+    "county": "MARSHALL",
+    "source_precincts": 9,
+    "matched": 5,
+    "unmatched": 4,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2018,
+    "county": "MAURY",
+    "source_precincts": 20,
+    "matched": 1,
+    "unmatched": 19,
+    "non_geographic": 0,
+    "low_confidence": 1
+  },
+  {
+    "year": 2018,
+    "county": "MCMINN",
+    "source_precincts": 15,
+    "matched": 0,
+    "unmatched": 15,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2018,
+    "county": "MCNAIRY",
+    "source_precincts": 17,
+    "matched": 2,
+    "unmatched": 15,
+    "non_geographic": 0,
+    "low_confidence": 2
+  },
+  {
+    "year": 2018,
+    "county": "MEIGS",
+    "source_precincts": 6,
+    "matched": 6,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2018,
+    "county": "MONROE",
+    "source_precincts": 13,
+    "matched": 0,
+    "unmatched": 13,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2018,
+    "county": "MONTGOMERY",
+    "source_precincts": 29,
+    "matched": 29,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2018,
+    "county": "MOORE",
+    "source_precincts": 5,
+    "matched": 5,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2018,
+    "county": "MORGAN",
+    "source_precincts": 12,
+    "matched": 1,
+    "unmatched": 11,
+    "non_geographic": 0,
+    "low_confidence": 1
+  },
+  {
+    "year": 2018,
+    "county": "OBION",
+    "source_precincts": 12,
+    "matched": 12,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2018,
+    "county": "OVERTON",
+    "source_precincts": 9,
+    "matched": 9,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2018,
+    "county": "PERRY",
+    "source_precincts": 10,
+    "matched": 10,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2018,
+    "county": "PICKETT",
+    "source_precincts": 9,
+    "matched": 1,
+    "unmatched": 8,
+    "non_geographic": 0,
+    "low_confidence": 1
+  },
+  {
+    "year": 2018,
+    "county": "POLK",
+    "source_precincts": 9,
+    "matched": 3,
+    "unmatched": 6,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2018,
+    "county": "PUTNAM",
+    "source_precincts": 24,
+    "matched": 24,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2018,
+    "county": "RHEA",
+    "source_precincts": 12,
+    "matched": 12,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2018,
+    "county": "ROANE",
+    "source_precincts": 24,
+    "matched": 24,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 1
+  },
+  {
+    "year": 2018,
+    "county": "ROBERTSON",
+    "source_precincts": 19,
+    "matched": 16,
+    "unmatched": 3,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2018,
+    "county": "RUTHERFORD",
+    "source_precincts": 49,
+    "matched": 42,
+    "unmatched": 7,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2018,
+    "county": "SCOTT",
+    "source_precincts": 10,
+    "matched": 10,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2018,
+    "county": "SEQUATCHIE",
+    "source_precincts": 9,
+    "matched": 9,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2018,
+    "county": "SEVIER",
+    "source_precincts": 25,
+    "matched": 11,
+    "unmatched": 14,
+    "non_geographic": 0,
+    "low_confidence": 11
+  },
+  {
+    "year": 2018,
+    "county": "SHELBY",
+    "source_precincts": 166,
+    "matched": 158,
+    "unmatched": 8,
+    "non_geographic": 0,
+    "low_confidence": 24
+  },
+  {
+    "year": 2018,
+    "county": "SMITH",
+    "source_precincts": 8,
+    "matched": 8,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2018,
+    "county": "STEWART",
+    "source_precincts": 7,
+    "matched": 7,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2018,
+    "county": "SULLIVAN",
+    "source_precincts": 25,
+    "matched": 25,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2018,
+    "county": "SUMNER",
+    "source_precincts": 27,
+    "matched": 25,
+    "unmatched": 2,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2018,
+    "county": "TIPTON",
+    "source_precincts": 9,
+    "matched": 8,
+    "unmatched": 1,
+    "non_geographic": 0,
+    "low_confidence": 2
+  },
+  {
+    "year": 2018,
+    "county": "TROUSDALE",
+    "source_precincts": 10,
+    "matched": 10,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2018,
+    "county": "UNICOI",
+    "source_precincts": 8,
+    "matched": 8,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2018,
+    "county": "UNION",
+    "source_precincts": 10,
+    "matched": 3,
+    "unmatched": 7,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2018,
+    "county": "VAN BUREN",
+    "source_precincts": 7,
+    "matched": 2,
+    "unmatched": 5,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2018,
+    "county": "WARREN",
+    "source_precincts": 20,
+    "matched": 19,
+    "unmatched": 1,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2018,
+    "county": "WASHINGTON",
+    "source_precincts": 35,
+    "matched": 30,
+    "unmatched": 5,
+    "non_geographic": 0,
+    "low_confidence": 1
+  },
+  {
+    "year": 2018,
+    "county": "WAYNE",
+    "source_precincts": 14,
+    "matched": 5,
+    "unmatched": 9,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2018,
+    "county": "WEAKLEY",
+    "source_precincts": 10,
+    "matched": 2,
+    "unmatched": 8,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2018,
+    "county": "WHITE",
+    "source_precincts": 11,
+    "matched": 11,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2018,
+    "county": "WILLIAMSON",
+    "source_precincts": 43,
+    "matched": 37,
+    "unmatched": 6,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2018,
+    "county": "WILSON",
+    "source_precincts": 33,
+    "matched": 31,
+    "unmatched": 0,
+    "non_geographic": 2,
+    "low_confidence": 0
+  },
+  {
+    "year": 2020,
+    "county": "ANDERSON",
+    "source_precincts": 27,
+    "matched": 23,
+    "unmatched": 4,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2020,
+    "county": "BEDFORD",
+    "source_precincts": 11,
+    "matched": 11,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2020,
+    "county": "BENTON",
+    "source_precincts": 6,
+    "matched": 6,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2020,
+    "county": "BLEDSOE",
+    "source_precincts": 12,
+    "matched": 10,
+    "unmatched": 2,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2020,
+    "county": "BLOUNT",
+    "source_precincts": 31,
+    "matched": 28,
+    "unmatched": 3,
+    "non_geographic": 0,
+    "low_confidence": 5
+  },
+  {
+    "year": 2020,
+    "county": "BRADLEY",
+    "source_precincts": 17,
+    "matched": 15,
+    "unmatched": 2,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2020,
+    "county": "CAMPBELL",
+    "source_precincts": 20,
+    "matched": 18,
+    "unmatched": 2,
+    "non_geographic": 0,
+    "low_confidence": 1
+  },
+  {
+    "year": 2020,
+    "county": "CANNON",
+    "source_precincts": 10,
+    "matched": 7,
+    "unmatched": 2,
+    "non_geographic": 1,
+    "low_confidence": 0
+  },
+  {
+    "year": 2020,
+    "county": "CARROLL",
+    "source_precincts": 19,
+    "matched": 13,
+    "unmatched": 6,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2020,
+    "county": "CARTER",
+    "source_precincts": 22,
+    "matched": 21,
+    "unmatched": 1,
+    "non_geographic": 0,
+    "low_confidence": 1
+  },
+  {
+    "year": 2020,
+    "county": "CHEATHAM",
+    "source_precincts": 8,
+    "matched": 7,
+    "unmatched": 1,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2020,
+    "county": "CHESTER",
+    "source_precincts": 11,
+    "matched": 11,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2020,
+    "county": "CLAIBORNE",
+    "source_precincts": 16,
+    "matched": 16,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2020,
+    "county": "CLAY",
+    "source_precincts": 7,
+    "matched": 7,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2020,
+    "county": "COCKE",
+    "source_precincts": 19,
+    "matched": 17,
+    "unmatched": 2,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2020,
+    "county": "COFFEE",
+    "source_precincts": 24,
+    "matched": 23,
+    "unmatched": 1,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2020,
+    "county": "CROCKETT",
+    "source_precincts": 12,
+    "matched": 12,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2020,
+    "county": "CUMBERLAND",
+    "source_precincts": 24,
+    "matched": 20,
+    "unmatched": 4,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2020,
+    "county": "DAVIDSON",
+    "source_precincts": 161,
+    "matched": 160,
+    "unmatched": 0,
+    "non_geographic": 1,
+    "low_confidence": 0
+  },
+  {
+    "year": 2020,
+    "county": "DECATUR",
+    "source_precincts": 13,
+    "matched": 6,
+    "unmatched": 7,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2020,
+    "county": "DEKALB",
+    "source_precincts": 15,
+    "matched": 14,
+    "unmatched": 1,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2020,
+    "county": "DICKSON",
+    "source_precincts": 17,
+    "matched": 15,
+    "unmatched": 2,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2020,
+    "county": "DYER",
+    "source_precincts": 16,
+    "matched": 16,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 12
+  },
+  {
+    "year": 2020,
+    "county": "FAYETTE",
+    "source_precincts": 15,
+    "matched": 15,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 2
+  },
+  {
+    "year": 2020,
+    "county": "FENTRESS",
+    "source_precincts": 13,
+    "matched": 13,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 1
+  },
+  {
+    "year": 2020,
+    "county": "FRANKLIN",
+    "source_precincts": 18,
+    "matched": 18,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2020,
+    "county": "GIBSON",
+    "source_precincts": 28,
+    "matched": 21,
+    "unmatched": 7,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2020,
+    "county": "GILES",
+    "source_precincts": 14,
+    "matched": 14,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2020,
+    "county": "GRAINGER",
+    "source_precincts": 10,
+    "matched": 10,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2020,
+    "county": "GREENE",
+    "source_precincts": 17,
+    "matched": 16,
+    "unmatched": 1,
+    "non_geographic": 0,
+    "low_confidence": 1
+  },
+  {
+    "year": 2020,
+    "county": "GRUNDY",
+    "source_precincts": 10,
+    "matched": 6,
+    "unmatched": 4,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2020,
+    "county": "HAMBLEN",
+    "source_precincts": 16,
+    "matched": 16,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2020,
+    "county": "HAMILTON",
+    "source_precincts": 135,
+    "matched": 127,
+    "unmatched": 8,
+    "non_geographic": 0,
+    "low_confidence": 4
+  },
+  {
+    "year": 2020,
+    "county": "HANCOCK",
+    "source_precincts": 7,
+    "matched": 7,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2020,
+    "county": "HARDEMAN",
+    "source_precincts": 13,
+    "matched": 13,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2020,
+    "county": "HARDIN",
+    "source_precincts": 14,
+    "matched": 1,
+    "unmatched": 13,
+    "non_geographic": 0,
+    "low_confidence": 1
+  },
+  {
+    "year": 2020,
+    "county": "HAWKINS",
+    "source_precincts": 20,
+    "matched": 19,
+    "unmatched": 1,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2020,
+    "county": "HAYWOOD",
+    "source_precincts": 11,
+    "matched": 0,
+    "unmatched": 11,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2020,
+    "county": "HENDERSON",
+    "source_precincts": 14,
+    "matched": 13,
+    "unmatched": 1,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2020,
+    "county": "HENRY",
+    "source_precincts": 13,
+    "matched": 13,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2020,
+    "county": "HICKMAN",
+    "source_precincts": 14,
+    "matched": 14,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2020,
+    "county": "HOUSTON",
+    "source_precincts": 7,
+    "matched": 0,
+    "unmatched": 7,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2020,
+    "county": "HUMPHREYS",
+    "source_precincts": 8,
+    "matched": 8,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2020,
+    "county": "JACKSON",
+    "source_precincts": 12,
+    "matched": 12,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2020,
+    "county": "JEFFERSON",
+    "source_precincts": 11,
+    "matched": 2,
+    "unmatched": 9,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2020,
+    "county": "JOHNSON",
+    "source_precincts": 10,
+    "matched": 10,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2020,
+    "county": "KNOX",
+    "source_precincts": 89,
+    "matched": 89,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2020,
+    "county": "LAKE",
+    "source_precincts": 3,
+    "matched": 3,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2020,
+    "county": "LAUDERDALE",
+    "source_precincts": 10,
+    "matched": 8,
+    "unmatched": 2,
+    "non_geographic": 0,
+    "low_confidence": 4
+  },
+  {
+    "year": 2020,
+    "county": "LAWRENCE",
+    "source_precincts": 24,
+    "matched": 24,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2020,
+    "county": "LEWIS",
+    "source_precincts": 9,
+    "matched": 9,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2020,
+    "county": "LINCOLN",
+    "source_precincts": 20,
+    "matched": 11,
+    "unmatched": 9,
+    "non_geographic": 0,
+    "low_confidence": 1
+  },
+  {
+    "year": 2020,
+    "county": "LOUDON",
+    "source_precincts": 15,
+    "matched": 13,
+    "unmatched": 2,
+    "non_geographic": 0,
+    "low_confidence": 1
+  },
+  {
+    "year": 2020,
+    "county": "MACON",
+    "source_precincts": 10,
+    "matched": 0,
+    "unmatched": 10,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2020,
+    "county": "MADISON",
+    "source_precincts": 33,
+    "matched": 29,
+    "unmatched": 4,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2020,
+    "county": "MARION",
+    "source_precincts": 17,
+    "matched": 16,
+    "unmatched": 1,
+    "non_geographic": 0,
+    "low_confidence": 3
+  },
+  {
+    "year": 2020,
+    "county": "MARSHALL",
+    "source_precincts": 9,
+    "matched": 6,
+    "unmatched": 3,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2020,
+    "county": "MAURY",
+    "source_precincts": 21,
+    "matched": 1,
+    "unmatched": 20,
+    "non_geographic": 0,
+    "low_confidence": 1
+  },
+  {
+    "year": 2020,
+    "county": "MCMINN",
+    "source_precincts": 15,
+    "matched": 0,
+    "unmatched": 15,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2020,
+    "county": "MCNAIRY",
+    "source_precincts": 16,
+    "matched": 2,
+    "unmatched": 14,
+    "non_geographic": 0,
+    "low_confidence": 2
+  },
+  {
+    "year": 2020,
+    "county": "MEIGS",
+    "source_precincts": 6,
+    "matched": 6,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2020,
+    "county": "MONROE",
+    "source_precincts": 13,
+    "matched": 0,
+    "unmatched": 13,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2020,
+    "county": "MONTGOMERY",
+    "source_precincts": 30,
+    "matched": 29,
+    "unmatched": 0,
+    "non_geographic": 1,
+    "low_confidence": 0
+  },
+  {
+    "year": 2020,
+    "county": "MOORE",
+    "source_precincts": 5,
+    "matched": 5,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2020,
+    "county": "MORGAN",
+    "source_precincts": 12,
+    "matched": 1,
+    "unmatched": 11,
+    "non_geographic": 0,
+    "low_confidence": 1
+  },
+  {
+    "year": 2020,
+    "county": "OBION",
+    "source_precincts": 12,
+    "matched": 12,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2020,
+    "county": "OVERTON",
+    "source_precincts": 9,
+    "matched": 9,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2020,
+    "county": "PERRY",
+    "source_precincts": 10,
+    "matched": 9,
+    "unmatched": 1,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2020,
+    "county": "PICKETT",
+    "source_precincts": 9,
+    "matched": 1,
+    "unmatched": 8,
+    "non_geographic": 0,
+    "low_confidence": 1
+  },
+  {
+    "year": 2020,
+    "county": "POLK",
+    "source_precincts": 9,
+    "matched": 3,
+    "unmatched": 6,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2020,
+    "county": "PUTNAM",
+    "source_precincts": 22,
+    "matched": 22,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2020,
+    "county": "RHEA",
+    "source_precincts": 12,
+    "matched": 12,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2020,
+    "county": "ROANE",
+    "source_precincts": 24,
+    "matched": 24,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 1
+  },
+  {
+    "year": 2020,
+    "county": "ROBERTSON",
+    "source_precincts": 18,
+    "matched": 16,
+    "unmatched": 2,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2020,
+    "county": "RUTHERFORD",
+    "source_precincts": 49,
+    "matched": 42,
+    "unmatched": 7,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2020,
+    "county": "SCOTT",
+    "source_precincts": 10,
+    "matched": 10,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2020,
+    "county": "SEQUATCHIE",
+    "source_precincts": 9,
+    "matched": 9,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2020,
+    "county": "SEVIER",
+    "source_precincts": 25,
+    "matched": 11,
+    "unmatched": 14,
+    "non_geographic": 0,
+    "low_confidence": 11
+  },
+  {
+    "year": 2020,
+    "county": "SHELBY",
+    "source_precincts": 166,
+    "matched": 158,
+    "unmatched": 8,
+    "non_geographic": 0,
+    "low_confidence": 24
+  },
+  {
+    "year": 2020,
+    "county": "SMITH",
+    "source_precincts": 8,
+    "matched": 8,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2020,
+    "county": "STEWART",
+    "source_precincts": 7,
+    "matched": 7,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2020,
+    "county": "SULLIVAN",
+    "source_precincts": 25,
+    "matched": 25,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2020,
+    "county": "SUMNER",
+    "source_precincts": 28,
+    "matched": 26,
+    "unmatched": 2,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2020,
+    "county": "TIPTON",
+    "source_precincts": 10,
+    "matched": 8,
+    "unmatched": 1,
+    "non_geographic": 1,
+    "low_confidence": 2
+  },
+  {
+    "year": 2020,
+    "county": "TROUSDALE",
+    "source_precincts": 10,
+    "matched": 10,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2020,
+    "county": "UNICOI",
+    "source_precincts": 8,
+    "matched": 8,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2020,
+    "county": "UNION",
+    "source_precincts": 9,
+    "matched": 3,
+    "unmatched": 6,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2020,
+    "county": "VAN BUREN",
+    "source_precincts": 7,
+    "matched": 2,
+    "unmatched": 5,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2020,
+    "county": "WARREN",
+    "source_precincts": 20,
+    "matched": 19,
+    "unmatched": 1,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2020,
+    "county": "WASHINGTON",
+    "source_precincts": 35,
+    "matched": 30,
+    "unmatched": 5,
+    "non_geographic": 0,
+    "low_confidence": 1
+  },
+  {
+    "year": 2020,
+    "county": "WAYNE",
+    "source_precincts": 14,
+    "matched": 4,
+    "unmatched": 10,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2020,
+    "county": "WEAKLEY",
+    "source_precincts": 10,
+    "matched": 2,
+    "unmatched": 8,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2020,
+    "county": "WHITE",
+    "source_precincts": 11,
+    "matched": 11,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2020,
+    "county": "WILLIAMSON",
+    "source_precincts": 43,
+    "matched": 37,
+    "unmatched": 6,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2020,
+    "county": "WILSON",
+    "source_precincts": 31,
+    "matched": 31,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2022,
+    "county": "ANDERSON",
+    "source_precincts": 28,
+    "matched": 25,
+    "unmatched": 3,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2022,
+    "county": "BEDFORD",
+    "source_precincts": 11,
+    "matched": 11,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2022,
+    "county": "BENTON",
+    "source_precincts": 6,
+    "matched": 6,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2022,
+    "county": "BLEDSOE",
+    "source_precincts": 12,
+    "matched": 12,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2022,
+    "county": "BLOUNT",
+    "source_precincts": 28,
+    "matched": 0,
+    "unmatched": 28,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2022,
+    "county": "BRADLEY",
+    "source_precincts": 18,
+    "matched": 18,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2022,
+    "county": "CAMPBELL",
+    "source_precincts": 21,
+    "matched": 0,
+    "unmatched": 21,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2022,
+    "county": "CANNON",
+    "source_precincts": 9,
+    "matched": 7,
+    "unmatched": 2,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2022,
+    "county": "CARROLL",
+    "source_precincts": 15,
+    "matched": 15,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2022,
+    "county": "CARTER",
+    "source_precincts": 22,
+    "matched": 21,
+    "unmatched": 1,
+    "non_geographic": 0,
+    "low_confidence": 1
+  },
+  {
+    "year": 2022,
+    "county": "CHEATHAM",
+    "source_precincts": 9,
+    "matched": 9,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2022,
+    "county": "CHESTER",
+    "source_precincts": 9,
+    "matched": 9,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2022,
+    "county": "CLAIBORNE",
+    "source_precincts": 16,
+    "matched": 16,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2022,
+    "county": "CLAY",
+    "source_precincts": 7,
+    "matched": 0,
+    "unmatched": 7,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2022,
+    "county": "COCKE",
+    "source_precincts": 18,
+    "matched": 15,
+    "unmatched": 3,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2022,
+    "county": "COFFEE",
+    "source_precincts": 17,
+    "matched": 16,
+    "unmatched": 1,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2022,
+    "county": "CROCKETT",
+    "source_precincts": 12,
+    "matched": 0,
+    "unmatched": 12,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2022,
+    "county": "CUMBERLAND",
+    "source_precincts": 24,
+    "matched": 0,
+    "unmatched": 24,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2022,
+    "county": "DAVIDSON",
+    "source_precincts": 179,
+    "matched": 109,
+    "unmatched": 69,
+    "non_geographic": 1,
+    "low_confidence": 0
+  },
+  {
+    "year": 2022,
+    "county": "DECATUR",
+    "source_precincts": 9,
+    "matched": 9,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2022,
+    "county": "DEKALB",
+    "source_precincts": 12,
+    "matched": 11,
+    "unmatched": 1,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2022,
+    "county": "DICKSON",
+    "source_precincts": 13,
+    "matched": 0,
+    "unmatched": 13,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2022,
+    "county": "DYER",
+    "source_precincts": 15,
+    "matched": 15,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 11
+  },
+  {
+    "year": 2022,
+    "county": "FAYETTE",
+    "source_precincts": 16,
+    "matched": 16,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 1
+  },
+  {
+    "year": 2022,
+    "county": "FENTRESS",
+    "source_precincts": 13,
+    "matched": 0,
+    "unmatched": 13,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2022,
+    "county": "FRANKLIN",
+    "source_precincts": 18,
+    "matched": 18,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2022,
+    "county": "GIBSON",
+    "source_precincts": 22,
+    "matched": 19,
+    "unmatched": 3,
+    "non_geographic": 0,
+    "low_confidence": 1
+  },
+  {
+    "year": 2022,
+    "county": "GILES",
+    "source_precincts": 14,
+    "matched": 12,
+    "unmatched": 2,
+    "non_geographic": 0,
+    "low_confidence": 1
+  },
+  {
+    "year": 2022,
+    "county": "GRAINGER",
+    "source_precincts": 10,
+    "matched": 0,
+    "unmatched": 10,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2022,
+    "county": "GREENE",
+    "source_precincts": 17,
+    "matched": 7,
+    "unmatched": 10,
+    "non_geographic": 0,
+    "low_confidence": 7
+  },
+  {
+    "year": 2022,
+    "county": "GRUNDY",
+    "source_precincts": 10,
+    "matched": 10,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 1
+  },
+  {
+    "year": 2022,
+    "county": "HAMBLEN",
+    "source_precincts": 16,
+    "matched": 2,
+    "unmatched": 14,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2022,
+    "county": "HAMILTON",
+    "source_precincts": 90,
+    "matched": 90,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2022,
+    "county": "HANCOCK",
+    "source_precincts": 7,
+    "matched": 7,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2022,
+    "county": "HARDEMAN",
+    "source_precincts": 12,
+    "matched": 11,
+    "unmatched": 1,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2022,
+    "county": "HARDIN",
+    "source_precincts": 14,
+    "matched": 1,
+    "unmatched": 13,
+    "non_geographic": 0,
+    "low_confidence": 1
+  },
+  {
+    "year": 2022,
+    "county": "HAWKINS",
+    "source_precincts": 19,
+    "matched": 18,
+    "unmatched": 1,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2022,
+    "county": "HAYWOOD",
+    "source_precincts": 11,
+    "matched": 0,
+    "unmatched": 11,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2022,
+    "county": "HENDERSON",
+    "source_precincts": 14,
+    "matched": 14,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 1
+  },
+  {
+    "year": 2022,
+    "county": "HENRY",
+    "source_precincts": 10,
+    "matched": 10,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2022,
+    "county": "HICKMAN",
+    "source_precincts": 14,
+    "matched": 14,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2022,
+    "county": "HOUSTON",
+    "source_precincts": 7,
+    "matched": 5,
+    "unmatched": 2,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2022,
+    "county": "HUMPHREYS",
+    "source_precincts": 8,
+    "matched": 8,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2022,
+    "county": "JACKSON",
+    "source_precincts": 13,
+    "matched": 0,
+    "unmatched": 13,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2022,
+    "county": "JEFFERSON",
+    "source_precincts": 11,
+    "matched": 2,
+    "unmatched": 9,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2022,
+    "county": "JOHNSON",
+    "source_precincts": 10,
+    "matched": 10,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2022,
+    "county": "KNOX",
+    "source_precincts": 103,
+    "matched": 103,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2022,
+    "county": "LAKE",
+    "source_precincts": 3,
+    "matched": 3,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2022,
+    "county": "LAUDERDALE",
+    "source_precincts": 10,
+    "matched": 8,
+    "unmatched": 2,
+    "non_geographic": 0,
+    "low_confidence": 4
+  },
+  {
+    "year": 2022,
+    "county": "LAWRENCE",
+    "source_precincts": 24,
+    "matched": 20,
+    "unmatched": 4,
+    "non_geographic": 0,
+    "low_confidence": 3
+  },
+  {
+    "year": 2022,
+    "county": "LEWIS",
+    "source_precincts": 9,
+    "matched": 0,
+    "unmatched": 9,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2022,
+    "county": "LINCOLN",
+    "source_precincts": 20,
+    "matched": 17,
+    "unmatched": 3,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2022,
+    "county": "LOUDON",
+    "source_precincts": 15,
+    "matched": 12,
+    "unmatched": 3,
+    "non_geographic": 0,
+    "low_confidence": 1
+  },
+  {
+    "year": 2022,
+    "county": "MACON",
+    "source_precincts": 10,
+    "matched": 0,
+    "unmatched": 10,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2022,
+    "county": "MADISON",
+    "source_precincts": 29,
+    "matched": 25,
+    "unmatched": 4,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2022,
+    "county": "MARION",
+    "source_precincts": 17,
+    "matched": 16,
+    "unmatched": 1,
+    "non_geographic": 0,
+    "low_confidence": 3
+  },
+  {
+    "year": 2022,
+    "county": "MARSHALL",
+    "source_precincts": 9,
+    "matched": 6,
+    "unmatched": 3,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2022,
+    "county": "MAURY",
+    "source_precincts": 22,
+    "matched": 1,
+    "unmatched": 21,
+    "non_geographic": 0,
+    "low_confidence": 1
+  },
+  {
+    "year": 2022,
+    "county": "MCMINN",
+    "source_precincts": 15,
+    "matched": 0,
+    "unmatched": 15,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2022,
+    "county": "MCNAIRY",
+    "source_precincts": 16,
+    "matched": 2,
+    "unmatched": 14,
+    "non_geographic": 0,
+    "low_confidence": 2
+  },
+  {
+    "year": 2022,
+    "county": "MEIGS",
+    "source_precincts": 6,
+    "matched": 6,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2022,
+    "county": "MONROE",
+    "source_precincts": 13,
+    "matched": 0,
+    "unmatched": 13,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2022,
+    "county": "MONTGOMERY",
+    "source_precincts": 38,
+    "matched": 38,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2022,
+    "county": "MOORE",
+    "source_precincts": 5,
+    "matched": 5,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2022,
+    "county": "MORGAN",
+    "source_precincts": 12,
+    "matched": 12,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2022,
+    "county": "OBION",
+    "source_precincts": 12,
+    "matched": 12,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2022,
+    "county": "OVERTON",
+    "source_precincts": 9,
+    "matched": 0,
+    "unmatched": 9,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2022,
+    "county": "PERRY",
+    "source_precincts": 10,
+    "matched": 10,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2022,
+    "county": "PICKETT",
+    "source_precincts": 9,
+    "matched": 1,
+    "unmatched": 8,
+    "non_geographic": 0,
+    "low_confidence": 1
+  },
+  {
+    "year": 2022,
+    "county": "POLK",
+    "source_precincts": 9,
+    "matched": 3,
+    "unmatched": 6,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2022,
+    "county": "PUTNAM",
+    "source_precincts": 22,
+    "matched": 22,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2022,
+    "county": "RHEA",
+    "source_precincts": 12,
+    "matched": 6,
+    "unmatched": 6,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2022,
+    "county": "ROANE",
+    "source_precincts": 20,
+    "matched": 20,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2022,
+    "county": "ROBERTSON",
+    "source_precincts": 18,
+    "matched": 16,
+    "unmatched": 2,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2022,
+    "county": "RUTHERFORD",
+    "source_precincts": 33,
+    "matched": 0,
+    "unmatched": 33,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2022,
+    "county": "SCOTT",
+    "source_precincts": 10,
+    "matched": 10,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2022,
+    "county": "SEQUATCHIE",
+    "source_precincts": 9,
+    "matched": 9,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2022,
+    "county": "SEVIER",
+    "source_precincts": 25,
+    "matched": 13,
+    "unmatched": 12,
+    "non_geographic": 0,
+    "low_confidence": 13
+  },
+  {
+    "year": 2022,
+    "county": "SHELBY",
+    "source_precincts": 142,
+    "matched": 12,
+    "unmatched": 130,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2022,
+    "county": "SMITH",
+    "source_precincts": 8,
+    "matched": 8,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2022,
+    "county": "STEWART",
+    "source_precincts": 7,
+    "matched": 5,
+    "unmatched": 2,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2022,
+    "county": "SULLIVAN",
+    "source_precincts": 25,
+    "matched": 25,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2022,
+    "county": "SUMNER",
+    "source_precincts": 29,
+    "matched": 27,
+    "unmatched": 2,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2022,
+    "county": "TIPTON",
+    "source_precincts": 9,
+    "matched": 8,
+    "unmatched": 1,
+    "non_geographic": 0,
+    "low_confidence": 2
+  },
+  {
+    "year": 2022,
+    "county": "TROUSDALE",
+    "source_precincts": 10,
+    "matched": 10,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2022,
+    "county": "UNICOI",
+    "source_precincts": 8,
+    "matched": 8,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2022,
+    "county": "UNION",
+    "source_precincts": 9,
+    "matched": 3,
+    "unmatched": 6,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2022,
+    "county": "VAN BUREN",
+    "source_precincts": 7,
+    "matched": 2,
+    "unmatched": 5,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2022,
+    "county": "WARREN",
+    "source_precincts": 20,
+    "matched": 18,
+    "unmatched": 2,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2022,
+    "county": "WASHINGTON",
+    "source_precincts": 23,
+    "matched": 20,
+    "unmatched": 3,
+    "non_geographic": 0,
+    "low_confidence": 2
+  },
+  {
+    "year": 2022,
+    "county": "WAYNE",
+    "source_precincts": 14,
+    "matched": 10,
+    "unmatched": 4,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2022,
+    "county": "WEAKLEY",
+    "source_precincts": 9,
+    "matched": 0,
+    "unmatched": 9,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2022,
+    "county": "WHITE",
+    "source_precincts": 11,
+    "matched": 11,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2022,
+    "county": "WILLIAMSON",
+    "source_precincts": 34,
+    "matched": 0,
+    "unmatched": 34,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2022,
+    "county": "WILSON",
+    "source_precincts": 25,
+    "matched": 0,
+    "unmatched": 25,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2024,
+    "county": "ANDERSON",
+    "source_precincts": 28,
+    "matched": 25,
+    "unmatched": 3,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2024,
+    "county": "BEDFORD",
+    "source_precincts": 11,
+    "matched": 11,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2024,
+    "county": "BENTON",
+    "source_precincts": 6,
+    "matched": 6,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2024,
+    "county": "BLEDSOE",
+    "source_precincts": 12,
+    "matched": 12,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2024,
+    "county": "BLOUNT",
+    "source_precincts": 27,
+    "matched": 0,
+    "unmatched": 27,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2024,
+    "county": "BRADLEY",
+    "source_precincts": 18,
+    "matched": 18,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2024,
+    "county": "CAMPBELL",
+    "source_precincts": 21,
+    "matched": 0,
+    "unmatched": 21,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2024,
+    "county": "CANNON",
+    "source_precincts": 9,
+    "matched": 7,
+    "unmatched": 2,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2024,
+    "county": "CARROLL",
+    "source_precincts": 15,
+    "matched": 15,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2024,
+    "county": "CARTER",
+    "source_precincts": 22,
+    "matched": 21,
+    "unmatched": 1,
+    "non_geographic": 0,
+    "low_confidence": 1
+  },
+  {
+    "year": 2024,
+    "county": "CHEATHAM",
+    "source_precincts": 8,
+    "matched": 8,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2024,
+    "county": "CHESTER",
+    "source_precincts": 10,
+    "matched": 10,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2024,
+    "county": "CLAIBORNE",
+    "source_precincts": 16,
+    "matched": 16,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2024,
+    "county": "CLAY",
+    "source_precincts": 7,
+    "matched": 0,
+    "unmatched": 7,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2024,
+    "county": "COCKE",
+    "source_precincts": 18,
+    "matched": 15,
+    "unmatched": 3,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2024,
+    "county": "COFFEE",
+    "source_precincts": 17,
+    "matched": 16,
+    "unmatched": 1,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2024,
+    "county": "CROCKETT",
+    "source_precincts": 12,
+    "matched": 0,
+    "unmatched": 12,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2024,
+    "county": "CUMBERLAND",
+    "source_precincts": 24,
+    "matched": 0,
+    "unmatched": 24,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2024,
+    "county": "DAVIDSON",
+    "source_precincts": 179,
+    "matched": 178,
+    "unmatched": 0,
+    "non_geographic": 1,
+    "low_confidence": 0
+  },
+  {
+    "year": 2024,
+    "county": "DECATUR",
+    "source_precincts": 9,
+    "matched": 9,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2024,
+    "county": "DEKALB",
+    "source_precincts": 12,
+    "matched": 11,
+    "unmatched": 1,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2024,
+    "county": "DICKSON",
+    "source_precincts": 13,
+    "matched": 11,
+    "unmatched": 2,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2024,
+    "county": "DYER",
+    "source_precincts": 15,
+    "matched": 14,
+    "unmatched": 1,
+    "non_geographic": 0,
+    "low_confidence": 10
+  },
+  {
+    "year": 2024,
+    "county": "FAYETTE",
+    "source_precincts": 16,
+    "matched": 16,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 1
+  },
+  {
+    "year": 2024,
+    "county": "FENTRESS",
+    "source_precincts": 13,
+    "matched": 0,
+    "unmatched": 13,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2024,
+    "county": "FRANKLIN",
+    "source_precincts": 18,
+    "matched": 18,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2024,
+    "county": "GIBSON",
+    "source_precincts": 22,
+    "matched": 19,
+    "unmatched": 3,
+    "non_geographic": 0,
+    "low_confidence": 1
+  },
+  {
+    "year": 2024,
+    "county": "GILES",
+    "source_precincts": 14,
+    "matched": 12,
+    "unmatched": 2,
+    "non_geographic": 0,
+    "low_confidence": 1
+  },
+  {
+    "year": 2024,
+    "county": "GRAINGER",
+    "source_precincts": 10,
+    "matched": 10,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2024,
+    "county": "GREENE",
+    "source_precincts": 17,
+    "matched": 7,
+    "unmatched": 10,
+    "non_geographic": 0,
+    "low_confidence": 7
+  },
+  {
+    "year": 2024,
+    "county": "GRUNDY",
+    "source_precincts": 10,
+    "matched": 10,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 1
+  },
+  {
+    "year": 2024,
+    "county": "HAMBLEN",
+    "source_precincts": 16,
+    "matched": 16,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2024,
+    "county": "HAMILTON",
+    "source_precincts": 92,
+    "matched": 92,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2024,
+    "county": "HANCOCK",
+    "source_precincts": 7,
+    "matched": 7,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2024,
+    "county": "HARDEMAN",
+    "source_precincts": 12,
+    "matched": 11,
+    "unmatched": 1,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2024,
+    "county": "HARDIN",
+    "source_precincts": 14,
+    "matched": 1,
+    "unmatched": 13,
+    "non_geographic": 0,
+    "low_confidence": 1
+  },
+  {
+    "year": 2024,
+    "county": "HAWKINS",
+    "source_precincts": 19,
+    "matched": 18,
+    "unmatched": 1,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2024,
+    "county": "HAYWOOD",
+    "source_precincts": 11,
+    "matched": 0,
+    "unmatched": 11,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2024,
+    "county": "HENDERSON",
+    "source_precincts": 12,
+    "matched": 9,
+    "unmatched": 3,
+    "non_geographic": 0,
+    "low_confidence": 2
+  },
+  {
+    "year": 2024,
+    "county": "HENRY",
+    "source_precincts": 8,
+    "matched": 8,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2024,
+    "county": "HICKMAN",
+    "source_precincts": 14,
+    "matched": 14,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2024,
+    "county": "HOUSTON",
+    "source_precincts": 7,
+    "matched": 5,
+    "unmatched": 2,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2024,
+    "county": "HUMPHREYS",
+    "source_precincts": 8,
+    "matched": 8,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2024,
+    "county": "JACKSON",
+    "source_precincts": 13,
+    "matched": 13,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2024,
+    "county": "JEFFERSON",
+    "source_precincts": 11,
+    "matched": 2,
+    "unmatched": 9,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2024,
+    "county": "JOHNSON",
+    "source_precincts": 10,
+    "matched": 10,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2024,
+    "county": "KNOX",
+    "source_precincts": 103,
+    "matched": 103,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2024,
+    "county": "LAKE",
+    "source_precincts": 3,
+    "matched": 3,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2024,
+    "county": "LAUDERDALE",
+    "source_precincts": 10,
+    "matched": 8,
+    "unmatched": 2,
+    "non_geographic": 0,
+    "low_confidence": 4
+  },
+  {
+    "year": 2024,
+    "county": "LAWRENCE",
+    "source_precincts": 24,
+    "matched": 20,
+    "unmatched": 4,
+    "non_geographic": 0,
+    "low_confidence": 3
+  },
+  {
+    "year": 2024,
+    "county": "LEWIS",
+    "source_precincts": 9,
+    "matched": 9,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2024,
+    "county": "LINCOLN",
+    "source_precincts": 20,
+    "matched": 16,
+    "unmatched": 4,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2024,
+    "county": "LOUDON",
+    "source_precincts": 15,
+    "matched": 13,
+    "unmatched": 2,
+    "non_geographic": 0,
+    "low_confidence": 1
+  },
+  {
+    "year": 2024,
+    "county": "MACON",
+    "source_precincts": 10,
+    "matched": 0,
+    "unmatched": 10,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2024,
+    "county": "MADISON",
+    "source_precincts": 29,
+    "matched": 25,
+    "unmatched": 4,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2024,
+    "county": "MARION",
+    "source_precincts": 17,
+    "matched": 16,
+    "unmatched": 1,
+    "non_geographic": 0,
+    "low_confidence": 2
+  },
+  {
+    "year": 2024,
+    "county": "MARSHALL",
+    "source_precincts": 9,
+    "matched": 6,
+    "unmatched": 3,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2024,
+    "county": "MAURY",
+    "source_precincts": 22,
+    "matched": 1,
+    "unmatched": 21,
+    "non_geographic": 0,
+    "low_confidence": 1
+  },
+  {
+    "year": 2024,
+    "county": "MCMINN",
+    "source_precincts": 14,
+    "matched": 0,
+    "unmatched": 14,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2024,
+    "county": "MCNAIRY",
+    "source_precincts": 16,
+    "matched": 2,
+    "unmatched": 14,
+    "non_geographic": 0,
+    "low_confidence": 2
+  },
+  {
+    "year": 2024,
+    "county": "MEIGS",
+    "source_precincts": 6,
+    "matched": 6,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2024,
+    "county": "MONROE",
+    "source_precincts": 13,
+    "matched": 0,
+    "unmatched": 13,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2024,
+    "county": "MONTGOMERY",
+    "source_precincts": 38,
+    "matched": 38,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2024,
+    "county": "MOORE",
+    "source_precincts": 5,
+    "matched": 5,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2024,
+    "county": "MORGAN",
+    "source_precincts": 12,
+    "matched": 12,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2024,
+    "county": "OBION",
+    "source_precincts": 12,
+    "matched": 12,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2024,
+    "county": "OVERTON",
+    "source_precincts": 9,
+    "matched": 0,
+    "unmatched": 9,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2024,
+    "county": "PERRY",
+    "source_precincts": 10,
+    "matched": 10,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2024,
+    "county": "PICKETT",
+    "source_precincts": 9,
+    "matched": 1,
+    "unmatched": 8,
+    "non_geographic": 0,
+    "low_confidence": 1
+  },
+  {
+    "year": 2024,
+    "county": "POLK",
+    "source_precincts": 9,
+    "matched": 3,
+    "unmatched": 6,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2024,
+    "county": "PUTNAM",
+    "source_precincts": 18,
+    "matched": 18,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2024,
+    "county": "RHEA",
+    "source_precincts": 12,
+    "matched": 6,
+    "unmatched": 6,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2024,
+    "county": "ROANE",
+    "source_precincts": 20,
+    "matched": 20,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2024,
+    "county": "ROBERTSON",
+    "source_precincts": 18,
+    "matched": 16,
+    "unmatched": 2,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2024,
+    "county": "RUTHERFORD",
+    "source_precincts": 33,
+    "matched": 33,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2024,
+    "county": "SCOTT",
+    "source_precincts": 10,
+    "matched": 10,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2024,
+    "county": "SEQUATCHIE",
+    "source_precincts": 9,
+    "matched": 8,
+    "unmatched": 1,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2024,
+    "county": "SEVIER",
+    "source_precincts": 25,
+    "matched": 13,
+    "unmatched": 12,
+    "non_geographic": 0,
+    "low_confidence": 13
+  },
+  {
+    "year": 2024,
+    "county": "SHELBY",
+    "source_precincts": 142,
+    "matched": 142,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2024,
+    "county": "SMITH",
+    "source_precincts": 8,
+    "matched": 8,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2024,
+    "county": "STEWART",
+    "source_precincts": 7,
+    "matched": 6,
+    "unmatched": 1,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2024,
+    "county": "SULLIVAN",
+    "source_precincts": 25,
+    "matched": 25,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2024,
+    "county": "SUMNER",
+    "source_precincts": 29,
+    "matched": 27,
+    "unmatched": 2,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2024,
+    "county": "TIPTON",
+    "source_precincts": 9,
+    "matched": 8,
+    "unmatched": 1,
+    "non_geographic": 0,
+    "low_confidence": 2
+  },
+  {
+    "year": 2024,
+    "county": "TROUSDALE",
+    "source_precincts": 10,
+    "matched": 10,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2024,
+    "county": "UNICOI",
+    "source_precincts": 8,
+    "matched": 8,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2024,
+    "county": "UNION",
+    "source_precincts": 9,
+    "matched": 3,
+    "unmatched": 6,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2024,
+    "county": "VAN BUREN",
+    "source_precincts": 7,
+    "matched": 2,
+    "unmatched": 5,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2024,
+    "county": "WARREN",
+    "source_precincts": 20,
+    "matched": 18,
+    "unmatched": 2,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2024,
+    "county": "WASHINGTON",
+    "source_precincts": 23,
+    "matched": 21,
+    "unmatched": 2,
+    "non_geographic": 0,
+    "low_confidence": 3
+  },
+  {
+    "year": 2024,
+    "county": "WAYNE",
+    "source_precincts": 14,
+    "matched": 10,
+    "unmatched": 4,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2024,
+    "county": "WEAKLEY",
+    "source_precincts": 9,
+    "matched": 0,
+    "unmatched": 9,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2024,
+    "county": "WHITE",
+    "source_precincts": 11,
+    "matched": 11,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2024,
+    "county": "WILLIAMSON",
+    "source_precincts": 56,
+    "matched": 54,
+    "unmatched": 2,
+    "non_geographic": 0,
+    "low_confidence": 0
+  },
+  {
+    "year": 2024,
+    "county": "WILSON",
+    "source_precincts": 25,
+    "matched": 25,
+    "unmatched": 0,
+    "non_geographic": 0,
+    "low_confidence": 0
+  }
+]

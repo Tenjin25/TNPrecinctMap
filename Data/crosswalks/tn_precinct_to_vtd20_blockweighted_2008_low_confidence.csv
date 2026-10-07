@@ -5,37 +5,14 @@ confidence,county,feature_id,match_method,official_name,prctseq,precinct,precinc
 0.7826,BLOUNT,72,fuzzy_name,Maryville Municipal-County,,Maryville Mun-County,MARYVILLE MUN COUNTY,True
 0.878,BLOUNT,99,fuzzy_name,Pellissippi-Maryville,,Pellissippi-Maryvill,PELLISSIPPI MARYVILL,True
 0.7846,BLOUNT,97,fuzzy_name,William Blount Academy,,Wm Blount Academy,WM BLOUNT ACADEMY,True
-0.8,BRADLEY,126,fuzzy_name,402 Michigan Avenue,,4-2 Michigan Ave,4 2 MICHIGAN AVE,True
 0.8609,BRADLEY,133,fuzzy_name,602-1 Blue Spring,,6-2 Blue Springs,6 2 BLUE SPRINGS,True
 0.78,CAMPBELL,142,fuzzy_name,Jacksboro Station,,3-2 Jacksboro Sta,3 2 JACKSBORO STA,True
 0.8571,CARTER,191,fuzzy_name,Court House,,Courthouse,COURTHOUSE,True
 0.8069,CHESTER,226,fuzzy_name,4 West Chester School,,4-1 West Chester Sch,4 1 WEST CHESTER SCH,True
 0.8069,CHESTER,221,fuzzy_name,5 East Chester School,,5-1 East Chester Sch,5 1 EAST CHESTER SCH,True
 0.8727,CLAIBORNE,234,fuzzy_name,Vanbebber Springs,,8-2 Vanbebber Sprngs,8 2 VANBEBBER SPRNGS,True
-0.8757,CLAY,247,fuzzy_name,1 Dentons Cross Roads,,1 Dentons Cross Road,1 DENTONS CROSS ROAD,True
-0.8229,CLAY,246,fuzzy_name,5-3 Arcot/Beech Bethany,,5-1 Arcot/Beech Beth,5 1 ARCOT BEECH BETH,True
 0.8053,COCKE,268,fuzzy_name,Cocke County High Sch,,Cocke County High,COCKE COUNTY HIGH,True
 0.8341,COCKE,267,fuzzy_name,Newport Grammar School,,Newport Grammar Sch,NEWPORT GRAMMAR SCH,True
-0.825,COFFEE,286,fuzzy_name,13-2 Schmeide/TMT,,13-2 Schmiede/TMT,13 2 SCHMIEDE TMT,True
-0.8069,DAVIDSON,451,fuzzy_name,01-5 Bordeaux Library,,01-5 Bordeaux Libr,01 5 BORDEAUX LIBR,True
-0.8129,DAVIDSON,380,fuzzy_name,03-4 Alex Green School,,03-4 Alex Green Sch,03 4 ALEX GREEN SCH,True
-0.8069,DAVIDSON,362,fuzzy_name,03-8 Davidson Academy,,03-8 Davidson Acad,03 8 DAVIDSON ACAD,True
-0.8667,DAVIDSON,385,fuzzy_name,07-5 Aldergate UMC,,07-5 Aldersgate UMC,07 5 ALDERSGATE UMC,True
-0.84,DAVIDSON,361,fuzzy_name,10-2 Walker Creek UMC,,10-2 Walker Crk UMC,10 2 WALKER CRK UMC,True
-0.8069,DAVIDSON,394,fuzzy_name,13-2 Glengarry School,,13-2 Glengarry Sch,13 2 GLENGARRY SCH,True
-0.8069,DAVIDSON,374,fuzzy_name,14-2 Hermitage School,,14-2 Hermitage Sch,14 2 HERMITAGE SCH,True
-0.8129,DAVIDSON,407,fuzzy_name,15-1 Two Rivers School,,15-1 Two Rivers Sch,15 1 TWO RIVERS SCH,True
-0.869,DAVIDSON,422,fuzzy_name,17-2 Trevecca Towers,,17-2 Trevecca Tower,17 2 TREVECCA TOWER,True
-0.869,DAVIDSON,417,fuzzy_name,17-6 Berry Headstart,,17-6 Berry Headstrt,17 6 BERRY HEADSTRT,True
-0.871,DAVIDSON,457,fuzzy_name,21-6 Mc Gruder Center,,21-6 McGruder Center,21 6 MCGRUDER CENTER,True
-0.792,DAVIDSON,466,fuzzy_name,23-2 West Meade School,,23-2 West Meade Sch,23 2 WEST MEADE SCH,True
-0.8129,DAVIDSON,480,fuzzy_name,30-3 Grace Cole School,,30-3 Grace Cole Sch,30 3 GRACE COLE SCH,True
-0.8129,DAVIDSON,333,fuzzy_name,32-2 Bell Road Baptist,,32-2 Bell Road Bapt,32 2 BELL ROAD BAPT,True
-0.7875,DICKSON,545,fuzzy_name,02-2 Tennessee City C.C.,,2-2 Tennessee City,2 2 TENNESSEE CITY,True
-0.7875,DICKSON,539,fuzzy_name,04-1 Jackson Chapel C.C.,,4-1 Jackson Chapel,4 1 JACKSON CHAPEL,True
-0.8526,DICKSON,530,fuzzy_name,06-2 Porter C.C.,,6-2 Porter CC,6 2 PORTER CC,True
-0.8609,DICKSON,528,fuzzy_name,12-2 Eastside C.C.,,12-2 Eastside CC,12 2 EASTSIDE CC,True
-0.869,DICKSON,540,fuzzy_name,12-3 White Bluff C.C.,,12-3 White Bluff CC,12 3 WHITE BLUFF CC,True
 0.8571,DYER,560,fuzzy_name,A - Bonicord,,A1- Bonicord,A1 BONICORD,True
 0.8526,DYER,554,fuzzy_name,A-Fowlkes,,A2- Fowlkes,A2 FOWLKES,True
 0.8526,DYER,551,fuzzy_name,B - Newbern,,B1- Newbern,B1 NEWBERN,True
@@ -52,47 +29,26 @@ confidence,county,feature_id,match_method,official_name,prctseq,precinct,precinc
 0.8757,DYER,557,fuzzy_name,I - Community Center,,I1- Community Center,I1 COMMUNITY CENTER,True
 0.8727,DYER,546,fuzzy_name,I - Hurricane Hill,,I2- Hurricane Hill,I2 HURRICANE HILL,True
 0.8667,DYER,548,fuzzy_name,J-N Dyersburg,,J1- North Dyersburg,J1 NORTH DYERSBURG,True
-0.7826,FRANKLIN,609,fuzzy_name,5-1 Keith Springs,,5-1 Keith Spgs,5 1 KEITH SPGS,True
-0.792,FRANKLIN,604,fuzzy_name,8-2 Estill Springs,,8-2 Estill Spgs,8 2 ESTILL SPGS,True
 0.8471,GIBSON,617,fuzzy_name,07-11 Ed Jones Agri Plex,,7-1 EdJones AgriPlex,7 1 EDJONES AGRIPLEX,True
 0.8571,GIBSON,621,fuzzy_name,09-20 Court House,,9 Courthouse,9 COURTHOUSE,True
-0.8571,GREENE,694,fuzzy_name,10-2 Court House,,10-2 Courthouse,10 2 COURTHOUSE,True
 0.8,GREENE,676,fuzzy_name,11 Woodlawn,,Woodlawn 5,WOODLAWN 5,True
 0.7875,GREENE,675,fuzzy_name,12 Hardins,,Hardins 5,HARDINS 5,True
 0.8609,GREENE,688,fuzzy_name,14 Chucky Doak,,Chuckey Doak,CHUCKEY DOAK,True
 0.7826,HAMBLEN,721,fuzzy_name,3-3 East High School,,03-1 East High Sch,03 1 EAST HIGH SCH,True
-0.7826,HAMBLEN,724,fuzzy_name,11-1 West High School,,04-1 West High Sch,04 1 WEST HIGH SCH,True
-0.8129,HAMBLEN,733,fuzzy_name,9-2 Whitesburg School,,09-2 Whitesburg Sch,09 2 WHITESBURG SCH,True
-0.7826,HAMBLEN,724,fuzzy_name,11-1 West High School,,11-1 West High Sch,11 1 WEST HIGH SCH,True
-0.84,HAMILTON,797,fuzzy_name,025 Hixon 1,,025 Hixson 1,025 HIXSON 1,True
 0.78,HARDIN,894,fuzzy_name,5 Morris Chapel,,Morris Chapel 5-2,MORRIS CHAPEL 5 2,True
-0.8471,HAWKINS,907,fuzzy_name,6 Alumwell,,6 Alum Well,6 ALUM WELL,True
-0.7846,HAWKINS,915,fuzzy_name,4 Rogersville North Outside,,4 Rogersville No Out,4 ROGERSVILLE NO OUT,True
-0.7846,HAWKINS,910,fuzzy_name,5 Rogersville South Outside,,5 Rogersville So Out,5 ROGERSVILLE SO OUT,True
-0.8069,HAWKINS,916,fuzzy_name,4 Surgoinsville,,4 Surgoinsville In,4 SURGOINSVILLE IN,True
-0.78,HAWKINS,916,fuzzy_name,4 Surgoinsville,,4 Surgoinsville Out,4 SURGOINSVILLE OUT,True
 0.84,HAYWOOD,931,fuzzy_name,11 Douglass,,Douglas,DOUGLAS,True
 0.8571,HAYWOOD,929,fuzzy_name,14 College Hill Cafeteria,,College Hill Cafeter,COLLEGE HILL CAFETER,True
-0.8069,HENDERSON,938,fuzzy_name,3-2 Fire Station #10,,3-3 Fire Station #4,3 3 FIRE STATION 4,True
-0.8182,HUMPHREYS,990,fuzzy_name,2-3 Junior High School,,2-3 Junior High Sch,2 3 JUNIOR HIGH SCH,True
-0.8182,JEFFERSON,1021,fuzzy_name,06 Rush Strong School,,6 Rush Strong Sch,6 RUSH STRONG SCH,True
-0.8229,KNOX,1069,fuzzy_name,23N Bible Church of God,,23N Bible Church God,23N BIBLE CHURCH GOD,True
-0.792,KNOX,1116,fuzzy_name,28 South-Doyle Middle,,28 South-Doyle Mid,28 SOUTH DOYLE MID,True
-0.8743,KNOX,1065,fuzzy_name,30 Sarah Moore Greene,,30 Sarah Moore Green,30 SARAH MOORE GREEN,True
 0.7875,LAUDERDALE,1147,fuzzy_name,Henning,,Henning 1,HENNING 1,True
 0.7875,LAUDERDALE,1140,fuzzy_name,McBride,,McBride 1,MCBRIDE 1,True
 0.81,LAUDERDALE,1142,fuzzy_name,Lightfoot,,Lightfoot 5,LIGHTFOOT 5,True
 0.7875,LAUDERDALE,1133,fuzzy_name,Central,,Central 6,CENTRAL 6,True
 0.8,LAUDERDALE,1144,fuzzy_name,Nankipoo,,Nankipoo 7,NANKIPOO 7,True
-0.8609,LAWRENCE,1160,fuzzy_name,3-1 South East Lawrence,,03-1 SE Lawrence,03 1 SE LAWRENCE,True
-0.8667,LAWRENCE,1155,fuzzy_name,15-1 David Crocket,,15-1 David Crockett,15 1 DAVID CROCKETT,True
 0.8129,LINCOLN,1198,fuzzy_name,Recreation Center,,3-1 Recreation Ctr,3 1 RECREATION CTR,True
 0.8229,LINCOLN,1187,fuzzy_name,Highland Rim School,,4-1 Highland Rim Sch,4 1 HIGHLAND RIM SCH,True
 0.7875,LINCOLN,1199,fuzzy_name,Mulberry Fire Hall,,6-3 Mulberry FireH,6 3 MULBERRY FIREH,True
 0.8,LINCOLN,1194,fuzzy_name,Flintville Fire Hall,,7-2 Flintville FireH,7 2 FLINTVILLE FIREH,True
 0.8,MACON,1248,fuzzy_name,Sally Wells Building,,Sally Wells Bldg.,SALLY WELLS BLDG,True
 0.7846,MACON,1255,fuzzy_name,Willette Head Start,,Willette Head St Ctr,WILLETTE HEAD ST CTR,True
-0.869,MADISON,1284,fuzzy_name,6-5 Medon City Hall,,6-5 Medon Cty Hall,6 5 MEDON CTY HALL,True
 0.8667,MARION,1298,fuzzy_name,Haletown-Ladds,,Haletown-Ladd,HALETOWN LADD,True
 0.8667,MARION,1306,fuzzy_name,Waldens Ridge,,Walden's Ridge,WALDEN S RIDGE,True
 0.8743,MARION,1305,fuzzy_name,Powells Crossroads,,Powells Crossroad,POWELLS CROSSROAD,True
@@ -102,21 +58,9 @@ confidence,county,feature_id,match_method,official_name,prctseq,precinct,precinc
 0.7875,MCNAIRY,1230,fuzzy_name,1 Bethel Springs,,Bethel Springs 1-1,BETHEL SPRINGS 1 1,True
 0.78,MCNAIRY,1240,fuzzy_name,6 Courthouse SE,,Courthouse SE 6-1,COURTHOUSE SE 6 1,True
 0.8769,MONROE,1351,fuzzy_name,10 Rural Vale Fire Dept,,Rural Vale FireDept,RURAL VALE FIREDEPT,True
-0.8053,MOORE,1382,fuzzy_name,3 Moore County Building,,3 Moore County Bldg,3 MOORE COUNTY BLDG,True
-0.8229,OBION,1403,fuzzy_name,2-1 EDDIE COX SR. CENTER,,2-1 Eddie Cox Sr Ctr,2 1 EDDIE COX SR CTR,True
 0.864,OVERTON,1420,fuzzy_name,5 Hardy Chapel,,5-3 Hardys Chapel,5 3 HARDYS CHAPEL,True
 0.8,PICKETT,1438,fuzzy_name,Community Center,,Community Center 1-1,COMMUNITY CENTER 1 1,True
-0.7846,POLK,1448,fuzzy_name,2 Greasy Creek Comm. Club,,2 Greasy Creek Comm,2 GREASY CREEK COMM,True
-0.85,POLK,1450,fuzzy_name,2A Springtown Firehall,,2A Springtown FireHa,2A SPRINGTOWN FIREHA,True
-0.8757,POLK,1444,fuzzy_name,3 Ducktown Courthouse,,3 Ducktown Courthous,3 DUCKTOWN COURTHOUS,True
-0.78,PUTNAM,1460,fuzzy_name,09A Double Springs North,,9A Double Spgs No,9A DOUBLE SPGS NO,True
-0.78,PUTNAM,1467,fuzzy_name,09B Double Springs South,,9B Double Spgs So,9B DOUBLE SPGS SO,True
 0.827,ROANE,1515,fuzzy_name,Johnson School House,,Johnson Sch House,JOHNSON SCH HOUSE,True
-0.869,ROBERTSON,1526,fuzzy_name,01-1 East Robertson H.S.,,01-1 E Robertson HS,01 1 E ROBERTSON HS,True
-0.8129,ROBERTSON,1517,fuzzy_name,06-1 Coopertown School,,06-1 Coopertown Sch,06 1 COOPERTOWN SCH,True
-0.8,ROBERTSON,1518,fuzzy_name,11-1 Westside School,,11-1 Westside Sch,11 1 WESTSIDE SCH,True
-0.8069,ROBERTSON,1516,fuzzy_name,12-1 Bransford School,,12-1 Bransford Sch,12 1 BRANSFORD SCH,True
-0.871,SEVIER,1613,fuzzy_name,10-3 Adult H.S. (Whites),,10-2 Adult HS Whites,10 2 ADULT HS WHITES,True
 0.864,SHELBY,1817,fuzzy_name,Memphis 60-1,,Memphis 60-10,MEMPHIS 60 10,True
 0.8609,SHELBY,1632,fuzzy_name,Brunswick 1,,Brunswick 01,BRUNSWICK 01,True
 0.8609,SHELBY,1630,fuzzy_name,Brunswick 2,,Brunswick 02,BRUNSWICK 02,True
@@ -137,14 +81,6 @@ confidence,county,feature_id,match_method,official_name,prctseq,precinct,precinc
 0.864,SHELBY,1627,fuzzy_name,Millington 1,,Millington 01,MILLINGTON 01,True
 0.864,SHELBY,1626,fuzzy_name,Millington 2,,Millington 02,MILLINGTON 02,True
 0.8609,SHELBY,1648,fuzzy_name,Woodstock 2,,Woodstock 02,WOODSTOCK 02,True
-0.78,SULLIVAN,1886,fuzzy_name,01 South Holston Ruritan,,1 South Holston Rur,1 SOUTH HOLSTON RUR,True
-0.8229,SULLIVAN,1889,fuzzy_name,02HV Holston View School,,2HV Holston View Sch,2HV HOLSTON VIEW SCH,True
-0.8182,SULLIVAN,1888,fuzzy_name,02VP Valley Pike School,,2VP Valley Pike Sch,2VP VALLEY PIKE SCH,True
-0.7941,SULLIVAN,1883,fuzzy_name,05 Sullivan Co Offices,,5 Sullivan Co Off,5 SULLIVAN CO OFF,True
-0.8308,SULLIVAN,1893,fuzzy_name,07 Indian Springs School,,7 Indian Springs Sch,7 INDIAN SPRINGS SCH,True
-0.8526,SULLIVAN,1877,fuzzy_name,09 Piney Flats Firehall,,9 Piney Flats FireHa,9 PINEY FLATS FIREHA,True
-0.8182,SULLIVAN,1899,fuzzy_name,11C Cedar Grove School,,11C Cedar Grove Sch,11C CEDAR GROVE SCH,True
-0.84,SULLIVAN,1881,fuzzy_name,17Y YMCA Of Bristol,,17Y YWCA of Bristol,17Y YWCA OF BRISTOL,True
 0.8129,SUMNER,1911,fuzzy_name,03 Castalian Springs,,3C Castalian Spgs,3C CASTALIAN SPGS,True
 0.8308,SUMNER,1920,fuzzy_name,03 Bushes Chapel,,3E Bush's Chapel,3E BUSH S CHAPEL,True
 0.8743,SUMNER,1913,fuzzy_name,05 Gallatin City Hall,,5A Gallatin CityHall,5A GALLATIN CITYHALL,True
@@ -155,16 +91,5 @@ confidence,county,feature_id,match_method,official_name,prctseq,precinct,precinc
 0.8129,TROUSDALE,1955,fuzzy_name,1st Elementary School,,01 Elementary Sch,01 ELEMENTARY SCH,True
 0.8571,TROUSDALE,1952,fuzzy_name,7th Court House,,07 Courthouse,07 COURTHOUSE,True
 0.8,VAN BUREN,1977,fuzzy_name,Spencer 5,,Spencer 1,SPENCER 1,True
-0.8069,WASHINGTON,2007,fuzzy_name,01 South Central School,,01 South Central Sch,01 SOUTH CENTRAL SCH,True
-0.7826,WASHINGTON,2023,fuzzy_name,09-1 South Side School,,09-1 South Side Sch,09 1 SOUTH SIDE SCH,True
-0.7826,WASHINGTON,2025,fuzzy_name,09-5 North Side School,,09-5 North Side Sch,09 5 NORTH SIDE SCH,True
-0.8,WASHINGTON,2027,fuzzy_name,09-10 Fairmont School,,09-10 Fairmont Sch,09 10 FAIRMONT SCH,True
 0.825,WASHINGTON,2035,fuzzy_name,10S Town Acres South,,10T Town Acres North,10T TOWN ACRES NORTH,True
-0.8129,WASHINGTON,2037,fuzzy_name,11L Lake Ridge School,,11L Lake Ridge Sch,11L LAKE RIDGE SCH,True
-0.8357,WASHINGTON,2033,fuzzy_name,11M Marvin Chapel,,11M Marvin's Chapel,11M MARVIN S CHAPEL,True
 0.8,WAYNE,2055,fuzzy_name,6 Shawnatee,,4-2 Shawnatte,4 2 SHAWNATTE,True
-0.8182,WILLIAMSON,2097,fuzzy_name,09-2 Benton Hall School,,9-2 Benton Hall Sch,9 2 BENTON HALL SCH,True
-0.869,WILLIAMSON,2155,fuzzy_name,12-2 People's Church,,12-2 Peoples Church,12 2 PEOPLES CHURCH,True
-0.7846,WILSON,2128,fuzzy_name,05 Berea Church of Christ,,05 Berea C of Christ,05 BEREA C OF CHRIST,True
-0.7846,WILSON,2148,fuzzy_name,15 Full Gospel Tabernacle,,15 Full Gospel Taber,15 FULL GOSPEL TABER,True
-0.85,WILSON,2118,fuzzy_name,01 Langford Farms Club,,01 Langford Farms Cl,01 LANGFORD FARMS CL,True
