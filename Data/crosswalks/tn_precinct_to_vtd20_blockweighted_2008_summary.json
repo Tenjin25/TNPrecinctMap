@@ -1,33 +1,18 @@
 {
+  "year": 2008,
   "source_csv": "20081104__tn__general__precinct.csv",
-  "source_year": 2008,
-  "source_vintage": 2000,
-  "overlap_csv": "tn_vtd00_to_vtd20_block_chain.csv",
-  "input_precinct_keys": 2238,
-  "crosswalk_rows": 27650,
-  "strict_crosswalk_rows": 23254,
-  "low_confidence_crosswalk_rows": 2121,
-  "unmatched_rows": 90,
-  "method_counts": {
-    "code_token_name": 971,
-    "compact_exact_name": 3,
-    "core_exact_name": 20,
-    "exact_name": 652,
-    "greene_alias_name": 26,
-    "knox_alias_name": 21,
-    "manual_override": 81,
-    "prefix_name": 56,
-    "shelby_alias_name": 4,
-    "simple_exact_name": 4,
-    "tail_exact_name": 163,
-    "tail_fuzzy_name": 148,
-    "unmatched": 89
-  },
-  "outputs": {
-    "crosswalk_csv": "tn_precinct_to_vtd20_blockweighted_2008.csv",
-    "strict_crosswalk_csv": "tn_precinct_to_vtd20_blockweighted_2008_strict.csv",
-    "low_confidence_crosswalk_csv": "tn_precinct_to_vtd20_blockweighted_2008_low_confidence.csv",
-    "unmatched_csv": "tn_precinct_to_vtd20_blockweighted_2008_unmatched.csv",
-    "summary_json": "tn_precinct_to_vtd20_blockweighted_2008_summary.json"
-  }
+  "official_layer": "VTD_2008_November_State_General",
+  "source_precincts": 2291,
+  "matched": 1366,
+  "unmatched": 885,
+  "non_geographic": 40,
+  "low_confidence": 169,
+  "official_crosswalk_rows": 2660,
+  "legacy_fallback_rows": 10383,
+  "crosswalk_rows": 13043,
+  "block_vintage": 2000,
+  "blocks": 182203,
+  "blocks_joined": 182198,
+  "joined_blocks_without_nhgis_link": 27,
+  "features_with_block_weights": 2168
 }

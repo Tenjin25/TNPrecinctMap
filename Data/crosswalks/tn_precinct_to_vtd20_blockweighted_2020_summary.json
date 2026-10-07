@@ -1,33 +1,18 @@
 {
+  "year": 2020,
   "source_csv": "20201103__tn__general__precinct.csv",
-  "source_year": 2020,
-  "source_vintage": 2020,
-  "overlap_csv": "tn_precinct_to_2024.csv",
-  "input_precinct_keys": 1952,
-  "crosswalk_rows": 2397,
-  "strict_crosswalk_rows": 2019,
-  "low_confidence_crosswalk_rows": 106,
-  "unmatched_rows": 0,
-  "method_counts": {
-    "alpha_code_name": 4,
-    "code_token_name": 9,
-    "core_exact_name": 5,
-    "exact_name": 1544,
-    "forced_best_name": 33,
-    "knox_alias_name": 2,
-    "manual_override": 43,
-    "prefix_name": 57,
-    "shelby_alias_name": 8,
-    "simple_exact_name": 1,
-    "tail_exact_name": 209,
-    "tail_fuzzy_name": 35,
-    "token_vtd": 2
-  },
-  "outputs": {
-    "crosswalk_csv": "tn_precinct_to_vtd20_blockweighted_2020.csv",
-    "strict_crosswalk_csv": "tn_precinct_to_vtd20_blockweighted_2020_strict.csv",
-    "low_confidence_crosswalk_csv": "tn_precinct_to_vtd20_blockweighted_2020_low_confidence.csv",
-    "unmatched_csv": "tn_precinct_to_vtd20_blockweighted_2020_unmatched.csv",
-    "summary_json": "tn_precinct_to_vtd20_blockweighted_2020_summary.json"
-  }
+  "official_layer": "VTD_2020_November_State_General",
+  "source_precincts": 1965,
+  "matched": 1176,
+  "unmatched": 785,
+  "non_geographic": 4,
+  "low_confidence": 93,
+  "official_crosswalk_rows": 1411,
+  "legacy_fallback_rows": 1103,
+  "crosswalk_rows": 2514,
+  "block_vintage": 2020,
+  "blocks": 179717,
+  "blocks_joined": 179722,
+  "joined_blocks_without_nhgis_link": 0,
+  "features_with_block_weights": 1954
 }

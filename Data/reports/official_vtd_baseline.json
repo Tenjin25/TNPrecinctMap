@@ -1,0 +1,736 @@
+{
+  "baseline_commit": "7502d40c13c4c23113e8d880f617ee9bcbe809d3",
+  "description": "Published origin/main baseline captured before official VTD replacement",
+  "files": [
+    {
+      "path": "Data/contests/governor_1998.json",
+      "sha256": "dbaf45636f16a3f067117ba3cbc30052a43d2bd627b222251665229a36776cd1",
+      "bytes": 30316
+    },
+    {
+      "path": "Data/contests/governor_2002.json",
+      "sha256": "e7a27e96250c731ee31c92550e0c9d4a5849cae5fa9aea4f1305f38a2a45c6ee",
+      "bytes": 778116
+    },
+    {
+      "path": "Data/contests/governor_2006.json",
+      "sha256": "ab895c1a723bdccfa662b4a267c73dcf0c786e7114c1087aa6775f76d44e1843",
+      "bytes": 778885
+    },
+    {
+      "path": "Data/contests/governor_2010.json",
+      "sha256": "f161ddd07e51550578c99dd361888f119aca67577fc7da70a8f73765c7ee5604",
+      "bytes": 757786
+    },
+    {
+      "path": "Data/contests/governor_2014.json",
+      "sha256": "863e7fdd4bbcca527cd0e99161531ae1b4227a0f40035d950baa09958280fbc6",
+      "bytes": 812966
+    },
+    {
+      "path": "Data/contests/governor_2018.json",
+      "sha256": "0bf817657d583f1d3a5ad4e3299a61dca12b47c9be82b097a441eb777700f695",
+      "bytes": 785798
+    },
+    {
+      "path": "Data/contests/governor_2022.json",
+      "sha256": "d3e4fe5c82238a97ed785e077c05d944e8537d0cef85c4f11f2c2d1b2954d271",
+      "bytes": 624108
+    },
+    {
+      "path": "Data/contests/manifest.json",
+      "sha256": "f8ade1cc43f0b19edbcb0fb277fc6dad8dc3ba1d1390379df1720d451df14b61",
+      "bytes": 4760
+    },
+    {
+      "path": "Data/contests/president_2000.json",
+      "sha256": "a996cbc7a98161cc9bf25a1bf52511180b5f649f8888a8287c9b24aa0f1775c4",
+      "bytes": 772981
+    },
+    {
+      "path": "Data/contests/president_2004.json",
+      "sha256": "f87fb630bfda1c1650ef955fc7ceaaaac644e9463ae4c6bd21fc079beb413bdb",
+      "bytes": 814484
+    },
+    {
+      "path": "Data/contests/president_2008.json",
+      "sha256": "bff87b0e5159438dea107a1b1a561b934e32bfcf7190500365462450f699dfb2",
+      "bytes": 786202
+    },
+    {
+      "path": "Data/contests/president_2012.json",
+      "sha256": "e1ec7cafdfe2558531930ab39c0e33637c943fad1b3e4064706ddaa30de56ec1",
+      "bytes": 870723
+    },
+    {
+      "path": "Data/contests/president_2016.json",
+      "sha256": "cc83daf17eac653a0db984aa957ac387ee23319204921eec2a10471c3dd9f676",
+      "bytes": 821093
+    },
+    {
+      "path": "Data/contests/president_2020.json",
+      "sha256": "472ad2cf2a8652d0f2557e10e0646bf2d39365e4bd3f06eb82f1d120c6eb22ff",
+      "bytes": 635316
+    },
+    {
+      "path": "Data/contests/president_2024.json",
+      "sha256": "ecab0bb2ad98d57dadd99ec7a68c3efa5259a7c691523f2b4e970c344b86904c",
+      "bytes": 629236
+    },
+    {
+      "path": "Data/contests/us_senate_2000.json",
+      "sha256": "12cce54b83446112122153af20fa7d362df8f90bfa21a92a13d77ea961642aed",
+      "bytes": 780778
+    },
+    {
+      "path": "Data/contests/us_senate_2002.json",
+      "sha256": "3db0fc3b05d1f188aad5e6ec78c7a644778ef4efbad98ab8ecac8148c2ac3c8c",
+      "bytes": 780178
+    },
+    {
+      "path": "Data/contests/us_senate_2006.json",
+      "sha256": "8101c27691ffaa161419c41c6ff9cee40ed4f1f9c51bdc737359bce88a4e6421",
+      "bytes": 777524
+    },
+    {
+      "path": "Data/contests/us_senate_2008.json",
+      "sha256": "6a43dfad984232d0ded1477dba0ec02c449ffb318effb8b063fdd0d174bb7d51",
+      "bytes": 795331
+    },
+    {
+      "path": "Data/contests/us_senate_2012.json",
+      "sha256": "dd427044ca9d1c50fc2091e0f3b31e503eb3764f8cec864497baee8ab14a27e0",
+      "bytes": 876130
+    },
+    {
+      "path": "Data/contests/us_senate_2014.json",
+      "sha256": "14edd85dbc2c1635eb3219526d030e9f2b142b81d10d3110a439d2d98437e31b",
+      "bytes": 783519
+    },
+    {
+      "path": "Data/contests/us_senate_2018.json",
+      "sha256": "25aea09e7df40c45ae022517873b9146302652528e706237a1d8d3e4673741ce",
+      "bytes": 812713
+    },
+    {
+      "path": "Data/contests/us_senate_2020.json",
+      "sha256": "45cc4a5a24c46b6e553f3c1c5e00c07d43f215b33814b4a3cc7fe8fb949b35f4",
+      "bytes": 632553
+    },
+    {
+      "path": "Data/contests/us_senate_2024.json",
+      "sha256": "6ffa8dd400210e6e233ba86c88a7d9a89be8cee152d400525598e6ef4c703ffa",
+      "bytes": 627780
+    },
+    {
+      "path": "Data/district_contests/calibration_overrides.json",
+      "sha256": "f692e99f8b4e2ef9a68bf08990833a44d931cfff571fb000ddd5069200c06d5a",
+      "bytes": 51502
+    },
+    {
+      "path": "Data/district_contests/congressional_governor_2002.json",
+      "sha256": "f9160544cdd1f95b82888a26bb4baf643a16e2817b3fc4bb4439ebfaa945f3f0",
+      "bytes": 3412
+    },
+    {
+      "path": "Data/district_contests/congressional_governor_2006.json",
+      "sha256": "beaff207a5266553941462c1d90d593890c8a6c4f447b583697c035606890ab3",
+      "bytes": 3419
+    },
+    {
+      "path": "Data/district_contests/congressional_governor_2010.json",
+      "sha256": "327481b4fec6c79801708e5e0e51a9265640133a8893f4cc273384c7a372b7e8",
+      "bytes": 3422
+    },
+    {
+      "path": "Data/district_contests/congressional_governor_2014.json",
+      "sha256": "fac194a65c913750aea22a76eb8cf662962b81b6f61802600c33adc30b9ffc9f",
+      "bytes": 3548
+    },
+    {
+      "path": "Data/district_contests/congressional_governor_2018.json",
+      "sha256": "170b834f89c6f6262edfed72e027a0bf2921235a7366065fd3f13cdbd5c2ece0",
+      "bytes": 4074
+    },
+    {
+      "path": "Data/district_contests/congressional_governor_2022.json",
+      "sha256": "cb6db30f2043d34e1b473ec0305e2669a12d112bcf4c7d023cef1e9791cafd2d",
+      "bytes": 4163
+    },
+    {
+      "path": "Data/district_contests/congressional_president_2000.json",
+      "sha256": "f7f56221c7c5710424184d69f93938e72c1288a7293ff0a817cf7663f3f3b0f3",
+      "bytes": 3384
+    },
+    {
+      "path": "Data/district_contests/congressional_president_2004.json",
+      "sha256": "8ab859b4a23ede86c84428b83db375670a983b1b7be6a78579e527b2eb8ff109",
+      "bytes": 3443
+    },
+    {
+      "path": "Data/district_contests/congressional_president_2008.json",
+      "sha256": "6c80e6c03025e6b7178726ada059bcd996b7af493848c4285899cdafa55fb0ad",
+      "bytes": 3409
+    },
+    {
+      "path": "Data/district_contests/congressional_president_2012.json",
+      "sha256": "df24bb68279e265fb22ab354b55e4bdba0100c8f87e5736b6feca6f1e14234e9",
+      "bytes": 3410
+    },
+    {
+      "path": "Data/district_contests/congressional_president_2016.json",
+      "sha256": "fd7230bfe62e187ce12ffc8ff5f7f162c55b3e65dac895073a43d1af3a01d05b",
+      "bytes": 4201
+    },
+    {
+      "path": "Data/district_contests/congressional_president_2020.json",
+      "sha256": "a02f299b61b11362b2f63b79cb87a2124dd150b712f6ae082fe9fc2d86b97ecf",
+      "bytes": 4178
+    },
+    {
+      "path": "Data/district_contests/congressional_president_2024.json",
+      "sha256": "d45c3118c6c42ff31886fc72acf6dd388ea3bd5ea1583712ef65c421b6d829d2",
+      "bytes": 4182
+    },
+    {
+      "path": "Data/district_contests/congressional_us_house_2004.json",
+      "sha256": "79913f0c2d0100f4c523d9537961df2de721028031b56141e8eb4ceffbf115bd",
+      "bytes": 3294
+    },
+    {
+      "path": "Data/district_contests/congressional_us_house_2008.json",
+      "sha256": "269430a8d569de339c10e5f5ad7abaa257387cb775a90cc2e85621f6b2e7d754",
+      "bytes": 3251
+    },
+    {
+      "path": "Data/district_contests/congressional_us_house_2012.json",
+      "sha256": "46ad70415756c8422893721b6e2c5ae15258f88bbacd2bcc9baffd2b67dd6cac",
+      "bytes": 3330
+    },
+    {
+      "path": "Data/district_contests/congressional_us_house_2014.json",
+      "sha256": "277ac15d1c41077f44f76843b9df302739c5e789794a5c758510a1421e573ff3",
+      "bytes": 3300
+    },
+    {
+      "path": "Data/district_contests/congressional_us_house_2016.json",
+      "sha256": "9fc48f8b7754030a8aa518801bc8e1f3dd28124abb17c06954e56f2e0f606615",
+      "bytes": 3318
+    },
+    {
+      "path": "Data/district_contests/congressional_us_house_2018.json",
+      "sha256": "82ea5bce1e7d9d5722a09b5da08e27e2f8392227ac3b5d288896cc847920873a",
+      "bytes": 3309
+    },
+    {
+      "path": "Data/district_contests/congressional_us_house_2020.json",
+      "sha256": "a38da9cf8f09d0bae5b399454b94ab090278853e7063c2e6ae2ac070f87435de",
+      "bytes": 3326
+    },
+    {
+      "path": "Data/district_contests/congressional_us_house_2022.json",
+      "sha256": "7b6398e8da9047e331e538dabc6149a45041919a7e11e2f01dbcc0d3860a1753",
+      "bytes": 3312
+    },
+    {
+      "path": "Data/district_contests/congressional_us_house_2024.json",
+      "sha256": "6f7730685617400137cb7c52dfd5f20f5f3371dac9c8e241c11ba2c3470561da",
+      "bytes": 3325
+    },
+    {
+      "path": "Data/district_contests/congressional_us_senate_2000.json",
+      "sha256": "4b0196524bd6fa502e6d9875347d907d13a3593a70cdb2e1823cf73151bb269b",
+      "bytes": 3373
+    },
+    {
+      "path": "Data/district_contests/congressional_us_senate_2002.json",
+      "sha256": "3b1bf4e01898b2fceea7def384f9d3a21dadd8fae1ee52fd517f51f8f8030c60",
+      "bytes": 3428
+    },
+    {
+      "path": "Data/district_contests/congressional_us_senate_2006.json",
+      "sha256": "9ea3adb542e69b56bafdff21893f3b3c6922daaa476a8ada75ae641726fc2d86",
+      "bytes": 3427
+    },
+    {
+      "path": "Data/district_contests/congressional_us_senate_2008.json",
+      "sha256": "b5d57fea3a32d44fdd79242d2fd559de97a3eccaf52adcccbf9d93a91dd57b9f",
+      "bytes": 3448
+    },
+    {
+      "path": "Data/district_contests/congressional_us_senate_2012.json",
+      "sha256": "12db2ebdf8eee3b3e387466de560e1da80ef3dadd17eb1f474f14c147f410e60",
+      "bytes": 3435
+    },
+    {
+      "path": "Data/district_contests/congressional_us_senate_2014.json",
+      "sha256": "1a27a6ed0ac75496b06bea019f097130bce942b61d0b5b84d60a4cb23ff8aa37",
+      "bytes": 3432
+    },
+    {
+      "path": "Data/district_contests/congressional_us_senate_2018.json",
+      "sha256": "b80df33e3362f29435f60eb891711284322523a59ab7f6bd89d0fe0da47ae10e",
+      "bytes": 4176
+    },
+    {
+      "path": "Data/district_contests/congressional_us_senate_2020.json",
+      "sha256": "9a602b0a3dee6d2f1d18fe3d36bbfd1c5c42c45517a248845287db5d180a00a5",
+      "bytes": 4169
+    },
+    {
+      "path": "Data/district_contests/congressional_us_senate_2024.json",
+      "sha256": "cdbdb3be9df21a0267483d8a4d8a4cbe07b0c247c95bfa0735506ce5014e5112",
+      "bytes": 4171
+    },
+    {
+      "path": "Data/district_contests/manifest.json",
+      "sha256": "f2ceb1e751c9cfe9a72871723d69808f5680ca9fec377a0a3aee7b5131f1c151",
+      "bytes": 25010
+    },
+    {
+      "path": "Data/district_contests/state_house_governor_2002.json",
+      "sha256": "ab6459db7ee5db14064a72b73e3e174eab2f8c62b250dce3b150b09aeb3b6b95",
+      "bytes": 30239
+    },
+    {
+      "path": "Data/district_contests/state_house_governor_2006.json",
+      "sha256": "e81d77213a563927e7f18334035e54b6db9040d776a9229942ba63ac2cdb54e6",
+      "bytes": 30079
+    },
+    {
+      "path": "Data/district_contests/state_house_governor_2010.json",
+      "sha256": "cf24704a6e8b6dc8a4cff5042dbf5d79cb07cd8d5f9498ff29ddbc2ae6e12a74",
+      "bytes": 30143
+    },
+    {
+      "path": "Data/district_contests/state_house_governor_2014.json",
+      "sha256": "2f78ce19cf34a41d93989ad4490b3e92cf228d51318452db2b610ccfb1251336",
+      "bytes": 31716
+    },
+    {
+      "path": "Data/district_contests/state_house_governor_2018.json",
+      "sha256": "a53369152c08613cc55c772907afad3543b00fae802b5f71d6b9c251f9e6af5d",
+      "bytes": 30357
+    },
+    {
+      "path": "Data/district_contests/state_house_governor_2022.json",
+      "sha256": "61af4dd8f9e7a8113cff1f0ee01880cb93378bfaad579edbf83fef6c64a89311",
+      "bytes": 31483
+    },
+    {
+      "path": "Data/district_contests/state_house_president_2000.json",
+      "sha256": "bb59880283e470411c354fae46f6115bb9911fb7cf3f740659081cdcdc13ac6c",
+      "bytes": 29944
+    },
+    {
+      "path": "Data/district_contests/state_house_president_2004.json",
+      "sha256": "d6d2f95d3c78b09eb633f9253c65994f4621c22fc842089440a73e2fd517a83b",
+      "bytes": 30534
+    },
+    {
+      "path": "Data/district_contests/state_house_president_2008.json",
+      "sha256": "7d9c6aaa853c89a37647cbde70a15ca09a25caa725d5e02735d1681d576ff4e2",
+      "bytes": 30328
+    },
+    {
+      "path": "Data/district_contests/state_house_president_2012.json",
+      "sha256": "47ee9053517db796ed08a9691f386312cdfd9e690e0931c5fc337646396c92d3",
+      "bytes": 31478
+    },
+    {
+      "path": "Data/district_contests/state_house_president_2016.json",
+      "sha256": "80cc0f9c03fd17cf513b3da658422da700cb002d5d36caa3c50f48618af307ef",
+      "bytes": 31843
+    },
+    {
+      "path": "Data/district_contests/state_house_president_2020.json",
+      "sha256": "1c1637d0a9c1eff3dfa765068c63453387dea41ada0a28356e185e14e4c64853",
+      "bytes": 31682
+    },
+    {
+      "path": "Data/district_contests/state_house_president_2024.json",
+      "sha256": "5ff7cb0566fad1a45926d1243c0a63849e2eb907a5bdf73946e5dda532bccbfd",
+      "bytes": 30803
+    },
+    {
+      "path": "Data/district_contests/state_house_state_house_2004.json",
+      "sha256": "cd987a12fc997c2de1211bd0d1b62aa050c2f57325fc43baa97c41cb7c026642",
+      "bytes": 29452
+    },
+    {
+      "path": "Data/district_contests/state_house_state_house_2008.json",
+      "sha256": "d1035d78a444a1928f1b2c83f4c7f49426735e75a978c33fad1383f8cf5ebc1e",
+      "bytes": 29082
+    },
+    {
+      "path": "Data/district_contests/state_house_state_house_2010.json",
+      "sha256": "4666829eba58202b6bb511b6d90cf469278540f16f8ae213cc63e067ce10da5b",
+      "bytes": 29205
+    },
+    {
+      "path": "Data/district_contests/state_house_state_house_2012.json",
+      "sha256": "cc899160d55ab2bd6a96c5bf0bdcb5865848eef142ac432f1e04bd68bb50a79b",
+      "bytes": 29304
+    },
+    {
+      "path": "Data/district_contests/state_house_state_house_2014.json",
+      "sha256": "afa8e55d4cc4733e89313bc96fc42ab79258823cb6549bec1c2aac8e5e7d07d8",
+      "bytes": 29002
+    },
+    {
+      "path": "Data/district_contests/state_house_state_house_2016.json",
+      "sha256": "ede0cfee262794dd7b514d2cb3732f7743d4420695b47c7de438432adb55aa52",
+      "bytes": 29392
+    },
+    {
+      "path": "Data/district_contests/state_house_state_house_2018.json",
+      "sha256": "290a3d59e1e7b71f930a53be14113a39ff55fd87930718b9041c16c4189d219b",
+      "bytes": 29734
+    },
+    {
+      "path": "Data/district_contests/state_house_state_house_2020.json",
+      "sha256": "edce2f8ab3ee637cc3803fc44ffd98a2eab00ffaed8fef5932b2ea193406e6f3",
+      "bytes": 29126
+    },
+    {
+      "path": "Data/district_contests/state_house_state_house_2022.json",
+      "sha256": "f5670d3bd951308010885e7e2453b921c716e29ad13288ef4aac3feb16a1a219",
+      "bytes": 29016
+    },
+    {
+      "path": "Data/district_contests/state_house_state_house_2024.json",
+      "sha256": "53c968d6b7ebb6f690ddf56760ab32cbf43fab8b9b7d4d17acd096126bfc7b30",
+      "bytes": 29517
+    },
+    {
+      "path": "Data/district_contests/state_house_us_senate_2000.json",
+      "sha256": "29662ceff2e04e77cbbddafea976655a647ac823b6c7b7320963152093dc03de",
+      "bytes": 29874
+    },
+    {
+      "path": "Data/district_contests/state_house_us_senate_2002.json",
+      "sha256": "bb8bc14c50c12732106c65ad0ea88bfbbf06522eea7ba3ab28f9942f0c834d24",
+      "bytes": 30338
+    },
+    {
+      "path": "Data/district_contests/state_house_us_senate_2006.json",
+      "sha256": "7d2a21a0afe7c202b09d69e3fb524205a3cd239f5c5ec561ffd6389b9d8d065b",
+      "bytes": 30066
+    },
+    {
+      "path": "Data/district_contests/state_house_us_senate_2008.json",
+      "sha256": "8c17f282debd2d30842333192f048039cd69484c6f1cc90e4bd2b95206f04642",
+      "bytes": 30771
+    },
+    {
+      "path": "Data/district_contests/state_house_us_senate_2012.json",
+      "sha256": "67f9ed675a8e43972b389096b43aac4461943cbcdcce117d575ec037d71d372d",
+      "bytes": 31583
+    },
+    {
+      "path": "Data/district_contests/state_house_us_senate_2014.json",
+      "sha256": "a1f3aa7bf96ba81727c6e7c61eae4be628752dafe097fc02ca2a2a31d7ac26cf",
+      "bytes": 30422
+    },
+    {
+      "path": "Data/district_contests/state_house_us_senate_2018.json",
+      "sha256": "8c008171c9f39b6847547e449575710889ed60d1637e709150d5af4f5537bbf6",
+      "bytes": 31516
+    },
+    {
+      "path": "Data/district_contests/state_house_us_senate_2020.json",
+      "sha256": "83098c89461f0ea4e882829046f6431acd912befd0e9d34b2008f064f7bc4906",
+      "bytes": 31587
+    },
+    {
+      "path": "Data/district_contests/state_house_us_senate_2024.json",
+      "sha256": "59dbea446a1d280bc256b87177045c1cf45d30da45fb51dbc2058c596b7a88da",
+      "bytes": 30697
+    },
+    {
+      "path": "Data/district_contests/state_senate_governor_2002.json",
+      "sha256": "40cf11050fa27f3207a8072952cff03de66abf8e4a29224c9773a8f61a9291e2",
+      "bytes": 10931
+    },
+    {
+      "path": "Data/district_contests/state_senate_governor_2006.json",
+      "sha256": "02d028705daa312d0ae0bc78da08828eef634099d2004243c72f9e2ad940dd6b",
+      "bytes": 10949
+    },
+    {
+      "path": "Data/district_contests/state_senate_governor_2010.json",
+      "sha256": "608bf147cb995f3ea7506903fbcd261d88fc706e0bd4bfe778df9411803e7bba",
+      "bytes": 10936
+    },
+    {
+      "path": "Data/district_contests/state_senate_governor_2014.json",
+      "sha256": "07d5ba2c61a46fda5ae3a8f2c195c980e8f0a150940275f479435820bb14f6da",
+      "bytes": 11414
+    },
+    {
+      "path": "Data/district_contests/state_senate_governor_2018.json",
+      "sha256": "d6c027c2a35b5db90bf606db9804c6a39546126b21141328e0942f9588fdf70b",
+      "bytes": 11415
+    },
+    {
+      "path": "Data/district_contests/state_senate_governor_2022.json",
+      "sha256": "dd4b2ea03ae33fcb2dd835c3fc5254672f09034e44bb55c3ffb1ddcea41940e0",
+      "bytes": 11807
+    },
+    {
+      "path": "Data/district_contests/state_senate_president_2000.json",
+      "sha256": "b9749112ae87159d26115a32d1efa2ddfe9c6da67d6e59d5934b793319a06782",
+      "bytes": 10635
+    },
+    {
+      "path": "Data/district_contests/state_senate_president_2004.json",
+      "sha256": "02ebf0026db4a68ffe4fe6959ab38745c0d664be81bccbe589d0919681bda051",
+      "bytes": 10820
+    },
+    {
+      "path": "Data/district_contests/state_senate_president_2008.json",
+      "sha256": "e84597a0905f1039e5ae92800596195be760a7f3cb98a800c8850f09413eb56b",
+      "bytes": 10825
+    },
+    {
+      "path": "Data/district_contests/state_senate_president_2012.json",
+      "sha256": "0171759f551d53fbf5096fef5d3bd2cea6b5ae3ff48dfa97e603e3e68531ea44",
+      "bytes": 11928
+    },
+    {
+      "path": "Data/district_contests/state_senate_president_2016.json",
+      "sha256": "2cfad5f4c97da0fbd936220aece74c8765f500b2d21b7573991b50fe93824a1a",
+      "bytes": 11781
+    },
+    {
+      "path": "Data/district_contests/state_senate_president_2020.json",
+      "sha256": "4100b828428756f6cfb9abbacd24d722de0d3a85cdda18648b024f4449eab839",
+      "bytes": 11788
+    },
+    {
+      "path": "Data/district_contests/state_senate_president_2024.json",
+      "sha256": "1182aba72ce6af7bbb43127c4b9ad81504c3c9c05e8ce080c9474da0b4b80989",
+      "bytes": 11822
+    },
+    {
+      "path": "Data/district_contests/state_senate_state_senate_2004.json",
+      "sha256": "10f5e9d84ba8d8fc545575885a9278118af3d0ef7164ac741afc844bb1f80c66",
+      "bytes": 5302
+    },
+    {
+      "path": "Data/district_contests/state_senate_state_senate_2008.json",
+      "sha256": "2e4d17a77b3b15e58ce134533cd6e152005bf5c3e0ccaa86bd8e030688e72b43",
+      "bytes": 5220
+    },
+    {
+      "path": "Data/district_contests/state_senate_state_senate_2010.json",
+      "sha256": "70cdcce1251018df3c08971850bb30b4c01b47a4eb3ae167038dd73f13eb16c4",
+      "bytes": 5563
+    },
+    {
+      "path": "Data/district_contests/state_senate_state_senate_2012.json",
+      "sha256": "aaf0f56da845b958b9ee71b7d049cfef20366c4acf39a8047b808540af1a9d0f",
+      "bytes": 5211
+    },
+    {
+      "path": "Data/district_contests/state_senate_state_senate_2014.json",
+      "sha256": "4bc439f29a3a1a068639dad7130a9671329dc75164a5fe83b6510d5116e7357b",
+      "bytes": 5778
+    },
+    {
+      "path": "Data/district_contests/state_senate_state_senate_2016.json",
+      "sha256": "b9f8fbacb0df2550622a553ebb813b2481d2df29bffa3dc08e3861a4212c9bdd",
+      "bytes": 5166
+    },
+    {
+      "path": "Data/district_contests/state_senate_state_senate_2018.json",
+      "sha256": "7556bdff5a33d5775d1e8f46b4d75cb84c2466a00df400c98fc149b76fdac2fc",
+      "bytes": 5858
+    },
+    {
+      "path": "Data/district_contests/state_senate_state_senate_2020.json",
+      "sha256": "16dd7a1e8f3d4b25e45e28d24e69315c72a57dd08499ebb14c5a5f1249fa24a0",
+      "bytes": 5275
+    },
+    {
+      "path": "Data/district_contests/state_senate_state_senate_2022.json",
+      "sha256": "4b8cbf2ae1ed131632644ec8298b797821e9032a9390966bf8b7a9c5cf5d6358",
+      "bytes": 5504
+    },
+    {
+      "path": "Data/district_contests/state_senate_state_senate_2024.json",
+      "sha256": "0c8e94e856458909952394342ad3f68ff5db0bd9d5733eb1a081c823f41c5c55",
+      "bytes": 5279
+    },
+    {
+      "path": "Data/district_contests/state_senate_us_senate_2000.json",
+      "sha256": "a5920c7a78256dff0ced098ec5e72ba9004462d1039e6385763d3fabe5e6d5e8",
+      "bytes": 10818
+    },
+    {
+      "path": "Data/district_contests/state_senate_us_senate_2002.json",
+      "sha256": "c572d440f37369df38ae1c2af12f5f3c2373739f730cc6e5fb11cdbb676c47d4",
+      "bytes": 10964
+    },
+    {
+      "path": "Data/district_contests/state_senate_us_senate_2006.json",
+      "sha256": "9aec66249320baad4c1a03096df5fc76d6a12b57a875e2f57542998addafa68f",
+      "bytes": 10962
+    },
+    {
+      "path": "Data/district_contests/state_senate_us_senate_2008.json",
+      "sha256": "cd88ba97fa3a651f6ce7b9a1546c59f4386552c50a6348fd3d986bf1728fb693",
+      "bytes": 11050
+    },
+    {
+      "path": "Data/district_contests/state_senate_us_senate_2012.json",
+      "sha256": "5d7de605b62b8cc5957c1ed001cafd7178212424416ad3332d97806c892b3df5",
+      "bytes": 12092
+    },
+    {
+      "path": "Data/district_contests/state_senate_us_senate_2014.json",
+      "sha256": "473c38dddbe34f7db2f81c1fa01a5444c2372ad5440321dff463856ca1891c79",
+      "bytes": 11001
+    },
+    {
+      "path": "Data/district_contests/state_senate_us_senate_2018.json",
+      "sha256": "033842d3380a752168519a8ec6bd38775ba34e0312637fd85501cea3e26457c4",
+      "bytes": 11799
+    },
+    {
+      "path": "Data/district_contests/state_senate_us_senate_2020.json",
+      "sha256": "f546aba82e24e9e4dbb48b69031e63202952ec238b7b3e7ad9132fa989c99587",
+      "bytes": 11828
+    },
+    {
+      "path": "Data/district_contests/state_senate_us_senate_2024.json",
+      "sha256": "1103c3c613dd1baaf6052af6c1fce705768336ba75cb3b49d08ab67acb302ec8",
+      "bytes": 11877
+    },
+    {
+      "path": "Data/district_contests/unresolved_unm_buckets.json",
+      "sha256": "f61317c2d12b646c283a5356a5f425cd9cff7ca1beea3e7113ae0bd92e11b72f",
+      "bytes": 72
+    },
+    {
+      "path": "Data/district_contests_2026/calibration_overrides.json",
+      "sha256": "4d016399c1ae854463261896cf0908564eb922ebccc7c49402109b9ab67a657e",
+      "bytes": 14004
+    },
+    {
+      "path": "Data/district_contests_2026/congressional_governor_2002.json",
+      "sha256": "64826ad6c27a4f2e6869eed40c8579f484c4d381f14c57c24588201d720c8782",
+      "bytes": 4089
+    },
+    {
+      "path": "Data/district_contests_2026/congressional_governor_2006.json",
+      "sha256": "6dd07db7379685161ec79359479a278a7b637605d1f6814ee9335def8ca805d6",
+      "bytes": 4104
+    },
+    {
+      "path": "Data/district_contests_2026/congressional_governor_2010.json",
+      "sha256": "3f0667a6d30de89192d416f4d0252f4455c0506bd8b8bd8b7a88d7a3c10d3afb",
+      "bytes": 4090
+    },
+    {
+      "path": "Data/district_contests_2026/congressional_governor_2014.json",
+      "sha256": "b999eda945d591d1cd70e484a7a1601ded645a49b3e1ed2436f95fc9745ffe7e",
+      "bytes": 4217
+    },
+    {
+      "path": "Data/district_contests_2026/congressional_governor_2018.json",
+      "sha256": "0fd8a5c64c58be1749d619a96a25e06b7515aa493dc5a73ff31ec116beeba773",
+      "bytes": 4745
+    },
+    {
+      "path": "Data/district_contests_2026/congressional_governor_2022.json",
+      "sha256": "7218922104ab38ff29670de6abac45cffca35da92f373c07c62360b554843a87",
+      "bytes": 4839
+    },
+    {
+      "path": "Data/district_contests_2026/congressional_president_2000.json",
+      "sha256": "4e4afd5fd3d8a2bd19ad796fb590bea84f1b9e438d1dd48b583224cf719aafe1",
+      "bytes": 4064
+    },
+    {
+      "path": "Data/district_contests_2026/congressional_president_2004.json",
+      "sha256": "cb575fbd37f69c4bf47ade8009734f19448b2995872587e7deba66a7f5a3f582",
+      "bytes": 4120
+    },
+    {
+      "path": "Data/district_contests_2026/congressional_president_2008.json",
+      "sha256": "2713d2e1565bcb859692dc6b0e59d727718978c43db10ee05920433fd0dc5850",
+      "bytes": 4093
+    },
+    {
+      "path": "Data/district_contests_2026/congressional_president_2012.json",
+      "sha256": "dc6291417c1408af9abb87f701edb5a8c35693393e3c7f5afe341d8d5648c64c",
+      "bytes": 4080
+    },
+    {
+      "path": "Data/district_contests_2026/congressional_president_2016.json",
+      "sha256": "a126b96ee210a746c247da9cf1ad0edcaea5648dab2a9d13927104e9b581e2e3",
+      "bytes": 4877
+    },
+    {
+      "path": "Data/district_contests_2026/congressional_president_2020.json",
+      "sha256": "50beb871416bd4ea7e4b802f199e66b09f54933ee29233914286874efba0f9ff",
+      "bytes": 4856
+    },
+    {
+      "path": "Data/district_contests_2026/congressional_president_2024.json",
+      "sha256": "2f0b6ff5d2fe7dca2682f5b0eeed3ee3645def343cb026b775883d884d8c18f5",
+      "bytes": 4861
+    },
+    {
+      "path": "Data/district_contests_2026/congressional_us_senate_2000.json",
+      "sha256": "2fd80ba43993fbbb8ebbc743af65bd28bc2d43c9bd2e3bc713c142fd64898284",
+      "bytes": 4051
+    },
+    {
+      "path": "Data/district_contests_2026/congressional_us_senate_2002.json",
+      "sha256": "07626f36fc75cdf1da094e166c26b14e18c3300fd61fb6a67a542a8e2286e233",
+      "bytes": 4092
+    },
+    {
+      "path": "Data/district_contests_2026/congressional_us_senate_2006.json",
+      "sha256": "3c5b5d6a1a9bd142889d0f46348f73ecaea5072394cec2d8beae63707c98c292",
+      "bytes": 4104
+    },
+    {
+      "path": "Data/district_contests_2026/congressional_us_senate_2008.json",
+      "sha256": "ea3a9cc4e15b4984b8b27eaa26f07bd8bbdf2694a10af0e55054406e8a637609",
+      "bytes": 4129
+    },
+    {
+      "path": "Data/district_contests_2026/congressional_us_senate_2012.json",
+      "sha256": "ae342be888757b4185a25261fc1033b4e6f740d12311c38fa8e687b7b9d325d0",
+      "bytes": 4112
+    },
+    {
+      "path": "Data/district_contests_2026/congressional_us_senate_2014.json",
+      "sha256": "7d167d1700e28ce7dfec8fcca3a6ac63effdaba6674c611a2c78ff181a6c860c",
+      "bytes": 4100
+    },
+    {
+      "path": "Data/district_contests_2026/congressional_us_senate_2018.json",
+      "sha256": "a37b1712ec685f9f9a1d18f105c0541c5184abcfd831c233a51a39cf393fe75c",
+      "bytes": 4849
+    },
+    {
+      "path": "Data/district_contests_2026/congressional_us_senate_2020.json",
+      "sha256": "2b13b90f06ec350a71daa3cb497f156f67af0f6e8113f87633395fb32f22a624",
+      "bytes": 4850
+    },
+    {
+      "path": "Data/district_contests_2026/congressional_us_senate_2024.json",
+      "sha256": "6b29e5691c1b336709499121e62a5bb66bc7ab22db2cc47af1b8921bc4294bbf",
+      "bytes": 4852
+    },
+    {
+      "path": "Data/district_contests_2026/manifest.json",
+      "sha256": "6dbdf22804ba34a8f71431ecf3557cf55058359785fb93346ac2f78732011e52",
+      "bytes": 7180
+    }
+  ]
+}

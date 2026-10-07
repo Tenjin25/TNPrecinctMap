@@ -1,0 +1,41 @@
+bucket_type,county,prctseq,precinct,precinct_norm
+absentee,BEDFORD,,Absentee,ABSENTEE
+absentee,CLAY,,Absentee,ABSENTEE
+absentee,COCKE,,Absentee,ABSENTEE
+absentee,DEKALB,,Absentee,ABSENTEE
+absentee,FENTRESS,,Absentee,ABSENTEE
+early_voting,FRANKLIN,,Early Voting,EARLY VOTING
+absentee,FRANKLIN,,Absentee,ABSENTEE
+absentee,GRUNDY,,Absentee,ABSENTEE
+absentee,HAMBLEN,,Absentee,ABSENTEE
+absentee,HAMILTON,,Absentee,ABSENTEE
+military_overseas,HAMILTON,,Military & Overseas,MILITARY OVERSEAS
+provisional,HAMILTON,,Provisional,PROVISIONAL
+election_comm_ev,HAMILTON,,Election Comm EV,ELECTION COMM EV
+early_voting,JACKSON,,Early Voting,EARLY VOTING
+absentee,JOHNSON,,Absentee,ABSENTEE
+absentee,LAWRENCE,,Absentee,ABSENTEE
+absentee,MACON,,Absentee,ABSENTEE
+absentee,MARSHALL,,Absentee,ABSENTEE
+absentee,MCNAIRY,,Absentee,ABSENTEE
+absentee,MEIGS,,Absentee,ABSENTEE
+election_comm_office,MONROE,,Election Comm Office,ELECTION COMM OFFICE
+early_voting,MONTGOMERY,,Early Voting,EARLY VOTING
+early_voting,OBION,,Early Voting,EARLY VOTING
+absentee,OBION,,Absentee,ABSENTEE
+absentee,OVERTON,,Absentee,ABSENTEE
+absentee,PERRY,,Absentee,ABSENTEE
+absentee,PUTNAM,,Absentee,ABSENTEE
+early_voting,PUTNAM,,Early Voting,EARLY VOTING
+absentee,ROBERTSON,,Absentee,ABSENTEE
+absentee,SCOTT,,Absentee,ABSENTEE
+absentee,STEWART,,Absentee,ABSENTEE
+absentee,SUMNER,,Absentee,ABSENTEE
+early,TROUSDALE,,Early,EARLY
+absentee,TROUSDALE,,Absentee,ABSENTEE
+absentee,UNICOI,,Absentee,ABSENTEE
+absentee,UNION,,Absentee,ABSENTEE
+absentee,VAN BUREN,,Absentee,ABSENTEE
+absentee,WARREN,,Absentee,ABSENTEE
+early_voting,WASHINGTON,,Early Voting,EARLY VOTING
+absentee,WASHINGTON,,Absentee,ABSENTEE

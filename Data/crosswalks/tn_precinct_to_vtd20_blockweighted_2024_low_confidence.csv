@@ -1,1 +1,205 @@
-from_year,source_vintage,county_norm,from_precinct_norm,src_vtdst,dst_vtd20,weight,match_method,confidence_tier,match_score
+confidence,county,feature_id,match_method,official_name,prctseq,precinct,precinct_norm,review_required
+0.84,BRADLEY,1405,fuzzy_name,103 Hopwell,0003,1-3 Hopewell,1 3 HOPEWELL,True
+0.8571,CARTER,87,fuzzy_name,Court House,0010,Courthouse,COURTHOUSE,True
+0.8571,DYER,169,fuzzy_name,A-Bonicord,0001,A1- Bonicord,A1 BONICORD,True
+0.8526,DYER,163,fuzzy_name,A-Fowlkes,0002,A2- Fowlkes,A2 FOWLKES,True
+0.864,DYER,159,fuzzy_name,C-Tatumville,0004,C1- Tatumville,C1 TATUMVILLE,True
+0.8526,DYER,172,fuzzy_name,C-Trimble,0005,C2- Trimble,C2 TRIMBLE,True
+0.864,DYER,164,fuzzy_name,D-Millsfield,0006,D1- Millsfield,D1 MILLSFIELD,True
+0.8471,DYER,173,fuzzy_name,D-Bogota,0007,D2- Bogota,D2 BOGOTA,True
+0.8471,DYER,168,fuzzy_name,E-Finley,0008,E1- Finley,E1 FINLEY,True
+0.7875,DYER,171,fuzzy_name,E-Lennox,0009,E2- Lenox,E2 LENOX,True
+0.8757,DYER,166,fuzzy_name,I-Community Center,0013,I1- Community Center,I1 COMMUNITY CENTER,True
+0.8727,DYER,170,fuzzy_name,I-Hurricane Hill,0014,I2- Hurricane Hill,I2 HURRICANE HILL,True
+0.78,DYER,167,fuzzy_name,J-N Dyersburg,0015,J- North Dyersburg,J NORTH DYERSBURG,True
+0.8471,FAYETTE,184,fuzzy_name,15 La Grange,0015,LaGrange,LAGRANGE,True
+0.8609,GIBSON,242,fuzzy_name,30 1st Assembly,0015,14-30 1stAssembly,14 30 1STASSEMBLY,True
+0.7875,GILES,251,fuzzy_name,Off Fellows Hall,0008,4B Odd Fellows Hall,4B ODD FELLOWS HALL,True
+0.7826,GREENE,888,fuzzy_name,CC - Camp Creek,0002,4 Camp Creek,4 CAMP CREEK,True
+0.8,GREENE,884,fuzzy_name,CD - Chuckey Doak,0003,2 Chuckey Doak,2 CHUCKEY DOAK,True
+0.7826,GREENE,891,fuzzy_name,CH - Courthouse,0004,4 Courthouse,4 COURTHOUSE,True
+0.792,GREENE,893,fuzzy_name,HS - High School,0009,7 High School,7 HIGH SCHOOL,True
+0.8069,GREENE,894,fuzzy_name,MS - Middle School,0012,5 Middle School,5 MIDDLE SCHOOL,True
+0.792,GREENE,895,fuzzy_name,NC - Nolachuckey,0013,5 Nolachuckey,5 NOLACHUCKEY,True
+0.8,GREENE,896,fuzzy_name,SG - South Greene,0015,5 South Greene,5 SOUTH GREENE,True
+0.8069,GREENE,900,fuzzy_name,TV - Tusculum View,0016,3 Tusculum View,3 TUSCULUM VIEW,True
+0.7826,GREENE,889,fuzzy_name,WP - West Pines,0017,1 West Pines,1 WEST PINES,True
+0.8357,GRUNDY,259,fuzzy_name,Gruelti-Laager,0007,Gruetli-Laager,GRUETLI LAAGER,True
+0.78,HARDIN,310,fuzzy_name,5-1 Morris Chapel,0005,Morris Chapel 5-1,MORRIS CHAPEL 5 1,True
+0.81,HENDERSON,345,fuzzy_name,1-1 Bargerton,0001,1-Bargerton,1 BARGERTON,True
+0.8757,HENDERSON,353,fuzzy_name,1-2 Parker's Crossroads,0002,2 Parkers Crossroads,2 PARKERS CROSSROADS,True
+0.7875,LAUDERDALE,411,fuzzy_name,Henning,0001,Henning 1,HENNING 1,True
+0.7875,LAUDERDALE,403,fuzzy_name,McBride,0002,McBride 1,MCBRIDE 1,True
+0.81,LAUDERDALE,409,fuzzy_name,Lightfoot,0006,Lightfoot 5,LIGHTFOOT 5,True
+0.7875,LAUDERDALE,405,fuzzy_name,Central,0007,Central 6,CENTRAL 6,True
+0.8609,LAWRENCE,431,fuzzy_name,S.E. Lawrence,0004,03-1 SE Lawrence,03 1 SE LAWRENCE,True
+0.8609,LAWRENCE,419,fuzzy_name,Centerpoint,0005,03-2 Center Point,03 2 CENTER POINT,True
+0.8182,LOUDON,449,fuzzy_name,Eatons,0011,Eaton,EATON,True
+0.871,MARION,531,fuzzy_name,1 South Pittsburgh,0001,South Pittsburg,SOUTH PITTSBURG,True
+0.8357,MARION,544,fuzzy_name,13 Waldon's Ridge,0013,Walden's Ridge,WALDEN S RIDGE,True
+0.7953,MAURY,1023,fuzzy_name,Spring Hill Library,0021,Spring Hill Library 11-1,SPRING HILL LIBRARY 11 1,True
+0.7875,MCNAIRY,475,fuzzy_name,1 Bethel Springs,0001,Bethel Springs 1-1,BETHEL SPRINGS 1 1,True
+0.78,MCNAIRY,477,fuzzy_name,6 Courthouse SE,0014,Courthouse SE 6-1,COURTHOUSE SE 6 1,True
+0.8,PICKETT,618,fuzzy_name,COMMUNITY CENTER,0001,Community Center 1-1,COMMUNITY CENTER 1 1,True
+0.825,SEVIER,1505,fuzzy_name,Boyds Creek 8,0001,10-1 Boyds Creek,10 1 BOYDS CREEK,True
+0.8182,SEVIER,1514,fuzzy_name,Harrisburg 8,0009,3-1 Harrisburg,3 1 HARRISBURG,True
+0.8182,SEVIER,1516,fuzzy_name,Jones Cove 9,0010,1-3 Jones Cove,1 3 JONES COVE,True
+0.8182,SEVIER,1515,fuzzy_name,New Center 9,0013,3-2 New Center,3 2 NEW CENTER,True
+0.84,SEVIER,1524,fuzzy_name,Pittman Center 9,0014,11-3 Pittman Center,11 3 PITTMAN CENTER,True
+0.8308,SEVIER,1521,fuzzy_name,Pigeon Forge 8,0015,4-1 Pigeon Forge,4 1 PIGEON FORGE,True
+0.84,SEVIER,1519,fuzzy_name,Sevierville Elementary 8,0017,4-2 Sevierville Elementar,4 2 SEVIERVILLE ELEMENTAR,True
+0.8438,SEVIER,1509,fuzzy_name,Seymour Primary 8,0019,9-1 Seymour Primary,9 1 SEYMOUR PRIMARY,True
+0.81,SEVIER,1503,fuzzy_name,Underwood 8,0020,8-2 Underwood,8 2 UNDERWOOD,True
+0.8357,SEVIER,1522,fuzzy_name,Waldens Creek 8,0021,2-1 Waldens Creek,2 1 WALDENS CREEK,True
+0.8308,SEVIER,1513,fuzzy_name,Walnut Grove 8,0022,7-3 Walnut Grove,7 3 WALNUT GROVE,True
+0.8,SEVIER,1523,fuzzy_name,Wearwood 8,0024,2-3 Wearwood,2 3 WEARWOOD,True
+0.81,SEVIER,1526,fuzzy_name,Zion Hill 8,0025,10-3 Zion Hill,10 3 ZION HILL,True
+0.8,SHELBY,1068,fuzzy_name,0101,0001,01-01,01 01,True
+0.8,SHELBY,1158,fuzzy_name,0102,0002,01-02,01 02,True
+0.8,SHELBY,1156,fuzzy_name,0103,0003,01-03,01 03,True
+0.8,SHELBY,1081,fuzzy_name,0104,0004,01-04,01 04,True
+0.8,SHELBY,1067,fuzzy_name,0105,0005,01-05,01 05,True
+0.8,SHELBY,1155,fuzzy_name,0106,0006,01-06,01 06,True
+0.8,SHELBY,1157,fuzzy_name,0107,0007,01-07,01 07,True
+0.8,SHELBY,1099,fuzzy_name,0108,0008,01-08,01 08,True
+0.8,SHELBY,1164,fuzzy_name,0109,0009,01-09,01 09,True
+0.8,SHELBY,1100,fuzzy_name,0110,0010,01-10,01 10,True
+0.8,SHELBY,1098,fuzzy_name,0111,0011,01-11,01 11,True
+0.8,SHELBY,1159,fuzzy_name,0201,0012,02-01,02 01,True
+0.8,SHELBY,1105,fuzzy_name,0202,0013,02-02,02 02,True
+0.8,SHELBY,1107,fuzzy_name,0203,0014,02-03,02 03,True
+0.8,SHELBY,1093,fuzzy_name,0204,0015,02-04,02 04,True
+0.8,SHELBY,1089,fuzzy_name,0205,0016,02-05,02 05,True
+0.8,SHELBY,1106,fuzzy_name,0206,0017,02-06,02 06,True
+0.8,SHELBY,1092,fuzzy_name,0207,0018,02-07,02 07,True
+0.8,SHELBY,1090,fuzzy_name,0208,0019,02-08,02 08,True
+0.8,SHELBY,1088,fuzzy_name,0209,0020,02-09,02 09,True
+0.8,SHELBY,1087,fuzzy_name,0210,0021,02-10,02 10,True
+0.8,SHELBY,1161,fuzzy_name,0211,0022,02-11,02 11,True
+0.8,SHELBY,1091,fuzzy_name,0212,0023,02-12,02 12,True
+0.8,SHELBY,1160,fuzzy_name,0213,0024,02-13,02 13,True
+0.8,SHELBY,1086,fuzzy_name,0214,0025,02-14,02 14,True
+0.8,SHELBY,1085,fuzzy_name,0215,0026,02-15,02 15,True
+0.8,SHELBY,1083,fuzzy_name,0301,0027,03-01,03 01,True
+0.8,SHELBY,1084,fuzzy_name,0302,0028,03-02,03 02,True
+0.8,SHELBY,1072,fuzzy_name,0303,0029,03-03,03 03,True
+0.8,SHELBY,1101,fuzzy_name,0304,0030,03-04,03 04,True
+0.8,SHELBY,1194,fuzzy_name,0305,0031,03-05,03 05,True
+0.8,SHELBY,1102,fuzzy_name,0306,0032,03-06,03 06,True
+0.8,SHELBY,1198,fuzzy_name,0307,0033,03-07,03 07,True
+0.8,SHELBY,1197,fuzzy_name,0308,0034,03-08,03 08,True
+0.8,SHELBY,1082,fuzzy_name,0309,0035,03-09,03 09,True
+0.8,SHELBY,1103,fuzzy_name,0310,0036,03-10,03 10,True
+0.8,SHELBY,1104,fuzzy_name,0311,0037,03-11,03 11,True
+0.8,SHELBY,1079,fuzzy_name,0401,0038,04-01,04 01,True
+0.8,SHELBY,1080,fuzzy_name,0402,0039,04-02,04 02,True
+0.8,SHELBY,1151,fuzzy_name,0403,0040,04-03,04 03,True
+0.8,SHELBY,1059,fuzzy_name,0404,0041,04-04,04 04,True
+0.8,SHELBY,1060,fuzzy_name,0405,0042,04-05,04 05,True
+0.8,SHELBY,1061,fuzzy_name,0406,0043,04-06,04 06,True
+0.8,SHELBY,1066,fuzzy_name,0407,0044,04-07,04 07,True
+0.8,SHELBY,1154,fuzzy_name,0408,0045,04-08,04 08,True
+0.8,SHELBY,1064,fuzzy_name,0409,0046,04-09,04 09,True
+0.8,SHELBY,1065,fuzzy_name,0410,0047,04-10,04 10,True
+0.8,SHELBY,1062,fuzzy_name,0411,0048,04-11,04 11,True
+0.8,SHELBY,1063,fuzzy_name,0412,0049,04-12,04 12,True
+0.8,SHELBY,1195,fuzzy_name,0501,0050,05-01,05 01,True
+0.8,SHELBY,1163,fuzzy_name,0502,0051,05-02,05 02,True
+0.8,SHELBY,1097,fuzzy_name,0503,0052,05-03,05 03,True
+0.8,SHELBY,1162,fuzzy_name,0504,0053,05-04,05 04,True
+0.8,SHELBY,1199,fuzzy_name,0505,0054,05-05,05 05,True
+0.8,SHELBY,1186,fuzzy_name,0506,0055,05-06,05 06,True
+0.8,SHELBY,1095,fuzzy_name,0507,0056,05-07,05 07,True
+0.8,SHELBY,1200,fuzzy_name,0508,0057,05-08,05 08,True
+0.8,SHELBY,1094,fuzzy_name,0509,0058,05-09,05 09,True
+0.8,SHELBY,1191,fuzzy_name,0510,0059,05-10,05 10,True
+0.8,SHELBY,1185,fuzzy_name,0512,0060,05-12,05 12,True
+0.8,SHELBY,1130,fuzzy_name,0601,0061,06-01,06 01,True
+0.8,SHELBY,1132,fuzzy_name,0602,0062,06-02,06 02,True
+0.8,SHELBY,1177,fuzzy_name,0603,0063,06-03,06 03,True
+0.8,SHELBY,1178,fuzzy_name,0604,0064,06-04,06 04,True
+0.8,SHELBY,1176,fuzzy_name,0605,0065,06-05,06 05,True
+0.8,SHELBY,1131,fuzzy_name,0606,0066,06-06,06 06,True
+0.8,SHELBY,1129,fuzzy_name,0607,0067,06-07,06 07,True
+0.8,SHELBY,1175,fuzzy_name,0608,0068,06-08,06 08,True
+0.8,SHELBY,1128,fuzzy_name,0609,0069,06-09,06 09,True
+0.8,SHELBY,1119,fuzzy_name,0701,0070,07-01,07 01,True
+0.8,SHELBY,1120,fuzzy_name,0702,0071,07-02,07 02,True
+0.8,SHELBY,1121,fuzzy_name,0703,0072,07-03,07 03,True
+0.8,SHELBY,1122,fuzzy_name,0704,0073,07-04,07 04,True
+0.8,SHELBY,1123,fuzzy_name,0705,0074,07-05,07 05,True
+0.8,SHELBY,1124,fuzzy_name,0706,0075,07-06,07 06,True
+0.8,SHELBY,1127,fuzzy_name,0707,0076,07-07,07 07,True
+0.8,SHELBY,1125,fuzzy_name,0708,0077,07-08,07 08,True
+0.8,SHELBY,1126,fuzzy_name,0709,0078,07-09,07 09,True
+0.8,SHELBY,1174,fuzzy_name,0710,0079,07-10,07 10,True
+0.8,SHELBY,1118,fuzzy_name,0801,0080,08-01,08 01,True
+0.8,SHELBY,1173,fuzzy_name,0802,0081,08-02,08 02,True
+0.8,SHELBY,1071,fuzzy_name,0803,0082,08-03,08 03,True
+0.8,SHELBY,1172,fuzzy_name,0804,0083,08-04,08 04,True
+0.8,SHELBY,1169,fuzzy_name,0805,0084,08-05,08 05,True
+0.8,SHELBY,1171,fuzzy_name,0806,0085,08-06,08 06,True
+0.8,SHELBY,1117,fuzzy_name,0807,0086,08-07,08 07,True
+0.8,SHELBY,1168,fuzzy_name,0808,0087,08-08,08 08,True
+0.8,SHELBY,1187,fuzzy_name,0809,0088,08-09,08 09,True
+0.8,SHELBY,1170,fuzzy_name,0810,0089,08-10,08 10,True
+0.8,SHELBY,1190,fuzzy_name,0811,0090,08-11,08 11,True
+0.8,SHELBY,1167,fuzzy_name,0812,0091,08-12,08 12,True
+0.8,SHELBY,1070,fuzzy_name,0901,0092,09-01,09 01,True
+0.8,SHELBY,1143,fuzzy_name,0902,0093,09-02,09 02,True
+0.8,SHELBY,1144,fuzzy_name,0903,0094,09-03,09 03,True
+0.8,SHELBY,1142,fuzzy_name,0904,0095,09-04,09 04,True
+0.8,SHELBY,1141,fuzzy_name,0905,0096,09-05,09 05,True
+0.8,SHELBY,1069,fuzzy_name,0906,0097,09-06,09 06,True
+0.8,SHELBY,1140,fuzzy_name,0907,0098,09-07,09 07,True
+0.8,SHELBY,1138,fuzzy_name,0908,0099,09-08,09 08,True
+0.8,SHELBY,1058,fuzzy_name,0909,0100,09-09,09 09,True
+0.8,SHELBY,1137,fuzzy_name,0910,0101,09-10,09 10,True
+0.8,SHELBY,1139,fuzzy_name,0911,0102,09-11,09 11,True
+0.8,SHELBY,1189,fuzzy_name,1001,0103,10-01,10 01,True
+0.8,SHELBY,1146,fuzzy_name,1002,0104,10-02,10 02,True
+0.8,SHELBY,1192,fuzzy_name,1003,0105,10-03,10 03,True
+0.8,SHELBY,1150,fuzzy_name,1004,0106,10-04,10 04,True
+0.8,SHELBY,1149,fuzzy_name,1005,0107,10-05,10 05,True
+0.8,SHELBY,1147,fuzzy_name,1006,0108,10-06,10 06,True
+0.8,SHELBY,1153,fuzzy_name,1007,0109,10-07,10 07,True
+0.8,SHELBY,1148,fuzzy_name,1008,0110,10-08,10 08,True
+0.8,SHELBY,1145,fuzzy_name,1009,0111,10-09,10 09,True
+0.8,SHELBY,1152,fuzzy_name,1010,0112,10-10,10 10,True
+0.8,SHELBY,1076,fuzzy_name,1101,0113,11-01,11 01,True
+0.8,SHELBY,1075,fuzzy_name,1102,0114,11-02,11 02,True
+0.8,SHELBY,1196,fuzzy_name,1103,0115,11-03,11 03,True
+0.8,SHELBY,1078,fuzzy_name,1104,0116,11-04,11 04,True
+0.8,SHELBY,1077,fuzzy_name,1105,0117,11-05,11 05,True
+0.8,SHELBY,1073,fuzzy_name,1106,0118,11-06,11 06,True
+0.8,SHELBY,1116,fuzzy_name,1107,0119,11-07,11 07,True
+0.8,SHELBY,1074,fuzzy_name,1108,0120,11-08,11 08,True
+0.8,SHELBY,1115,fuzzy_name,1201,0121,12-01,12 01,True
+0.8,SHELBY,1166,fuzzy_name,1202,0122,12-02,12 02,True
+0.8,SHELBY,1165,fuzzy_name,1203,0123,12-03,12 03,True
+0.8,SHELBY,1114,fuzzy_name,1204,0124,12-04,12 04,True
+0.8,SHELBY,1113,fuzzy_name,1205,0125,12-05,12 05,True
+0.8,SHELBY,1112,fuzzy_name,1206,0126,12-06,12 06,True
+0.8,SHELBY,1109,fuzzy_name,1207,0127,12-07,12 07,True
+0.8,SHELBY,1110,fuzzy_name,1208,0128,12-08,12 08,True
+0.8,SHELBY,1108,fuzzy_name,1209,0129,12-09,12 09,True
+0.8,SHELBY,1111,fuzzy_name,1210,0130,12-10,12 10,True
+0.8,SHELBY,1182,fuzzy_name,1301,0131,13-01,13 01,True
+0.8,SHELBY,1181,fuzzy_name,1302,0132,13-02,13 02,True
+0.8,SHELBY,1136,fuzzy_name,1303,0133,13-03,13 03,True
+0.8,SHELBY,1179,fuzzy_name,1304,0134,13-04,13 04,True
+0.8,SHELBY,1183,fuzzy_name,1305,0135,13-05,13 05,True
+0.8,SHELBY,1184,fuzzy_name,1306,0136,13-06,13 06,True
+0.8,SHELBY,1134,fuzzy_name,1307,0137,13-07,13 07,True
+0.8,SHELBY,1135,fuzzy_name,1308,0138,13-08,13 08,True
+0.8,SHELBY,1188,fuzzy_name,1309,0139,13-09,13 09,True
+0.8,SHELBY,1193,fuzzy_name,1310,0140,13-10,13 10,True
+0.8,SHELBY,1133,fuzzy_name,1311,0141,13-11,13 11,True
+0.8,SHELBY,1180,fuzzy_name,1312,0142,13-12,13 12,True
+0.864,TIPTON,752,fuzzy_name,01 N.E. Covington,0001,1-1 NE Covington,1 1 NE COVINGTON,True
+0.864,TIPTON,751,fuzzy_name,03 S.E. Covington,0002,2-3 SE Covington,2 3 SE COVINGTON,True
+0.8308,TIPTON,749,fuzzy_name,21 W. Wilkinsville,0008,8-21 Wilkinsville,8 21 WILKINSVILLE,True
+0.8471,WASHINGTON,804,fuzzy_name,Gandview,0002,02 Grandview,02 GRANDVIEW,True
+0.871,WASHINGTON,810,fuzzy_name,Visitors Center,0004,04 Visitor's Center,04 VISITOR S CENTER,True
+0.8571,WASHINGTON,816,fuzzy_name,Towne Acres,0011,11 Town Acres,11 TOWN ACRES,True
+0.8526,WAYNE,1431,fuzzy_name,Southgate,0012,6-2 South Gate,6 2 SOUTH GATE,True

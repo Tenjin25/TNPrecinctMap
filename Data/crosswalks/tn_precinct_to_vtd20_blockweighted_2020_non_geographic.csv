@@ -1,0 +1,5 @@
+bucket_type,county,prctseq,precinct,precinct_norm
+absentee,CANNON,,Absentee,ABSENTEE
+absentee,DAVIDSON,,Absentee,ABSENTEE
+absentee,MONTGOMERY,,Absentee,ABSENTEE
+early_voting_write_ins,TIPTON,,Early Voting - Write-Ins,EARLY VOTING WRITE INS

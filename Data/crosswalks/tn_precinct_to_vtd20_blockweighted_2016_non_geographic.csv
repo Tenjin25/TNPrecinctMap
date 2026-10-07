@@ -1,0 +1,35 @@
+bucket_type,county,prctseq,precinct,precinct_norm
+early_voting_write_ins,BEDFORD,,Early Voting - Write-Ins,EARLY VOTING WRITE INS
+early_voting_write_ins,BRADLEY,,Early Voting - Write-Ins,EARLY VOTING WRITE INS
+early_voting_write_ins,CANNON,,Early Voting - Write-Ins,EARLY VOTING WRITE INS
+early_voting_write_ins,CARTER,,Early Voting - Write-Ins,EARLY VOTING WRITE INS
+early_voting_write_ins,CUMBERLAND,,Early Voting - Write-Ins,EARLY VOTING WRITE INS
+absentee,DAVIDSON,,Absentee,ABSENTEE
+early_voting_write_ins,DAVIDSON,,Early Voting - Write-Ins,EARLY VOTING WRITE INS
+provisional_write_ins,DAVIDSON,,Provisional - Write-Ins,PROVISIONAL WRITE INS
+early_voting_write_ins,DEKALB,,Early Voting - Write-Ins,EARLY VOTING WRITE INS
+early_voting,DYER,,Early voting,EARLY VOTING
+early_voting_write_ins,FAYETTE,,Early Voting - Write-Ins,EARLY VOTING WRITE INS
+early_voting_write_ins,FENTRESS,,Early Voting - Write-Ins,EARLY VOTING WRITE INS
+early_voting_write_ins,FRANKLIN,,Early Voting - Write-Ins,EARLY VOTING WRITE INS
+early_voting_write_ins,HENRY,,Early Voting - Write-Ins,EARLY VOTING WRITE INS
+early_voting_write_ins,JACKSON,,Early Voting - Write-Ins,EARLY VOTING WRITE INS
+early_voting_write_ins,JOHNSON,,Early Voting - Write-Ins,EARLY VOTING WRITE INS
+early_voting_write_ins,LAUDERDALE,,Early Voting - Write-Ins,EARLY VOTING WRITE INS
+early_voting_write_ins,MACON,,Early Voting - Write-Ins,EARLY VOTING WRITE INS
+early_voting_write_ins,MARSHALL,,Early Voting - Write-Ins,EARLY VOTING WRITE INS
+early_voting_write_ins,MONTGOMERY,,Early Voting - Write-Ins,EARLY VOTING WRITE INS
+early_voting_write_ins,OVERTON,,Early Voting - Write-Ins,EARLY VOTING WRITE INS
+early_voting_write_ins,PUTNAM,,Early Voting - Write-Ins,EARLY VOTING WRITE INS
+early_voting_write_ins,ROBERTSON,,Early Voting - Write-Ins,EARLY VOTING WRITE INS
+early_voting_write_ins,RUTHERFORD,,Early Voting - Write-Ins,EARLY VOTING WRITE INS
+early_voting_write_ins,SEQUATCHIE,,Early Voting - Write-Ins,EARLY VOTING WRITE INS
+early_voting_write_ins,SMITH,,Early Voting - Write-Ins,EARLY VOTING WRITE INS
+early_voting_write_ins,TIPTON,,Early Voting - Write-Ins,EARLY VOTING WRITE INS
+early_voting_write_ins,TROUSDALE,,Early Voting - Write-Ins,EARLY VOTING WRITE INS
+early_voting_write_ins,VAN BUREN,,Early Voting - Write-Ins,EARLY VOTING WRITE INS
+early_voting_write_ins,WARREN,,Early Voting - Write-Ins,EARLY VOTING WRITE INS
+early_voting_write_ins,WASHINGTON,,Early Voting - Write-Ins,EARLY VOTING WRITE INS
+early_voting_write_ins,WAYNE,,Early Voting - Write-Ins,EARLY VOTING WRITE INS
+provisional,WILSON,,Provisional,PROVISIONAL
+absentee,WILSON,,Absentee,ABSENTEE

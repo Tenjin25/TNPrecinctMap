@@ -4,6 +4,14 @@ Interactive Tennessee election map focused on county, district, and precinct ana
 
 This project runs as a single-page app from `index.html` and reads local data assets from `Data/`.
 
+## Official historical VTD archive (October 2026)
+
+Election-date precinct geography now comes from the statewide historical VTD archive supplied by the Tennessee Comptroller of the Treasury and credited to the Comptroller and Tennessee county election commissions. The expected local input is `Data/VTD_Shamar.zip`; it is intentionally ignored because it is approximately 664 MB and must not be committed. Its SHA-256, all 29 shapefile layers, fields, CRS, county coverage, validity, and provenance are recorded in `Data/reports/official_vtd_inventory.json` and `.csv`.
+
+Run `Scripts/integrate_official_vtd_archive.py --archive Data/VTD_Shamar.zip --block-dir Data` before the contest builders. The script preserves the ZIP, repairs invalid geometry with `make_valid`, writes local normalized EPSG:5070 GeoPackages under the ignored `Data/raw/official_vtd_normalized/` directory, and builds compact year-specific precinct-to-VTD20 crosswalks. Official polygons are the precinct authority. The repository's NHGIS 2000→2010→2020 block crosswalk chain is used only to translate their blocks to modern district-line inputs. A 99.9% dominant overlap is treated as whole-precinct; meaningful splits retain block-derived weights. Uncertain names and non-geographic voting buckets are emitted separately and are never silently forced.
+
+The priority November general layers are 2008, 2012, 2014, 2016, 2018, 2020, 2022, and 2024. Current congressional/House/Senate outputs use the enacted 2022 geometries. The 2026 mode has a distinct congressional plan; Tennessee House and Senate remain on the same enacted 2022 geometries, so their validated values are shared rather than represented as fictional separate lines. See `Data/reports/official_vtd_match_summary.json`, `official_vtd_geometry_repairs.json`, and `official_vtd_rebuild_validation.json` for review and reconciliation details.
+
 ## Precinct display names
 
 `Data/crosswalks/tn_precinct_friendly_names_2020.json` supplies labels for the VTD20 precinct overlay. Verified church affiliations (PCA, PCUSA, EPC, OPC, ECO, or Evangel Presbytery) take precedence over older venue names in geometry, and the app cache-busts the lookup. Friendly names do not change VTD20 IDs, boundaries, or election-result joins.

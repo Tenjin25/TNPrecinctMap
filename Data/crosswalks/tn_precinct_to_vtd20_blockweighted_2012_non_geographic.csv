@@ -1,0 +1,33 @@
+bucket_type,county,prctseq,precinct,precinct_norm
+absentee,BEDFORD,,Absentee,ABSENTEE
+early_voting,CLAY,,Early Voting,EARLY VOTING
+absentee,COCKE,,Absentee,ABSENTEE
+absentee,CUMBERLAND,,Absentee,ABSENTEE
+absentee,DEKALB,,Absentee,ABSENTEE
+early_and_absentee,FENTRESS,,Early and Absentee,EARLY AND ABSENTEE
+absentee,GILES,,Absentee,ABSENTEE
+absentee,GRUNDY,,Absentee,ABSENTEE
+absentee,HAMILTON,,Absentee,ABSENTEE
+military_overseas,HAMILTON,,Military & Overseas,MILITARY OVERSEAS
+provisional,HAMILTON,,Provisional,PROVISIONAL
+election_comm_ed_tsx,HAMILTON,,Election Comm ED TSX,ELECTION COMM ED TSX
+election_comm_ev,HAMILTON,,Election Comm EV,ELECTION COMM EV
+absentee,JACKSON,,Absentee,ABSENTEE
+absentee,JOHNSON,,Absentee,ABSENTEE
+absentee,MACON,,Absentee,ABSENTEE
+absentee,MARSHALL,,Absentee,ABSENTEE
+absentee,MEIGS,,Absentee,ABSENTEE
+election_comm_office,MONROE,,Election Comm Office,ELECTION COMM OFFICE
+absentee,OVERTON,,Absentee,ABSENTEE
+absentee,PERRY,,Absentee,ABSENTEE
+absentee,ROBERTSON,,Absentee,ABSENTEE
+absentee,SCOTT,,Absentee,ABSENTEE
+absentee,SMITH,,Absentee,ABSENTEE
+absentee,STEWART,,Absentee,ABSENTEE
+absentee,TROUSDALE,,Absentee,ABSENTEE
+absentee,UNICOI,,Absentee,ABSENTEE
+absentee,UNION,,Absentee,ABSENTEE
+absentee,WARREN,,Absentee,ABSENTEE
+early_absentee,WASHINGTON,,Early/Absentee,EARLY ABSENTEE
+absentee,WILSON,,Absentee,ABSENTEE
+provisional,WILSON,,Provisional,PROVISIONAL

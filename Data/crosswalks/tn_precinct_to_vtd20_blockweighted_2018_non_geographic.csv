@@ -1,0 +1,4 @@
+bucket_type,county,prctseq,precinct,precinct_norm
+absentee,DAVIDSON,,Absentee,ABSENTEE
+absentee,WILSON,,Absentee,ABSENTEE
+provisional,WILSON,,Provisional,PROVISIONAL

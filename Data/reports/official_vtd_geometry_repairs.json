@@ -1,0 +1,205 @@
+[
+  {
+    "layer": "VTD_2008_November_State_General",
+    "invalid_before": 0,
+    "repaired": 0,
+    "invalid_after": 0,
+    "empty_or_null_removed": 0
+  },
+  {
+    "layer": "VTD_2012_August_State_Primary",
+    "invalid_before": 5,
+    "repaired": 5,
+    "invalid_after": 0,
+    "empty_or_null_removed": 0
+  },
+  {
+    "layer": "VTD_2012_January",
+    "invalid_before": 6,
+    "repaired": 6,
+    "invalid_after": 0,
+    "empty_or_null_removed": 0
+  },
+  {
+    "layer": "VTD_2012_March_Presidential_Primary",
+    "invalid_before": 8,
+    "repaired": 8,
+    "invalid_after": 0,
+    "empty_or_null_removed": 0
+  },
+  {
+    "layer": "VTD_2012_November_State_General",
+    "invalid_before": 5,
+    "repaired": 5,
+    "invalid_after": 0,
+    "empty_or_null_removed": 0
+  },
+  {
+    "layer": "VTD_2013_May",
+    "invalid_before": 4,
+    "repaired": 4,
+    "invalid_after": 0,
+    "empty_or_null_removed": 0
+  },
+  {
+    "layer": "VTD_2013_October",
+    "invalid_before": 4,
+    "repaired": 4,
+    "invalid_after": 0,
+    "empty_or_null_removed": 0
+  },
+  {
+    "layer": "VTD_2014_August_State_Primary_and_County_General",
+    "invalid_before": 4,
+    "repaired": 4,
+    "invalid_after": 0,
+    "empty_or_null_removed": 0
+  },
+  {
+    "layer": "VTD_2014_January",
+    "invalid_before": 4,
+    "repaired": 4,
+    "invalid_after": 0,
+    "empty_or_null_removed": 0
+  },
+  {
+    "layer": "VTD_2014_May_County_Primary",
+    "invalid_before": 4,
+    "repaired": 4,
+    "invalid_after": 0,
+    "empty_or_null_removed": 0
+  },
+  {
+    "layer": "VTD_2014_November_State_General",
+    "invalid_before": 4,
+    "repaired": 4,
+    "invalid_after": 0,
+    "empty_or_null_removed": 0
+  },
+  {
+    "layer": "VTD_2015_June",
+    "invalid_before": 4,
+    "repaired": 4,
+    "invalid_after": 0,
+    "empty_or_null_removed": 0
+  },
+  {
+    "layer": "VTD_2016_April",
+    "invalid_before": 4,
+    "repaired": 4,
+    "invalid_after": 0,
+    "empty_or_null_removed": 0
+  },
+  {
+    "layer": "VTD_2016_August_State_Primary_and_County_General",
+    "invalid_before": 4,
+    "repaired": 4,
+    "invalid_after": 0,
+    "empty_or_null_removed": 0
+  },
+  {
+    "layer": "VTD_2016_March_Presidential_Primary",
+    "invalid_before": 4,
+    "repaired": 4,
+    "invalid_after": 0,
+    "empty_or_null_removed": 0
+  },
+  {
+    "layer": "VTD_2016_November_State_General",
+    "invalid_before": 4,
+    "repaired": 4,
+    "invalid_after": 0,
+    "empty_or_null_removed": 0
+  },
+  {
+    "layer": "VTD_2018_August_State_Primary_and_County_General",
+    "invalid_before": 4,
+    "repaired": 4,
+    "invalid_after": 0,
+    "empty_or_null_removed": 0
+  },
+  {
+    "layer": "VTD_2018_March",
+    "invalid_before": 4,
+    "repaired": 4,
+    "invalid_after": 0,
+    "empty_or_null_removed": 0
+  },
+  {
+    "layer": "VTD_2018_November_State_General",
+    "invalid_before": 4,
+    "repaired": 4,
+    "invalid_after": 0,
+    "empty_or_null_removed": 0
+  },
+  {
+    "layer": "VTD_2020_August_State_Primary_and_County_General",
+    "invalid_before": 5,
+    "repaired": 5,
+    "invalid_after": 0,
+    "empty_or_null_removed": 0
+  },
+  {
+    "layer": "VTD_2020_November_State_General",
+    "invalid_before": 5,
+    "repaired": 5,
+    "invalid_after": 0,
+    "empty_or_null_removed": 0
+  },
+  {
+    "layer": "VTD_2021_Pre_Redistricting",
+    "invalid_before": 1,
+    "repaired": 1,
+    "invalid_after": 0,
+    "empty_or_null_removed": 0
+  },
+  {
+    "layer": "VTD_2022_August_State_Primary_and_County_General",
+    "invalid_before": 2,
+    "repaired": 2,
+    "invalid_after": 0,
+    "empty_or_null_removed": 0
+  },
+  {
+    "layer": "VTD_2022_November_State_General",
+    "invalid_before": 2,
+    "repaired": 2,
+    "invalid_after": 0,
+    "empty_or_null_removed": 0
+  },
+  {
+    "layer": "VTD_2024_March_Presidential_Primary",
+    "invalid_before": 2,
+    "repaired": 2,
+    "invalid_after": 0,
+    "empty_or_null_removed": 0
+  },
+  {
+    "layer": "VTD_2024_November_State_General",
+    "invalid_before": 2,
+    "repaired": 2,
+    "invalid_after": 0,
+    "empty_or_null_removed": 0
+  },
+  {
+    "layer": "VTD_2025_October_Special_Primary",
+    "invalid_before": 2,
+    "repaired": 2,
+    "invalid_after": 0,
+    "empty_or_null_removed": 0
+  },
+  {
+    "layer": "VTD_2026_August_State_Primary_and_County_General",
+    "invalid_before": 2,
+    "repaired": 2,
+    "invalid_after": 0,
+    "empty_or_null_removed": 0
+  },
+  {
+    "layer": "VTD_2026_May_County_Primary",
+    "invalid_before": 2,
+    "repaired": 2,
+    "invalid_after": 0,
+    "empty_or_null_removed": 0
+  }
+]

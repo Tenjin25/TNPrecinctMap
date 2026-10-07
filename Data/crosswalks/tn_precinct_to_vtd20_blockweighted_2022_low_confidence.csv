@@ -1,1 +1,75 @@
-from_year,source_vintage,county_norm,from_precinct_norm,src_vtdst,dst_vtd20,weight,match_method,confidence_tier,match_score
+confidence,county,feature_id,match_method,official_name,prctseq,precinct,precinct_norm,review_required
+0.84,BRADLEY,1521,fuzzy_name,103 Hopwell,,1-3 Hopewell,1 3 HOPEWELL,True
+0.8571,CARTER,87,fuzzy_name,Court House,,Courthouse,COURTHOUSE,True
+0.8571,DYER,169,fuzzy_name,A-Bonicord,,A1- Bonicord,A1 BONICORD,True
+0.8526,DYER,163,fuzzy_name,A-Fowlkes,,A2- Fowlkes,A2 FOWLKES,True
+0.864,DYER,159,fuzzy_name,C-Tatumville,,C1- Tatumville,C1 TATUMVILLE,True
+0.8526,DYER,172,fuzzy_name,C-Trimble,,C2- Trimble,C2 TRIMBLE,True
+0.864,DYER,164,fuzzy_name,D-Millsfield,,D1- Millsfield,D1 MILLSFIELD,True
+0.8471,DYER,173,fuzzy_name,D-Bogota,,D2- Bogota,D2 BOGOTA,True
+0.8471,DYER,168,fuzzy_name,E-Finley,,E1- Finley,E1 FINLEY,True
+0.7875,DYER,171,fuzzy_name,E-Lennox,,E2- Lenox,E2 LENOX,True
+0.8053,DYER,160,fuzzy_name,F-Dyer County Central,,F- Dyer Co Central,F DYER CO CENTRAL,True
+0.8757,DYER,166,fuzzy_name,I-Community Center,,I1- Community Center,I1 COMMUNITY CENTER,True
+0.8727,DYER,170,fuzzy_name,I-Hurricane Hill,,I2- Hurricane Hill,I2 HURRICANE HILL,True
+0.78,DYER,167,fuzzy_name,J-N Dyersburg,,J- North Dyersburg,J NORTH DYERSBURG,True
+0.8471,FAYETTE,184,fuzzy_name,15 La Grange,,LaGrange,LAGRANGE,True
+0.8609,GIBSON,242,fuzzy_name,30 1st Assembly,,14-30 1stAssembly,14 30 1STASSEMBLY,True
+0.7875,GILES,251,fuzzy_name,Off Fellows Hall,,4B Odd Fellows Hall,4B ODD FELLOWS HALL,True
+0.7826,GREENE,908,fuzzy_name,CC - Camp Creek,,4 Camp Creek,4 CAMP CREEK,True
+0.8,GREENE,904,fuzzy_name,CD - Chuckey Doak,,2 Chuckey Doak,2 CHUCKEY DOAK,True
+0.7826,GREENE,911,fuzzy_name,CH - Courthouse,,4 Courthouse,4 COURTHOUSE,True
+0.792,GREENE,913,fuzzy_name,HS - High School,,7 High School,7 HIGH SCHOOL,True
+0.8069,GREENE,914,fuzzy_name,MS - Middle School,,5 Middle School,5 MIDDLE SCHOOL,True
+0.792,GREENE,915,fuzzy_name,NC - Nolachuckey,,5 Nolachuckey,5 NOLACHUCKEY,True
+0.8,GREENE,916,fuzzy_name,SG - South Greene,,5 South Greene,5 SOUTH GREENE,True
+0.8069,GREENE,920,fuzzy_name,TV - Tusculum View,,3 Tusculum View,3 TUSCULUM VIEW,True
+0.7826,GREENE,909,fuzzy_name,WP - West Pines,,1 West Pines,1 WEST PINES,True
+0.8357,GRUNDY,259,fuzzy_name,Gruelti-Laager,,Gruetli-Laager,GRUETLI LAAGER,True
+0.78,HARDIN,307,fuzzy_name,5-2 Morris Chapel,,Morris Chapel 5-2,MORRIS CHAPEL 5 2,True
+0.8069,HENDERSON,358,fuzzy_name,3-10 Fire Station #10,,3-3 Fire Station #4,3 3 FIRE STATION 4,True
+0.7875,LAUDERDALE,418,fuzzy_name,Henning,,Henning 1,HENNING 1,True
+0.7875,LAUDERDALE,410,fuzzy_name,McBride,,McBride 1,MCBRIDE 1,True
+0.81,LAUDERDALE,416,fuzzy_name,Lightfoot,,Lightfoot 5,LIGHTFOOT 5,True
+0.7875,LAUDERDALE,412,fuzzy_name,Central,,Central 6,CENTRAL 6,True
+0.8609,LAWRENCE,438,fuzzy_name,S.E. Lawrence,,03-1 SE Lawrence,03 1 SE LAWRENCE,True
+0.8609,LAWRENCE,426,fuzzy_name,Centerpoint,,03-2 Center Point,03 2 CENTER POINT,True
+0.8182,LOUDON,456,fuzzy_name,Eatons,,Eaton,EATON,True
+0.871,MARION,539,fuzzy_name,1 South Pittsburgh,,South Pittsburg,SOUTH PITTSBURG,True
+0.8357,MARION,552,fuzzy_name,13 Waldon's Ridge,,Walden's Ridge,WALDEN S RIDGE,True
+0.8743,MARION,538,fuzzy_name,17 Powells Crossroads,,Powells Crossroad,POWELLS CROSSROAD,True
+0.7953,MAURY,1134,fuzzy_name,Spring Hill Library,,Spring Hill Library 11-1,SPRING HILL LIBRARY 11 1,True
+0.7875,MCNAIRY,483,fuzzy_name,1 Bethel Springs,,Bethel Springs 1-1,BETHEL SPRINGS 1 1,True
+0.78,MCNAIRY,485,fuzzy_name,6 Courthouse SE,,Courthouse SE 6-1,COURTHOUSE SE 6 1,True
+0.8,PICKETT,626,fuzzy_name,COMMUNITY CENTER,,Community Center 1-1,COMMUNITY CENTER 1 1,True
+0.825,SEVIER,1808,fuzzy_name,Boyds Creek 8,,10-1 Boyds Creek,10 1 BOYDS CREEK,True
+0.8182,SEVIER,1817,fuzzy_name,Harrisburg 8,,3-1 Harrisburg,3 1 HARRISBURG,True
+0.8182,SEVIER,1819,fuzzy_name,Jones Cove 9,,1-3 Jones Cove,1 3 JONES COVE,True
+0.8182,SEVIER,1818,fuzzy_name,New Center 9,,3-2 New Center,3 2 NEW CENTER,True
+0.84,SEVIER,1827,fuzzy_name,Pittman Center 9,,11-3 Pittman Center,11 3 PITTMAN CENTER,True
+0.8308,SEVIER,1824,fuzzy_name,Pigeon Forge 8,,4-1 Pigeon Forge,4 1 PIGEON FORGE,True
+0.84,SEVIER,1822,fuzzy_name,Sevierville Elementary 8,,4-2 Sevierville Elementar,4 2 SEVIERVILLE ELEMENTAR,True
+0.8438,SEVIER,1812,fuzzy_name,Seymour Primary 8,,9-1 Seymour Primary,9 1 SEYMOUR PRIMARY,True
+0.81,SEVIER,1806,fuzzy_name,Underwood 8,,8-2 Underwood,8 2 UNDERWOOD,True
+0.8357,SEVIER,1825,fuzzy_name,Waldens Creek 8,,2-1 Waldens Creek,2 1 WALDENS CREEK,True
+0.8308,SEVIER,1816,fuzzy_name,Walnut Grove 8,,7-3 Walnut Grove,7 3 WALNUT GROVE,True
+0.8,SEVIER,1826,fuzzy_name,Wearwood 8,,2-3 Wearwood,2 3 WEARWOOD,True
+0.81,SEVIER,1829,fuzzy_name,Zion Hill 8,,10-3 Zion Hill,10 3 ZION HILL,True
+0.8,SHELBY,1293,fuzzy_name,1301,,13-01,13 01,True
+0.8,SHELBY,1292,fuzzy_name,1302,,13-02,13 02,True
+0.8,SHELBY,1247,fuzzy_name,1303,,13-03,13 03,True
+0.8,SHELBY,1290,fuzzy_name,1304,,13-04,13 04,True
+0.8,SHELBY,1294,fuzzy_name,1305,,13-05,13 05,True
+0.8,SHELBY,1295,fuzzy_name,1306,,13-06,13 06,True
+0.8,SHELBY,1245,fuzzy_name,1307,,13-07,13 07,True
+0.8,SHELBY,1246,fuzzy_name,1308,,13-08,13 08,True
+0.8,SHELBY,1299,fuzzy_name,1309,,13-09,13 09,True
+0.8,SHELBY,1304,fuzzy_name,1310,,13-10,13 10,True
+0.8,SHELBY,1244,fuzzy_name,1311,,13-11,13 11,True
+0.8,SHELBY,1291,fuzzy_name,1312,,13-12,13 12,True
+0.864,TIPTON,760,fuzzy_name,01 N.E. Covington,,1-1 NE Covington,1 1 NE COVINGTON,True
+0.864,TIPTON,759,fuzzy_name,03 S.E. Covington,,2-3 SE Covington,2 3 SE COVINGTON,True
+0.8308,TIPTON,757,fuzzy_name,21 W. Wilkinsville,,8-21 Wilkinsville,8 21 WILKINSVILLE,True
+0.871,WASHINGTON,818,fuzzy_name,Visitors' Center,,04 Visitor's Center,04 VISITOR S CENTER,True
+0.8571,WASHINGTON,824,fuzzy_name,Towne Acres,,07 Town Acres,07 TOWN ACRES,True
+0.8526,WAYNE,1547,fuzzy_name,Southgate,,6-2 South Gate,6 2 SOUTH GATE,True
