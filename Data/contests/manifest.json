@@ -55,6 +55,15 @@
       "major_party_contested": true
     },
     {
+      "year": 2026,
+      "contest_type": "governor",
+      "file": "governor_2026.json",
+      "rows": 95,
+      "dem_total": 902953,
+      "rep_total": 957136,
+      "major_party_contested": true
+    },
+    {
       "year": 2000,
       "contest_type": "president",
       "file": "president_2000.json",
@@ -196,6 +205,15 @@
       "rows": 1966,
       "dem_total": 1027461,
       "rep_total": 1918743,
+      "major_party_contested": true
+    },
+    {
+      "year": 2026,
+      "contest_type": "us_senate",
+      "file": "us_senate_2026.json",
+      "rows": 95,
+      "dem_total": 886974,
+      "rep_total": 1138436,
       "major_party_contested": true
     }
   ]
