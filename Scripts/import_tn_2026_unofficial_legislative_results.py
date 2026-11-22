@@ -34,7 +34,7 @@ state_senate|19|Charlane Oliver|46773||0|0
 state_senate|21|Jeff Yarbro|46432||0|0
 state_senate|23||0|Kerry Roberts|43196|18947
 state_senate|25||0|Ed Jackson|35953|0
-state_senate|27|David A Hardy|35465|Jack Johnson|55816|0
+state_senate|27|David A. Hardy|35465|Jack Johnson|55816|0
 state_senate|29|Raumesh Akbari|41625||0|0
 state_senate|31|David Weatherspoon|35234|Brent Taylor|38004|0
 state_senate|33|London Lamar|39468||0|0
@@ -46,7 +46,7 @@ state_house|5|Catherine Bacon|4467|David B. Hawk|14813|0
 state_house|6|Brad Batt|7947|Tim Hicks|13879|675
 state_house|7|Sarah Jayne Della Vecchia|7154|Rebecca Keefauver Alexander|11585|0
 state_house|8|Hilary Trudell|7150|Jordan Henderson|15800|0
-state_house|9||0|Gary W Hicks Jr|14301|0
+state_house|9||0|Gary W. Hicks Jr|14301|0
 state_house|10||0|Rick Eldridge|13437|0
 state_house|11|Sheila Grooms McMahan|4712|Kenny Cody|13948|392
 state_house|12||0|Fred A. Atchley|12608|0
@@ -75,7 +75,7 @@ state_house|34|Owen Farnsworth|10751|Tim Rudd|9938|0
 state_house|35|Phil Barnes|7489|William Slater|12503|0
 state_house|36||0|Noah Smith|13056|0
 state_house|37|Mary Ann Young|8536|Charlie Baum|9596|0
-state_house|38|Seth McMillan|2943|Kelly T Keisling|12888|0
+state_house|38|Seth McMillan|2943|Kelly T. Keisling|12888|0
 state_house|39||0|Iris Rudder|14457|0
 state_house|40|Daniel T. Hawthorne|4323|Michael Hale|14592|0
 state_house|41|R. Jason Goodman|4268|Ed Butler|13744|0
@@ -90,16 +90,16 @@ state_house|49|Connie Casha|10417|Mike Sparks|8498|0
 state_house|50|Bo Mitchell|15478||0|0
 state_house|51|Aftyn Behn|22630||0|0
 state_house|52|Justin Jones|11922|Michele Vetter|2763|247
-state_house|53|Jason L Powell|13501||0|0
+state_house|53|Jason L. Powell|13501||0|0
 state_house|54|Vincent Dixie|19690||0|0
 state_house|55|John Ray Clemmons|10856|Jayla Thomas|1918|0
 state_house|56|Bob Freeman|20492||0|0
-state_house|57|Matt Burchfield|12189|Susan M Lynn|16323|0
+state_house|57|Matt Burchfield|12189|Susan M. Lynn|16323|0
 state_house|58|Harold M. Love, Jr.|15710||0|0
 state_house|59|Mark Proctor|18372|Bill Hancock|13571|0
 state_house|60|Shaundelle Brooks|15080|Eva Angelina Romero|8517|0
 state_house|61|Becca Ripley|12508|Gino Bulso|16707|0
-state_house|62|Brieanna L Akers|5243|Pat Marsh|13527|0
+state_house|62|Brieanna L. Akers|5243|Pat Marsh|13527|0
 state_house|63|Laura Andreson|11991|Jake McCalmon|18760|0
 state_house|64|Craig D'Apolito|9305|Scott Cepicky|15364|0
 state_house|65|Julian Herbert Pierre-Griffin|11067|Lee Reeves|18552|0
