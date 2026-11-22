@@ -10349,8 +10349,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Cache destroyer token for static data requests.
     // Bump this value when you want browsers/CDNs to fetch fresh files immediately.
-    const DATA_CACHE_BUSTER = '2026-11-09-unofficial-legislative-results-v1';
-    const APP_BUILD_ID = '2026-11-09-unofficial-legislative-results-v1';
+    const DATA_CACHE_BUSTER = '2026-11-22-speaker-labels-v2';
+    const APP_BUILD_ID = '2026-11-22-speaker-labels-v2';
 
     function withCacheBuster(path) {
       const p = (path || '').toString().trim();
@@ -31556,7 +31556,7 @@ document.addEventListener('DOMContentLoaded', function() {
       return results[keyA] || results[keyB] || null;
     }
 
-    function renderDistrictElectionInfoHTML(contestType, year, row, fallbackCandidates) {
+    function renderDistrictElectionInfoHTML(contestType, year, row, fallbackCandidates, districtNum = null) {
       if (!row) return '<div style="color:#999;">No results for this district/contest.</div>';
       const demVotes = Number(row.dem_votes || 0);
       const repVotes = Number(row.rep_votes || 0);
@@ -31566,6 +31566,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
       let demCandidate = stripRunningMateName((row.dem_candidate || '').toString().trim());
       let repCandidate = stripRunningMateName((row.rep_candidate || '').toString().trim());
+      if (contestType === 'state_house' && Number(year) === 2026 && Number(districtNum) === 25 && repCandidate === 'Cameron Sexton') {
+        repCandidate = 'Speaker Cameron Sexton';
+      }
+      if (contestType === 'state_senate' && Number(year) === 2026 && Number(districtNum) === 27 && repCandidate === 'Jack Johnson') {
+        repCandidate = 'Speaker Jack Johnson';
+      }
       const otherCandidate = stripRunningMateName((row.other_candidate || '').toString().trim());
       const otherParty = (row.other_party || 'Other').toString().trim();
       if (!demCandidate) demCandidate = stripRunningMateName((fallbackCandidates?.dem || '').toString().trim());
@@ -31805,7 +31811,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const repBlank = !((row.rep_candidate || '').toString().trim());
             if (demBlank || repBlank) cand = await getContestCandidates(contestType, year);
           }
-          if (el) el.innerHTML = renderDistrictElectionInfoHTML(contestType, year, row, cand);
+          if (el) el.innerHTML = renderDistrictElectionInfoHTML(contestType, year, row, cand, districtNum);
         } catch (err) {
           if (reqId !== districtSidebarRequestId) return;
           const el = document.getElementById('district-election');
@@ -31901,7 +31907,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const repBlank = !((row.rep_candidate || '').toString().trim());
             if (demBlank || repBlank) cand = await getContestCandidates(contestType, year);
           }
-          if (el) el.innerHTML = renderDistrictElectionInfoHTML(contestType, year, row, cand);
+          if (el) el.innerHTML = renderDistrictElectionInfoHTML(contestType, year, row, cand, districtNum);
         } catch (err) {
           if (reqId !== districtSidebarRequestId) return;
           const el = document.getElementById('district-election');
@@ -34275,10 +34281,11 @@ document.addEventListener('DOMContentLoaded', function() {
         const key = String(ct || '').trim().toLowerCase();
         const yearNum = Number(y);
         if (key === 'state_house') {
-          if (yearNum === 2022 || yearNum === 2024) return { repCandidate: 'Speaker Cameron Sexton', demCandidate: 'House Democrats' };
+          if (yearNum === 2022 || yearNum === 2024 || yearNum === 2026) return { repCandidate: 'Speaker Cameron Sexton', demCandidate: 'House Democrats' };
         }
         if (key === 'state_senate') {
           if (yearNum === 2022 || yearNum === 2024) return { repCandidate: 'Speaker Randy McNally', demCandidate: 'Senate Democrats' };
+          if (yearNum === 2026) return { repCandidate: 'Speaker Jack Johnson', demCandidate: 'Senate Democrats' };
         }
         return null;
       }
